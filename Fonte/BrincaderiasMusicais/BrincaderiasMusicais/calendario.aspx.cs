@@ -60,11 +60,13 @@ namespace BrincaderiasMusicais
                 e.Cell.Controls.Add(label1);
             }
         }
+      
         protected void Calendario_SelectionChanged(object sender, EventArgs e)
         {
             Label1.Text = "Data alterada para : " + Calendario.SelectedDate.ToShortDateString();
 
         }
+       
         protected void Calendario_VisibleMonthChanged(object sender, MonthChangedEventArgs e)
         {
             Label1.Text = "Mês alterado para : " + e.NewDate.ToShortDateString();
