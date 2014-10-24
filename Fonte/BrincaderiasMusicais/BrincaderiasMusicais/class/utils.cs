@@ -59,7 +59,7 @@ namespace Etnia.classe
             objEmail.IsBodyHtml = true;
 
             //Define título do e-mail.
-            objEmail.Subject = "FEEDBACKER " + erro.Source;
+            objEmail.Subject = "Erro: " + erro.Source + " @ "+ System.IO.Path.GetFileName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
             //Define o corpo do e-mail.
             objEmail.Body = "Erro de execução no site: " + System.IO.Path.GetFileName(System.Reflection.Assembly.GetExecutingAssembly().Location) +  "<BR><BR> " + erro.Source +"<BR>" + erro.Message;
