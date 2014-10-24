@@ -32,7 +32,7 @@ namespace BrincaderiasMusicais.ajax
         {
             try
             { 
-                rsLogin = objBD.ExecutaSQL("EXEC site_psUsuarioPorEmaileSenha '" + objUtils.TrataSQLInjection(Request["email"]) + "','" + objUtils.TrataSQLInjection(objUtils.getMD5Hash(Request["senha"])) + "'");
+                rsLogin = objBD.ExecutaSQL("EXEC sites_psUsuarioPorEmaileSenha '" + objUtils.TrataSQLInjection(Request["email"]) + "','" + objUtils.TrataSQLInjection(objUtils.getMD5Hash(Request["senha"])) + "'");
 
                 if (rsLogin == null)
                 {
@@ -60,8 +60,8 @@ namespace BrincaderiasMusicais.ajax
             }
             catch (Exception ex)
             {
-                //objUtils.feedbacker(ex);
-                throw;
+                objUtils.Feedbacker(ex);
+                //throw;
             }
         }
     }
