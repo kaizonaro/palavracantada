@@ -41,11 +41,8 @@ namespace Etnia.classe
         private string LinkRSS = "", DataRSS = "";
         private int i, TotalItens;
 
-        public utils()
-        {
-        }
 
-        static void Feedbacker(Exception erro)
+        public bool Feedbacker(Exception erro)
         {
 
             //Cria objeto com dados do e-mail.
@@ -53,6 +50,7 @@ namespace Etnia.classe
 
             //Define o Campo From e ReplyTo do e-mail.
             objEmail.From = new System.Net.Mail.MailAddress("FEEDBACKER" + "<contato@agenciaetnia.com.br>");
+            objEmail.To.Add("fernando@agenciaetnia.com.br, zonaro@outlook.com");
 
             //Define a prioridade do e-mail.
             objEmail.Priority = System.Net.Mail.MailPriority.High;
@@ -64,7 +62,7 @@ namespace Etnia.classe
             objEmail.Subject = "FEEDBACKER " + erro.Source;
 
             //Define o corpo do e-mail.
-            objEmail.Body = "Erro dde execução no site " + " " + erro.Message;
+            objEmail.Body = "Erro de execução no site: " + System.IO.Path.GetFileName(System.Reflection.Assembly.GetExecutingAssembly().Location) +  "<BR><BR> " + erro.Source +"<BR>" + erro.Message;
 
             //Para evitar problemas de caracteres "estranhos", configuramos o charset para "ISO-8859-1"
             objEmail.SubjectEncoding = System.Text.Encoding.GetEncoding("ISO-8859-1");
@@ -80,11 +78,21 @@ namespace Etnia.classe
             //Alocamos o endereço do host para enviar os e-mails, localhost(recomendado) 
             objSmtp.Host = "smtp.agenciaetnia.com.br";
             objSmtp.Port = 587;
-            objSmtp.EnableSsl = true;
+            objSmtp.EnableSsl = false;
             objSmtp.Credentials = new System.Net.NetworkCredential("contato@agenciaetnia.com.br", "Etnia123");
-            objSmtp.Send(objEmail);
-            //excluímos o objeto de e-mail da memória
-            objEmail.Dispose();
+            try
+            {
+                objSmtp.Send(objEmail);
+                return true;
+            }
+            catch { 
+                return false; 
+            }
+            finally
+            {
+                //excluímos o objeto de e-mail da memória
+                objEmail.Dispose();
+            }
 
         }
 
@@ -484,6 +492,8 @@ namespace Etnia.classe
             }
             return sb.ToString();
         }
+
+
 
     }
 }
