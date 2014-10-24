@@ -13,6 +13,7 @@ using System.Xml;
 using System.IO;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Net.Mail;
 
 namespace Etnia.classe
 {
@@ -42,6 +43,62 @@ namespace Etnia.classe
 
         public utils()
         {
+        }
+
+        static void Feedbacker(Exception erro)
+        {
+
+            //Cria objeto com dados do e-mail.
+            MailMessage objEmail = new MailMessage();
+
+            //Define o Campo From e ReplyTo do e-mail.
+            objEmail.From = new System.Net.Mail.MailAddress("FEEDBACKER" + "<contato@agenciaetnia.com.br>");
+
+            //Define a prioridade do e-mail.
+            objEmail.Priority = System.Net.Mail.MailPriority.High;
+
+            //Define o formato do e-mail HTML (caso não queira HTML alocar valor false)
+            objEmail.IsBodyHtml = true;
+
+            //Define título do e-mail.
+            objEmail.Subject = "FEEDBACKER " + erro.Source;
+
+            //Define o corpo do e-mail.
+            objEmail.Body = "Erro dde execução no site " + " " + erro.Message;
+
+            //Para evitar problemas de caracteres "estranhos", configuramos o charset para "ISO-8859-1"
+            objEmail.SubjectEncoding = System.Text.Encoding.GetEncoding("ISO-8859-1");
+            objEmail.BodyEncoding = System.Text.Encoding.GetEncoding("ISO-8859-1");
+
+
+            // Anexa o arquivo a mensagemn
+            // objEmail.Attachments.Add(new Attachment("", System.Net.Mime.MediaTypeNames.Application.Octet));
+
+            //Cria objeto com os dados do SMTP
+            System.Net.Mail.SmtpClient objSmtp = new System.Net.Mail.SmtpClient();
+
+            //Alocamos o endereço do host para enviar os e-mails, localhost(recomendado) 
+            objSmtp.Host = "smtp.agenciaetnia.com.br";
+            objSmtp.Port = 587;
+            objSmtp.EnableSsl = true;
+            objSmtp.Credentials = new System.Net.NetworkCredential("contato@agenciaetnia.com.br", "Etnia123");
+            objSmtp.Send(objEmail);
+            //excluímos o objeto de e-mail da memória
+            objEmail.Dispose();
+
+        }
+
+        public string Diretorio(string nomediretorio)
+        {
+            nomediretorio = "/" + nomediretorio.Replace("/", "").Replace("\\", "");
+            if (Directory.Exists(Server.MapPath(nomediretorio)) == false) { Directory.CreateDirectory(Server.MapPath(nomediretorio)); }
+            return Server.MapPath(nomediretorio);
+        }
+
+        public string SimpleSplitter(string value, int Info_number)  //Qubra Requests de valores multiplos (ID, NOME, EMAIL) - separados por "|"
+        {
+            string[] newvalue = value.Split(Convert.ToChar("|"));
+            return newvalue[Info_number];
         }
 
         public string CortarString(bool ellipsis, int length, string text)
@@ -219,7 +276,7 @@ namespace Etnia.classe
                     sb.Append(s[k]);
                 }
             }
-            return sb.ToString().ToLower().Replace(" ","-");
+            return sb.ToString().ToLower().Replace(" ", "-");
         }
 
         public string RemoverAcentos(string texto)
@@ -262,7 +319,7 @@ namespace Etnia.classe
                 return "";
             }
         }
-      
+
         public string removeAspas(string palavra)
         {
             palavra = palavra.Replace("'", "");
@@ -409,7 +466,7 @@ namespace Etnia.classe
             return EstadoRetorno;
 
         }
- 
+
         public String RemoveHTML(string texto)
         {
             return Regex.Replace(texto, "<[^>]*>", "");
