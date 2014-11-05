@@ -20,24 +20,24 @@ $(document).ready(function () {
 			if(filtro.test(login)){
 			} 
 			else {
-				$('.login_adm').addClass('error');
-				$('.login_adm').next('span').html('*e-mail inválido').fadeIn(100);
+				$('#login_adm .login_adm').addClass('error');
+				$('#login_adm .login_adm').next('span').html('*e-mail inválido').fadeIn(100);
 				valida= false
 			}
 		}
 		else{
-			$('.login_adm').addClass('error');
-			$('.login_adm').next('span').html('*Campo Obrigatório').fadeIn(100);
+			$('#login_adm .login_adm').addClass('error');
+			$('#login_adm .login_adm').next('span').html('*Campo Obrigatório').fadeIn(100);
 			valida= false
 		}
 		if(senha==""){
-			$('.senha_adm').addClass('error');
-			$('.senha_adm').next('span').html('*Campo Obrigatório').fadeIn(100);
+			$('#login_adm .senha_adm').addClass('error');
+			$('#login_adm .senha_adm').next('span').html('*Campo Obrigatório').fadeIn(100);
 			valida= false
 		}else{
 			if(senha.length < 6||senha.length >10){
-				$('.senha_adm').addClass('error');
-				$('.senha_adm').next('span').html('*A senha deve ter de 6 a 10 caractéres').fadeIn(100);
+				$('#login_adm .senha_adm').addClass('error');
+				$('#login_adm .senha_adm').next('span').html('*A senha deve ter de 6 a 10 caractéres').fadeIn(100);
 				valida=false
 			}}	
 		if(valida){}else{return false}
@@ -47,20 +47,20 @@ $(document).ready(function () {
 		if(login != ""){
 			var filtro= /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 			if(filtro.test(login)){
-				$('.login_adm').removeClass('error');				
-				$('.login_adm').next('span').html('').fadeOut(100);
-				$('.login_adm').addClass('ok');				
+				$('#login_adm .login_adm').removeClass('error');				
+				$('#login_adm .login_adm').next('span').html('').fadeOut(100);
+				$('#login_adm .login_adm').addClass('ok');				
 				valida= true
 			} 
 			else {
-				$('.login_adm').addClass('error');
-				$('.login_adm').next('span').html('*e-mail inválido').fadeIn(100);
+				$('#login_adm .login_adm').addClass('error');
+				$('#login_adm .login_adm').next('span').html('*e-mail inválido').fadeIn(100);
 				valida= false
 			}
 		}
 		else{
-			$('.login_adm').addClass('error');
-				$('.login_adm').next('span').html('*Campo obrigatório').fadeIn(100);;
+			$('#login_adm .login_adm').addClass('error');
+				$('#login_adm .login_adm').next('span').html('*Campo obrigatório').fadeIn(100);;
 			valida= false
 		}	
 	});
@@ -80,6 +80,82 @@ $(document).ready(function () {
 				$('.senha_adm').next('span').html('').fadeOut(100);
 				$('.senha_adm').addClass('ok');
 			}
+		}       
+    });
+	
+//esqueci minha senha
+
+	$('#login_adm .esqueci a').click(function(e){
+		e.preventDefault();
+		$('#login_adm').fadeOut(0);
+		$('#login_adm').get(0).reset();
+		$('#esqueci_senha').fadeIn(100)
+	});
+	
+	$('#esqueci_senha .esqueci a').click(function(e){
+		e.preventDefault();
+		$('#esqueci_senha').fadeOut(0);
+		$('#esqueci_senha').get(0).reset();
+		$('#login_adm').fadeIn(100)
+	});
+	
+	$('#esqueci_senha').submit(function(){
+		var login=$('#esqueci_senha .login_adm').val();
+		var rede=$('.rede_adm').val();
+		if(login != ""){
+			var filtro= /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+			if(filtro.test(login)){
+			} 
+			else {
+				$('#esqueci_senha .login_adm').addClass('error');
+				$('#esqueci_senha .login_adm').next('span').html('*e-mail inválido').fadeIn(100);
+				valida= false
+			}
+		}
+		else{
+			$('#esqueci_senha .login_adm').addClass('error');
+			$('#esqueci_senha .login_adm').next('span').html('*Campo Obrigatório').fadeIn(100);
+			valida= false
+		}
+		if(rede==""){
+			$('.rede_adm').addClass('error');
+			$('.rede_adm').next('span').html('*Campo Obrigatório').fadeIn(100);
+			valida= false
+		}	
+		if(valida){}else{return false}
+	});
+	$('#esqueci_senha .login_adm').focusout(function(){
+		var login=$('#login_adm .login_adm').val();	
+		if(login != ""){
+			var filtro= /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+			if(filtro.test(login)){
+				$('#esqueci_senha .login_adm').removeClass('error');				
+				$('#esqueci_senha .login_adm').next('span').html('').fadeOut(100);
+				$('#esqueci_senha .login_adm').addClass('ok');				
+				valida= true
+			} 
+			else {
+				$('#esqueci_senha .login_adm').addClass('error');
+				$('#esqueci_senha .login_adm').next('span').html('*e-mail inválido').fadeIn(100);
+				valida= false
+			}
+		}
+		else{
+			$('#esqueci_senha .login_adm').addClass('error');
+				$('#esqueci_senha .login_adm').next('span').html('*Campo obrigatório').fadeIn(100);;
+			valida= false
+		}	
+	});
+	$('.rede_adm').focusout(function(e) {
+		var rede=$('.rede_adm').val();
+		if(rede==""){
+			$('.rede_adm').addClass('error');
+			$('.rede_adm').next('span').html('*Selecione uma rede').fadeIn(100);
+			return false
+		} else{
+				$('.rede_adm').removeClass('error');
+				$('.rede_adm').next('span').html('').fadeOut(100);
+				$('.rede_adm').addClass('ok');
 		}       
     });
 	

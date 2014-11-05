@@ -25,17 +25,18 @@ input{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
 .adm_index_left{float:left;width:49%;text-align:center;margin-top:15%;}
 .adm_index_left img{width:60%;margin:0 auto}
 .adm_index_right{float:right;width:465px;text-align:center;margin-top:15%;}
-#login_adm{background:url(../images/login_adm.png) no-repeat center center;background-size:100% 100%;font-size:15px;padding-top:30px;padding-bottom:20px;}
+#login_adm, #esqueci_senha{background:url(../images/login_adm.png) no-repeat center center;background-size:100% 100%;font-size:15px;padding-top:30px;padding-bottom:20px;}
 .input_adm{padding:8px;display:inline-block;width:60%;background:url(../images/input_bg.png) no-repeat center center;background-size:100% 100%;}
 .ln_form{width:100%;display:inline-block;height: 70px;}
 .ln_form b{color:#fff;margin-right:20px;}
-#login_adm .ok{background:url(../images/input_ok.png) no-repeat center center;background-size:100% 100%;}
-#login_adm .error{background:url(../images/input_erro.png) no-repeat center center;background-size:100% 100%;}
+#login_adm .ok, #esqueci_senha .ok{background:url(../images/input_ok.png) no-repeat center center;background-size:100% 100%;}
+#login_adm .error, #esqueci_senha .error{background:url(../images/input_erro.png) no-repeat center center;background-size:100% 100%;}
 .btn_logar{color:#fff;background:url(../images/btn.png) no-repeat center center;background-size:100% 100%;cursor:pointer;padding:10px;width:20%}
 .titu_form{color:#fff;margin-bottom:20px;font-size:18px;}
-#login_adm span{color: #fff;font-size: 11px;display: inline-block;margin-bottom: -20px;margin: 0 auto;text-align: left;margin-left: 25px;background: rgba(107, 17, 85, 0.79);float: right;padding: 10px;margin-top: -37px;position: relative;margin-right: -10px;border-radius: 20px;border: 2px solid #fff;display:none;}
-.esqueci{height: 30px;text-align: left;width: 50%;font-size: 0.8em;}
+#login_adm span, #esqueci_senha span{color: #fff;font-size: 11px;display: inline-block;margin-bottom: -20px;margin: 0 auto;text-align: left;margin-left: 25px;background: rgba(107, 17, 85, 0.79);float: right;padding: 10px;margin-top: -37px;position: relative;margin-right: -10px;border-radius: 20px;border: 2px solid #fff;display:none;}
+.esqueci{height: 30px;text-align: left;width: 100%;font-size: 0.8em;text-align:center}
 .esqueci a{color:#fff;text-decoration:underline;}
+#esqueci_senha{display:none}
 
 /*HEADER*/
 header{background:rgba(95, 158, 160, 0.99);height: 200px;padding-top: 20px;}
