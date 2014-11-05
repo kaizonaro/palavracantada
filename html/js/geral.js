@@ -125,7 +125,7 @@ $(document).ready(function () {
 		if(valida){}else{return false}
 	});
 	$('#esqueci_senha .login_adm').focusout(function(){
-		var login=$('#login_adm .login_adm').val();	
+		var login=$('#esqueci_senha .login_adm').val();	
 		if(login != ""){
 			var filtro= /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 			if(filtro.test(login)){
