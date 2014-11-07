@@ -95,10 +95,8 @@ h4{font-size:2.0em;color:#fff;background: rgba(43, 94, 95, 1);padding:0.3em}
 .dataTables_paginate .current {color:#00775A}
 select{-webkit-appearance:menulist;}
 input[type=checkbox]{-webkit-appearance: checkbox;-moz-appearance:checkbox;appearance:checkbox;}
-.img_edit{float:left;margin-left: 5px;margin-right: 5px;}
-.img_del{float:left;margin-right:-10px;}
+.img_del{margin-left:7px;}
 .img_edit img, .img_del img{width:25px;padding:5px;border-radius:2px;border-left:1px solid rgba(58, 97, 99, 1);border-bottom:1px solid rgba(58, 97, 99, 1);background:rgba(95, 158, 160, 0.99);}
-.img_edit{margin-left:20%;}
 .acoes_topo_form{float: left;cursor:pointer;}
 .acoes_topo_form img{width:20px;float:left;margin-left:20px;}
 .acoes_topo_form p {float:left;color:#fff;margin-left:10px;font-size:1.5em}
@@ -128,6 +126,8 @@ table.table thead{cursor:pointer;}
 .dataTables_length{display:none;}
 .table .sorting_1{background:rgba(68, 161, 133, 0.16);}
 .td_align{width:100%;text-align:center;}
+.icons_table{text-align: center;margin: 0px auto;display: inline;}
+.icons_table li{display: inline-flex;height: 16px;}
 
 /*FORM*/
 .input{border:2px solid rgba(43, 94, 95, 1);color:#000;-webkit-box-shadow: inset 6px 5px 3px 0px rgba(50, 50, 50, 0.15);
