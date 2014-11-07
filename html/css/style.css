@@ -39,7 +39,8 @@ input{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
 #esqueci_senha{display:none}
 
 /*HEADER*/
-header{background:rgba(95, 158, 160, 0.99);height: 200px;padding-top: 20px;}
+header{background:rgba(95, 158, 160, 0.99);height: 142px;}
+header .all_center{padding-top:5px}
 #logo{float:left;width:49%;}
 .logo img{float:left;width:150px;}
 .info_user{float:right;width:49%;}
@@ -55,7 +56,7 @@ header{background:rgba(95, 158, 160, 0.99);height: 200px;padding-top: 20px;}
 .user_menu ul li a:hover{background:#D6D6D6;}
 
 /*MENU*/
-#menu{display:inline-block;margin-top:35px;width:100%;position:relative;}
+#menu{display:inline-block;margin-top:15px;width:100%;position:relative;}
 #menu ul li{list-style:none;float:left;text-align:center;width:100px;border-top:3px solid rgba(0, 0, 0, 0);border-bottom:5px solid rgba(0, 0, 0, 0);}
 #menu ul li img{margin:0 auto;width:30px;}
 #menu ul li p{width:100%;display:inline-block;font-size:1.5em;color:#fff;}
@@ -71,6 +72,9 @@ h2 img{margin-right:-20px;}
 .box_dash{width:95%;color:#000;font-size:1.5em;padding:20px;margin: 0 auto;margin-top:20px;border-radius:5px;/*border-left:5px solid rgba(58, 97, 99, 1);border-bottom:5px solid rgba(58, 97, 99, 1);*/background:rgba(38, 171, 146, 0.3);border:2px dotted rgba(95, 158, 160, 0.99);}
 .box_dash a{color:#000;}
 .box_dash a:hover{text-decoration:underline;}
+.dash_ul li p{float:left;text-align:left;width:180px;}
+.dash_ul li b{font-weight:normal;float:right;}
+.dash_ul li{width:100%;display:inline-block;}
 
 /*TABELA*/
 .row-fluid{width:100%;}
