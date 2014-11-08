@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -6,6 +6,7 @@
 <!--JS-->
 <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/mascara.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="js/geral.js"></script>
 
 <!--FONTS-->
@@ -45,25 +46,25 @@
             <div class="info_user">
             	<div class="icon_user">
                 	<img src="images/user_ok.png" alt="Opções">
-                	<p><a href="#">Rafael Carvalho &or;</a><br>Ultimo acesso 21/10/2014 as 21:00:00</p>
+                	<p><a href="javascript:void(0)">Rafael Carvalho &or;</a><br>Ultimo acesso 21/10/2014 as 21:00:00</p>
                 </div>
                 <nav class="user_menu">
                 	<ul>
-                    	<li><a href="alterar-senha.html">Alterar senha</a></li>
-                        <li><a href="dados-pesooais.html">Dados Pessoais</a></li>
-                        <li><a href="#">Registro de log</a></li>
-                        <li><a href="#">Sair</a></li>
+                    	<li><a href="altera-senha.html">Alterar senha</a></li>
+                        <li><a href="dados-pessoais.html">Dadod Pessoais</a></li>
+                        <li><a href="javascript:void(0)">Registro de log</a></li>
+                        <li><a href="javascript:void(0)">Sair</a></li>
                     </ul>
                 </nav>
             </div>
             <!--MENU-->
             <nav id="menu">
             	<ul>
-                	<li class="ativo"><a href="#"><img src="images/home.png" alt="home"><p>Parametrização</p></a></li>
-                    <li><a href="clientes.html"><img src="images/clientes.png" alt="home"><p>xxxxx</p></a></li>
-                    <li><a href="#"><img src="images/home.png" alt="home"><p>xxxxx</p></a></li>
-                    <li><a href="#"><img src="images/home.png" alt="home"><p>xxxxx</p></a></li>
-                    <li><a href="#"><img src="images/home.png" alt="home"><p>xxxxx</p></a></li>
+                	<li><a href="home.html"><img src="images/home.png" alt="home"><p>Matéria</p></a></li>
+                    <li><a href="clientes.html"><img src="images/clientes.png" alt="home"><p>Cliente</p></a></li>
+                    <li><a href="javascript:void(0)"><img src="images/home.png" alt="home"><p>Equipe</p></a></li>
+                    <li><a href="javascript:void(0)"><img src="images/home.png" alt="home"><p>Projeto</p></a></li>
+                    <li><a href="javascript:void(0)"><img src="images/home.png" alt="home"><p>Serviço</p></a></li>
                 </ul>
             </nav>
              <!--FIM DO MENU-->
@@ -74,30 +75,26 @@
     <section class="all">
     	<div class="all_center">
         	<section id="conteudo">
-        		<h2><img src="images/home.png" alt="inicio"><br>Inicio</h2>
-                <div class="left">
-                	<p class="titu_box">Estatísticas Gerais</p>
-                    <div class="box_dash">
-                    	<ul class="dash_ul">
-                        	<li><p>Redes Cadastradas:</p> <b>##</b></li>
-                            <li><p>Professores Ativos:</p> <b>##</b></li>
-                            <li><p>Atividades:</p> <b>##</b></li>
-                            <li><p>xxxxxxxx:</p> <b>##</b></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="right">
-                	<p class="titu_box"><br><!--Estatísticas Fianceira--></p>
-                    <div class="box_dash">
-                    	<ul class="dash_ul">
-                        	<li><p>xxxxxxxx:</p> <b>##</b></li>
-                            <li><p>xxxxxxxx:</p> <b>##</b></li>
-                            <li><p>xxxxxxxx:</p> <b>##</b></li>
-                            <li><p>xxxxxxxx:</p> <b>##</b></li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+            	<h2><img src="images/user_icon.png" alt="inicio"><br>Dados Pessoais</h2>  
+                <form class="form form_dados" novalidate accept-charset="default">
+                	<p>Nome:*</p>
+                    <input type="text" class="input obg"/>
+                    <span>*Senha inválida</span>
+                    <p>Email:*</p>
+                    <input type="text" class="input obg email" />                    
+                    <span>*Senha inválida</span>
+                    <p>Celular:</p>
+                    <input type="text" class="input cel" /> 
+                    <p>Telefone:</p>
+                    <input type="text" class="input tel" /> 
+                    <p>Foto:</p>
+                    <input type="file" class="file" /> 
+                    <p class="p_btn">
+                        <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
+                        <input type="submit" value="Alterar" class="btn_form" formmethod="get" />
+                    </p>
+               </form>               
+         	</section>       
         </div>
     </section>
     <!--FIM DO CONTEUDO GERAL-->
