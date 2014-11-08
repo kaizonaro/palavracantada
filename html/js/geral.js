@@ -176,27 +176,77 @@ $(document).ready(function () {
 	
 //MENU
 	//ALTERA ICONE	
-	var bread=$('.ativo a img').attr('src').replace('.png','3.png');
-	$('h2 img').attr('src', bread);
+	if($('#menu ul li').hasClass('ativo')){
+		var bread=$('.ativo a img').attr('src').replace('.png','3.png');
+		$('h2 img').attr('src', bread);
+	}
 	//$('h2 img').after("<br>"+$('.ativo a p').text());
 	//celular mask 
 	$(function($){
-		$('.tel').mask("(99) 9999-9999?9");
+		$('.tel').mask("(99) 9999-9999");
+	});
+	
+	$(function($){
+		$('.cel').mask("(99) 9999-9999?9");
 	});
 
 	//( digitos 
-	$('.tel').unbind('focusout').focusout(function(){
+	$('.cel').unbind('focusout').focusout(function(){
         var valor = $(this).val().replace('_','');
         var len = valor.length;
         if (len >= 14){
-			$('.tel').removeClass('error');		
-			$('.t_d').fadeOut(300);						
-				valida= true
             $(this).unmask();
             if( len == 14) $(this).mask("(99) 9999-9999?9");
             else  $(this).mask("(99) 99999-999?9");
         }
     }).trigger('focusout');
+	
+//DADOS PESSOAIS
+	$('.form_dados').submit(function(){
+		$('.obg').each(function() {
+            if($(this).val()==''){
+				$(this).addClass('error')
+				$(this).next('span').html('Campo obrigatório').fadeIn()
+			}else{
+				if($(this).hasClass('email')){
+					login=$(this).val()
+					var filtro= /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+					if(filtro.test(login)){
+						
+					} 
+					else {
+						$(this).addClass('error')
+						$(this).next('span').html('Email inválido').fadeIn()
+					}
+				}
+			}
+        });
+		if($('.input').hasClass('error')){
+			return false
+		}
+	})
+	
+	$('.form_dados .obg').focusout(function(){
+		if($(this).hasClass('email')){
+			if($(this).val()==''){
+				$(this).addClass('error')
+				$(this).next('span').html('Campo obrigatório').fadeIn()
+			}else{
+				if($(this).hasClass('email')){
+					login=$(this).val()
+					var filtro= /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+					if(filtro.test(login)){
+						$(this).removeClass('error')
+						$(this).next('span').fadeOut(0)
+					} 
+					else {
+						$(this).addClass('error')
+						$(this).next('span').html('Email inválido').fadeIn()
+					}
+				}
+			}
+		}
+	})
 //TABELA	
 	//APLICA JQUERY NA TABELA
 	$('#tabela').dataTable( {
@@ -299,6 +349,33 @@ $(document).ready(function () {
 			$('.tr_form td form').height(antigo);	
 			$('.tr_form td form').animate({height:novo},900);
     });*/
+	
+	$('.form_alt_senha').submit(function(){
+		$('.input').each(function() {
+            if($(this).val()==''){
+				$(this).addClass('error');
+				$(this).next('span').html('Digite uma nova senha').fadeIn();
+			}else{
+				if($(this).val().length<6||$(this).val().length>12){
+					$(this).addClass('error');
+					$(this).next('span').html('Digite a senha com no minimo 6 e máximo 12 caractéres').fadeIn();
+				}else{
+					$(this).removeClass('error');
+					$(this).next('span').fadeOut(0)
+				}
+			}
+        });
+		if($('.input').hasClass('error')){
+			return false
+		}else{
+			if($('.input:first').val()==$('.input:last').val()){
+			}else{
+				$('.input:last').addClass('error');
+				$('.input:last').next('span').html('As senhas não conferem').fadeIn();
+				return false
+			}	
+		}	
+	})
 	
 	
 });

@@ -137,8 +137,9 @@ box-shadow: inset 6px 5px 3px 0px rgba(50, 50, 50, 0.15);}
 .form{fonmt-size:1.8em;text-align:center}
 .form p{padding-left:1.0em;text-align:left}
 .form .p_btn{text-align:center}
-.form .input{margin-bottom:1.0em;text-align:left;padding:7px;padding-left:15px;font-size:15px;}
-.btn_form{background:rgba(43, 94, 95, 1);color:#fff;}
+.form .input{margin-bottom:1.0em;text-align:left;padding:7px;padding-left:15px;height:42px}
+.form .input:focus{height:42px}
+.btn_form{background:rgba(43, 94, 95, 1);color:#fff;cursor:pointer;padding:10px;width:80px;font-size:15px;margin-top:1.0em;}
 .btn_form:hover{background:rgba(29, 65, 66, 1)}
 .box_check{width:100%;display:inline-block;margin-top:10px;margin-bottom:10px;}
 .box_check ul li{float:left;margin-right:15px;font-size:15px;line-height: 15px;padding:1px;border-left:2px solid rgba(43, 94, 95, 1);padding-left:10px}
@@ -148,3 +149,15 @@ label{cursor:pointer}
 -moz-box-shadow: inset 6px 5px 3px 0px rgba(50, 50, 50, 0.15);
 box-shadow: inset 6px 5px 3px 0px rgba(50, 50, 50, 0.15);width:100%;padding:5px;font-size:15px;margin-top:10px;margin-bottom:10px;}
 .error{background:#FFAEAE}
+.form span{color:#f00;font-weight:bold;display:none}
+
+/*ALTERAR SENHA*/
+.form_alt_senha{width:800px;margin: 0 auto}
+.form_alt_senha p{font-size:15px;}
+.form_alt_senha .input{width:100%;}
+
+/*DADOS PESSOAIS*/
+.form_dados{width:800px;margin: 0 auto}
+.form_dados p{font-size:15px;}
+.form_dados .input{width:100%;}
+.file{text-align:left;width:100%;font-size:13px;padding:0;}
