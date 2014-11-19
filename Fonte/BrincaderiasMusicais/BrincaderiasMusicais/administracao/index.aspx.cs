@@ -49,6 +49,8 @@ namespace BrincaderiasMusicais.administracao
                     Session["id"] = rsLogin["ADM_ID"].ToString();
                     Session["nome"] = rsLogin["ADM_NOME"].ToString();
                     Session["email"] = rsLogin["ADM_EMAIL"].ToString();
+                    Session["data"] = rsLogin["ADM_DT_ACESSO"].ToString();
+                    Session["hora"] = rsLogin["ADM_HS_ACESSO"].ToString();
                     
                     //Salva no log
                     objBD.ExecutaSQL("EXEC piLog @ADM_ID = '" + Session["id"] + "',@LOG_ACONTECIMENTO = 'Login efetuado no sistema'");

@@ -25,19 +25,12 @@
                     <p class="titu_form">Administração Brincadeiras Musicas</p>
                 	<div class="ln_form"><b>E-mail:</b><input type="text" name="login" id="login" class="input_adm login_adm" placeholder="Login"><span></span></div>
                     <div class="ln_form"><b>Senha:</b><input type="password" name="senha" id="senha" class="input_adm senha_adm" placeholder="Senha"><span></span></div>
-                    <div class="ln_form esqueci"><a href="#" title="esquci minha senha">esqueci minha senha</a></div>
+                    <!--<div class="ln_form esqueci"><a href="#" title="esquci minha senha">esqueci minha senha</a></div>-->
                     <div class="ln_form"><input type="submit" name="Logar" value="Logar" class="btn_logar"></div>
                 </form>
                 <form id="esqueci_senha" method="post" action=" ">
                 	<p class="titu_form">Esqueci Minha senha</p>
                 	<div class="ln_form"><b>E-mail:</b><input type="text" name="Email" class="input_adm login_adm" placeholder="E-mail"><span></span></div>
-                    <!--<div class="ln_form"><b> Rede: </b><select name="rede_esqueci_senha" class="input_adm rede_adm">
-                    									<option value="" selected>Selecione uma Instituição</option>
-                                                        <option value="exemplo">Exemplo</option>
-                                                        <option value="exemplo">Exemplo</option>
-                                                        <option value="exemplo">Exemplo</option>
-                                                        <option value="exemplo">Exemplo</option>
-                    								 </select><span></span></div>-->
                     <div class="ln_form esqueci"><a href="#" title="esquci minha senha">login</a></div>
                     <div class="ln_form"><input type="submit" name="Logar" value="Enviar" class="btn_logar"></div>
                 </form>
