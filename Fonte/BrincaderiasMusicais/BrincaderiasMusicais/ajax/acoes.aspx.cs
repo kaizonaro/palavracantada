@@ -28,8 +28,6 @@ namespace BrincaderiasMusicais.ajax
             FazerLogin();
         }
 
-
-      
         public void FazerLogin()
         {
             try
@@ -63,7 +61,8 @@ namespace BrincaderiasMusicais.ajax
             catch (Exception ex)
             {
                 objUtils.Feedbacker(ex);
-                //throw;
+                Response.Redirect("erro.aspx");
+                throw;
             }
         }
     }

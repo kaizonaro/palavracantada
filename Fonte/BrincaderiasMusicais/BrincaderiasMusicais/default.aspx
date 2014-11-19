@@ -7,12 +7,12 @@
     <title></title>
 </head>
 <body>
-    <form id="form1" runat="server" action="/ajax/acoes.aspx">
-    <div>
+    <!--sistema de login-->
+    <form id="form1" runat="server" action="ajax/acoes.aspx">
         <input type="text" id="Email" name="Email" />
         <input type="text" id="Senha" name="Senha" />
         <input type="submit" />
-    </div>
     </form>
+    <!--fim do login-->
 </body>
 </html>
