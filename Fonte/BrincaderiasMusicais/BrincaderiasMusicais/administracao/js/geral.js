@@ -248,12 +248,14 @@ $(document).ready(function () {
 		}
 	})
 //TABELA	
-	//APLICA JQUERY NA TABELA
-	$('#tabela').dataTable( {
-		"dom": '<"top"iflp<"clear">>rt<"bottom"iflp<"clear">>',
-		"order": [[ 0, "desc" ]],
-		"filter": false
-	} );
+    //APLICA JQUERY NA TABELA
+	if ($('#tabela').size() > 0) {
+	    $('#tabela').dataTable({
+	        "dom": '<"top"iflp<"clear">>rt<"bottom"iflp<"clear">>',
+	        "order": [[0, "desc"]],
+	        "filter": false
+	    });
+	}
 	//abrir form
 	$('.incluir').click(function(){
 		if($('.form_table').height()>0){			
