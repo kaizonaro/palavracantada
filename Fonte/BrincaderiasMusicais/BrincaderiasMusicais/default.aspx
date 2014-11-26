@@ -14,7 +14,7 @@
         <form id="frmLogin" runat="server" action="default.aspx">
             <input type="hidden" name="acao" id="acao" value="FazerLogin" />
             <input type="text" id="Email" name="Email" />
-            <input type="text" id="Senha" name="Senha" />
+            <input type="password" id="Senha" name="Senha" />
             <input type="submit" value="Enviar"/>
         </form>
     </div>
