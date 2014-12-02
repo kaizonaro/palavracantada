@@ -3,6 +3,8 @@
 <%@ Register Src="~/inc/script.ascx" TagPrefix="brincadeira" TagName="script" %>
 <%@ Register Src="~/inc/header.ascx" TagPrefix="brincadeira" TagName="header" %>
 <%@ Register Src="~/inc/footer.ascx" TagPrefix="brincadeira" TagName="footer" %>
+<%@ Register Src="~/inc/menu.ascx" TagPrefix="brincadeira" TagName="menu" %>
+<%@ Register Src="~/inc/login.ascx" TagPrefix="brincadeira" TagName="login" %>
 
 <!DOCTYPE html>
 
@@ -12,29 +14,7 @@
 
     <brincadeira:script runat="server" id="script" />
 
-    <<<<<<< .mine
-    <!--FONTS-->
-
-    <!-- SEO -->
-    <link rel="icon" type="image/png" href="images/favicon.png" />
-    <meta name="description" content=" ">
-    <meta name="keywords" content=" ">
-    <meta property="og:title" content=" ">
-    <meta property="og:image" content=" ">
-    <meta property="og:description" content=" ">
-
-    <!--G.A-->
-
-    <!--CSS-->
-    <link href="css/style.css" rel="stylesheet" type="text/css">
-    <link href="css/responsive.css" rel="stylesheet" type="text/css">
-
-    <!--RESPONSIVO
-<meta name="viewport" content="width=device-width, initial-scale=1">-->
-
-    <!-- Para nao alterar css de telefones-->
-    <meta name="format-detection" content="telephone=no">
-    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" />
+   
 </head>
 <body>
 
@@ -48,15 +28,13 @@
         <div class="all_center">
 
             <!--MENU-->
-            <nav id="menu">
-
-            </nav>
+            <brincadeira:menu runat="server" id="menu" />
+            
             <!--FIM DO MENU-->
 
             <!--BOX LOGIN-->
-            <aside>
-
-            </aside>
+            <brincadeira:login runat="server" id="login" />
+            
             <!--FIM DO BOX LOGIN-->
         </div>
     </section>
