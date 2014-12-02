@@ -1,0 +1,14 @@
+@charset "utf-8";
+/* CSS Document */
+/*DEFAULT*/
+*{margin:0px;padding:0px;outline:none;-webkit-appearance:none;-moz-appearance:none;appearance:none;text-decoration:none;border:0;}
+a img{display:block;}
+a{text-decoration:none;}
+*, *:before, *:after {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+body{ font-size: 62.5%;text-align:center;overflow-X:hidden;}
+html, body {height:100%;}
+li{list-style:none;}
+/*GERAL*/
+.all{ width:100%;float:left;display:inline-block;z-index:10}
+.all_center{ max-width:1024px; height:auto; margin:0 auto;display:inline-block;width:100%;}
+/*--------------------*/
