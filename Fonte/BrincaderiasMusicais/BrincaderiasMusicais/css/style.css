@@ -1,14 +1,50 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
+@font-face {
+    font-family: 'love_ya_like_a_sisterregular';
+    src: url('loveyalikeasister-webfont.eot');
+    src: url('loveyalikeasister-webfont.eot?#iefix') format('embedded-opentype'),
+         url('loveyalikeasister-webfont.woff2') format('woff2'),
+         url('loveyalikeasister-webfont.woff') format('woff'),
+         url('loveyalikeasister-webfont.ttf') format('truetype'),
+         url('loveyalikeasister-webfont.svg#love_ya_like_a_sisterregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'love_ya_like_a_sister_snormal';
+    src: url('loveyalikeasistersolid-webfont.eot');
+    src: url('loveyalikeasistersolid-webfont.eot?#iefix') format('embedded-opentype'),
+         url('loveyalikeasistersolid-webfont.woff2') format('woff2'),
+         url('loveyalikeasistersolid-webfont.woff') format('woff'),
+         url('loveyalikeasistersolid-webfont.ttf') format('truetype'),
+         url('loveyalikeasistersolid-webfont.svg#love_ya_like_a_sister_snormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 /*DEFAULT*/
 *{margin:0px;padding:0px;outline:none;-webkit-appearance:none;-moz-appearance:none;appearance:none;text-decoration:none;border:0;}
 a img{display:block;}
 a{text-decoration:none;}
 *, *:before, *:after {-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
-body{ font-size: 62.5%;text-align:center;overflow-X:hidden;}
+body{ font-size: 62.5%;text-align:center;overflow-X:hidden;background:url(/images/bg.jpg);}
 html, body {height:100%;}
 li{list-style:none;}
 /*GERAL*/
 .all{ width:100%;float:left;display:inline-block;z-index:10}
-.all_center{ max-width:1024px; height:auto; margin:0 auto;display:inline-block;width:100%;}
+.all_center{ max-width:1020px; height:auto; margin:0 auto;display:inline-block;width:100%;padding-left:30px;padding-right:30px;}
 /*--------------------*/
+
+/*TOPO*/
+header {padding-top:20px;}
+#logo {float:left;}
+#banner {float:right}
+#menu{margin-top:15px;}
+.menu {font-family: 'love_ya_like_a_sister_snormal';float:left;}
+.menu a {color:#fff;background:#000;width: 114px;height: 31px;display: inline-block;line-height: 31px;}
+.menu li {display:inline;font-size:13px;text-transform:uppercase;margin-right:20px}
+.menu .conheca a{background:url(/images/menu1.png)}
+.menu .explore a{background:url(/images/menu2.png)}
+.menu .blog a{background:url(/images/menu3.png)}
+.menu .contato a{background:url(/images/menu4.png)}

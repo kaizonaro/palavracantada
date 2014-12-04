@@ -12,36 +12,33 @@
 <head runat="server">
     <title></title>
 
-    <brincadeira:script runat="server" id="script" />
+    <brincadeira:script runat="server" ID="script" />
 
-   
+
 </head>
 <body>
 
     <!--TOPO-->
-    <brincadeira:header runat="server" id="header" />
+    <brincadeira:header runat="server" ID="header" />
     <!--FIM DO TOPO-->
 
+    <!--MENU-->
+    <brincadeira:menu runat="server" ID="menu" />
+    <!--FIM DO MENU-->
 
     <!-- CONTEUDO-->
     <section class="all">
         <div class="all_center">
-
-            <!--MENU-->
-            <brincadeira:menu runat="server" id="menu" />
-            
-            <!--FIM DO MENU-->
-
             <!--BOX LOGIN-->
-            <brincadeira:login runat="server" id="login" />
-            
+            <brincadeira:login runat="server" ID="login" />
+
             <!--FIM DO BOX LOGIN-->
         </div>
     </section>
     <!--FIM DO CONTEUDO-->
 
     <!--RODAPÉ-->
-    <brincadeira:footer runat="server" id="footer" />
+    <brincadeira:footer runat="server" ID="footer" />
     <!--FIM DO RODAPÉ-->
 
 </body>
