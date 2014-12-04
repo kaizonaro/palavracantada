@@ -60,21 +60,21 @@ $(document).ready(function () {
 	        $('#banner .ativo').removeClass('ativo')
 	        $('#banner .primeiro').addClass('ativo')
 	        $('#banner .banner:visible').fadeOut(400);
-	        $('#banner .ativo').delay(405).fadeIn(400);
+	        $('#banner .ativo').delay(405).fadeIn(500);
 	    }else{
 	        $('#banner .ativo').removeClass('ativo').next('.banner').addClass('ativo');
 	        $('#banner .banner:visible').fadeOut(400);
-	        $('#banner .ativo').delay(405).fadeIn(400);
+	        $('#banner .ativo').delay(405).fadeIn(500);
 	    }
-	    var bg = $('#banner .ativo .bg').attr('src')	    
-	    $('#banner').css('background-image', 'url(' + bg + ')')
-	    var atual = $('#banner .ativo').index();
-	    $('#bullets ul li').removeClass('bullet_ativo');
-	    $('#bullets ul li:eq(' + atual + ')').addClass('bullet_ativo');
+	    //var bg = $('#banner .ativo .bg').attr('src')	    
+	    //$('#banner').css('background-image', 'url(' + bg + ')')
+	    //var atual = $('#banner .ativo').index();
+	    //$('#bullets ul li').removeClass('bullet_ativo');
+	   // $('#bullets ul li:eq(' + atual + ')').addClass('bullet_ativo');
 	    rotate = setInterval(proximo_banner, speed);
 	}
 
-	$('#bullets ul li').click(function () {
+	/*$('#bullets ul li').click(function () {
 	    clearInterval(rotate)
 	    var bullet = $(this).index();
 	    $('#banner .ativo').removeClass('ativo')
@@ -87,7 +87,7 @@ $(document).ready(function () {
 	    $('#bullets ul li').removeClass('bullet_ativo');
 	    $('#bullets ul li:eq(' + atual + ')').addClass('bullet_ativo');
 	    rotate = setInterval(proximo_banner, speed);
-	});
+	});*/
 
     //VIDEOS HOME
 	$('.box_video .video')
