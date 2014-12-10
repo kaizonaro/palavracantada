@@ -39,7 +39,7 @@ li{list-style:none;}
 /*TOPO*/
 header {padding-top:20px;}
 #logo {float:left;}
-#header_banner {float:right}
+#header_banner {float:right;width:757px;position:relative;}
 #menu{margin-top:15px;}
 .menu {font-family: 'love_ya_like_a_sister_snormal';float:left;}
 .menu a {color:#fff;background:#000;width: 114px;height: 31px;display: inline-block;line-height: 31px;}
@@ -48,3 +48,4 @@ header {padding-top:20px;}
 .menu .explore a{background:url(/images/menu2.png)}
 .menu .blog a{background:url(/images/menu3.png)}
 .menu .contato a{background:url(/images/menu4.png)}
+.banner{position:absolute;}
