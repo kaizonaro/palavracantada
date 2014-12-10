@@ -41,14 +41,14 @@ $(document).ready(function () {
     //BANNER
 
     //CONTA OS BANERS E CRIA OS BULLETS
-	var total = $('#banner .banner').length;
+	var total = $('#header_banner .banner').length;
 	for (var i = 0; i < total; i++) {
 	    $('#bullets ul').append(' <li><img src="images/bullet.png" /></li>')
 	}
-	$('#banner .banner').fadeOut(0)
-	$('#banner .banner:first').addClass('primeiro');
-	$('#banner .banner:last').addClass('ultimo');
-	$('#banner .banner:first').addClass('ativo').fadeIn(0);
+	$('#header_banner .banner').fadeOut(0)
+	$('#header_banner .banner:first').addClass('primeiro');
+	$('#header_banner .banner:last').addClass('ultimo');
+	$('#header_banner .banner:first').addClass('ativo').fadeIn(0);
 	$('#bullets ul li:first').addClass('bullet_ativo');
     //INICIA MUDANÇA AUTOMATICA
 	var speed = 7000,
@@ -56,19 +56,19 @@ $(document).ready(function () {
 
 	function proximo_banner() {
 	    clearInterval(rotate)
-	    if ($('#banner .ativo').hasClass('ultimo')) {
-	        $('#banner .ativo').removeClass('ativo')
-	        $('#banner .primeiro').addClass('ativo')
-	        $('#banner .banner:visible').fadeOut(400);
-	        $('#banner .ativo').delay(405).fadeIn(500);
+	    if ($('#header_banner .ativo').hasClass('ultimo')) {
+	        $('#header_banner .ativo').removeClass('ativo')
+	        $('#header_banner .primeiro').addClass('ativo')
+	        $('#header_banner .banner:visible').fadeOut(400);
+	        $('#header_banner .ativo').delay(405).fadeIn(500);
 	    }else{
-	        $('#banner .ativo').removeClass('ativo').next('.banner').addClass('ativo');
-	        $('#banner .banner:visible').fadeOut(400);
-	        $('#banner .ativo').delay(405).fadeIn(500);
+	        $('#header_banner .ativo').removeClass('ativo').next('.banner').addClass('ativo');
+	        $('#header_banner .banner:visible').fadeOut(400);
+	        $('#header_banner .ativo').delay(405).fadeIn(500);
 	    }
-	    //var bg = $('#banner .ativo .bg').attr('src')	    
+	    //var bg = $('#header_banner .ativo .bg').attr('src')	    
 	    //$('#banner').css('background-image', 'url(' + bg + ')')
-	    //var atual = $('#banner .ativo').index();
+	    //var atual = $('#header_banner .ativo').index();
 	    //$('#bullets ul li').removeClass('bullet_ativo');
 	   // $('#bullets ul li:eq(' + atual + ')').addClass('bullet_ativo');
 	    rotate = setInterval(proximo_banner, speed);
@@ -77,13 +77,13 @@ $(document).ready(function () {
 	/*$('#bullets ul li').click(function () {
 	    clearInterval(rotate)
 	    var bullet = $(this).index();
-	    $('#banner .ativo').removeClass('ativo')
-	    $('#banner .banner:eq(' + bullet + ')').addClass('ativo');
-	    $('#banner .banner:visible').fadeOut(400);
-	    $('#banner .ativo').delay(405).fadeIn(400);
-	    var bg = $('#banner .ativo .bg').attr('src')
+	    $('#header_banner .ativo').removeClass('ativo')
+	    $('#header_banner .banner:eq(' + bullet + ')').addClass('ativo');
+	    $('#header_banner .banner:visible').fadeOut(400);
+	    $('#header_banner .ativo').delay(405).fadeIn(400);
+	    var bg = $('#header_banner .ativo .bg').attr('src')
 	    $('#banner').css('background-image', 'url(' + bg + ')')
-	    var atual = $('#banner .ativo').index();
+	    var atual = $('#header_banner .ativo').index();
 	    $('#bullets ul li').removeClass('bullet_ativo');
 	    $('#bullets ul li:eq(' + atual + ')').addClass('bullet_ativo');
 	    rotate = setInterval(proximo_banner, speed);
