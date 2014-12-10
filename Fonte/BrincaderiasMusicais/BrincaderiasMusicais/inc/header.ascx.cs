@@ -52,7 +52,6 @@ namespace BrincaderiasMusicais.inc
             }
             catch (Exception)
             {
-                
                 throw;
             }
         }
