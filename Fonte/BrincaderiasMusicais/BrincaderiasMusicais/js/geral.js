@@ -60,11 +60,11 @@ $(document).ready(function () {
 	        $('#header_banner .ativo').removeClass('ativo')
 	        $('#header_banner .primeiro').addClass('ativo')
 	        $('#header_banner .banner:visible').fadeOut(400);
-	        $('#header_banner .ativo').delay(405).fadeIn(500);
+	        $('#header_banner .ativo').fadeIn(400);
 	    }else{
 	        $('#header_banner .ativo').removeClass('ativo').next('.banner').addClass('ativo');
 	        $('#header_banner .banner:visible').fadeOut(400);
-	        $('#header_banner .ativo').delay(405).fadeIn(500);
+	        $('#header_banner .ativo').fadeIn(500);
 	    }
 	    //var bg = $('#header_banner .ativo .bg').attr('src')	    
 	    //$('#banner').css('background-image', 'url(' + bg + ')')
