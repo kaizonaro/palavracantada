@@ -40,7 +40,9 @@ li{list-style:none;}
 header {padding-top:20px;}
 #logo {float:left;}
 #header_banner {float:right;width:757px;position:relative;}
-#menu{margin-top:15px;}
+
+/*MENU*/
+#menu{margin-top:15px;margin-bottom:20px}
 .menu {font-family: 'love_ya_like_a_sister_snormal';float:left;}
 .menu a {color:#fff;background:#000;width: 114px;height: 31px;display: inline-block;line-height: 31px;}
 .menu li {display:inline;font-size:13px;text-transform:uppercase;margin-right:20px}
@@ -49,3 +51,22 @@ header {padding-top:20px;}
 .menu .blog a{background:url(/images/menu3.png)}
 .menu .contato a{background:url(/images/menu4.png)}
 .banner{position:absolute;}
+
+/*sociais*/
+#twitter-widget-0{width:200px;height: 22px;margin-top: 6px;margin-left:30px}
+.sociais li{display: inline;}
+.sociais{float: right;height: 25px;line-height: 4px;}
+
+/*SIDEBAR*/
+#sidebar{float:right;width:372px}
+.box_login{width:372px;height:150px;background:url(../images/bg_login.png) no-repeat center center;background-size:cover;padding:21px}
+.box_login p{color:#68455b;font-family:Arial;font-weight:bold;font-size:12px;margin-bottom:20px}
+.form_login{font-family: 'love_ya_like_a_sister_snormal';color:#68455b;}
+.form_login label{font-weight:bold;font-size:12px;text-transform:uppercase;margin-right:3px}
+.form_login .input{border:1px solid #B8B6B6;width:100px;height:25px;-webkit-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);-moz-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);margin-right: 10px;}
+.form_login .btn{color:#fff;background:url(../images/btn_entrar.png) no-repeat center center;background-size:cover;font-family: 'love_ya_like_a_sister_snormal';font-size:11px;width:87px;height:32px;text-align: right;padding-right: 7px;float:right;margin-right:15px;cursor:pointer;}
+.form_login .link{color:#525252;text-decoration:underline;font-size:9px;font-family:Arial;float:left;margin-right:10px;margin-top:5px}
+.form_login div{width:100%;display:inline-block;margin-top:15px;}
+.banner_sidebar{margin-top:10px;}
+
+/*BLOG HOME*/
