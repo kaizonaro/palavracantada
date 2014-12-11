@@ -83,7 +83,7 @@ namespace BrincaderiasMusicais
 
           public void PopularBlog()
           {
-              rsBlog = objBD.ExecutaSQL("EXEC site_psPosBlogHome");
+              rsBlog = objBD.ExecutaSQL("EXEC site_psPostBlog");
 
               if (rsBlog == null)
               {
@@ -95,7 +95,7 @@ namespace BrincaderiasMusicais
                   {
                       divBlog.InnerHtml += "<img src='upload/imagens/blog/cropadas/" + rsBlog["POS_IMAGEM"].ToString() + "'>";
                       divBlog.InnerHtml += "<strong>"+rsBlog["POS_TITULO"].ToString()+"</strong>";
-                      divBlog.InnerHtml += "<p>" + objUtils.CortarString(true,100,rsBlog["POS_TEXTO"].ToString()) + "</p>";
+                      divBlog.InnerHtml += "<p>" + objUtils.CortarString(true,110,rsBlog["POS_TEXTO"].ToString()) + "</p>";
                       divBlog.InnerHtml += "<p><a href='javascript:void(0);'>LEIA MAIS</a></p>";
                   }
               }
