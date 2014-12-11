@@ -5,6 +5,11 @@
 <script type="text/javascript" src="js/mascara.js"></script>
 <script type="text/javascript" src="js/geral.js"></script>
 
+<!--GOOGLE MAIS-->
+<script src="https://apis.google.com/js/platform.js" async defer>
+  {lang: 'pt-BR'}
+</script>
+
 <!--FONTS-->
 
 <!-- SEO --> 
