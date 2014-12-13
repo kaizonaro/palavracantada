@@ -62,7 +62,18 @@ $(document).ready(function () {
 	    rotate = setInterval(proximo_banner, speed);
 	});*/
 
-   
+    //NOTIFICAÇÕES
+	$('.notificacao li:first').addClass('primeiro');
+	$('.notificacao li:last').addClass('ultimo');
+	$('.notificacao li:first').addClass('ativo').fadeIn(0);
+
+	$('.notificacoes_logado .right_logado').click(function () {
+	    proximo_not();
+	})
+	$('.notificacoes_logado .left_logado').click(function () {
+	    anterior_not();
+	})
+
 //VALIDAÇÃO DOS FORMS
 	//contato
 	$('#cadastro_form').submit(function () {
@@ -134,4 +145,29 @@ $(document).ready(function () {
 
 function twitter() {
     $('#twitter-widget-0').removeAttr('style');
+}
+function proximo_not() {
+    if ($('.notificacao .ativo').hasClass('ultimo')) {
+        $('.notificacao li').removeClass('ativo')
+        $('.notificacao .primeiro').addClass('ativo')
+        $('.notificacao li:visible').fadeOut(0);
+        $('.notificacao .ativo').delay(00).fadeIn(100);
+    } else {
+        $('.notificacao .ativo').removeClass('ativo').next('li').addClass('ativo');
+        $('.notificacao li:visible').fadeOut(0);
+        $('.notificacao .ativo').delay(00).fadeIn(100);
+    }
+}
+
+function anterior_not() {
+    if ($('.notificacao .ativo').hasClass('primeiro')) {
+        $('.notificacao .ativo').removeClass('ativo')
+        $('.notificacao .ultimo').addClass('ativo')
+        $('.notificacao li:visible').fadeOut(0);
+        $('.notificacao .ativo').delay(00).fadeIn(100);
+    } else {
+        $('.notificacao .ativo').removeClass('ativo').prev('li').addClass('ativo');
+        $('.notificacao li:visible').fadeOut(0);
+        $('.notificacao .ativo').delay(00).fadeIn(100);
+    }
 }

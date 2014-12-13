@@ -29,9 +29,11 @@
     <!-- CONTEUDO-->
     <section class="all">
         <div class="all_center">
+            <div class="blog_home">
+                <p class="titu">Blog brincadeiras musicais:<em>(posts REcentes)</em></p>
+            </div>
             <!--BOX LOGIN-->
             <brincadeira:login runat="server" ID="login" />
-
             <!--FIM DO BOX LOGIN-->
         </div>
     </section>
