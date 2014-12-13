@@ -1,0 +1,71 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using Etnia.classe;
+using System.Data.OleDb;
+using System.Configuration;
+using System.IO;
+using System.Net.Mail;
+using System.Net;
+using System.Text;
+
+namespace BrincaderiasMusicais.administracao.ajax
+{
+    public partial class acoes : System.Web.UI.Page
+    {
+        private bd objBD;
+        private utils objUtils;
+        private OleDbDataReader rsUsuario;
+        private string retorno = "";
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                objUtils = new utils();
+                objBD = new bd();
+
+                switch (Request["acao"])
+                {
+
+                    case ("populaUsuario"):
+                        populaUsuario(Convert.ToInt32(Request["USU_ID"]));
+                        break;
+                   
+                    default:
+                        break;
+                }
+
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+        }
+        
+        /* USUARIO */
+        public void populaUsuario(int USU_ID)
+        {
+            string resultado = "";
+            rsUsuario = objBD.ExecutaSQL("EXEC admin_psUsuarioPorId " + USU_ID);
+
+            if (rsUsuario == null)
+            {
+                throw new Exception();
+            }
+
+            if (rsUsuario.HasRows)
+            {
+                rsUsuario.Read();
+                resultado = rsUsuario["USU_ID"] + "|" + rsUsuario["RED_ID"] + "|" + rsUsuario["USU_NOME"] + "|" + rsUsuario["USU_EMAIL"] + "|" + rsUsuario["USU_SENHA"];
+            }
+
+            Response.Write(resultado);
+            Response.End();
+        }
+    }
+}

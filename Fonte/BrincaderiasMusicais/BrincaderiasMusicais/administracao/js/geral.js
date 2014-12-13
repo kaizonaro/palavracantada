@@ -1,6 +1,8 @@
 ﻿// JavaScript Document
 
 $(document).ready(function () {
+
+
 		  
 //GERAL
 	//exibe a pg depois que carregada
@@ -396,7 +398,6 @@ function clone(){
 	})
 }
 function editar_table(id){
-		//alert(id)
 		$('.img_ok').removeClass('img_ok')
 		$('.tr_form').remove()
 		$('tr').removeClass('tr_ativo');
@@ -404,7 +405,6 @@ function editar_table(id){
 		$('.img_ok').parent('td').remove();	
 		var tds=$('.table .tr_ativo td').size();
 		var conteudo=$('.inc_form').html().replace(/incluir/g, 'alterar');
-		//alert(conteudo.replace(/incluir/g, 'alterar'))
 		$('.tr_ativo').after('<tr class="tr_form"><td colspan="'+tds+'" align="center"><form class="form">'+conteudo+'</form></td></tr>');
 		var antigo=$( ".tr_form td form" ).height(),
 		novo=$( ".tr_form td form" ).css('height','auto').height();
