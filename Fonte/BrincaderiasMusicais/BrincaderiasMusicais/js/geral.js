@@ -74,6 +74,99 @@ $(document).ready(function () {
 	    anterior_not();
 	})
 
+    //GALERIA HOME(FOTOS)
+	$('.fotos_home li:first').addClass('primeiro');
+	$('.fotos_home li:last').addClass('ultimo');
+	$('.fotos_home li:first').addClass('ativo');
+	$('.fotos_home li').click(function (e) {
+	    e.preventDefault();
+	    $('.fotos_home li').removeClass('ativo')
+	    $(this).addClass('ativo');
+	    var atual = $('.fotos_home .ativo').index() + 1;
+	    var total = $('.fotos_home li').length;
+	    var img = $(this).children('a').attr('href')
+	    var titu = $(this).children('p').text()
+	    $('#fotos .controles .quantos .atual').text(atual);
+	    $('#fotos .controles .quantos .total').text(total);
+	    $('#fotos p').text(titu);
+	    if (atual == 1) {
+	        $('#fotos .controles .left_galeria').addClass('disabled');
+	    } else {
+	        $('#fotos .controles .left_galeria').removeClass('disabled');
+	    }
+	    if (atual == total) {
+	        $('#fotos .controles .right_galeria').addClass('disabled');
+	    } else {
+	        $('#fotos .controles .right_galeria').removeClass('disabled');
+	    }
+	    $('#fotos .img_galeria').attr('src', 'images/' + img);
+	    $('#mask').fadeIn(200);
+	    $('#mask #fotos').fadeIn(400);
+	});
+	$("#fotos .right_galeria").click(function () {
+	    proximo_foto()
+	});
+	$("#fotos .left_galeria").click(function () {
+	    anterior_foto()
+	});
+	$('.fechar_foto').click(function () {
+	    $('#mask').fadeOut(400);
+	    $('#mask #fotos').fadeOut(200);
+        $('#videos iframe').attr('src','')
+	});
+
+	$('.ops_galeria b:first').click(function () {
+	    $('.ops_galeria b').removeClass('ativo');
+	    $(this).addClass('ativo');
+	    $('.videos_home').fadeOut(0);
+	    $('.fotos_home').fadeIn(200)
+	})
+	$('.ops_galeria b:last').click(function () {
+	    $('.ops_galeria b').removeClass('ativo');
+	    $(this).addClass('ativo');
+	    $('.fotos_home').fadeOut(0);
+	    $('.videos_home').fadeIn(200)
+	});
+    //GALERIA DA HOME (VIDEO)
+	$('.videos_home li:first').addClass('primeiro');
+	$('.videos_home li:last').addClass('ultimo');
+	$('.videos_home li:first').addClass('ativo');
+	$('.videos_home li').click(function (e) {
+	    e.preventDefault();
+	    $('.videos_home li').removeClass('ativo')
+	    $(this).addClass('ativo');
+	    var atual = $('.videos_home .ativo').index() + 1;
+	    var total = $('.videos_home li').length;
+	    var video = $(this).children('a').attr('href')
+	    var titu = $(this).children('p').text()
+	    $('#videos .controles .quantos .atual').text(atual);
+	    $('#videos .controles .quantos .total').text(total);
+	    $('#videos p').text(titu);
+	    if (atual == 1) {
+	        $('#videos .controles .left_galeria').addClass('disabled');
+	    } else {
+	        $('#videos .controles .left_galeria').removeClass('disabled');
+	    }
+	    if (atual == total) {
+	        $('#videos .controles .right_galeria').addClass('disabled');
+	    } else {
+	        $('#videos .controles .right_galeria').removeClass('disabled');
+	    }
+	    $('#videos iframe').attr('src', '//www.youtube.com/embed/' + video + '?autoplay=1');
+	    $('#mask').fadeIn(200);
+	    $('#mask #videos').fadeIn(400);
+	});
+	$("#videos .right_galeria").click(function () {
+	    proximo_video()
+	});
+	$("#videos .left_galeria").click(function () {
+	    anterior_video()
+	});
+	$('.fechar_foto').click(function () {
+	    $('#mask').fadeOut(400);
+	    $('#mask #fotos').fadeOut(200);
+	});
+
 //VALIDAÇÃO DOS FORMS
 	//contato
 	$('#cadastro_form').submit(function () {
@@ -146,6 +239,7 @@ $(document).ready(function () {
 function twitter() {
     $('#twitter-widget-0').removeAttr('style');
 }
+//NOTICIAS LOGADO HOME
 function proximo_not() {
     if ($('.notificacao .ativo').hasClass('ultimo')) {
         $('.notificacao li').removeClass('ativo')
@@ -169,5 +263,112 @@ function anterior_not() {
         $('.notificacao .ativo').removeClass('ativo').prev('li').addClass('ativo');
         $('.notificacao li:visible').fadeOut(0);
         $('.notificacao .ativo').delay(00).fadeIn(100);
+    }
+}
+//GALERIA DE FOTOS HOME
+function proximo_foto() {
+    if ($('.fotos_home .ativo').hasClass('ultimo')) {
+
+    } else {
+        $('.fotos_home .ativo').removeClass('ativo').next('li').addClass('ativo');
+        var atual = $('.fotos_home .ativo').index() + 1;
+        var total = $('.fotos_home li').length;
+        var img = $('.fotos_home .ativo').children('a').attr('href');
+        var titu = $('.fotos_home .ativo').children('p').text()
+        $('#fotos .controles .quantos .atual').text(atual);
+        $('#fotos .controles .quantos .total').text(total);
+        if (atual == 1) {
+            $('#fotos .controles .left_galeria').addClass('disabled');
+        } else {
+            $('#fotos .controles .left_galeria').removeClass('disabled');
+        }
+        if (atual == total) {
+            $('#fotos .controles .right_galeria').addClass('disabled');
+        } else {
+            $('#fotos .controles .right_galeria').removeClass('disabled');
+        }
+        $('#fotos .img_galeria').attr('src', 'images/' + img);
+        $('#fotos p').text(titu);
+    }
+}
+
+function anterior_foto() {
+    if ($('.fotos_home .ativo').hasClass('primeiro')) {
+
+    } else {
+        $('.fotos_home .ativo').removeClass('ativo').prev('li').addClass('ativo');
+        var atual = $('.fotos_home .ativo').index() + 1;
+        var total = $('.fotos_home li').length;
+        var img = $('.fotos_home .ativo').children('a').attr('href');
+        var titu = $('.fotos_home .ativo').children('p').text()
+        $('#fotos .controles .quantos .atual').text(atual);
+        $('#fotos .controles .quantos .total').text(total);
+        if (atual == 1) {
+            $('#fotos .controles .left_galeria').addClass('disabled');
+        } else {
+            $('#fotos .controles .left_galeria').removeClass('disabled');
+        }
+        if (atual == total) {
+            $('#fotos .controles .right_galeria').addClass('disabled');
+        } else {
+            $('#fotos .controles .right_galeria').removeClass('disabled');
+        }
+        $('#fotos .img_galeria').attr('src', 'images/' + img);
+        $('#fotos p').text(titu);
+    }
+}
+
+//GALLERIA VIDEOS HOME
+function proximo_video() {
+    if ($('.videos_home .ativo').hasClass('ultimo')) {
+
+    } else {
+        $('.videos_home .ativo').removeClass('ativo').next('li').addClass('ativo');
+        var atual = $('.videos_home .ativo').index() + 1;
+        var total = $('.videos_home li').length;
+        var video = $('.videos_home .ativo').children('a').attr('href')
+        var titu = $('.videos_home .ativo').children('p').text()
+        $('#videos .controles .quantos .atual').text(atual);
+        $('#videos .controles .quantos .total').text(total);
+        $('#videos p').text(titu);
+        if (atual == 1) {
+            $('#videos .controles .left_galeria').addClass('disabled');
+        } else {
+            $('#videos .controles .left_galeria').removeClass('disabled');
+        }
+        if (atual == total) {
+            $('#videos .controles .right_galeria').addClass('disabled');
+        } else {
+            $('#videos .controles .right_galeria').removeClass('disabled');
+        }
+        $('#videos iframe').attr('src', '//www.youtube.com/embed/' + video + '?autoplay=1');
+        $('#videos p').text(titu);
+    }
+}
+
+function anterior_video() {
+    if ($('.videos_home .ativo').hasClass('primeiro')) {
+
+    } else {
+        $('.videos_home .ativo').removeClass('ativo').prev('li').addClass('ativo');
+        var atual = $('.videos_home .ativo').index() + 1;
+        var total = $('.videos_home li').length;
+        var video = $('.videos_home .ativo').children('a').attr('href')
+        var titu = $('.videos_home .ativo').children('p').text()
+        $('#videos .controles .quantos .atual').text(atual);
+        $('#videos .controles .quantos .total').text(total);
+        $('#videos p').text(titu);
+        if (atual == 1) {
+            $('#videos .controles .left_galeria').addClass('disabled');
+        } else {
+            $('#videos .controles .left_galeria').removeClass('disabled');
+        }
+        if (atual == total) {
+            $('#videos .controles .right_galeria').addClass('disabled');
+        } else {
+            $('#videos .controles .right_galeria').removeClass('disabled');
+        }
+        $('#videos iframe').attr('src', '//www.youtube.com/embed/' + video + '?autoplay=1');
+        $('#videos p').text(titu);
     }
 }
