@@ -36,6 +36,8 @@ li{list-style:none;}
 .all_center{ max-width:1020px; height:auto; margin:0 auto;display:inline-block;width:100%;padding-left:30px;padding-right:30px;}
 /*--------------------*/
 .esconde{display:none;}
+.blur{-webkit-filter: blur(3px);-moz-filter:blur(3px);-ms-filter: blur(3px);-o-filter: blur(3px); /* FF doesn't support blur filter, but SVG */filter: url("data:image/svg+xml;utf8,<svg height='0' xmlns='http://www.w3.org/2000/svg'><filter id='svgBlur' x='-5%' y='-5%' width='110%' height='110%'><feGaussianBlur in='SourceGraphic' stdDeviation='5'/></filter></svg>#svgBlur");filter: progid: DXImageTransform.Microsoft.Blur(PixelRadius = '3');filter: blur(3px);}
+.disabled{opacity:0.5;}
 
 /*TOPO*/
 header {padding-top:20px;}
@@ -66,7 +68,7 @@ header {padding-top:20px;}
 .form_login label{font-weight:bold;font-size:12px;text-transform:uppercase;margin-right:3px}
 .form_login .input{border:1px solid #B8B6B6;width:100px;height:25px;-webkit-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);-moz-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);margin-right: 10px;}
 .form_login .btn{color:#fff;background:url(../images/btn_entrar.png) no-repeat center center;background-size:cover;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;width:87px;height:32px;text-align: right;padding-right: 7px;float:right;margin-right:15px;cursor:pointer;}
-.form_login .link{color:#525252;text-decoration:underline;font-size:9px;font-family:Arial;float:left;margin-right:10px;margin-top:5px}
+.form_login .link{color:#525252;text-decoration:underline;font-size:9px;font-family:Arial, sans-serif;float:left;margin-right:10px;margin-top:5px}
 .form_login div{width:100%;display:inline-block;margin-top:15px;}
 .banner_sidebar{margin-top:10px;}
 .box_logado{width:372px;height:324px;background:url(../images/bg_logado.png) no-repeat center center;background-size:cover;padding:21px}
@@ -90,4 +92,47 @@ header {padding-top:20px;}
 /*BLOG HOME*/
 .blog_home {width:540px;height:319px;background:url(../images/bg_blog_home.png) no-repeat center center;background-size:cover;padding:30px;float:left;}
 .blog_home .titu{width:100%;display:inline-block;color:#736d9b;background:url(/images/titu_blog_home.png) no-repeat left center;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;text-transform:uppercase;font-weight:bold;padding:10px 0px}
-.blog_home .titu em{font-weight:normal;float:right;font-size:14px
+.blog_home .titu em {font-weight: normal;float: right;font-size: 14px;}
+.posts_home {width:100%;}
+.posts_home li{width:30%;margin:1%;color:#68455b;display:inline-block;margin-top:0}
+.posts_home li a{color:#68455b;}
+.posts_home li img{width:130px;height:90px;background:url(../images/bg_post_home.png) no-repeat center center;background-size:cover;padding:9px;display:inline-block;}
+.titu_post_home{font-family:Arial,sans-serif;font-weight:bold;font-size:13px;margin-top:5px;margin-bottom:5px;}
+.desc_post_home{font-family:Arial,sans-serif;font-size:11px;}
+.posts_home li .btn{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color:#fff;background:url(/images/menu3.png) no-repeat;width: 70px;height: 26px;display: inline-block;line-height: 26px;background-size: cover;float: right;margin-top: 7px;}
+@-moz-document url-prefix() {.blog_home .titu{padding-left: 18px;}}
+
+/*GALERIA HOME*/
+.galeria_home{width:100%;height:233px;background:url(../images/bg_galeria_home.png) no-repeat center center;background-size:cover;padding:20px 40px;display:inline-block;margin-top:20px;margin-bottom:30px;}
+.galeria_home .titu{width:100%;display:inline-block;color:#ae080f;background:url(/images/titu_galeria_home.png) no-repeat left center;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;text-transform:uppercase;font-weight:bold;padding:10px 0px;text-align:left;padding-left:38px;}
+.ops_galeria .ativo{text-decoration:underline;}
+.ops_galeria{color:#ae080f;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;text-transform:uppercase;font-weight:bold;float:right;}
+.ops_galeria b{margin-left:20px;cursor:pointer;}
+.galeria_home ul {width:100%;}
+.galeria_home ul li{width:22%;margin:1%;display:inline-block}
+.galeria_home ul li img{margin:0 auto;width:196px;height:110px}
+.galeria_home ul li p {font-size: 12px;font-family: Arial,sans-serif;font-weight: bold;color:#ae080f;margin-top:8px;text-transform:uppercase;}
+.videos_home{display:none}
+
+/*LIGHT VIEW E AFINS*/
+#mask{width:100%;height:100%;left:0;top:0;position:fixed;background: rgba(0,0,0,0.4);text-align:center;display:none;}
+#mask article{display:none;}
+#fotos {width:700px;min-height:100px;background:#fff;border-radius:10px;margin:0 auto;margin-top:80px;padding:20px}
+#fotos .img_galeria{max-width:100%;}
+#fotos p{font-size: 15px;font-family: Arial,sans-serif;font-weight: bold;color:#ae080f;margin-top:8px;text-transform:uppercase;}
+#videos {width:700px;min-height:100px;background-color:#fff;border-radius:10px;margin:0 auto;margin-top:80px;padding:20px;background:url(../images/load.gif) #fff no-repeat center center;}
+#videos iframe{max-width:100%;}
+#videos p{font-size: 15px;font-family: Arial,sans-serif;font-weight: bold;color:#ae080f;margin-top:8px;text-transform:uppercase;}
+.left_galeria img, .right_galeria img{width:20px;cursor:pointer;}
+.controles div{float:left;margin:10px}
+.quantos{font-size: 12px;font-family: Arial,sans-serif;font-weight: bold;color:#ae080f;}
+.controles{width:100%;display:inline-block;height:30px;line-height:22px;}
+.fechar_galeria{color:#fff;background:#f68b1f;padding:0px 5px;font-size:12px;font-family: Arial,sans-serif;border-radius:10px;cursor:pointer;}
+
+/*FOOTER*/
+footer .titu{color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;margin-top:10px;text-transform:uppercase;}
+footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
+.redes li{color:#fff;width:17%;margin:1%;display:inline-block}
+.redes li a {color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase;}
+.redes li img{margin:0 auto;margin-bottom:8px;}
+.copyright{color:#fff;font-family: Arial,sans-serif;font-size: 11px;margin-top:30px;margin-bottom:10px;}
