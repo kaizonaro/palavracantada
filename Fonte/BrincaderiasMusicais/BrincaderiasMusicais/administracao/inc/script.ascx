@@ -2,6 +2,7 @@
 <!--JS-->
 <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/mascara.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="js/geral.js"></script>
 
 <!--FONTS-->
