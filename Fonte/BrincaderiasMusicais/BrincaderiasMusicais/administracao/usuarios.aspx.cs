@@ -19,7 +19,7 @@ namespace BrincaderiasMusicais.administracao
 
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista;
+        private OleDbDataReader rsLista, rsRede, rsGravaUsuario;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,13 +31,14 @@ namespace BrincaderiasMusicais.administracao
                 switch (Request["acao"])
                 {
                     case ("gravarUsuario"):
-                        //gravarUsuario();
+                        gravarUsuario();
                         break;
                     case ("excluirUsuario"):
                         //excluirUsuario();
                         break;
                     default:
                         PopulaLista();
+                        PopularRedes();
                         break;
                 }
             }
@@ -101,6 +102,57 @@ namespace BrincaderiasMusicais.administracao
             rsLista.Dispose();
 
             divLista.InnerHtml += "</table>";
+        }
+
+        public void PopularRedes()
+        {
+            rsRede = objBD.ExecutaSQL("EXEC admin_psRedesPorAtivo 1");
+            if (rsRede == null)
+            {
+                throw new Exception();
+            }
+            if (rsRede.HasRows)
+            {
+                while (rsRede.Read())
+                {
+                    System.Web.UI.WebControls.ListItem R = new System.Web.UI.WebControls.ListItem();
+                    R.Value = rsRede["RED_ID"].ToString();
+                    R.Text = rsRede["RED_CIDADE"].ToString() + rsRede["RED_UF"].ToString();
+                    RED_ID.Items.Add(R);
+                }
+            }
+            rsRede.Close();
+            rsRede.Dispose();
+        }
+
+        public void gravarUsuario()
+        {
+            try
+            {
+
+                rsGravaUsuario = objBD.ExecutaSQL("EXEC admin_piuUsuario '" + Request["RED_ID"] + "', '" + Request["USU_NOME"] + "','" + Request["USU_EMAIL"] + "','" + objUtils.getMD5Hash(Request["USU_SENHA"]) + "'");
+
+                if (rsGravaUsuario == null)
+                {
+                    throw new Exception();
+                }
+
+                if (rsGravaUsuario.HasRows)
+                {
+                    rsGravaUsuario.Read();
+                }
+                
+                //Retornar para a Listagem
+                Response.Redirect("usuarios.aspx");
+                
+                rsGravaUsuario.Close();
+                rsGravaUsuario.Dispose();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

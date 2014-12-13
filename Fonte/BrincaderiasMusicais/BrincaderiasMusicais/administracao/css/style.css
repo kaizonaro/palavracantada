@@ -105,7 +105,7 @@ input[type=checkbox]{-webkit-appearance: checkbox;-moz-appearance:checkbox;appea
 .input-medium{border:none;}
 .inc_form, .fil_form{display:none;}
 .form_table{width:100%;background:#fff;position:relative;margin-top: 30px;margin-bottom: -10px;overflow:hidden;height:0;-webkit-transition:all 0.5s linear;-moz-transition:all 0.5s linear;-o-transition:all 0.5s linear;-ms-transition:all 0.5s linear;transition:all 0.5s linear;}
-.form_table form p {font-size:15px;color: #5a5a5a;font-weight: bold;width:100%;margin-bottom:10px;}
+.form_table form p {font-size:13px;color: #5a5a5a;font-weight: bold;width:100%;margin-bottom:10px;}
 .form_table form .input { width: 100%;margin-bottom:10px;}
 .form_table form{padding:2.0em;}
 .form_table form .btn_form{padding: 8px;width: 89px;cursor:pointer}
@@ -138,7 +138,7 @@ box-shadow: inset 6px 5px 3px 0px rgba(50, 50, 50, 0.15);}
 .form p{padding-left:1.0em;text-align:left}
 .form .p_btn{text-align:center}
 .form .input{margin-bottom:1.0em;text-align:left;padding:7px;padding-left:15px;height:34px}
-.form .input:focus{height:42px}
+/*.form .input:focus{height:42px}*/
 .btn_form{background:rgba(43, 94, 95, 1);color:#fff;cursor:pointer;padding:10px;width:80px;font-size:15px;margin-top:1.0em;}
 .btn_form:hover{background:rgba(29, 65, 66, 1)}
 .box_check{width:100%;display:inline-block;margin-top:10px;margin-bottom:10px;}
