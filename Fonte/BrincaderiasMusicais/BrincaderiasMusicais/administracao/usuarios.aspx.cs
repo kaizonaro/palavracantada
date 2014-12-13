@@ -37,6 +37,9 @@ namespace BrincaderiasMusicais.administracao
                 case("AtivarUsuario"):
                     AtivarUsuario();
                     break;
+                case("FiltrarPesquisa"):
+                    FiltrarPesquisa(Request["RED_ID"], Request["USU_NOME"], Request["USU_EMAIL"]);
+                    break;
                 default:
                     PopulaLista();
                     PopularRedes();
@@ -69,7 +72,7 @@ namespace BrincaderiasMusicais.administracao
                 divLista.InnerHtml += "     </tr>";
                 divLista.InnerHtml += " </thead>";
 
-                divLista.InnerHtml += " <tbody>";
+                divLista.InnerHtml += " <tbody id=\"tbCentral\">";
 
                 while (rsLista.Read())
                 {
@@ -171,6 +174,7 @@ namespace BrincaderiasMusicais.administracao
                     R.Value = rsRede["RED_ID"].ToString();
                     R.Text = rsRede["RED_CIDADE"].ToString() + " | " + rsRede["RED_UF"].ToString();
                     RED_ID.Items.Add(R);
+                    FL_REDE_ID.Items.Add(R);
                 }
             }
             rsRede.Close();
@@ -222,6 +226,45 @@ namespace BrincaderiasMusicais.administracao
             objBD.ExecutaSQL("update Usuario set USU_ATIVO = 1 where USU_ID ='" + Request["USU_ID"] + "'");
             PopulaLista();
             PopulaExcluidos();
+        }
+
+        public void FiltrarPesquisa(string RED_ID, string USU_NOME, string USU_EMAIL)
+        {
+            rsLista = objBD.ExecutaSQL("EXEC admin_psUsusarioFiltro '" + RED_ID + "', '" + USU_NOME + "', '" + USU_EMAIL + "' ");
+            if (rsLista == null)
+            {
+                throw new Exception();
+            }
+            string resposta = "";
+            if (rsLista.HasRows)
+            {
+                
+                while (rsLista.Read())
+                {
+                    resposta += " <tr id='tr_" + rsLista["USU_ID"].ToString() + "' class=\"\">";
+                    resposta += "     <td>" + rsLista["USU_ID"].ToString() + "</td>";
+                    resposta += "     <td>" + rsLista["USU_NOME"].ToString() + "</td>";
+                    resposta += "     <td>" + rsLista["USU_EMAIL"].ToString() + "</td>";
+                    resposta += "     <td>" + rsLista["USU_QTD_ACESSO"].ToString() + "</td>";
+                    resposta += "     <td>" + rsLista["USU_DH_ULTIMO_ACESSO"].ToString() + "</td>";
+                    resposta += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
+                    resposta += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["USU_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["USU_ID"].ToString() + "' onclick='excluirUsuario(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    resposta += " </tr>";
+                }
+
+            }
+            else
+            {
+                resposta += "     <tr>";
+                resposta += "         <th colspan=\"7\">Nenhum resultado para esta pesquisa</th>";
+                resposta += "     </tr>";
+            }
+
+            Response.Write(resposta);
+            Response.End();
+
+            rsLista.Close();
+            rsLista.Dispose();
         }
     }
 }
