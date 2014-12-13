@@ -47,31 +47,25 @@
                                 	<img src="images/restore.png" alt="Filtrar"><p>Voltar</p>
                                 </div>
                                 <div class="form_table">
-                                	<form class="inc_form form" name="incluir">
-                                    	<p>campo:*</p>
-                                		<input type="text" name="exemplo" class="input error" placeholder="exemplo">
-                                        <p>campo:*</p>
-                                        <input type="text" class="input"  placeholder="exemplo"/>
-                                        <p>campo:*</p>
-                                        <input type="text" class="input"  placeholder="exemplo"/>
-                                        <div class="box_check">
-                                        	<ul>
-                                        		<li><input type="checkbox" class="check" id="incluir_1" value="1" name="teste"><label for="incluir_1">Teste</li>
-                                                </label><li><input type="checkbox"  class="check" id="incluir_2" value="1" name="teste"><label for="incluir_2">Teste</li>
-                                                </label><li><input type="checkbox"  class="check" id="incluir_3" value="1" name="teste"><label for="incluir_3">Teste</li>
-                                                </label><li><input type="checkbox"  class="check" id="incluir_4" value="1" name="teste"><label for="incluir_4">Teste</li>
-                                                </label><li><input type="checkbox"  class="check" id="incluir_5" value="1" name="teste"><label for="incluir_5">Teste</li>
-                                                </label><li><input type="checkbox"  class="check" id="incluir_6" value="1" name="teste"><label for="incluir_6">Teste</li>
-                                                </label><li><input type="checkbox"  class="check" id="incluir_7" value="1" name="teste"><label for="incluir_7">Teste</li>
-                                            </ul>
-                                        </div>
-                                        <select name="select" class="select">
-                                        	<option value="" selected>Selecione uma opção</option>
-                                            <option value="1">1</option>
-                                            <option value="1">1</option>
-                                            <option value="1">1</option>
-                                            <option value="1">1</option>
+                                	<form class="inc_form form" name="incluir" action="usuarios.aspx" novalidate="novalidate" accept-charset="default">
+                                        <input type="hidden" id="acao" name="acao" value="gravarUsuario" />
+                                        <input type="hidden" id="USU_ID" name="USU_ID" value="0" />
+
+                                    	<p>Selecione uma rede:*</p>
+                                        <select id="RED_ID" name="RED_ID" class="input obg" data-validation="required" runat="server">
+                                            <option value="">Selecione</option>
                                         </select>
+                                        
+                                        <p>Nome:*</p>
+                                		<input type="text" name="USU_NOME" id="USU_NOME" class="input error" placeholder="Nome Completo">
+                                        
+                                        <p>E-mail:*</p>
+                                        <input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input"  placeholder="Digite um e-mail válido"/>
+                                        
+                                        <p>Senha:*</p>
+                                        <input type="text" name="USU_SENHA" id="USU_SENHA" class="input"  placeholder="Escolha uma senha"/>
+                                        
+                                        
                                         </label><p class="p_btn">
                                     		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
                                             <input type="submit" value="incluir" class="btn_form" formmethod="get" />
