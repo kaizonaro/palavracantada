@@ -1,0 +1,1 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="acoes.aspx.cs" Inherits="BrincaderiasMusicais.administracao.ajax.acoes" %>
