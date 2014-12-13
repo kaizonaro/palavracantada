@@ -96,6 +96,24 @@
                 return false;
             }
         }
+
+        function FiltrarPesquisa(RED_ID, USU_NOME, USU_EMAIL) {
+            ajax4 = ajaxInit(); 
+            ajax4.open("GET", "usuarios.aspx?acao=FiltrarPesquisa&RED_ID=" + RED_ID + "&USU_NOME=" + USU_NOME + "&USU_EMAIL=" + USU_EMAIL + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+            ajax4.setRequestHeader("Content-Type", "charset=iso-8859-1");
+            ajax4.onreadystatechange = function () {
+
+                if (ajax4.readyState == 4) {
+                    if (ajax4.status == 200) {
+                       
+                        $("#tbCentral").html(ajax4.responseText);
+                    }
+                }
+
+            }
+            
+            ajax4.send(null);
+        }
     </script>
 </head>
 
@@ -154,13 +172,21 @@
                                			</p>
                                     </form>
                                     <form class="fil_form form" novalidate accept-charset="default">
-                                    	<p>campo:*</p>
-                                		<input type="text" class="input" data-validation="required" />
-                                        <p>campo:*</p>
-                                        <input type="text" class="input" data-validation="required" />
+                                        <p>Rede</p>
+                                        <select id="FL_REDE_ID" name="FL_REDE_ID" class="input" runat="server" onchange="FiltrarPesquisa(FL_REDE_ID.value, FL_NOME.value, FL_EMAIL.value)">
+                                            <option value="">Selecione</option>
+                                        </select>
+
+                                    	<p>Nome:</p>
+                                		<input type="text" name="FL_NOME" id="FL_NOME" class="input"  onchange="FiltrarPesquisa(FL_REDE_ID.value, FL_NOME.value, FL_EMAIL.value)" />
+
+                                        <p>E-Mail:</p>
+                                		<input type="text" name="FL_EMAIL" id="FL_EMAIL" class="input" onchange="FiltrarPesquisa(FL_REDE_ID.value, FL_NOME.value, FL_EMAIL.value)" />
+                                        
+
                                         <p class="p_btn">
                                     		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
-                                            <input type="submit" value="Filtrar" class="btn_form" formmethod="get" />
+                                            <input type="button" onclick="FiltrarPesquisa(FL_REDE_ID.value, FL_NOME.value, FL_EMAIL.value)" value="Filtrar" class="btn_form" formmethod="get" />
                                			</p>
                                     </form>
                                 </div>
@@ -172,30 +198,9 @@
                             <!-- LISTAGEM INICIAL -->
                                 <div class="tabela_ok" id="divLista" runat="server"></div>
                             <!-- FIM LISTAGEM INICIAL -->
+                            
                             <!-- LISTAGEM EXCLUÍDOS -->
-                            <div class="tabela_excluidos" id="divExcluidos" runat="server"></div>
-                                 <!--<table class="table table-striped table-bordered" id="sample_2">
-                                    <thead>
-                                    <tr>
-                                        <th style="width:8px;">ID</th>
-                                        <th>Nome</th>
-                                        <th>Email</th>
-                                        <th>Telefone</th>
-                                        <th>ultima compra</th>
-                                        <th>Ações</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr class="">
-                                        <td>1</td>
-                                        <td><a href="#" title="Cliente">Cleyber Nunes</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><a href="#" class="img_del"><img src="images/restore.png"></a></td>
-                                    </tr>
-                                    </tbody>
-                                </table>-->
+                            <div class="tabela_excluidos" id="divExcluidos" runat="server"></div>   
                             <!-- FIM LISTAGEM EXCLUÍDOS -->
                         </div>
                     </div>
