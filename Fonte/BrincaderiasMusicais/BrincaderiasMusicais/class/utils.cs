@@ -41,6 +41,29 @@ namespace Etnia.classe
         private string LinkRSS = "", DataRSS = "";
         private int i, TotalItens;
 
+       public int GerarTokenAcesso()
+        {
+            int accessToken = 0;
+            while (accessToken == 0)
+            {
+                Random newToken = new Random();
+                accessToken = newToken.Next(1, 99999);
+                OleDbDataReader rsToken = objBD.ExecutaSQL("SELECT TOK_TOKEN FROM TokenUsuario WHERE TOK_TOKEN = " + accessToken);
+                if (rsToken == null)
+                {
+                    throw new Exception();
+                }
+                if (rsToken.HasRows)
+                {
+                    accessToken = 0;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return accessToken;
+        }
 
         public bool Feedbacker(Exception erro)
         {
