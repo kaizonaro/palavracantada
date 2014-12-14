@@ -33,7 +33,7 @@ namespace BrincaderiasMusicais.administracao
                         break;
                     default:
                         PopulaLista();
-                        Response.Write(objUtils.GerarTokenAcesso());
+                       // UsuarioMassa(5);
                         break;
                 }
             }
@@ -102,11 +102,11 @@ namespace BrincaderiasMusicais.administracao
 
        
 
-        public void UsuarioMassa(int quantidade)
+        public void UsuarioMassa(int quantidade, int RED_ID)
         {
             for (int i = 0; i < quantidade; i++)
             {
-                rsGravaUsuario = objBD.ExecutaSQL("EXEC admin_piuUsuario '" + Request["USU_ID"] + "','" + Request["RED_ID"] + "', 'user" + i +"'");
+                rsGravaUsuario = objBD.ExecutaSQL("EXEC admin_piuUsuario '" + 0 + "','" + RED_ID + "', 'user" + i +"'");
 
                 if (rsGravaUsuario == null)
                 {
