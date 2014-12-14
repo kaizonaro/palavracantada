@@ -14,7 +14,7 @@ namespace BrincaderiasMusicais.administracao
 
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista;
+        private OleDbDataReader rsLista, rsRedes, rsGravaUsuario;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,6 +33,7 @@ namespace BrincaderiasMusicais.administracao
                         break;
                     default:
                         PopulaLista();
+                        Response.Write(objUtils.GerarTokenAcesso());
                         break;
                 }
             }
@@ -62,7 +63,7 @@ namespace BrincaderiasMusicais.administracao
                 divLista.InnerHtml += "         <th>UF</th>";
                 divLista.InnerHtml += "         <th>Data de Criação</th>";
                 divLista.InnerHtml += "         <th>Quantidade de Usuários</th>";
-                divLista.InnerHtml += "         <th style=\"width:61px;\">Ações</th>";
+                divLista.InnerHtml += "         <th style=\"width:71px;\">Ações</th>";
                 divLista.InnerHtml += "     </tr>";
                 divLista.InnerHtml += " </thead>";
 
@@ -96,6 +97,29 @@ namespace BrincaderiasMusicais.administracao
             rsLista.Dispose();
 
             divLista.InnerHtml += "</table>";
+        }
+
+
+       
+
+        public void UsuarioMassa(int quantidade)
+        {
+            for (int i = 0; i < quantidade; i++)
+            {
+                rsGravaUsuario = objBD.ExecutaSQL("EXEC admin_piuUsuario '" + Request["USU_ID"] + "','" + Request["RED_ID"] + "', 'user" + i +"'");
+
+                if (rsGravaUsuario == null)
+                {
+                    throw new Exception();
+                }
+
+                if (rsGravaUsuario.HasRows)
+                {
+                    rsGravaUsuario.Read();
+                    rsGravaUsuario = objBD.ExecutaSQL("INSERT INTO TokenUsuario (USU_ID, TOK_TOKEN) values '" + rsGravaUsuario["USU_ID"] + "','" + objUtils.GerarTokenAcesso() + "'");
+                }
+
+            }
         }
     }
 }
