@@ -47,7 +47,7 @@ namespace Etnia.classe
             while (accessToken == 0)
             {
                 Random newToken = new Random();
-                accessToken = newToken.Next(1, 99999);
+                accessToken = newToken.Next(1111, 99999);
                 OleDbDataReader rsToken = objBD.ExecutaSQL("SELECT TOK_TOKEN FROM TokenUsuario WHERE TOK_TOKEN = " + accessToken);
                 if (rsToken == null)
                 {
