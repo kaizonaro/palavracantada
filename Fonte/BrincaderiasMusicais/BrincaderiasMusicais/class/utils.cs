@@ -43,6 +43,7 @@ namespace Etnia.classe
 
         public int GerarTokenAcesso()
         {
+            objBD = new bd();
             int accessToken = 0;
             while (accessToken == 0)
             {
