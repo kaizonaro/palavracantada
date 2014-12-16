@@ -43,7 +43,7 @@ namespace BrincaderiasMusicais.inc
                     while (rsBanner.Read())
                     {
                        banner.InnerHtml += "<div class='banner'>";
-                       banner.InnerHtml += "    <a href='" + rsBanner["BAN_LINK"] + "' title='" + rsBanner["BAN_LEGENDA"] + "'><img src='upload/imagens/banners/" + rsBanner["BAN_IMAGEM"] + "' alt='" + rsBanner["BAN_LEGENDA"] + "'/></a>";
+                       banner.InnerHtml += "    <a href='" + rsBanner["BAN_LINK"] + "' title='" + rsBanner["BAN_LEGENDA"] + "'><img src='/upload/imagens/banners/" + rsBanner["BAN_IMAGEM"] + "' alt='" + rsBanner["BAN_LEGENDA"] + "'/></a>";
                        banner.InnerHtml += "</div>";
                     }
                 }

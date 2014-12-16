@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="login.ascx.cs" Inherits="BrincaderiasMusicais.inc.login" %>
 <aside id="sidebar">
-    <div class="box_login">
+    <div class="box_login" id="box_login" runat="server">
         <p>Faça o login para acessar a área restrita de sua região:</p>
         <form class="form_login" action="ajax/acoes.aspx">
             <input type="hidden" id="acao" name="acao" value="FazerLogin" />
@@ -11,10 +11,10 @@
             </div>
         </form>
     </div>
-    <div class="banner_sidebar">
-        <a href="http://palavracantada.com.br" title="Conmheça o site oficial do palalavra cantada" target="_blank"><img src="images/banner_lateral.png" alt="Conmheça o site oficial do palalavra cantada" /></a>
+    <div class="banner_sidebar" id="banner_sidebar" runat="server">
+        <a href="http://palavracantada.com.br" title="Conmheça o site oficial do palalavra cantada" target="_blank"><img src="/images/banner_lateral.png" alt="Conmheça o site oficial do palalavra cantada" /></a>
     </div>
-    <div class="box_logado esconde">
+    <div class="box_logado esconde" id="box_logado" runat="server">
         <p>Olá <strong>Fernando Santos</strong>, seja bem vindo a área restrita da rede de ensino <strong>escola de musica de itaquera</strong>.</p>
         <input type="button" class="btn" value="SAIR" />
         <p class="titu_logado">Selecione no menu abaixo qual sessão deseja visitar:</p>
@@ -29,8 +29,8 @@
         </ul>
         <div class="notificacoes_logado">
             <p>Notificações recentes:</p>
-            <img src="images/arrow_left.png" class="left_logado" />
-            <img src="images/arrow_right.png" class="right_logado" />
+            <img src="/images/arrow_left.png" class="left_logado" />
+            <img src="/images/arrow_right.png" class="right_logado" />
             <ul class="notificacao">
                 <li>Parabéns! Você ganhou uma recompensa por publicar   três vídeos na galeria colaborativa de sua rede de ensino.</li>
                 <li>te tes te te te dih fdhfusi udhfsiudh fish .</li>
