@@ -8,6 +8,8 @@ $(document).ready(function () {
 		
 	window.onload=function(){		
 	    $('body').fadeIn();
+	    $('#mask').fadeIn(300);
+        $('#modal').fadeIn(400)
 	    twitter();
 	}
 	
@@ -206,6 +208,12 @@ $(document).ready(function () {
 	            $(this).removeClass('error')
 	        }
 	    }
+	});
+
+    //FORM HOME MODAL
+	$('.cadastro_home input[type=reset]').click(function () {
+	    $('#mask').fadeOut(400);
+	    $('#modal').fadeOut(300)
 	})
 
 	//celular mask 
