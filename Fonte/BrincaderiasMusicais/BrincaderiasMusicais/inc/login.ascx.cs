@@ -20,10 +20,18 @@ namespace BrincaderiasMusicais.inc
        
         protected void Page_Load(object sender, EventArgs e)
         {
-            
 
+            if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1)
+            {
+               //LOGADO
+               box_logado.Attributes.Add("class", "box_logado");
+               banner_sidebar.Attributes.Add("class", "esconde");
+               box_login.Attributes.Add("class", "esconde");
+            }
+            else
+            {
+                //DESLOGADO
+            }
         }
-
-       
     }
 }

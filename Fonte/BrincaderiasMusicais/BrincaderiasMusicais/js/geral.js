@@ -6,19 +6,19 @@ $(document).ready(function () {
 	//exibe a pg depois que carregada
 	//$('body').hide();	
 		
-	window.onload=function(){		
+	/*window.onload=function(){		
 	    $('body').fadeIn();
 	    $('#mask').fadeIn(300);
         $('#modal').fadeIn(400)
 	    twitter();
-	}
+	}*/
 	
     //BANNER
 
     //CONTA OS BANERS E CRIA OS BULLETS
 	var total = $('#header_banner .banner').length;
 	for (var i = 0; i < total; i++) {
-	    $('#bullets ul').append(' <li><img src="images/bullet.png" /></li>')
+	    $('#bullets ul').append(' <li><img src="/images/bullet.png" /></li>')
 	}
 	$('#header_banner .banner').fadeOut(0)
 	$('#header_banner .banner:first').addClass('primeiro');

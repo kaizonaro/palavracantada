@@ -22,7 +22,8 @@ namespace BrincaderiasMusicais
 
         protected void Page_Load(object sender, EventArgs e)
         {
-          /*  try
+
+            try
             {
                 objUtils = new utils();
                 objBD = new bd();
@@ -30,57 +31,33 @@ namespace BrincaderiasMusicais
 
                 switch (acao)
                 {
-                    case "FazerLogin":
-                        FazerLogin();
-                        break;
-                    
                     default:
                         PopularBlog();
-                        PopularVideos();
+                        //PopularVideos();
                         break;
                 }
+
+
+                if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1)
+                {
+                    //LOGADO
+                    pBlog.InnerHtml = "Blog Regional- << " + Session["nomeInstituicao"] + " >>";
+                }
+                else
+                {
+                    //DESLOGADO
+                    pBlog.InnerHtml = "Blog brincadeiras musicais:<em>(posts Recentes)</em>";
+                }
+
             }
             catch (Exception ex)
             {
                 objUtils.Feedbacker(ex);
                 throw;
-            }*/    
+            }
         }
 
-        /*  public void FazerLogin()
-          {
-           
-              rsLogin = objBD.ExecutaSQL("EXEC site_psUsuarioPorEmaileSenha '" + objUtils.TrataSQLInjection(Request["email"]) + "','" + objUtils.TrataSQLInjection(objUtils.getMD5Hash(Request["senha"])) + "'");
-
-              if (rsLogin == null)
-              {
-                  throw new Exception();
-              }
-              if (rsLogin.HasRows)
-              {
-                  rsLogin.Read();
-                  //Salvar as Session do usuário
-                  Session["nomeUsuario"] = rsLogin["USU_NOME"].ToString();
-                  Session["nomeInstituicao"] = rsLogin["RED_TITULO"].ToString();
-                  Session["redeID"] = rsLogin["RED_ID"].ToString();
-
-                  //Salva no log
-                  objBD.ExecutaSQL("EXEC psLog '" + rsLogin["USU_ID"] + "',null,'Login efetuado no sistema'");
-
-                  //Redereciona para a "home" logada
-                  Response.Redirect("/rede/" + objUtils.GerarURLAmigavel(rsLogin["RED_TITULO"].ToString()));
-                  Response.End();
-              }
-              else
-              {
-                  Response.Redirect("/");
-              }
-
-              rsLogin.Dispose();
-              rsLogin.Close();
-           
-          }
-
+        
           public void PopularBlog()
           {
               rsBlog = objBD.ExecutaSQL("EXEC site_psPostBlog");
@@ -93,17 +70,18 @@ namespace BrincaderiasMusicais
               {
                   while (rsBlog.Read())
                   {
-                      divBlog.InnerHtml += "<img src='upload/imagens/blog/cropadas/" + rsBlog["POS_IMAGEM"].ToString() + "'>";
-                      divBlog.InnerHtml += "<strong>"+rsBlog["POS_TITULO"].ToString()+"</strong>";
-                      divBlog.InnerHtml += "<p>" + objUtils.CortarString(true,110,rsBlog["POS_TEXTO"].ToString()) + "</p>";
-                      divBlog.InnerHtml += "<p><a href='javascript:void(0);'>LEIA MAIS</a></p>";
+                    ulPost.InnerHtml += " <li><a href=\"javascript:void(0)\" title=\"Titulo da postagem\"><img src='/upload/imagens/blog/cropadas/" + rsBlog["POS_IMAGEM"].ToString() + "'></a>";
+                    ulPost.InnerHtml += "   <p class=\"titu_post_home\"><a href=\"javascript:void(0)\">" + rsBlog["POS_TITULO"].ToString() + "</a></p>";
+                    ulPost.InnerHtml += "   <p class=\"desc_post_home\"><a href=\"javascript:void(0)\">" + objUtils.CortarString(true, 110, rsBlog["POS_TEXTO"].ToString()) + "</a></p>";
+                    ulPost.InnerHtml += "   <a href=\"javascript:void(0)\" class=\"btn\">LEIA MAIS</a>";
+                    ulPost.InnerHtml += " </li>";
                   }
               }
 
               rsBlog.Dispose();
               rsBlog.Close();
           }
-
+ /* 
           public void PopularVideos()
           {
               rsVideo = objBD.ExecutaSQL("EXEC site_psVideoHome");
