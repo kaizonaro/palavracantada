@@ -24,8 +24,8 @@ namespace Etnia.classe
         private Byte[] Byte10 = { 10 };
         private Byte[] Byte13 = { 13 };
         private Byte[] Travessao = { 196 };
-        private OleDbDataReader rsIdioma;
         private bd objBD;
+        private OleDbDataReader rsIdioma, rsToken;
         private String[] Textos, Imagens, Links;
         private string TipoImagem;
         public String[] TextosExibe, ImagensExibe, LinksTextoExibe, LinksImagemExibe;
@@ -41,14 +41,15 @@ namespace Etnia.classe
         private string LinkRSS = "", DataRSS = "";
         private int i, TotalItens;
 
-       public int GerarTokenAcesso()
+        public int GerarTokenAcesso()
         {
             int accessToken = 0;
             while (accessToken == 0)
             {
                 Random newToken = new Random();
-                accessToken = newToken.Next(1111, 99999);
-                OleDbDataReader rsToken = objBD.ExecutaSQL("SELECT TOK_TOKEN FROM TokenUsuario WHERE TOK_TOKEN = " + accessToken);
+                accessToken = newToken.Next(1111, 999999);
+
+                rsToken = objBD.ExecutaSQL("SELECT TOK_TOKEN FROM TokenUsuario WHERE TOK_TOKEN = " + accessToken);
                 if (rsToken == null)
                 {
                     throw new Exception();
@@ -85,7 +86,7 @@ namespace Etnia.classe
             objEmail.Subject = "Erro: " + erro.Source + " @ " + System.IO.Path.GetFileName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
             //Define o corpo do e-mail.
-            objEmail.Body = "Erro de execução no site: " + System.IO.Path.GetFileName(System.Reflection.Assembly.GetExecutingAssembly().Location) +  "<BR><BR> " + erro.Source +"<BR>" + erro.Message;
+            objEmail.Body = "Erro de execução no site: " + System.IO.Path.GetFileName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "<BR><BR> " + erro.Source + "<BR>" + erro.Message;
 
             //Para evitar problemas de caracteres "estranhos", configuramos o charset para "ISO-8859-1"
             objEmail.SubjectEncoding = System.Text.Encoding.GetEncoding("ISO-8859-1");
@@ -108,8 +109,9 @@ namespace Etnia.classe
                 objSmtp.Send(objEmail);
                 return true;
             }
-            catch { 
-                return false; 
+            catch
+            {
+                return false;
             }
             finally
             {
