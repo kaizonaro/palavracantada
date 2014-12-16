@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -33,7 +34,7 @@ namespace BrincaderiasMusicais.administracao
                         break;
                     default:
                         PopulaLista();
-                       // UsuarioMassa(5);
+                      
                         break;
                 }
             }
@@ -100,13 +101,47 @@ namespace BrincaderiasMusicais.administracao
         }
 
 
-       
+
+        public void gravarRede()
+        {
+             try
+            {
+                rsRedes = objBD.ExecutaSQL("EXEC admin_piuRedes '" + Request["RED_ID"] + "','" + Request["RED_TITULO"] + "', '" + Request["RED_CIDADE"] + "','" + Request["RED_UF"] + "'");
+
+                if (rsRedes == null)
+                {
+                    throw new Exception();
+                }
+
+                if (rsRedes.HasRows)
+                {
+                    rsRedes.Read();
+                    UsuarioMassa(Convert.ToInt32(Request["USU_MASSA"].ToString()), Convert.ToInt32(rsGravaUsuario["RED_ID"].ToString()));
+                }
+
+                //Libera o BD e Memória
+                rsRedes.Close();
+                rsRedes.Dispose();
+
+                //Retornar para a Listagem
+                Response.Redirect("redes.aspx");
+                Response.End();
+                
+            }
+            catch (Exception)
+            {                
+                throw;
+            }
+
+        }
+     
+        
 
         public void UsuarioMassa(int quantidade, int RED_ID)
         {
             for (int i = 0; i < quantidade; i++)
             {
-                rsGravaUsuario = objBD.ExecutaSQL("EXEC admin_piuUsuario '" + 0 + "','" + RED_ID + "', 'user" + i +"'");
+                rsGravaUsuario = objBD.ExecutaSQL("EXEC admin_piuUsuario '" + 0 + "','" + RED_ID + "', 'usuario_" + i +"', '', 'e10adc3949ba59abbe56e057f20f883e'" );
 
                 if (rsGravaUsuario == null)
                 {
@@ -115,8 +150,10 @@ namespace BrincaderiasMusicais.administracao
 
                 if (rsGravaUsuario.HasRows)
                 {
-                    rsGravaUsuario.Read();
-                    rsGravaUsuario = objBD.ExecutaSQL("INSERT INTO TokenUsuario (USU_ID, TOK_TOKEN) values '" + rsGravaUsuario["USU_ID"] + "','" + objUtils.GerarTokenAcesso() + "'");
+                    while (rsGravaUsuario.Read())
+                    {
+                        objBD.ExecutaSQL("INSERT INTO TokenUsuario (USU_ID, TOK_TOKEN) values (" + rsGravaUsuario["USU_ID"] + ", " + objUtils.GerarTokenAcesso() + ")");
+                    }
                 }
 
             }

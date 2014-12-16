@@ -50,10 +50,10 @@
                                 </div>
                                 <div class="form_table">
                                 	<form class="inc_form form" name="incluir">
-                                    	<p>campo:*</p>
+                                    	<p>Nome da Rede</p>
                                 		<input type="text" name="exemplo" class="input error" placeholder="exemplo">
-                                        <p>campo:*</p>
-                                        <input type="text" class="input"  placeholder="exemplo"/>
+                                        <p>Quantidade de Usuarios</p>
+                                        <input type="number" class="input sonumero"  placeholder="exemplo"/>
                                         <p>campo:*</p>
                                         <input type="text" class="input"  placeholder="exemplo"/>
                                         <div class="box_check">
