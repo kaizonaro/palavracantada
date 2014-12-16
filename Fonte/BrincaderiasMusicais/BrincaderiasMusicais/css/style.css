@@ -105,9 +105,9 @@ header {padding-top:20px;}
 /*GALERIA HOME*/
 .galeria_home{width:100%;height:233px;background:url(../images/bg_galeria_home.png) no-repeat center center;background-size:cover;padding:20px 40px;display:inline-block;margin-top:20px;margin-bottom:30px;}
 .galeria_home .titu{width:100%;display:inline-block;color:#ae080f;background:url(/images/titu_galeria_home.png) no-repeat left center;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;text-transform:uppercase;font-weight:bold;padding:10px 0px;text-align:left;padding-left:38px;}
-.ops_galeria .ativo{text-decoration:underline;}
+.ops_galeria .ativo{border-bottom:2px solid #ae080f;}
 .ops_galeria{color:#ae080f;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;text-transform:uppercase;font-weight:bold;float:right;}
-.ops_galeria b{margin-left:20px;cursor:pointer;}
+.ops_galeria b{margin-left:20px;cursor:pointer;display:inline-block;}
 .galeria_home ul {width:100%;}
 .galeria_home ul li{width:22%;margin:1%;display:inline-block}
 .galeria_home ul li img{margin:0 auto;width:196px;height:110px}
