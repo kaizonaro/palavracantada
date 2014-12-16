@@ -91,7 +91,7 @@ header {padding-top:20px;}
 
 /*BLOG HOME*/
 .blog_home {width:540px;height:319px;background:url(../images/bg_blog_home.png) no-repeat center center;background-size:cover;padding:30px;float:left;}
-.blog_home .titu{width:100%;display:inline-block;color:#736d9b;background:url(/images/titu_blog_home.png) no-repeat left center;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;text-transform:uppercase;font-weight:bold;padding:10px 0px}
+.blog_home .titu{width:100%;display:inline-block;color:#736d9b;background:url(/images/titu_blog_home.png) no-repeat left center;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;text-transform:uppercase;font-weight:bold;padding:10px 5px}
 .blog_home .titu em {font-weight: normal;float: right;font-size: 14px;}
 .posts_home {width:100%;}
 .posts_home li{width:30%;margin:1%;color:#68455b;display:inline-block;margin-top:0}
@@ -101,11 +101,14 @@ header {padding-top:20px;}
 .desc_post_home{font-family:Arial,sans-serif;font-size:11px; text-align:justify;}
 .posts_home li .btn{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color:#fff;background:url(/images/menu3.png) no-repeat;width: 70px;height: 26px;display: inline-block;line-height: 26px;background-size: cover;float: right;margin-top: 7px;}
 @-moz-document url-prefix() {.blog_home .titu{padding-left: 18px;}}
+ @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+  .blog_home .titu{padding-left: 25px;}
+} 
 
 /*GALERIA HOME*/
 .galeria_home{width:100%;height:233px;background:url(../images/bg_galeria_home.png) no-repeat center center;background-size:cover;padding:20px 40px;display:inline-block;margin-top:20px;margin-bottom:30px;}
 .galeria_home .titu{width:100%;display:inline-block;color:#ae080f;background:url(/images/titu_galeria_home.png) no-repeat left center;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;text-transform:uppercase;font-weight:bold;padding:10px 0px;text-align:left;padding-left:38px;}
-.ops_galeria .ativo{border-bottom:2px solid #ae080f;}
+.ops_galeria .ativo{border-bottom:2px solid #ae080f; }
 .ops_galeria{color:#ae080f;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;text-transform:uppercase;font-weight:bold;float:right;}
 .ops_galeria b{margin-left:20px;cursor:pointer;display:inline-block;}
 .galeria_home ul {width:100%;}
