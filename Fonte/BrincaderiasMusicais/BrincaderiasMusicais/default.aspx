@@ -14,7 +14,6 @@
 
     <brincadeira:script runat="server" ID="script" />
 
-
 </head>
 <body>
 
@@ -29,29 +28,31 @@
     <!-- CONTEUDO-->
     <section class="all">
         <div class="all_center">
+
+            <!--BLOG-->
             <div class="blog_home">
-                <p class="titu" runat="server" id="pBlog">
-                    <!-- if logado BLOG REGIONAL - << NOME DA REGIÃO >> else -->
-                </p>
-                <ul class="posts_home" id="ulPost" runat="server">
-                   
-                </ul>
+                <p class="titu" runat="server" id="pBlog"> </p>    
+                <ul class="posts_home" id="ulPost" runat="server"> </ul>
             </div>
+
             <!--BOX LOGIN-->
             <brincadeira:login runat="server" ID="login" />
-            <!--FIM DO BOX LOGIN-->
-
+            
             <!--GALERIA-->
             <div class="galeria_home">
+                
                 <div class="titu">GALERIA COLABORATIVA BRINCADEIRAS MUSICAIS:
                     <div class="ops_galeria"><b class="ativo">
                         <img src="/images/icone_foto.png" alt="icone de camera fotografica" />
                         Fotos</b> <b>
-                            <img src="/images/icone_video.png" alt="icone de filmadora" />
-                            Vídeo</b></div>
+                        <img src="/images/icone_video.png" alt="icone de filmadora" />
+                        Vídeo</b>
+                    </div>
                 </div>
-                <ul class="fotos_home">
-                    <li>
+
+                <!-- FOTOS -->
+                <ul class="fotos_home" id="ulFotos" runat="server">
+                  <li>
                         <a href="galeria.jpg">
                             <img src="/images/thumb_galeria.jpg" alt="Imagem X" /></a>
                         <p>:: LEGANDA DA FOTO 001 ::</p>
@@ -72,28 +73,10 @@
                         <p>:: LEGANDA DA FOTO 004 ::</p>
                     </li>
                 </ul>
-                <ul class="videos_home">
-                    <li>
-                        <a href="CaTXgmHyMSk">
-                            <img src="/images/thumb_galeria.jpg" alt="Vídeo X" /></a>
-                        <p>:: titulo Do video 001 ::</p>
-                    </li>
-                    <li>
-                        <a href="IkNeY5S_BKk">
-                            <img src="/images/thumb_galeria.jpg" alt="Vídeo X" /></a>
-                        <p>:: titulo Do video 002 ::</p>
-                    </li>
-                    <li>
-                        <a href="CaTXgmHyMSk">
-                            <img src="/images/thumb_galeria.jpg" alt="Vídeo X" /></a>
-                        <p>:: titulo Do video 003 ::</p>
-                    </li>
-                    <li>
-                        <a href="IkNeY5S_BKk">
-                            <img src="/images/thumb_galeria.jpg" alt="Vídeo X" /></a>
-                        <p>:: titulo Do video 004 ::</p>
-                    </li>
-                </ul>
+
+                <!-- VIDEOS -->
+                <ul class="videos_home" id="ulVideos" runat="server"></ul>
+
             </div>
             <!--FIM DA GALERIA-->
         </div>

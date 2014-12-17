@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLogin, rsBlog, rsVideo;
+        private OleDbDataReader rsBlog, rsVideo;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,8 +32,8 @@ namespace BrincaderiasMusicais
                 switch (acao)
                 {
                     default:
-                        PopularBlog();
-                        //PopularVideos();
+                        PopularBlog(Convert.ToInt16(Session["redeID"]));
+                        PopularVideos(Convert.ToInt16(Session["redeID"]));
                         break;
                 }
 
@@ -57,10 +57,9 @@ namespace BrincaderiasMusicais
             }
         }
 
-        
-          public void PopularBlog()
+        public void PopularBlog(int RED_ID)
           {
-              rsBlog = objBD.ExecutaSQL("EXEC site_psPostBlog");
+              rsBlog = objBD.ExecutaSQL("EXEC site_psPostBlog " + RED_ID + " ");
 
               if (rsBlog == null)
               {
@@ -81,10 +80,10 @@ namespace BrincaderiasMusicais
               rsBlog.Dispose();
               rsBlog.Close();
           }
- /* 
-          public void PopularVideos()
+
+        public void PopularVideos(int RED_ID)
           {
-              rsVideo = objBD.ExecutaSQL("EXEC site_psVideoHome");
+              rsVideo = objBD.ExecutaSQL("EXEC site_psVideo  " + RED_ID + " ");
 
               if (rsVideo == null)
               {
@@ -94,12 +93,17 @@ namespace BrincaderiasMusicais
               {
                   while (rsVideo.Read())
                   {
-                      divVideos.InnerHtml += "<img src='" + rsVideo["GVI_IMAGEM"].ToString() + "' aria-hidden=\"true\" width=\"196\"> &nbsp;";
+                    ulVideos.InnerHtml += " <li>";
+                    ulVideos.InnerHtml += "     <a href=\"" + rsVideo["GVI_LINK"].ToString() + "\">";
+                    ulVideos.InnerHtml += "         <img src=\"" + rsVideo["GVI_IMAGEM"].ToString() + "\" alt=\"" + rsVideo["GVI_TITULO"].ToString() + "\" />";
+                    ulVideos.InnerHtml += "     </a>";
+                    ulVideos.InnerHtml += "     <p>:: " + rsVideo["GVI_TITULO"].ToString() + " ::</p>";
+                    ulVideos.InnerHtml +=  " </li>";
                   }
               }
 
               rsVideo.Dispose();
               rsVideo.Close();
-          }*/
+          }
     }
 }
