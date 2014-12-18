@@ -31,7 +31,7 @@
 
             <!--BLOG-->
             <div class="blog_home">
-                <p class="titu" runat="server" id="pBlog"><img src="images/titu_blog_home.png" /> </p>    
+                <p class="titu" runat="server" id="pBlog"> </p>    
                 <ul class="posts_home" id="ulPost" runat="server"> </ul>
             </div>
 
