@@ -53,7 +53,7 @@
 
                 <!-- FOTOS -->
                 <ul class="fotos_home" id="ulFotos" runat="server">
-                  <li>
+                  <!--<li>
                         <a href="galeria.jpg">
                             <img src="/images/thumb_galeria.jpg" alt="Imagem X" /></a>
                         <p>:: LEGANDA DA FOTO 001 ::</p>
@@ -72,7 +72,7 @@
                         <a href="galeria2.jpg">
                             <img src="/images/thumb_galeria.jpg" alt="Imagem X" /></a>
                         <p>:: LEGANDA DA FOTO 004 ::</p>
-                    </li>
+                    </li>-->
                 </ul>
 
                 <!-- VIDEOS -->

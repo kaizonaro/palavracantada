@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsBlog, rsVideo;
+        private OleDbDataReader rsBlog, rsVideo, rsVFoto;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,6 +34,7 @@ namespace BrincaderiasMusicais
                     default:
                         PopularBlog(Convert.ToInt16(Session["redeID"]));
                         PopularVideos(Convert.ToInt16(Session["redeID"]));
+                        PopularFotos(Convert.ToInt16(Session["redeID"]));
                         break;
                 }
 
@@ -105,5 +106,34 @@ namespace BrincaderiasMusicais
               rsVideo.Dispose();
               rsVideo.Close();
           }
+
+        public void PopularFotos(int RED_ID)
+          {
+              rsVFoto = objBD.ExecutaSQL("EXEC site_psFoto  " + RED_ID + " ");
+
+              if (rsVFoto == null)
+              {
+                  throw new Exception();
+              }
+              if (rsVFoto.HasRows)
+              {
+                  while (rsVFoto.Read())
+                  {
+                    ulFotos.InnerHtml += " <li>";
+                    ulFotos.InnerHtml += "     <a href=\"/upload/imagens/galeria/ampliada/" + rsVFoto["GFO_IMAGEM"].ToString() + "\">";
+                    ulFotos.InnerHtml += "         <img src=\"/upload/imagens/galeria/" + rsVFoto["GFO_IMAGEM"].ToString() + "\" alt=\" " + rsVFoto["GFO_LEGENDA"].ToString() + "\" /></a>";
+                    ulFotos.InnerHtml += "     </a>";
+                    ulFotos.InnerHtml += "     <p>:: " + rsVFoto["GFO_LEGENDA"].ToString() + " ::</p>";
+                    ulFotos.InnerHtml += " </li>";
+                  }
+              }
+
+              rsVFoto.Dispose();
+              rsVFoto.Close();
+          }
     }
 }
+
+                        
+                            
+                        
