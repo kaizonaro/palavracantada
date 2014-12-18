@@ -65,7 +65,7 @@ header {padding-top:20px;}
 .box_login{width:372px;height:150px;background:url(../images/bg_login.png) no-repeat center center;background-size:cover;padding:21px}
 .box_login p{color:#000;font-family:Arial, sans-serif;font-weight:bold;font-size:12px;margin-bottom:20px}
 .form_login{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color:#68455b;}
-.form_login label{font-weight:bold;font-size:12px;text-transform:uppercase;margin-right:3px}
+.form_login label{font-weight:bold;font-size:12px;text-transform:uppercase;margin-right:2px}
 .form_login .input{border:1px solid #B8B6B6;width:100px;height:25px;-webkit-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);-moz-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);margin-right: 10px;}
 .form_login .btn{color:#fff;background:url(../images/btn_entrar.png) no-repeat center center;background-size:cover;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;width:87px;height:32px;text-align: right;padding-right: 7px;float:right;margin-right:15px;cursor:pointer;}
 .form_login .link{color:#525252;text-decoration:underline;font-size:9px;font-family:Arial, sans-serif;float:left;margin-right:10px;margin-top:5px}
