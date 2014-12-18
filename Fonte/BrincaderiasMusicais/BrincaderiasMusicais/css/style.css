@@ -56,9 +56,9 @@ header {padding-top:20px;}
 .banner{position:absolute;}
 
 /*sociais*/
-#twitter-widget-0{width:200px;height: 22px;margin-top: 6px;margin-left:30px}
+#twitter-widget-0{width:189px;height: 22px;margin-top: 6px;margin-left:30px}
 .sociais li{display: inline;}
-.sociais{float: right;height: 25px;line-height: 4px;}
+.sociais{float: right;height: 25px;line-height: 4px;width:375px;}
 
 /*SIDEBAR*/
 #sidebar{float:right;width:372px}
@@ -108,7 +108,7 @@ header {padding-top:20px;}
 
 /*GALERIA HOME*/
 .galeria_home{width:100%;height:233px;background:url(../images/bg_galeria_home.png) no-repeat center center;background-size:cover;padding:20px 40px;display:inline-block;margin-top:20px;margin-bottom:30px;}
-.galeria_home .titu{width:100%;display:inline-block;color:#ae080f;background:url(/images/titu_galeria_home.png) no-repeat left center;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;text-transform:uppercase;font-weight:bold;padding:10px 0px;text-align:left;padding-left:38px;}
+.galeria_home .titu{width:100%;display:inline-block;color:#ae080f;background:url(/images/titu_galeria_home.png) no-repeat left center;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;text-transform:uppercase;font-weight:bold;padding:10px 0px;text-align:left;padding-left:38px;padding-bottom:0}
 .ops_galeria .ativo{border-bottom:2px solid #ae080f; }
 .ops_galeria{color:#ae080f;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;text-transform:uppercase;font-weight:bold;float:right;}
 .ops_galeria b{margin-left:20px;cursor:pointer;display:inline-block;}
