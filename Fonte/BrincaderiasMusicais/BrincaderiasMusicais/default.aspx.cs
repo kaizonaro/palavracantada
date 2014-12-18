@@ -41,12 +41,12 @@ namespace BrincaderiasMusicais
                 if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1)
                 {
                     //LOGADO
-                    pBlog.InnerHtml = "Blog Regional- << " + Session["nomeInstituicao"] + " >>";
+                    pBlog.InnerHtml = "<img src='images/titu_blog_home.png' />Blog Regional- << " + Session["nomeInstituicao"] + " >>";
                 }
                 else
                 {
                     //DESLOGADO
-                    pBlog.InnerHtml = "Blog brincadeiras musicais:<em>(posts Recentes)</em>";
+                    pBlog.InnerHtml = "<img src='images/titu_blog_home.png' />Blog brincadeiras musicais:<em>(posts Recentes)</em>";
                 }
 
             }
