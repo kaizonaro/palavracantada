@@ -6,12 +6,13 @@ $(document).ready(function () {
 	//exibe a pg depois que carregada
 	//$('body').hide();	
 		
-	/*window.onload=function(){		
-	    $('body').fadeIn();
-	    $('#mask').fadeIn(300);
-        $('#modal').fadeIn(400)
-	    twitter();
-	}*/
+	window.onload=function(){		
+	   // $('body').fadeIn();
+	   // $('#mask').fadeIn(300);
+      //  $('#modal').fadeIn(400)
+	    // twitter();
+	    $('#twitter-widget-0').removeAttr('style')
+	}
 	
     //BANNER
 
