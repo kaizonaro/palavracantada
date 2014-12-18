@@ -298,7 +298,7 @@ namespace Etnia.classe
 
         public string GerarURLAmigavel(string texto)
         {
-            string s = texto.Normalize(NormalizationForm.FormD);
+            string s = RemoverAcentos(texto.Normalize(NormalizationForm.FormD));
 
             StringBuilder sb = new StringBuilder();
 
@@ -310,7 +310,7 @@ namespace Etnia.classe
                     sb.Append(s[k]);
                 }
             }
-            return sb.ToString().ToLower().Replace(" ", "-");
+            return sb.ToString().ToLower().Replace(" ", "-").Replace(".", "").Replace(",", "").Replace("?", "");
         }
 
         public string RemoverAcentos(string texto)
