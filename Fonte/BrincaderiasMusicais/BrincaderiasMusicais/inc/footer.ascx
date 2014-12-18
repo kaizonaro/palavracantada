@@ -7,29 +7,29 @@
         <p class="titu">:: REDES SOCIAIS OFICIAIS DO PROJETO BRINCADEIRAS MUSICAIS DA PALAVRA CANTADA ::</p>
         <ul class="redes">
             <li>
-                <a href="#" target="_blank">
+                <a href="https://www.facebook.com/brincamusicais" target="_blank">
                     <img src="/images/face.png" /></a>
-                <a href="#" target="_blank">Facebook</a>
+                <a href="https://www.facebook.com/brincamusicais" target="_blank">Facebook</a>
             </li>
             <li>
-                <a href="#" target="_blank">
+                <a href="https://twitter.com/brincamusicais" target="_blank">
                     <img src="/images/tw.png" /></a>
-                <a href="#" target="_blank">twitter</a>
+                <a href="https://twitter.com/brincamusicais" target="_blank">twitter</a>
             </li>
             <li>
-                <a href="#" target="_blank">
+                <a href="https://www.youtube.com/channel/UCaDajiE_wPYRwshUw9RsQPA" target="_blank">
                     <img src="/images/you.png" /></a>
-                <a href="#" target="_blank">youtube</a>
+                <a href="https://www.youtube.com/channel/UCaDajiE_wPYRwshUw9RsQPA" target="_blank">youtube</a>
             </li>
             <li>
-                <a href="#" target="_blank">
+                <a href="http://instagram.com/brincamusicais" target="_blank">
                     <img src="/images/insta.png" /></a>
-                <a href="#" target="_blank">instagram</a>
+                <a href="http://instagram.com/brincamusicais" target="_blank">instagram</a>
             </li>
             <li>
-                <a href="#" target="_blank">
+                <a href="https://www.flickr.com/photos/brincamusicais/" target="_blank">
                     <img src="/images/fk.png" /></a>
-                <a href="#" target="_blank">Flickr</a>
+                <a href="https://www.flickr.com/photos/brincamusicais/" target="_blank">Flickr</a>
             </li>
         </ul>
         <div class="divisoria">
