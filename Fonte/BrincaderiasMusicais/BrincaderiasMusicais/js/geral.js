@@ -102,7 +102,7 @@ $(document).ready(function () {
 	    } else {
 	        $('#fotos .controles .right_galeria').removeClass('disabled');
 	    }
-	    $('#fotos .img_galeria').attr('src', 'images/' + img);
+	    $('#fotos .img_galeria').attr('src', img);
 	    $('#mask').fadeIn(200);
 	    $('#mask #fotos').fadeIn(400);
 	});
