@@ -13,7 +13,7 @@
     <title></title>
 
     <brincadeira:script runat="server" ID="script" />
-
+    
 </head>
 <body> 
 
@@ -52,28 +52,7 @@
                 </div>
 
                 <!-- FOTOS -->
-                <ul class="fotos_home" id="ulFotos" runat="server">
-                  <!--<li>
-                        <a href="galeria.jpg">
-                            <img src="/images/thumb_galeria.jpg" alt="Imagem X" /></a>
-                        <p>:: LEGANDA DA FOTO 001 ::</p>
-                    </li>
-                    <li>
-                        <a href="galeria2.jpg">
-                            <img src="/images/thumb_galeria.jpg" alt="Imagem X" /></a>
-                        <p>:: LEGANDA DA FOTO 002 ::</p>
-                    </li>
-                    <li>
-                        <a href="galeria.jpg">
-                            <img src="/images/thumb_galeria.jpg" alt="Imagem X" /></a>
-                        <p>:: LEGANDA DA FOTO 003 ::</p>
-                    </li>
-                    <li>
-                        <a href="galeria2.jpg">
-                            <img src="/images/thumb_galeria.jpg" alt="Imagem X" /></a>
-                        <p>:: LEGANDA DA FOTO 004 ::</p>
-                    </li>-->
-                </ul>
+                <ul class="fotos_home" id="ulFotos" runat="server"></ul>
 
                 <!-- VIDEOS -->
                 <ul class="videos_home" id="ulVideos" runat="server"></ul>

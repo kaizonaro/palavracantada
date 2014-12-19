@@ -20,6 +20,7 @@ namespace BrincaderiasMusicais
         private utils objUtils;
         private OleDbDataReader rsBlog, rsVideo, rsVFoto;
 
+       
         protected void Page_Load(object sender, EventArgs e)
         {
 

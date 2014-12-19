@@ -36,7 +36,7 @@
             <img src="/images/hr.png" />
         </div>
         <div class="copyright">
-            ::  Copyright 2014 © - Palavra Cantada e Editora Melhoramentos - Todos os direitos reservados  ::
+            ::  Copyright 2014 - 2015 © - Palavra Cantada e Editora Melhoramentos - Todos os direitos reservados  ::
         </div>
     </div>
 </footer>
