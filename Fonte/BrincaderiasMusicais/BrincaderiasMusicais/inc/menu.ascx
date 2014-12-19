@@ -2,7 +2,7 @@
 <nav id="menu" class="all">
     <div class="all_center">
         <ul class="menu">
-            <li class="conheca"><a href="#" title="Coneça">Conheça</a></li>
+            <li class="conheca"><a href="#" title="Coneça" class="menu_ativo">Conheça</a></li>
             <li class="explore"><a href="#" title="Explore">Explore</a></li>
             <li class="blog"><a href="#" title="Blog">Blog</a></li>
             <li class="contato"><a href="#" title="Contato">Contato</a></li>
