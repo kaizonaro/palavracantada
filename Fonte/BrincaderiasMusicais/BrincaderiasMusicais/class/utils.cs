@@ -122,6 +122,65 @@ namespace Etnia.classe
 
         }
 
+        public bool EnviaEmail(string destinatarios, string mensagem)
+        {
+
+            //Cria objeto com dados do e-mail.
+            MailMessage objEmail = new MailMessage();
+
+            //Define o Campo From e ReplyTo do e-mail.
+            objEmail.From = new System.Net.Mail.MailAddress("ADM Palavra Cantada" + "<" + Session["email"] + ">");
+            foreach (string pessoa in destinatarios.Split(Convert.ToChar(",")))
+            {
+                objEmail.To.Add(pessoa);
+            }
+
+            //objEmail.To.Add(Session["email"]);
+
+            //Define a prioridade do e-mail.
+            objEmail.Priority = System.Net.Mail.MailPriority.High;
+
+            //Define o formato do e-mail HTML (caso não queira HTML alocar valor false)
+            objEmail.IsBodyHtml = true;
+
+            //Define título do e-mail.
+            objEmail.Subject = "";
+
+            //Define o corpo do e-mail.
+            objEmail.Body = "";
+            //Para evitar problemas de caracteres "estranhos", configuramos o charset para "ISO-8859-1"
+            objEmail.SubjectEncoding = System.Text.Encoding.GetEncoding("ISO-8859-1");
+            objEmail.BodyEncoding = System.Text.Encoding.GetEncoding("ISO-8859-1");
+
+
+            // Anexa o arquivo a mensagemn
+            // objEmail.Attachments.Add(new Attachment("", System.Net.Mime.MediaTypeNames.Application.Octet));
+
+            //Cria objeto com os dados do SMTP
+            System.Net.Mail.SmtpClient objSmtp = new System.Net.Mail.SmtpClient();
+
+            //Alocamos o endereço do host para enviar os e-mails, localhost(recomendado) 
+            objSmtp.Host = "smtp.agenciaetnia.com.br";
+            objSmtp.Port = 587;
+            objSmtp.EnableSsl = false;
+            objSmtp.Credentials = new System.Net.NetworkCredential("contato@agenciaetnia.com.br", "Etnia123");
+            try
+            {
+                objSmtp.Send(objEmail);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            finally
+            {
+                //excluímos o objeto de e-mail da memória
+                objEmail.Dispose();
+            }
+
+        }
+
         public string Diretorio(string nomediretorio)
         {
             nomediretorio = "/" + nomediretorio.Replace("/", "").Replace("\\", "");
