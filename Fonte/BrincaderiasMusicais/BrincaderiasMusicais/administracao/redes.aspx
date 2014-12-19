@@ -62,7 +62,7 @@
                                         <input type="number" class="input sonumero obg"  placeholder="exemplo" id="USU_MASSA" name="USU_MASSA"/>
                                         <p>
                                     		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
-                                            <input type="submit" value="Filtrar" class="btn_form" formmethod="get" />
+                                            <input type="submit" value="Incluir" class="btn_form" formmethod="get" />
                                			</p>
                                     </form>
                                 </div>

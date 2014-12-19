@@ -28,15 +28,15 @@ namespace BrincaderiasMusicais.administracao
                 {
                     case ("gravarRede"):
                         gravarRede();
-                         Response.Redirect("redes.aspx");
-               
+                        Response.Redirect("redes.aspx", false);
+
                         break;
                     case ("excluirRede"):
                         //excluirRede();
                         break;
                     default:
                         PopulaLista();
-                      
+
                         break;
                 }
             }
@@ -106,7 +106,7 @@ namespace BrincaderiasMusicais.administracao
 
         public void gravarRede()
         {
-             try
+            try
             {
                 rsRedes = objBD.ExecutaSQL("EXEC admin_piuRedes '" + Request["RED_ID"] + "','" + Request["RED_TITULO"] + "', '" + Request["RED_CIDADE"] + "','" + Request["RED_UF"] + "'");
 
@@ -118,31 +118,33 @@ namespace BrincaderiasMusicais.administracao
                 if (rsRedes.HasRows)
                 {
                     rsRedes.Read();
-                    UsuarioMassa(Convert.ToInt32(Request["USU_MASSA"].ToString()), Convert.ToInt32(rsRedes["RED_ID"].ToString()));
+                    UsuarioMassa(Convert.ToInt32(Request["USU_MASSA"].ToString()), Convert.ToInt32(rsRedes["RED_ID"].ToString()), Request["RED_TITULO"]);
                 }
 
                 //Libera o BD e Memória
                 rsRedes.Close();
                 rsRedes.Dispose();
-
-               
-               
                 
+
+
+
+
             }
             catch (Exception)
-            {                
+            {
                 throw;
             }
 
         }
-     
-        
 
-        public void UsuarioMassa(int quantidade, int RED_ID)
+
+
+        public void UsuarioMassa(int quantidade, int RED_ID, string RED_TITULO)
         {
+            string mensagemtokens = "Lista de Tokens da Rede: " + RED_TITULO +"<br><ol>";
             for (int i = 0; i < quantidade; i++)
             {
-                rsGravaUsuario = objBD.ExecutaSQL("EXEC admin_piuUsuario '" + 0 + "','" + RED_ID + "', 'usuario_" + i +"', '', 'e10adc3949ba59abbe56e057f20f883e'" );
+                rsGravaUsuario = objBD.ExecutaSQL("EXEC admin_piuUsuario '" + 0 + "','" + RED_ID + "', 'usuario_" + i + "', '', 'e10adc3949ba59abbe56e057f20f883e'");
 
                 if (rsGravaUsuario == null)
                 {
@@ -151,13 +153,15 @@ namespace BrincaderiasMusicais.administracao
 
                 if (rsGravaUsuario.HasRows)
                 {
-                    while (rsGravaUsuario.Read())
-                    {
-                        objBD.ExecutaSQL("INSERT INTO TokenUsuario (USU_ID, TOK_TOKEN) values (" + rsGravaUsuario["USU_ID"] + ", " + objUtils.GerarTokenAcesso() + ")");
-                    }
+                    rsGravaUsuario.Read();
+                    int accestoken = objUtils.GerarTokenAcesso();
+                    objBD.ExecutaSQL("INSERT INTO TokenUsuario (USU_ID, TOK_TOKEN) values (" + rsGravaUsuario["USU_ID"] + ", " + accestoken + ")");
+                    mensagemtokens += "<li><a href=\"http://urlficticia/login?user=usuario_" + i + "accesstoken=" + accestoken + "\">Token: " + accestoken + " Usuário: usuario_" + i + "<br>";
                 }
 
             }
+            mensagemtokens += "</ol>";
+            objUtils.EnviaEmail("zonaro@outlook.com,kaizonaroproject@outlook.com,gabriel.zonaro@misasi.com.br", "Tokens de Acesso: " + RED_TITULO, mensagemtokens);
         }
     }
 }
