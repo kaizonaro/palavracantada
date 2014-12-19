@@ -4,6 +4,7 @@
 <%@ Register Src="~/inc/header.ascx" TagPrefix="brincadeira" TagName="header" %>
 <%@ Register Src="~/inc/footer.ascx" TagPrefix="brincadeira" TagName="footer" %>
 <%@ Register Src="~/inc/menu.ascx" TagPrefix="brincadeira" TagName="menu" %>
+<%@ Register Src="~/inc/blog.ascx" TagPrefix="brincadeira" TagName="blog" %>
 <%@ Register Src="~/inc/login.ascx" TagPrefix="brincadeira" TagName="login" %>
 
 <!DOCTYPE html>
@@ -52,31 +53,7 @@
             <brincadeira:login runat="server" ID="login" />
 
             <!--BLOG-->
-            <div class="blog_interna">
-                <img src="/images/blog_interna.png" class="titu" />
-                <p class="titu">
-                    BLOG BRINCADEIRAS MUSICAIS<br />
-                    (PUBLICAÇÕES RECENTES)
-                </p>
-                <ul id="ulPost" class="posts_interna">
-                    <li><a href="post/vai-o-titulo-do-seguno--post" title="Titulo da postagem">
-                        <img src="/upload/imagens/blog/cropadas/img_blog_home.jpg"></a>
-                        <p class="titu_post_interna"><a href="post/vai-o-titulo-do-seguno--post">TÍTULO DO SEGUNO  POST.</a></p>
-                        <p class="desc_post_interna"><a href="post/vai-o-titulo-do-seguno--post">Lorem ipsum doren est signat magna est lorem ipsum doren non signat doren lorem signat magna est lorem es...</a></p>
-                        <a href="post/vai-o-titulo-do-seguno--post" class="btn">LEIA MAIS</a> </li>
-                    <li><a href="post/vai-o-titulo-do-terceiro--post" title="Titulo da postagem">
-                        <img src="/upload/imagens/blog/cropadas/img_blog_home.jpg"></a>
-                        <p class="titu_post_interna"><a href="post/vai-o-titulo-do-terceiro--post">TÍTULO DO TERCEIRO  POST.</a></p>
-                        <p class="desc_post_interna"><a href="post/vai-o-titulo-do-terceiro--post">Lorem ipsum doren est signat magna est lorem ipsum doren non signat doren lorem signat magna est lorem es...</a></p>
-                        <a href="post/vai-o-titulo-do-terceiro--post" class="btn">LEIA MAIS</a> </li>
-
-                    <li><a href="post/vai-o-titulo-do-terceiro--post" title="Titulo da postagem">
-                        <img src="/upload/imagens/blog/cropadas/img_blog_home.jpg"></a>
-                        <p class="titu_post_interna"><a href="post/vai-o-titulo-do-terceiro--post">TÍTULO DO TERCEIRO  POST.</a></p>
-                        <p class="desc_post_interna"><a href="post/vai-o-titulo-do-terceiro--post">Lorem ipsum doren est signat magna est lorem ipsum doren non signat doren lorem signat magna est lorem es...</a></p>
-                        <a href="post/vai-o-titulo-do-terceiro--post" class="btn">LEIA MAIS</a> </li>
-                </ul>
-            </div>
+            <brincadeira:blog runat="server" ID="blog" />
 
         </div>
     </section>
