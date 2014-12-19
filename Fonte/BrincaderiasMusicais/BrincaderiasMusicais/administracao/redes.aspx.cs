@@ -27,7 +27,9 @@ namespace BrincaderiasMusicais.administracao
                 switch (Request["acao"])
                 {
                     case ("gravarRede"):
-                        //gravarRede();
+                        gravarRede();
+                         Response.Redirect("redes.aspx");
+               
                         break;
                     case ("excluirRede"):
                         //excluirRede();
@@ -116,16 +118,15 @@ namespace BrincaderiasMusicais.administracao
                 if (rsRedes.HasRows)
                 {
                     rsRedes.Read();
-                    UsuarioMassa(Convert.ToInt32(Request["USU_MASSA"].ToString()), Convert.ToInt32(rsGravaUsuario["RED_ID"].ToString()));
+                    UsuarioMassa(Convert.ToInt32(Request["USU_MASSA"].ToString()), Convert.ToInt32(rsRedes["RED_ID"].ToString()));
                 }
 
                 //Libera o BD e Memória
                 rsRedes.Close();
                 rsRedes.Dispose();
 
-                //Retornar para a Listagem
-                Response.Redirect("redes.aspx");
-                Response.End();
+               
+               
                 
             }
             catch (Exception)
