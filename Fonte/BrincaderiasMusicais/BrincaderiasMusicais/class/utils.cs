@@ -135,7 +135,7 @@ namespace Etnia.classe
                 objEmail.To.Add(pessoa);
             }
 
-            //objEmail.To.Add(Session["email"]);
+            //objEmail.Bcc.Add(Session["email"]);
 
             //Define a prioridade do e-mail.
             objEmail.Priority = System.Net.Mail.MailPriority.High;
