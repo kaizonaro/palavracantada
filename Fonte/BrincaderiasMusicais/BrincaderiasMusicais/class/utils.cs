@@ -122,7 +122,7 @@ namespace Etnia.classe
 
         }
 
-        public bool EnviaEmail(string destinatarios, string mensagem)
+        public bool EnviaEmail(string destinatarios, string assunto, string mensagem)
         {
 
             //Cria objeto com dados do e-mail.
@@ -144,10 +144,10 @@ namespace Etnia.classe
             objEmail.IsBodyHtml = true;
 
             //Define título do e-mail.
-            objEmail.Subject = "";
+            objEmail.Subject = "Portal Palavra Cantada | " + assunto;
 
             //Define o corpo do e-mail.
-            objEmail.Body = "";
+            objEmail.Body = mensagem;
             //Para evitar problemas de caracteres "estranhos", configuramos o charset para "ISO-8859-1"
             objEmail.SubjectEncoding = System.Text.Encoding.GetEncoding("ISO-8859-1");
             objEmail.BodyEncoding = System.Text.Encoding.GetEncoding("ISO-8859-1");
