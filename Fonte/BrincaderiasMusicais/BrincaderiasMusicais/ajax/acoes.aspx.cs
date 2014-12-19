@@ -56,6 +56,7 @@ namespace BrincaderiasMusicais.ajax
                 Session["nomeUsuario"] = rsLogin["USU_NOME"].ToString();
                 Session["nomeInstituicao"] = rsLogin["RED_TITULO"].ToString();
                 Session["redeID"] = rsLogin["RED_ID"].ToString();
+                Session["redeTitulo"] = objUtils.GerarURLAmigavel(rsLogin["RED_TITULO"].ToString());
 
                 //Salva no log
                 objBD.ExecutaSQL("EXEC psLog '" + rsLogin["USU_ID"] + "',null,'Login efetuado no sistema'");
