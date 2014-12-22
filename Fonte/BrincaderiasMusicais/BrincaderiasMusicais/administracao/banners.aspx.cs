@@ -93,7 +93,7 @@ namespace BrincaderiasMusicais.administracao
                     divLista.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["BAN_LINK"].ToString().Replace("javascript:void(0)", "-") + "</td>";
 
-                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0)\" id='" + rsLista["BAN_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["BAN_ID"].ToString() + "' onclick='excluirRede(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0)\" id='" + rsLista["BAN_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["BAN_ID"].ToString() + "' onclick='excluirBanner(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
                 }
 
