@@ -13,8 +13,91 @@
     <brincadeira:script runat="server" id="script" />
 
     <script type="text/javascript">
+
+        //AJAX
+        function ajaxInit() {
+            var req;
+            try {
+                req = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (e) {
+                try {
+                    req = new ActiveXObject("Msxml2.XMLHTTP");
+                } catch (ex) {
+                    try {
+                        req = new XMLHttpRequest();
+                    } catch (exc) {
+                        alert("Esse browser não tem recursos para uso do Ajax");
+                        req = null;
+                    }
+                }
+            }
+            return req;
+        }
+
         function popularFormulario(id) {
-            //    alert(id);
+            ajax4 = ajaxInit();
+            ajax4.open("GET", "redes.aspx?acao=editarRede&RED_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+            ajax4.setRequestHeader("Content-Type", "charset=iso-8859-1");
+            ajax4.onreadystatechange = function () {
+
+
+                if (ajax4.readyState == 4) {
+                    if (ajax4.status == 200) {
+
+                        var resposta = ajax4.responseText.split("<!DOCTYPE html>");
+                        
+                        var ss = resposta[0].split("|");
+
+
+                        $('#RED_ID').attr("value", ss[0]);
+                         
+                        $('#RED_TITULO').attr("value", ss[1]);
+                        $('#RED_CIDADE').attr("value", ss[2]);
+                        $('#RED_UF').attr("value", ss[3]);
+                         
+                        editar_table(id);
+                    }
+                }
+            }
+            ajax4.send(null);
+        }
+
+        function excluirRede(id) {
+            var r = confirm("Deseja mesmo desativar esta rede?");
+            if (r == true) {
+                ajax2 = ajaxInit();
+                ajax2.open("GET", "redes.aspx?acao=excluirRede&RED_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+                ajax2.setRequestHeader("Content-Type", "charset=iso-8859-1");
+                ajax2.onreadystatechange = function () {
+                    if (ajax2.readyState == 4) {
+                        if (ajax2.status == 200) {
+                            $('#tr_' + id).hide();
+                        }
+                    }
+                }
+                ajax2.send(null);
+            } else {
+                return false;
+            }
+        }
+
+        function restoreRede(id) {
+            var r = confirm("Deseja deseja mesmo ativar esta rede?");
+            if (r == true) {
+                ajax2 = ajaxInit();
+                ajax2.open("GET", "redes.aspx?acao=restoreRede&RED_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+                ajax2.setRequestHeader("Content-Type", "charset=iso-8859-1");
+                ajax2.onreadystatechange = function () {
+                    if (ajax2.readyState == 4) {
+                        if (ajax2.status == 200) {
+                            $('#tr_' + id).hide();
+                        }
+                    }
+                }
+                ajax2.send(null);
+            } else {
+                return false;
+            }
         }
     </script>
 </head>
@@ -74,165 +157,12 @@
                             <!-- LISTAGEM INICIAL -->
                                 <div class="tabela_ok" id="divLista" runat="server"></div>
                             <!-- FIM LISTAGEM INICIAL -->
-                                <!--<table class="table" id="tabela" cellspacing="0">
-                                    <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>Nome</th>
-                                        <th>Email</th>
-                                        <th>Telefone</th>
-                                        <th>ultima compra</th>
-                                        <th width="100px">Ações</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr id="tr_1" class="">
-                                        <td>1</td>
-                                        <td><a href="javascript:void(0)" title="Cliente">User 1</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><ul class="icons_table"><li><a href="javascript:void(0)" class="img_edit"><img src="images/editar.png"  onClick="editar_table(1)"></a></li><li><a href="javascript:void(0)" class="img_del"><img src="images/lixo.png"></a></li></ul></td>
-                                    </tr>
-                                    <tr id="tr_2"  class="">
-                                        <td>2</td>
-                                        <td><a href="javascript:void(0)" title="Cliente">Cleyber Nunes</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><ul class="icons_table"><li><a href="javascript:void(0)" class="img_edit"><img src="images/editar.png"  onClick="editar_table(2)"></a></li><li><a href="javascript:void(0)" class="img_del"><img src="images/lixo.png"></a></li></ul></td>
-                                    </tr>
-                                    <tr id="tr_3" class="">
-                                        <td>2</td>
-                                        <td><a href="javascript:void(0)" title="Cliente">Cleyber Nunes</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><ul class="icons_table"><li><a href="javascript:void(0)" class="img_edit"><img src="images/editar.png"  onClick="editar_table(3)"></a></li><li><a href="javascript:void(0)" class="img_del"><img src="images/lixo.png"></a></li></ul></td>
-                                    </tr>
-                                    <tr id="tr_4" class="">
-                                        <td>1</td>
-                                        <td><a href="javascript:void(0)" title="Cliente">Cleyber Nunes</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><ul class="icons_table"><li><a href="javascript:void(0)" class="img_edit"><img src="images/editar.png"  onClick="editar_table(4)"></a></li><li><a href="javascript:void(0)" class="img_del"><img src="images/lixo.png"></a></li></ul></td>
-                                    </tr>
-                                    <tr id="tr_5" class="">
-                                        <td>1</td>
-                                        <td><a href="javascript:void(0)" title="Cliente">Cleyber Nunes</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><ul class="icons_table"><li><a href="javascript:void(0)" class="img_edit"><img src="images/editar.png"  onClick="editar_table(5)"></a></li><li><a href="javascript:void(0)" class="img_del"><img src="images/lixo.png"></a></li></ul></td>
-                                    </tr>
-                                    <tr  id="tr_6" class="">
-                                        <td>1</td>
-                                        <td><a href="javascript:void(0)" title="Cliente">Cleyber Nunes</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><ul class="icons_table"><li><a href="javascript:void(0)" class="img_edit"><img src="images/editar.png"  onClick="editar_table(6)"></a></li><li><a href="javascript:void(0)" class="img_del"><img src="images/lixo.png"></a></li></ul></td>
-                                    </tr>
-                                    <tr id="tr_7" class="">
-                                        <td>1</td>
-                                        <td><a href="javascript:void(0)" title="Cliente">Cleyber Nunes</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><ul class="icons_table"><li><a href="javascript:void(0)" class="img_edit"><img src="images/editar.png"  onClick="editar_table(7)"></a></li><li><a href="javascript:void(0)" class="img_del"><img src="images/lixo.png"></a></li></ul></td>
-                                    </tr>
-                                    <tr id="tr_8" class="">
-                                        <td>1</td>
-                                        <td><a href="javascript:void(0)" title="Cliente">Cleyber Nunes</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><ul class="icons_table"><li><a href="javascript:void(0)" class="img_edit"><img src="images/editar.png"  onClick="editar_table(8)"></a></li><li><a href="javascript:void(0)" class="img_del"><img src="images/lixo.png"></a></li></ul></td>
-                                    </tr>
-                                    <tr id="tr_9" class="">
-                                        <td>1</td>
-                                        <td><a href="javascript:void(0)" title="Cliente">Cleyber Nunes</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><ul class="icons_table"><li><a href="javascript:void(0)" class="img_edit"><img src="images/editar.png"  onClick="editar_table(9)"></a></li><li><a href="javascript:void(0)" class="img_del"><img src="images/lixo.png"></a></li></ul></td>
-                                    </tr>
-                                    <tr id="tr_10" class="">
-                                        <td>1</td>
-                                        <td><a href="javascript:void(0)" title="Cliente">Cleyber Nunes</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><ul class="icons_table"><li><a href="javascript:void(0)" class="img_edit"><img src="images/editar.png"  onClick="editar_table(10)"></a></li><li><a href="javascript:void(0)" class="img_del"><img src="images/lixo.png"></a></li></ul></td>
-                                    </tr>
-                                    <tr id="tr_11" class="">
-                                        <td>1</td>
-                                        <td><a href="javascript:void(0)" title="Cliente">Cleyber Nunes</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><ul class="icons_table"><li><a href="javascript:void(0)" class="img_edit"><img src="images/editar.png"  onClick="editar_table(11)"></a></li><li><a href="javascript:void(0)" class="img_del"><img src="images/lixo.png"></a></li></ul></td>
-                                    </tr>
-                                    <tr id="tr_12" class="">
-                                        <td>1</td>
-                                        <td><a href="javascript:void(0)" title="Cliente">Cleyber Nunes</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><ul class="icons_table"><li><a href="javascript:void(0)" class="img_edit"><img src="images/editar.png"  onClick="editar_table(12)"></a></li><li><a href="javascript:void(0)" class="img_del"><img src="images/lixo.png"></a></li></ul></td>
-                                    </tr>
-                                    <tr id="tr_13" class="">
-                                        <td>1</td>
-                                        <td><a href="javascript:void(0)" title="Cliente">Cleyber Nunes</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><ul class="icons_table"><li><a href="javascript:void(0)" class="img_edit"><img src="images/editar.png"  onClick="editar_table(13)"></a></li><li><a href="javascript:void(0)" class="img_del"><img src="images/lixo.png"></a></li></ul></td>
-                                    </tr>
-                                    <tr id="tr_14" class="">
-                                        <td>1</td>
-                                        <td><a href="javascript:void(0)" title="Cliente">Cleyber Nunes</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><ul class="icons_table"><li><a href="javascript:void(0)" class="img_edit"><img src="images/editar.png"  onClick="editar_table(14)"></a></li><li><a href="javascript:void(0)" class="img_del"><img src="images/lixo.png"></a></li></ul></td>
-                                    </tr>
-                                    <tr id="tr_15" class="">
-                                        <td>1</td>
-                                        <td><a href="javascript:void(0)" title="Cliente">Cleyber Nunes</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><ul class="icons_table"><li><a href="javascript:void(0)" class="img_edit"><img src="images/editar.png"  onClick="editar_table(15)"></a></li><li><a href="javascript:void(0)" class="img_del"><img src="images/lixo.png"></a></li></ul></td>
-                                    </tr>
-                                    <tr id="tr_16" class="">
-                                        <td>1</td>
-                                        <td><a href="javascript:void(0)" title="Cliente">Cleyber Nunes</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><ul class="icons_table"><li><a href="javascript:void(0)" class="img_edit"><img src="images/editar.png"  onClick="editar_table(16)"></a></li><li><a href="javascript:void(0)" class="img_del"><img src="images/lixo.png"></a></li></ul></td>
-                                    </tr>
-                                    <tr id="tr_17" class="">
-                                        <td>1</td>
-                                        <td><a href="javascript:void(0)" title="Cliente">Cleyber Nunes</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><ul class="icons_table"><li><a href="javascript:void(0)" class="img_edit"><img src="images/editar.png"  onClick="editar_table(17)"></a></li><li><a href="javascript:void(0)" class="img_del"><img src="images/lixo.png"></a></li></ul></td>
-                                    </tr>
-                                    <tr id="tr_18" class="">
-                                        <td>1</td>
-                                        <td><a href="javascript:void(0)" title="Cliente">Cleyber Nunes</a></td>
-                                        <td><a href="mailto:soa bal@yahoo.com">soa bal@yahoo.com</a></td>
-                                        <td>(11) 3781-9806</td>
-                                        <td>07/10/2014</td>
-                                        <td><ul class="icons_table"><li><a href="javascript:void(0)" class="img_edit"><img src="images/editar.png"  onClick="editar_table(18)"></a></li><li><a href="javascript:void(0)" class="img_del"><img src="images/lixo.png"></a></li></ul></td>
-                                    </tr>
-                                    
-                                    </tbody>
-                                </table> -->
+
+                            <!-- LISTAGEM EXCLUÍDOS -->
+                            <div class="tabela_excluidos" id="divExcluidos" runat="server"></div>   
+                            <!-- FIM LISTAGEM EXCLUÍDOS -->
+
+                              
                         </div>
                     </div>
                     </div>
