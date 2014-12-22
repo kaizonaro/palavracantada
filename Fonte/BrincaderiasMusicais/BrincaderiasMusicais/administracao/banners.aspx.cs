@@ -78,7 +78,8 @@ namespace BrincaderiasMusicais.administracao
                 divLista.InnerHtml += " <thead>";
                 divLista.InnerHtml += "     <tr>";
                 divLista.InnerHtml += "         <th style=\"width:8px;\">ID</th>";
-                divLista.InnerHtml += "         <th>Imagem</th>";
+                divLista.InnerHtml += "         <th style=\"width:300px;\">Imagem</th>";
+                divLista.InnerHtml += "         <th>Legenda</th>";
                 divLista.InnerHtml += "         <th>Rede</th>";
                 divLista.InnerHtml += "         <th>Link</th>"; 
                 divLista.InnerHtml += "         <th style=\"width:71px;\">Ações</th>";
@@ -92,8 +93,9 @@ namespace BrincaderiasMusicais.administracao
                     divLista.InnerHtml += " <tr id='tr_" + rsLista["BAN_ID"].ToString() + "' class=\"\">";
                     divLista.InnerHtml += "     <td>" + rsLista["BAN_ID"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td><img src=\"/upload/imagens/banners/" + rsLista["BAN_IMAGEM"].ToString() + "\" style=\"width:300px;height:100px\" /></td>";
+                    divLista.InnerHtml += "     <td>" + rsLista["BAN_LEGENDA"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
-                    divLista.InnerHtml += "     <td>" + rsLista["BAN_LINK"].ToString() + "</td>";
+                    divLista.InnerHtml += "     <td>" + rsLista["BAN_LINK"].ToString().Replace("javascript:void(0)", "-") + "</td>";
                     
                     divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0)\" id='" + rsLista["BAN_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["BAN_ID"].ToString() + "' onclick='excluirRede(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
@@ -129,7 +131,8 @@ namespace BrincaderiasMusicais.administracao
                 divExcluidos.InnerHtml += " <thead>";
                 divExcluidos.InnerHtml += "     <tr>";
                 divExcluidos.InnerHtml += "         <th style=\"width:8px;\">ID</th>";
-                divExcluidos.InnerHtml += "         <th>Imagem</th>";
+                divExcluidos.InnerHtml += "         <th style=\"width:300px;\">Imagem</th>";
+                divExcluidos.InnerHtml += "         <th>Legenda</th>";
                 divExcluidos.InnerHtml += "         <th>Rede</th>";
                 divExcluidos.InnerHtml += "         <th>Link</th>";
                 divExcluidos.InnerHtml += "         <th style=\"width:71px;\">Ações</th>";
@@ -143,8 +146,9 @@ namespace BrincaderiasMusicais.administracao
                     divExcluidos.InnerHtml += " <tr id='tr_" + rsLista["BAN_ID"].ToString() + "' class=\"\">";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["BAN_ID"].ToString() + "</td>";
                     divExcluidos.InnerHtml += "     <td><img src=\"/upload/imagens/banners/" + rsLista["BAN_IMAGEM"].ToString() + "\" style=\"width:300px;height:100px\" /></td>";
+                    divExcluidos.InnerHtml += "     <td>" + rsLista["BAN_LEGENDA"].ToString() + "</td>";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
-                    divExcluidos.InnerHtml += "     <td>" + rsLista["BAN_LINK"].ToString() + "</td>";
+                    divExcluidos.InnerHtml += "     <td>" + rsLista["BAN_LINK"].ToString().Replace("javascript:void(0)", "-") + "</td>";
 
                     divExcluidos.InnerHtml += "     <td><a href=\"javascript:void(0)\" id='" + rsLista["BAN_ID"].ToString() + "' onclick='restoreBanner(this.id);' class=\"img_del\"><img src=\"images/restore.png\"></a>";
                     divExcluidos.InnerHtml += " </tr>";
