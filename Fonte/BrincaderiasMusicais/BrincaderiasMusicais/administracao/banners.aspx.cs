@@ -202,7 +202,7 @@ namespace BrincaderiasMusicais.administracao
 
                     BAN_IMAGEM.SaveAs(Server.MapPath("~/upload/imagens/banners") + "/" + arquivo);
                     string link = Request["BAN_LINK"];
-                    if (string.IsNullOrWhiteSpace(Request["BAN_LINK"]) == true)
+                    if (link == null || link == "")
                     {
                         link = "javascript:void(0)";
                     }
