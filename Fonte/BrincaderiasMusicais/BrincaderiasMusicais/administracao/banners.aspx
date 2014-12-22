@@ -133,17 +133,23 @@
                                         <img src="images/restore.png" alt="Filtrar"><p>Voltar</p>
                                     </div>
                                     <div class="form_table">
-                                        <form class="inc_form form" name="incluir" action="redes.aspx" runat="server">
-                                            <input type="hidden" value="gravarRede" id="acao" name="acao" />
-                                            <input type="hidden" value="0" id="RED_ID" name="RED_ID" />
+                                        <form class="inc_form form" name="incluir" enctype="multipart/form-data" action="banners.aspx" runat="server">
+                                            <input type="hidden" value="gravarBanner" id="acao" name="acao" />
+                                            <input type="hidden" value="0" id="BAN_ID" name="BAN_ID" />
                                             <p>Imagem do Banner</p>
-                                            <asp:FileUpload runat="server" id="BAN_IMAGEM" name="BAN_IMAGEM" />
-                                             
+                                            <asp:FileUpload runat="server" ID="BAN_IMAGEM" name="BAN_IMAGEM" />
                                             <p>Legenda</p>
-                                            <input type="text" name="RED_CIDADE" class="input obg" id="RED_CIDADE" />
+                                            <input type="text" name="BAN_LEGENDA" class="input obg" id="BAN_LEGENDA" />
+                                            <p>Rede</p>
+                                            <select name="RED_ID" class="input" id="RED_ID" runat="server">
+                                                <option value="NULL">Nenhuma</option>
+                                            </select>
+                                            <p>Link</p>
+                                            <input type="text" name="BAN_LINK" class="input obg" id="BAN_LINK" />
                                             <p>
-                                                <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
-                                                <input type="submit" value="Incluir" class="btn_form" formmethod="get" />
+                                                <input type="reset" value="Limpar" class="btn_form"  formmethod="get" />
+                                                <asp:Button ID="Incluir" Cssclass="btn_form"  runat="server" Text="Incluir" OnClick="gravarBanner" />
+                                                 
                                             </p>
                                         </form>
                                     </div>

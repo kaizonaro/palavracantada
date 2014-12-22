@@ -14,7 +14,7 @@ namespace BrincaderiasMusicais.administracao
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista, rsRedes, rsGravaUsuario;
+        private OleDbDataReader rsLista, rsRedes, rsGravaBanner;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,19 +25,14 @@ namespace BrincaderiasMusicais.administracao
             {
                 switch (Request["acao"])
                 {
-                    case ("gravarBanner"):
-                        
-                        Response.Redirect("banner.aspx", false);
-
-                        break;
                     case ("excluirBanner"):
 
                         objBD.ExecutaSQL("update Banner set BAN_ATIVO = 0 where BAN_ID ='" + Request["BAN_ID"] + "'");
-                       
+
                         break;
                     case ("restoreBanner"):
                         objBD.ExecutaSQL("update Banner set BAN_ATIVO = 1 where BAN_ID ='" + Request["BAN_ID"] + "'");
-                       
+
                         break;
                     case ("editarBanner"):
                         rsLista = objBD.ExecutaSQL("select RED_ID, RED_TITULO, RED_CIDADE, RED_UF from  Rede where RED_ID ='" + Request["RED_ID"] + "'");
@@ -54,6 +49,7 @@ namespace BrincaderiasMusicais.administracao
                     default:
                         PopulaLista();
                         PopulaExcluidos();
+                        ListarRedes();
                         break;
                 }
             }
@@ -81,7 +77,7 @@ namespace BrincaderiasMusicais.administracao
                 divLista.InnerHtml += "         <th style=\"width:300px;\">Imagem</th>";
                 divLista.InnerHtml += "         <th>Legenda</th>";
                 divLista.InnerHtml += "         <th>Rede</th>";
-                divLista.InnerHtml += "         <th>Link</th>"; 
+                divLista.InnerHtml += "         <th>Link</th>";
                 divLista.InnerHtml += "         <th style=\"width:71px;\">Ações</th>";
                 divLista.InnerHtml += "     </tr>";
                 divLista.InnerHtml += " </thead>";
@@ -96,7 +92,7 @@ namespace BrincaderiasMusicais.administracao
                     divLista.InnerHtml += "     <td>" + rsLista["BAN_LEGENDA"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["BAN_LINK"].ToString().Replace("javascript:void(0)", "-") + "</td>";
-                    
+
                     divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0)\" id='" + rsLista["BAN_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["BAN_ID"].ToString() + "' onclick='excluirRede(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
                 }
@@ -170,5 +166,53 @@ namespace BrincaderiasMusicais.administracao
 
             divExcluidos.InnerHtml += "</table>";
         }
+
+        public void ListarRedes()
+        {
+            rsRedes = objBD.ExecutaSQL("EXEC ADMIN_psRedesPorAtivo 1");
+            if (rsRedes == null)
+            {
+                throw new Exception();
+            }
+            if (rsRedes.HasRows)
+            {
+
+                while (rsRedes.Read())
+                {
+                    ListItem C = new ListItem();
+                    C.Value = rsRedes["RED_ID"].ToString();
+                    C.Text = rsRedes["RED_TITULO"].ToString();
+                    RED_ID.Items.Add(C);
+
+
+                }
+
+            }
+            rsRedes.Close();
+            rsRedes.Dispose();
+        }
+
+        public void gravarBanner(object sender, EventArgs e)
+        {
+            try
+            {
+                if (BAN_IMAGEM.HasFile)
+                {
+                    string arquivo = BAN_IMAGEM.FileName.Replace(" ", "_");
+
+                    BAN_IMAGEM.SaveAs(Server.MapPath("~/upload/imagens/banners") + "/" + arquivo);
+                    string link = Request["BAN_LINK"];
+                    if (string.IsNullOrWhiteSpace(Request["BAN_LINK"]) == true) { link = "javascript:void(0)"; }
+                    rsGravaBanner = objBD.ExecutaSQL("EXEC admin_piuBanner " + Request["BAN_ID"] + ", " + Request["RED_ID"] + ", '" + Request["BAN_LEGENDA"] + "','" + arquivo + "', '" + link + "'");
+                    if (rsGravaBanner == null) { throw new Exception(); }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
     }
 }
