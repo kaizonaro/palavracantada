@@ -202,9 +202,15 @@ namespace BrincaderiasMusicais.administracao
 
                     BAN_IMAGEM.SaveAs(Server.MapPath("~/upload/imagens/banners") + "/" + arquivo);
                     string link = Request["BAN_LINK"];
-                    if (string.IsNullOrWhiteSpace(Request["BAN_LINK"]) == true) { link = "javascript:void(0)"; }
+                    if (string.IsNullOrWhiteSpace(Request["BAN_LINK"]) == true)
+                    {
+                        link = "javascript:void(0)";
+                    }
                     rsGravaBanner = objBD.ExecutaSQL("EXEC admin_piuBanner " + Request["BAN_ID"] + ", " + Request["RED_ID"] + ", '" + Request["BAN_LEGENDA"] + "','" + arquivo + "', '" + link + "'");
-                    if (rsGravaBanner == null) { throw new Exception(); }
+                    if (rsGravaBanner == null)
+                    {
+                        throw new Exception();
+                    }
                 }
             }
             catch (Exception)
