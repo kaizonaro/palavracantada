@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais.ajax
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLogin;
+        private OleDbDataReader rsLogin, rsCadastro;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,6 +31,10 @@ namespace BrincaderiasMusicais.ajax
             {
                 case "FazerLogin":
                     FazerLogin();
+                    break;
+                
+                case "completarCadastro":
+                    completarCadastro();
                     break;
 
                 default:
@@ -74,6 +78,45 @@ namespace BrincaderiasMusicais.ajax
             rsLogin.Close();
 
         }
-       
+
+        public void completarCadastro()
+        {
+            rsCadastro = objBD.ExecutaSQL("EXEC site_puCastro '" + Request["TOK_TOKEN"] + "','" + Request["USU_NOME"] + "','" + Request["USU_EMAIL"] + "','" + Request["CAR_ID"] + "','" + objUtils.TrataSQLInjection(objUtils.getMD5Hash(Request["USU_SENHA"])) + "'");
+
+            if (rsCadastro == null)
+            {
+                throw new Exception();
+            }
+            if (rsCadastro.HasRows)
+            {
+                rsCadastro.Read();
+
+                //Salvar as Categorias
+                foreach (string categoria in Request["CAT_ID"].Split(Convert.ToChar(",")))
+                {
+                    objBD.ExecutaSQL("EXEC site_piuUsuarioCategoria " + rsCadastro["USU_ID"] + ", " + Convert.ToInt32(objUtils.SimpleSplitter(categoria, 0)));
+                }
+
+                //Salvar as Session do usuário
+                Session["nomeUsuario"] = rsCadastro["USU_NOME"].ToString();
+                Session["nomeInstituicao"] = rsCadastro["RED_TITULO"].ToString();
+                Session["redeID"] = rsCadastro["RED_ID"].ToString();
+                Session["redeTitulo"] = objUtils.GerarURLAmigavel(rsCadastro["RED_TITULO"].ToString());
+
+                //Salva no log
+                objBD.ExecutaSQL("EXEC psLog '" + rsCadastro["USU_ID"] + "',null,'Login efetuado no sistema'");
+
+                Response.Redirect("/rede/" + objUtils.GerarURLAmigavel(rsCadastro["RED_TITULO"].ToString()));
+                Response.End();
+
+            }
+            else
+            {
+                Response.Redirect("/");
+            }
+
+            rsCadastro.Dispose();
+            rsCadastro.Close();
+        }
     }
 }
