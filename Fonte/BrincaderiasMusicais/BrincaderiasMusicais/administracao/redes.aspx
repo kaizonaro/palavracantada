@@ -137,12 +137,12 @@
                                         <input type="hidden" value="0" id="RED_ID" name="RED_ID" />
                                     	<p>Nome da Rede</p>
                                 		<input type="text" name="RED_TITULO" class="input obg"  id="RED_TITULO"/>
-                                                                                <p>Cidade</p>
+                                        <p>Cidade</p>
                                 		<input type="text" name="RED_CIDADE" class="input obg"  id="RED_CIDADE"/>
                                         <p>UF</p>
                                 		<input type="text" name="RED_UF" class="input obg"  id="RED_UF"/>
                                         <p>Quantidade de Usuarios</p>
-                                        <input type="number" class="input sonumero obg"  placeholder="exemplo" id="USU_MASSA" name="USU_MASSA"/>
+                                        <input type="number" class="input sonumero obg" id="USU_MASSA" name="USU_MASSA"/>
                                         <p>
                                     		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
                                             <input type="submit" value="Incluir" class="btn_form" formmethod="get" />
