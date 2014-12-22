@@ -32,11 +32,32 @@ namespace BrincaderiasMusicais.administracao
 
                         break;
                     case ("excluirRede"):
-                        //excluirRede();
+
+                        objBD.ExecutaSQL("update Rede set RED_ATIVO = 0 where RED_ID ='" + Request["RED_ID"] + "'");
+                        PopulaLista();
+                        PopulaExcluidos();
+
                         break;
+                    case ("restoreRede"):
+                        objBD.ExecutaSQL("update Rede set RED_ATIVO = 1 where RED_ID ='" + Request["RED_ID"] + "'");
+                        PopulaLista();
+                        PopulaExcluidos();
+                        break;
+                    case ("editarRede"):
+                        rsLista = objBD.ExecutaSQL("select RED_ID, RED_TITULO, RED_CIDADE, RED_UF from  Rede where RED_ID ='" + Request["RED_ID"] + "'");
+                        if (rsLista == null)
+                        {
+                            throw new Exception();
+                        }
+                        if (rsLista.HasRows)
+                        {
+                            rsLista.Read();
+                            Response.Write(rsLista["RED_ID"] + "|" + rsLista["RED_TITULO"] + "|" + rsLista["RED_CIDADE"] + "|" +  rsLista["RED_UF"]);
+                        }
+                            break;
                     default:
                         PopulaLista();
-
+                        PopulaExcluidos();
                         break;
                 }
             }
@@ -81,7 +102,7 @@ namespace BrincaderiasMusicais.administracao
                     divLista.InnerHtml += "     <td>" + rsLista["RED_UF"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["RED_DATA_CRIACAO"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["RED_QTD_USUARIO"].ToString() + "</td>";
-                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0)\" id='" + rsLista["RED_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["RED_ID"].ToString() + "' onclick='excluirAta(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0)\" id='" + rsLista["RED_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["RED_ID"].ToString() + "' onclick='excluirRede(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
                 }
 
@@ -101,7 +122,60 @@ namespace BrincaderiasMusicais.administracao
 
             divLista.InnerHtml += "</table>";
         }
+        public void PopulaExcluidos()
+        {
+            divExcluidos.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
 
+            rsLista = objBD.ExecutaSQL("EXEC admin_psRedesPorAtivo 0");
+            if (rsLista == null)
+            {
+                throw new Exception();
+            }
+            if (rsLista.HasRows)
+            {
+                divExcluidos.InnerHtml += " <thead>";
+                divExcluidos.InnerHtml += "     <tr>";
+                divExcluidos.InnerHtml += "         <th style=\"width:8px;\">ID</th>";
+                divExcluidos.InnerHtml += "         <th>Titulo</th>";
+                divExcluidos.InnerHtml += "         <th>Cidade</th>";
+                divExcluidos.InnerHtml += "         <th>UF</th>";
+                divExcluidos.InnerHtml += "         <th>Data de Criação</th>";
+                divExcluidos.InnerHtml += "         <th>Quantidade de Usuários</th>";
+                divExcluidos.InnerHtml += "         <th style=\"width:71px;\">Ações</th>";
+                divExcluidos.InnerHtml += "     </tr>";
+                divExcluidos.InnerHtml += " </thead>";
+
+                divExcluidos.InnerHtml += " <tbody>";
+
+                while (rsLista.Read())
+                {
+                    divExcluidos.InnerHtml += " <tr id='tr_" + rsLista["RED_ID"].ToString() + "' class=\"\">";
+                    divExcluidos.InnerHtml += "     <td>" + rsLista["RED_ID"].ToString() + "</td>";
+                    divExcluidos.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
+                    divExcluidos.InnerHtml += "     <td>" + rsLista["RED_CIDADE"].ToString() + "</td>";
+                    divExcluidos.InnerHtml += "     <td>" + rsLista["RED_UF"].ToString() + "</td>";
+                    divExcluidos.InnerHtml += "     <td>" + rsLista["RED_DATA_CRIACAO"].ToString() + "</td>";
+                    divExcluidos.InnerHtml += "     <td>" + rsLista["RED_QTD_USUARIO"].ToString() + "</td>";
+                    divExcluidos.InnerHtml += "     <td><a href=\"javascript:void(0)\" id='" + rsLista["RED_ID"].ToString() + "' onclick='restoreRede(this.id);' class=\"img_del\"><img src=\"images/restore.png\"></a>";
+                    divExcluidos.InnerHtml += " </tr>";
+                }
+
+                divExcluidos.InnerHtml += " </tbody>";
+            }
+
+            else
+            {
+                divExcluidos.InnerHtml += " <thead>";
+                divExcluidos.InnerHtml += "     <tr>";
+                divExcluidos.InnerHtml += "         <th>Nenhum registro cadastrado até o momento!</th>";
+                divExcluidos.InnerHtml += "     </tr>";
+                divExcluidos.InnerHtml += " </thead>";
+            }
+            rsLista.Close();
+            rsLista.Dispose();
+
+            divExcluidos.InnerHtml += "</table>";
+        }
 
 
         public void gravarRede()
@@ -124,7 +198,7 @@ namespace BrincaderiasMusicais.administracao
                 //Libera o BD e Memória
                 rsRedes.Close();
                 rsRedes.Dispose();
-                
+
 
 
 
@@ -141,7 +215,7 @@ namespace BrincaderiasMusicais.administracao
 
         public void UsuarioMassa(int quantidade, int RED_ID, string RED_TITULO)
         {
-            string mensagemtokens = "Lista de Tokens da Rede: " + RED_TITULO +"<br><ol>";
+            string mensagemtokens = "Lista de Tokens da Rede: " + RED_TITULO + "<br><ol>";
             for (int i = 0; i < quantidade; i++)
             {
                 rsGravaUsuario = objBD.ExecutaSQL("EXEC admin_piuUsuario '" + 0 + "','" + RED_ID + "', 'usuario_" + i + "', '', 'e10adc3949ba59abbe56e057f20f883e'");
@@ -156,7 +230,7 @@ namespace BrincaderiasMusicais.administracao
                     rsGravaUsuario.Read();
                     int accestoken = objUtils.GerarTokenAcesso();
                     objBD.ExecutaSQL("INSERT INTO TokenUsuario (USU_ID, TOK_TOKEN) values (" + rsGravaUsuario["USU_ID"] + ", " + accestoken + ")");
-                    mensagemtokens += "<li><a href=\"http://urlficticia/login?user=usuario_" + i + "accesstoken=" + accestoken + "\">Token: " + accestoken + " Usuário: usuario_" + i + "<br>";
+                    mensagemtokens += "<li><a href=\"http://urlficticia/login?user=usuario_" + i + "&accesstoken=" + accestoken + "\">Token: " + accestoken + " Usuário: usuario_" + i + "<br>";
                 }
 
             }
