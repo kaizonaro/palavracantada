@@ -210,6 +210,86 @@ $(document).ready(function () {
 	        }
 	    }
 	});
+    //LOGIN
+	$('.form_login').submit(function () {
+	    $('.form_login .input').each(function () {
+	        if ($(this).val() == "") {
+	            $(this).addClass('error')
+	        } else {
+	            if ($(this).hasClass('email')) {
+	                email = $(this).val()
+	                var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	                if (filtro.test(email)) {
+	                    $(this).removeClass('error')
+	                } else {
+	                    $(this).addClass('error')
+	                }
+	            }
+	        }
+	    });
+	    if ($('.form_login .input').hasClass('error')) {
+	        return false
+	    }
+	});
+
+	$('.input').focusout(function () {
+	    if ($(this).val() == "" || $(this).val() == "__/__/____") {
+	        $(this).addClass('error')
+	    } else {
+	        if ($(this).hasClass('email')) {
+	            email = $(this).val()
+	            var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	            if (filtro.test(email)) {
+	                $(this).removeClass('error')
+	            } else {
+	                $(this).addClass('error')
+	            }
+	        } else {
+	            $(this).removeClass('error')
+	        }
+	    }
+	});
+
+    //FORM SENHA
+    //LOGIN
+	$('.form_senha').submit(function () {
+	    $('.form_senha .input').each(function () {
+	        if ($(this).val() == "") {
+	            $(this).addClass('error')
+	        } else {
+	            if ($(this).hasClass('email')) {
+	                email = $(this).val()
+	                var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	                if (filtro.test(email)) {
+	                    $(this).removeClass('error')
+	                } else {
+	                    $(this).addClass('error')
+	                }
+	            }
+	        }
+	    });
+	    if ($('.form_senha .input').hasClass('error')) {
+	        return false
+	    }
+	});
+
+	$('.input').focusout(function () {
+	    if ($(this).val() == "" || $(this).val() == "__/__/____") {
+	        $(this).addClass('error')
+	    } else {
+	        if ($(this).hasClass('email')) {
+	            email = $(this).val()
+	            var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	            if (filtro.test(email)) {
+	                $(this).removeClass('error')
+	            } else {
+	                $(this).addClass('error')
+	            }
+	        } else {
+	            $(this).removeClass('error')
+	        }
+	    }
+	});
 
     //FORM HOME MODAL
 	$('.cadastro_home input[type=reset]').click(function () {
