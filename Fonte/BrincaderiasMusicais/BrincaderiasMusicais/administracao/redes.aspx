@@ -136,11 +136,11 @@
                                         <input type="hidden" value="gravarRede" id="acao" name="acao" />
                                         <input type="hidden" value="0" id="RED_ID" name="RED_ID" />
                                     	<p>Nome da Rede</p>
-                                		<input type="text" name="RED_TITULO" class="input error"  id="RED_TITULO"/>
+                                		<input type="text" name="RED_TITULO" class="input obg"  id="RED_TITULO"/>
                                                                                 <p>Cidade</p>
-                                		<input type="text" name="RED_CIDADE" class="input error"  id="RED_CIDADE"/>
+                                		<input type="text" name="RED_CIDADE" class="input obg"  id="RED_CIDADE"/>
                                         <p>UF</p>
-                                		<input type="text" name="RED_UF" class="input error"  id="RED_UF"/>
+                                		<input type="text" name="RED_UF" class="input obg"  id="RED_UF"/>
                                         <p>Quantidade de Usuarios</p>
                                         <input type="number" class="input sonumero obg"  placeholder="exemplo" id="USU_MASSA" name="USU_MASSA"/>
                                         <p>
