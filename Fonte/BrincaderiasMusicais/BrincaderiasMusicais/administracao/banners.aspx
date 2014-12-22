@@ -35,7 +35,7 @@
 
         function popularFormulario(id) {
             ajax4 = ajaxInit();
-            ajax4.open("GET", "redes.aspx?acao=editarRede&RED_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+            ajax4.open("GET", "banners.aspx?acao=editarBanner&BAN_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
             ajax4.setRequestHeader("Content-Type", "charset=iso-8859-1");
             ajax4.onreadystatechange = function () {
 
@@ -44,15 +44,15 @@
                     if (ajax4.status == 200) {
 
                         var resposta = ajax4.responseText.split("<!DOCTYPE html>");
-
+ 
                         var ss = resposta[0].split("|");
 
 
-                        $('#RED_ID').attr("value", ss[0]);
+                       $("#RED_ID option[value='" + ss[0] + "']").attr("selected", "selected");
 
-                        $('#RED_TITULO').attr("value", ss[1]);
-                        $('#RED_CIDADE').attr("value", ss[2]);
-                        $('#RED_UF').attr("value", ss[3]);
+                        $('#BAN_ID').attr("value", ss[1]);
+                        $('#BAN_LEGENDA').attr("value", ss[2]);
+                        $('#BAN_LINK').attr("value", ss[3]);
 
                         editar_table(id);
                     }
@@ -61,11 +61,11 @@
             ajax4.send(null);
         }
 
-        function excluirRede(id) {
+        function excluirBanner(id) {
             var r = confirm("Deseja mesmo desativar este Banner?");
             if (r == true) {
                 ajax2 = ajaxInit();
-                ajax2.open("GET", "redes.aspx?acao=excluirBanner&BAN_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+                ajax2.open("GET", "banners.aspx?acao=excluirBanner&BAN_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
                 ajax2.setRequestHeader("Content-Type", "charset=iso-8859-1");
                 ajax2.onreadystatechange = function () {
                     if (ajax2.readyState == 4) {
@@ -80,11 +80,11 @@
             }
         }
 
-        function restoreRede(id) {
+        function restoreBanner(id) {
             var r = confirm("Deseja deseja mesmo ativar este Banner?");
             if (r == true) {
                 ajax2 = ajaxInit();
-                ajax2.open("GET", "redes.aspx?acao=restoreBanner&BAN_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+                ajax2.open("GET", "banners.aspx?acao=restoreBanner&BAN_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
                 ajax2.setRequestHeader("Content-Type", "charset=iso-8859-1");
                 ajax2.onreadystatechange = function () {
                     if (ajax2.readyState == 4) {

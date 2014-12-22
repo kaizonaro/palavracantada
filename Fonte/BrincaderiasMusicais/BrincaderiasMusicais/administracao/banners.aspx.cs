@@ -35,7 +35,7 @@ namespace BrincaderiasMusicais.administracao
 
                         break;
                     case ("editarBanner"):
-                        rsLista = objBD.ExecutaSQL("select RED_ID, RED_TITULO, RED_CIDADE, RED_UF from  Rede where RED_ID ='" + Request["RED_ID"] + "'");
+                        rsLista = objBD.ExecutaSQL("select RED_ID, BAN_ID, BAN_LEGENDA, BAN_LINK from  Banner where BAN_ID ='" + Request["BAN_ID"] + "'");
                         if (rsLista == null)
                         {
                             throw new Exception();
@@ -43,7 +43,7 @@ namespace BrincaderiasMusicais.administracao
                         if (rsLista.HasRows)
                         {
                             rsLista.Read();
-                            Response.Write(rsLista["RED_ID"] + "|" + rsLista["RED_TITULO"] + "|" + rsLista["RED_CIDADE"] + "|" + rsLista["RED_UF"]);
+                            Response.Write(rsLista["RED_ID"] + "|" + rsLista["BAN_ID"] + "|" + rsLista["BAN_LEGENDA"] + "|" + rsLista["BAN_LINK"]);
                         }
                         break;
                     default:
