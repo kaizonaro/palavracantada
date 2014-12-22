@@ -369,7 +369,7 @@ namespace Etnia.classe
                     sb.Append(s[k]);
                 }
             }
-            return sb.ToString().Replace("--","|").ToLower().Replace(" ", "-").Replace(".", "").Replace(",", "").Replace("?", "");
+            return sb.ToString().ToLower().Replace(" ", "-").Replace(".", "").Replace(",", "").Replace("?", "").Replace("&","e");
         }
 
         public string RemoverAcentos(string texto)
