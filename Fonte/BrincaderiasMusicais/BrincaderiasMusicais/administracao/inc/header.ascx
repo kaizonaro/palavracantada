@@ -22,9 +22,9 @@
         <!--MENU-->
         <nav id="menu">
             <ul>
-                <li><a href="redes.aspx"><img src="images/home.png" alt="home"><p>Redes</p></a></li>
-                <li><a href="usuarios.aspx"><img src="images/home.png" alt="home"><p>Usuários</p></a></li>
-                <li><a href="#"><img src="images/home.png" alt="home"><p>xxxxx</p></a></li>
+                <li><a href="redes.aspx"><img src="images/home.png" alt="Redes"><p>Redes</p></a></li>
+                <li><a href="usuarios.aspx"><img src="images/home.png" alt="Usuários"><p>Usuários</p></a></li>
+                <li><a href="banners.aspx"><img src="images/home.png" alt="home"><p>Banners</p></a></li>
                 <li><a href="#"><img src="images/home.png" alt="home"><p>xxxxx</p></a></li>
                 <li><a href="#"><img src="images/home.png" alt="home"><p>xxxxx</p></a></li>
             </ul>

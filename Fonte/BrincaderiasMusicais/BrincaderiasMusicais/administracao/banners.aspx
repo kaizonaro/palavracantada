@@ -112,13 +112,13 @@
             <section id="conteudo">
                 <h2>
                     <img src="images/home.png" alt="inicio"><br>
-                    Redes</h2>
+                    Banners</h2>
                 <!-- TABELA-->
                 <div class="row-fluid">
                     <div class="span12">
                         <div class="widget red">
                             <div class="widget-title">
-                                <h4>Redes</h4>
+                                <h4>Banners</h4>
                                 <div class="btns_acoes">
                                     <div class="filtrar acoes_topo_form">
                                         <img src="images/filtro.png" alt="Filtrar"><p>Filtrar</p>
