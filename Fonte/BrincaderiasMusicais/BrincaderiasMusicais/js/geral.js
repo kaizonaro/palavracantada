@@ -242,7 +242,17 @@ $(document).ready(function () {
             //display error message
             return false;
         }
-    });
+	});
+
+    //ESQUECI MINHA SENHA
+	$('.esqueci_senha').click(function () {
+	    $('.form_login').fadeOut(0);
+	    $('.form_senha').fadeIn(200);
+	})
+	$('.esqueci_voltar').click(function () {
+	    $('.form_senha').fadeOut(0);
+	    $('.form_login').fadeIn(200);
+	})
 });
 
 function twitter() {
@@ -296,7 +306,7 @@ function proximo_foto() {
         } else {
             $('#fotos .controles .right_galeria').removeClass('disabled');
         }
-        $('#fotos .img_galeria').attr('src', 'images/' + img);
+        $('#fotos .img_galeria').attr('src', '' + img);
         $('#fotos p').text(titu);
     }
 }
@@ -322,7 +332,7 @@ function anterior_foto() {
         } else {
             $('#fotos .controles .right_galeria').removeClass('disabled');
         }
-        $('#fotos .img_galeria').attr('src', 'images/' + img);
+        $('#fotos .img_galeria').attr('src', '' + img);
         $('#fotos p').text(titu);
     }
 }
