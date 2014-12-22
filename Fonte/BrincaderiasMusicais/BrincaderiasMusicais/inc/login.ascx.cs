@@ -12,7 +12,6 @@ using System.Net.Mail;
 using System.Net;
 using System.Text;
 
-
 namespace BrincaderiasMusicais.inc
 {
     public partial class login : System.Web.UI.UserControl
@@ -20,7 +19,6 @@ namespace BrincaderiasMusicais.inc
        
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1)
             {
                 //LOGADO

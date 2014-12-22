@@ -61,9 +61,9 @@ namespace BrincaderiasMusicais.ajax
                 //Salva no log
                 objBD.ExecutaSQL("EXEC psLog '" + rsLogin["USU_ID"] + "',null,'Login efetuado no sistema'");
 
-                //Redereciona para a "home" logada
                 Response.Redirect("/rede/" + objUtils.GerarURLAmigavel(rsLogin["RED_TITULO"].ToString()));
                 Response.End();
+               
             }
             else
             {
