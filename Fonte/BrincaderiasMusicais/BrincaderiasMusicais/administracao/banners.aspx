@@ -62,10 +62,10 @@
         }
 
         function excluirRede(id) {
-            var r = confirm("Deseja mesmo desativar esta rede?");
+            var r = confirm("Deseja mesmo desativar este Banner?");
             if (r == true) {
                 ajax2 = ajaxInit();
-                ajax2.open("GET", "redes.aspx?acao=excluirRede&RED_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+                ajax2.open("GET", "redes.aspx?acao=excluirBanner&BAN_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
                 ajax2.setRequestHeader("Content-Type", "charset=iso-8859-1");
                 ajax2.onreadystatechange = function () {
                     if (ajax2.readyState == 4) {
@@ -81,10 +81,10 @@
         }
 
         function restoreRede(id) {
-            var r = confirm("Deseja deseja mesmo ativar esta rede?");
+            var r = confirm("Deseja deseja mesmo ativar este Banner?");
             if (r == true) {
                 ajax2 = ajaxInit();
-                ajax2.open("GET", "redes.aspx?acao=restoreRede&RED_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+                ajax2.open("GET", "redes.aspx?acao=restoreBanner&BAN_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
                 ajax2.setRequestHeader("Content-Type", "charset=iso-8859-1");
                 ajax2.onreadystatechange = function () {
                     if (ajax2.readyState == 4) {
