@@ -135,7 +135,7 @@
                                 </div>
                                 <div class="incluir acoes_topo_form">
                                 	<img src="images/mais.png" alt="Incluir"><p>Incluir</p>
-                                </div>                                
+                                 </div>                                
                                 <div class="excluidos acoes_topo_form">
                                 	<img src="images/lixo.png" alt="Filtrar"><p>Ítens excluidos</p>
                                 </div>
