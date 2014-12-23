@@ -135,17 +135,17 @@
                                 	<form class="inc_form form" name="incluir" action="redes.aspx">
                                         <input type="hidden" value="gravarRede" id="acao" name="acao" />
                                         <input type="hidden" value="0" id="RED_ID" name="RED_ID" />
-                                    	<p>Nome da Rede</p>
+                                    	<p>Nome da Rede*</p>
                                 		<input type="text" name="RED_TITULO" class="input obg"  id="RED_TITULO"/>
-                                        <p>Cidade</p>
+                                        <p>Cidade*</p>
                                 		<input type="text" name="RED_CIDADE" class="input obg"  id="RED_CIDADE"/>
                                         <p>UF</p>
-                                		<input type="text" name="RED_UF" class="input obg"  id="RED_UF"/>
-                                        <p>Quantidade de Usuarios</p>
-                                        <input type="number" class="input sonumero obg" id="USU_MASSA" name="USU_MASSA"/>
+                                		<input type="text" name="RED_UF" class="input uf"  id="RED_UF" onkeypress="return uf(this.value)" onkeyup="maiuscula(this)"/>
+                                        <p>Quantidade de Usuarios*</p>
+                                        <input type="text" class="input sonumero obg" id="USU_MASSA" name="USU_MASSA" onkeypress="return sonumero(event)"/>
                                         <p>
                                     		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
-                                            <input type="submit" value="Incluir" class="btn_form" formmethod="get" />
+                                            <input type="submit" value="Incluir" class="btn_form" formmethod="get" onclick="validardinamico()" />
                                			</p>
                                     </form>
                                 </div>
