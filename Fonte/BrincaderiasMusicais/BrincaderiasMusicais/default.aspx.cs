@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsBlog, rsVideo, rsVFoto;
+        private OleDbDataReader rsBlog, rsVideo, rsVFoto, rsCargo;
 
        
         protected void Page_Load(object sender, EventArgs e)
@@ -36,10 +36,18 @@ namespace BrincaderiasMusicais
                         PopularBlog(Convert.ToInt16(Session["redeID"]));
                         PopularVideos(Convert.ToInt16(Session["redeID"]));
                         PopularFotos(Convert.ToInt16(Session["redeID"]));
+                        PopularCargos();
                         break;
                 }
 
-
+                //Verificar acesso via Toke
+                if (Request["accesstoken"] != null && Request["accesstoken"].ToString().Length > 1)
+                {
+                    Session.Abandon();
+                    TOK_TOKEN.Value = Request["accesstoken"];
+                    mask.Attributes.Add("style", "display:block");
+                    modal.Attributes.Add("style", "display:block");
+                }
                 if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1)
                 {
                     //LOGADO
@@ -132,6 +140,27 @@ namespace BrincaderiasMusicais
               rsVFoto.Dispose();
               rsVFoto.Close();
           }
+
+        public void PopularCargos()
+        {
+            rsCargo = objBD.ExecutaSQL("select CAR_ID, CAR_TITULO from cargo where CAT_ATIVO = 1");
+            if (rsCargo == null)
+            {
+                throw new Exception();
+            }
+            if (rsCargo.HasRows)
+            {
+                while (rsCargo.Read())
+                {
+                    System.Web.UI.WebControls.ListItem R = new System.Web.UI.WebControls.ListItem();
+                    R.Value = rsCargo["CAR_ID"].ToString();
+                    R.Text = rsCargo["CAR_TITULO"].ToString();
+                    CAR_ID.Items.Add(R);
+                }
+            }
+            rsCargo.Close();
+            rsCargo.Dispose();
+        }
     }
 }
 

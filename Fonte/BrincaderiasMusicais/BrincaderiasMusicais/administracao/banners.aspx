@@ -54,7 +54,7 @@
                         $('#BAN_LEGENDA').attr("value", ss[2]);
                         $('#BAN_LINK').attr("value", ss[3]);
 
-                        editar_table(id);
+                        editar_table2(id);
                     }
                 }
             }
