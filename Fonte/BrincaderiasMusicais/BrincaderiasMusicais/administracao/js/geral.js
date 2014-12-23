@@ -535,6 +535,7 @@ function sonumero(e) {
 function validardinamico() {
 }
 
+
 function editar_table2(id) {
     $('.img_ok').removeClass('img_ok')
     $('.tr_form').remove()
