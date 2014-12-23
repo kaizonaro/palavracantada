@@ -517,9 +517,9 @@ function editar_table(id) {
     })
 
 }
-function uf(val) {
+function uf(val, e) {
     if (val.length > 1) {
-        event.stopPropagation()
+        e.preventDefault()
         return false
     }
 }
