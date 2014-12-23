@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="fotos.aspx.cs" Inherits="BrincaderiasMusicais.fotos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="blog.aspx.cs" Inherits="BrincaderiasMusicais.administracao.blog" %>
 
 
 <%@ Register Src="~/administracao/inc/script.ascx" TagPrefix="brincadeira" TagName="script" %>
@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>:: Administração - Fotos</title>
+    <title>:: Administração - Post Blog</title>
     <brincadeira:script runat="server" id="script" />
 
     <script type="text/javascript">
@@ -47,7 +47,7 @@
                         $('#GFO_ID').attr("value", ss[0]);
                         $("#RED_ID option[value='" + ss[1] + "']").attr("selected", "selected");
                         $('#GFO_LEGENDA').attr("value", ss[2]);
-                       
+
                         editar_table2(id);
                     }
                 }
@@ -122,13 +122,13 @@
     <section class="all">
     	<div class="all_center">
         	<section id="conteudo">
-            	<h2><img src="images/home.png" alt="inicio"><br>Fotos</h2>
+            	<h2><img src="images/home.png" alt="inicio"><br>Post Blog</h2>
                  <!-- TABELA-->
                 <div class="row-fluid">
                     <div class="span12">
                     <div class="widget red">
                         <div class="widget-title">
-                            <h4>Fotos</h4>
+                            <h4>Post Blog</h4>
                             <div class="btns_acoes">
                             	<div class="filtrar acoes_topo_form">
                                 	<img src="images/filtro.png" alt="Filtrar"><p>Filtrar</p>
@@ -143,7 +143,7 @@
                                 	<img src="images/restore.png" alt="Filtrar"><p>Voltar</p>
                                 </div>
                                 <div class="form_table">
-                                	<form  class="inc_form form" name="incluir" action="fotos.aspx" novalidate="novalidate" accept-charset="default" runat="server">
+                                	<form id="Form1"  class="inc_form form" name="incluir" action="fotos.aspx" novalidate="novalidate" accept-charset="default" runat="server">
                                         <input type="hidden" id="acao" name="acao" value="gravar" />
                                         <input type="text" id="GFO_ID" name="GFO_ID" value="0" />
 
