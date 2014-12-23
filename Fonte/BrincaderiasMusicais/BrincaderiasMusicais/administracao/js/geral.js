@@ -420,11 +420,30 @@ function editar_table2(id){
     $('.img_ok').parent('td').remove();
     var tds = $('.table .tr_ativo td').size();
     var conteudo = $('.inc_form').html().replace(/incluir/g, 'alterar');
-    $('.tr_ativo').after('<tr class="tr_form"><td colspan="' + tds + '" align="center"><form class="form" runat="server" action="banners.aspx" name="incluir" enctype="multipart/form-data">' + conteudo + '</form></td></tr>');
+    $('.tr_ativo').after('<tr class="tr_form"><td colspan="' + tds + '" align="center"><form class="form" runat="server" name="alterar" enctype="multipart/form-data" method="post">' + conteudo + '</form></td></tr>');
     var antigo = $(".tr_form td form").height(),
     novo = $(".tr_form td form").css('height', 'auto').height();
     $('.tr_form td form').height(antigo);
     $('.tr_form td form').animate({ height: novo }, 900);
 }
 
-//<form class="inc_form form"    >
+function editar_table3(id) {
+    $('.img_ok').removeClass('img_ok')
+    $('.tr_form').remove()
+    $('tr').removeClass('tr_ativo');
+    $('#tr_' + id + '').addClass('tr_ativo');
+    $('.img_ok').parent('td').remove();
+
+  //  $('#GFO_IMAGEM').attr("runat", "server");
+  
+    var tds = $('.table .tr_ativo td').size();
+    var conteudo = $('.inc_form').html().replace(/incluir/g, 'alterar');
+    //$('.tr_ativo').after('<tr class="tr_form"><td colspan="' + tds + '" align="center"><form class="form" runat="server" action="fotos.aspx" name="alterar" enctype="multipart/form-data" method="post">' + conteudo + '</form></td></tr>');
+    $('.tr_ativo').after('<tr class="tr_form"><td colspan="' + tds + '" align="center"><form class="form" runat="server" name="alterar" enctype="multipart/form-data" method="post">' + conteudo + '</form></td></tr>');
+    var antigo = $(".tr_form td form").height(),
+    novo = $(".tr_form td form").css('height', 'auto').height();
+    $('.tr_form td form').height(antigo);
+    $('.tr_form td form').animate({ height: novo }, 900);
+}
+
+//<form class="inc_form form" name="incluir" action="fotos.aspx" novalidate="novalidate" accept-charset="default" runat="server">
