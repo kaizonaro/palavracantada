@@ -13,9 +13,29 @@
     <title></title>
 
     <brincadeira:script runat="server" ID="script" />
+
+    <script type="text/javascript">
+        function validarSenha() {            
+            senha1 = document.frmCadastro.USU_SENHA.value
+            senha2 = document.frmCadastro.USU_SENHA2.value
+
+            if (senha1.length > 5 && senha1.length < 13) {
+                if (senha1 == senha2) {
+                    $("#frmCadastro").attr("action", "ajax/acoes.aspx");
+                    $("#frmCadastro").submit();
+                } else {
+                    alert("A senha e o confirmar senha estão diferentes");
+                    return false;
+                }
+            } else {
+                alert("A senha deve ter no minimo 6 caracteres e no maximo 12");
+                return false;
+            }
+        }
+    </script>
     
 </head>
-<body> 
+<body id="body" runat="server"> 
 
     <!--TOPO-->
     <brincadeira:header runat="server" ID="header" />
@@ -68,7 +88,7 @@
     <!--FIM DO RODAPÉ-->
 
     <!-- LIGHT VIEW MODAL E AFINS-->
-    <div id="mask">
+    <div id="mask" runat="server">
         <article id="fotos">
             <img src="/images/galeri0202a.jpg" class="img_galeria" />
             <p>:: LEGANDA DA FOTO 001 ::</p>
@@ -94,23 +114,29 @@
                 <div class="fechar_galeria fechar_foto">FECHAR</div>
             </div>
         </article>
-        <article id="modal">
+        <article id="modal" runat="server">
             <div class="Modal">
                 <p class="titu">PROJETO BRINCADEIRAS MUSICAIS DA PALAVRA CANTADA - CADASTRO DE USUÁRIO:</p>
-                <p class="sub_titu">Preencha o cadastro abaixo para cadastrar o seu usuário de acesso a área restrita do projeto, lorem ipsum doren est signat lorem magna lorem ipsum doren est signat lorem magna lorem ipsum doren est signat lorem magna lorem ipsum doren est signat lorem magna non signat.</p>
-                <form class="cadastro_home">
-                    <label>Nome:</label><input type="text" name="nome" class="input" /><label>Email:</label><input type="text" name="email" class="input email" />
-                    <select class="input">
+                <p class="sub_titu">Preencha o cadastro abaixo para cadastrar o seu usuário de acesso a área restrita do projeto.</p>
+                <form id="frmCadastro" name="frmCadastro" class="cadastro_home" action="javascript:void(0);">
+                    <input type="hidden" name="acao" id="acao" value="completarCadastro" />
+                    <input type="hidden" name="TOK_TOKEN" id="TOK_TOKEN" value="" runat="server" />
+                    <label>Nome*:</label><input type="text" name="USU_NOME" id="USU_NOME" class="input" />
+                    <label>Email*:</label><input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input email" />
+                    
+                    <select id="CAR_ID" name="CAR_ID" class="input obg" data-validation="required" runat="server">
                         <option value="">Selecione o Cargo</option>
-                        <option value="1">opcao 1</option>
-                        <option value="2">opcao 2</option>
-                        <option value="3">opcao 3</option>
                     </select>
+
                     <div>
-                       Categoria: <input type="checkbox" id="infantil" class="checkbox" /><label for="infantil">Ensino Infantil</label><input type="checkbox" id="fundamental" class="checkbox" /><label for="fundamental">Ensino Fundamental</label>
+                       Categoria: 
+                        <input type="checkbox" id="infantil" name="CAT_ID" class="checkbox" value="1" /><label for="infantil">Ensino Infantil</label>
+                        <input type="checkbox" id="fundamental" name="CAT_ID" class="checkbox" value="2"  /><label for="fundamental">Ensino Fundamental</label>
                     </div>
-                    <label>senha:</label><input type="password" name="senha" class="input" placeholder="defina sua senha de acesso" /><label>Senha:</label><input type="password" name="senhanovamente" class="input" placeholder="Confirme a senha" />
-                    <div><input type="checkbox" id="termo" class="checkbox termo" /><label for="termo" class='termo'>Marque esta opção para concordar com os termos e condições do Projeto Brincadeiras Musicais da Palavra Cantada</label><nav> <input class="btn" type="submit" value="cadastrar"> <input class="btn" type="reset" value="cancelar"></nav></div>
+                    <label>senha:</label><input type="password" name="USU_SENHA" id="USU_SENHA" class="input" placeholder="defina sua senha de acesso" />
+                    <input type="password" name="USU_SENHA2" id="USU_SENHA2" class="input" placeholder="digite aqui novamente a senha definida" />
+                    <div><input type="checkbox" id="termo" class="checkbox termo" /><label for="termo" class='termo'>Marque esta opção para concordar com os termos e condições do Projeto Brincadeiras Musicais da Palavra Cantada</label>
+                        <nav><input class="btn" type="button"  onClick="validarSenha()"  value="cadastrar"> <!-- <input class="btn" type="reset" value="cancelar">--></nav></div>
                 </form>
             </div>
         </article>
