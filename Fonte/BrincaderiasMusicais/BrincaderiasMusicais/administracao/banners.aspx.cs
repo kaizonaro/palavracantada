@@ -207,11 +207,20 @@ namespace BrincaderiasMusicais.administracao
                     {
                         link = "javascript:void(0)";
                     }
+
                     rsGravaBanner = objBD.ExecutaSQL("EXEC admin_piuBanner " + Request["BAN_ID"] + ", " + Request["RED_ID"] + ", '" + Request["BAN_LEGENDA"] + "','" + arquivo + "', '" + link + "'");
                     if (rsGravaBanner == null)
                     {
                         throw new Exception();
                     }
+
+                    //Libera o BD e Memória
+                    rsGravaBanner.Close();
+                    rsGravaBanner.Dispose();
+
+                    //Retornar para a Listagem
+                    Response.Redirect("fotos.aspx");
+                    Response.End();
                 }
             }
             catch (Exception)
