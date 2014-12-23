@@ -15,7 +15,7 @@
     <brincadeira:script runat="server" ID="script" />
 
     <script type="text/javascript">
-        function validarSenha() {            
+        function validarSenha() {
             senha1 = document.frmCadastro.USU_SENHA.value
             senha2 = document.frmCadastro.USU_SENHA2.value
 
@@ -33,9 +33,9 @@
             }
         }
     </script>
-    
+
 </head>
-<body id="body" runat="server"> 
+<body id="body" runat="server">
 
     <!--TOPO-->
     <brincadeira:header runat="server" ID="header" />
@@ -52,22 +52,24 @@
             <!--BLOG-->
             <div class="blog_home">
 
-                <p class="titu" runat="server" id="pBlog"></p>    
-                <ul class="posts_home" id="ulPost" runat="server"> </ul>
+                <p class="titu" runat="server" id="pBlog"></p>
+                <ul class="posts_home" id="ulPost" runat="server"></ul>
             </div>
 
             <!--BOX LOGIN-->
             <brincadeira:login runat="server" ID="login" />
-            
+
             <!--GALERIA-->
             <div class="galeria_home">
-                
-                <div class="titu">GALERIA COLABORATIVA BRINCADEIRAS MUSICAIS:
-                    <div class="ops_galeria"><b class="ativo">
-                        <img src="/images/icone_foto.png" alt="icone de camera fotografica" />
-                        Fotos</b> <b>
-                        <img src="/images/icone_video.png" alt="icone de filmadora" />
-                        Vídeo</b>
+
+                <div class="titu">
+                    GALERIA COLABORATIVA BRINCADEIRAS MUSICAIS:
+                    <div class="ops_galeria">
+                        <b class="ativo">
+                            <img src="/images/icone_foto.png" alt="icone de camera fotografica" />
+                            Fotos</b> <b>
+                                <img src="/images/icone_video.png" alt="icone de filmadora" />
+                                Vídeo</b>
                     </div>
                 </div>
 
@@ -94,10 +96,12 @@
             <p>:: LEGANDA DA FOTO 001 ::</p>
             <div class="controles">
                 <div class="left_galeria">
-                    <img src="/images/arrow_left2.png" /></div>
+                    <img src="/images/arrow_left2.png" />
+                </div>
                 <div class="quantos"><b class="atual">1</b>/<b class="total">4</b></div>
                 <div class="right_galeria">
-                    <img src="/images/arrow_right2.png" /></div>
+                    <img src="/images/arrow_right2.png" />
+                </div>
                 <div class="fechar_galeria fechar_foto">FECHAR</div>
             </div>
         </article>
@@ -107,10 +111,12 @@
             <p>:: titulo Do video 001 ::</p>
             <div class="controles">
                 <div class="left_galeria">
-                    <img src="/images/arrow_left2.png" /></div>
+                    <img src="/images/arrow_left2.png" />
+                </div>
                 <div class="quantos"><b class="atual">1</b>/<b class="total">4</b></div>
                 <div class="right_galeria">
-                    <img src="/images/arrow_right2.png" /></div>
+                    <img src="/images/arrow_right2.png" />
+                </div>
                 <div class="fechar_galeria fechar_foto">FECHAR</div>
             </div>
         </article>
@@ -119,27 +125,38 @@
                 <p class="titu">PROJETO BRINCADEIRAS MUSICAIS DA PALAVRA CANTADA - CADASTRO DE USUÁRIO:</p>
                 <p class="sub_titu">Preencha o cadastro abaixo para cadastrar o seu usuário de acesso a área restrita do projeto.</p>
                 <form id="frmCadastro" name="frmCadastro" class="cadastro_home" action="javascript:void(0);">
-                    <input type="hidden" name="acao" id="acao" value="completarCadastro" />
-                    <input type="hidden" name="TOK_TOKEN" id="TOK_TOKEN" value="" runat="server" />
-                    <label>Nome*:</label><input type="text" name="USU_NOME" id="USU_NOME" class="input" />
-                    <label>Email*:</label><input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input email" />
-                    
-                    <select id="CAR_ID" name="CAR_ID" class="input obg" data-validation="required" runat="server">
-                        <option value="">Selecione o Cargo</option>
-                    </select>
-
-                    <div>
-                       Categoria: 
-                        <input type="checkbox" id="infantil" name="CAT_ID" class="checkbox" value="1" /><label for="infantil">Ensino Infantil</label>
-                        <input type="checkbox" id="fundamental" name="CAT_ID" class="checkbox" value="2"  /><label for="fundamental">Ensino Fundamental</label>
+                    <div class="full">
+                        <input type="hidden" name="acao" id="acao" value="completarCadastro" />
+                        <input type="hidden" name="TOK_TOKEN" id="TOK_TOKEN" value="" runat="server" />
+                        <label>Nome*: </label><input type="text" name="USU_NOME" id="USU_NOME" class="input inp_grande" /><br /><br />
+                        <label>Email*:</label><input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input email inp_grande" />
                     </div>
-                    <label>senha:</label><input type="password" name="USU_SENHA" id="USU_SENHA" class="input" placeholder="defina sua senha de acesso" />
-                    <input type="password" name="USU_SENHA2" id="USU_SENHA2" class="input" placeholder="digite aqui novamente a senha definida" />
-                    <div><input type="checkbox" id="termo" class="checkbox termo" /><label for="termo" class='termo'>Marque esta opção para concordar com os termos e condições do Projeto Brincadeiras Musicais da Palavra Cantada</label>
-                        <nav><input class="btn" type="button"  onClick="validarSenha()"  value="cadastrar"> <!-- <input class="btn" type="reset" value="cancelar">--></nav></div>
+                    <div class="left">
+                        <strong>Cargo: </strong><br />
+                        <select id="CAR_ID" name="CAR_ID" class="input obg" data-validation="required" runat="server">
+                            <option value="">Selecione o Cargo</option>
+                        </select>
+                    </div>
+
+                    <div class="right">
+                        <strong>Categoria: </strong><br />
+                        <input type="checkbox" id="fundamental" name="CAT_ID" class="checkbox" value="2" /><label for="fundamental">Ensino Fundamental</label>
+                        <input type="checkbox" id="infantil" name="CAT_ID" class="checkbox" value="1" /><label for="infantil">Ensino Infantil</label>
+                    </div>
+                    <div class="full">
+                        <label>senha:</label><input type="password" name="USU_SENHA" id="USU_SENHA" class="input" placeholder="defina sua senha de acesso" />
+                        <input type="password" name="USU_SENHA2" id="USU_SENHA2" class="input" placeholder="digite aqui novamente a senha definida" />
+                    </div>
+                    <div>
+                        <input type="checkbox" id="termo" class="checkbox termo" /><label for="termo" class='termo'>Marque esta opção para concordar com os termos e condições do Projeto Brincadeiras Musicais da Palavra Cantada</label>
+                        <nav>
+                            <input class="btn" type="button"  value="cadastrar">
+                            <!-- <input class="btn" type="reset" value="cancelar">-->
+                        </nav>
+                    </div>
                 </form>
             </div>
-        </article>
+    </article>
     </div>
     <!-- FIM DO LIGHT VIEW MODAL E AFINS-->
 </body>

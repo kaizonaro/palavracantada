@@ -8,8 +8,8 @@ $(document).ready(function () {
 		
 	window.onload=function(){		
 	   // $('body').fadeIn();
-	    //$('#mask').fadeIn(300);
-        //$('#modal').fadeIn(400)
+	    $('#mask').fadeIn(300);
+        $('#modal').fadeIn(400)
 	    // twitter();
 	    $('#twitter-widget-0').removeAttr('style')
 	}
@@ -194,6 +194,57 @@ $(document).ready(function () {
 	});
 
 	$('.input').focusout(function () {
+	    if ($(this).val() == "" || $(this).val() == "__/__/____") {
+	        $(this).addClass('error')
+	    } else {
+	        if ($(this).hasClass('email')) {
+	            email = $(this).val()
+	            var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	            if (filtro.test(email)) {
+	                $(this).removeClass('error')
+	            } else {
+	                $(this).addClass('error')
+	            }
+	        } else {
+	            $(this).removeClass('error')
+	        }
+	    }
+	});
+
+	$('.cadastro_home .btn').click(function () {
+	    $('.cadastro_home .input').each(function () {
+	        if ($(this).val() == "") {
+	            $(this).addClass('error')
+	        } else {
+	            if ($(this).hasClass('email')) {
+	                email = $(this).val()
+	                var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	                if (filtro.test(email)) {
+	                    $(this).removeClass('error')
+	                } else {
+	                    $(this).addClass('error')
+	                }
+	            }
+	        }
+	    });
+	    if ($('.cadastro_home .right .checkbox:checked').size() < 1) {
+	        $('.cadastro_home .right .checkbox').addClass('error');
+	    } else {
+	        $('.cadastro_home .right .checkbox').removeClass('error');
+	    }
+	    if ($('.cadastro_home #termo:checked').size() < 1) {
+	        $('.cadastro_home #termo').addClass('error');
+	    } else {
+	        $('.cadastro_home #termo').removeClass('error');
+	    }
+	    if ($('.cadastro_home .input').hasClass('error')) {
+	        return false
+	    } else {
+	        validarSenha();
+	    }
+	});
+
+	$('.obg').focusout(function () {
 	    if ($(this).val() == "" || $(this).val() == "__/__/____") {
 	        $(this).addClass('error')
 	    } else {
