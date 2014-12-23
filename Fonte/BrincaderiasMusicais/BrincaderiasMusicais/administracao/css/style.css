@@ -62,6 +62,12 @@ header .all_center{padding-top:5px}
 #menu ul li p{width:100%;display:inline-block;font-size:1.5em;color:#fff;}
 #menu ul li:hover, #menu ul .ativo{border-bottom:5px solid #B0EDDB;}
 
+/*SUBMENU*/
+.submenu{display:none;}
+#menu ul li .submenu li{margin:0;border:none;}
+#menu ul li .submenu li a {color:#fff;font-size:13px;background:rgba(43, 94, 95, 1);margin:0;display:block;border:none;padding:3px;}
+#menu ul li:hover .submenu{display:block;}
+
 /*CONTEUDO*/
 #conteudo{width:100%;float:left;}
 h2{width:100%;text-align:right;color:rgba(95, 158, 160, 0.99);background:;padding:8px;font-size:1.9em;padding-right:20px;margin-top:-51px;}
@@ -150,6 +156,7 @@ label{cursor:pointer}
 box-shadow: inset 6px 5px 3px 0px rgba(50, 50, 50, 0.15);width:100%;padding:5px;font-size:15px;margin-top:10px;margin-bottom:10px;}
 .error{background:#FFAEAE}
 .form span{color:#f00;font-weight:bold;display:none}
+.uf{text-transform:uppercase;}
 
 /*ALTERAR SENHA*/
 .form_alt_senha{width:800px;margin: 0 auto}
