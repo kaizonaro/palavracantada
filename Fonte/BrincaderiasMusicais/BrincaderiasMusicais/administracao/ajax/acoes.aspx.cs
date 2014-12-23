@@ -34,7 +34,11 @@ namespace BrincaderiasMusicais.administracao.ajax
                     case ("populaUsuario"):
                         populaUsuario(Convert.ToInt32(Request["USU_ID"]));
                         break;
-                   
+
+                    case("populaVideos"):
+                        populaVideos(Convert.ToInt32(Request["GVI_ID"]));
+                        break;
+
                     default:
                         break;
                 }
@@ -67,5 +71,26 @@ namespace BrincaderiasMusicais.administracao.ajax
             Response.Write(resultado);
             Response.End();
         }
+
+        /* VIDEOS */
+        public void populaVideos(int GVI_ID)
+        {
+            string resultado = "";
+            rsUsuario = objBD.ExecutaSQL("EXEC admin_psGaleriaVideosPorId " + GVI_ID);
+
+            if (rsUsuario == null)
+            {
+                throw new Exception();
+            }
+
+            if (rsUsuario.HasRows)
+            {
+                rsUsuario.Read();
+                resultado = GVI_ID + "|" + rsUsuario["RED_ID"] + "|" + rsUsuario["GVI_TITULO"] + "|" + rsUsuario["GVI_LINK"];
+            }
+
+            Response.Write(resultado);
+            Response.End();
+        } 
     }
 }
