@@ -140,7 +140,7 @@
                                         <p>Cidade*</p>
                                 		<input type="text" name="RED_CIDADE" class="input obg"  id="RED_CIDADE"/>
                                         <p>UF</p>
-                                		<input type="text" name="RED_UF" class="input uf"  id="RED_UF" onkeypress="return uf(this.value)" onkeyup="maiuscula(this)"/>
+                                		<input type="text" name="RED_UF" class="input uf"  id="RED_UF" onkeypress="return uf(this.value, event)" onkeyup="maiuscula(this)"/>
                                         <p>Quantidade de Usuarios*</p>
                                         <input type="text" class="input sonumero obg" id="USU_MASSA" name="USU_MASSA" onkeypress="return sonumero(event)"/>
                                         <p>
