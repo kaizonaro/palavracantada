@@ -8,8 +8,8 @@ $(document).ready(function () {
 		
 	window.onload=function(){		
 	   // $('body').fadeIn();
-	    $('#mask').fadeIn(300);
-        $('#modal').fadeIn(400)
+	   // $('#mask').fadeIn(300);
+       // $('#modal').fadeIn(400)
 	    // twitter();
 	    $('#twitter-widget-0').removeAttr('style')
 	}
