@@ -128,8 +128,8 @@
                     <div class="full">
                         <input type="hidden" name="acao" id="acao" value="completarCadastro" />
                         <input type="hidden" name="TOK_TOKEN" id="TOK_TOKEN" value="" runat="server" />
-                        <label>Nome*: </label><input type="text" name="USU_NOME" id="USU_NOME" class="input inp_grande" /><br /><br />
-                        <label>Email*:</label><input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input email inp_grande" />
+                        <label>Nome*: <br /></label><input type="text" name="USU_NOME" id="USU_NOME" class="input inp_grande" /><br />
+                        <label>Email*:<br /></label><input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input email inp_grande" />
                     </div>
                     <div class="left">
                         <strong>Cargo: </strong><br />

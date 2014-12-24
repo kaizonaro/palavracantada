@@ -135,25 +135,26 @@ header {padding-top:20px;}
 .quantos{font-size: 12px;font-family: Arial,sans-serif;font-weight: bold;color:#ae080f;}
 .controles{width:100%;display:inline-block;height:30px;line-height:22px;}
 .fechar_galeria{color:#fff;background:#f68b1f;padding:0px 5px;font-size:12px;font-family: Arial,sans-serif;border-radius:10px;cursor:pointer;}
-#modal{width:540px;height:319px;background:url(../images/bg_blog_home.png) no-repeat center center;background-size:cover;padding:30px 25px;margin:0 auto;margin-top:150px;}
+#modal{width:540px;height:356px;background:url(../images/bg_modal_home.png) no-repeat center center;background-size:cover;padding:30px 25px;margin:0 auto;margin-top:150px;}
 #modal .titu{color:#000;font-family:Arial, sans-serif;font-weight:bold;font-size:11px;margin-bottom:10px}
 #modal .sub_titu{color:#000;font-family:Arial, sans-serif;font-size:11px}
 .cadastro_home{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color:#68455b;}
 .cadastro_home label{font-weight:bold;font-size:12px;text-transform:uppercase;margin-right:3px}
 .cadastro_home .input{border:1px solid #B8B6B6;width:190px;height:25px;-webkit-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);-moz-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);margin-right: 10px;}
-.cadastro_home .inp_grande{width:397px}
+.cadastro_home .inp_grande{width:467px}
 .cadastro_home .btn{color:#fff;background:url(../images/btn_entrar2.png) no-repeat center center;background-size:cover;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;width:87px;height:32px;text-align: center;float:right;margin-right:15px;cursor:pointer;text-transform:uppercase;}
 .cadastro_home .link{color:#525252;text-decoration:underline;font-size:9px;font-family:Arial, sans-serif;float:left;margin-right:10px;margin-top:5px}
 .cadastro_home select{margin-top:5px; -webkit-appearance:menulist;}
 .cadastro_home .checkbox{-webkit-appearance:checkbox;-moz-appearance:checkbox;appearance:checkbox;margin-right: 4px;}
-.checkbox ~ label{font-size:10px;font-weight:normal;}
+.checkbox ~ label{font-size:9px;font-weight:normal;}
 .cadastro_home div{width:100%;display:inline-block;margin-top:10px;margin-bottom:5px;}
-.checkbox ~ .termo{font-size:8px;font-family:Arial, sans-serif;font-weight:normal;text-transform:none;width: 220px;display: inline-block;text-align:left;}
+.checkbox ~ .termo{font-size:8px;font-family:Arial, sans-serif;font-weight:normal;text-transform:none;width: 305px;display: inline-block;text-align:left;}
 .cadastro_home .left{float:left;width:40%;text-align:left;}
 .cadastro_home .right .checkbox{margin-top: 11px;}
 .cadastro_home .right{float:right;width:55%;text-align:left;}
 .cadastro_home .error{background:rgba(174, 8, 15, 0.29);border:#ae080f;}
 .cadastro_home .checkbox.error{box-shadow: inset -0px -0px 5px 0px #f00;}
+.cadastro_home .full{text-align:left;}
 #termo, .termo{float:left;cursor:pointer;}
 #termo{margin-left:10px;}
 

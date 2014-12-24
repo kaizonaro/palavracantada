@@ -525,6 +525,7 @@ function uf(val, e) {
 }
 function maiuscula(z) {
     v = z.value.toUpperCase();
+    //apenas letras
     z.value = v.replace(/\d/g,"");
 }
 function sonumero(e) {
