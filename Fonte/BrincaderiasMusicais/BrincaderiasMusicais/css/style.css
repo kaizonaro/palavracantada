@@ -190,3 +190,10 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .titu_post_interna{font-family:Arial,sans-serif;font-weight:bold;font-size:13px;margin-top:5px;margin-bottom:5px;text-align:left;}
 .desc_post_interna{font-family:Arial,sans-serif;font-size:11px; text-align:justify;}
 .posts_interna li .btn{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color:#fff;background:url(/images/menu3.png) no-repeat;width: 70px;height: 26px;display: inline-block;line-height: 26px;background-size: cover;float: left;margin-top: 7px;}
+
+
+/*AJUSTES*/
+.textoPost span {
+    font-size: 10px;
+    color: #525252;
+}
