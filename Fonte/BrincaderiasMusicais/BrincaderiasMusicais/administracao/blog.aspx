@@ -35,7 +35,7 @@
 
         function popularFormulario(id) {
             ajax4 = ajaxInit();
-            ajax4.open("GET", "ajax/acoes.aspx?acao=populaFotos&GFO_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+            ajax4.open("GET", "ajax/acoes.aspx?acao=populaFotos&POS_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
             ajax4.setRequestHeader("Content-Type", "charset=iso-8859-1");
             ajax4.onreadystatechange = function () {
 
@@ -44,7 +44,7 @@
 
                         var ss = ajax4.responseText.split("|");
 
-                        $('#GFO_ID').attr("value", ss[0]);
+                        $('#POS_ID').attr("value", ss[0]);
                         $("#RED_ID option[value='" + ss[1] + "']").attr("selected", "selected");
                         $('#GFO_LEGENDA').attr("value", ss[2]);
 
@@ -143,28 +143,31 @@
                                 	<img src="images/restore.png" alt="Filtrar"><p>Voltar</p>
                                 </div>
                                 <div class="form_table">
-                                	<form id="Form1"  class="inc_form form" name="incluir" action="fotos.aspx" novalidate="novalidate" accept-charset="default" runat="server">
+                                	
+                                    <!-- FORMULÁRIO DE INCLUSÃO -->
+                                    <form id="Form1"  class="inc_form form" name="incluir" action="blog.aspx" novalidate="novalidate" accept-charset="default" runat="server">
                                         <input type="hidden" id="acao" name="acao" value="gravar" />
-                                        <input type="text" id="GFO_ID" name="GFO_ID" value="0" />
+                                        <input type="hidden" id="POS_ID" name="POS_ID" value="0" />
 
-                                    	<p>Selecione uma rede:</p>
-                                        <select id="RED_ID" name="RED_ID" class="input obg" runat="server">
-                                            <option value="NULL">Selecione</option>
-                                        </select>
+                                        <p>Título:*</p>
+                                		<input type="text" name="POS_TITULO" id="POS_TITULO" class="input"  placeholder="Título do Post"/>
                                         
-                                        <p>Foto:*</p>
-                                		<asp:FileUpload runat="server" ID="GFO_IMAGEM" CssClass="input obg" />
+                                        <p>Imagem:*</p>
+                                        <asp:FileUpload ID="POS_IMAGEM" runat="server" class="multi"/>
                                         
-                                        <p>Legenda:*</p>
-                                        <input type="text" name="GFO_LEGENDA" id="GFO_LEGENDA" class="input"  placeholder="Lengenda da foto"/>
+                                        <p>Post:*</p>
+                                        <textarea id="POS_TEXTO" name="POS_TEXTO" rows="10" class="input" placeholder="Texto do Post"></textarea>
                                         
+                                        <p>Importante:</p>
+                                        <input type="checkbox" id="POS_IMPORTANTE" name="POS_IMPORTANTE" value="1" />
+
                                         <p class="p_btn">
                                     		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
                                             <asp:Button ID="Incluir" Cssclass="btn_form"  runat="server" Text="Incluir" OnClick="gravar" />
                                			</p>
                                     </form>
 
-                                    <form class="fil_form form" novalidate accept-charset="default">
+                                   <!-- <form class="fil_form form" novalidate accept-charset="default">
                                         <p>Rede</p>
                                         <select id="FL_REDE_ID" name="FL_REDE_ID" class="input" runat="server" onchange="FiltrarPesquisa(FL_REDE_ID.value, FL_NOME.value, FL_EMAIL.value)">
                                             <option value="">Selecione</option>
@@ -181,7 +184,7 @@
                                     		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
                                             <input type="button" onclick="FiltrarPesquisa(FL_REDE_ID.value, FL_NOME.value, FL_EMAIL.value)" value="Filtrar" class="btn_form" formmethod="get" />
                                			</p>
-                                    </form>
+                                    </form>-->
                                 </div>
                             </div>
                         </div>

@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais.administracao
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista;
+        private OleDbDataReader rsLista, rsGravar;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,11 +46,11 @@ namespace BrincaderiasMusicais.administracao
             {
                 divLista.InnerHtml += " <thead>";
                 divLista.InnerHtml += "     <tr>";
-                divLista.InnerHtml += "         <th style=\"width:60px;\">ID</th>";
-                divLista.InnerHtml += "         <th style=\"width:160px;\">Imagem</th>";
+                divLista.InnerHtml += "         <th style=\"width:30px;\">ID</th>";
+                divLista.InnerHtml += "         <th style=\"width:120px;\">Imagem</th>";
                 divLista.InnerHtml += "         <th>Título</th>";
                 divLista.InnerHtml += "         <th>Rede</th>";
-                divLista.InnerHtml += "         <th style=\"width:175px;\">Data Publicação</th>";
+                divLista.InnerHtml += "         <th style=\"width:115px;\">Data Publicação</th>";
                 divLista.InnerHtml += "         <th style=\"width:85px;\">Ações</th>";
                 divLista.InnerHtml += "     </tr>";
                 divLista.InnerHtml += " </thead>";
@@ -61,7 +61,7 @@ namespace BrincaderiasMusicais.administracao
                 {
                     divLista.InnerHtml += " <tr id='tr_" + rsLista["POS_ID"].ToString() + "' class=\"\">";
                     divLista.InnerHtml += "     <td>" + rsLista["POS_ID"].ToString() + "</td>";
-                    divLista.InnerHtml += "     <td><img width='150px' src='/upload/imagens/blog/cropadas/" + rsLista["POS_IMAGEM"].ToString() + "'></td>";
+                    divLista.InnerHtml += "     <td><img width='150px' src='/upload/imagens/blog/thumb-" + rsLista["POS_IMAGEM"].ToString() + "'></td>";
                     divLista.InnerHtml += "     <td>" + rsLista["POS_TITULO"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["POS_DH_PUBLICACAO"].ToString() + "</td>";
@@ -86,9 +86,95 @@ namespace BrincaderiasMusicais.administracao
             divLista.InnerHtml += "</table>";
         }
 
+        public Int64 GerarID() 
+        { 
+            try 
+            { 
+                DateTime data = new DateTime(); 
+                data = DateTime.Now; 
+                string s = data.ToString().Replace("/", "").Replace(":", "").Replace(" ", ""); 
+                return Convert.ToInt64(s); 
+            } 
+            catch (Exception erro) 
+            { 
+                throw; 
+            } 
+        }
+
         public void gravar(object sender, EventArgs e)
         {
+            if (POS_IMAGEM.PostedFile.ContentLength < 8388608)
+            {
+                try
+                {
+                    if (POS_IMAGEM.HasFile)
+                    {
+                        try
+                        {
+                            //Aqui ele vai filtrar pelo tipo de arquivo
+                            if (POS_IMAGEM.PostedFile.ContentType == "image/jpeg" || POS_IMAGEM.PostedFile.ContentType == "image/png" || POS_IMAGEM.PostedFile.ContentType == "image/gif" || POS_IMAGEM.PostedFile.ContentType == "image/bmp")
+                            {
+                                try
+                                {
+                                    HttpFileCollection hfc = Request.Files;
+                                    for (int i = 0; i < hfc.Count; i++)
+                                    {
+                                        HttpPostedFile hpf = hfc[i];
+                                        if (hpf.ContentLength > 0)
+                                        {
+                                            //Pega o nome do arquivo
+                                            string nome = System.IO.Path.GetFileName(hpf.FileName);
+                                            //Pega a extensão do arquivo
+                                            string extensao = Path.GetExtension(hpf.FileName);
+                                            //Gera nome novo do Arquivo numericamente
+                                            string filename = string.Format("{0:00000000000000}", GerarID());
+                                            //Caminho a onde será salvo
+                                            hpf.SaveAs(Server.MapPath("~/upload/imagens/blog/") + filename + i + extensao);
 
+                                            //Prefixo p/ img pequena
+                                            var prefixoP = "thumb-";
+                                            var prefixoG = "thumb-";
+                                            
+                                            //pega o arquivo já carregado
+                                            string pth = Server.MapPath("~/upload/imagens/blog/") + filename + i + extensao;
+                                           
+                                            //Redefine altura e largura da imagem e Salva o arquivo + prefixo
+                                            Redefinir.resizeImageAndSave(pth, 200, 130, prefixoP);
+                                            Redefinir.resizeImageAndSave(pth, 600, 390, prefixoG);
+
+                                            // Salvar no BD
+                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, NULL, '" + Session["id"] + "','" + Request["POS_TITULO"] + "','" + filename + i + extensao + "','" + Request["POS_TEXTO"] + "','" + Request["POS_IMPORTANTE"] + "' ");
+
+                                        }
+                                    }
+                                }
+                                catch (Exception)
+                                {
+
+                                }
+                                // Mensagem se tudo ocorreu bem
+                                Response.Redirect("blog.aspx");
+                                Response.End();
+                            }
+                            else
+                            {
+                            // Mensagem notifica que é permitido carregar apenas as imagens definidas lá em cima
+                            
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            // Mensagem notifica quando ocorre erros
+                            Response.Write(ex);
+                            Response.End();
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    Response.Write("Imagem não pode ser superior a 8 MB");
+                }
+            }
         }
     }
 }
