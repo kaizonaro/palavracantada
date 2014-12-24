@@ -138,7 +138,7 @@ header {padding-top:20px;}
 #modal{width:540px;height:356px;background:url(../images/bg_modal_home.png) no-repeat center center;background-size:cover;padding:30px 25px;margin:0 auto;margin-top:150px;}
 #modal .titu{color:#000;font-family:Arial, sans-serif;font-weight:bold;font-size:11px;margin-bottom:10px}
 #modal .sub_titu{color:#000;font-family:Arial, sans-serif;font-size:11px}
-.cadastro_home{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color:#68455b;}
+.cadastro_home{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color:#68455b;font-size:12px}
 .cadastro_home label{font-weight:bold;font-size:12px;text-transform:uppercase;margin-right:3px}
 .cadastro_home .input{border:1px solid #B8B6B6;width:190px;height:25px;-webkit-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);-moz-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);margin-right: 10px;}
 .cadastro_home .inp_grande{width:467px}
