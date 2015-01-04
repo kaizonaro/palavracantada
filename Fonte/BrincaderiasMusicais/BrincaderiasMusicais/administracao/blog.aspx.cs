@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais.administracao
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista, rsGravar;
+        private OleDbDataReader rsLista, rsGravar, rsNotificar;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,9 +27,22 @@ namespace BrincaderiasMusicais.administracao
 
             switch (Request["acao"])
             {
+                case ("editarPost"):
+                    rsLista = objBD.ExecutaSQL("select POS_ID, POS_TITULO, POS_TEXTO, POS_IMPORTANTE from  PostBlog where POS_ID ='" + Request["POS_ID"] + "'");
+                    if (rsLista == null)
+                    {
+                        throw new Exception();
+                    }
+                    if (rsLista.HasRows)
+                    {
+                        rsLista.Read();
+                        Response.Write(rsLista["POS_ID"] + "|" + rsLista["POS_TITULO"] + "|" + rsLista["POS_TEXTO"] + "|" + rsLista["POS_IMPORTANTE"]);
+                    }
+                    break;
+
                 default:
                     PopulaLista();
-                    break; 
+                    break;
             }
         }
 
@@ -65,7 +78,7 @@ namespace BrincaderiasMusicais.administracao
                     divLista.InnerHtml += "     <td>" + rsLista["POS_TITULO"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["POS_DH_PUBLICACAO"].ToString() + "</td>";
-                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["POS_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["POS_ID"].ToString() + "' onclick='excluirVideo(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["POS_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["POS_ID"].ToString() + "' onclick='excluirPost(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
                 }
 
@@ -86,19 +99,19 @@ namespace BrincaderiasMusicais.administracao
             divLista.InnerHtml += "</table>";
         }
 
-        public Int64 GerarID() 
-        { 
-            try 
-            { 
-                DateTime data = new DateTime(); 
-                data = DateTime.Now; 
-                string s = data.ToString().Replace("/", "").Replace(":", "").Replace(" ", ""); 
-                return Convert.ToInt64(s); 
-            } 
-            catch (Exception erro) 
-            { 
-                throw; 
-            } 
+        public Int64 GerarID()
+        {
+            try
+            {
+                DateTime data = new DateTime();
+                data = DateTime.Now;
+                string s = data.ToString().Replace("/", "").Replace(":", "").Replace(" ", "");
+                return Convert.ToInt64(s);
+            }
+            catch (Exception erro)
+            {
+                throw;
+            }
         }
 
         public void gravar(object sender, EventArgs e)
@@ -134,10 +147,10 @@ namespace BrincaderiasMusicais.administracao
                                             //Prefixo p/ img pequena
                                             var prefixoP = "thumb-";
                                             var prefixoG = "thumb-";
-                                            
+
                                             //pega o arquivo já carregado
                                             string pth = Server.MapPath("~/upload/imagens/blog/") + filename + i + extensao;
-                                           
+
                                             //Redefine altura e largura da imagem e Salva o arquivo + prefixo
                                             Redefinir.resizeImageAndSave(pth, 200, 130, prefixoP);
                                             Redefinir.resizeImageAndSave(pth, 600, 390, prefixoG);
@@ -145,6 +158,25 @@ namespace BrincaderiasMusicais.administracao
                                             // Salvar no BD
                                             rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, NULL, '" + Session["id"] + "','" + Request["POS_TITULO"] + "','" + filename + i + extensao + "','" + Request["POS_TEXTO"] + "','" + Request["POS_IMPORTANTE"] + "' ");
 
+                                            // inicia as notificações
+                                            rsNotificar = objBD.ExecutaSQL("EXEC admin_psNotificarPost " + Request["POS_IMPORTANTE"]);
+                                            if (rsNotificar == null)
+                                            {
+                                                throw new Exception();
+                                            }
+                                            if (rsNotificar.HasRows)
+                                            {
+                                                string destinatarios = "";
+                                                while (rsNotificar.Read())
+                                                {
+                                                    destinatarios = rsNotificar["USU_EMAIL"] + ", ";
+                                                }
+
+                                                if (objUtils.EnviaEmail(destinatarios, "Novo post no portal Brincadeiras Musicais", "<h1>Acabamos de postar: <a href='#'>" + Request["POS_TITULO"] + "</a>") == false)
+                                                {
+                                                    throw new Exception();
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -158,8 +190,8 @@ namespace BrincaderiasMusicais.administracao
                             }
                             else
                             {
-                            // Mensagem notifica que é permitido carregar apenas as imagens definidas lá em cima
-                            
+                                // Mensagem notifica que é permitido carregar apenas as imagens definidas lá em cima
+
                             }
                         }
                         catch (Exception ex)
@@ -176,5 +208,6 @@ namespace BrincaderiasMusicais.administracao
                 }
             }
         }
+
     }
 }
