@@ -146,7 +146,7 @@ namespace BrincaderiasMusicais.administracao
 
                                             //Prefixo p/ img pequena
                                             var prefixoP = "thumb-";
-                                            var prefixoG = "";
+                                            var prefixoG = "big-";
 
                                             //pega o arquivo já carregado
                                             string pth = Server.MapPath("~/upload/imagens/blog/") + filename + i + extensao;
@@ -169,7 +169,7 @@ namespace BrincaderiasMusicais.administracao
                                                 string destinatarios = "";
                                                 while (rsNotificar.Read())
                                                 {
-                                                    destinatarios = rsNotificar["USU_EMAIL"] + ", ";
+                                                    destinatarios += rsNotificar["USU_EMAIL"] + ",";
                                                 }
 
                                                 if (objUtils.EnviaEmail(destinatarios, "Novo post no portal Brincadeiras Musicais", "<h1>Acabamos de postar no portal: <a href=\"http://localhost:5131/post/"+ Request["POS_TITULO"].Replace(" ","-") + "\">" + Request["POS_TITULO"] + "</a>") == false)
