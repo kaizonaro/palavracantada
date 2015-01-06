@@ -146,7 +146,7 @@ namespace BrincaderiasMusicais.administracao
 
                                             //Prefixo p/ img pequena
                                             var prefixoP = "thumb-";
-                                            var prefixoG = "thumb-";
+                                            var prefixoG = "";
 
                                             //pega o arquivo já carregado
                                             string pth = Server.MapPath("~/upload/imagens/blog/") + filename + i + extensao;
