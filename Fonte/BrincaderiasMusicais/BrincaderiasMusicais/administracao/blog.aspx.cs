@@ -172,7 +172,7 @@ namespace BrincaderiasMusicais.administracao
                                                     destinatarios = rsNotificar["USU_EMAIL"] + ", ";
                                                 }
 
-                                                if (objUtils.EnviaEmail(destinatarios, "Novo post no portal Brincadeiras Musicais", "<h1>Acabamos de postar: <a href=\"http://localhost:5131/post/"+ Request["POS_TITULO"] + "\">" + Request["POS_TITULO"] + "</a>") == false)
+                                                if (objUtils.EnviaEmail(destinatarios, "Novo post no portal Brincadeiras Musicais", "<h1>Acabamos de postar no portal: <a href=\"http://localhost:5131/post/"+ Request["POS_TITULO"].Replace(" ","-") + "\">" + Request["POS_TITULO"] + "</a>") == false)
                                                 {
                                                     throw new Exception();
                                                 }
