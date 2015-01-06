@@ -136,7 +136,7 @@ namespace Etnia.classe
 
                 if (string.IsNullOrWhiteSpace(destinatario) == false)
                 {
-                    objEmail.To.Add(destinatario);
+                    objEmail.Bcc.Add(destinatario);
                 }
             }
 
