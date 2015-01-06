@@ -132,7 +132,12 @@ namespace Etnia.classe
             objEmail.From = new System.Net.Mail.MailAddress("ADM Palavra Cantada" + "<" + Session["email"] + ">");
             foreach (string pessoa in destinatarios.Split(Convert.ToChar(",")))
             {
-                objEmail.To.Add(pessoa);
+                string destinatario = pessoa.Replace(" ", "");
+
+                if (string.IsNullOrWhiteSpace(destinatario) == false)
+                {
+                    objEmail.To.Add(pessoa);
+                }
             }
 
             //objEmail.Bcc.Add(Session["email"]);
@@ -369,7 +374,7 @@ namespace Etnia.classe
                     sb.Append(s[k]);
                 }
             }
-            return sb.ToString().ToLower().Replace(" ", "-").Replace(".", "").Replace(",", "").Replace("?", "").Replace("&","e");
+            return sb.ToString().ToLower().Replace(" ", "-").Replace(".", "").Replace(",", "").Replace("?", "").Replace("&", "e");
         }
 
         public string RemoverAcentos(string texto)
