@@ -230,7 +230,7 @@ namespace BrincaderiasMusicais.administracao
                     rsGravaUsuario.Read();
                     int accestoken = objUtils.GerarTokenAcesso();
                     objBD.ExecutaSQL("INSERT INTO TokenUsuario (USU_ID, TOK_TOKEN) values (" + rsGravaUsuario["USU_ID"] + ", " + accestoken + ")");
-                    mensagemtokens += "<li><a href=\"http://urlficticia/login?user=usuario_" + i + "&accesstoken=" + accestoken + "\">Token: " + accestoken + " Usuário: usuario_" + i + "<br>";
+                    mensagemtokens += "<li><a href=\"http://localhost:5131/default.aspx?&accesstoken=" + accestoken + "\">Token: " + accestoken + " Usuário: usuario_" + i + "<br>";
                 }
 
             }
