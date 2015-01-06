@@ -140,7 +140,7 @@ namespace BrincaderiasMusicais.administracao
                                             //Pega a extensão do arquivo
                                             string extensao = Path.GetExtension(hpf.FileName);
                                             //Gera nome novo do Arquivo numericamente
-                                            string filename = string.Format("{0:00000000000000}", GerarID());
+                                            string filename = DateTime.Now.ToString().Replace("/", "").Replace(":", "").Replace(" ", "");
                                             //Caminho a onde será salvo
                                             hpf.SaveAs(Server.MapPath("~/upload/imagens/blog/") + filename + i + extensao);
 
