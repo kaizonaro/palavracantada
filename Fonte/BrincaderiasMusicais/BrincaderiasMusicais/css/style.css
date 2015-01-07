@@ -102,7 +102,7 @@ header {padding-top:20px;}
 .posts_home li a{color:#68455b;}
 .posts_home li img{width:130px;height:90px;background:url(../images/bg_post_home.png) no-repeat center center;background-size:cover;padding:9px;display:inline-block;}
 .titu_post_home{font-family:Arial,sans-serif;font-weight:bold;font-size:13px;margin-top:5px;margin-bottom:5px;height: 30px;}
-.desc_post_home{font-family:Arial,sans-serif;font-size:11px; text-align:justify;}
+.desc_post_home{font-family:Arial,sans-serif;font-size:11px; text-align:justify;height: 57px;}
 .posts_home li .btn{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color:#fff;background:url(/images/menu3.png) no-repeat;width: 70px;height: 26px;display: inline-block;line-height: 26px;background-size: cover;float: right;margin-top: 7px;}
 /*@-moz-document url-prefix() {.blog_home .titu{padding-left: 24px;}}
  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
