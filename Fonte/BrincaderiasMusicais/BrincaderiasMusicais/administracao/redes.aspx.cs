@@ -26,6 +26,7 @@ namespace BrincaderiasMusicais.administracao
             {
                 switch (Request["acao"])
                 {
+
                     case ("gravarRede"):
                         gravarRede();
                         Response.Redirect("redes.aspx", false);
@@ -52,9 +53,9 @@ namespace BrincaderiasMusicais.administracao
                         if (rsLista.HasRows)
                         {
                             rsLista.Read();
-                            Response.Write(rsLista["RED_ID"] + "|" + rsLista["RED_TITULO"] + "|" + rsLista["RED_CIDADE"] + "|" +  rsLista["RED_UF"]);
+                            Response.Write(rsLista["RED_ID"] + "|" + rsLista["RED_TITULO"] + "|" + rsLista["RED_CIDADE"] + "|" + rsLista["RED_UF"]);
                         }
-                            break;
+                        break;
                     default:
                         PopulaLista();
                         PopulaExcluidos();
@@ -189,10 +190,12 @@ namespace BrincaderiasMusicais.administracao
                     throw new Exception();
                 }
 
+
+
                 if (rsRedes.HasRows)
                 {
                     rsRedes.Read();
-                    UsuarioMassa(Convert.ToInt32(Request["USU_MASSA"].ToString()), Convert.ToInt32(rsRedes["RED_ID"].ToString()), Request["RED_TITULO"]);
+                    UsuarioMassa(Convert.ToInt32(Request["USU_MASSA"]), Convert.ToInt32(rsRedes["RED_ID"].ToString()), Request["RED_TITULO"]);
                 }
 
                 //Libera o BD e Memória
@@ -215,27 +218,30 @@ namespace BrincaderiasMusicais.administracao
 
         public void UsuarioMassa(int quantidade, int RED_ID, string RED_TITULO)
         {
-            string mensagemtokens = "Lista de Tokens da Rede: " + RED_TITULO + "<br><ol>";
-            for (int i = 0; i < quantidade; i++)
+            if (quantidade > 0)
             {
-                rsGravaUsuario = objBD.ExecutaSQL("EXEC admin_piuUsuario '" + 0 + "','" + RED_ID + "', 'usuario_" + i + "', '', 'e10adc3949ba59abbe56e057f20f883e'");
-
-                if (rsGravaUsuario == null)
+                string mensagemtokens = "Lista de Tokens da Rede: " + RED_TITULO + "<br><ol>";
+                for (int i = 0; i < quantidade; i++)
                 {
-                    throw new Exception();
-                }
+                    rsGravaUsuario = objBD.ExecutaSQL("EXEC admin_piuUsuario '" + 0 + "','" + RED_ID + "', 'usuario_" + i + "', '', 'e10adc3949ba59abbe56e057f20f883e'");
 
-                if (rsGravaUsuario.HasRows)
-                {
-                    rsGravaUsuario.Read();
-                    int accestoken = objUtils.GerarTokenAcesso();
-                    objBD.ExecutaSQL("INSERT INTO TokenUsuario (USU_ID, TOK_TOKEN) values (" + rsGravaUsuario["USU_ID"] + ", " + accestoken + ")");
-                    mensagemtokens += "<li><a href=\"http://localhost:5131/default.aspx?&accesstoken=" + accestoken + "\">Token: " + accestoken + " Usuário: usuario_" + i + "<br>";
-                }
+                    if (rsGravaUsuario == null)
+                    {
+                        throw new Exception();
+                    }
 
+                    if (rsGravaUsuario.HasRows)
+                    {
+                        rsGravaUsuario.Read();
+                        int accestoken = objUtils.GerarTokenAcesso();
+                        objBD.ExecutaSQL("INSERT INTO TokenUsuario (USU_ID, TOK_TOKEN) values (" + rsGravaUsuario["USU_ID"] + ", " + accestoken + ")");
+                        mensagemtokens += "<li><a href=\"http://localhost:5131/default.aspx?&accesstoken=" + accestoken + "\">Token: " + accestoken + " Usuário: usuario_" + i + "<br>";
+                    }
+
+                }
+                mensagemtokens += "</ol>";
+                objUtils.EnviaEmail("zonaro@outlook.com,kaizonaroproject@outlook.com,gabriel.zonaro@misasi.com.br", "Tokens de Acesso: " + RED_TITULO, mensagemtokens);
             }
-            mensagemtokens += "</ol>";
-            objUtils.EnviaEmail("zonaro@outlook.com,kaizonaroproject@outlook.com,gabriel.zonaro@misasi.com.br", "Tokens de Acesso: " + RED_TITULO, mensagemtokens);
         }
     }
 }

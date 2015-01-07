@@ -54,12 +54,18 @@
                         $('#RED_TITULO').attr("value", ss[1]);
                         $('#RED_CIDADE').attr("value", ss[2]);
                         $('#RED_UF').attr("value", ss[3]);
-                         
+                        $('#USU_MASSA').attr("value","0");
+                        $('#USU_MASSA').attr("disabled", true);
                         editar_table(id);
                     }
                 }
             }
             ajax4.send(null);
+        }
+
+        function renable()
+        {
+            $('#USU_MASSA').attr("disabled", false);
         }
 
         function excluirRede(id) {
@@ -123,7 +129,7 @@
                                 	<img src="images/filtro.png" alt="Filtrar"><p>Filtrar</p>
                                 </div>-->
                                 <div class="incluir acoes_topo_form">
-                                	<img src="images/mais.png" alt="Incluir"><p>Incluir</p>
+                                	<img src="images/mais.png" alt="Incluir" onclick="renable()"><p>Incluir</p>
                                 </div>                                
                                 <div class="excluidos acoes_topo_form">
                                 	<img src="images/lixo.png" alt="Filtrar"><p>Ítens excluidos</p>
