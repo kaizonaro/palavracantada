@@ -98,7 +98,7 @@ header {padding-top:20px;}
 .blog_home .titu img{float: left;margin-right:10px}
 .blog_home .titu em {font-weight: normal;font-size: 13px;}
 .posts_home {width:100%;}
-.posts_home li{width:30%;margin:1%;color:#68455b;display:inline-block;margin-top:0}
+.posts_home li{width:30%;margin:1%;color:#68455b;display:inline-block;margin-top:0;vertical-align: top;}
 .posts_home li a{color:#68455b;}
 .posts_home li img{width:130px;height:90px;background:url(../images/bg_post_home.png) no-repeat center center;background-size:cover;padding:9px;display:inline-block;}
 .titu_post_home{font-family:Arial,sans-serif;font-weight:bold;font-size:13px;margin-top:5px;margin-bottom:5px;}
