@@ -56,7 +56,7 @@ namespace BrincaderiasMusicais
                 else
                 {
                     //DESLOGADO
-                    pBlog.InnerHtml = "<img src='/images/titu_blog_home.png' >Blog brincadeiras musicais:<em>(posts Recentes)</em>";
+                    pBlog.InnerHtml = "<img src='/images/titu_blog_home.png' >Blog brincadeiras musicais: <em>(posts Recentes)</em>";
                 }
 
             }
