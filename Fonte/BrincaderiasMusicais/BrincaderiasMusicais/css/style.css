@@ -96,7 +96,7 @@ header {padding-top:20px;}
 .blog_home {width:540px;height:319px;background:url(../images/bg_blog_home.png) no-repeat center center;background-size:cover;padding:30px;float:left;}
 .blog_home .titu{width:100%;display:inline-block;color:#736d9b;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:14px;text-transform:uppercase;font-weight:bold;padding:10px 5px;text-align:left;}
 .blog_home .titu img{float: left;margin-right:10px}
-.blog_home .titu em {font-weight: normal;float: right;font-size: 14px;}
+.blog_home .titu em {font-weight: normal;font-size: 13px;}
 .posts_home {width:100%;}
 .posts_home li{width:30%;margin:1%;color:#68455b;display:inline-block;margin-top:0}
 .posts_home li a{color:#68455b;}
