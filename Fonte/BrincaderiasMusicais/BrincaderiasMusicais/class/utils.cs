@@ -134,7 +134,7 @@ namespace Etnia.classe
             {
                 string destinatario = pessoa.Replace(" ", "");
 
-                if (string.IsNullOrWhiteSpace(destinatario) == false)
+                if (destinatario != "")
                 {
                     objEmail.Bcc.Add(destinatario);
                 }
