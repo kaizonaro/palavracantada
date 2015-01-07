@@ -66,6 +66,7 @@
         function renable()
         {
             $('#USU_MASSA').attr("disabled", false);
+            $('#USU_MASSA').attr("value", "");
         }
 
         function excluirRede(id) {
@@ -128,8 +129,8 @@
                             	<!--<div class="filtrar acoes_topo_form">
                                 	<img src="images/filtro.png" alt="Filtrar"><p>Filtrar</p>
                                 </div>-->
-                                <div class="incluir acoes_topo_form">
-                                	<img src="images/mais.png" alt="Incluir" onclick="renable()"><p>Incluir</p>
+                                <div class="incluir acoes_topo_form" onclick="renable()">
+                                	<img src="images/mais.png" alt="Incluir" ><p>Incluir</p>
                                 </div>                                
                                 <div class="excluidos acoes_topo_form">
                                 	<img src="images/lixo.png" alt="Filtrar"><p>Ítens excluidos</p>
