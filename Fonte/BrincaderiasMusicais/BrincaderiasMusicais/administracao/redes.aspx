@@ -149,7 +149,7 @@
                                         <p>UF*</p>
                                 		<input type="text" name="RED_UF" class="input uf obg"  id="RED_UF" onkeypress="return uf(this.value, event)" onkeyup="maiuscula(this)"/>
                                         <p>Quantidade de Usuarios*</p>
-                                        <input type="text" class="input sonumero obg" id="USU_MASSA" name="USU_MASSA" onkeypress="return sonumero(event)"/>
+                                        <input type="text" class="input sonumero" id="USU_MASSA" name="USU_MASSA" onkeypress="return sonumero(event)"/>
                                         <p>
                                     		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
                                             <input type="submit" value="Incluir" class="btn_form" formmethod="get" onclick="validardinamico()" />
