@@ -26,7 +26,9 @@ namespace BrincaderiasMusicais.administracao
             {
                 switch (Request["acao"])
                 {
-
+                    case("ValidarRede"):
+                        ValidarRede();
+                        break;
                     case ("gravarRede"):
                         gravarRede();
                         Response.Redirect("redes.aspx", false);
@@ -184,7 +186,7 @@ namespace BrincaderiasMusicais.administracao
             try
             {
                 rsRedes = objBD.ExecutaSQL("EXEC admin_piuRedes '" + Request["RED_ID"] + "','" + Request["RED_TITULO"] + "', '" + Request["RED_CIDADE"] + "','" + Request["RED_UF"] + "'");
-
+                
                 if (rsRedes == null)
                 {
                     throw new Exception();
@@ -196,6 +198,41 @@ namespace BrincaderiasMusicais.administracao
                 {
                     rsRedes.Read();
                     UsuarioMassa(Convert.ToInt32(Request["USU_MASSA"]), Convert.ToInt32(rsRedes["RED_ID"].ToString()), Request["RED_TITULO"]);
+                }
+
+                //Libera o BD e Memória
+                rsRedes.Close();
+                rsRedes.Dispose();
+
+
+
+
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+        }
+
+        public void ValidarRede()
+        {
+            try
+            {
+                rsRedes = objBD.ExecutaSQL("EXEC admin_VerificaExistenciaRede '" + Request["RED_TITULO"] + "'");
+
+                if (rsRedes == null)
+                {
+                    throw new Exception();
+                }
+
+
+
+                if (rsRedes.HasRows)
+                {
+                    rsRedes.Read();
+                   Response.Write(rsRedes["MENSAGEM"] + "|" + rsRedes["VALIDO"]);
                 }
 
                 //Libera o BD e Memória
