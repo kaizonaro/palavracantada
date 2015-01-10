@@ -15,7 +15,7 @@
     <script type="text/javascript">
 
         //AJAX
-        function ajaxInit() {
+        function ajaxInit() { 
             var req;
             try {
                 req = new ActiveXObject("Microsoft.XMLHTTP");
