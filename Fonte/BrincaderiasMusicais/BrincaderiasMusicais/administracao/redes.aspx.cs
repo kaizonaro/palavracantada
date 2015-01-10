@@ -226,7 +226,7 @@ namespace BrincaderiasMusicais.administracao
                 {
                     throw new Exception();
                 }
-
+                 
 
 
                 if (rsRedes.HasRows)
