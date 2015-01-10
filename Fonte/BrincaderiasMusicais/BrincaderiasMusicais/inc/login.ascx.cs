@@ -38,7 +38,7 @@ namespace BrincaderiasMusicais.inc
         public void populuarBoxLogado()
         {
             box_logado.InnerHtml += "<p>Olá <strong>" + Session["nomeUsuario"] + "</strong>, seja bem vindo a área restrita da rede <strong>" + Session["nomeInstituicao"] + "</strong>.</p>";
-            box_logado.InnerHtml += "<input type=\"button\" class=\"btn\" value=\"SAIR\"/>";
+            box_logado.InnerHtml += "<input type=\"button\" onClick='sair()' class=\"btn\" value=\"SAIR\"/>";
             box_logado.InnerHtml += "<p class=\"titu_logado\">Selecione no menu abaixo qual sessão deseja visitar:</p>";
             box_logado.InnerHtml += "<ul class=\"opcao_logado\">";
             box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"/meu-perfil\" title=\"Meu perfil\">Meu perfil</a></li>";
