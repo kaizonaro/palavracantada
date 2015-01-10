@@ -37,6 +37,10 @@ namespace BrincaderiasMusicais.ajax
                     completarCadastro();
                     break;
 
+                case "logout":
+                    logout();
+                    break;
+
                 default:
                     // PopularBlog();
                     // PopularVideos();
@@ -117,6 +121,12 @@ namespace BrincaderiasMusicais.ajax
 
             rsCadastro.Dispose();
             rsCadastro.Close();
+        }
+
+        public void logout()
+        {
+            Session.Abandon();
+            Response.Redirect("/");
         }
     }
 }

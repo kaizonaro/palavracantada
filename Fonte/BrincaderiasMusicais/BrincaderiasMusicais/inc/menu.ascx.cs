@@ -15,7 +15,8 @@ namespace BrincaderiasMusicais.inc
             string paginaAtual = Request.CurrentExecutionFilePath;
             paginaAtual = paginaAtual.Remove(0, paginaAtual.LastIndexOf("/") + 1);
 
-            //Response.Write(paginaAtual);
+            
+          //  Response.Write(paginaAtual);
 
             switch (paginaAtual)
             {
