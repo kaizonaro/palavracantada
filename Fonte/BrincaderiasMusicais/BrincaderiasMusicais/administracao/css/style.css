@@ -151,10 +151,11 @@ box-shadow: inset 6px 5px 3px 0px rgba(50, 50, 50, 0.15);}
 .box_check{width:100%;display:inline-block;margin-top:10px;margin-bottom:10px;}
 .box_check ul li{float:left;margin-right:15px;font-size:15px;line-height: 15px;padding:1px;border-left:2px solid rgba(43, 94, 95, 1);padding-left:10px}
 .box_check ul li input{float:left;}
-label{cursor:pointer}
+label{cursor:pointer;font-size:13px;font-weight:bold;}
 .select{border:2px solid rgba(43, 94, 95, 1);color:#000;-webkit-box-shadow: inset 6px 5px 3px 0px rgba(50, 50, 50, 0.15);
 -moz-box-shadow: inset 6px 5px 3px 0px rgba(50, 50, 50, 0.15);
 box-shadow: inset 6px 5px 3px 0px rgba(50, 50, 50, 0.15);width:100%;padding:5px;font-size:15px;margin-top:10px;margin-bottom:10px;}
+.form textarea.input{resize:none;height:auto;}
 .error{background:#FFAEAE}
 .form span{color:#f00;font-weight:bold;display:none}
 .uf{text-transform:uppercase;}
