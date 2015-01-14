@@ -570,5 +570,20 @@ function editar_table3(id) {
     $('.tr_form td form').height(antigo);
     $('.tr_form td form').animate({ height: novo }, 900);
 }
+function repaginar() {
+    //GERAR NOVAMENTE A TABELA
+    if ($('#tabela').size() > 0) {
+        var oTable = $('#tabela').dataTable().fnDestroy(); // Nothing happens
+        setTimeout(function () {
+            var oTable = $('#tabela').dataTable({
+                "dom": '<"top"iflp<"clear">>rt<"bottom"iflp<"clear">>',
+                "order": [[0, "desc"]],
+                "language": { "lengthMenu": "Exibindo _MENU_ por pÃ¡gina" },
+                "lengthMenu": [[25, 50, 75, 100], [25, 50, 75, 100]],
+                "filter": false
+            });
+        }, 500)
+    }
 
+}
 //<form class="inc_form form" name="incluir" action="fotos.aspx" novalidate="novalidate" accept-charset="default" runat="server">>>>>>>> .r107
