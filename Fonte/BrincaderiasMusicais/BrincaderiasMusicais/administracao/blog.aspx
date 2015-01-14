@@ -155,15 +155,15 @@
                                             <input type="hidden" id="POS_ID" name="POS_ID" value="0" />
 
                                             <p>Título:*</p>
-                                            <input type="text" name="POS_TITULO" id="POS_TITULO" class="input" placeholder="Título do Post" />
+                                            <input type="text" name="POS_TITULO" id="POS_TITULO" class="input obg" placeholder="Título do Post" />
 
                                             <p>Imagem:*</p>
-                                            <asp:FileUpload ID="POS_IMAGEM" runat="server" class="multi" />
+                                            <asp:FileUpload ID="POS_IMAGEM" runat="server" class="multi obg" />
 
                                             <p>Post:*</p>
-                                            <textarea id="POS_TEXTO" name="POS_TEXTO" rows="5" class="input" placeholder="Texto do Post"></textarea>
+                                            <textarea id="POS_TEXTO" name="POS_TEXTO" rows="10" class="input obg" placeholder="Texto do Post"></textarea>
 
-                                            <label for="POS_IMPORTANTE">Importante:</label>
+                                            <p>Importante:</p>
                                             <input type="checkbox" id="POS_IMPORTANTE" name="POS_IMPORTANTE" value="1" />
 
                                             <p class="p_btn">
