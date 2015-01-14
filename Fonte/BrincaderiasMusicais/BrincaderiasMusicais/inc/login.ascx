@@ -1,7 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="login.ascx.cs" Inherits="BrincaderiasMusicais.inc.login" %>
 <script type="text/javascript">
     function sair() {
-        alert("x");
         window.location = "/ajax/acoes.aspx?acao=logout"
         return false;
     }
