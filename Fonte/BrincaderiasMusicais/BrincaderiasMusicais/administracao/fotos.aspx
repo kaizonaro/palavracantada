@@ -55,11 +55,11 @@
             ajax4.send(null);
         }
 
-        function excluirVideo(id) {
-            var r = confirm("Deseja mesmo desativar este vídeo ?");
+        function excluirFoto(id) {
+            var r = confirm("Deseja mesmo desativar esta Foto ?");
             if (r == true) {
                 ajax2 = ajaxInit();
-                ajax2.open("GET", "videos.aspx?acao=excluirVideo&GVI_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+                ajax2.open("GET", "videos.aspx?acao=excluirFoto&GFO_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
                 ajax2.setRequestHeader("Content-Type", "charset=iso-8859-1");
                 ajax2.onreadystatechange = function () {
                     if (ajax2.readyState == 4) {
@@ -74,11 +74,11 @@
             }
         }
 
-        function restoreVideo(id) {
-            var r = confirm("Deseja deseja mesmo ativar este vídeo ?");
+        function restoreFoto(id) {
+            var r = confirm("Deseja deseja mesmo ativar esta foto ?");
             if (r == true) {
                 ajax2 = ajaxInit();
-                ajax2.open("GET", "videos.aspx?acao=ativarVideo&GVI_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+                ajax2.open("GET", "videos.aspx?acao=restaurarFoto&GFO_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
                 ajax2.setRequestHeader("Content-Type", "charset=iso-8859-1");
                 ajax2.onreadystatechange = function () {
                     if (ajax2.readyState == 4) {

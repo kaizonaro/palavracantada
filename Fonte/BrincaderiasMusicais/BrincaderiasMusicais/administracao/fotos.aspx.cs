@@ -28,10 +28,16 @@ namespace BrincaderiasMusicais
 
             switch (Request["acao"])
             {
-                
+                case ("excluirFoto"):
+                    objBD.ExecutaSQL("UPDATE GaleriaFotos set GFO_ATIVO = 0 where GFO_ID = '" + Request["GFO_ID"] + "'");
+                    break;
+                case ("restaurarFoto"):
+                    objBD.ExecutaSQL("UPDATE GaleriaFotos set GFO_ATIVO = 1 where GFO_ID = '" + Request["GFO_ID"] + "'");
+                    break;
+
                 default:
                     PopulaLista();
-                  //   PopulaListaExcluidos();
+                    PopulaListaExcluidos();
                     PopularRedes();
                     break;
             }
@@ -69,7 +75,7 @@ namespace BrincaderiasMusicais
                     divLista.InnerHtml += "     <td>" + rsLista["GFO_LEGENDA"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["GFO_DH_PUBLICACAO"].ToString() + "</td>";
-                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["GFO_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["GFO_ID"].ToString() + "' onclick='excluirVideo(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["GFO_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["GFO_ID"].ToString() + "' onclick='excluirFoto(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
                 }
 
@@ -88,6 +94,59 @@ namespace BrincaderiasMusicais
             rsLista.Dispose();
 
             divLista.InnerHtml += "</table>";
+        }
+
+        public void PopulaListaExcluidos()
+        {
+            divExcluidos.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
+
+            rsLista = objBD.ExecutaSQL("EXEC admin_psGaleriaFotosPorAtivo 0");
+            if (rsLista == null)
+            {
+                throw new Exception();
+            }
+            if (rsLista.HasRows)
+            {
+                divExcluidos.InnerHtml += " <thead>";
+                divExcluidos.InnerHtml += "     <tr>";
+                divExcluidos.InnerHtml += "         <th style=\"width:60px;\">ID</th>";
+                divExcluidos.InnerHtml += "         <th style=\"width:160px;\">Imagem</th>";
+                divExcluidos.InnerHtml += "         <th>Legenda</th>";
+                divExcluidos.InnerHtml += "         <th>Rede</th>";
+                divExcluidos.InnerHtml += "         <th style=\"width:175px;\">Data Publicação</th>";
+                divExcluidos.InnerHtml += "         <th style=\"width:85px;\">Ações</th>";
+                divExcluidos.InnerHtml += "     </tr>";
+                divExcluidos.InnerHtml += " </thead>";
+
+                divExcluidos.InnerHtml += " <tbody id=\"tbCentral\">";
+
+                while (rsLista.Read())
+                {
+                    divExcluidos.InnerHtml += " <tr id='tr_" + rsLista["GFO_ID"].ToString() + "' class=\"\">";
+                    divExcluidos.InnerHtml += "     <td>" + rsLista["GFO_ID"].ToString() + "</td>";
+                    divExcluidos.InnerHtml += "     <td><img width='150px' src='/upload/imagens/galeria/" + rsLista["GFO_IMAGEM"].ToString() + "'></td>";
+                    divExcluidos.InnerHtml += "     <td>" + rsLista["GFO_LEGENDA"].ToString() + "</td>";
+                    divExcluidos.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
+                    divExcluidos.InnerHtml += "     <td>" + rsLista["GFO_DH_PUBLICACAO"].ToString() + "</td>";
+                    divExcluidos.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["GFO_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["GFO_ID"].ToString() + "' onclick='excluirFoto(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    divExcluidos.InnerHtml += " </tr>";
+                }
+
+                divExcluidos.InnerHtml += " </tbody>";
+            }
+
+            else
+            {
+                divExcluidos.InnerHtml += " <thead>";
+                divExcluidos.InnerHtml += "     <tr>";
+                divExcluidos.InnerHtml += "         <th>Nenhum registro cadastrado até o momento!</th>";
+                divExcluidos.InnerHtml += "     </tr>";
+                divExcluidos.InnerHtml += " </thead>";
+            }
+            rsLista.Close();
+            rsLista.Dispose();
+
+            divExcluidos.InnerHtml += "</table>";
         }
 
         public void PopularRedes()
@@ -141,8 +200,8 @@ namespace BrincaderiasMusicais
                 Response.Redirect("fotos.aspx");
                 Response.End();
             }
-            
-            
+
+
 
         }
     }
