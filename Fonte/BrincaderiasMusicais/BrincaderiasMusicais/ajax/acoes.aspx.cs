@@ -75,7 +75,7 @@ namespace BrincaderiasMusicais.ajax
             }
             else
             {
-                Response.Redirect("/");
+                Response.Redirect("/default.aspx?msg=erroLogin");
             }
 
             rsLogin.Dispose();
