@@ -7,7 +7,7 @@
 </script>
 <aside id="sidebar">
     <div class="box_login" id="box_login" runat="server">
-        <p>Faça o login para acessar a área restrita de sua região:</p>
+        <p>Faça o login para acessar a área restrita de sua região:<span id="msgErro" runat="server"></span></p>
         <form class="form_login" action="/ajax/acoes.aspx">
             <input type="hidden" id="acao" name="acao" value="FazerLogin" />
             <label>E-mail:</label><input type="text" id="email" name="email" class="input email" /><label>Senha:</label><input type="password" id="senha" name="senha" class="input" /><br />

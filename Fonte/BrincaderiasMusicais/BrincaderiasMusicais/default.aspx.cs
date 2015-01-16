@@ -11,16 +11,16 @@ using System.IO;
 using System.Net.Mail;
 using System.Net;
 using System.Text;
- 
+
 namespace BrincaderiasMusicais
 {
     public partial class _default : System.Web.UI.Page
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsBlog, rsVideo, rsVFoto, rsCargo;
+        private OleDbDataReader rsBlog, rsVideo, rsVFoto, rsCargo, rsToken;
 
-       
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -43,10 +43,30 @@ namespace BrincaderiasMusicais
                 //Verificar acesso via Toke
                 if (Request["accesstoken"] != null && Request["accesstoken"].ToString().Length > 1)
                 {
-                    Session.Abandon();
-                    TOK_TOKEN.Value = Request["accesstoken"];
-                    mask.Attributes.Add("style", "display:block");
-                    modal.Attributes.Add("style", "display:block");
+                    rsToken = objBD.ExecutaSQL("select TOK_ID from TokenUsuario where TOK_TOKEN = " + Request["accesstoken"].ToString() + " and tok_ativo = 1 ");
+
+                    if (rsToken == null)
+                    {
+                        throw new Exception();
+                    }
+                    if (rsToken.HasRows)
+                    {
+                        rsToken.Read();
+
+                        Session.Abandon();
+                        TOK_TOKEN.Value = Request["accesstoken"];
+                        mask.Attributes.Add("style", "display:block");
+                        modal.Attributes.Add("style", "display:block");
+
+                    }
+                    else
+                    {
+                        Response.Redirect("/");
+                    }
+
+                    rsToken.Close();
+                    rsToken.Dispose();
+
                 }
                 if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1)
                 {
@@ -68,78 +88,78 @@ namespace BrincaderiasMusicais
         }
 
         public void PopularBlog(int RED_ID)
-          {
-              rsBlog = objBD.ExecutaSQL("EXEC site_psPostBlog " + RED_ID + " ");
+        {
+            rsBlog = objBD.ExecutaSQL("EXEC site_psPostBlog " + RED_ID + " ");
 
-              if (rsBlog == null)
-              {
-                  throw new Exception();
-              }
-              if (rsBlog.HasRows)
-              {
-                  while (rsBlog.Read())
-                  {
-                    ulPost.InnerHtml += " <li><a href=\"post/"+objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString())+"\" title=\"Titulo da postagem\"><img src='/upload/imagens/blog/thumb-" + rsBlog["POS_IMAGEM"].ToString() + "'></a>";
+            if (rsBlog == null)
+            {
+                throw new Exception();
+            }
+            if (rsBlog.HasRows)
+            {
+                while (rsBlog.Read())
+                {
+                    ulPost.InnerHtml += " <li><a href=\"post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\" title=\"Titulo da postagem\"><img src='/upload/imagens/blog/thumb-" + rsBlog["POS_IMAGEM"].ToString() + "'></a>";
                     ulPost.InnerHtml += "   <p class=\"titu_post_home\"><a href=\"post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\">" + rsBlog["POS_TITULO"].ToString() + "</a></p>";
                     ulPost.InnerHtml += "   <p class=\"desc_post_home\"><a href=\"post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\">" + objUtils.RemoveHTML(objUtils.CortarString(true, 110, rsBlog["POS_TEXTO"].ToString())) + "</a></p>";
                     ulPost.InnerHtml += "   <a href=\"post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\" class=\"btn\">LEIA MAIS</a>";
                     ulPost.InnerHtml += " </li>";
-                  }
-              }
+                }
+            }
 
-              rsBlog.Dispose();
-              rsBlog.Close();
-          }
+            rsBlog.Dispose();
+            rsBlog.Close();
+        }
 
         public void PopularVideos(int RED_ID)
-          {
-              rsVideo = objBD.ExecutaSQL("EXEC site_psVideo  " + RED_ID + " ");
+        {
+            rsVideo = objBD.ExecutaSQL("EXEC site_psVideo  " + RED_ID + " ");
 
-              if (rsVideo == null)
-              {
-                  throw new Exception();
-              }
-              if (rsVideo.HasRows)
-              {
-                  while (rsVideo.Read())
-                  {
+            if (rsVideo == null)
+            {
+                throw new Exception();
+            }
+            if (rsVideo.HasRows)
+            {
+                while (rsVideo.Read())
+                {
                     ulVideos.InnerHtml += " <li>";
                     ulVideos.InnerHtml += "     <a href=\"" + rsVideo["GVI_LINK"].ToString() + "\">";
                     ulVideos.InnerHtml += "         <img src=\"" + rsVideo["GVI_IMAGEM"].ToString() + "\" alt=\"" + rsVideo["GVI_TITULO"].ToString() + "\" />";
                     ulVideos.InnerHtml += "     </a>";
                     ulVideos.InnerHtml += "     <p>:: " + rsVideo["GVI_TITULO"].ToString() + " ::</p>";
-                    ulVideos.InnerHtml +=  " </li>";
-                  }
-              }
+                    ulVideos.InnerHtml += " </li>";
+                }
+            }
 
-              rsVideo.Dispose();
-              rsVideo.Close();
-          }
+            rsVideo.Dispose();
+            rsVideo.Close();
+        }
 
         public void PopularFotos(int RED_ID)
-          {
-              rsVFoto = objBD.ExecutaSQL("EXEC site_psFoto  " + RED_ID + " ");
+        {
+            rsVFoto = objBD.ExecutaSQL("EXEC site_psFoto  " + RED_ID + " ");
 
-              if (rsVFoto == null)
-              {
-                  throw new Exception();
-              }
-              if (rsVFoto.HasRows)
-              {
-                  while (rsVFoto.Read())
-                  {
+            if (rsVFoto == null)
+            {
+                throw new Exception();
+            }
+            if (rsVFoto.HasRows)
+            {
+                while (rsVFoto.Read())
+                {
                     ulFotos.InnerHtml += " <li>";
                     ulFotos.InnerHtml += "     <a href=\"/upload/imagens/galeria/ampliada/" + rsVFoto["GFO_IMAGEM"].ToString() + "\">";
                     ulFotos.InnerHtml += "         <img src=\"/upload/imagens/galeria/" + rsVFoto["GFO_IMAGEM"].ToString() + "\" alt=\" " + rsVFoto["GFO_LEGENDA"].ToString() + "\" /></a>";
                     ulFotos.InnerHtml += "     </a>";
                     ulFotos.InnerHtml += "     <p>:: " + rsVFoto["GFO_LEGENDA"].ToString() + " ::</p>";
                     ulFotos.InnerHtml += " </li>";
-                  }
-              }
+                }
+            }
 
-              rsVFoto.Dispose();
-              rsVFoto.Close();
-          }
+            rsVFoto.Dispose();
+            rsVFoto.Close();
+        }
 
         public void PopularCargos()
         {
@@ -164,6 +184,5 @@ namespace BrincaderiasMusicais
     }
 }
 
-                        
-                            
-                        
+
+

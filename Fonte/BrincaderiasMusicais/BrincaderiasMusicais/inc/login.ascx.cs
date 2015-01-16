@@ -32,6 +32,10 @@ namespace BrincaderiasMusicais.inc
             else
             {
                 //DESLOGADO
+                if (Request["msg"] != null && Request["msg"].ToString().Length > 1)
+                {
+                    msgErro.InnerHtml = "<br/>Usuário e/ou senha inválida";
+                }
             }
         }
 

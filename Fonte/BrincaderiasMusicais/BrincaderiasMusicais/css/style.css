@@ -65,6 +65,7 @@ header {padding-top:20px;}
 #sidebar{float:right;width:372px}
 .box_login{width:374px;height:150px;background:url(../images/bg_login.png) no-repeat center center;background-size:cover;padding:21px}
 .box_login p{color:#000;font-family:Arial, sans-serif;font-weight:bold;font-size:12px;margin-bottom:20px}
+#login_box_login span {color: #ae080f;}
 .form_login, .form_senha{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color:#68455b;}
 .form_login label, .form_senha label{font-weight:bold;font-size:11px;text-transform:uppercase;margin-right:2px}
 .form_login .input, .form_senha .input{border:1px solid #B8B6B6;width:100px;height:25px;-webkit-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);-moz-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);margin-right: 10px;}
