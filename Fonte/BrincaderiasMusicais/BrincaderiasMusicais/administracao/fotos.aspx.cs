@@ -128,7 +128,7 @@ namespace BrincaderiasMusicais
                     divExcluidos.InnerHtml += "     <td>" + rsLista["GFO_LEGENDA"].ToString() + "</td>";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["GFO_DH_PUBLICACAO"].ToString() + "</td>";
-                    divExcluidos.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["GFO_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["GFO_ID"].ToString() + "' onclick='excluirFoto(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    divExcluidos.InnerHtml += "     <td><ul class=\"icons_table\"><li><a id='" + rsLista["GFO_ID"].ToString() + "' onclick='restaurarFoto(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/restore.png\"></a></li></ul>";
                     divExcluidos.InnerHtml += " </tr>";
                 }
 
