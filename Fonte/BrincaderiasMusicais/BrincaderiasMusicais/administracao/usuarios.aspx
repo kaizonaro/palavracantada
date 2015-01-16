@@ -171,7 +171,7 @@
                                             </select>
 
                                             <p>Nome:*</p>
-                                            <input type="text" name="USU_NOME" id="USU_NOME" class="input error" placeholder="Nome Completo">
+                                            <input type="text" name="USU_NOME" id="USU_NOME" class="input obg" placeholder="Nome Completo">
 
                                             <p>E-mail:*</p>
                                             <input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input" placeholder="Digite um e-mail válido" />
