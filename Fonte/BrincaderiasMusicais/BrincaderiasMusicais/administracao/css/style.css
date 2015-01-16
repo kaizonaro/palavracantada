@@ -135,6 +135,13 @@ table.table thead{cursor:pointer;}
 .td_align{width:100%;text-align:center;}
 .icons_table{text-align: center;margin: 0px auto;display: inline;}
 .icons_table li{display: inline-flex;height: 16px;}
+.form input[type=file]{padding: 5px 5px 5px 5px;}
+input[type=file]::-webkit-file-upload-button, button {background:rgba(43, 94, 95, 1); color:#fff;border:none;height: 31px;padding: 8px;font-weight: bold;}
+input[type=file]::-moz-file-upload-button, button {background:rgba(43, 94, 95, 1); color:#fff;border:none;height: 31px;padding: 8px;font-weight: bold;}
+@-moz-document url-prefix() {
+    .form input[type=file]{padding: 0px;}
+
+}
 
 /*FORM*/
 .input{border:2px solid rgba(43, 94, 95, 1);color:#000;-webkit-box-shadow: inset 6px 5px 3px 0px rgba(50, 50, 50, 0.15);
