@@ -54,7 +54,7 @@ header {padding-top:20px;}
 .menu .blog a{background:url(/images/menu3.png)}
 .menu .contato a{background:url(/images/menu4.png)}
 .banner{position:absolute;}
-.menu .conheca .menu_ativo, .menu li a:hover{background:url(/images/bg_menu_ativo.png);color:#68455b}
+.menu li .menu_ativo, .menu li a:hover{background:url(/images/bg_menu_ativo.png);color:#68455b}
 
 /*sociais*/
 #twitter-widget-0{width:189px;height: 22px;margin-top: 6px;margin-left:30px}
