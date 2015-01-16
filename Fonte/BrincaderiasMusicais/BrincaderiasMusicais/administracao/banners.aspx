@@ -137,7 +137,7 @@
                                             <input type="hidden" value="gravarBanner" id="acao" name="acao" />
                                             <input type="hidden" value="0" id="BAN_ID" name="BAN_ID" />
                                             <p>Imagem do Banner</p>
-                                            <asp:FileUpload runat="server" ID="BAN_IMAGEM" name="BAN_IMAGEM" />
+                                            <asp:FileUpload runat="server" ID="BAN_IMAGEM" name="BAN_IMAGEM" class="obg input" />
                                             <p>Legenda</p>
                                             <input type="text" name="BAN_LEGENDA" class="input obg" id="BAN_LEGENDA" />
                                             <p>Rede</p>
