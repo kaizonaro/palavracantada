@@ -167,7 +167,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .copyright{color:#fff;font-family: Arial,sans-serif;font-size: 11px;margin-top:30px;margin-bottom:10px;}
 
 /*INTERNA*/
-.interna{width:540px;height:791px;background:url(/images/bg_interna.png) no-repeat center center;background-size:cover;padding:35px;float:left;margin-bottom:30px;}
+.interna{width:540px;min-height:791px;background:url(/images/bg_interna.png) no-repeat center center;background-size:cover;padding:35px;float:left;margin-bottom:30px;}
 #sobre .titu {width:100%;display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:22px;color:#ae080f;text-align:left;font-weight:bold;}
 #breadcrumb {width:100%;display:inline-block;text-align:left;font-family:Arial, sans-serif;font-size:11px;}
 #breadcrumb a{text-decoration:underline;}
