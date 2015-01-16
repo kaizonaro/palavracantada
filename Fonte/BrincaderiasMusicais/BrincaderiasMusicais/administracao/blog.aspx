@@ -158,7 +158,7 @@
                                             <input type="text" name="POS_TITULO" id="POS_TITULO" class="input obg" placeholder="Título do Post" />
 
                                             <p>Imagem:*</p>
-                                            <asp:FileUpload ID="POS_IMAGEM" runat="server" class="multi obg" />
+                                            <asp:FileUpload ID="POS_IMAGEM" runat="server" class="multi obg input" />
 
                                             <p>Post:*</p>
                                             <textarea id="POS_TEXTO" name="POS_TEXTO" rows="10" class="input obg" placeholder="Texto do Post"></textarea>
