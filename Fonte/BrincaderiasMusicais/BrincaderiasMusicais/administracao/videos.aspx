@@ -146,7 +146,7 @@
                                 <div class="form_table">
                                 	<form class="inc_form form" name="incluir" action="videos.aspx" novalidate="novalidate" accept-charset="default">
                                         <input type="hidden" id="acao" name="acao" value="gravarVideo" />
-                                        <input type="text" id="GVI_ID" name="GVI_ID" value="0" />
+                                        <input type="hidden" id="GVI_ID" name="GVI_ID" value="0" />
 
                                     	<p>Selecione uma rede:</p>
                                         <select id="RED_ID" name="RED_ID" class="input obg" runat="server">
