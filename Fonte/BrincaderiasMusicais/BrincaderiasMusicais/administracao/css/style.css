@@ -23,7 +23,7 @@ input{-webkit-appearance:none;-moz-appearance:none;appearance:none;}
 .all_center{padding:20px;}
 #antes{width:auto}
 .adm_index_left{float:left;width:49%;text-align:center;margin-top:15%;}
-.adm_index_left img{width:60%;margin:0 auto}
+.adm_index_left img{width:100%;margin:0 auto}
 .adm_index_right{float:right;width:465px;text-align:center;margin-top:15%;}
 #login_adm, #esqueci_senha{background:url(../images/login_adm.png) no-repeat center center;background-size:100% 100%;font-size:15px;padding-top:30px;padding-bottom:20px;}
 .input_adm{padding:8px;display:inline-block;width:60%;background:url(../images/input_bg.png) no-repeat center center;background-size:100% 100%;}
