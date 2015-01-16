@@ -163,7 +163,7 @@
                                             <p>Post:*</p>
                                             <textarea id="POS_TEXTO" name="POS_TEXTO" rows="10" class="input obg" placeholder="Texto do Post"></textarea>
 
-                                            <p>Importante:</p>
+                                            <label for="POS_IMPORTANTE">Importante:</label>
                                             <input type="checkbox" id="POS_IMPORTANTE" name="POS_IMPORTANTE" value="1" />
 
                                             <p class="p_btn">
