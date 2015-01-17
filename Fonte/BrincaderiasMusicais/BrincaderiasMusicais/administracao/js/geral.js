@@ -281,7 +281,13 @@ $(document).ready(function () {
                     else {
                         $(this).addClass('error')
                     }
-                } else {
+                } else if ($(this).hasClass('senha')){
+                    if ($(this).val().length < 6 || $(this).val().length > 12) {
+                        $(this).addClass('error')
+                    } else {
+                        $(this).removeClass('error')
+                    }
+                }else{
                     $(this).removeClass('error')
                 }
             }
@@ -303,6 +309,12 @@ $(document).ready(function () {
                 }
                 else {
                     $(this).addClass('error')
+                }
+            } else if ($(this).hasClass('senha')) {
+                if ($(this).val().length < 6 || $(this).val().length > 12) {
+                    $(this).addClass('error')
+                } else {
+                    $(this).removeClass('error')
                 }
             } else {
                 $(this).removeClass('error')
