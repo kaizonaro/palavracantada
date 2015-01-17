@@ -180,7 +180,7 @@
                                             <input type="password" name="USU_SENHA" id="USU_SENHA" class="input obg senha" placeholder="Escolha uma senha" />
 
 
-                                            </label><p class="p_btn">
+                                            <p class="p_btn">
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
                                                 <input type="submit" value="incluir" class="btn_form" formmethod="get" />
                                             </p>
