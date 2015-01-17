@@ -15,7 +15,7 @@
     <script type="text/javascript">
 
         //AJAX
-        function ajaxInit() { 
+        function ajaxInit() {
             var req;
             try {
                 req = new ActiveXObject("Microsoft.XMLHTTP");
@@ -101,12 +101,16 @@
                         var ss = resposta[0].split("|");
 
                         $("#redemensagem").html(ss[0]);
-                        
+
                         if (ss[1] == 0) {
                             $("#bt_cadastrar").attr("disabled", true);
+                            $("#RED_TITULO").attr("style", "background-color:#FFAEAE");
+                            $("#RED_TITULO").focus();
+                            $("#RED_TITULO").select();
                         }
                         else {
                             $("#bt_cadastrar").removeAttr("disabled");
+                            $("#RED_TITULO").removeAttr("style");
                         }
 
 
