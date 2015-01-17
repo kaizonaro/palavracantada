@@ -113,7 +113,7 @@ namespace BrincaderiasMusicais.administracao
 
             divLista.InnerHtml += "</table>";
         }
-     
+
         public void PopulaExcluidos()
         {
             divExcluidos.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
@@ -197,32 +197,35 @@ namespace BrincaderiasMusicais.administracao
         {
             try
             {
+                string arquivo = "NULL";
                 if (BAN_IMAGEM.HasFile)
                 {
-                    string arquivo = BAN_IMAGEM.FileName.Replace(" ", "_");
-
+                    arquivo =  BAN_IMAGEM.FileName.Replace(" ", "_");
                     BAN_IMAGEM.SaveAs(Server.MapPath("~/upload/imagens/banners") + "/" + arquivo);
-                    string link = Request["BAN_LINK"];
-                    if (link == null || link == "")
-                    {
-                        link = "javascript:void(0)";
-                    }
-
-                    rsGravaBanner = objBD.ExecutaSQL("EXEC admin_piuBanner " + Request["BAN_ID"] + ", " + Request["RED_ID"] + ", '" + Request["BAN_LEGENDA"] + "','" + arquivo + "', '" + link + "'");
-                    if (rsGravaBanner == null)
-                    {
-                        throw new Exception();
-                    }
-
-                    //Libera o BD e Memória
-                    rsGravaBanner.Close();
-                    rsGravaBanner.Dispose();
-
-                    //Retornar para a Listagem
-                    Response.Redirect("fotos.aspx");
-                    Response.End();
+                    arquivo = "'" + arquivo + "'";
                 }
+
+                string link = Request["BAN_LINK"];
+                if (link == null || link == "")
+                {
+                    link = "javascript:void(0)";
+                }
+
+                rsGravaBanner = objBD.ExecutaSQL("EXEC admin_piuBanner " + Request["BAN_ID"] + ", " + Request["RED_ID"] + ", '" + Request["BAN_LEGENDA"] + "', " + arquivo + ", '" + link + "'");
+                if (rsGravaBanner == null)
+                {
+                    throw new Exception();
+                }
+
+                //Libera o BD e Memória
+                rsGravaBanner.Close();
+                rsGravaBanner.Dispose();
+
+                //Retornar para a Listagem
+                Response.Redirect("fotos.aspx");
+                Response.End();
             }
+
             catch (Exception)
             {
                 throw;
