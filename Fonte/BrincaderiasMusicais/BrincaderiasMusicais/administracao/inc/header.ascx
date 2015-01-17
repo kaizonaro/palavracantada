@@ -3,7 +3,7 @@
     <div class="all_center">
         <div id="logo">
             <h1 class="logo">
-                <img src="images/logo.png" alt="Logo">
+                <img src="images/logo2.png" alt="Logo">
             </h1>
         </div>
         <div class="info_user">
