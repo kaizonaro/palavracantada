@@ -54,7 +54,7 @@
                         $('#RED_TITULO').attr("value", ss[1]);
                         $('#RED_CIDADE').attr("value", ss[2]);
                         $('#RED_UF').attr("value", ss[3]);
-                        $('#USU_MASSA').attr("value", "0");
+                        $('#USU_MASSA').attr("value", ss[4]);
                         $('#USU_MASSA').attr("disabled", true);
                         editar_table(id);
                     }
