@@ -256,7 +256,7 @@ namespace BrincaderiasMusicais.administracao
             else
             {
                 resposta += "     <tr>";
-                resposta += "         <th colspan=\"7\">Nenhum resultado para esta pesquisa</th>";
+                resposta += "         <td colspan=\"7\">Nenhum resultado para esta pesquisa</td>";
                 resposta += "     </tr>";
             }
 
