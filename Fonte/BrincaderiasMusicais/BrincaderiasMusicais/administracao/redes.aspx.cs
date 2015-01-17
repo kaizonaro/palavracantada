@@ -47,7 +47,7 @@ namespace BrincaderiasMusicais.administracao
                         PopulaExcluidos();
                         break;
                     case ("editarRede"):
-                        rsLista = objBD.ExecutaSQL("select RED_ID, RED_TITULO, RED_CIDADE, RED_UF from  Rede where RED_ID ='" + Request["RED_ID"] + "'");
+                        rsLista = objBD.ExecutaSQL("select RED_ID, RED_TITULO, RED_CIDADE, RED_UF, (select COUNT(*) from usuario where red_id = " + Request["RED_ID"] + " and USU_ATIVO = 1) as total  from  Rede where RED_ID ='" + Request["RED_ID"] + "'");
                         if (rsLista == null)
                         {
                             throw new Exception();
@@ -55,7 +55,7 @@ namespace BrincaderiasMusicais.administracao
                         if (rsLista.HasRows)
                         {
                             rsLista.Read();
-                            Response.Write(rsLista["RED_ID"] + "|" + rsLista["RED_TITULO"] + "|" + rsLista["RED_CIDADE"] + "|" + rsLista["RED_UF"]);
+                            Response.Write(rsLista["RED_ID"] + "|" + rsLista["RED_TITULO"] + "|" + rsLista["RED_CIDADE"] + "|" + rsLista["RED_UF"] + "|" +rsLista["total"]);
                         }
                         break;
                     default:
