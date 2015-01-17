@@ -174,10 +174,10 @@
                                             <input type="text" name="USU_NOME" id="USU_NOME" class="input obg" placeholder="Nome Completo">
 
                                             <p>E-mail:*</p>
-                                            <input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input" placeholder="Digite um e-mail válido" />
+                                            <input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input obg" placeholder="Digite um e-mail válido" />
 
                                             <p>Senha:*</p>
-                                            <input type="password" name="USU_SENHA" id="USU_SENHA" class="input" placeholder="Escolha uma senha" />
+                                            <input type="password" name="USU_SENHA" id="USU_SENHA" class="input obg senha" placeholder="Escolha uma senha" />
 
 
                                             </label><p class="p_btn">
