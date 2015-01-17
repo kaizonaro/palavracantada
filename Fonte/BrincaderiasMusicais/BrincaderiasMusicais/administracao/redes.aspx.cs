@@ -125,6 +125,7 @@ namespace BrincaderiasMusicais.administracao
 
             divLista.InnerHtml += "</table>";
         }
+    
         public void PopulaExcluidos()
         {
             divExcluidos.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
@@ -180,7 +181,6 @@ namespace BrincaderiasMusicais.administracao
             divExcluidos.InnerHtml += "</table>";
         }
 
-
         public void gravarRede()
         {
             try
@@ -192,21 +192,19 @@ namespace BrincaderiasMusicais.administracao
                     throw new Exception();
                 }
 
-
-
                 if (rsRedes.HasRows)
                 {
                     rsRedes.Read();
-                    UsuarioMassa(Convert.ToInt32(Request["USU_MASSA"]), Convert.ToInt32(rsRedes["RED_ID"].ToString()), Request["RED_TITULO"]);
+
+                    if (Request["USU_MASSA"] != null && Request["USU_MASSA"].ToString() != "")
+                    {
+                        UsuarioMassa(Convert.ToInt32(Request["USU_MASSA"]), Convert.ToInt32(rsRedes["RED_ID"].ToString()), Request["RED_TITULO"]);
+                    }
                 }
 
                 //Libera o BD e Memória
                 rsRedes.Close();
                 rsRedes.Dispose();
-
-
-
-
 
             }
             catch (Exception)
