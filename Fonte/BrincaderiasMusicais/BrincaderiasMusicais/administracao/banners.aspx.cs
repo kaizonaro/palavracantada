@@ -222,7 +222,7 @@ namespace BrincaderiasMusicais.administracao
                 rsGravaBanner.Dispose();
 
                 //Retornar para a Listagem
-                Response.Redirect("fotos.aspx");
+                Response.Redirect("banners.aspx");
                 Response.End();
             }
 
