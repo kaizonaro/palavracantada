@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <title>:: Administração - Post Blog</title>
     <brincadeira:script runat="server" ID="script" />
-
+    <script src="ckeditor/ckeditor.js"></script>
     <script type="text/javascript">
 
         //AJAX
@@ -162,7 +162,7 @@
 
                                             <p>Post:*</p>
                                             <textarea id="POS_TEXTO" name="POS_TEXTO" rows="10" class="input obg" placeholder="Texto do Post"></textarea>
-
+                                             
                                             <label for="POS_IMPORTANTE">Importante:</label>
                                             <input type="checkbox" id="POS_IMPORTANTE" name="POS_IMPORTANTE" value="1" />
 
