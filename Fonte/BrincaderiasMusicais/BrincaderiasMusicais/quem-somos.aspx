@@ -30,7 +30,7 @@
     <section class="all">
         <div class="all_center">
 
-            <!--CONTEUDO INTERNO (SOBRE)-->
+            <!--CONTEUDO INTERNO (QUEM SOMOS)-->
             <div id="sobre" class="interna">
                 <div class="titu">
                     Quem Somos
@@ -38,14 +38,16 @@
                 <div id="breadcrumb">
                     <a href="/" title="Home">Home</a> >> <strong>Conheça - Quem Somos</strong>
                 </div>
-                <img src="/images/sobre.jpg" class="img_destaque" />
+                <img src="/images/quem-somos-1.jpg" class="img_destaque" />
                 <div class="txt">
-                    <p>Aenean rutrum odio et eros eleifend tempor. Cras a tempus sem, mollis pulvinar leo. Vivamus magna tellus, molestie sit amet tincidunt id, consectetur lacinia nisi. Donec vitae laoreet sem, ut hendrerit lacus. Nulla tortor sem, mattis sed quam id, feugiat pulvinar sem. Ut euismod posuere pulvinar. Nulla cursus lectus neque, eget tempor mi pulvinar at. Pellentesque a mi quam. Quisque ut odio nec eros pulvinar iaculis rutrum nec eros. Phasellus vehicula lobortis dolor sed sollicitudin. Aliquam id vehicula tellus. Suspendisse ac orci nunc. Etiam ac quam augue.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam feugiat sed mi quis rutrum. Nulla ultrices condimentum mi ac sagittis. Etiam aliquam id velit in commodo. Nullam facilisis malesuada molestie. Praesent eleifend vulputate libero, a cursus justo blandit a. Nunc scelerisque lorem eget quam eleifend fringilla. Pellentesque pharetra vel dolor sed pretium. Maecenas vulputate, urna vel convallis semper, tellus odio tempus sem, sit amet mollis enim lectus et orci. Sed sit amet leo ut est euismod aliquam. Ut sit amet ligula id ipsum sagittis convallis quis sed erat.</p>
-                    <p>Maecenas enim tellus, sodales a mattis sed, gravida vitae libero. Maecenas sollicitudin mollis sapien, sed eleifend dui. Integer iaculis nibh eget dolor gravida, et molestie nisl scelerisque. Maecenas in scelerisque felis. Fusce nec ultrices ipsum, in facilisis elit. Ut dapibus, quam eu vestibulum venenatis, odio nisi venenatis nisl, ut consectetur nisl ligula non lorem. Mauris pharetra neque risus, vitae gravida urna dapibus at. In hac habitasse platea dictumst.</p>
+                    <p>A  <strong>EDITORA MELHORAMENTOS</strong> se consagrou no mercado editorial com seu catálogo de alta qualidade, autores e ilustradores renomados. Atualmente, oferece mais de mil títulos de literatura infantil e juvenil, formação de professores, gastronomia e desenvolvimento pessoal, além da conceituada linha Michaelis de dicionários. Respeitados autores, como Ziraldo, Mauricio de Sousa, Tatiana Belinky, Angela Lago, Sandra Peres e Paulo Tatit figuram entre os escritores que colaboram para o sucesso editorial dessa grande empresa.</p>
+                </div>
+                <img src="/images/quem-somos-2.jpg" class="img_destaque" />
+                <div class="txt">
+                    <p>A  <strong>PALAVRA CANTADA</strong>  existe desde 1994, quando os músicos Sandra Peres e Paulo Tatit propuseram criar novas canções para as crianças. Em todos os seus trabalhos, tornaram-se linhas marcantes a preocupação com a qualidade de letras, arranjos e gravações e o respeito à inteligência e à sensibilidade infantil.</p>
                 </div>
             </div>
-            <!--FIM DO CONTEUDO INTERNO (SOBRE)-->
+            <!--FIM DO CONTEUDO INTERNO (QUEM SOMOS)-->
 
             <!--BOX LOGIN-->
             <brincadeira:login runat="server" ID="login" />
