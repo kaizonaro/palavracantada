@@ -83,7 +83,7 @@ namespace BrincaderiasMusicais
             catch (Exception ex)
             {
                 objUtils.Feedbacker(ex);
-                throw;
+                 throw;
             }
         }
 

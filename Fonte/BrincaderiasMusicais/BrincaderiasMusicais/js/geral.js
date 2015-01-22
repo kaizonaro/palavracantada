@@ -50,6 +50,7 @@ $(document).ready(function () {
 	    rotate = setInterval(proximo_banner, speed);
 	}
 
+
 	/*$('#bullets ul li').click(function () {
 	    clearInterval(rotate)
 	    var bullet = $(this).index();
@@ -64,6 +65,36 @@ $(document).ready(function () {
 	    $('#bullets ul li:eq(' + atual + ')').addClass('bullet_ativo');
 	    rotate = setInterval(proximo_banner, speed);
 	});*/
+
+    //Banner interna
+	$('.banner_sobre img').fadeOut(0)
+	$('.banner_sobre img:first').addClass('primeiro');
+	$('.banner_sobre img:last').addClass('ultimo');
+	$('.banner_sobre img:first').addClass('ativo').fadeIn(0);
+    //INICIA MUDANÇA AUTOMATICA
+	var speed = 4000,
+        rotate2 = setInterval(proximo_banner2, speed);
+
+	function proximo_banner2() {
+	    clearInterval(rotate2)
+	    if ($('.banner_sobre .ativo').hasClass('ultimo')) {
+	        $('.banner_sobre .ativo').removeClass('ativo')
+	        $('.banner_sobre .primeiro').addClass('ativo')
+	        $('.banner_sobre img:visible').fadeOut(400);
+	        $('.banner_sobre .ativo').fadeIn(400);
+	    } else {
+	        $('.banner_sobre .ativo').removeClass('ativo').next('img').addClass('ativo');
+	        $('.banner_sobre img:visible').fadeOut(400);
+	        $('.banner_sobre .ativo').fadeIn(500);
+	    }
+	    //var bg = $('#header_banner .ativo .bg').attr('src')	    
+	    //$('#banner').css('background-image', 'url(' + bg + ')')
+	    //var atual = $('#header_banner .ativo').index();
+	    //$('#bullets ul li').removeClass('bullet_ativo');
+	    // $('#bullets ul li:eq(' + atual + ')').addClass('bullet_ativo');
+	    rotate2 = setInterval(proximo_banner2, speed);
+	}
+
 
     //NOTIFICAÇÕES
 	$('.notificacao li:first').addClass('primeiro');

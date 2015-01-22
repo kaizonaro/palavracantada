@@ -38,7 +38,11 @@
                 <div id="breadcrumb">
                     <a href="/" title="Home">Home</a> >> <strong>Conheça - sobre o Projeto</strong>
                 </div>
-                <img src="/images/sobre.jpg" class="img_destaque" />
+                <div class="banner_sobre">
+                    <img src="/images/sobre.jpg" class="img_destaque" />
+                    <img src="/images/sobre.jpg" class="img_destaque" />
+                    <img src="/images/sobre.jpg" class="img_destaque" />
+                </div>
                 <div class="txt">
                     <p>O <strong>"Projeto Brincadeiras Musicais da Palavra Cantada"</strong> é um projeto de ensino de música para crianças, elaborado com base na parceria da Editora Melhoramentos com o grupo Palavra Cantada, que visa contribuir para a construção de um trabalho de educação musical a ser realizado nas escolas.</p>
                     <p>Destinado à rede pública de ensino, da educação infantil aos anos iniciais do ensino fundamental, este projeto surgiu com a intenção de contribuir para a necessidade de as escolas brasileiras se adequarem às exigências da Lei n. 11.769, sancionada em 18 de agosto de 2008 pelo presidente Luiz Inácio Lula da Silva, tornando obrigatório o ensino de música.</p>
