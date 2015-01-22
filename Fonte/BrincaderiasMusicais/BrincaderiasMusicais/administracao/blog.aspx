@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="blog.aspx.cs" Inherits="BrincaderiasMusicais.administracao.blog" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="blog.aspx.cs" Inherits="BrincaderiasMusicais.administracao.blog" ValidateRequest="false" %>
 
 
 <%@ Register Src="~/administracao/inc/script.ascx" TagPrefix="brincadeira" TagName="script" %>
@@ -10,8 +10,15 @@
     <meta charset="utf-8">
     <title>:: Administração - Post Blog</title>
     <brincadeira:script runat="server" ID="script" />
-    <script src="ckeditor/ckeditor.js"></script>
+    <script src="tinymce/tinymce.min.js"></script>
     <script type="text/javascript">
+
+        tinymce.init({
+            selector: "textarea",
+            menubar: false
+ });
+ 
+    
 
         //AJAX
         function ajaxInit() {
@@ -161,7 +168,9 @@
                                             <asp:FileUpload ID="POS_IMAGEM" runat="server" class="multi obg input" />
 
                                             <p>Post:*</p>
-                                            <textarea id="POS_TEXTO" name="POS_TEXTO" rows="10" class="input obg" placeholder="Texto do Post"></textarea>
+                                            <textarea id="POS_TEXTO" name="POS_TEXTO" style="width:100%">
+
+                                            </textarea>
                                              
                                             <label for="POS_IMPORTANTE">Importante:</label>
                                             <input type="checkbox" id="POS_IMPORTANTE" name="POS_IMPORTANTE" value="1" />
