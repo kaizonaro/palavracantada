@@ -156,7 +156,7 @@ namespace BrincaderiasMusicais.administracao
                                             Redefinir.resizeImageAndSave(pth, 600, 390, prefixoG);
 
                                             // Salvar no BD
-                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, NULL, '" + Session["id"] + "','" + Request["POS_TITULO"] + "','" + filename + i + extensao + "','" + Request["POS_TEXTO"] + "','" + Request["POS_IMPORTANTE"] + "' ");
+                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, NULL, '" + Session["id"] + "','" + Request["POS_TITULO"] + "','" + filename + i + extensao + "','" + Request["POS_TEXTO"].Replace("'","\"") + "','" + Request["POS_IMPORTANTE"] + "' ");
 
                                             // inicia as notificações
                                             rsNotificar = objBD.ExecutaSQL("EXEC admin_psNotificarPost " + Request["POS_IMPORTANTE"]);
@@ -172,7 +172,7 @@ namespace BrincaderiasMusicais.administracao
                                                     destinatarios += rsNotificar["USU_EMAIL"] + ",";
                                                 }
 
-                                                if (objUtils.EnviaEmail(destinatarios, "Novo post no portal Brincadeiras Musicais", "<h1>Acabamos de postar no portal: <a href=\"http://localhost:5131/post/"+ Request["POS_TITULO"].Replace(" ","-") + "\">" + Request["POS_TITULO"] + "</a>") == false)
+                                                if (objUtils.EnviaEmail(destinatarios, "Novo post no portal Brincadeiras Musicais", "Acabamos de postar no portal: <a href=\"http://localhost:5131/post/"+ Request["POS_TITULO"].Replace(" ","-") + "\">" + Request["POS_TITULO"] + "</a>") == false)
                                                 {
                                                     throw new Exception();
                                                 }
