@@ -38,7 +38,7 @@
                 <div id="breadcrumb">
                     <a href="/" title="Home">Home</a> >> <strong>Conheça - Redes Participantes</strong>
                 </div>
-                <img src="/images/redes-participantes-1.jpg" class="img_destaque" />
+                    <img src="/images/redes-participantes-1.jpg" class="img_destaque" />
                 <div class="txt boxEsquerda">
                     <ul>
                         <li>Aparecida de Goiânia – GO</li>

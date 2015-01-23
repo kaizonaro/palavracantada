@@ -6,9 +6,11 @@
                 <div class="sub_menu">
                     <img src="images/sub_1.png" class="sub_arrow" />
                     <ul>
-                        <li><a href="#">sub menu</a></li>
-                        <li><a href="#">sub menu</a></li>
-                        <li><a href="#">sub menu</a></li>
+                        <li><a href="/sobre-o-projeto">Sobre o projeto</a></li>
+                        <li><a href="/quem-somos">Quem Somos</a></li>
+                        <li><a href="/redes-participantes">Redes Participantes</a></li>
+                        <li><a href="/palavra-cantada">Palavra Cantada</a></li>
+                        <li><a href="/equipe">Equipe</a></li>
                     </ul>
                 </div>
             </li>

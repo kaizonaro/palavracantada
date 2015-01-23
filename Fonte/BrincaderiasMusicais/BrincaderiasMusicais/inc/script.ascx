@@ -26,6 +26,10 @@
 <link href="/css/style.css" rel="stylesheet" type="text/css">
 <link href="/css/responsive.css" rel="stylesheet" type="text/css">
 
+<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
 <!--RESPONSIVO
 <meta name="viewport" content="width=device-width, initial-scale=1">-->
 

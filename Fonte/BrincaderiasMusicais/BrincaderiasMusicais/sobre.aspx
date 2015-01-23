@@ -40,8 +40,7 @@
                 </div>
                 <div class="banner_sobre">
                     <img src="/images/sobre.jpg" class="img_destaque" />
-                    <img src="/images/sobre.jpg" class="img_destaque" />
-                    <img src="/images/sobre.jpg" class="img_destaque" />
+                    <img src="/images/sobre-2.jpg" class="img_destaque" />
                 </div>
                 <div class="txt">
                     <p>O <strong>"Projeto Brincadeiras Musicais da Palavra Cantada"</strong> é um projeto de ensino de música para crianças, elaborado com base na parceria da Editora Melhoramentos com o grupo Palavra Cantada, que visa contribuir para a construção de um trabalho de educação musical a ser realizado nas escolas.</p>
