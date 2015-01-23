@@ -189,7 +189,7 @@ namespace Etnia.classe
 
             conteudoMensagem = conteudoMensagem += "    <tr>";
             conteudoMensagem = conteudoMensagem += "        <td colspan=\"2\" align=\"left\" valign=\"middle\">";
-            conteudoMensagem = conteudoMensagem += "            <font  face=\"arial\">" + mensagem + "</font>";
+            conteudoMensagem = conteudoMensagem += "            <font  face=\"arial\" color=\"#68455b\">" + mensagem + "</font>";
             conteudoMensagem = conteudoMensagem += "        </td>";
             conteudoMensagem = conteudoMensagem += "    </tr>";
             conteudoMensagem = conteudoMensagem += "    <tr>";
