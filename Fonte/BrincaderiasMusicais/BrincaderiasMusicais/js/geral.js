@@ -11,7 +11,7 @@ $(document).ready(function () {
 	   // $('#mask').fadeIn(300);
        // $('#modal').fadeIn(400)
 	    // twitter();
-	    $('#twitter-widget-0').removeAttr('style')
+	    $('#twitter-widget-0').removeAttr('style');
 	}
 	
     //BANNER
@@ -72,7 +72,7 @@ $(document).ready(function () {
 	$('.banner_sobre img:last').addClass('ultimo');
 	$('.banner_sobre img:first').addClass('ativo').fadeIn(0);
     //INICIA MUDANÇA AUTOMATICA
-	var speed = 4000,
+	var speed = 6000,
         rotate2 = setInterval(proximo_banner2, speed);
 
 	function proximo_banner2() {
@@ -80,12 +80,12 @@ $(document).ready(function () {
 	    if ($('.banner_sobre .ativo').hasClass('ultimo')) {
 	        $('.banner_sobre .ativo').removeClass('ativo')
 	        $('.banner_sobre .primeiro').addClass('ativo')
-	        $('.banner_sobre img:visible').fadeOut(400);
-	        $('.banner_sobre .ativo').fadeIn(400);
+	        $('.banner_sobre img:visible').fadeOut(1600);
+	        $('.banner_sobre .ativo').fadeIn(2000);
 	    } else {
 	        $('.banner_sobre .ativo').removeClass('ativo').next('img').addClass('ativo');
-	        $('.banner_sobre img:visible').fadeOut(400);
-	        $('.banner_sobre .ativo').fadeIn(500);
+	        $('.banner_sobre img:visible').fadeOut(1600);
+	        $('.banner_sobre .ativo').fadeIn(2000);
 	    }
 	    //var bg = $('#header_banner .ativo .bg').attr('src')	    
 	    //$('#banner').css('background-image', 'url(' + bg + ')')
