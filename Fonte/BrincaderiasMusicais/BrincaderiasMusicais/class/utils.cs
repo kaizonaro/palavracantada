@@ -122,25 +122,49 @@ namespace Etnia.classe
 
         }
 
-        public bool EnviaEmail(string destinatarios, string assunto, string mensagem)
+        public bool EnviaEmail(string destinatarios, string assunto, string mensagem, string ComCopia = "", string ComCopiaOculta = "", string[] anexos = null, string remetente = "")
         {
 
             //Cria objeto com dados do e-mail.
             MailMessage objEmail = new MailMessage();
 
-            //Define o Campo From e ReplyTo do e-mail.
-            objEmail.From = new System.Net.Mail.MailAddress("ADM Palavra Cantada" + "<" + Session["email"] + ">");
-            foreach (string pessoa in destinatarios.Split(Convert.ToChar(",")))
-            {
-                string destinatario = pessoa.Replace(" ", "");
 
-                if (destinatario != "")
+            //Define o Campo From e ReplyTo do e-mail.
+            objEmail.From = new System.Net.Mail.MailAddress("contato@agenciaetnia.com.br", "PORTAL PALAVRA CANTADA");
+
+            if (string.IsNullOrWhiteSpace(destinatarios) == false)
+            {
+                foreach (string pessoa in destinatarios.Split(Convert.ToChar(",")))
                 {
-                    objEmail.Bcc.Add(destinatario);
+                    if (string.IsNullOrWhiteSpace(pessoa) == false)
+                    {
+                        objEmail.To.Add(pessoa);
+                    }
                 }
             }
 
-            //objEmail.Bcc.Add(Session["email"]);
+
+            if (string.IsNullOrWhiteSpace(ComCopia) == false)
+            {
+                foreach (string pessoa in ComCopia.Split(Convert.ToChar(",")))
+                {
+                    if (string.IsNullOrWhiteSpace(pessoa) == false)
+                    {
+                        objEmail.CC.Add(pessoa);
+                    }
+                }
+            }
+
+            if (string.IsNullOrWhiteSpace(ComCopiaOculta) == false)
+            {
+                foreach (string pessoa in ComCopiaOculta.Split(Convert.ToChar(",")))
+                {
+                    if (string.IsNullOrWhiteSpace(pessoa) == false)
+                    {
+                        objEmail.Bcc.Add(pessoa);
+                    }
+                }
+            }
 
             //Define a prioridade do e-mail.
             objEmail.Priority = System.Net.Mail.MailPriority.High;
@@ -149,25 +173,60 @@ namespace Etnia.classe
             objEmail.IsBodyHtml = true;
 
             //Define título do e-mail.
-            objEmail.Subject = "Portal Palavra Cantada | " + assunto;
+            objEmail.Subject = "PORTAL PALAVRA CANTADA | " + assunto;
 
             //Define o corpo do e-mail.
-            objEmail.Body = mensagem;
+
+            string conteudoMensagem = "<center>";
+            conteudoMensagem = conteudoMensagem += "<table id='Tabela_01' width='600' height='217' border='0' cellpadding='0' cellspacing='0'>";
+
+            conteudoMensagem = conteudoMensagem += "    <tr>";
+            conteudoMensagem = conteudoMensagem += "        <td colspan=\"2\" align=\"left\" valign=\"middle\">";
+            conteudoMensagem = conteudoMensagem += "            <img width='100%' src='http://projetopalavracantada.net/images/email-topo.jpg' />";
+            conteudoMensagem = conteudoMensagem += "        </td>";
+            conteudoMensagem = conteudoMensagem += "    </tr>";
+            conteudoMensagem = conteudoMensagem += "    <tr>";
+
+            conteudoMensagem = conteudoMensagem += "    <tr>";
+            conteudoMensagem = conteudoMensagem += "        <td colspan=\"2\" align=\"left\" valign=\"middle\">";
+            conteudoMensagem = conteudoMensagem += "            <font  face=\"arial\">" + mensagem + "</font>";
+            conteudoMensagem = conteudoMensagem += "        </td>";
+            conteudoMensagem = conteudoMensagem += "    </tr>";
+            conteudoMensagem = conteudoMensagem += "    <tr>";
+
+            conteudoMensagem = conteudoMensagem += "    <br><tr>";
+            conteudoMensagem = conteudoMensagem += "        <td colspan=\"2\">";
+            conteudoMensagem = conteudoMensagem += "             <img width='100%' src='http://projetopalavracantada.net/images/email-rodape.jpg' />";
+            conteudoMensagem = conteudoMensagem += "        </td>";
+            conteudoMensagem = conteudoMensagem += "    </tr></table></center>";
+
+            // coloca no corpo do email
+            objEmail.Body = conteudoMensagem;
             //Para evitar problemas de caracteres "estranhos", configuramos o charset para "ISO-8859-1"
             objEmail.SubjectEncoding = System.Text.Encoding.GetEncoding("ISO-8859-1");
             objEmail.BodyEncoding = System.Text.Encoding.GetEncoding("ISO-8859-1");
 
 
             // Anexa o arquivo a mensagemn
-            // objEmail.Attachments.Add(new Attachment("", System.Net.Mime.MediaTypeNames.Application.Octet));
+            if (anexos != null)
+            {
+                for (int i = 0; i < anexos.Length; i++)
+                {
+                    objEmail.Attachments.Add(new Attachment(anexos[i], System.Net.Mime.MediaTypeNames.Application.Octet));
+                }
+
+            }
 
             //Cria objeto com os dados do SMTP
             System.Net.Mail.SmtpClient objSmtp = new System.Net.Mail.SmtpClient();
+
 
             //Alocamos o endereço do host para enviar os e-mails, localhost(recomendado) 
             objSmtp.Host = "smtp.agenciaetnia.com.br";
             objSmtp.Port = 587;
             objSmtp.EnableSsl = false;
+           
+
             objSmtp.Credentials = new System.Net.NetworkCredential("contato@agenciaetnia.com.br", "Etnia123");
             try
             {
@@ -185,6 +244,7 @@ namespace Etnia.classe
             }
 
         }
+
 
         public string Diretorio(string nomediretorio)
         {
