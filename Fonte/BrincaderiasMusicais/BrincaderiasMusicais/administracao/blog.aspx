@@ -54,7 +54,8 @@
 
                         $('#POS_ID').attr("value", ss[0]);
                         $('#POS_TITULO').attr("value", ss[1]);
-                        $('#POS_TEXTO').html(ss[2]);
+                        tinyMCE.activeEditor.setContent(ss[2]);
+                        
                          if (ss[3] == '1'){$('#POS_IMPORTANTE').attr("checked","checked");}
                              
 
