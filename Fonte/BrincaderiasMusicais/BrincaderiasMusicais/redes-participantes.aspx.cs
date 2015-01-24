@@ -25,7 +25,7 @@ namespace BrincaderiasMusicais
             objBD = new bd();
             objUtils = new utils();
 
-            rsRedes = objBD.ExecutaSQL("SELECT * FROM Rede where RED_ATIVO = 1");
+            rsRedes = objBD.ExecutaSQL("SELECT RED_CIDADE, RED_UF FROM Rede where RED_ATIVO = 1");
             if (rsRedes == null)
             {
                 throw new Exception();
