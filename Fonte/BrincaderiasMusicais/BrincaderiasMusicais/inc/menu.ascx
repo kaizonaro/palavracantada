@@ -2,7 +2,7 @@
 <nav id="menu" class="all">
     <div class="all_center">
         <ul class="menu">
-            <li class="conheca"><a href="/sobre-o-projeto" title="Coneça" id="conheca" runat="server">Conheça</a>
+            <li class="conheca"><a href="/sobre-o-projeto" title="Conheça" id="conheca" runat="server">Conheça</a>
                 <div class="sub_menu">
                     <img src="images/sub_1.png" class="sub_arrow" />
                     <ul>
@@ -10,7 +10,7 @@
                         <li><a href="/quem-somos">Quem Somos</a></li>
                         <li><a href="/redes-participantes">Redes Participantes</a></li>
                         <li><a href="/palavra-cantada">Palavra Cantada</a></li>
-                        <li><a href="/equipe">Equipe</a></li>
+                        <li><a href="javascript:void(0);">Equipe</a></li>
                     </ul>
                 </div>
             </li>
@@ -18,9 +18,9 @@
                 <div class="sub_menu">
                     <img src="images/sub_2.png" class="sub_arrow" />
                     <ul>
-                        <li><a href="#">sub menu</a></li>
-                        <li><a href="#">sub menu</a></li>
-                        <li><a href="#">sub menu</a></li>
+                        <li><a href="javascript:void(0);">Artigos</a></li>
+                        <li><a href="javascript:void(0);">Fotos</a></li>
+                        <li><a href="javascript:void(0);">Vídeos</a></li>
                     </ul>
                 </div>
             </li>
