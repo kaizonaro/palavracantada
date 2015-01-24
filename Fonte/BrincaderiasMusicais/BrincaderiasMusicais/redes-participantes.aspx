@@ -38,46 +38,19 @@
                 <div id="breadcrumb">
                     <a href="/" title="Home">Home</a> >> <strong>Conheça - Redes Participantes</strong>
                 </div>
-                    <img src="/images/redes-participantes-1.jpg" class="img_destaque" />
+                <img src="/images/redes-participantes-1.jpg" class="img_destaque" />
                 <div class="txt boxEsquerda">
-                    <ul>
-                        <li>Aparecida de Goiânia – GO</li>
-                        <li>Americana – SP</li>
-                        <li>Bauru – SP</li>
-                        <li>Belford Roxo – RJ</li>
-                        <li>Cachoeira Paulista – SP</li>
-                        <li>Cajamar – SP</li>
-                        <li>Campinas – SP</li>
-                        <li>Cotia – SP</li>
-                        <li>Cubatão – SP</li>
-                        <li>Embu das Artes – SP</li>
-                        <li>Ferraz de Vasconcelos – SP</li>
-                        <li>Indaiatuba – SP</li>
-                        <li>Itirapina – S</li>
-                        <li>Jundiaí – SP</li>
-                        <li>Goiânia – GO</li>
+                    <ul id="listaesquerda" runat="server">
+                        
                     </ul>
                 </div>
                 <div class="txt boxDireita">
-                    <ul>
-                        <li>Louveira – SP</li>
-                        <li>Mauá – SP</li>
-                        <li>Mogi Mirim – SP</li>
-                        <li>Nepomuceno – MG</li>
-                        <li>Niterói – RJ</li>
-                        <li>Praia Grande – SP</li>
-                        <li>Santana de Parnaíba – SP</li>
-                        <li>Salvador – BA</li>
-                        <li>São Gonçalo – RJ</li>
-                        <li>Sorocaba – SP</li>
-                        <li>Sumaré – SP</li>
-                        <li>Taboão da Serra – SP</li>
-                        <li>Taquaritinga – SP</li>
-                        <li>Taubaté – SP</li>
-                        <li>Vargem Grande Pta. – SP</li>
+
+                    <ul id="listadireita" runat="server">
+                       
                     </ul>
                 </div>
-                
+
             </div>
             <!--FIM DO CONTEUDO INTERNO (REDES PARTICIPANTES)-->
 
