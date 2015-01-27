@@ -204,9 +204,9 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .artigo_txt .download_artigo{float: left; margin-top: 10px;cursor:pointer;}
 .artigo_txt .thumb_artigo{float: left; margin-right: 20px;}
 .paginacao{width:100%;display:inline-block;}
-.paginação a{display:inline-block;}
-.paginação ul{}
-.paginação ul li{display:inline-block;float:left}
+.paginacao a.nav_pg{display:inline-block; color:#fff;}
+.paginacao ul{}
+.paginacao ul li{display:inline-block;float:left;margin:5px;}
 
 /*REDES PARTICIPANTES*/
 .interna .boxEsquerda {width: 40%; float: left;}
