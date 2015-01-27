@@ -175,12 +175,12 @@ header {padding-top:20px;}
 #termo{margin-left:10px;}
 
 /*FOOTER*/
-footer .titu{color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:13.5px;margin-top:10px;text-transform:uppercase;}
+footer .titu{color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:14.5px;margin-top:10px;text-transform:uppercase;letter-spacing:-1px;}
 footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .redes li{color:#fff;width:17%;margin:1%;display:inline-block}
 .redes li a {color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase;}
 .redes li img{margin:0 auto;margin-bottom:8px;}
-.copyright{color:#fff;font-family: Arial,sans-serif;font-size: 11px;margin-top:30px;margin-bottom:10px;}
+.copyright{color:#fff;font-family: Arial,sans-serif;font-size: 12px;margin-top:30px;margin-bottom:10px;}
 
 /*INTERNA*/
 .interna{width:540px;min-height:791px;background:url(/images/bg_interna.png) no-repeat center center;background-size:100% 100%;padding:35px;float:left;margin-bottom:30px;}
