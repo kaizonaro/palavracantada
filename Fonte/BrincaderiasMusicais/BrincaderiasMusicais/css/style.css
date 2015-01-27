@@ -59,11 +59,11 @@ header {padding-top:20px;}
 .menu .explore .menu_ativo, .menu .explore a:hover{color:#FC4E31}
 .menu .blog .menu_ativo, .menu .blog a:hover{color:#766D9E}
 .menu .contato .menu_ativo, .menu .contato a:hover{color:#00B6C6}
-.menu li .sub_menu{width: 133px;text-align: center;position: absolute;padding-top: 4px;display:none;opacity:0;-webkit-transition:all 0.4s linear;-moz-transition:all 0.4s linear;-ms-transition:all 0.4s linear;-o-transition:all 0.4s linear;transition:all 0.4s linear;}
+.menu li .sub_menu{width: 133px;text-align: center;position: absolute;padding-top: 4px;display:none;opacity:0;-webkit-transition:all 0.4s linear;-moz-transition:all 0.4s linear;-ms-transition:all 0.4s linear;-o-transition:all 0.4s linear;transition:all 0.4s linear; z-index:5}
 .menu li:hover .sub_menu{display:block;opacity:1;}
 .menu .sub_menu li{width:100%;display:inline-block;text-align:left;border-bottom:1px solid #fff;}
 .menu .sub_menu li:last-child{border:none}
-.menu .sub_menu li a{background:none;width:100%;cursor:pointer;font-size:10px;padding-left:10px}
+.menu .sub_menu li a{background:none;width:100%;cursor:pointer;font-size:9px;padding-left:10px}
 .menu .sub_menu ul{-webkit-box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);-moz-box-shadow:4px 4px 0px 0px rgba(0, 0, 0, 1);box-shadow:4px 4px 0px 0px rgba(0, 0, 0, 1);clear:both}
 .menu .conheca .sub_menu ul{background:#73435B;}
 .menu .conheca .sub_menu a:hover{background:#fff;}
