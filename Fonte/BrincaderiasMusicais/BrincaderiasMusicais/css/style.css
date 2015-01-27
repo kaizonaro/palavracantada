@@ -175,7 +175,7 @@ header {padding-top:20px;}
 #termo{margin-left:10px;}
 
 /*FOOTER*/
-footer .titu{color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;margin-top:10px;text-transform:uppercase;}
+footer .titu{color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:13.5px;margin-top:10px;text-transform:uppercase;}
 footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .redes li{color:#fff;width:17%;margin:1%;display:inline-block}
 .redes li a {color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase;}
@@ -197,6 +197,16 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .txt .img{float:left;width:55%;}
 .banner_sobre{display: inline-block;position: relative;/* float: left; */width: 100%;height: 215px;}
 .banner_sobre img{width: 100%;display: inline-block;position: absolute;}
+
+/*INTERNA ARTIGO*/
+.artigo_txt{border-bottom:1px rgb(102, 0, 51) dotted;}
+.artigo_txt span{float: left; font-size: 17px;}
+.artigo_txt .download_artigo{float: left; margin-top: 10px;cursor:pointer;}
+.artigo_txt .thumb_artigo{float: left; margin-right: 20px;}
+.paginacao{width:100%;display:inline-block;}
+.paginação a{display:inline-block;}
+.paginação ul{}
+.paginação ul li{display:inline-block;float:left}
 
 /*REDES PARTICIPANTES*/
 .interna .boxEsquerda {width: 40%; float: left;}
