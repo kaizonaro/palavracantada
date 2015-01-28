@@ -63,7 +63,7 @@
 
                  <div class="txt artigo_txt">
                     <img src="images/imagem-artigo.jpg" class="thumb_artigo">
-                    <span><strong> Título do Artigo</strong></span>
+                    <span class="titu_artigo"><strong> Título do Artigo</strong></span>
                     <span>Autor: <strong>Loren Ipsun Esting</strong></span>
                     <span>Data da publicação: <strong>10/12/2014</strong></span>
                     <img src="images/btn_download.png" class="download_artigo">
@@ -74,11 +74,11 @@
 
                 <nav class="paginacao">
                     <ul>
-                        <li><a href="#" class="nav_pg" title="Página anterior">ANTERIORES</a></li>
-                        <li><a href="#" title="Página xx" class="ativo">xx</a></li>
-                        <li><a href="#" title="Página xx">xx</a></li>
-                        <li><a href="#" title="Página xx">xx</a></li>
-                        <li><a href="#" class="nav_pg" title="Próxima Página">PRÓXIMOS</a></li>
+                        <li><a href="#" class="nav_pg" title="Página anterior"><img src="images/nav_left.png" />ANTERIORES</a></li>
+                        <li><a href="#" title="Página 01" class="ativo">01</a></li>
+                        <li><a href="#" title="Página 02">02</a></li>
+                        <li><a href="#" title="Página 03">03</a></li>
+                        <li><a href="#" class="nav_pg" title="Próxima Página">PRÓXIMOS <img src="images/nav_right.png "/></a></li>
                     </ul>                    
                 </nav>
 
