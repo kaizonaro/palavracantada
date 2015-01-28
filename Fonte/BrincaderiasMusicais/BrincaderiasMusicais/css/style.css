@@ -211,6 +211,11 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .paginacao ul li{display:inline-block;float:left;margin:5px;}
 .paginacao ul li img{display:inline-block;margin-left:2px;margin-right:2px;}
 
+/*INTERNA FOTOS*/
+.select_fotos{background:#db4f36;color:#fff;padding:8px}
+.select_fotos p{color:#fff;}
+.select_fotos select{-webkit-appearance:menulist}
+
 /*REDES PARTICIPANTES*/
 .interna .boxEsquerda {width: 40%; float: left;}
 .interna .boxDireita {width: 40%; float: right;}
