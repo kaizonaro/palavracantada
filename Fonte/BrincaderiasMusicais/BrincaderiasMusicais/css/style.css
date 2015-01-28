@@ -200,13 +200,16 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 
 /*INTERNA ARTIGO*/
 .artigo_txt{border-bottom:1px rgb(102, 0, 51) dotted;}
-.artigo_txt span{float: left; font-size: 17px;}
+.artigo_txt span{float: left;font-size: 14px;display: inline-block;width: 46%;}
 .artigo_txt .download_artigo{float: left; margin-top: 10px;cursor:pointer;}
 .artigo_txt .thumb_artigo{float: left; margin-right: 20px;}
 .paginacao{width:100%;display:inline-block;}
-.paginacao a.nav_pg{display:inline-block; color:#fff;}
-.paginacao ul{}
+.paginacao ul li a {font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-decoration:underline;font-size:12px;color:#f68b1f;}
+.paginacao a.nav_pg{display:inline-block; color:#fff;background:url(../images/bg_nav_pg.png); padding:2px;background-size:cover;width:90px;height:20px;font-size:9px;line-height:18px;text-decoration:none;}
+.paginacao a.ativo{text-decoration:none;color:#000;}
+.paginacao ul{margin: 0 auto;width: 300px;display: inline-flex;margin-top: 36px;}
 .paginacao ul li{display:inline-block;float:left;margin:5px;}
+.paginacao ul li img{display:inline-block;margin-left:2px;margin-right:2px;}
 
 /*REDES PARTICIPANTES*/
 .interna .boxEsquerda {width: 40%; float: left;}
