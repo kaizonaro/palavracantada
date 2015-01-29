@@ -34,7 +34,7 @@
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="sobre" class="interna">
                 <div class="titu">
-                    Fotos
+                    Vídeos
                 </div>
                 <div id="breadcrumb">
                     <a href="/" title="Home">Home</a> >> <strong>Explore - Vídeos</strong>
