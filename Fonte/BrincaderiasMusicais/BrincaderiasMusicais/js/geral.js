@@ -1,6 +1,7 @@
 ﻿// JavaScript Document
 
 $(document).ready(function () {
+   
   
 //GERAL
 	//exibe a pg depois que carregada
