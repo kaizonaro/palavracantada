@@ -217,12 +217,22 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .select_fotos select{-webkit-appearance:menulist;font-size:12px;margin-right:5px;}
 .select_fotos .btn{width:34px;height:26px;color:#db4f36;background:url(../images/btn_ok.png) center center;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:13px;text-transform:uppercase;cursor:pointer;}
 .social_fotos .left{float:left;width:48%;}
-.social_fotos .left {color:#ae0810;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:9px;font-weight:bold;}
+.social_fotos .left {color:#ae0810;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;font-weight:bold;}
 .social_fotos .left a{color:#ff0081;text-decoration:underline;}
 .social_fotos .right{float:right;width:48%;}
-.social_fotos .right {color:#ae0810;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:9px;font-weight:bold;}
+.social_fotos .right {color:#ae0810;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;font-weight:bold;}
 .social_fotos .right a{color:#447298;text-decoration:underline;}
 .social_fotos{margin-top:15px;}
+.social_video .left{float:left;width:48%;}
+.social_video .left {color:#666666;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;font-weight:bold;}
+.social_video .left a{color:#db4f36;text-decoration:underline;}
+.social_video .left b{color:#cf3427;}
+.social_video .right{float:right;width:48%;}
+.social_video .right {color:#666666;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;font-weight:bold;}
+.social_video .right a{color:#f68b1f;text-decoration:underline;}
+.social_video .right b{color:#f68b1f;}
+.social_video{margin-top:25px;}
+
 
 /*REDES PARTICIPANTES*/
 .interna .boxEsquerda {width: 40%; float: left;}
