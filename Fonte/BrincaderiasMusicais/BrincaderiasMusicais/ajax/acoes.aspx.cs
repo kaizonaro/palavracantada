@@ -18,13 +18,15 @@ namespace BrincaderiasMusicais.ajax
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLogin, rsCadastro;
+        private OleDbDataReader rsLogin, rsCadastro, rsArtigos;
+        int registro = 1;
+        string conteudoPaginacao = "", retorno = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
             objUtils = new utils();
             objBD = new bd();
-
+            
             string acao = Request["acao"];
 
             switch (acao)
@@ -39,6 +41,10 @@ namespace BrincaderiasMusicais.ajax
 
                 case "logout":
                     logout();
+                    break;
+
+                case "paginacaoArtigos":
+                    paginacaoArtigos();
                     break;
 
                 default:
@@ -127,6 +133,90 @@ namespace BrincaderiasMusicais.ajax
         {
             Session.Abandon();
             Response.Redirect("/");
+        }
+
+        public void paginacaoArtigos()
+        {
+            int pagina_atual = Convert.ToInt16(Request["pagina"]);
+
+            rsArtigos = objBD.ExecutaSQL("EXEC site_artigo_lis '3','" + pagina_atual + "','1' ");
+
+            if (rsArtigos == null)
+            {
+                throw new Exception();
+            }
+
+            if (rsArtigos.HasRows)
+            {
+                while (rsArtigos.Read())
+                {
+                    retorno += "<div class=\"txt artigo_txt\">";
+                    retorno += "   <img src=\"/images/imagem-artigo.jpg\" class=\"thumb_artigo\">";
+                    retorno += "   <span><strong>" + rsArtigos["ART_TITULO"] + "</strong></span>";
+                    retorno += "   <span>Autor: <strong>" + rsArtigos["ADM_NOME"] + "</strong></span>";
+                    retorno += "   <span>Data da publicação: <strong>" + rsArtigos["ART_DH_PUBLICACAO"] + "</strong></span>";
+                    retorno += "   <img src=\"/images/btn_download.png\" class=\"download_artigo\">";
+                    retorno += "   <div class=\"txt\">";
+                    retorno += "       " + rsArtigos["ART_DESCRICAO"] + " ";
+                    retorno += "   </div>";
+                    retorno += "</div>";
+
+                    //PAGINAÇÃO
+                    if (registro == 1 && Convert.ToInt16(rsArtigos["total_paginas"]) > 1)
+                    {
+                        conteudoPaginacao += "<nav class=\"paginacao\">";
+                        conteudoPaginacao += "   <ul>";
+
+                        //Validações do voltar
+                        if (pagina_atual > 1)
+                        {
+                            int pgVoltar = pagina_atual - 1;
+                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" onClick=\"pagina('" + pgVoltar + "')\" class=\"nav_pg\" title=\"Página anterior\"><img src=\"images/nav_left.png\"/>ANTERIORES</a></li>";
+                        }
+                        else
+                        {
+                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" class=\"nav_pg\" title=\"Página anterior\"><img src=\"images/nav_left.png\" />ANTERIORES</a></li>";
+                        }
+
+                        int cont_fim = Convert.ToInt16(rsArtigos["total_paginas"]);
+                        if (cont_fim > 3) { cont_fim = 3; }
+
+                        for (int aux = 1; aux < cont_fim + 1; aux++)
+                        {
+                            //verificar se é a página atual
+                            if (pagina_atual == aux)
+                            {
+                                conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" title=\"Página atual\" class=\"ativo\">" + aux + "</a></li>";
+                            }
+                            else
+                            {
+                                conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" onClick=\"pagina('" + aux + "')\" title=\"Página " + aux + "\">" + aux + "</a></li>";
+                            }
+                        }
+
+                        //Validações do avançar
+                        if (pagina_atual < Convert.ToInt16(rsArtigos["total_paginas"]))
+                        {
+                            int pgAvancar = pagina_atual + 1;
+                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" onClick=\"pagina('" + pgAvancar + "')\" class=\"nav_pg\" title=\"Próxima Página\">PRÓXIMOS <img src=\"images/nav_right.png \"/></a></li>";
+                        }
+                        else
+                        {
+                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" class=\"nav_pg\" title=\"Próxima Página\">PRÓXIMOS <img src=\"images/nav_right.png \"/></a></li>";
+                        }
+
+                        conteudoPaginacao += "   </ul> ";
+                        conteudoPaginacao += " </nav> ";
+                    }
+                    registro++;
+                }
+
+                retorno += conteudoPaginacao;
+                Response.Write(retorno);
+            }
+
+            rsArtigos.Close();
+            rsArtigos.Dispose();
         }
     }
 }

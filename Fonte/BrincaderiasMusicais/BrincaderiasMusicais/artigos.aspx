@@ -14,7 +14,29 @@
     <title></title>
 
     <brincadeira:script runat="server" ID="script" />
+    <script type="text/javascript">
+        //ajax
+        function GetXMLHttp() {
+            if (navigator.appName == "Microsoft Internet Explorer") {
+                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            } else {
+                xmlHttp = new XMLHttpRequest();
+            }
+            return xmlHttp;
+        }
+        var mod = GetXMLHttp();
 
+        function pagina(pg) {
+            mod.open("GET", "ajax/acoes.aspx?pagina=" + pg + "&ACAO=paginacaoArtigos", true);
+            mod.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            mod.onreadystatechange = function() {  
+                if (mod.readyState == 4) {
+                    document.getElementById('divArtigos').innerHTML = mod.responseText;
+                }  
+            };  
+            mod.send(null);  
+        } 
+    </script>
 </head>
 <body>
 
@@ -43,7 +65,8 @@
                 <div id="divArtigos" runat="server"></div>
                 
                 <!-- PAGINAÇÃO -->
-                <nav class="paginacao" id="navPaginacao" runat="server"></nav>
+                
+                
 
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
