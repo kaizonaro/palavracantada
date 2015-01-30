@@ -30,6 +30,14 @@ namespace BrincaderiasMusicais.inc
                     blog.Attributes.Remove("class");
                     contato.Attributes.Remove("class");
                     break;
+                case "artigos.aspx":
+                case "fotos.aspx":
+                case "videos.aspx":
+                    explore.Attributes["class"] = "menu_ativo";
+                    conheca.Attributes.Remove("class");
+                    blog.Attributes.Remove("class");
+                    contato.Attributes.Remove("class");
+                    break;
 
                 case "post.aspx":
                     blog.Attributes["class"] = "menu_ativo";
