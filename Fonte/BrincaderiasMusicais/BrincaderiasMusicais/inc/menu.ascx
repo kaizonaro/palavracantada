@@ -16,7 +16,7 @@
             </li>
             <li class="explore"><a href="javascript:void(0);" title="Explore" id="explore" runat="server">Explore</a>
                 <div class="sub_menu">
-                    <img src="images/sub_2.png" class="sub_arrow" />
+                    <img src="/images/sub_2.png" class="sub_arrow" />
                     <ul>
                         <li><a href="/artigos">Artigos</a></li>
                         <li><a href="/fotos">Fotos</a></li>
