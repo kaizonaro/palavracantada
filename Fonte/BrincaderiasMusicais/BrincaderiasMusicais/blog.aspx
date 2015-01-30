@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="blog.aspx.cs" Inherits="BrincaderiasMusicais.blog" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="blog.aspx.cs" Inherits="BrincaderiasMusicais.blog_lista" %>
 
 <%@ Register Src="~/inc/script.ascx" TagPrefix="brincadeira" TagName="script" %>
 <%@ Register Src="~/inc/header.ascx" TagPrefix="brincadeira" TagName="header" %>
@@ -162,4 +162,3 @@
     <!--FIM DO RODAPÉ-->
 </body>
 </html>
-

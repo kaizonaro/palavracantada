@@ -10,7 +10,7 @@
 namespace BrincaderiasMusicais {
     
     
-    public partial class blog {
+    public partial class blog_lista {
         
         /// <summary>
         /// Head1 control.
