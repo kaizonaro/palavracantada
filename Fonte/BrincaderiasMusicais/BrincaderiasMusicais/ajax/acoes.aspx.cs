@@ -151,11 +151,11 @@ namespace BrincaderiasMusicais.ajax
                 while (rsArtigos.Read())
                 {
                     retorno += "<div class=\"txt artigo_txt\">";
-                    retorno += "   <img src=\"/images/imagem-artigo.jpg\" class=\"thumb_artigo\">";
+                    retorno += "   <img src=\"/upload/imagens/artigo/" + rsArtigos["ART_IMAGEM"] + "\" class=\"thumb_artigo\">";
                     retorno += "   <span><strong>" + rsArtigos["ART_TITULO"] + "</strong></span>";
                     retorno += "   <span>Autor: <strong>" + rsArtigos["ADM_NOME"] + "</strong></span>";
                     retorno += "   <span>Data da publicação: <strong>" + rsArtigos["ART_DH_PUBLICACAO"] + "</strong></span>";
-                    retorno += "   <img src=\"/images/btn_download.png\" class=\"download_artigo\">";
+                    retorno += "   <img onclick=\"download('" + rsArtigos["ART_PDF"] + "');\" src=\"/images/btn_download.png\" class=\"download_artigo\">";
                     retorno += "   <div class=\"txt\">";
                     retorno += "       " + rsArtigos["ART_DESCRICAO"] + " ";
                     retorno += "   </div>";
@@ -177,11 +177,17 @@ namespace BrincaderiasMusicais.ajax
                         {
                             conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" class=\"nav_pg\" title=\"Página anterior\"><img src=\"images/nav_left.png\" />ANTERIORES</a></li>";
                         }
+                        
+                        //ajuste de primeira página
+                        int cont_inicio = pagina_atual-1;
+                        if (cont_inicio <= 0) { cont_inicio = 1; }
+                        
 
+                        //ajueste de última página
                         int cont_fim = Convert.ToInt16(rsArtigos["total_paginas"]);
-                        if (cont_fim > 3) { cont_fim = 3; }
+                        if ((cont_fim - cont_inicio) >= 2) { cont_fim = (cont_inicio + 2); }
 
-                        for (int aux = 1; aux < cont_fim + 1; aux++)
+                        for (int aux = cont_inicio; aux < cont_fim + 1; aux++)
                         {
                             //verificar se é a página atual
                             if (pagina_atual == aux)

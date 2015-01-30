@@ -554,3 +554,8 @@ function anterior_video() {
         $('#videos p').text(titu);
     }
 }
+
+//Forçar o download do arquivo
+function download(arquivo) {
+    location.href = "ajax/download.aspx?arquivo=" + arquivo + "";
+}

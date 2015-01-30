@@ -59,11 +59,11 @@ namespace BrincaderiasMusicais
                 while (rsArtigos.Read())
                 {
                     divArtigos.InnerHtml += "<div class=\"txt artigo_txt\">";
-                    divArtigos.InnerHtml += "   <img src=\"/images/imagem-artigo.jpg\" class=\"thumb_artigo\">";
+                    divArtigos.InnerHtml += "   <img src=\"/upload/imagens/artigo/" + rsArtigos["ART_IMAGEM"] + "\" class=\"thumb_artigo\">";
                     divArtigos.InnerHtml += "   <span><strong>" + rsArtigos["ART_TITULO"] + "</strong></span>";
                     divArtigos.InnerHtml += "   <span>Autor: <strong>" + rsArtigos["ADM_NOME"] + "</strong></span>";
                     divArtigos.InnerHtml += "   <span>Data da publicação: <strong>" + rsArtigos["ART_DH_PUBLICACAO"] + "</strong></span>";
-                    divArtigos.InnerHtml += "   <img src=\"/images/btn_download.png\" class=\"download_artigo\">";
+                    divArtigos.InnerHtml += "   <img onclick=\"download('" + rsArtigos["ART_PDF"] + "');\" src=\"/images/btn_download.png\" class=\"download_artigo\">";
                     divArtigos.InnerHtml += "   <div class=\"txt\">";
                     divArtigos.InnerHtml += "       " + rsArtigos["ART_DESCRICAO"] + " ";
                     divArtigos.InnerHtml += "   </div>";

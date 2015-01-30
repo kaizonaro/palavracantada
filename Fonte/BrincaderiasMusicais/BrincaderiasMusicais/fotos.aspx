@@ -52,12 +52,9 @@
                     <param name="movie"
                         value="https://www.flickr.com/apps/slideshow/show.swf?v=1811922554"></param>
                     <param name="allowFullScreen" value="true"></param>
-                    <embed type="application/x-shockwave-flash"
-                        src="https://www.flickr.com/apps/slideshow/show.swf?v=1811922554" allowfullscreen="true" flashvars="offsite=true&lang=en-us&page_show_url=%2Fphotos%2Fnobutoshi_akao%2Fsets
+                    <embed type="application/x-shockwave-flash" src="https://www.flickr.com/apps/slideshow/show.swf?v=1811922554" allowfullscreen="true" flashvars="offsite=true&lang=en-us&page_show_url=%2Fphotos%2Fnobutoshi_akao%2Fsets%2F72157624315369664%2Fshow%2F&page_show_back_url=%2Fphotos%2Fnobutoshi_akao%2Fsets%2F72157624315369664%2F&set_id=72157624315369664&jump_to=" width="400" height="300"></embed>
 
-%2F72157624315369664%2Fshow%2F&page_show_back_url=%2Fphotos%2Fnobutoshi_akao%2Fsets%2F72157624315369664%2F&set_id=72157624315369664&jump_to="
-                        width="400"
-                        height="300"></embed></object>
+                </object>
                 <p class="txt">
                     Siga os perfis do Projeto Brincadeiras Musicais da Palavra Cantada no <b>Flickr</b> e no <b>Instagram</b> e não perca nenhuma novidade do projeto. Confira os links!
                 </p>

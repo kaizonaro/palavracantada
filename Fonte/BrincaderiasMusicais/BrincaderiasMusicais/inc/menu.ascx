@@ -18,9 +18,9 @@
                 <div class="sub_menu">
                     <img src="images/sub_2.png" class="sub_arrow" />
                     <ul>
-                        <li><a href="javascript:void(0);">Artigos</a></li>
-                        <li><a href="javascript:void(0);">Fotos</a></li>
-                        <li><a href="javascript:void(0);">Vídeos</a></li>
+                        <li><a href="/artigos">Artigos</a></li>
+                        <li><a href="/fotos">Fotos</a></li>
+                        <li><a href="/videos">Vídeos</a></li>
                     </ul>
                 </div>
             </li>
