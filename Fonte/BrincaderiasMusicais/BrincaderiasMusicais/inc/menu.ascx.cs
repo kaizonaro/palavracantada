@@ -20,7 +20,7 @@ namespace BrincaderiasMusicais.inc
 
             switch (paginaAtual)
             {
-
+                //MENU CONHEÇA
                 case "sobre.aspx":
                 case "quem-somos.aspx":
                 case "redes-participantes.aspx":
@@ -30,6 +30,8 @@ namespace BrincaderiasMusicais.inc
                     blog.Attributes.Remove("class");
                     contato.Attributes.Remove("class");
                     break;
+
+                //MENU EXPLORE
                 case "artigos.aspx":
                 case "fotos.aspx":
                 case "videos.aspx":
@@ -38,7 +40,9 @@ namespace BrincaderiasMusicais.inc
                     blog.Attributes.Remove("class");
                     contato.Attributes.Remove("class");
                     break;
-
+                
+                //MENU BLOG
+                case "blog.aspx":
                 case "post.aspx":
                     blog.Attributes["class"] = "menu_ativo";
                     explore.Attributes.Remove("class");
