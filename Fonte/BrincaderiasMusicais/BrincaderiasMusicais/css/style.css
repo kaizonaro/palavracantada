@@ -211,6 +211,17 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .paginacao ul li{display:inline-block;float:left;margin:5px;}
 .paginacao ul li img{display:inline-block;margin-left:2px;margin-right:2px;}
 
+/*INTERNA BLOG*/
+.blog_txt{border-bottom:1px rgb(102, 0, 51) dotted;}
+.blog_txt span{float: left;font-size: 12px;display: inline-block;width: 46%;}
+.blog_txt .titu_blog{margin-top:20px;}
+.blog_txt .download_artigo{float: left; margin-top: 10px;cursor:pointer;}
+.blog_txt .thumb_artigo{float: left; margin-right: 20px;margin-bottom:5px;}
+.social_blog{width:100%;display:inline-block;margin-bottom:10px;}
+.social_blog li{float:left;width: 168px;}
+.blog_txt .tw_blog{margin-top: 0px;width: 120px;}
+.blog_txt p{margin-bottom:10px}
+
 /*INTERNA FOTOS*/
 .select_fotos{background:#db4f36;color:#fff;padding:8px;margin-bottom:20px;}
 .select_fotos p{color:#fff;margin-bottom:5px;}
