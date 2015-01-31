@@ -13,6 +13,9 @@ $(document).ready(function () {
        // $('#modal').fadeIn(400)
 	    // twitter();
 	    $('#twitter-widget-0').removeAttr('style');
+	    if ($('.oculta').size() > 0) {
+	        $('.oculta').remove()
+	    }
 	}
 	
     //BANNER
