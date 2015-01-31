@@ -45,15 +45,11 @@
                     </select>
                     <input type="submit" class="input btn" value="OK" />
                 </div>
-                <object width="478" height="359">
-                    <param name="flashvars" value="offsite=true&lang=en-us&page_show_url=%2Fphotos%2Fnobutoshi_akao%2Fsets%2F72157624315369664%2Fshow
-
-%2F&page_show_back_url=%2Fphotos%2Fnobutoshi_akao%2Fsets%2F72157624315369664%2F&set_id=72157624315369664&jump_to="></param>
-                    <param name="movie"
-                        value="https://www.flickr.com/apps/slideshow/show.swf?v=1811922554"></param>
+                <object width="468" height="297">
+                    <param name="flashvars" value="offsite=true&lang=en-us&page_show_url=%2Fphotos%2Fbrincamusicais%2Fsets%2F72157648231396034%2Fshow%2F&page_show_back_url=%2Fphotos%2Fbrincamusicais%2Fsets%2F72157648231396034%2F&set_id=72157648231396034&jump_to="></param>
+                    <param name="movie" value="https://www.flickr.com/apps/slideshow/show.swf?v=1811922554"></param>
                     <param name="allowFullScreen" value="true"></param>
-                    <embed type="application/x-shockwave-flash" src="https://www.flickr.com/apps/slideshow/show.swf?v=1811922554" allowfullscreen="true" flashvars="offsite=true&lang=en-us&page_show_url=%2Fphotos%2Fnobutoshi_akao%2Fsets%2F72157624315369664%2Fshow%2F&page_show_back_url=%2Fphotos%2Fnobutoshi_akao%2Fsets%2F72157624315369664%2F&set_id=72157624315369664&jump_to=" width="400" height="300"></embed>
-
+                    <embed type="application/x-shockwave-flash" src="https://www.flickr.com/apps/slideshow/show.swf?v=1811922554" allowfullscreen="true" flashvars="offsite=true&lang=en-us&page_show_url=%2Fphotos%2Fbrincamusicais%2Fsets%2F72157648231396034%2Fshow%2F&page_show_back_url=%2Fphotos%2Fbrincamusicais%2Fsets%2F72157648231396034%2F&set_id=72157648231396034&jump_to=" width="468" height="297"></embed>
                 </object>
                 <p class="txt">
                     Siga os perfis do Projeto Brincadeiras Musicais da Palavra Cantada no <b>Flickr</b> e no <b>Instagram</b> e não perca nenhuma novidade do projeto. Confira os links!
@@ -61,11 +57,11 @@
                 <div class="social_fotos">
                     <div class="left">
                         <img src="images/flickr_fotos.png" alt="Flickr Brincadeiras musicais" />
-                        <p class="desc_social">Projeto Brincadeiras Musicais<br /> da Palavra Cantada<br /> <a href="" title="Flickr" target="_blank">FLICKR OFICIAL</a></p>
+                        <p class="desc_social">Projeto Brincadeiras Musicais<br /> da Palavra Cantada<br /> <a href="https://www.flickr.com/photos/brincamusicais" title="Flickr" target="_blank">FLICKR OFICIAL</a></p>
                     </div>
                     <div class="right">
                         <img src="images/insta_fotos.png" alt="Flickr Brincadeiras musicais" />
-                        <p class="desc_social">Projeto Brincadeiras Musicais<br /> da Palavra Cantada<br /> <a href="" title="INSTAGRAM" target="_blank">INSTAGRAM OFICIAL</a></p>
+                        <p class="desc_social">Projeto Brincadeiras Musicais<br /> da Palavra Cantada<br /> <a href="http://localhost:5131/images/insta.png" title="INSTAGRAM" target="_blank">INSTAGRAM OFICIAL</a></p>
                     </div>
                 </div>
             </div>
