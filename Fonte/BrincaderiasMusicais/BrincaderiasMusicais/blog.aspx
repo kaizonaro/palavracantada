@@ -60,7 +60,8 @@
                 <div id="breadcrumb">
                     <a href="/" title="Home">Home</a> >> <strong>Blog</strong>
                 </div>
-
+                <div class="oculta"><a href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweetar</a>
+                            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script></div>
                 <!-- ARTIGOS -->
                 <div class="txt blog_txt">
                     <img src="/images/img_blog.jpg" class="thumb_artigo">
@@ -78,7 +79,7 @@
                             <a href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweetar</a>
                             <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
                         </li>
-                        <li>
+                        <li class="g_blog">
                             <div class="g-plus" data-action="share" data-annotation="bubble" data-href="Url do post pra compartilhar"></div>
                             <!--altere o link (data-href) para o link do post-->
                         </li>
@@ -101,7 +102,7 @@
                             <a href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweetar</a>
                             <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
                         </li>
-                        <li>
+                        <li class="g_blog">
                             <div class="g-plus" data-action="share" data-annotation="bubble" data-href="Url do post pra compartilhar"></div>
                             <!--altere o link (data-href) para o link do post-->
                         </li>
@@ -124,7 +125,7 @@
                             <a href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweetar</a>
                             <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
                         </li>
-                        <li>
+                        <li class="g_blog">
                             <div class="g-plus" data-action="share" data-annotation="bubble" data-href="Url do post pra compartilhar"></div>
                             <!--altere o link (data-href) para o link do post-->
                         </li>

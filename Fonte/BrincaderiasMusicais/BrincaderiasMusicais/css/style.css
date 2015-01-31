@@ -218,9 +218,11 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .blog_txt .download_artigo{float: left; margin-top: 10px;cursor:pointer;}
 .blog_txt .thumb_artigo{float: left; margin-right: 20px;margin-bottom:5px;}
 .social_blog{width:100%;display:inline-block;margin-bottom:10px;}
-.social_blog li{float:left;width: 175px;}
+.social_blog li{float:left;width: 195px;}
+.social_blog .g_blog{width: 130px;}
 .blog_txt .tw_blog{margin-top: 0px;width: 120px;}
 .blog_txt p{margin-bottom:10px}
+.oculta{display:none;}
 
 /*INTERNA FOTOS*/
 .select_fotos{background:#db4f36;color:#fff;padding:8px;margin-bottom:20px;}
