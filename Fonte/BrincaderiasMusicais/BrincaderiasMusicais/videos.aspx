@@ -48,16 +48,16 @@
                 </div>
                <iframe width="480" height="269" src="https://www.youtube.com/embed/fFo1i8EIS74?list=PLJP_tVi1LVdid5bUMWHJ8wSjz8mBmx0IF" frameborder="0" allowfullscreen></iframe>
                 <p class="txt">
-                    nscreva-se nos perfis da Palavra Cantada e do Projeto Brincadeiras Musicais da Palavra Cantada para ficar sabendo primeiro quando novidades forem ao ar. Confira!
+                    Inscreva-se nos perfis da Palavra Cantada e do Projeto Brincadeiras Musicais da Palavra Cantada para ficar sabendo primeiro quando novidades forem ao ar. Confira!
                 </p>
                 <div class="social_video">
                     <div class="left">
                         <img src="images/you1.png" alt="Flickr Brincadeiras musicais" />
-                        <p class="desc_social">Clique aqui e inscreva-se no<br /><a href="" title="You Tube" target="_blank">YOUTUBE OFICIAL</a> do Projeto<br /><b>Brincadeiras Musicais</b></p>
+                        <p class="desc_social">Clique aqui e inscreva-se no<br /><a href="https://www.youtube.com/channel/UCaDajiE_wPYRwshUw9RsQPA" title="You Tube" target="_blank">YOUTUBE OFICIAL</a> do Projeto<br /><b>Brincadeiras Musicais</b></p>
                     </div>
                     <div class="right">
                         <img src="images/you2.png" alt="Flickr Brincadeiras musicais" />
-                        <p class="desc_social">Clique aqui e inscreva-se no<br /><a href="" title="You Tube" target="_blank">YOUTUBE OFICIAL</a> do Projeto<br /><b>Palavra Cantada</b></p>
+                        <p class="desc_social">Clique aqui e inscreva-se no<br /><a href="https://www.youtube.com/user/palavracantadatube" title="You Tube" target="_blank">YOUTUBE OFICIAL</a> do Projeto<br /><b>Palavra Cantada</b></p>
                     </div>
                 </div>
             </div>
