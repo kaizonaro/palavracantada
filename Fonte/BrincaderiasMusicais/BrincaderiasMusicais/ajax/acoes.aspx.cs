@@ -151,7 +151,7 @@ namespace BrincaderiasMusicais.ajax
                 while (rsArtigos.Read())
                 {
                     retorno += "<div class=\"txt artigo_txt\">";
-                    retorno += "   <img width='160px' height='90px' src=\"/upload/imagens/artigo/" + rsArtigos["ART_IMAGEM"] + "\" class=\"thumb_artigo\">";
+                    retorno += "   <img width='160px' height='90px' csrc=\"/upload/imagens/artigo/" + rsArtigos["ART_IMAGEM"] + "\" class=\"thumb_artigo\">";
                     retorno += "   <span><strong>" + rsArtigos["ART_TITULO"] + "</strong></span>";
                     retorno += "   <span>Autor: <strong>" + rsArtigos["ADM_NOME"] + "</strong></span>";
                     retorno += "   <span>Data da publicação: <strong>" + rsArtigos["ART_DH_PUBLICACAO"] + "</strong></span>";
