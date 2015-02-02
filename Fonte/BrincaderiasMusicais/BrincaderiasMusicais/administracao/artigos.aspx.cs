@@ -27,8 +27,8 @@ namespace BrincaderiasMusicais.administracao
 
             switch (Request["acao"])
             {
-                case ("editarPost"):
-                    rsLista = objBD.ExecutaSQL("select ART_ID, ART_TITULO, ART_AUTOR, ART_DESCRICAO from  Artigo where ART_ID ='" + Request["ART_ID"] + "'");
+                case ("editarArtigo"):
+                    rsLista = objBD.ExecutaSQL("EXEC admin_psEditarArtigo " + Request["ART_ID"]);
                     if (rsLista == null)
                     {
                         throw new Exception();
@@ -36,12 +36,18 @@ namespace BrincaderiasMusicais.administracao
                     if (rsLista.HasRows)
                     {
                         rsLista.Read();
-                        Response.Write(rsLista["ART_ID"] + "|" + rsLista["ART_TITULO"] + "|" + rsLista["ART_AUTOR"] + "|" + rsLista["ART_DESCRICAO"]);
+                        Response.Write(rsLista["ART_ID"] + "|" + rsLista["ART_TITULO"] + "|" + rsLista["ART_DESCRICAO"]);
                     }
                     break;
-
+                case ("AtivarArtigo"):
+                    objBD.ExecutaSQL("UPDATE Artigo set ART_ATIVO = 1 where ART_ID = " + Request["ART_ID"]);
+                    break;
+                case ("ExcluirArtigo"):
+                    objBD.ExecutaSQL("UPDATE Artigo set ART_ATIVO = 0 where ART_ID = " + Request["ART_ID"]);
+                    break;
                 default:
                     PopulaLista();
+                    PopulaListaExcluidos();
                     break;
             }
         }
@@ -76,7 +82,7 @@ namespace BrincaderiasMusicais.administracao
                     divLista.InnerHtml += "     <td><img width='150px' src='../upload/imagens/artigo/thumb-" + rsLista["ART_IMAGEM"].ToString() + "'></td>";
                     divLista.InnerHtml += "     <td>" + rsLista["ART_TITULO"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["ART_DH_PUBLICACAO"].ToString() + "</td>";
-                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["ART_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["ART_ID"].ToString() + "' onclick='excluirPost(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["ART_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["ART_ID"].ToString() + "' onclick='excluirArtigo(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
                 }
 
@@ -96,6 +102,111 @@ namespace BrincaderiasMusicais.administracao
 
             divLista.InnerHtml += "</table>";
         }
+
+        public void PopulaListaExcluidos()
+        {
+            divExcluidos.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
+
+            rsLista = objBD.ExecutaSQL("EXEC admin_psArtigoPorAtivo 0");
+            if (rsLista == null)
+            {
+                throw new Exception();
+            }
+            if (rsLista.HasRows)
+            {
+                divExcluidos.InnerHtml += " <thead>";
+                divExcluidos.InnerHtml += "     <tr>";
+                divExcluidos.InnerHtml += "         <th style=\"width:30px;\">ID</th>";
+                divExcluidos.InnerHtml += "         <th style=\"width:120px;\">Imagem</th>";
+                divExcluidos.InnerHtml += "         <th>Título</th>";
+                divExcluidos.InnerHtml += "         <th style=\"width:115px;\">Data Publicação</th>";
+                divExcluidos.InnerHtml += "         <th style=\"width:85px;\">Ações</th>";
+                divExcluidos.InnerHtml += "     </tr>";
+                divExcluidos.InnerHtml += " </thead>";
+
+                divExcluidos.InnerHtml += " <tbody id=\"tbCentral\">";
+
+                while (rsLista.Read())
+                {
+                    divExcluidos.InnerHtml += " <tr id='tr_" + rsLista["ART_ID"].ToString() + "' class=\"\">";
+                    divExcluidos.InnerHtml += "     <td>" + rsLista["ART_ID"].ToString() + "</td>";
+                    divExcluidos.InnerHtml += "     <td><img width='150px' src='../upload/imagens/artigo/thumb-" + rsLista["ART_IMAGEM"].ToString() + "'></td>";
+                    divExcluidos.InnerHtml += "     <td>" + rsLista["ART_TITULO"].ToString() + "</td>";
+                    divExcluidos.InnerHtml += "     <td>" + rsLista["ART_DH_PUBLICACAO"].ToString() + "</td>";
+                    divExcluidos.InnerHtml += "     <td><a href=\"javascript:void(0)\" id='" + rsLista["ART_ID"].ToString() + "' onclick='restoreArtigo(this.id);' class=\"img_del\"><img src=\"images/restore.png\"></a>";
+                    divExcluidos.InnerHtml += " </tr>";
+                }
+
+                divExcluidos.InnerHtml += " </tbody>";
+            }
+
+            else
+            {
+                divExcluidos.InnerHtml += " <thead>";
+                divExcluidos.InnerHtml += "     <tr>";
+                divExcluidos.InnerHtml += "         <th>Nenhum registro cadastrado até o momento!</th>";
+                divExcluidos.InnerHtml += "     </tr>";
+                divExcluidos.InnerHtml += " </thead>";
+            }
+            rsLista.Close();
+            rsLista.Dispose();
+
+            divExcluidos.InnerHtml += "</table>";
+        }
+
+        public void FiltrarPesquisa()
+        {
+            string retorno  = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
+
+            rsLista = objBD.ExecutaSQL("EXEC admin_psArtigoPorAtivo 1");
+            if (rsLista == null)
+            {
+                throw new Exception();
+            }
+            if (rsLista.HasRows)
+            {
+                retorno  += " <thead>";
+                retorno  += "     <tr>";
+                retorno  += "         <th style=\"width:30px;\">ID</th>";
+                retorno  += "         <th style=\"width:120px;\">Imagem</th>";
+                retorno  += "         <th>Título</th>";
+                retorno  += "         <th style=\"width:115px;\">Data Publicação</th>";
+                retorno  += "         <th style=\"width:85px;\">Ações</th>";
+                retorno  += "     </tr>";
+                retorno  += " </thead>";
+
+                retorno  += " <tbody id=\"tbCentral\">";
+
+                while (rsLista.Read())
+                {
+                    retorno  += " <tr id='tr_" + rsLista["ART_ID"].ToString() + "' class=\"\">";
+                    retorno  += "     <td>" + rsLista["ART_ID"].ToString() + "</td>";
+                    retorno  += "     <td><img width='150px' src='../upload/imagens/artigo/thumb-" + rsLista["ART_IMAGEM"].ToString() + "'></td>";
+                    retorno  += "     <td>" + rsLista["ART_TITULO"].ToString() + "</td>";
+                    retorno  += "     <td>" + rsLista["ART_DH_PUBLICACAO"].ToString() + "</td>";
+                    retorno  += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["ART_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["ART_ID"].ToString() + "' onclick='excluirArtigo(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    retorno  += " </tr>";
+                }
+
+                retorno  += " </tbody>";
+            }
+
+            else
+            {
+                retorno  += " <thead>";
+                retorno  += "     <tr>";
+                retorno  += "         <th>Nenhum registro cadastrado até o momento!</th>";
+                retorno  += "     </tr>";
+                retorno  += " </thead>";
+            }
+            rsLista.Close();
+            rsLista.Dispose();
+
+            retorno  += "</table>";
+            Response.Write(retorno);
+        }
+
+
 
         public Int64 GerarID()
         {

@@ -42,7 +42,7 @@
 
         function popularFormulario(id) {
             ajax4 = ajaxInit();
-            ajax4.open("GET", "blog.aspx?acao=editarPost&POS_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+            ajax4.open("GET", "artigos.aspx?acao=editarArtigo&ART_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
             ajax4.setRequestHeader("Content-Type", "charset=iso-8859-1");
             ajax4.onreadystatechange = function () {
 
@@ -52,12 +52,10 @@
                         var resposta = ajax4.responseText.split("<!doctype html>");
                         var ss = resposta[0].split("|");
 
-                        $('#POS_ID').attr("value", ss[0]);
-                        $('#POS_TITULO').attr("value", ss[1]);
+                        $('#ART_ID').attr("value", ss[0]);
+                        $('#ART_TITULO').attr("value", ss[1]);
                         tinyMCE.activeEditor.setContent(ss[2]);
-                        
-                         if (ss[3] == '1'){$('#POS_IMPORTANTE').attr("checked","checked");}
-                             
+                                                                          
 
                         editar_table2(id);
                     }
@@ -66,11 +64,11 @@
             ajax4.send(null);
         }
 
-        function excluirPost(id) {
+        function excluirArtigo(id) {
             var r = confirm("Deseja mesmo desativar este Artigo ?");
             if (r == true) {
                 ajax2 = ajaxInit();
-                ajax2.open("GET", "videos.aspx?acao=excluirVideo&GVI_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+                ajax2.open("GET", "artigos.aspx?acao=ExcluirArtigo&ART_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
                 ajax2.setRequestHeader("Content-Type", "charset=iso-8859-1");
                 ajax2.onreadystatechange = function () {
                     if (ajax2.readyState == 4) {
@@ -85,11 +83,11 @@
             }
         }
 
-        function restorePost(id) {
+        function restoreArtigo(id) {
             var r = confirm("Deseja deseja mesmo ativar este Artigo ?");
             if (r == true) {
                 ajax2 = ajaxInit();
-                ajax2.open("GET", "videos.aspx?acao=ativarVideo&GVI_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+                ajax2.open("GET", "artigos.aspx?acao=AtivarArtigo&ART_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
                 ajax2.setRequestHeader("Content-Type", "charset=iso-8859-1");
                 ajax2.onreadystatechange = function () {
                     if (ajax2.readyState == 4) {
@@ -104,16 +102,16 @@
             }
         }
 
-        function FiltrarPesquisa(RED_ID, USU_NOME, USU_EMAIL) {
+        function FiltrarPesquisa(ART_TITULO) {
             ajax4 = ajaxInit();
-            ajax4.open("GET", "usuarios.aspx?acao=FiltrarPesquisa&RED_ID=" + RED_ID + "&USU_NOME=" + USU_NOME + "&USU_EMAIL=" + USU_EMAIL + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+            ajax4.open("GET", "artigos.aspx?acao=FiltrarPesquisa&ART_TITULO=" + USU_EMAIL + "&Rand=" + Math.ceil(Math.random() * 100000), true);
             ajax4.setRequestHeader("Content-Type", "charset=iso-8859-1");
             ajax4.onreadystatechange = function () {
 
                 if (ajax4.readyState == 4) {
                     if (ajax4.status == 200) {
 
-                        $("#tbCentral").html(ajax4.responseText);
+                        $("#tabela").html(ajax4.responseText);
                     }
                 }
 
