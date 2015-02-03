@@ -10,7 +10,7 @@
                         <li><a href="/quem-somos">Quem Somos</a></li>
                         <li><a href="/redes-participantes">Redes Participantes</a></li>
                         <li><a href="/palavra-cantada">Palavra Cantada</a></li>
-                        <li><a href="javascript:void(0);">Equipe</a></li>
+                        <li><a href="javascript:void(0);">Equipe</a></li> 
                     </ul>
                 </div>
             </li>

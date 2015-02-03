@@ -23,7 +23,6 @@ namespace BrincaderiasMusicais
         int registro = 1, pagina_atual = 1;
         string conteudoPaginacao = "";
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
             try

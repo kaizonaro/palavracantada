@@ -214,7 +214,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 /*INTERNA BLOG*/
 .blog_txt{border-bottom:1px rgb(102, 0, 51) dotted;}
 .blog_txt span{float: left;font-size: 12px;display: inline-block;width: 46%;}
-.blog_txt .titu_blog{margin-top:20px;}
+/*.blog_txt .titu_blog{margin-top:20px;}*/
 .blog_txt .download_artigo{float: left; margin-top: 10px;cursor:pointer;}
 .blog_txt .thumb_artigo{float: left; margin-right: 20px;margin-bottom:5px;}
 .social_blog{width:100%;display:inline-block;margin-bottom:10px;}
