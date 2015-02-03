@@ -61,7 +61,7 @@
                     </div>
                     <div class="right">
                         <img src="images/insta_fotos.png" alt="Flickr Brincadeiras musicais" />
-                        <p class="desc_social">Projeto Brincadeiras Musicais<br /> da Palavra Cantada<br /> <a href="http://localhost:5131/images/insta.png" title="INSTAGRAM" target="_blank">INSTAGRAM OFICIAL</a></p>
+                        <p class="desc_social">Projeto Brincadeiras Musicais<br /> da Palavra Cantada<br /> <a href="http://instagram.com/brincamusicais" title="INSTAGRAM" target="_blank">INSTAGRAM OFICIAL</a></p>
                     </div>
                 </div>
             </div>
