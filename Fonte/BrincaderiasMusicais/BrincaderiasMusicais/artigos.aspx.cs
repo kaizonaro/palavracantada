@@ -75,7 +75,7 @@ namespace BrincaderiasMusicais
                     divArtigos.InnerHtml += "           <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>";
                     divArtigos.InnerHtml += "       </li>";
                     divArtigos.InnerHtml += "       <li class=\"g_blog\">";
-                    divArtigos.InnerHtml += "           <div class=\"g-plus\" data-action=\"share\" data-annotation=\"bubble\" data-href=\"/post/colocarurl\"></div>";
+                    divArtigos.InnerHtml += "           <div class=\"g-plus\" data-action=\"share\" data-annotation=\"bubble\" data-href=\"/post/colocarurl\"></div>";//colocar url aki
                     divArtigos.InnerHtml += "       </li>";
                     divArtigos.InnerHtml += "   </ul>";
                     divArtigos.InnerHtml += "</div>";
