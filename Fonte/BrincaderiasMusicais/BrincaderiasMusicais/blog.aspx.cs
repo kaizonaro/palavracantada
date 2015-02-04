@@ -57,9 +57,9 @@ namespace BrincaderiasMusicais
                 while (rsArtigos.Read())
                 {
                     divArtigos.InnerHtml += "<div class=\"txt blog_txt\">";
-                    divArtigos.InnerHtml += "   <img width='190px' height='80px' src=\"/upload/imagens/blog/" + rsArtigos["POS_IMAGEM"] + "\" class=\"thumb_artigo\">";
-                    divArtigos.InnerHtml += "   <span class=\"titu_blog\"><strong>" + rsArtigos["POS_TITULO"] + "</strong></span>";
-                    divArtigos.InnerHtml += "   <span>Publicado por: <strong><< " + rsArtigos["ADM_NOME"] + " >></strong></span>";
+                    divArtigos.InnerHtml += "   <a href=\"url\" title=\"Ver Post\"><img width='190px' height='80px' src=\"/upload/imagens/blog/" + rsArtigos["POS_IMAGEM"] + "\" class=\"thumb_artigo\"></a>";
+                    divArtigos.InnerHtml += "   <span class=\"titu_blog\"><a href=\"url\" title=\"Ver Post\"><strong>" + rsArtigos["POS_TITULO"] + "</strong></a></span>";
+                    divArtigos.InnerHtml += "   <span>Publicado por: <strong> " + rsArtigos["ADM_NOME"] + " </strong></span>";
                     divArtigos.InnerHtml += "   <span>Em: <strong>" + rsArtigos["POS_DATA_PUBLICACAO"] + "</strong>, às <strong>" + rsArtigos["POS_HORA_PUBLICAO"] + "</strong></span>";
                     divArtigos.InnerHtml += "   <div class=\"txt\">";
                     divArtigos.InnerHtml += "       <p>Texto resumido com a descrição do artigo lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porta neque eget lacus pretium, a imperdiet mauris ullamcorper. Etiam convallis enim a massa dapibus, non posuere massa facilisis.</p>";

@@ -227,6 +227,8 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .oculta{display:none;}
 .tit_post{width:100%;font-weight:bold;font-size:14px;}
 #logPost{font-family: Arial, sans-serif;text-align:left;width:100%;display:inline-block;}
+.blog_txt .titu_blog{font-size:15px;}
+.blog_txt .titu_blog a{color: #68455b;}
 
 /*INTERNA FOTOS*/
 .select_fotos{background:#db4f36;color:#fff;padding:8px;margin-bottom:20px;}
