@@ -25,7 +25,7 @@
                 </div>
             </li>
             <li class="blog"><a href="/blog" title="Blog" id="blog" runat="server">Blog</a></li>
-            <li class="contato"><a href="javascript:void(0)" title="Contato" id="contato" runat="server">Contato</a></li>
+            <li class="contato"><a href="/contato" title="Contato" id="contato" runat="server">Contato</a></li>
         </ul>
         <ul class="sociais">
             <li>

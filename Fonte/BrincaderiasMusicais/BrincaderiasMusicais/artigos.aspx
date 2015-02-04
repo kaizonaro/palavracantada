@@ -15,6 +15,14 @@
 
     <brincadeira:script runat="server" ID="script" />
     <script type="text/javascript">
+
+      //  $('html, body').animate({
+       //     scrollTop: $("#sobre").offset().top
+        // }, 2000);
+
+        //$("#breadcrumb").hide();
+       
+        
         //ajax
         function GetXMLHttp() {
             if (navigator.appName == "Microsoft Internet Explorer") {
@@ -27,14 +35,16 @@
         var mod = GetXMLHttp();
 
         function pagina(pg) {
-            mod.open("GET", "ajax/acoes.aspx?pagina=" + pg + "&ACAO=paginacaoArtigos", true);
+      /*      mod.open("GET", "ajax/acoes.aspx?pagina=" + pg + "&ACAO=paginacaoArtigos", true);
             mod.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             mod.onreadystatechange = function() {  
                 if (mod.readyState == 4) {
                     document.getElementById('divArtigos').innerHTML = mod.responseText;
                 }  
             };  
-            mod.send(null);  
+            mod.send(null);  */
+
+            location.href = "artigos.aspx?pagina=" + pg + "";
         }
 
     </script>
@@ -86,5 +96,14 @@
     <!--RODAPÉ-->
     <brincadeira:footer runat="server" ID="footer" />
     <!--FIM DO RODAPÉ-->
+    <script>        
+        setTimeout(function ()
+        {
+            $('html, body').animate({
+                scrollTop: $("#sobre").offset().top
+            }, 500);
+        }, 3000);
+
+    </script>
 </body>
 </html>
