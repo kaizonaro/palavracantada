@@ -250,6 +250,11 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .social_video .right b{color:#f68b1f;}
 .social_video{margin-top:25px; width:480px;}
 
+.social_foto{width:100%;display:inline-block;margin-top:20px;}
+.social_foto li{float:left;width: 184px;}
+.social_foto .g_blog{width: 130px;}
+.social_foto .tw_blog2{width: 150px;margin-top: -7px;}
+
 /*INTERNA CONTATO*/
 #contato {font-family: 'love_ya_like_a_sister_snormal', sans-serif;color:#68455b;margin-top:20px;width:100%;display:inline-block;margin-bottom:20px;}
 #contato label{font-weight:bold;font-size:11px;margin-right:10px}

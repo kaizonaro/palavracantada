@@ -56,14 +56,27 @@
                 </p>
                 <div class="social_fotos">
                     <div class="left">
-                        <img src="images/flickr_fotos.png" alt="Flickr Brincadeiras musicais" />
+                        <a href="https://www.flickr.com/photos/brincamusicais" title="Flickr" target="_blank"><img src="images/flickr_fotos.png" alt="Flickr Brincadeiras musicais" /></a>
                         <p class="desc_social">Projeto Brincadeiras Musicais<br /> da Palavra Cantada<br /> <a href="https://www.flickr.com/photos/brincamusicais" title="Flickr" target="_blank">FLICKR OFICIAL</a></p>
                     </div>
                     <div class="right">
-                        <img src="images/insta_fotos.png" alt="Flickr Brincadeiras musicais" />
+                        <a href="http://instagram.com/brincamusicais" title="INSTAGRAM" target="_blank"><img src="images/insta_fotos.png" alt="Flickr Brincadeiras musicais" /></a>
                         <p class="desc_social">Projeto Brincadeiras Musicais<br /> da Palavra Cantada<br /> <a href="http://instagram.com/brincamusicais" title="INSTAGRAM" target="_blank">INSTAGRAM OFICIAL</a></p>
                     </div>
                 </div>
+                <ul class="social_foto">
+                    <li>
+                        <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fbrincamusicais%3Ffref%3Dts&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=335341063329023" scrolling="no" frameborder="0" style="border: none; overflow: hidden; height: 21px;" allowtransparency="true"></iframe>
+                    </li>
+                    <li class="tw_blog2">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweetar</a>
+                        <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+                    </li>
+                    <li class="g_blog">
+                        <div class="g-plus" data-action="share" data-annotation="bubble" data-href="Url do post pra compartilhar"></div>
+                        <!--altere o link (data-href) para o link do post-->
+                    </li>
+                </ul>
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
 
