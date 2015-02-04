@@ -66,6 +66,18 @@ namespace BrincaderiasMusicais
                     divArtigos.InnerHtml += "   <div class=\"txt\">";
                     divArtigos.InnerHtml += "       " + rsArtigos["ART_DESCRICAO"] + " ";
                     divArtigos.InnerHtml += "   </div>";
+                    divArtigos.InnerHtml += "   <ul class=\"social_blog\">";
+                    divArtigos.InnerHtml += "       <li>";
+                    divArtigos.InnerHtml += "           <iframe src=\"//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fbrincamusicais%3Ffref%3Dts&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=335341063329023\" scrolling=\"no\" frameborder=\"0\" style=\"border: none; overflow: hidden; height: 21px;\" allowtransparency=\"true\"></iframe>";
+                    divArtigos.InnerHtml += "       </li>";
+                    divArtigos.InnerHtml += "       <li class=\"tw_blog\">";
+                    divArtigos.InnerHtml += "           <a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-lang=\"pt\">Tweetar</a>";
+                    divArtigos.InnerHtml += "           <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>";
+                    divArtigos.InnerHtml += "       </li>";
+                    divArtigos.InnerHtml += "       <li class=\"g_blog\">";
+                    divArtigos.InnerHtml += "           <div class=\"g-plus\" data-action=\"share\" data-annotation=\"bubble\" data-href=\"/post/colocarurl\"></div>";
+                    divArtigos.InnerHtml += "       </li>";
+                    divArtigos.InnerHtml += "   </ul>";
                     divArtigos.InnerHtml += "</div>";
 
                     //PAGINAÇÃO
