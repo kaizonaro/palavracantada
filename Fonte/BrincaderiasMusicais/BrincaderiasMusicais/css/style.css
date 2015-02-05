@@ -240,7 +240,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 /*INTERNA FOTOS*/
 .select_fotos{background:#db4f36;color:#fff;padding:8px;margin-bottom:20px;}
 .select_fotos p{color:#fff;margin-bottom:5px;}
-.select_fotos select{-webkit-appearance:menulist;font-size:12px;margin-right:5px;}
+.select_fotos select{-webkit-appearance:menulist;font-size:12px;margin-right:5px; width:90%;}
 .select_fotos .btn{width:34px;height:26px;color:#db4f36;background:url(../images/btn_ok.png) center center;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:13px;text-transform:uppercase;cursor:pointer;}
 .social_fotos .left{float:left;width:48%;}
 .social_fotos .left {color:#ae0810;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;font-weight:bold;}
