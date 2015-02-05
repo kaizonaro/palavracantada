@@ -95,10 +95,15 @@ namespace BrincaderiasMusicais
                             conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" class=\"nav_pg\" title=\"Página anterior\"><img src=\"images/nav_left.png\" />ANTERIORES</a></li>";
                         }
 
-                        int cont_fim = Convert.ToInt16(rsArtigos["total_paginas"]);
-                        if (cont_fim > 3) { cont_fim = 3; }
+                        //ajuste de primeira página
+                        int cont_inicio = pagina_atual - 1;
+                        if (cont_inicio <= 0) { cont_inicio = 1; }
 
-                        for (int aux = 1; aux < cont_fim + 1; aux++)
+                        //ajueste de última página
+                        int cont_fim = Convert.ToInt16(rsArtigos["total_paginas"]);
+                        if ((cont_fim - cont_inicio) >= 2) { cont_fim = (cont_inicio + 2); }
+
+                        for (int aux = cont_inicio; aux < cont_fim + 1; aux++)
                         {
                             //verificar se é a página atual
                             if (pagina_atual == aux)
