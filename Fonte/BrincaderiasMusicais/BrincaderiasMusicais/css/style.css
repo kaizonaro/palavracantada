@@ -260,11 +260,11 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 /*INTERNA CONTATO*/
 #contato {font-family: 'love_ya_like_a_sister_snormal', sans-serif;color:#68455b;margin-top:20px;width:100%;display:inline-block;margin-bottom:20px;}
 #contato label{font-weight:bold;font-size:11px;margin-right:10px}
-#contato .input{border:1px solid #B8B6B6;width:170px;height:25px;margin-right: 10px;}
+#contato .input{border:1px solid #B8B6B6;width:166px;height:25px;margin-right: 10px;}
 #contato .btn{color:#fff;background:url(/images/menu1.png);background-size:cover;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;width:114px;height:31px;text-align: center;cursor:pointer;float:left;text-transform:uppercase;font-size:14px;margin-top:15px;}
 #contato .link{color:#525252;text-decoration:underline;font-size:9px;font-family:Arial, sans-serif;float:left;margin-right:10px;margin-top:5px}
 #contato div{width:100%;display:inline-block;margin-top:15px;}
-#contato #mensagem{resize:none;height:105px;width:100%;}
+#contato #mensagem{resize:none;height:105px;width:98%;}
 #contato .label_msg{width:100%;margin-top:20px;text-align:left;display:inline-block}
 #contato .error{border:1px #FF0611 solid ;}
 .interna .map_txt strong{font-size:14px;margin-bottom:5px;display:inline-block;}
