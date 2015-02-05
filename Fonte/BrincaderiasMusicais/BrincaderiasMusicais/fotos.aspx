@@ -15,6 +15,33 @@
 
     <brincadeira:script runat="server" ID="script" />
 
+    <script type="text/javascript">
+        //ajax
+        function GetXMLHttp() {
+            if (navigator.appName == "Microsoft Internet Explorer") {
+                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            } else {
+                xmlHttp = new XMLHttpRequest();
+            }
+            return xmlHttp;
+        }
+        var mod = GetXMLHttp();
+
+        function mudarGaleria() {
+            
+            mod.open("GET", "fotos.aspx?galeria=" + $('#slGaleria').val() + "&ACAO=mudarGaleria", true);
+            mod.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            mod.onreadystatechange = function () {
+                if (mod.readyState == 4) {
+                    var ss = mod.responseText.split("|");
+                    $('#objVideo').html(ss[0]);
+                    $("#slGaleria option[value='" + ss[1] + "']").attr("selected", "selected");
+                }
+            };
+            mod.send(null);
+        }
+    </script>
+
 </head>
 <body>
 
@@ -40,17 +67,15 @@
                 </div>
                 <div class="select_fotos txt">
                     <p>Selecione abaixo a galeria que gostaria de visualizar e clique ok</p>
-                    <select>
-                        <option value="" selected>galeria de formadores Brincadeiras Musicais da Palavra Cantada</option>
-                    </select>
-                    <input type="submit" class="input btn" value="OK" />
+                    <form action="javascript:void(0);" onsubmit="mudarGaleria();">
+                        <select id="slGaleria" runat="server"></select>
+                        <input type="submit" class="input btn" value="OK" />
+                    </form>
                 </div>
-                <object width="468" height="297">
-                    <param name="flashvars" value="offsite=true&lang=en-us&page_show_url=%2Fphotos%2Fbrincamusicais%2Fsets%2F72157648231396034%2Fshow%2F&page_show_back_url=%2Fphotos%2Fbrincamusicais%2Fsets%2F72157648231396034%2F&set_id=72157648231396034&jump_to="></param>
-                    <param name="movie" value="https://www.flickr.com/apps/slideshow/show.swf?v=1811922554"></param>
-                    <param name="allowFullScreen" value="true"></param>
-                    <embed type="application/x-shockwave-flash" src="https://www.flickr.com/apps/slideshow/show.swf?v=1811922554" allowfullscreen="true" flashvars="offsite=true&lang=en-us&page_show_url=%2Fphotos%2Fbrincamusicais%2Fsets%2F72157648231396034%2Fshow%2F&page_show_back_url=%2Fphotos%2Fbrincamusicais%2Fsets%2F72157648231396034%2F&set_id=72157648231396034&jump_to=" width="468" height="297"></embed>
-                </object>
+                
+                <!-- FOTOS -->
+                <span  runat="server" id="objVideo"></span>
+                
                 <p class="txt">
                     Siga os perfis do Projeto Brincadeiras Musicais da Palavra Cantada no <b>Flickr</b> e no <b>Instagram</b> e não perca nenhuma novidade do projeto. Confira os links!
                 </p>
@@ -73,7 +98,7 @@
                         <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
                     </li>
                     <li class="g_blog">
-                        <div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://projetopalavracantada.net/videos"></div>
+                        <div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://projetopalavracantada.net/fotos"></div>
                         <!--altere o link (data-href) para o link do post-->
                     </li>
                 </ul>
