@@ -66,6 +66,7 @@ namespace BrincaderiasMusicais
                     divArtigos.InnerHtml += "   <div class=\"txt\">";
                     divArtigos.InnerHtml += "       " + rsArtigos["ART_DESCRICAO"] + " ";
                     divArtigos.InnerHtml += "   </div>";
+                    divArtigos.InnerHtml += "   <a href=\"\" class=\"btn\">LEIA MAIS</a>";
                     divArtigos.InnerHtml += "   <ul class=\"social_blog\">";
                     divArtigos.InnerHtml += "       <li>";
                     divArtigos.InnerHtml += "           <iframe src=\"//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fbrincamusicais%3Ffref%3Dts&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=335341063329023\" scrolling=\"no\" frameborder=\"0\" style=\"border: none; overflow: hidden; height: 21px;\" allowtransparency=\"true\"></iframe>";
