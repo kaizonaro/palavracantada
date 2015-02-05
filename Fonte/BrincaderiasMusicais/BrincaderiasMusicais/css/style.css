@@ -211,6 +211,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .paginacao ul li{display:inline-block;float:left;margin:5px;}
 .paginacao ul li img{display:inline-block;margin-left:2px;margin-right:2px;}
 .artigo_txt .social_blog .tw_blog{width:119px;}
+.artigo_txt .btn{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color: #fff;background: url(/images/menu3.png) no-repeat;width: 70px;height: 26px;display: inline-block;line-height: 26px;background-size: cover;float: left;margin-bottom: 15px;font-size:10px;text-align:center;margin-top:-15px;}
 
 /*INTERNA BLOG*/
 .blog_txt{border-bottom:1px rgb(102, 0, 51) dotted;}
