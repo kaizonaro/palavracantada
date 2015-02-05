@@ -27,14 +27,15 @@
         var mod = GetXMLHttp();
 
         function pagina(pg) {
-            mod.open("GET", "ajax/acoes.aspx?pagina=" + pg + "&ACAO=paginacaoBlog", true);
+           /* mod.open("GET", "ajax/acoes.aspx?pagina=" + pg + "&ACAO=paginacaoBlog", true);
             mod.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             mod.onreadystatechange = function () {
                 if (mod.readyState == 4) {
                     document.getElementById('divArtigos').innerHTML = mod.responseText;
                 }
             };
-            mod.send(null);
+            mod.send(null);*/
+            location.href = "blog.aspx?pagina=" + pg + "";
         }
     </script>
 </head>
