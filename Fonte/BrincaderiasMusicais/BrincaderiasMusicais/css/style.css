@@ -224,6 +224,11 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .social_blog .g_blog{width: 130px;}
 .blog_txt .tw_blog{margin-top: 0px;width: 120px;}
 .social_blog .tw_blog2{width: 130px;}
+
+.social_artigo{margin-top:10px;}
+.social_artigo li{float:left;width: 185px;}
+.social_artigo .g_blog{width: 100px;}
+.social_artigo .tw_blog2{width: 120px;}
 .blog_txt p{margin-bottom:10px}
 .oculta{display:none;}
 .tit_post{width:100%;font-weight:bold;font-size:14px;}
