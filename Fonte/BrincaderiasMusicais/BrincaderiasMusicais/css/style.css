@@ -230,6 +230,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 #logPost{font-family: Arial, sans-serif;text-align:left;width:100%;display:inline-block;}
 .blog_txt .titu_blog{font-size:15px;}
 .blog_txt .titu_blog a{color: #68455b;}
+.blog_txt .btn{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color: #fff;background: url(/images/menu3.png) no-repeat;width: 70px;height: 26px;display: inline-block;line-height: 26px;background-size: cover;float: left;margin-bottom: 15px;font-size:10px;text-align:center;margin-top:-5px;}
 
 /*INTERNA FOTOS*/
 .select_fotos{background:#db4f36;color:#fff;padding:8px;margin-bottom:20px;}
