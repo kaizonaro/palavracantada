@@ -28,7 +28,7 @@ namespace BrincaderiasMusicais
         {
 
             objUtils = new utils();
-            string msg = "<table><tr style='width:90px;'><td>Nome:</td><td>" + Request["nome"] + "</td></tr>";
+            string msg = "<table><tr><td>Nome:</td><td>" + Request["nome"] + "</td></tr>";
             msg += "<tr><td>Email:</td><td>" + Request["email"] + "</td></tr>";
             msg += "<tr><td>Data e Hora:</td><td>" + DateTime.Now.ToLongDateString() + ", " + DateTime.Now.ToLongTimeString() + "</td></tr>";
             msg += "<tr><td>Mensagem:</td><td>" + Request["mensagem"] + "</td></tr></table>";
