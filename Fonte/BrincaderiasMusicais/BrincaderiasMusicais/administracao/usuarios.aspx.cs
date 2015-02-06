@@ -92,11 +92,11 @@ namespace BrincaderiasMusicais.administracao
 
             else
             {
-                divLista.InnerHtml += " <thead>";
+                divLista.InnerHtml += " <tbody>";
                 divLista.InnerHtml += "     <tr>";
-                divLista.InnerHtml += "         <th>Nenhum registro cadastrado até o momento!</th>";
+                divLista.InnerHtml += "         <td colspan=\"7\">Nenhum registro cadastrado até o momento!</td>";
                 divLista.InnerHtml += "     </tr>";
-                divLista.InnerHtml += " </thead>";
+                divLista.InnerHtml += " </tbody>";
             }
             rsLista.Close();
             rsLista.Dispose();

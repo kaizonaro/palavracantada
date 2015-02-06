@@ -112,7 +112,8 @@
 
             }
             // setTimeout(function () { repaginar(); }, 1000)
-            if ($('#tabela').size() > 0) {
+            if ($('#tabela td').size() > 3) {
+                alert($('#tabela td').size())
                 var oTable = $('#tabela').dataTable().fnDestroy(); // Nothing happens
                 setTimeout(function () {
                     var oTable = $('#tabela').dataTable({
