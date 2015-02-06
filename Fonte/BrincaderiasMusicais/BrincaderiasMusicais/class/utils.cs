@@ -122,7 +122,7 @@ namespace Etnia.classe
 
         }
 
-        public bool EnviaEmail(string destinatarios, string assunto, string mensagem, string ComCopia = "", string ComCopiaOculta = "", string[] anexos = null, string remetente = "")
+        public bool EnviaEmail(string destinatarios, string assunto, string mensagem, string ComCopia = "", string ComCopiaOculta = "", string[] anexos = null, string remetente = "contato@agenciaetnia.com.br", string nome = "PORTAL PALAVRA CANTADA")
         {
 
             //Cria objeto com dados do e-mail.
@@ -130,7 +130,10 @@ namespace Etnia.classe
 
 
             //Define o Campo From e ReplyTo do e-mail.
-            objEmail.From = new System.Net.Mail.MailAddress("contato@agenciaetnia.com.br", "PORTAL PALAVRA CANTADA");
+
+            objEmail.From = new System.Net.Mail.MailAddress("contato@agenciaetnia.com.br", nome);
+
+            objEmail.ReplyToList.Add(remetente);
 
             if (string.IsNullOrWhiteSpace(destinatarios) == false)
             {
@@ -189,7 +192,7 @@ namespace Etnia.classe
 
             conteudoMensagem = conteudoMensagem += "    <tr>";
             conteudoMensagem = conteudoMensagem += "        <td colspan=\"2\" align=\"left\" valign=\"middle\" style=\"color:#68455b;font-family: Arial, Helvetica, sans-serif;\">";
-            conteudoMensagem = conteudoMensagem +=                  mensagem;
+            conteudoMensagem = conteudoMensagem += mensagem;
             conteudoMensagem = conteudoMensagem += "        </td>";
             conteudoMensagem = conteudoMensagem += "    </tr>";
             conteudoMensagem = conteudoMensagem += "    <tr>";
@@ -225,7 +228,7 @@ namespace Etnia.classe
             objSmtp.Host = "smtp.agenciaetnia.com.br";
             objSmtp.Port = 587;
             objSmtp.EnableSsl = false;
-           
+
 
             objSmtp.Credentials = new System.Net.NetworkCredential("contato@agenciaetnia.com.br", "Etnia123");
             try
@@ -236,6 +239,7 @@ namespace Etnia.classe
             catch
             {
                 return false;
+                throw new Exception();
             }
             finally
             {
