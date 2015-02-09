@@ -13,6 +13,11 @@
 <head id="Head1" runat="server">
     <title></title>
 
+     <!--FACEBOOK-->
+    <meta property="og:title" content="Palavra Cantada - Blog" /> 
+    <meta property="og:image" content="http://projetopalavracantada.net/images/logo-fb.png" />
+    <meta property="og:description" content="Página de Blog" />
+
     <brincadeira:script runat="server" ID="script" />
     <script type="text/javascript">
         //ajax

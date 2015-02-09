@@ -11,18 +11,19 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
-    <title></title>
 
+
+    <title>Palavra Cantada - Redes</title>
+     <!--FACEBOOK-->
+    <meta property="og:title" content="Palavra Cantada - Artigos" /> 
+    <meta property="og:image" content="http://projetopalavracantada.net/images/logo-fb.png" />
+    <meta property="og:description" content="Página de Artigos" />
+    <meta property="og:url" content="http://projetopalavracantada.net/artigos" />
+    
     <brincadeira:script runat="server" ID="script" />
+   
+    
     <script type="text/javascript">
-
-        //  $('html, body').animate({
-        //     scrollTop: $("#sobre").offset().top
-        // }, 2000);
-
-        //$("#breadcrumb").hide();
-
-
         //ajax
         function GetXMLHttp() {
             if (navigator.appName == "Microsoft Internet Explorer") {
@@ -79,18 +80,17 @@
                 <div id="divArtigos" runat="server"></div>
 
                 <!-- PAGINAÇÃO -->
-
+                 
                 <ul class="social_artigo">
                     <li>
-                        <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fbrincamusicais%3Ffref%3Dts&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=335341063329023" scrolling="no" frameborder="0" style="border: none; overflow: hidden; height: 21px;" allowtransparency="true"></iframe>
-                        
+                        <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fprojetopalavracantada.net%2Fartigos&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=404437276390840" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
                     </li>
                     <li class="tw_blog">
                         <a href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweetar</a>
                             <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
                     </li>
                     <li class="g_blog">
-                        <div class="g-plus" data-action="share" data-annotation="bubble" data-href="/post/colocarurl"></div>
+                        <div class="g-plus" data-action="share" data-annotation="bubble" data-href="http://projetopalavracantada.net/artigos"></div>
                     </li>
                 </ul>
 
@@ -110,13 +110,6 @@
     <!--RODAPÉ-->
     <brincadeira:footer runat="server" ID="footer" />
     <!--FIM DO RODAPÉ-->
-    <script>
-        setTimeout(function () {
-            $('html, body').animate({
-                scrollTop: $("#sobre").offset().top
-            }, 500);
-        }, 3000);
-
-    </script>
 </body>
 </html>
+
