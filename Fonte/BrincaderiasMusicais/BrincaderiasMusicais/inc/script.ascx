@@ -16,9 +16,6 @@
 <link rel="icon" type="image/png" href="/images/favicon.png" />
 <meta name="description" content=" ">
 <meta name="keywords" content=" "> 
-<meta property="og:title" content=" "> 
-<meta property="og:image" content=" "> 
-<meta property="og:description" content=""> 
 
 <!--G.A-->
 

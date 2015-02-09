@@ -12,6 +12,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
     <title></title>
+     <!--FACEBOOK-->
+    <!--FACEBOOK-->
+    <meta property="og:title" content="Palavra Cantada - Fotos" /> 
+    <meta property="og:image" content="http://projetopalavracantada.net/images/logo-fb.png" />
+    <meta property="og:description" content="Página de Fotos" />
+    <meta property="og:url" content="http://projetopalavracantada.net/fotos" />
 
     <brincadeira:script runat="server" ID="script" />
 
@@ -26,7 +32,6 @@
             return xmlHttp;
         }
         var mod = GetXMLHttp();
-
         function mudarGaleria() {
             
             mod.open("GET", "fotos.aspx?galeria=" + $('#slGaleria').val() + "&ACAO=mudarGaleria", true);

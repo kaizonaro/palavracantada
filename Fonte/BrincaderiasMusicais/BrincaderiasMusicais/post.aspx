@@ -55,7 +55,6 @@
                         <!--altere o link (data-href) para o link do post-->
                     </li>
                 </ul>
-
             </div>
             <!--FIM DO CONTEUDO INTERNO (SOBRE)-->
 

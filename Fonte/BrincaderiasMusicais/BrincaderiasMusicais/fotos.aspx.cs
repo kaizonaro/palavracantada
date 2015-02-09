@@ -38,7 +38,6 @@ namespace BrincaderiasMusicais
 
                 default:
                     populaGaleria();
-                    // PopularVideos();
                     break;
             }
 

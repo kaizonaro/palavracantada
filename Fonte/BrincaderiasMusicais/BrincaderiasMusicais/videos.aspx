@@ -14,7 +14,40 @@
 <head id="Head1" runat="server">
     <title></title>
 
+      <!--FACEBOOK-->
+     <meta property="og:title" content="Palavra Cantada - Vídeos" /> 
+    <meta property="og:image" content="http://projetopalavracantada.net/images/logo-fb.png" />
+    <meta property="og:description" content="Página de Vídeos" />
+    <meta property="og:url" content="http://projetopalavracantada.net/videos" />
+
     <brincadeira:script runat="server" ID="script" />
+
+    <script type="text/javascript">
+        //ajax
+        function GetXMLHttp() {
+            if (navigator.appName == "Microsoft Internet Explorer") {
+                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            } else {
+                xmlHttp = new XMLHttpRequest();
+            }
+            return xmlHttp;
+        }
+        var mod = GetXMLHttp();
+
+        function mudarPlayList() {
+
+            mod.open("GET", "videos.aspx?lista=" + $('#slPlayList').val() + "&ACAO=mudarPlayList", true);
+            mod.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            mod.onreadystatechange = function () {
+                if (mod.readyState == 4) {
+                    var ss = mod.responseText.split("|");
+                    $('#objVideo').html(ss[0]);
+                    $("#slPlayList option[value='" + ss[1] + "']").attr("selected", "selected");
+                }
+            };
+            mod.send(null);
+        }
+    </script>
 
 </head>
 <body>
@@ -41,12 +74,15 @@
                 </div>
                 <div class="select_fotos txt">
                     <p>Selecione abaixo a galeria que gostaria de visualizar e clique ok</p>
-                    <select>
-                        <option value="" selected>galeria de formadores Brincadeiras Musicais da Palavra Cantada</option>
-                    </select>
-                    <input type="submit" class="input btn" value="OK" />
+                    <form action="javascript:void(0);" onsubmit="mudarPlayList();">
+                        <select id="slPlayList" runat="server"></select>
+                        <input type="submit" class="input btn" value="OK" />
+                    </form>
                 </div>
-               <iframe width="480" height="269" src="https://www.youtube.com/embed/fFo1i8EIS74?list=PLJP_tVi1LVdid5bUMWHJ8wSjz8mBmx0IF" frameborder="0" allowfullscreen></iframe>
+               
+                <!-- PLAY LIST-->
+                <span  runat="server" id="objVideo"></span>
+                
                 <p class="txt">
                     Inscreva-se nos perfis da Palavra Cantada e do Projeto Brincadeiras Musicais da Palavra Cantada para ficar sabendo primeiro quando novidades forem ao ar. Confira!
                 </p>
