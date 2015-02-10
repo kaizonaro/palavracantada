@@ -32,11 +32,17 @@ namespace BrincaderiasMusicais
             msg += "<tr><td>Email:</td><td>" + Request["email"] + "</td></tr>";
             msg += "<tr><td>Data e Hora:</td><td>" + DateTime.Now.ToLongDateString() + ", " + DateTime.Now.ToLongTimeString() + "</td></tr>";
             msg += "<tr><td>Mensagem:</td><td>" + Request["mensagem"] + "</td></tr></table>";
+            
+            //ERRO
             if (objUtils.EnviaEmail("fernando@agenciaetnia.com.br, zonaro@outlook.com.br, renato@toy.com.br", "Contato do Site", msg, remetente: Request["email"], nome: Request["nome"]) == false)
             {
                 Response.Write("<script>alert('Erro ao enviar o email!');</script>");
             }
-          
+            //SUCESSO
+            else
+            {
+                Response.Redirect("/sucesso");
+            }
         }
     }
 }

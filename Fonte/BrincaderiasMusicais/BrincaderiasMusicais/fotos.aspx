@@ -14,7 +14,7 @@
     <title></title>
      <!--FACEBOOK-->
     <!--FACEBOOK-->
-    <meta property="og:title" content="Palavra Cantada - Fotos" /> 
+    <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Fotos" /> 
     <meta property="og:image" content="http://projetopalavracantada.net/images/logo-fb.png" />
     <meta property="og:description" content="Página de Fotos" />
     <meta property="og:url" content="http://projetopalavracantada.net/fotos" />
