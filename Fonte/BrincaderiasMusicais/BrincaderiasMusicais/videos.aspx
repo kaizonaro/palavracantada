@@ -15,7 +15,7 @@
     <title></title>
 
       <!--FACEBOOK-->
-     <meta property="og:title" content="Palavra Cantada - Vídeos" /> 
+     <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Vídeos" /> 
     <meta property="og:image" content="http://projetopalavracantada.net/images/logo-fb.png" />
     <meta property="og:description" content="Página de Vídeos" />
     <meta property="og:url" content="http://projetopalavracantada.net/videos" />
