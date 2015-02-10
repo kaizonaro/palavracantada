@@ -14,10 +14,14 @@ namespace BrincaderiasMusicais
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             switch (Request["acao"])
             {
                 case ("enviar"):
                     EnviarContato();
+                    break;
+                case("sucesso"):
+                    Sucesso();
                     break;
                 default:
                     break;
@@ -43,6 +47,12 @@ namespace BrincaderiasMusicais
             {
                 Response.Redirect("/sucesso");
             }
+        }
+
+        private void Sucesso()
+        {
+            sucesso.Attributes["style"] = "display:block";
+            divContato.Attributes["style"] = "display:none";
         }
     }
 }
