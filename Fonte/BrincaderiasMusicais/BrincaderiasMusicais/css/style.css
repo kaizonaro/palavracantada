@@ -277,6 +277,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .interna .map_txt strong{font-size:14px;margin-bottom:5px;display:inline-block;}
 .map_txt a{color:#68455b;font-weight:bold;text-decoration:underline;margin-left:10px}
 .interna .map_txt{margin-bottom:30px;}
+.sucesso {font-weight: bold;font-size:12px;font-family: 'love_ya_like_a_sister_snormal', sans-serif;color:#68455b;margin-top:20px;width:100%;display:inline-block;margin-bottom:20px;display:none;}
 
 /*REDES PARTICIPANTES*/
 .interna .boxEsquerda {width: 40%; float: left;}
