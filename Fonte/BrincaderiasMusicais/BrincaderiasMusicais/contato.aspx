@@ -49,7 +49,18 @@
                     <label for="mensagem" class="label_msg">Mensagem:</label><br />
                     <textarea id="mensagem" name="mensagem" class="input" rows="4"></textarea>
                     <input type="submit" class="btn" value="enviar" />
+                    
                 </form>
+                <div class="sucesso">
+                        Sua mensagem foi enviada com sucesso.<br />
+                        Retornaremos o mais breve que possível.<br /><br />
+
+                        Agradecemos o seu contato.<br /><br />
+
+                        Um grande abraço!<br />
+                        Equipe Brincadeiras Musicais
+
+                    </div>
                 <div class="txt map_txt">
                     <strong>EDITORA MELHORAMENTOS</strong><br />
                     Rua Tito, 479 - Vila Romana - CEP: 05051-000 - São Paulo (SP)<br />
