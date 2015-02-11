@@ -57,17 +57,17 @@ namespace BrincaderiasMusicais
                 while (rsArtigos.Read())
                 {
                     divArtigos.InnerHtml += "<div class=\"txt blog_txt\">";
-                    divArtigos.InnerHtml += "   <a href=\"url\" title=\"Ver Post\"><img width='190px' height='80px' src=\"/upload/imagens/blog/" + rsArtigos["POS_IMAGEM"] + "\" class=\"thumb_artigo\"></a>";
-                    divArtigos.InnerHtml += "   <span class=\"titu_blog\"><a href=\"url\" title=\"Ver Post\"><strong>" + rsArtigos["POS_TITULO"] + "</strong></a></span>";
+                    divArtigos.InnerHtml += "   <a href=\"/post/" + objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString()) + "\" title=\"Ver Post\"><img width='190px' height='80px' src=\"/upload/imagens/blog/" + rsArtigos["POS_IMAGEM"] + "\" class=\"thumb_artigo\"></a>";
+                    divArtigos.InnerHtml += "   <span class=\"titu_blog\"><a href=\"/post/" + objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString()) + "\" title=\"Ver Post\"><strong>" + rsArtigos["POS_TITULO"] + "</strong></a></span>";
                     divArtigos.InnerHtml += "   <span>Publicado por: <strong> " + rsArtigos["ADM_NOME"] + " </strong></span>";
                     divArtigos.InnerHtml += "   <span>Em: <strong>" + rsArtigos["POS_DATA_PUBLICACAO"] + "</strong>, às <strong>" + rsArtigos["POS_HORA_PUBLICAO"] + "</strong></span>";
                     divArtigos.InnerHtml += "   <div class=\"txt\">";
                     divArtigos.InnerHtml += "       <p>Texto resumido com a descrição do artigo lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porta neque eget lacus pretium, a imperdiet mauris ullamcorper. Etiam convallis enim a massa dapibus, non posuere massa facilisis.</p>";
                     divArtigos.InnerHtml += "   </div>";
-                    divArtigos.InnerHtml += "   <a href=\"\" class=\"btn\">LEIA MAIS</a>";
+                    divArtigos.InnerHtml += "   <a href=\"/post/" + objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString()) + "\" class=\"btn\">LEIA MAIS</a>";
                     divArtigos.InnerHtml += "   <ul class=\"social_blog\">";
                     divArtigos.InnerHtml += "       <li>";
-                    divArtigos.InnerHtml += "           <iframe src=\"//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fbrincamusicais%3Ffref%3Dts&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=335341063329023\" scrolling=\"no\" frameborder=\"0\" style=\"border: none; overflow: hidden; height: 21px;\" allowtransparency=\"true\"></iframe>";
+                    divArtigos.InnerHtml += "             <iframe src=\"//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fprojetopalavracantada.net%2Fpost%2F"+objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString())+"&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=404437276390840\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; height:21px;\" allowTransparency=\"true\"></iframe>";
                     divArtigos.InnerHtml += "       </li>";
                     divArtigos.InnerHtml += "       <li class=\"tw_blog\">";
                     divArtigos.InnerHtml += "           <a href=\"https://twitter.com/share\" class=\"twitter-share-button\" data-lang=\"pt\">Tweetar</a>";
