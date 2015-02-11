@@ -13,6 +13,15 @@
 <head id="Head1" runat="server">
     <title></title>
 
+    <!--FACEBOOK-->
+    <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Vídeos" runat="server" id="metaTitle"/>
+    <meta property="og:image" content="" runat="server" id="metaImage"/>
+    <meta property="og:description" content="" runat="server" id="metaDescription"/>
+    <meta property="og:url" content="" runat="server" id="metaURL"/>
+    
+
+    </span>
+
     <brincadeira:script runat="server" ID="script" />
 
 </head>

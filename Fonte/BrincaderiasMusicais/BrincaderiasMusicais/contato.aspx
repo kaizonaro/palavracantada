@@ -14,6 +14,15 @@
     <title></title>
 
     <brincadeira:script runat="server" ID="script" />
+    
+    <script type="text/javascript">
+        function voltar() {
+            
+            $('#sucesso').hide();
+            $('#divContato').show();
+            
+        }
+    </script>
 
 </head>
 <body>
@@ -39,20 +48,20 @@
                 <div id="breadcrumb">
                     <a href="/" title="Home">Home</a> >> <strong>Contato</strong>
                 </div>   
-
+                
+                <div id="divContato" runat="server">
                 <div class="txt">
                     Entre em contato com a equipe do Projeto Brincadeiras Musicais da Palavra Cantada, preencha o formulário abaixo e clique no botão “enviar”. Retornaremos o seu contato o mais breve que possível. Obrigado!
                 </div>
-                <div id="divContato" runat="server">
                     <form id="contato" class="form" method="post" action="contato.aspx" runat="server">
                         <input type="hidden" value="enviar" name="acao"  id="acao"/>
                         <label>Nome:</label><input type="text" name="nome" class="input" /><label>E-mail:</label><input type="text" name="email" class="input email" /><br />
                         <label for="mensagem" class="label_msg">Mensagem:</label><br />
                         <textarea id="mensagem" name="mensagem" class="input" rows="4"></textarea>
-                        <input type="submit" class="btn" value="enviar" />
-                    
+                        <input type="submit" class="btn" value="enviar" />    
                     </form>
                 </div>
+
                 <div class="sucesso" id="sucesso" runat="server">
                         Sua mensagem foi enviada com sucesso.<br />
                         Retornaremos o mais breve que possível.<br /><br />
@@ -60,8 +69,11 @@
                         Agradecemos o seu contato.<br /><br />
 
                         Um grande abraço!<br />
-                        Equipe Brincadeiras Musicais
-
+                        Equipe Brincadeiras Musicais<br /><br />
+                        <p><center><input type="button" onclick="voltar();" class="btn" value="Voltar" /> </center></p>
+                        
+                    <br /><br /><br /><br />
+                    
                     </div>
                 <div class="txt map_txt">
                     <strong>EDITORA MELHORAMENTOS</strong><br />
