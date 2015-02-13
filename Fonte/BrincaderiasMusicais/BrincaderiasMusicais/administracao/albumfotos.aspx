@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>:: Administração - Galeria de Fotos</title>
+    <title>:: Administração - Album de Fotos</title>
     <brincadeira:script runat="server" id="script" />
 
     <script type="text/javascript">
@@ -56,7 +56,7 @@
         }
 
         function excluirFoto(id) {
-            var r = confirm("Deseja mesmo desativar esta Galeria de Foto ?");
+            var r = confirm("Deseja mesmo desativar este Album de Foto ?");
             if (r == true) {
                 ajax2 = ajaxInit();
                 ajax2.open("GET", "albumfotos.aspx?acao=excluirFoto&AFO_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
@@ -75,7 +75,7 @@
         }
 
         function restaurarFoto(id) {
-            var r = confirm("Deseja deseja mesmo ativar esta Galeria de Foto ?");
+            var r = confirm("Deseja deseja mesmo ativar este Album de Foto ?");
             if (r == true) {
                 ajax2 = ajaxInit();
                 ajax2.open("GET", "albumfotos.aspx?acao=restaurarFoto&AFO_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
@@ -122,7 +122,7 @@
     <section class="all">
     	<div class="all_center">
         	<section id="conteudo">
-            	<h2><img src="images/home.png" alt="inicio"><br>Galerias de Foto</h2>
+            	<h2><img src="images/home.png" alt="inicio"><br>Album de Fotos</h2>
                  <!-- TABELA-->
                 <div class="row-fluid">
                     <div class="span12">
@@ -148,9 +148,9 @@
                                         <input type="hidden" id="AFO_ID" name="AFO_ID" value="0" />
                                          
                                         <p>Titulo:*</p>
-                                        <input type="text" name="AFO_TITULO" id="AFO_TITULO" class="input"  placeholder="Lengenda da foto"/>
+                                        <input type="text" name="AFO_TITULO" id="AFO_TITULO" class="input"  placeholder="Digite o Título do Album"/>
                                         <p>Key:*</p>
-                                        <input type="text" name="AFO_KEY" id="AFO_KEY" class="input"  placeholder="Lengenda da foto"/>
+                                        <input type="text" name="AFO_KEY" id="AFO_KEY" class="input"  placeholder="Digite o Código do Album"/>
                                         
                                         <p class="p_btn">
                                     		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
