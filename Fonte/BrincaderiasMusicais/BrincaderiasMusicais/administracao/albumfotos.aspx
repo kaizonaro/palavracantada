@@ -148,9 +148,9 @@
                                         <input type="hidden" id="AFO_ID" name="AFO_ID" value="0" />
                                          
                                         <p>Titulo:*</p>
-                                        <input type="text" name="AFO_TITULO" id="AFO_TITULO" class="input"  placeholder="Digite o Título do Album"/>
+                                        <input type="text" name="AFO_TITULO" id="AFO_TITULO" class="input obg"  placeholder="Digite o Título do Album"/>
                                         <p>Key:*</p>
-                                        <input type="text" name="AFO_KEY" id="AFO_KEY" class="input"  placeholder="Digite o Código do Album"/>
+                                        <input type="text" name="AFO_KEY" id="AFO_KEY" class="input obg"  placeholder="Digite o Código do Album"/>
                                         
                                         <p class="p_btn">
                                     		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
