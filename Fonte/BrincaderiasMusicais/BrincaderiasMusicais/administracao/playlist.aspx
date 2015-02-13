@@ -122,13 +122,13 @@
     <section class="all">
     	<div class="all_center">
         	<section id="conteudo">
-            	<h2><img src="images/home.png" alt="inicio"><br>Videos</h2>
+            	<h2><img src="images/home.png" alt="inicio"><br>Playlist</h2>
                  <!-- TABELA-->
                 <div class="row-fluid">
                     <div class="span12">
                     <div class="widget red">
                         <div class="widget-title">
-                            <h4>Fotos</h4>
+                            <h4>Playlist</h4>
                             <div class="btns_acoes">
                             	<div class="filtrar acoes_topo_form">
                                 	<img src="images/filtro.png" alt="Filtrar"><p>Filtrar</p>
@@ -148,9 +148,9 @@
                                         <input type="hidden" id="PLI_ID" name="PLI_ID" value="0" />
                                          
                                         <p>Titulo:*</p>
-                                        <input type="text" name="PLI_TITULO" id="PLI_TITULO" class="input"  placeholder="Digite o Titulo do Video"/>
+                                        <input type="text" name="PLI_TITULO" id="PLI_TITULO" class="input"  placeholder="Digite o Titulo da Playlist"/>
                                         <p>URL:*</p>
-                                        <input type="text" name="PLI_URL" id="PLI_URL" class="input"  placeholder="Digite a URL do Video"/>
+                                        <input type="text" name="PLI_URL" id="PLI_URL" class="input"  placeholder="Digite a URL da Playlist"/>
                                         
                                         <p class="p_btn">
                                     		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
