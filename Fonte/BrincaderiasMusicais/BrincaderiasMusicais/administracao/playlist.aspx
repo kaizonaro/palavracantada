@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>:: Administração - Playlist</title>
+    <title>:: Administração - Videos</title>
     <brincadeira:script runat="server" id="script" />
 
     <script type="text/javascript">
@@ -122,7 +122,7 @@
     <section class="all">
     	<div class="all_center">
         	<section id="conteudo">
-            	<h2><img src="images/home.png" alt="inicio"><br>Playlists</h2>
+            	<h2><img src="images/home.png" alt="inicio"><br>Videos</h2>
                  <!-- TABELA-->
                 <div class="row-fluid">
                     <div class="span12">
