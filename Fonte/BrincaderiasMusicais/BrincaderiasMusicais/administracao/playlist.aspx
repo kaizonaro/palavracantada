@@ -148,9 +148,9 @@
                                         <input type="hidden" id="PLI_ID" name="PLI_ID" value="0" />
                                          
                                         <p>Titulo:*</p>
-                                        <input type="text" name="PLI_TITULO" id="PLI_TITULO" class="input"  placeholder="Digite o Titulo da Playlist"/>
+                                        <input type="text" name="PLI_TITULO" id="PLI_TITULO" class="input obg"  placeholder="Digite o Titulo da Playlist"/>
                                         <p>URL:*</p>
-                                        <input type="text" name="PLI_URL" id="PLI_URL" class="input"  placeholder="Digite a URL da Playlist"/>
+                                        <input type="text" name="PLI_URL" id="PLI_URL" class="input obg"  placeholder="Digite a URL da Playlist"/>
                                         
                                         <p class="p_btn">
                                     		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
