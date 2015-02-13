@@ -128,7 +128,7 @@
                     <div class="span12">
                     <div class="widget red">
                         <div class="widget-title">
-                            <h4>Fotos</h4>
+                            <h4>Album de Fotos</h4>
                             <div class="btns_acoes">
                             	<div class="filtrar acoes_topo_form">
                                 	<img src="images/filtro.png" alt="Filtrar"><p>Filtrar</p>
