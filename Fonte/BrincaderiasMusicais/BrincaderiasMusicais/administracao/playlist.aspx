@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="albumfotos.aspx.cs" Inherits="BrincaderiasMusicais.albumfotos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="playlist.aspx.cs" Inherits="BrincaderiasMusicais.playlist" %>
 
 
 <%@ Register Src="~/administracao/inc/script.ascx" TagPrefix="brincadeira" TagName="script" %>
@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>:: Administração - Galeria de Fotos</title>
+    <title>:: Administração - Playlist</title>
     <brincadeira:script runat="server" id="script" />
 
     <script type="text/javascript">
@@ -35,7 +35,7 @@
 
         function popularFormulario(id) {
             ajax4 = ajaxInit();
-            ajax4.open("GET", "albumfotos.aspx?acao=populaFotos&AFO_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+            ajax4.open("GET", "playlist.aspx?acao=populaPlaylist&PLI_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
             ajax4.setRequestHeader("Content-Type", "charset=iso-8859-1");
             ajax4.onreadystatechange = function () {
 
@@ -44,10 +44,10 @@
 
                         var ss = ajax4.responseText.split("|");
 
-                        $('#AFO_ID').attr("value", ss[0]);
+                        $('#PLI_ID').attr("value", ss[0]);
                         
-                        $('#AFO_TITULO').attr("value", ss[1]);
-                        $('#AFO_KEY').attr("value", ss[2]);
+                        $('#PLI_TITULO').attr("value", ss[1]);
+                        $('#PLI_URL').attr("value", ss[2]);
                         editar_table2(id);
                     }
                 }
@@ -56,10 +56,10 @@
         }
 
         function excluirFoto(id) {
-            var r = confirm("Deseja mesmo desativar esta Galeria de Foto ?");
+            var r = confirm("Deseja mesmo desativar esta Playlist ?");
             if (r == true) {
                 ajax2 = ajaxInit();
-                ajax2.open("GET", "albumfotos.aspx?acao=excluirFoto&AFO_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+                ajax2.open("GET", "playlist.aspx?acao=excluirPlaylist&PLI_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
                 ajax2.setRequestHeader("Content-Type", "charset=iso-8859-1");
                 ajax2.onreadystatechange = function () {
                     if (ajax2.readyState == 4) {
@@ -75,10 +75,10 @@
         }
 
         function restaurarFoto(id) {
-            var r = confirm("Deseja deseja mesmo ativar esta Galeria de Foto ?");
+            var r = confirm("Deseja deseja mesmo ativar esta Playlist ?");
             if (r == true) {
                 ajax2 = ajaxInit();
-                ajax2.open("GET", "albumfotos.aspx?acao=restaurarFoto&AFO_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+                ajax2.open("GET", "playlist.aspx?acao=restaurarPlaylist&PLI_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
                 ajax2.setRequestHeader("Content-Type", "charset=iso-8859-1");
                 ajax2.onreadystatechange = function () {
                     if (ajax2.readyState == 4) {
@@ -95,7 +95,7 @@
 
         function FiltrarPesquisa() {
             ajax4 = ajaxInit();
-            ajax4.open("GET", "albumfotos.aspx?acao=FiltrarPesquisa&AFO_TITULO=" + TITULO.value, true);
+            ajax4.open("GET", "playlist.aspx?acao=FiltrarPesquisa&PLI_TITULO=" + TITULO.value, true);
             ajax4.setRequestHeader("Content-Type", "charset=iso-8859-1");
             ajax4.onreadystatechange = function () {
 
@@ -122,7 +122,7 @@
     <section class="all">
     	<div class="all_center">
         	<section id="conteudo">
-            	<h2><img src="images/home.png" alt="inicio"><br>Galerias de Foto</h2>
+            	<h2><img src="images/home.png" alt="inicio"><br>Playlists</h2>
                  <!-- TABELA-->
                 <div class="row-fluid">
                     <div class="span12">
@@ -143,14 +143,14 @@
                                 	<img src="images/restore.png" alt="Filtrar"><p>Voltar</p>
                                 </div>
                                 <div class="form_table">
-                                	<form  class="inc_form form" name="incluir" action="albumfotos.aspx" novalidate="novalidate" accept-charset="default" runat="server">
+                                	<form  class="inc_form form" name="incluir" action="playlist.aspx" novalidate="novalidate" accept-charset="default" runat="server">
                                         <input type="hidden" id="acao" name="acao" value="gravar" />
-                                        <input type="hidden" id="AFO_ID" name="AFO_ID" value="0" />
+                                        <input type="hidden" id="PLI_ID" name="PLI_ID" value="0" />
                                          
                                         <p>Titulo:*</p>
-                                        <input type="text" name="AFO_TITULO" id="AFO_TITULO" class="input"  placeholder="Lengenda da foto"/>
-                                        <p>Key:*</p>
-                                        <input type="text" name="AFO_KEY" id="AFO_KEY" class="input"  placeholder="Lengenda da foto"/>
+                                        <input type="text" name="PLI_TITULO" id="PLI_TITULO" class="input"  placeholder="Lengenda da foto"/>
+                                        <p>URL:*</p>
+                                        <input type="text" name="PLI_URL" id="PLI_URL" class="input"  placeholder="Lengenda da foto"/>
                                         
                                         <p class="p_btn">
                                     		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
