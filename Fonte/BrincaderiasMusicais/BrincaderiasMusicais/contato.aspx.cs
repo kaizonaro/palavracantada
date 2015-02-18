@@ -11,7 +11,7 @@ namespace BrincaderiasMusicais
     public partial class contato : System.Web.UI.Page
     {
         utils objUtils;
-
+        bd objBD;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -45,6 +45,8 @@ namespace BrincaderiasMusicais
             //SUCESSO
             else
             {
+                objBD = new bd();
+                objBD.ExecutaSQL("EXEC piContatoSite '"+Request["nome"]+"', '"+Request["email"]+"', '"+Request["mensagem"]+"'");
                 Response.Redirect("/sucesso");
             }
         }
