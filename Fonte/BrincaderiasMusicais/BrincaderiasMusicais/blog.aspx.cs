@@ -61,6 +61,7 @@ namespace BrincaderiasMusicais
                     divArtigos.InnerHtml += "   <span class=\"titu_blog\"><a href=\"/post/" + objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString()) + "\" title=\"Ver Post\"><strong>" + rsArtigos["POS_TITULO"] + "</strong></a></span>";
                     divArtigos.InnerHtml += "   <span>Publicado por: <strong> " + rsArtigos["ADM_NOME"] + " </strong></span>";
                     divArtigos.InnerHtml += "   <span>Em: <strong>" + rsArtigos["POS_DATA_PUBLICACAO"] + "</strong>, às <strong>" + rsArtigos["POS_HORA_PUBLICAO"] + "</strong></span>";
+                    divArtigos.InnerHtml += "   <span>na categoria: <strong>XXXXXXX</strong></span>";
                     divArtigos.InnerHtml += "   <div class=\"txt\">";
                     divArtigos.InnerHtml += "       <p>Texto resumido com a descrição do artigo lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse porta neque eget lacus pretium, a imperdiet mauris ullamcorper. Etiam convallis enim a massa dapibus, non posuere massa facilisis.</p>";
                     divArtigos.InnerHtml += "   </div>";
