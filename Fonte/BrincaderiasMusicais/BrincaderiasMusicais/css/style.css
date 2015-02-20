@@ -288,6 +288,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 /*PALAVRA CANTADA*/
 .palavraCantada .boxEsquerda {width: 48%; float: left;}
 .palavraCantada .boxDireita {width: 48%; float: right;}
+.interna_bottom{width:478;height:auto;margin:0 auto;max-width:100%;}
 
 /*BLOG INTERNA*/
 .blog_interna{width:368px;height:460px;background:url(/images/bg_blog_interna.png) no-repeat center center;background-size:cover;padding:15px;float:right;margin-top:15px;}

@@ -98,6 +98,7 @@
         }
 
         function FiltrarPesquisa(RED_ID, USU_NOME, USU_EMAIL) {
+            var oTable = $('#tabela').dataTable().fnDestroy();
             ajax4 = ajaxInit();
             ajax4.open("GET", "usuarios.aspx?acao=FiltrarPesquisa&RED_ID=" + RED_ID + "&USU_NOME=" + USU_NOME + "&USU_EMAIL=" + USU_EMAIL + "&Rand=" + Math.ceil(Math.random() * 100000), true);
             ajax4.setRequestHeader("Content-Type", "charset=iso-8859-1");
@@ -106,25 +107,27 @@
                 if (ajax4.readyState == 4) {
                     if (ajax4.status == 200) {
                         $("#tbCentral").html(ajax4.responseText);
+                       // var oTable = $('#tabela').dataTable().fnDestroy(); // Nothing happens
+                        setTimeout(function () {
+                            var oTable = $('#tabela').dataTable({
+                                "dom": '<"top"iflp<"clear">>rt<"bottom"iflp<"clear">>',
+                                "order": [[0, "desc"]],
+                                "language": { "lengthMenu": "Exibindo _MENU_ por pÃ¡gina" },
+                                "lengthMenu": [[25, 50, 75, 100], [25, 50, 75, 100]],
+                                "filter": false
+                            });
+                        }, 500)
+
                     }
 
                 }
 
             }
             // setTimeout(function () { repaginar(); }, 1000)
-            if ($('#tabela td').size() > 3) {
-                alert($('#tabela td').size())
-                var oTable = $('#tabela').dataTable().fnDestroy(); // Nothing happens
-                setTimeout(function () {
-                    var oTable = $('#tabela').dataTable({
-                        "dom": '<"top"iflp<"clear">>rt<"bottom"iflp<"clear">>',
-                        "order": [[0, "desc"]],
-                        "language": { "lengthMenu": "Exibindo _MENU_ por pÃ¡gina" },
-                        "lengthMenu": [[25, 50, 75, 100], [25, 50, 75, 100]],
-                        "filter": false
-                    });
-                }, 500)
-            }
+            //if ($('#tabela td').size() > 3) {
+                //alert($('#tabela td').size())
+                
+           // }
             ajax4.send(null);
         }
     </script>

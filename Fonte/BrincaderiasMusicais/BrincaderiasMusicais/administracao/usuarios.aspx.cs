@@ -96,6 +96,18 @@ namespace BrincaderiasMusicais.administracao
                 divLista.InnerHtml += "     <tr>";
                 divLista.InnerHtml += "         <td colspan=\"7\">Nenhum registro cadastrado até o momento!</td>";
                 divLista.InnerHtml += "     </tr>";
+                divLista.InnerHtml += "     <tr>";
+                divLista.InnerHtml += "         <td colspan=\"7\">Nenhum registro cadastrado até o momento!</td>";
+                divLista.InnerHtml += "     </tr>";
+                divLista.InnerHtml += "     <tr>";
+                divLista.InnerHtml += "         <td colspan=\"7\">Nenhum registro cadastrado até o momento!</td>";
+                divLista.InnerHtml += "     </tr>";
+                divLista.InnerHtml += "     <tr>";
+                divLista.InnerHtml += "         <td colspan=\"7\">Nenhum registro cadastrado até o momento!</td>";
+                divLista.InnerHtml += "     </tr>";
+                divLista.InnerHtml += "     <tr>";
+                divLista.InnerHtml += "         <td colspan=\"7\">Nenhum registro cadastrado até o momento!</td>";
+                divLista.InnerHtml += "     </tr>";
                 divLista.InnerHtml += " </tbody>";
             }
             rsLista.Close();
@@ -147,11 +159,11 @@ namespace BrincaderiasMusicais.administracao
 
             else
             {
-                divExcluidos.InnerHtml += " <thead>";
+                divExcluidos.InnerHtml += " <tbody>";
                 divExcluidos.InnerHtml += "     <tr>";
                 divExcluidos.InnerHtml += "         <th>Nenhum registro cadastrado até o momento!</th>";
                 divExcluidos.InnerHtml += "     </tr>";
-                divExcluidos.InnerHtml += " </thead>";
+                divExcluidos.InnerHtml += " </tbody>";
             }
             rsLista.Close();
             rsLista.Dispose();

@@ -40,12 +40,12 @@
                 </div>
                 <img src="/images/sandra-paulo.jpg" class="img_destaque" />
                 <div class="txt boxEsquerda">
-                    <p><strong>Sandra Peres</strong> aenean rutrum odio et eros eleifend tempor. Cras a tempus sem, mollis pulvinar leo. Vivamus magna tellus, molestie sit amet tincidunt id, consectetur lacinia nisi. Donec vitae laoreet sem, ut hendrerit lacus. Nulla tortor sem, mattis sed quam id, feugiat pulvinar sem. Ut euismod posuere pulvinar. Nulla cursus lectus neque, eget tempor mi pulvinar at. Pellentesque a mi quam. Quisque ut odio nec eros pulvinar iaculis rutrum nec eros. Phasellus vehicula lobortis dolor sed sollicitudin. Aliquam id vehicula tellus. Lorem utrum odio et eros eleifend tempor. Cras a tempus sem, mollis pulvinar leo. Vivamus magna tellus, molestie sit amet tincidunt id, consectetur lacinia nisi. utrum odio et eros eleifend tempor. Cras a tempus sem, mollis pulvinar leo. Vivamus magna tellus, molestie sit amet tincidunt id, consectetur lacinia nisi.</p>
+                    <p><strong>Sandra Peres</strong> é pianista e compositora, formada pela Faculdade de Música do Conservatório Dramático e Musical de São Paulo. Em 1986, em Paris, fez o curso completo de Análise de Composição Cotemporânea no IRCAM. De volta ao Brasil, se dedicou por dois anos ao curso de Musicoterapia na Universidade Marcelo Tupinambá. Em 1994, criou com Paulo Tatit o selo Palavra Cantada.</p>
                 </div>
                 <div class="txt boxDireita">
-                    <p><strong>Paulo Tait</strong> maecenas enim tellus, sodales a mattis sed, gravida vitae libero. Maecenas sollicitudin mollis sapien, sed eleifend dui. Integer iaculis nibh eget dolor gravida, et molestie nisl scelerisque. Maecenas in scelerisque felis. Fusce nec ultrices ipsum, in facilisis elit. Ut dapibus, quam eu vestibulum venenatis, odio nisi venenatis nisl, ut lorem ipsum doren est signat magnaconsectetur nisl ligula non lorem. Mauris pharetra neque risus, vitae gravida urna dapibus lorem ipsum lorem est signat non at. In hac habitasse platea dictumst. Maecenas enim tellus, sodales a mattis sed, gravida vitae libero. Maecenas sollicitudin mollis sapien, sed eleifend dui. Integer iaculis nibh eget dolor gravida, et molestie nisl scelerisque. Maecenas in scelerisque felis. Fusce nec ultrices ipsum, in facilisis elit. Ut dapibus.</p>
+                    <p><strong>Paulo Tait</strong> é arquiteto de formação e músico autodidata. Participou como principal arranjador do Grupo Rumo, que foi destaque da vanguarda musical paulistana na década de 1980, e trabalhou como músico e parceiro do compositor Arnaldo Antunes nos anos 1990. Em 1994, criou com Sandra Peres, o selo Palavra Cantada, que vem sendo aclamada pelo público e pela crítica do país como um trabalho diferenciado dentro da nossa cultura musical.</p>
                 </div>
-                
+                <img src="/images/banner_bottom.jpg" class="interna_bottom" />
             </div>
             <!--FIM DO CONTEUDO INTERNO (REDES PARTICIPANTES)-->
 
