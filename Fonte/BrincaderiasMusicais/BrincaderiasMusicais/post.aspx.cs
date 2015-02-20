@@ -57,7 +57,7 @@ namespace BrincaderiasMusicais
 
                 //imagem
                 imgPost.Src = "/upload/imagens/blog/thumb-" + rsBlog["POS_IMAGEM"].ToString() + "";
-                logPost.InnerHtml += "Publicado por <strong><i>" + rsBlog["USU_NOME"] + rsBlog["ADM_NOME"] + "</i></strong> em <strong><i>" + rsBlog["POS_DH_PUBLICACAO"].ToString() + "</i></strong><br/><br/>";
+                logPost.InnerHtml += "Publicado por <strong><i>" + rsBlog["USU_NOME"] + rsBlog["ADM_NOME"] + "</i></strong> em <strong><i>" + rsBlog["POS_DH_PUBLICACAO"].ToString() + "</i></strong> na categoria: <strong><i>xxxxxxxx</i></strong><br/><br/>";
                 //Texto
                 
                 txtPost.InnerHtml += "<p class='tit_post'>" + rsBlog["POS_TITULO"] + "</p>";
