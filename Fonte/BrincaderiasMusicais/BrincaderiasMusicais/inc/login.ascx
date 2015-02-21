@@ -39,7 +39,7 @@
             <div>
                 <p>ARQUIVO DO BLOG:</p>
                 <select name="data">
-                    <option value="" selected>Escolha um menbro</option>
+                    <option value="" selected>Selecione o mês / ano</option>
                     <option value="">Escolha um menbro</option>
                     <option value="">Escolha um menbro</option>
                     <option value="">Escolha um menbro</option>
@@ -48,7 +48,7 @@
             <div>
                 <p>CATEGORIAIS DO BLOG:</p>
                 <select name="blog">
-                    <option value="" selected>Escolha um menbro</option>
+                    <option value="" selected>Selecione a categoria</option>
                     <option value="">Escolha um menbro</option>
                     <option value="">Escolha um menbro</option>
                     <option value="">Escolha um menbro</option>
