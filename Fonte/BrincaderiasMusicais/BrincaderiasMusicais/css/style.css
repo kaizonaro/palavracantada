@@ -107,6 +107,12 @@ header {padding-top:20px;}
 .notificacao li{line-height:normal;list-style:disc;list-style-position: inside;display:none;}
 .form_senha {display:none;}
 .form_login .error, .form_senha .error{background:rgba(174, 8, 15, 0.29);border:1px solid #ae080f;}
+.form_pesquisa{margin-top:-15px;}
+.form_pesquisa .btn{width:34px;height:26px;color:#fff;background:url(../images/ok_bg_2.png) center center;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:13px;text-transform:uppercase;cursor:pointer;margin-top:-10px;}
+.form_pesquisa .input{border:1px solid #B8B6B6;width:250px;height:25px;-webkit-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);-moz-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);margin-right:10px;}
+.form_pesquisa div{width:49%;float:left;margin-top:10px}
+.form_pesquisa div p{margin-bottom:10px}
+.form_pesquisa select{-webkit-appearance:menulist;-moz-appearance:menulist;border:1px solid #ccc;}
 
 /*BLOG HOME*/
 .blog_home {width:540px;height:319px;background:url(../images/bg_blog_home.png) no-repeat center center;background-size:cover;padding:30px;float:left;}
