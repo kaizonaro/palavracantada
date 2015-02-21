@@ -25,6 +25,7 @@ namespace BrincaderiasMusicais.inc
                 case "quem-somos.aspx":
                 case "redes-participantes.aspx":
                 case "palavra-cantada.aspx":
+                case "equipe.aspx":
                     conheca.Attributes["class"] = "menu_ativo";
                     explore.Attributes.Remove("class");
                     blog.Attributes.Remove("class");
