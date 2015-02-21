@@ -280,6 +280,21 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .sucesso {font-weight: bold;font-size:12px;font-family: 'love_ya_like_a_sister_snormal', sans-serif;color:#68455b;margin-top:20px;width:100%;display:inline-block;margin-bottom:20px;display:none;}
 #sucesso .btn{color:#fff;background:url(/images/menu1.png);background-size:cover;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;width:114px;height:31px;text-align: center;cursor:pointer;text-transform:uppercase;font-size:14px;margin-top:15px;}
 
+/*Interna Equipe*/
+.box_equipe{padding:20px;background:url(/images/bg_equipe.png) no-repeat 5px 5px;margin-top:-20px;}
+.box_equipe img{float:none;}
+.select_equipe{color:#fff;padding:0px;margin-top:-20px;}
+.select_equipe p{color:#fff;margin-bottom:5px;}
+.select_equipe select{-webkit-appearance:menulist;font-size:12px;margin-right:5px; border:1px #666 solid;float:left;width:170px!important;}
+.select_equipe .btn{width:34px;height:26px;color:#fff;background:url(../images/ok_bg_2.png) center center;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:13px;text-transform:uppercase;cursor:pointer;margin-top:-10px;}
+.select_equipe .left{float:left;width:48%;}
+.select_equipe .left {color:#ae0810;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;font-weight:bold;}
+.select_equipe .left a{color:#ff0081;text-decoration:underline;}
+.select_equipe .right{float:right;width:48%;}
+.select_equipe .right {color:#ae0810;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;font-weight:bold;}
+.select_equipe .right a{color:#447298;text-decoration:underline;}
+.select_equipe{margin-top:15px;}
+
 /*REDES PARTICIPANTES*/
 .interna .boxEsquerda {width: 40%; float: left;}
 .interna .boxDireita {width: 40%; float: right;}
