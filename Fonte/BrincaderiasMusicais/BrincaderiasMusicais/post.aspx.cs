@@ -62,6 +62,8 @@ namespace BrincaderiasMusicais
                 
                 txtPost.InnerHtml += "<p class='tit_post'>" + rsBlog["POS_TITULO"] + "</p>";
                 txtPost.InnerHtml += "" + rsBlog["POS_TEXTO"].ToString() + "";
+
+                liGPlus.InnerHtml = "<div class='g-plus' data-action='share' data-annotation='bubble' data-href='href=\"/post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\"'></div>";
             }
         }
     }

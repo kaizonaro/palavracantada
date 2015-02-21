@@ -176,7 +176,7 @@ namespace Etnia.classe
             objEmail.IsBodyHtml = true;
 
             //Define título do e-mail.
-            objEmail.Subject = "PORTAL PALAVRA CANTADA | " + assunto;
+            objEmail.Subject = assunto;
 
             //Define o corpo do e-mail.
 
