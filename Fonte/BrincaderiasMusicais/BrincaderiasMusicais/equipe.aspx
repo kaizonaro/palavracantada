@@ -15,6 +15,39 @@
 
     <brincadeira:script runat="server" ID="script" />
 
+    <script type="text/javascript">
+        //ajax
+        function GetXMLHttp() {
+            if (navigator.appName == "Microsoft Internet Explorer") {
+                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            } else {
+                xmlHttp = new XMLHttpRequest();
+            }
+            return xmlHttp;
+        }
+        var mod = GetXMLHttp();
+
+        function MudarIntegrante(id) {
+            //validar se há integrante selecionado
+            if (id != 0) {
+                mod.open("GET", "equipe.aspx?id=" + id + "&ACAO=mudarIntegrante", true);
+                mod.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                mod.onreadystatechange = function () {
+                    if (mod.readyState == 4) {
+                        if (mod.status == 200) {
+                            var ss = mod.responseText.split("|");
+                            //alert(id);
+                            $('#divNome').html(ss[0]);
+                            $('#divDescricao').html(ss[1]);
+                            $('#imgIntegrante').attr("src", "/upload/imagens/equipe/" + ss[2]);
+                            //$("#slPlayList option[value='" + ss[1] + "']").attr("selected", "selected");
+                        }
+                    }
+                };
+                mod.send(null);
+            }
+        }
+    </script>
 </head>
 <body>
 
@@ -40,28 +73,25 @@
                 </div>
                 <div class="txt boxDireita">
                     <div class="box_equipe">
-                        <img src="/images/img_equipe.png" alt="Integrante da Equipe" /></div>
+                        <img src="/images/img_equipe.png" alt="Integrante da Equipe" id="imgIntegrante" /></div>
                 </div>
                 <div class="txt boxEsquerda">
                     <p>Conheça melhor cada um dos integrantes da equipe do Projeto Brincadeiras Musicais da Palavra Cantada.</p>
                     <p>Selecione no menu abaixo o integrante que deseja exibir e então clique no botão “ok” para visualizar a foto e a biografia do integrante.</p>
                     <div class="select_equipe txt">
-                        <form action="javascript:void(0);">
-                            <select name="equipe">
-                                <option value="" selected>Escolha um menbro</option>
-                                <option value="">Escolha um menbro</option>
-                                <option value="">Escolha um menbro</option>
-                                <option value="">Escolha um menbro</option>
+                        <form action="javascript:void(0)" onsubmit="MudarIntegrante($('#slIntegrante').val())">
+                            <select name="equipe" runat="server" id="slIntegrante">
+                                <option value="0" selected="selected">Escolha um menbro</option>
                             </select>
                             <input type="submit" class="input btn" value="OK" />
                         </form>
                     </div>
                 </div>
-                 <div class="titu">
-                    Nome do Individuo
+                <div class="titu" id="divNome">
+                    
                 </div>
-                <div class="txt">
-                    Educadora musical, musicista e pesquisadora. Professora fundadora da EMIA - Escola Municipal de Iniciação Artística (São Paulo, SP), instituição na qual também exerceu o cargo de Assistente Artístico e foi coordenadora da área de música. Bacharel em Composição pela Escola de Comunicações e Artes da USP. Mestre e doutoranda pela Faculdade de Educação da Unicamp, integrante do Laborarte – Laboratório de Estudos sobre Arte, Corpo e Educação -, pesquisa as relações entre música, educação, estética e subjetividade. Tem apresentado palestras e trabalhos e prestado assessoria na área de educação musical em instituições públicas e privadas, cursos de extensão, seminários e congressos. Instrumentista, dedica-se ao clarinete e à flauta doce. Nesse instrumento especializou-se no Conservatório Real de Haia, Holanda. Apresentou-se como solista junto a formações como Orquestra Sinfônica Municipal de São Paulo e Sinfonia Cultura. Participa do grupo de música antiga Carmina, do quarteto de flautas doces Fontegara, como também do Núcleo E, voltado à performance e pesquisa entre linguagens artísticas.
+                <div class="txt" id="divDescricao">
+                    
                 </div>
 
             </div>
