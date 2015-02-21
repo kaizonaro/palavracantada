@@ -286,8 +286,8 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .redesParticipantes ul li {font-weight:bold;}
 
 /*PALAVRA CANTADA*/
-.palavraCantada .boxEsquerda {width: 48%; float: left;}
-.palavraCantada .boxDireita {width: 48%; float: right;}
+.palavraCantada .boxEsquerda {width: 45%; float: left;}
+.palavraCantada .boxDireita {width: 49%; float: right;}
 .interna_bottom{width:478;height:auto;margin:0 auto;max-width:100%;}
 
 /*BLOG INTERNA*/
