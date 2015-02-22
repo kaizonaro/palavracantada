@@ -7,6 +7,9 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 
 namespace BrincaderiasMusicais.administracao
 {
@@ -14,7 +17,7 @@ namespace BrincaderiasMusicais.administracao
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista, rsRedes, rsGravaBanner;
+        private OleDbDataReader rsLista, rsRedes, rsGravaBanner, rsPagina, rsSize;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,7 +38,7 @@ namespace BrincaderiasMusicais.administracao
 
                         break;
                     case ("editarBanner"):
-                        rsLista = objBD.ExecutaSQL("select RED_ID, BAN_ID, BAN_LEGENDA, BAN_LINK from  Banner where BAN_ID ='" + Request["BAN_ID"] + "'");
+                        rsLista = objBD.ExecutaSQL("select RED_ID, BAN_ID, BAN_LEGENDA, BAN_LINK, PAG_ID from  Banner where BAN_ID ='" + Request["BAN_ID"] + "'");
                         if (rsLista == null)
                         {
                             throw new Exception();
@@ -43,7 +46,7 @@ namespace BrincaderiasMusicais.administracao
                         if (rsLista.HasRows)
                         {
                             rsLista.Read();
-                            Response.Write(rsLista["RED_ID"] + "|" + rsLista["BAN_ID"] + "|" + rsLista["BAN_LEGENDA"] + "|" + rsLista["BAN_LINK"]);
+                            Response.Write(rsLista["RED_ID"] + "|" + rsLista["BAN_ID"] + "|" + rsLista["BAN_LEGENDA"] + "|" + rsLista["BAN_LINK"] + "|" + rsLista["PAG_ID"]);
                         }
                         break;
                     default:
@@ -57,6 +60,19 @@ namespace BrincaderiasMusicais.administracao
             {
                 Response.Redirect("erro.aspx");
                 throw;
+            }
+        }
+
+        public void PopulaPaginas()
+        {
+            rsPagina = objBD.ExecutaSQL("SELECT * from Paginas");
+            if (rsPagina == null)
+            {
+                throw new Exception();
+            }
+            if (rsPagina.HasRows)
+            {
+                PAG_ID.Items.Add(new ListItem(rsPagina["PAG_NOME"].ToString(), rsPagina["PAG_ID"].ToString()));
             }
         }
 
@@ -193,16 +209,55 @@ namespace BrincaderiasMusicais.administracao
             rsRedes.Dispose();
         }
 
+        ImageFormat porextensao(FileUpload arq)
+        {
+           string ext = arq.FileName.Substring(arq.FileName.Length - Math.Min(3, arq.FileName.Length));
+            switch (ext)
+            {
+                case "png":
+                    return ImageFormat.Png;
+                    break;
+                case "gif":
+                    return ImageFormat.Gif;
+                    break;
+                default:
+                    return ImageFormat.Jpeg;
+                    break;
+            }
+        }
+
         public void gravarBanner(object sender, EventArgs e)
         {
             try
             {
+                
                 string arquivo = "NULL";
-                if (BAN_IMAGEM.HasFile)
+                rsSize = objBD.ExecutaSQL("SELECT PAG_ALTURABANNER, PAG_LARGURABANNER from Paginas where PAG_ID = " + Request["PAG_ID"]);
+                if (rsSize == null) { throw new Exception(); }
+                if (rsSize.HasRows)
                 {
-                    arquivo =  BAN_IMAGEM.FileName.Replace(" ", "_");
-                    BAN_IMAGEM.SaveAs(Server.MapPath("~/upload/imagens/banners") + "/" + arquivo);
-                    arquivo = "'" + arquivo + "'";
+                    rsSize.Read();
+
+                    int ALTURA = Convert.ToInt32(rsSize["PAG_ALTURABANNER"].ToString());
+                    int LARGURA = Convert.ToInt32(rsSize["PAG_LARGURABANNER"].ToString());
+
+                    if (BAN_IMAGEM.HasFile)
+                    {
+                        arquivo = BAN_IMAGEM.FileName.Replace(" ", "_");
+                        System.Drawing.Image image = System.Drawing.Image.FromStream(BAN_IMAGEM.PostedFile.InputStream);
+                        Graphics thumbnailGraph = Graphics.FromImage(image);
+                        thumbnailGraph.CompositingQuality = CompositingQuality.HighQuality;
+                        thumbnailGraph.SmoothingMode = SmoothingMode.HighQuality;
+                        thumbnailGraph.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                        var imageRectangle = new Rectangle(0, 0, LARGURA, ALTURA);
+                        Bitmap thumbnailBitmap = new Bitmap(LARGURA, ALTURA);
+                        thumbnailGraph.DrawImage(image, imageRectangle);
+                        thumbnailBitmap.Save(Server.MapPath("~/upload/imagens/banners") + "/" + arquivo, porextensao(BAN_IMAGEM));
+                        thumbnailGraph.Dispose();
+                        thumbnailBitmap.Dispose();
+                        image.Dispose();
+                        arquivo = "'" + arquivo + "'";
+                    }
                 }
 
                 string link = Request["BAN_LINK"];
@@ -211,7 +266,7 @@ namespace BrincaderiasMusicais.administracao
                     link = "javascript:void(0)";
                 }
 
-                rsGravaBanner = objBD.ExecutaSQL("EXEC admin_piuBanner " + Request["BAN_ID"] + ", " + Request["RED_ID"] + ", '" + Request["BAN_LEGENDA"] + "', " + arquivo + ", '" + link + "'");
+                rsGravaBanner = objBD.ExecutaSQL("EXEC admin_piuBanner " + Request["BAN_ID"] + ", " + Request["RED_ID"] + ", '" + Request["BAN_LEGENDA"] + "', " + arquivo + ", '" + link + "', '" + Request["PAG_ID"] + "'");
                 if (rsGravaBanner == null)
                 {
                     throw new Exception();
