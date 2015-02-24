@@ -196,7 +196,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 #sobre #breadcrumb {color:#ae080f;margin-top:8px;}
 #sobre #breadcrumb a{color:#ae080f;}
 .interna .img_destaque{width:100%;margin-top:25px;display:inline-block;}
-.interna .txt{width:100%;font-family:Arial, sans-serif;font-size:12px;color:#68455b;text-align:justify;margin-top:20px;}
+.interna .txt{width:100%;font-family:Arial, sans-serif;font-size:12px;color:#68455b;text-align:justify;margin-top:20px;line-height:15px;}
 .txt p{margin-bottom:20px;}
 .txt img{float:right;margin-bottom:20px;}
 .txt p{width:100%;display:inline-block;}
