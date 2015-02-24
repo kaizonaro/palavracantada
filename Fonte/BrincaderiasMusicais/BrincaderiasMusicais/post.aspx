@@ -52,8 +52,8 @@
                 <span id="logPost" runat="server"></span>
                 <div class="txt textoPost" runat="server" id="txtPost"></div><br /><br />
                 <ul class="social_blog">
-                    <li>
-                        <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fbrincamusicais%3Ffref%3Dts&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=335341063329023" scrolling="no" frameborder="0" style="border: none; overflow: hidden; height: 21px;" allowtransparency="true"></iframe>
+                    <li id="liFace" runat="server">
+                        <!--<iframe id="iframe" runat="server" src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fbrincamusicais%3Ffref%3Dts&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=true&amp;height=21&amp;appId=335341063329023" scrolling="no" frameborder="0" style="border: none; overflow: hidden; height: 21px;" allowtransparency="true"></iframe>-->
                     </li>
                     <li class="tw_blog2">
                         <a href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweetar</a>

@@ -32,7 +32,7 @@
             <img src="/images/banner_lateral.png" alt="Conmheça o site oficial do palalavra cantada" /></a>
     </div>
 
-    <div class="box_login esconde">
+    <div class="box_login esconde" style="margin-top:10px;" id="divBlog" runat="server">
         <p>BUSCAR NO BLOG BRINCADEIRAS MUSICAIS:</p>
         <form class="form_pesquisa" action="javascript:void(0);">
             <input type="text" name="pesquisar" class="input" /><input type="submit" class="btn" value="OK" />

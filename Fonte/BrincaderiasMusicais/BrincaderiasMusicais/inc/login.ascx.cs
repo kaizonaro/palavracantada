@@ -37,6 +37,22 @@ namespace BrincaderiasMusicais.inc
                     msgErro.InnerHtml = "<br/>Usuário e/ou senha inválida";
                 }
             }
+
+            string urlCompleta = Request.Url.AbsoluteUri;
+            string paginaAtual = Request.CurrentExecutionFilePath;
+            paginaAtual = paginaAtual.Remove(0, paginaAtual.LastIndexOf("/") + 1);
+
+            switch (paginaAtual)
+            {
+                case "blog.aspx":
+                    divBlog.Attributes.Remove("class");
+                    divBlog.Attributes["class"] = "box_login";
+
+                    banner_sidebar.Attributes.Remove("class");
+                    banner_sidebar.Attributes["class"] = "esconde";
+                    break;
+            }
+
         }
 
         public void populuarBoxLogado()
