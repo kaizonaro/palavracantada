@@ -79,7 +79,7 @@ namespace BrincaderiasMusicais.inc
         public void populardatas()
         {
             bd objBd = new bd();
-            Datas = objBd.ExecutaSQL("select distinct convert(date,POS_DH_PUBLICACAO) as CAT_DATA from PostBlog");
+            Datas = objBd.ExecutaSQL("exec site_post_data_lis");
             if (Datas == null)
             {
                 throw new Exception();
@@ -88,7 +88,7 @@ namespace BrincaderiasMusicais.inc
             {
                 while (Datas.Read())
                 {
-                    arquivoblog.Items.Add(new ListItem(Convert.ToDateTime(Datas["CAT_DATA"].ToString()).ToShortDateString(), Datas["CAT_DATA"].ToString()));
+                    arquivoblog.Items.Add(new ListItem(Convert.ToDateTime(Datas["data"].ToString()).ToShortDateString(), Datas["data"].ToString()));
                 }
             }
         }
