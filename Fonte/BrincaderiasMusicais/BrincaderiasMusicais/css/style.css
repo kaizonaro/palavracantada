@@ -196,7 +196,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 #sobre #breadcrumb {color:#ae080f;margin-top:8px;}
 #sobre #breadcrumb a{color:#ae080f;}
 .interna .img_destaque{width:100%;margin-top:25px;display:inline-block;}
-.interna .txt{width:100%;font-family:Arial, sans-serif;font-size:12px;color:#68455b;text-align:justify;margin-top:20px;line-height:15px;}
+.interna .txt{width:100%;font-family:Arial, sans-serif;font-size:12px;color:#68455b;text-align:justify;margin-top:20px;line-height:17px;}
 .txt p{margin-bottom:20px;}
 .txt img{float:right;margin-bottom:20px;}
 .txt p{width:100%;display:inline-block;}
@@ -322,6 +322,33 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .desc_post_interna{font-family:Arial,sans-serif;font-size:11px; text-align:justify;}
 .posts_interna li .btn{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color:#fff;background:url(/images/menu3.png) no-repeat;width: 70px;height: 26px;display: inline-block;line-height: 26px;background-size: cover;float: left;margin-top: 7px;}
 
+/*INTERNA MEU PERFIL*/
+.img_perfil{width:150px;height:148px;background:url(../images/bg_img_perfil.png) no-repeat center center;background-size:cover;padding:8px;float:left}
+.img_perfil img{width:100%;height:100%;}
+.nome_perfil {display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:18px;color:#db4f36;text-align:left;font-weight:bold;float:right;width: 305px;}
+.regiao_perfil {display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;color:#f68b1f;text-align:left;float:right;width: 305px;}
+.txt_perfil{width:300px!important;float:right;margin-top:2px!important;}
+.img_links{float: left;margin: 8px;}
+.img_links:last-child{margin-right:0}
+.links_box{width:100%;display:inline-block;margin-top:10px;}
+.linha{width:100%;margin-bottom:20px;}
+.menu_perfil{width:180px;background:url(../images/empe.png) no-repeat right center;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-align:left;text-transform:uppercase;float:left;}
+.sub_perfil{width:100%;font-size:12px;text-align:left;color:#68455b;text-decoration:underline;margin-bottom:5px}
+.menu_perfil span{width:100%;color:#736d9b;padding-left:23px;font-size:10px;margin-bottom:2px;display:inline-block;padding-top:3px;padding-bottom:3px}
+.menu_perfil span a{color:#736d9b;}
+.menu_perfil .primeiro{background:url(../images/icone_um.png) no-repeat left center; background-size:18px;}
+.menu_perfil .segundo{background:url(../images/icone_dois.png) no-repeat left center; background-size:18px;}
+.menu_perfil .terceiro{background:url(../images/icone_tres.png) no-repeat left top; background-size:18px; border-bottom:1px dotted #68455b;width:160px;padding-bottom:15px;margin-bottom:15px; }
+.menu_perfil .quarto{background:url(../images/icone_quatro.png) no-repeat left center; background-size:18px;}
+.menu_perfil .quinto{background:url(../images/icone_cinco.png) no-repeat left center; background-size:18px;}
+.menu_perfil .sexto{background:url(../images/icone_seis.png) no-repeat left center; background-size:18px;margin-bottom:15px;}
+.medalhas_perfil{font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-align:left;text-transform:uppercase;float:left;margin-left:20px;width:270px;text-align:center;margin-bottom:20px}
+.medalhas{width:100%;}
+.medalhas li{display:inline;margin:9px;float:left;font-size:8px;color:#bbafb7;margin-bottom:0}
+.medalhas li.ativo{color:#736d9b;}
+.titu_blog_perfil{width:100%;display:inline-block;color:#736d9b;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:14px;text-transform:uppercase;font-weight:bold;padding:10px 5px;text-align:left;padding-top:0}
+.titu_blog_perfil img{float: left;margin-right:10px}
+.titu_blog_perfil em {font-weight: normal;font-size: 13px;}
 
 /*AJUSTES*/
 .textoPost span {
