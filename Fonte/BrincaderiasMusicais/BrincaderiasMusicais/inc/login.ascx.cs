@@ -16,9 +16,13 @@ namespace BrincaderiasMusicais.inc
 {
     public partial class login : System.Web.UI.UserControl
     {
-       
+
+        private OleDbDataReader Categoria, Datas;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            populacategorias();
+            populardatas();
             if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1)
             {
                 //LOGADO
@@ -27,6 +31,7 @@ namespace BrincaderiasMusicais.inc
                 box_login.Attributes.Add("class", "esconde");
 
                 populuarBoxLogado();
+
 
             }
             else
@@ -69,6 +74,40 @@ namespace BrincaderiasMusicais.inc
             box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"/forum\" title=\"Fórum\">Fórum</a></li>";
             box_logado.InnerHtml += "   <li class=\"conheca grande\"><a href=\"/criacoes-documentadas\" title=\"Criações Documentadas\">Criações Documentadas</a></li>";
             box_logado.InnerHtml += "</ul>";
+        }
+
+        public void populardatas()
+        {
+            bd objBd = new bd();
+            Datas = objBd.ExecutaSQL("select distinct convert(date,POS_DH_PUBLICACAO) as CAT_DATA from PostBlog");
+            if (Datas == null)
+            {
+                throw new Exception();
+            }
+            if (Datas.HasRows)
+            {
+                while (Datas.Read())
+                {
+                    arquivoblog.Items.Add(new ListItem(Convert.ToDateTime(Datas["CAT_DATA"].ToString()).ToShortDateString(), Datas["CAT_DATA"].ToString()));
+                }
+            }
+        }
+
+        public void populacategorias()
+        {
+            bd objBd = new bd();
+            Categoria = objBd.ExecutaSQL("SELECT * FROM CATEGORIA");
+            if (Categoria == null)
+            {
+                throw new Exception();
+            }
+            if (Categoria.HasRows)
+            {
+                while (Categoria.Read())
+                {
+                    categoriablog.Items.Add(new ListItem(Categoria["CAT_TITULO"].ToString(), Categoria["CAT_ID"].ToString()));
+                }
+            }
         }
     }
 }
