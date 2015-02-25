@@ -32,26 +32,20 @@
             <img src="/images/banner_lateral.png" alt="Conmheça o site oficial do palalavra cantada" /></a>
     </div>
 
-    <div class="box_login esconde" style="margin-top:10px;" id="divBlog" runat="server">
+    <div class="box_login esconde" style="margin-top: 10px;" id="divBlog" runat="server">
         <p>BUSCAR NO BLOG BRINCADEIRAS MUSICAIS:</p>
         <form class="form_pesquisa" action="javascript:void(0);">
             <input type="text" name="pesquisar" class="input" /><input type="submit" class="btn" value="OK" />
             <div>
                 <p>ARQUIVO DO BLOG:</p>
-                <select name="data">
+                <select name="data" runat="server" id="arquivoblog">
                     <option value="" selected>Selecione o mês / ano</option>
-                    <option value="">Escolha um menbro</option>
-                    <option value="">Escolha um menbro</option>
-                    <option value="">Escolha um menbro</option>
                 </select>
             </div>
             <div>
                 <p>CATEGORIAIS DO BLOG:</p>
-                <select name="blog">
+                <select name="blog" runat="server" id="categoriablog">
                     <option value="" selected>Selecione a categoria</option>
-                    <option value="">Escolha um menbro</option>
-                    <option value="">Escolha um menbro</option>
-                    <option value="">Escolha um menbro</option>
                 </select>
             </div>
         </form>
