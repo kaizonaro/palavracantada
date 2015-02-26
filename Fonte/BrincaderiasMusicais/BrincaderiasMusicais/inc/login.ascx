@@ -25,27 +25,8 @@
         return false;
     }
 
-    function pesquisablog(nome, variavel) {
-        ajax4 = ajaxInit();
-        ajax4.open("GET", "/administracao/ajax/acoes.aspx?acao=PesquisaBlog&" + nome.replace("login_","") + "=" + variavel, true);
-        ajax4.setRequestHeader("Content-Type", "charset=iso-8859-1");
-        ajax4.onreadystatechange = function () {
-
-            if (ajax4.readyState == 4) {
-
-                if (ajax4.status == 200) {
-                    resposta = ajax4.responseText.split("<!DOCTYPE html>");
-
-                    $("#divArtigos").html(resposta[0])
-
-
-
-                }
-            }
-
-        }
-        ajax4.send(null);
-
+    function pesquisablog() {
+       $("#pesquisabt").click()
     }
 
 </script>
@@ -78,17 +59,17 @@
 
     <div class="box_login esconde" style="margin-top: 10px;" id="divBlog" runat="server">
         <p>BUSCAR NO BLOG BRINCADEIRAS MUSICAIS:</p>
-        <form class="form_pesquisa" action="javascript:void(0);">
-            <input type="text" name="pesquisar" class="input" id="POS_TEXTO" /><input type="button" class="btn" value="OK" onclick='pesquisablog(POS_TEXTO.id, POS_TEXTO.value)' />
+        <form class="form_pesquisa" action="blog.aspx">
+            <input type="text" name="POS_TEXTO" class="input" id="POS_TEXTO" /><input type="submit" id="pesquisabt" class="btn" value="OK" />
             <div>
                 <p>ARQUIVO DO BLOG:</p>
-                <select name="data" runat="server" id="POS_DH_CRIACAO" onchange="pesquisablog(this.id, this.value)">
+                <select name="POS_DH_CRIACAO" runat="server" id="POS_DH_CRIACAO" onchange="pesquisablog()">
                     <option value="" selected>Selecione o mês / ano</option>
                 </select>
             </div>
             <div>
                 <p>CATEGORIAIS DO BLOG:</p>
-                <select name="blog" runat="server" id="PCA_ID" onchange="pesquisablog(this.id, this.value)">
+                <select name="PCA_ID" runat="server" id="PCA_ID" onchange="pesquisablog()">
                     <option value="" selected>Selecione a categoria</option>
                 </select>
             </div>

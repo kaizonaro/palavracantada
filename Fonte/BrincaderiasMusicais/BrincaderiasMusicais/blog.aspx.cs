@@ -38,14 +38,14 @@ namespace BrincaderiasMusicais
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
 
         public void PopularBlog()
         {
-            rsArtigos = objBD.ExecutaSQL("EXEC site_blog_lis '3','" + pagina_atual + "','1' ");
+            rsArtigos = objBD.ExecutaSQL("EXEC pesquisa_site_blog_lis '3','" + pagina_atual + "','1', '" + Request["POS_DATA_CRIACAO"] + "', '" + Request["PCA_ID"] + "' , '" + Request["POS_TEXTO"] + "'");
 
             if (rsArtigos == null)
             {
@@ -61,17 +61,17 @@ namespace BrincaderiasMusicais
                     divArtigos.InnerHtml += "   <span class=\"titu_blog\"><a href=\"/post/" + objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString()) + "\" title=\"Ver Post\"><strong>" + rsArtigos["POS_TITULO"] + "</strong></a></span>";
                     divArtigos.InnerHtml += "   <span>Publicado por: <strong> " + rsArtigos["ADM_NOME"] + " </strong></span>";
                     divArtigos.InnerHtml += "   <span>Em: <strong>" + rsArtigos["POS_DATA_PUBLICACAO"] + "</strong>, às <strong>" + rsArtigos["POS_HORA_PUBLICAO"] + "</strong></span>";
-                    divArtigos.InnerHtml += "   <span>na categoria: <strong>XXXXXXX</strong></span>";
+                    divArtigos.InnerHtml += "   <span>na categoria: <strong>" + rsArtigos["POS_CATEGORIA"] + "</strong></span>";
                     divArtigos.InnerHtml += "   <div class=\"txt\">";
-                    divArtigos.InnerHtml += "       <p>" + objUtils.CortarString(true,230,rsArtigos["POS_TEXTO"].ToString()) + "</p>";
+                    divArtigos.InnerHtml += "       <p>" + objUtils.CortarString(true, 230, rsArtigos["POS_TEXTO"].ToString()) + "</p>";
                     divArtigos.InnerHtml += "   </div>";
                     divArtigos.InnerHtml += "   <a href=\"/post/" + objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString()) + "\" class=\"btn\">LEIA MAIS</a>";
                     divArtigos.InnerHtml += "   <ul class=\"social_blog\">";
                     divArtigos.InnerHtml += "       <li>";
-                    divArtigos.InnerHtml += "             <iframe src=\"//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fprojetopalavracantada.net%2Fpost%2F"+objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString())+"&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=404437276390840\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; height:21px;\" allowTransparency=\"true\"></iframe>";
+                    divArtigos.InnerHtml += "             <iframe src=\"//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fprojetopalavracantada.net%2Fpost%2F" + objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString()) + "&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=404437276390840\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; height:21px;\" allowTransparency=\"true\"></iframe>";
                     divArtigos.InnerHtml += "       </li>";
                     divArtigos.InnerHtml += "       <li class=\"tw_blog\">";
-                    divArtigos.InnerHtml += "           <a href=\"https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fprojetopalavracantada.net%2Fpost%2F"+objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString())+"&amp;tw_p=tweetbutton&amp;url=http%3A%2F%2Fprojetopalavracantada.net%2Fpost%2F"+objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString())+"\" class=\"twitter-share-button\" data-lang=\"pt\">Tweetar</a>";
+                    divArtigos.InnerHtml += "           <a href=\"https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Fprojetopalavracantada.net%2Fpost%2F" + objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString()) + "&amp;tw_p=tweetbutton&amp;url=http%3A%2F%2Fprojetopalavracantada.net%2Fpost%2F" + objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString()) + "\" class=\"twitter-share-button\" data-lang=\"pt\">Tweetar</a>";
                     divArtigos.InnerHtml += "           <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>";
                     divArtigos.InnerHtml += "       </li>";
                     divArtigos.InnerHtml += "       <li class=\"g_blog\">";

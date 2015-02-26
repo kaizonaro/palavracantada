@@ -105,7 +105,7 @@ namespace BrincaderiasMusicais.inc
             {
                 while (Categoria.Read())
                 {
-                    PCA_ID.Items.Add(new ListItem(Categoria["CAT_TITULO"].ToString(), Categoria["CAT_ID"].ToString()));
+                    PCA_ID.Items.Add(new ListItem(Categoria["PCA_TITULO"].ToString(), Categoria["PCA_ID"].ToString()));
                 }
             }
         }
