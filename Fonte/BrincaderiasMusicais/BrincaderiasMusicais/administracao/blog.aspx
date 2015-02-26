@@ -16,9 +16,9 @@
         tinymce.init({
             selector: "textarea",
             menubar: false
- });
- 
-    
+        });
+
+
 
         //AJAX
         function ajaxInit() {
@@ -55,9 +55,9 @@
                         $('#POS_ID').attr("value", ss[0]);
                         $('#POS_TITULO').attr("value", ss[1]);
                         tinyMCE.activeEditor.setContent(ss[2]);
-                        
-                         if (ss[3] == '1'){$('#POS_IMPORTANTE').attr("checked","checked");}
-                             
+
+                        if (ss[3] == '1') { $('#POS_IMPORTANTE').attr("checked", "checked"); }
+
 
                         editar_table2(id);
                     }
@@ -169,10 +169,13 @@
                                             <asp:FileUpload ID="POS_IMAGEM" runat="server" class="multi obg input" />
 
                                             <p>Post:*</p>
-                                            <textarea id="POS_TEXTO" name="POS_TEXTO" style="width:100%">
+                                            <textarea id="POS_TEXTO" name="POS_TEXTO" style="width: 100%">
 
                                             </textarea>
-                                             
+                                            <select name="CAT_ID" runat="server" id="CAT_ID">
+                                                <option value="" selected>Selecione a categoria</option>
+                                            </select>
+
                                             <label for="POS_IMPORTANTE">Importante:</label>
                                             <input type="checkbox" id="POS_IMPORTANTE" name="POS_IMPORTANTE" value="1" />
 

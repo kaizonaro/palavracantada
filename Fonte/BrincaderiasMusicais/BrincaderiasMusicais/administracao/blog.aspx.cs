@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais.administracao
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista, rsGravar, rsNotificar;
+        private OleDbDataReader rsLista, rsGravar, rsNotificar, Categoria;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,6 +43,23 @@ namespace BrincaderiasMusicais.administracao
                 default:
                     PopulaLista();
                     break;
+            }
+        }
+
+        public void populacategorias()
+        {
+            bd objBd = new bd();
+            Categoria = objBd.ExecutaSQL("SELECT * FROM CATEGORIA");
+            if (Categoria == null)
+            {
+                throw new Exception();
+            }
+            if (Categoria.HasRows)
+            {
+                while (Categoria.Read())
+                {
+                    CAT_ID.Items.Add(new ListItem(Categoria["CAT_TITULO"].ToString(), Categoria["CAT_ID"].ToString()));
+                }
             }
         }
 

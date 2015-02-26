@@ -49,22 +49,22 @@ namespace BrincaderiasMusicais.inc {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBlog;
         
         /// <summary>
-        /// arquivoblog control.
+        /// POS_DH_CRIACAO control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect arquivoblog;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect POS_DH_CRIACAO;
         
         /// <summary>
-        /// categoriablog control.
+        /// PCA_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect categoriablog;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect PCA_ID;
         
         /// <summary>
         /// box_logado control.

@@ -41,6 +41,7 @@
             };
             mod.send(null);*/
             location.href = "blog.aspx?pagina=" + pg + "";
+             
         }
     </script>
 </head>

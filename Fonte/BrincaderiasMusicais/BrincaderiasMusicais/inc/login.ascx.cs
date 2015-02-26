@@ -88,7 +88,7 @@ namespace BrincaderiasMusicais.inc
             {
                 while (Datas.Read())
                 {
-                    arquivoblog.Items.Add(new ListItem(Convert.ToDateTime(Datas["data"].ToString()).ToShortDateString(), Datas["data"].ToString()));
+                    POS_DH_CRIACAO.Items.Add(new ListItem(Convert.ToDateTime(Datas["data"].ToString()).ToShortDateString(), Datas["data"].ToString()));
                 }
             }
         }
@@ -105,7 +105,7 @@ namespace BrincaderiasMusicais.inc
             {
                 while (Categoria.Read())
                 {
-                    categoriablog.Items.Add(new ListItem(Categoria["CAT_TITULO"].ToString(), Categoria["CAT_ID"].ToString()));
+                    PCA_ID.Items.Add(new ListItem(Categoria["CAT_TITULO"].ToString(), Categoria["CAT_ID"].ToString()));
                 }
             }
         }
