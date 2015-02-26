@@ -96,7 +96,7 @@ namespace BrincaderiasMusicais.inc
         public void populacategorias()
         {
             bd objBd = new bd();
-            Categoria = objBd.ExecutaSQL("SELECT * FROM CATEGORIA");
+            Categoria = objBd.ExecutaSQL("SELECT * FROM PostCategoria where PCA_ATIVO = 1");
             if (Categoria == null)
             {
                 throw new Exception();
