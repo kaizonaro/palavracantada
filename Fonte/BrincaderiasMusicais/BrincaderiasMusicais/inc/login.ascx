@@ -1,9 +1,53 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="login.ascx.cs" Inherits="BrincaderiasMusicais.inc.login" %>
 <script type="text/javascript">
+
+    function ajaxInit() {
+        var req;
+        try {
+            req = new ActiveXObject("Microsoft.XMLHTTP");
+        } catch (e) {
+            try {
+                req = new ActiveXObject("Msxml2.XMLHTTP");
+            } catch (ex) {
+                try {
+                    req = new XMLHttpRequest();
+                } catch (exc) {
+                    alert("Esse browser não tem recursos para uso do Ajax");
+                    req = null;
+                }
+            }
+        }
+        return req;
+    }
+
     function sair() {
         window.location = "/ajax/acoes.aspx?acao=logout"
         return false;
     }
+
+    function pesquisablog(nome, variavel) {
+        ajax4 = ajaxInit();
+        ajax4.open("GET", "/administracao/ajax/acoes.aspx?acao=PesquisaBlog&" + nome.replace("login_","") + "=" + variavel, true);
+        ajax4.setRequestHeader("Content-Type", "charset=iso-8859-1");
+        ajax4.onreadystatechange = function () {
+
+            if (ajax4.readyState == 4) {
+
+                if (ajax4.status == 200) {
+                    resposta = ajax4.responseText.split("<!DOCTYPE html>");
+
+                    $("#divArtigos").html(resposta[0])
+
+
+
+                }
+            }
+
+        }
+        ajax4.send(null);
+
+    }
+
 </script>
 <aside id="sidebar">
     <div class="box_login" id="box_login" runat="server">
@@ -35,16 +79,16 @@
     <div class="box_login esconde" style="margin-top: 10px;" id="divBlog" runat="server">
         <p>BUSCAR NO BLOG BRINCADEIRAS MUSICAIS:</p>
         <form class="form_pesquisa" action="javascript:void(0);">
-            <input type="text" name="pesquisar" class="input" /><input type="submit" class="btn" value="OK" />
+            <input type="text" name="pesquisar" class="input" id="POS_TEXTO" /><input type="button" class="btn" value="OK" onclick='pesquisablog(POS_TEXTO.id, POS_TEXTO.value)' />
             <div>
                 <p>ARQUIVO DO BLOG:</p>
-                <select name="data" runat="server" id="arquivoblog">
+                <select name="data" runat="server" id="POS_DH_CRIACAO" onchange="pesquisablog(this.id, this.value)">
                     <option value="" selected>Selecione o mês / ano</option>
                 </select>
             </div>
             <div>
                 <p>CATEGORIAIS DO BLOG:</p>
-                <select name="blog" runat="server" id="categoriablog">
+                <select name="blog" runat="server" id="PCA_ID" onchange="pesquisablog(this.id, this.value)">
                     <option value="" selected>Selecione a categoria</option>
                 </select>
             </div>
