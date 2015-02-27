@@ -139,7 +139,7 @@ namespace BrincaderiasMusicais
             }
             else
             {
-                Response.Write("<script>alert('Sua pesquisa não retornou nehum registro!');document.location = 'blog.aspx'</script>");
+                divArtigos.InnerHtml = ("<br><span class=\"erro_pesquisa\"><strong>Ops! Parece que o que você está procurando não existe aqui no blog!<br> Tente uma busca diferente.</strong></span>");
             }
             
 
