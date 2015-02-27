@@ -83,7 +83,7 @@ header {padding-top:20px;}
 #login_box_login span {color: #ae080f;}
 .form_login, .form_senha{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color:#68455b;}
 .form_login label, .form_senha label{font-weight:bold;font-size:11px;text-transform:uppercase;margin-right:2px}
-.form_login .input, .form_senha .input{border:1px solid #B8B6B6;width:100px;height:25px;-webkit-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);-moz-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);margin-right: 10px;}
+.form_login .input, .form_senha .input, #biografia .input {border:1px solid #B8B6B6;width:100px;height:25px;-webkit-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);-moz-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);margin-right: 10px;}
 .form_login .btn, .form_senha .btn{color:#fff;background:url(../images/btn_entrar.png) no-repeat center center;background-size:cover;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;width:87px;height:32px;text-align: right;padding-right: 7px;float:right;margin-right:10px;cursor:pointer;}
 .form_login .link, .form_senha .link{color:#525252;text-decoration:underline;font-size:9px;font-family:Arial, sans-serif;float:left;margin-right:10px;margin-top:5px}
 .form_login div, .form_senha div{width:100%;display:inline-block;margin-top:15px;}
@@ -106,7 +106,7 @@ header {padding-top:20px;}
 .notificacao {color:#fff;background:#f68b1f;width:333px;height:46px;font-size:11px;font-family:Arial, sans-serif;border-radius:3px;line-height:40px;padding:10px}
 .notificacao li{line-height:normal;list-style:disc;list-style-position: inside;display:none;}
 .form_senha {display:none;}
-.form_login .error, .form_senha .error{background:rgba(174, 8, 15, 0.29);border:1px solid #ae080f;}
+.form_login .error, .form_senha .error, #biografia .input.error{background:rgba(174, 8, 15, 0.29);border:1px solid #ae080f;}
 .form_pesquisa{margin-top:-15px;}
 .form_pesquisa .btn{width:34px;height:26px;color:#fff;background:url(../images/ok_bg_2.png) center center;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:13px;text-transform:uppercase;cursor:pointer;margin-top:-10px;}
 .form_pesquisa .input{border:1px solid #B8B6B6;width:250px;height:25px;-webkit-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);-moz-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);margin-right:10px;}
@@ -355,6 +355,12 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .medalhas_perfil .sub_perfil_outro{color:#db4f36}
 .img_lateral_perfil{width:100%;}
 .img_lateral_perfil img{border:1px solid #f68b1f;margin-bottom:10px;width:162px;}
+.medalhas_perfil .txt{margin-top:5px;text-transform:none;}
+#biografia .input {width:100%;height:140px;margin-top:5px;padding:5px}
+#biografia .btn_back {color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase; background:url(../images/back_perfil.png) center center no-repeat;background-size:cover;font-size:11px;width:71px;height:31px;float:left;cursor:pointer;}
+#biografia .btn_save {color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase; background:url(../images/save_perfil.png) center center no-repeat;background-size:cover;font-size:11px;width:143px;height:31px;float:right;cursor:pointer;}
+.menu_perfil .segundo.ativo{color:#fff;background:url(../images/icone_dois2.png) #736d9b no-repeat 5px center; background-size:18px;border-radius:6px;width:170px;padding-left:28px;}
+.menu_perfil .segundo.ativo a{color:#fff;}
 
 /*AJUSTES*/
 .textoPost span {
