@@ -45,7 +45,7 @@ namespace BrincaderiasMusicais
 
         public void PopularBlog()
         {
-            rsArtigos = objBD.ExecutaSQL("EXEC pesquisa_site_blog_lis '3','" + pagina_atual + "','1', '" + Request["POS_DATA_CRIACAO"] + "', '" + Request["PCA_ID"] + "' , '" + Request["POS_TEXTO"] + "'");
+            rsArtigos = objBD.ExecutaSQL("EXEC pesquisa_site_blog_lis '3','" + pagina_atual + "','1', '" + Request["login$POS_DATA_CRIACAO"] + "', '" + Request["login$PCA_ID"] + "' , '" + Request["login$POS_TEXTO"] + "'");
 
             if (rsArtigos == null)
             {
