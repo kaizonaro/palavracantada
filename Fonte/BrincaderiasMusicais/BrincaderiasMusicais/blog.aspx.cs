@@ -137,6 +137,11 @@ namespace BrincaderiasMusicais
 
                 divArtigos.InnerHtml += conteudoPaginacao;
             }
+            else
+            {
+                Response.Write("<script>alert('Sua pesquisa não retornou nehum registro!');document.location = 'blog.aspx'</script>");
+            }
+            
 
             rsArtigos.Close();
             rsArtigos.Dispose();
