@@ -350,6 +350,12 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .titu_blog_perfil img{float: left;margin-right:10px}
 .titu_blog_perfil em {font-weight: normal;font-size: 13px;}
 
+/*INTERNA PERFIL*/
+.sub_perfil_outro{width:100%;font-size:10px;text-align:left;color:#f68b1f;margin-bottom:5px}
+.medalhas_perfil .sub_perfil_outro{color:#db4f36}
+.img_lateral_perfil{width:100%;}
+.img_lateral_perfil img{border:1px solid #f68b1f;margin-bottom:10px;width:162px;}
+
 /*AJUSTES*/
 .textoPost span {
     font-size: 10px;
