@@ -13,9 +13,9 @@
             </div>
             <nav class="user_menu">
                 <ul>
-                    <li><a href="javascript:void(0)">Alterar senha</a></li>
-                    <li><a href="javascript:void(0)">Dados Pessoais</a></li>
-                    <li><a href="javascript:void(0)">Sair</a></li>
+                    <!--<li><a href="javascript:void(0)">Alterar senha</a></li>
+                    <li><a href="javascript:void(0)">Dados Pessoais</a></li>-->
+                    <li><a href="logout.aspx">Sair</a></li>
                 </ul>
             </nav>
         </div>
