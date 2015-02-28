@@ -25,13 +25,18 @@
         return false;
     }
 
-    function pesquisablog() {
+    function getURLParameter(name) {
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null
+    }
 
+    function pesquisablog(item) {
+        nomecampo.value = item
         $("#pesquisabt").click()
 
     }
 
-   
+
+
 
 </script>
 <aside id="sidebar">
@@ -67,17 +72,17 @@
             <input type="text" name="POS_TEXTO" class="input" id="POS_TEXTO" /><input type="submit" id="pesquisabt" class="btn" value="OK" />
             <div>
                 <p>ARQUIVO DO BLOG:</p>
-                <select name="POS_DH_CRIACAO" runat="server" id="POS_DH_CRIACAO" onchange="pesquisablog()">
+                <select name="POS_DH_CRIACAO" runat="server" id="POS_DH_CRIACAO" onchange="pesquisablog(this.id)">
                     <option value="" selected>Selecione o mês / ano</option>
                 </select>
             </div>
             <div>
                 <p>CATEGORIAIS DO BLOG:</p>
-                <select name="PCA_ID" runat="server" id="PCA_ID" onchange="pesquisablog()">
+                <select name="PCA_ID" runat="server" id="PCA_ID" onchange="pesquisablog(this.id)">
                     <option value="" selected>Selecione a categoria</option>
                 </select>
             </div>
-            <input type="hidden" id="nomecampo" /><input type="hidden" id="valorcampo" />
+            <input type="hidden" name="nomecampo" id="nomecampo" value="" />
         </form>
         <form class="form_senha" action="">
             <input type="hidden" id="acao" name="acao" value="FazerLogin" />
@@ -94,10 +99,8 @@
 <script>
     $("#login_POS_DH_CRIACAO").attr("name", "POS_DH_CRIACAO")
     $("#login_PCA_ID").attr("name", "PCA_ID")
-    POS_TEXTO.value = getURLParameter('POS_TEXTO');
-    var cria = getURLParameter('POS_DH_CRIACAO');
-    var ids = getURLParameter('PCA_ID');
-
-    $("#login_POS_DH_CRIACAO option[value='" + cria + "']").attr("selected", "selected");
-    $("#login_PCA_ID option[value='" + ids + "']").attr("selected", "selected");
+    
+    var camp = getURLParameter('nomecampo');
+    
+    $("#" + camp + " option[value='" + getURLParameter(camp.replace('login_','')) + "']").attr("selected", "selected");
 </script>
