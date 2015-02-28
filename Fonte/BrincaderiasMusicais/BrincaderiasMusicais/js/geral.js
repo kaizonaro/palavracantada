@@ -153,6 +153,49 @@ $(document).ready(function () {
         $('#videos iframe').attr('src','')
 	});
 
+    //GALERIA DE FOTOS INTERNA
+	$('.galeria_img_interna li:first').addClass('primeiro');
+	$('.galeria_img_interna li:last').addClass('ultimo');
+	$('.galeria_img_interna li:first').addClass('ativo');
+	$('.galeria_img_interna li').click(function (e) {
+	    e.preventDefault();
+	    $('.galeria_img_interna li').removeClass('ativo')
+	    $(this).addClass('ativo');
+	    var atual = $('.galeria_img_interna .ativo').index() + 1;
+	    var total = $('.galeria_img_interna li').length;
+	    var img = $(this).children('a').attr('href')
+	    var titu = $(this).children('p').text()
+	    $('#fotos .controles .quantos .atual').text(atual);
+	    $('#fotos .controles .quantos .total').text(total);
+	    $('#fotos p').text(titu);
+	    if (atual == 1) {
+	        $('#fotos .controles .left_galeria').addClass('disabled');
+	    } else {
+	        $('#fotos .controles .left_galeria').removeClass('disabled');
+	    }
+	    if (atual == total) {
+	        $('#fotos .controles .right_galeria').addClass('disabled');
+	    } else {
+	        $('#fotos .controles .right_galeria').removeClass('disabled');
+	    }
+	    $('#fotos .img_galeria').attr('src', img);
+	    $('#mask').fadeIn(200);
+	    $('#mask #fotos').fadeIn(400);
+	});
+	$("#fotos .right_galeria").click(function () {
+	    proximo_foto2()
+	});
+	$("#fotos .left_galeria").click(function () {
+	    anterior_foto2()
+	});
+	$('.fechar_foto').click(function () {
+	    $('#mask').fadeOut(400);
+	    $('#mask #fotos').fadeOut(200);
+	    $('#videos iframe').attr('src', '')
+	});
+
+    /************************************/
+
 	$('.ops_galeria b:first').click(function () {
 	    $('.ops_galeria b').removeClass('ativo');
 	    $(this).addClass('ativo');
@@ -615,4 +658,57 @@ function anterior_video() {
 //Forçar o download do arquivo
 function download(arquivo) {
     location.href = "ajax/download.aspx?arquivo=" + arquivo + "";
+}
+
+//GALERIA DE FOTOS
+function proximo_foto2() {
+    if ($('.galeria_img_interna .ativo').hasClass('ultimo')) {
+
+    } else {
+        $('.galeria_img_interna .ativo').removeClass('ativo').next('li').addClass('ativo');
+        var atual = $('.galeria_img_interna .ativo').index() + 1;
+        var total = $('.galeria_img_interna li').length;
+        var img = $('.galeria_img_interna .ativo').children('a').attr('href');
+        var titu = $('.galeria_img_interna .ativo').children('p').text()
+        $('#fotos .controles .quantos .atual').text(atual);
+        $('#fotos .controles .quantos .total').text(total);
+        if (atual == 1) {
+            $('#fotos .controles .left_galeria').addClass('disabled');
+        } else {
+            $('#fotos .controles .left_galeria').removeClass('disabled');
+        }
+        if (atual == total) {
+            $('#fotos .controles .right_galeria').addClass('disabled');
+        } else {
+            $('#fotos .controles .right_galeria').removeClass('disabled');
+        }
+        $('#fotos .img_galeria').attr('src', '' + img);
+        $('#fotos p').text(titu);
+    }
+}
+
+function anterior_foto2() {
+    if ($('.galeria_img_interna .ativo').hasClass('primeiro')) {
+
+    } else {
+        $('.galeria_img_interna .ativo').removeClass('ativo').prev('li').addClass('ativo');
+        var atual = $('.galeria_img_interna .ativo').index() + 1;
+        var total = $('.galeria_img_interna li').length;
+        var img = $('.galeria_img_interna .ativo').children('a').attr('href');
+        var titu = $('.galeria_img_interna .ativo').children('p').text()
+        $('#fotos .controles .quantos .atual').text(atual);
+        $('#fotos .controles .quantos .total').text(total);
+        if (atual == 1) {
+            $('#fotos .controles .left_galeria').addClass('disabled');
+        } else {
+            $('#fotos .controles .left_galeria').removeClass('disabled');
+        }
+        if (atual == total) {
+            $('#fotos .controles .right_galeria').addClass('disabled');
+        } else {
+            $('#fotos .controles .right_galeria').removeClass('disabled');
+        }
+        $('#fotos .img_galeria').attr('src', '' + img);
+        $('#fotos p').text(titu);
+    }
 }

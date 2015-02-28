@@ -213,7 +213,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .paginacao ul li a {font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-decoration:underline;font-size:12px;color:#f68b1f;}
 .paginacao a.nav_pg{display:inline-block; color:#fff;background:url(../images/bg_nav_pg.png); padding:2px;background-size:cover;width:90px;height:20px;font-size:9px;line-height:18px;text-decoration:none;}
 .paginacao a.ativo{text-decoration:none;color:#000;}
-.paginacao ul{margin: 0 auto;width: 300px;display: inline-flex;margin-top: 36px;}
+.paginacao ul{margin: 0 auto;width: 252px;display: inline-flex;margin-top: 36px;}
 .paginacao ul li{display:inline-block;float:left;margin:5px;}
 .paginacao ul li img{display:inline-block;margin-left:2px;margin-right:2px;}
 .artigo_txt .social_blog .tw_blog{width:119px;}
@@ -414,6 +414,12 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 #up_foto .up_post_btn .btn_save{float:right!important;}
 #up_foto .up_post_btn .btn_back{float:right!important;}
 
+/*INTERNA GALERIA*/
+.titu_galeria{display: inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size: 15px;color: #db4f36;text-align: left;font-weight: bold;width: 100%;}
+.galeria_img_interna{width:100%;display:inline-block;}
+.galeria_img_interna li{display:inline-block;margin:15px;cursor:pointer;}
+.galeria_img_interna li img{width:100%;}
+.galeria_img_interna li p{display:none;}
 
 /*AJUSTES*/
 .textoPost span {
