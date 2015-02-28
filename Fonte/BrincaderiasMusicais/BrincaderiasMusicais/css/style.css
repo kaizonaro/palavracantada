@@ -356,11 +356,26 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .img_lateral_perfil{width:100%;}
 .img_lateral_perfil img{border:1px solid #f68b1f;margin-bottom:10px;width:162px;}
 .medalhas_perfil .txt{margin-top:5px;text-transform:none;}
-#biografia .input {width:100%;height:140px;margin-top:5px;padding:5px}
-#biografia .btn_back {color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase; background:url(../images/back_perfil.png) center center no-repeat;background-size:cover;font-size:11px;width:71px;height:31px;float:left;cursor:pointer;}
-#biografia .btn_save {color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase; background:url(../images/save_perfil.png) center center no-repeat;background-size:cover;font-size:11px;width:143px;height:31px;float:right;cursor:pointer;}
+#biografia .input {width:100%;height:140px;margin-top:5px;padding:5px;resize:none;}
+#biografia .btn_back {color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase; background:url(../images/back_perfil.png) center center no-repeat;background-size:cover;font-size:10px;width:71px;height:31px;float:left;cursor:pointer;}
+#biografia .btn_save {color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase; background:url(../images/save_perfil.png) center center no-repeat;background-size:cover;font-size:10px;width:143px;height:31px;float:right;cursor:pointer;}
 .menu_perfil .segundo.ativo{color:#fff;background:url(../images/icone_dois2.png) #736d9b no-repeat 5px center; background-size:18px;border-radius:6px;width:170px;padding-left:28px;}
 .menu_perfil .segundo.ativo a{color:#fff;}
+.menu_perfil .primeiro.ativo{color:#fff;background:url(../images/icone_um2.png) #736d9b no-repeat 5px center; background-size:18px;border-radius:6px;width:170px;padding-left:28px;}
+.menu_perfil .primeiro.ativo a{color:#fff;}
+
+/*INTERNA EDITAR FOTO*/
+#foto .input {width:100%;height:140px;margin-top:5px;padding:5px;resize:none;}
+#foto .btn_back {color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase; background:url(../images/back_perfil.png) center center no-repeat;background-size:cover;font-size:10px;width:71px;height:31px;float:left;cursor:pointer;}
+#foto .btn_save {color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase; background:url(../images/save_perfil.png) center center no-repeat;background-size:cover;font-size:10px;width:148px;height:31px;float:right;cursor:pointer;}
+#foto .right .btn_save{margin-top:12px;}
+.editar_img{width: 74px;height: 74px;background: url(../images/bg_img_perfil.png) no-repeat center center;background-size: cover;padding: 4px;margin-top:8px;}
+.editar_img img {width:100%;height:100%;}
+#foto .left{float:left;width:75px;}
+#foto .right{float:right;width:190px;}
+#foto .right .subir_foto{margin-top:25px;line-height:32px;background:url(../images/upload_perfil.png) center center no-repeat;background-size:cover;}
+#foto .right .excluir_foto{background:url(../images/excluir_perfil.png) center center no-repeat;background-size:cover;}
+.mini_txt{width:100%;display:inline-block;font-family:Arial;color:#68455b;text-transform:none;margin-top:15px;margin-bottom:15px;height:11px;}
 
 /*AJUSTES*/
 .textoPost span {
