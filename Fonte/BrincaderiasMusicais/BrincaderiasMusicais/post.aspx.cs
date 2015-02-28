@@ -47,9 +47,11 @@ namespace BrincaderiasMusicais
                 rsBlog.Read();
 
                 //facebook
-                metaTitle.Content = "Projeto Brincadeiras Musicais da Palavra Cantada - Blog";
+               // metaTitle.Content = "Projeto Brincadeiras Musicais da Palavra Cantada - Blog";
+                metaTitle.Content = "" + rsBlog["POS_TITULO"].ToString() + "";
                 metaImage.Content = "http://projetopalavracantada.net/images/logo-fb.png";
-                metaDescription.Content = "" + rsBlog["POS_TITULO"].ToString() + "";
+                //metaDescription.Content = "" + rsBlog["POS_TITULO"].ToString() + "";
+                metaDescription.Content = "" + rsBlog["POS_TEXTO"].ToString() + "";
                 metaURL.Content = "http://projetopalavracantada.net/post/" + Request["titulo"] + "";
 
                 liFace.InnerHtml = "<iframe src=\"//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fprojetopalavracantada.net%2Fpost%2F" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=404437276390840\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; height:21px;\" allowTransparency=\"true\"></iframe>";
@@ -59,7 +61,7 @@ namespace BrincaderiasMusicais
 
                 //imagem
                 imgPost.Src = "/upload/imagens/blog/thumb-" + rsBlog["POS_IMAGEM"].ToString() + "";
-                logPost.InnerHtml += "Publicado por <strong><i>" + rsBlog["USU_NOME"] + rsBlog["ADM_NOME"] + "</i></strong> em <strong><i>" + rsBlog["POS_DH_PUBLICACAO"].ToString() + "</i></strong> na categoria: <strong><i>xxxxxxxx</i></strong><br/><br/>";
+                logPost.InnerHtml += "Publicado por <strong><i>" + rsBlog["USU_NOME"] + rsBlog["ADM_NOME"] + "</i></strong> em <strong><i>" + rsBlog["POS_DH_PUBLICACAO"].ToString() + "</i></strong> na categoria: <strong><i>"+rsBlog["PCA_TITULO"].ToString()+"</i></strong><br/><br/>";
                 //Texto
                 
                 txtPost.InnerHtml += "<p class='tit_post'>" + rsBlog["POS_TITULO"] + "</p>";
