@@ -582,6 +582,11 @@ function editar_table3(id) {
     $('.tr_form td form').height(antigo);
     $('.tr_form td form').animate({ height: novo }, 900);
 }
+
+function getURLParameter(name) {
+    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null
+}
+
 function repaginar() {
     //GERAR NOVAMENTE A TABELA
     if ($('#tabela').size() > 0) {
