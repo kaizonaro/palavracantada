@@ -38,6 +38,7 @@ namespace BrincaderiasMusicais
             }
 		}
 
+
         public void populaIntegrante()
         {
             rsIntegrante = objBD.ExecutaSQL("select EQU_ID, EQU_NOME from Equipe where EQU_ATIVO = 1 order by EQU_NOME");
