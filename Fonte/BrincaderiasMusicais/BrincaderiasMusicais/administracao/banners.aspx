@@ -53,7 +53,8 @@
                         $('#BAN_ID').attr("value", ss[1]);
                         $('#BAN_LEGENDA').attr("value", ss[2]);
                         $('#BAN_LINK').attr("value", ss[3]);
-                        $("#PAG_ID option[value='" + ss[4] + "']").attr("selected", "selected");
+                        $("#PAG_ID option[value='" + parseInt(ss[4]) + "']").attr("selected", "selected");
+
                         editar_table2(id);
                     }
                 }
@@ -146,7 +147,7 @@
                                             </select>
                                              <p>Pagina</p>
                                             <select name="PAG_ID" class="input obg" id="PAG_ID" runat="server">
-                                                <option value="">Selecione</option>
+                                                <option value="NULL">Selecione</option>
                                             </select>
                                             <p>Link</p>
                                             <input type="text" name="BAN_LINK" class="input" id="BAN_LINK" />

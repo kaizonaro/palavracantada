@@ -307,8 +307,10 @@ namespace BrincaderiasMusicais.administracao
                 {
                     link = "javascript:void(0)";
                 }
-            
-                rsGravaBanner = objBD.ExecutaSQL("EXEC admin_piuBanner " + Request["BAN_ID"] + ", " + Request["RED_ID"] + ", '" + Request["BAN_LEGENDA"] + "', '" + arquivo + "', '" + link + "', '" + Request["PAG_ID"] + "'");
+
+                if (arquivo != "NULL" && arquivo != null) { arquivo = " '" + arquivo + "' ";}
+
+                rsGravaBanner = objBD.ExecutaSQL("EXEC admin_piuBanner " + Request["BAN_ID"] + ", " + Request["RED_ID"] + ", '" + Request["BAN_LEGENDA"] + "', " + arquivo + ", '" + link + "', '" + Request["PAG_ID"] + "'");
                 if (rsGravaBanner == null)
                 {
                     throw new Exception();
