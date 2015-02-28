@@ -1,12 +1,13 @@
-﻿using Etnia.classe;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data.OleDb;
 using System.Linq;
 using System.Web;
-using System.Web.Configuration;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Etnia.classe;
+using System.Data.OleDb;
+using System.Web.Configuration;
+using System.IO;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
@@ -53,6 +54,7 @@ namespace BrincaderiasMusicais.administracao
                         PopulaLista();
                         PopulaExcluidos();
                         ListarRedes();
+                        PopulaPaginas();
                         break;
                 }
             }
@@ -65,14 +67,20 @@ namespace BrincaderiasMusicais.administracao
 
         public void PopulaPaginas()
         {
-            rsPagina = objBD.ExecutaSQL("SELECT * from Paginas");
+            rsPagina = objBD.ExecutaSQL("SELECT PAG_ID, PAG_TITULO from Paginas");
             if (rsPagina == null)
             {
                 throw new Exception();
             }
             if (rsPagina.HasRows)
             {
-                PAG_ID.Items.Add(new ListItem(rsPagina["PAG_NOME"].ToString(), rsPagina["PAG_ID"].ToString()));
+                while (rsPagina.Read())
+                {
+                    ListItem C = new ListItem();
+                    C.Value = rsPagina["PAG_ID"].ToString();
+                    C.Text = rsPagina["PAG_TITULO"].ToString();
+                    PAG_ID.Items.Add(C);
+                }
             }
         }
 
@@ -104,7 +112,7 @@ namespace BrincaderiasMusicais.administracao
                 {
                     divLista.InnerHtml += " <tr id='tr_" + rsLista["BAN_ID"].ToString() + "' class=\"\">";
                     divLista.InnerHtml += "     <td>" + rsLista["BAN_ID"].ToString() + "</td>";
-                    divLista.InnerHtml += "     <td><img src=\"/upload/imagens/banners/" + rsLista["BAN_IMAGEM"].ToString() + "\" style=\"width:300px;height:100px\" /></td>";
+                    divLista.InnerHtml += "     <td><img src=\"/upload/imagens/" + rsLista["PAG_PASTA"].ToString() + "/" + rsLista["BAN_IMAGEM"].ToString() + "\" style=\"width:300px;height:100px\" /></td>";
                     divLista.InnerHtml += "     <td>" + rsLista["BAN_LEGENDA"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["BAN_LINK"].ToString().Replace("javascript:void(0)", "-") + "</td>";
@@ -230,9 +238,10 @@ namespace BrincaderiasMusicais.administracao
         {
             try
             {
-                
-                string arquivo = "NULL";
-                rsSize = objBD.ExecutaSQL("SELECT PAG_ALTURABANNER, PAG_LARGURABANNER from Paginas where PAG_ID = " + Request["PAG_ID"]);
+
+                string arquivo = "NULL", nome = "", filename = "", extensao = "";
+
+                rsSize = objBD.ExecutaSQL("SELECT PAG_ALTURABANNER, PAG_LARGURABANNER, PAG_PASTA from Paginas where PAG_ID = " + Request["PAG_ID"]);
                 if (rsSize == null) { throw new Exception(); }
                 if (rsSize.HasRows)
                 {
@@ -243,6 +252,7 @@ namespace BrincaderiasMusicais.administracao
 
                     if (BAN_IMAGEM.HasFile)
                     {
+                       /* VERSÃO ZONARO
                         arquivo = BAN_IMAGEM.FileName.Replace(" ", "_");
                         System.Drawing.Image image = System.Drawing.Image.FromStream(BAN_IMAGEM.PostedFile.InputStream);
                         Graphics thumbnailGraph = Graphics.FromImage(image);
@@ -256,7 +266,39 @@ namespace BrincaderiasMusicais.administracao
                         thumbnailGraph.Dispose();
                         thumbnailBitmap.Dispose();
                         image.Dispose();
-                        arquivo = "'" + arquivo + "'";
+                        arquivo = "'" + arquivo + "'";*/
+
+                        /*  VERSÃO FERNANDO */
+                        HttpFileCollection hfc = Request.Files;
+                        for (int i = 0; i < hfc.Count; i++)
+                        {
+                            HttpPostedFile hpf = hfc[i];
+                            if (hpf.ContentLength > 0)
+                            {
+                                if (BAN_IMAGEM.PostedFile.ContentType == "image/jpeg" || BAN_IMAGEM.PostedFile.ContentType == "image/png" || BAN_IMAGEM.PostedFile.ContentType == "image/gif" || BAN_IMAGEM.PostedFile.ContentType == "image/bmp")
+                                {
+                                    //Pega o nome do arquivo
+                                    nome = System.IO.Path.GetFileName(hpf.FileName);
+                                    //Pega a extensão do arquivo
+                                    extensao = Path.GetExtension(hpf.FileName);
+                                    //Gera nome novo do Arquivo numericamente
+                                    filename = DateTime.Now.ToString().Replace("/", "").Replace(":", "").Replace(" ", "");
+                                    //Caminho a onde será salvo
+                                    hpf.SaveAs(Server.MapPath("~/upload/imagens/" + rsSize["PAG_PASTA"] + "/") + filename + i + extensao);
+                                    
+                                    var prefixo = "ban-";
+                                    //pega o arquivo já carregado
+                                    string pth = Server.MapPath("~/upload/imagens/" + rsSize["PAG_PASTA"] + "/") + filename + i + extensao;
+
+                                    //Redefine altura e largura da imagem e Salva o arquivo + prefixo
+                                    Redefinir.resizeImageAndSave(pth, LARGURA, ALTURA, prefixo);
+
+                                   // File.Delete(Server.MapPath("~/upload/imagens/" + rsSize["PAG_PASTA"] + "/") + filename + i + extensao);
+                                    arquivo = "ban-" + filename + i + extensao;
+                                    break;
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -265,8 +307,8 @@ namespace BrincaderiasMusicais.administracao
                 {
                     link = "javascript:void(0)";
                 }
-
-                rsGravaBanner = objBD.ExecutaSQL("EXEC admin_piuBanner " + Request["BAN_ID"] + ", " + Request["RED_ID"] + ", '" + Request["BAN_LEGENDA"] + "', " + arquivo + ", '" + link + "', '" + Request["PAG_ID"] + "'");
+            
+                rsGravaBanner = objBD.ExecutaSQL("EXEC admin_piuBanner " + Request["BAN_ID"] + ", " + Request["RED_ID"] + ", '" + Request["BAN_LEGENDA"] + "', '" + arquivo + "', '" + link + "', '" + Request["PAG_ID"] + "'");
                 if (rsGravaBanner == null)
                 {
                     throw new Exception();
@@ -275,7 +317,7 @@ namespace BrincaderiasMusicais.administracao
                 //Libera o BD e Memória
                 rsGravaBanner.Close();
                 rsGravaBanner.Dispose();
-
+               
                 //Retornar para a Listagem
                 Response.Redirect("banners.aspx");
                 Response.End();
