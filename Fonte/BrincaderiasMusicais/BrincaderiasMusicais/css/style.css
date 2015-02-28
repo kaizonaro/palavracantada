@@ -377,6 +377,26 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 #foto .right .excluir_foto{background:url(../images/excluir_perfil.png) center center no-repeat;background-size:cover;}
 .mini_txt{width:100%;display:inline-block;font-family:Arial;color:#68455b;text-transform:none;margin-top:15px;margin-bottom:15px;height:11px;}
 
+/*INTERNA CONFIGURAÇÕES*/
+#setup{width:100%;display:inline-block;}
+#setup .left{float:left;width:49%;text-align:left;}
+#setup .right{float:right;width:49%;text-align:left;}
+.titu_setup{font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase;text-decoration:underline;color:#db4f36;text-align:left;margin-bottom:5px;}
+#setup .label{color:#68455b;font-family:Arial;font-weight:700;font-size:11.5px;width:100%;margin-bottom:5px;display:inline-block}
+#setup select{-webkit-appearance:menulist;-moz-appearance:menulist;-ms-appearance:menulist;}
+#setup .input{border: 1px solid #B8B6B6;width: 90%;height: 25px;-webkit-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);-moz-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);margin-right: 10px;margin-bottom:10px;padding-left:2px;}
+.check +label{font-family:Arial;background:url(../images/check.png) no-repeat left center;padding-left:15px;height: 23px;display: inline-block;line-height: 23px;margin-right:10px;cursor:pointer;}
+.check:checked +label{background:url(../images/check_ok.png) no-repeat left center;}
+.check{display:none;}
+#setup .full{width:100%;display:inline-block;text-align:left;}
+#setup .full em{font-style:normal;font-weight:normal;font-size:10px;}
+#setup .radio{display:none;}
+.radio +label{font-family:Arial;background:url(../images/radio.png) no-repeat left center;padding-left:18px;display: inline-block;line-height: 15px;margin-right:10px;cursor:pointer;}
+.radio:checked +label{background:url(../images/radio_ok.png) no-repeat left center;}
+#setup .btn_back{float:right;color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase; background:url(../images/back_perfil.png) center center no-repeat;background-size:cover;font-size:10px;width:71px;height:31px;cursor:pointer;margin-right:25px;margin-top:20px;}
+#setup .btn_save{float:left;color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase; background:url(../images/save_perfil.png) center center no-repeat;background-size:cover;font-size:10px;width:143px;height:31px;cursor:pointer;margin-top:20px;}
+#setup .input.error{background: rgba(174, 8, 15, 0.29);border: 1px solid #ae080f;}
+
 /*AJUSTES*/
 .textoPost span {
     font-size: 10px;

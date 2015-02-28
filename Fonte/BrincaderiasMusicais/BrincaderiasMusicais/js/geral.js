@@ -271,24 +271,6 @@ $(document).ready(function () {
 		}		
 	});
 
-	$('.input').focusout(function () {
-	    if ($(this).val() == "" || $(this).val() == "__/__/____") {
-	        $(this).addClass('error')
-	    } else {
-	        if ($(this).hasClass('email')) {
-	            email = $(this).val()
-	            var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-	            if (filtro.test(email)) {
-	                $(this).removeClass('error')
-	            } else {
-	                $(this).addClass('error')
-	            }
-	        } else {
-	            $(this).removeClass('error')
-	        }
-	    }
-	});
-
 	$('.cadastro_home .btn').click(function () {
 	    $('.cadastro_home .input').each(function () {
 	        if ($(this).val() == "") {
@@ -361,24 +343,6 @@ $(document).ready(function () {
 	    }
 	});
 
-	$('.input').focusout(function () {
-	    if ($(this).val() == "" || $(this).val() == "__/__/____") {
-	        $(this).addClass('error')
-	    } else {
-	        if ($(this).hasClass('email')) {
-	            email = $(this).val()
-	            var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-	            if (filtro.test(email)) {
-	                $(this).removeClass('error')
-	            } else {
-	                $(this).addClass('error')
-	            }
-	        } else {
-	            $(this).removeClass('error')
-	        }
-	    }
-	});
-
     //FORM SENHA
     //LOGIN
 	$('.form_senha').submit(function () {
@@ -402,20 +366,46 @@ $(document).ready(function () {
 	    }
 	});
 
-	$('.input').focusout(function () {
-	    if ($(this).val() == "" || $(this).val() == "__/__/____") {
-	        $(this).addClass('error')
-	    } else {
-	        if ($(this).hasClass('email')) {
-	            email = $(this).val()
-	            var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-	            if (filtro.test(email)) {
-	                $(this).removeClass('error')
-	            } else {
-	                $(this).addClass('error')
-	            }
+	$('#setup').submit(function () {
+	    $('#setup .obg').each(function () {
+	        if ($(this).val() == "") {
+	            $(this).addClass('error')
 	        } else {
-	            $(this).removeClass('error')
+	            if ($(this).hasClass('email')) {
+	                email = $(this).val()
+	                var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	                if (filtro.test(email)) {
+	                    $(this).removeClass('error')
+	                } else {
+	                    $(this).addClass('error')
+	                }
+	            }
+	        }
+	    });
+	    if ($('#setup .obg').hasClass('error')) {
+	        return false
+	    }
+	});
+
+	$('.input').focusout(function () {
+	    if ($(this).hasClass('senha2')) {
+            return false
+	    } else { 
+
+	        if ($(this).val() == "" || $(this).val() == "__/__/____") {
+	            $(this).addClass('error')
+	        } else {
+	            if ($(this).hasClass('email')) {
+	                email = $(this).val()
+	                var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	                if (filtro.test(email)) {
+	                    $(this).removeClass('error')
+	                } else {
+	                    $(this).addClass('error')
+	                }
+	            } else {
+	                $(this).removeClass('error')
+	            }
 	        }
 	    }
 	});
