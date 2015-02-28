@@ -26,8 +26,18 @@
     }
 
     function pesquisablog() {
-       $("#pesquisabt").click()
+
+        $("#pesquisabt").click()
+
     }
+
+    function getURLParameter(name) {
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null
+    }
+
+
+
+
 
 </script>
 <aside id="sidebar">
@@ -73,6 +83,7 @@
                     <option value="" selected>Selecione a categoria</option>
                 </select>
             </div>
+            <input type="hidden" id="nomecampo" /><input type="hidden" id="valorcampo" />
         </form>
         <form class="form_senha" action="">
             <input type="hidden" id="acao" name="acao" value="FazerLogin" />
@@ -86,3 +97,13 @@
     </div>
     <div class="box_logado esconde" id="box_logado" runat="server"></div>
 </aside>
+<script>
+    $("#login_POS_DH_CRIACAO").attr("name", "POS_DH_CRIACAO")
+    $("#login_PCA_ID").attr("name", "PCA_ID")
+    POS_TEXTO.value = getURLParameter('POS_TEXTO');
+    var cria = getURLParameter('POS_DH_CRIACAO');
+    var ids = getURLParameter('PCA_ID');
+
+    $("#login_POS_DH_CRIACAO option[value='" + cria + "']").attr("selected", "selected");
+    $("#login_PCA_ID option[value='" + ids + "']").attr("selected", "selected");
+</script>
