@@ -51,7 +51,7 @@ namespace BrincaderiasMusicais
 
                 case ("login_POS_DH_CRIACAO"):
                     bread.InnerHtml = "Arquivos " + Request["POS_DH_CRIACAO"];
-                    msg.InnerHtml = "Exibindo resultados do arquivo " + Request["POS_DH_CRIACAO"];
+                    msg.InnerHtml = "<center>Exibindo resultados do arquivo <strong>" + Request["POS_DH_CRIACAO"] + "</strong></center>";
                     rsArtigos = objBD.ExecutaSQL("EXEC pesquisa_site_blog_lis '3','" + pagina_atual + "','1', '" + Request["POS_DH_CRIACAO"] + "'");
                     break;
                 case ("login_PCA_ID"):
@@ -63,7 +63,7 @@ namespace BrincaderiasMusicais
                     if (string.IsNullOrWhiteSpace(Request["POS_TEXTO"]) == false)
                     {
                         bread.InnerHtml = "Busca \"" + Request["POS_TEXTO"] + "\"";
-                        msg.InnerHtml = "Exibindo resultados da pesquisa por \"" + Request["POS_TEXTO"] + "\"";
+                        msg.InnerHtml = "<center>Exibindo resultados da pesquisa por \"<strong>" + Request["POS_TEXTO"] + "\"</strong></center>";
                     }
                     else
                     {
@@ -87,7 +87,7 @@ namespace BrincaderiasMusicais
                     if (Request["nomecampo"] == "login_PCA_ID")
                     {
                         bread.InnerHtml = "Categoria " + rsArtigos["POS_CATEGORIA"];
-                        msg.InnerHtml = "Exibindo resultados da categoria " + rsArtigos["POS_CATEGORIA"];
+                        msg.InnerHtml = "<center>Exibindo resultados da categoria <strong>" + rsArtigos["POS_CATEGORIA"] + "</strong></center>";
                     }
 
                     divArtigos.InnerHtml += "<div class=\"txt blog_txt\">";

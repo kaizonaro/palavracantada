@@ -167,14 +167,14 @@
                                             <asp:FileUpload ID="ART_IMAGEM" runat="server" class="multi obg input" />
 
                                             <p>Descrição:*</p>
-                                            <textarea id="ART_DESCRICAO" name="ART_DESCRICAO" style="width:100%">
+                                            <textarea class="input" id="ART_DESCRICAO" name="ART_DESCRICAO" style="width:100%">
 
                                             </textarea>
                                              
                                             <p>PDF do Artigo:*</p>
                                             <asp:FileUpload ID="ART_PDF" runat="server" class="multi obg input" />
                                            
-                                            <input type="checkbox" id="POS_IMPORTANTE" name="POS_IMPORTANTE" value="1" />
+                                            <input type="checkbox" id="POS_IMPORTANTE" name="POS_IMPORTANTE" value="1" /> Marcar como importante
 
                                             <p class="p_btn">
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
