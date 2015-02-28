@@ -22,13 +22,25 @@
         <!--MENU-->
         <nav id="menu">
             <ul>
-                <li><a href="redes.aspx"><img src="images/home.png" alt="Redes"><p>Redes</p></a></li>
+                <!--conheça-->
+                <li><a href="javascript:void(0)"><img src="images/home.png" alt="Conheça"><p>Conheça</p></a>
+                    <ul class="submenu">
+                        <li><a href="redes.aspx">Redes</a></li>
+                        <li><a href="Equipe.aspx">Equipe</a></li>
+                    </ul>
+                </li>
+                <!--explore-->
+                <li><a href="javascript:void(0)"><img src="images/home.png" alt="Explore"><p>Explore</p></a>
+                    <ul class="submenu">
+                        <li><a href="artigos.aspx">Artigos</a></li>
+                        <li><a href="albumfotos.aspx">Fotos</a></li>
+                        <li><a href="playlist.aspx">Vídeos</a></li>
+                    </ul>
+                </li>
+                <li><a href="blog.aspx"><img src="images/home.png" alt="Blog"><p>Blog</p></a></li>
                 <li><a href="usuarios.aspx"><img src="images/home.png" alt="Usuários"><p>Usuários</p></a></li>
                 <li><a href="banners.aspx"><img src="images/home.png" alt="home"><p>Banners</p></a></li>
                 <li><a href="javascript:void(0)"><img src="images/home.png" alt="Galeria"><p>Galeria</p></a><ul class="submenu"><li><a href="videos.aspx">Vídeos</a></li><li><a href="fotos.aspx">Fotos</a></li></ul></li>
-                <li><a href="javascript:void(0)"><img src="images/home.png" alt="Explore"><p>Explore</p></a><ul class="submenu"><li><a href="artigos.aspx">Artigos</a></li><li><a href="albumfotos.aspx">Fotos</a></li><li><a href="playlist.aspx">Vídeos</a></li></ul></li>
-                <li><a href="blog.aspx"><img src="images/home.png" alt="Blog"><p>Blog</p></a></li>
-                 <li><a href="Equipe.aspx"><img src="images/home.png" alt="Equipe"><p>Equipe</p></a></li>
                 <li><a href="contato.aspx"><img src="images/home.png" alt="Contato"><p>Contato</p></a></li>
             </ul>
         </nav>
