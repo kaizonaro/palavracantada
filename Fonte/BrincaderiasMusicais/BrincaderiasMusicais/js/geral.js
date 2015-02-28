@@ -228,6 +228,27 @@ $(document).ready(function () {
 	    }
 	});
 
+	$('#up_foto').submit(function () {
+	    $('#up_foto .input').each(function () {
+	        if ($(this).val() == "") {
+	            $(this).addClass('error')
+	        } else {
+	            if ($(this).hasClass('email')) {
+	                email = $(this).val()
+	                var filtro = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	                if (filtro.test(email)) {
+	                    $(this).removeClass('error')
+	                } else {
+	                    $(this).addClass('error')
+	                }
+	            }
+	        }
+	    });
+	    if ($('#up_foto .input').hasClass('error')) {
+	        return false
+	    }
+	});
+
     //EDITAR BIOGRAFIA
 	$('#biografia').submit(function () {
 	    $('#biografia .input').each(function () {
