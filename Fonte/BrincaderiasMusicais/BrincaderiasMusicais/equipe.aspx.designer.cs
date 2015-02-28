@@ -10,6 +10,7 @@
 namespace BrincaderiasMusicais {
     
     
+
     public partial class equipe {
         
         /// <summary>
