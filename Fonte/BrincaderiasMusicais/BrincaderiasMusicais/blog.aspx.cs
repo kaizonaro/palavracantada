@@ -45,26 +45,32 @@ namespace BrincaderiasMusicais
 
         public void PopularBlog()
         {
-             
+
             switch (Request["nomecampo"])
             {
 
                 case ("login_POS_DH_CRIACAO"):
                     bread.InnerHtml = "Arquivos " + Request["POS_DH_CRIACAO"];
+                    msg.InnerHtml = "Exibindo resultados do arquivo " + Request["POS_DH_CRIACAO"];
                     rsArtigos = objBD.ExecutaSQL("EXEC pesquisa_site_blog_lis '3','" + pagina_atual + "','1', '" + Request["POS_DH_CRIACAO"] + "'");
                     break;
                 case ("login_PCA_ID"):
-                    bread.InnerHtml = "Categoria ";
                     rsArtigos = objBD.ExecutaSQL("EXEC pesquisa_site_blog_lis '3','" + pagina_atual + "','1', '', '" + Request["PCA_ID"] + "'");
                     break;
 
-                case ("POS_TEXTO"):
-                    bread.InnerHtml = "Resultado da pesquisa por " + Request["POS_TEXTO"];
-                    rsArtigos = objBD.ExecutaSQL("EXEC pesquisa_site_blog_lis '3','" + pagina_atual + "','1', '', '' , '" + Request["POS_TEXTO"] + "'");
-                    break;
                 default:
-                    rsArtigos = objBD.ExecutaSQL("EXEC pesquisa_site_blog_lis '3','" + pagina_atual + "','1'");
-                    bread.InnerHtml = "";
+                    rsArtigos = objBD.ExecutaSQL("EXEC pesquisa_site_blog_lis '3','" + pagina_atual + "','1', '', '' , '" + Request["POS_TEXTO"] + "'");
+                    if (string.IsNullOrWhiteSpace(Request["POS_TEXTO"]) == false)
+                    {
+                        bread.InnerHtml = "Busca \"" + Request["POS_TEXTO"] + "\"";
+                        msg.InnerHtml = "Exibindo resultados da pesquisa por \"" + Request["POS_TEXTO"] + "\"";
+                    }
+                    else
+                    {
+                        bread.InnerHtml = "";
+                        msg.InnerHtml = "";
+                    }
+
                     break;
             }
 
@@ -80,8 +86,10 @@ namespace BrincaderiasMusicais
                 {
                     if (Request["nomecampo"] == "login_PCA_ID")
                     {
-                        bread.InnerHtml = "Categoria " +  rsArtigos["POS_CATEGORIA"];
+                        bread.InnerHtml = "Categoria " + rsArtigos["POS_CATEGORIA"];
+                        msg.InnerHtml = "Exibindo resultados da categoria " + rsArtigos["POS_CATEGORIA"];
                     }
+
                     divArtigos.InnerHtml += "<div class=\"txt blog_txt\">";
                     divArtigos.InnerHtml += "   <a href=\"/post/" + objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString()) + "\" title=\"Ver Post\"><img width='190px' height='80px' src=\"/upload/imagens/blog/" + rsArtigos["POS_IMAGEM"] + "\" class=\"thumb_artigo\"></a>";
                     divArtigos.InnerHtml += "   <span class=\"titu_blog\"><a href=\"/post/" + objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString()) + "\" title=\"Ver Post\"><strong>" + rsArtigos["POS_TITULO"] + "</strong></a></span>";

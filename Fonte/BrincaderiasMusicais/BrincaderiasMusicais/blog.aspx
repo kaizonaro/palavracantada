@@ -67,6 +67,7 @@
                 <div id="breadcrumb">
                     <a href="/" title="Home">Home</a> >> <strong><a href="blog.aspx">Blog</a></strong> >> <span id="bread" runat="server"></span>
                 </div>
+                <div id="msg" runat="server" ></div>
                 <div class="oculta"><a href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweetar</a>
                             <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script></div>
                 <!-- ARTIGOS -->
