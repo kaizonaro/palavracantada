@@ -55,8 +55,10 @@
                         $('#POS_ID').attr("value", ss[0]);
                         $('#POS_TITULO').attr("value", ss[1]);
                         tinyMCE.activeEditor.setContent(ss[2]);
+                        $('#PCA_ID option[value="' + parseInt(ss[4]) + '"]').attr('selected', 'selected').change();
 
-                        if (ss[3] == '1') { $('#POS_IMPORTANTE').attr("checked", "checked"); }
+                        if (parseInt(ss[3]) == 1) { $('#POS_IMPORTANTE').attr("checked", "checked"); }
+
 
 
                         editar_table2(id);
@@ -70,7 +72,7 @@
             var r = confirm("Deseja mesmo desativar este post ?");
             if (r == true) {
                 ajax2 = ajaxInit();
-                ajax2.open("GET", "videos.aspx?acao=excluirVideo&GVI_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+                ajax2.open("GET", "blog.aspx?acao=excluirPost&POS_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
                 ajax2.setRequestHeader("Content-Type", "charset=iso-8859-1");
                 ajax2.onreadystatechange = function () {
                     if (ajax2.readyState == 4) {
@@ -89,12 +91,12 @@
             var r = confirm("Deseja deseja mesmo ativar este post ?");
             if (r == true) {
                 ajax2 = ajaxInit();
-                ajax2.open("GET", "videos.aspx?acao=ativarVideo&GVI_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+                ajax2.open("GET", "blog.aspx?acao=ativarPost&POS_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
                 ajax2.setRequestHeader("Content-Type", "charset=iso-8859-1");
                 ajax2.onreadystatechange = function () {
                     if (ajax2.readyState == 4) {
                         if (ajax2.status == 200) {
-                            $('#tr_' + id).hide();
+                            $('#x[tr_' + id).hide();
                         }
                     }
                 }
@@ -167,14 +169,16 @@
 
                                             <p>Imagem:*</p>
                                             <asp:FileUpload ID="POS_IMAGEM" runat="server" class="multi obg input" />
+                                            <p>Categoria*</p>
+                                            <select name="PCA_ID" runat="server" id="PCA_ID" class="input obg">
+                                                <option>Selecione a categoria</option>
+                                            </select>
 
                                             <p>Post:*</p>
                                             <textarea id="POS_TEXTO" name="POS_TEXTO" style="width: 100%">
 
                                             </textarea>
-                                            <select name="CAT_ID" runat="server" id="CAT_ID">
-                                                <option value="" selected>Selecione a categoria</option>
-                                            </select>
+
 
                                             <label for="POS_IMPORTANTE">Importante:</label>
                                             <input type="checkbox" id="POS_IMPORTANTE" name="POS_IMPORTANTE" value="1" />

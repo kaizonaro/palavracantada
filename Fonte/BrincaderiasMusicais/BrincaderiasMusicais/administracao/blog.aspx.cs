@@ -28,7 +28,7 @@ namespace BrincaderiasMusicais.administracao
             switch (Request["acao"])
             {
                 case ("editarPost"):
-                    rsLista = objBD.ExecutaSQL("select POS_ID, POS_TITULO, POS_TEXTO, POS_IMPORTANTE from  PostBlog where POS_ID ='" + Request["POS_ID"] + "'");
+                    rsLista = objBD.ExecutaSQL("exec admin_editarpost " + Request["POS_ID"]);
                     if (rsLista == null)
                     {
                         throw new Exception();
@@ -36,12 +36,19 @@ namespace BrincaderiasMusicais.administracao
                     if (rsLista.HasRows)
                     {
                         rsLista.Read();
-                        Response.Write(rsLista["POS_ID"] + "|" + rsLista["POS_TITULO"] + "|" + rsLista["POS_TEXTO"] + "|" + rsLista["POS_IMPORTANTE"]);
+                        Response.Write(rsLista["POS_ID"] + "|" + rsLista["POS_TITULO"] + "|" + rsLista["POS_TEXTO"] + "|" + rsLista["POS_IMPORTANTE"] + "|" + rsLista["POS_CATEGORIA"]);
                     }
                     break;
-
+                case ("excluirPost"):
+                    objBD.ExecutaSQL("UPDATE PostBlog set POS_ATIVO = 0 where POS_ID ='" + Request["POS_ID"] + "'");
+                    break;
+                case ("ativarPost"):
+                    rsLista = objBD.ExecutaSQL("UPDATE PostBlog set POS_ATIVO = 1 where POS_ID ='" + Request["POS_ID"] + "'");
+                    break;
                 default:
+                    populacategorias();
                     PopulaLista();
+                    PopulaLista(0);
                     break;
             }
         }
@@ -49,7 +56,7 @@ namespace BrincaderiasMusicais.administracao
         public void populacategorias()
         {
             bd objBd = new bd();
-            Categoria = objBd.ExecutaSQL("SELECT * FROM CATEGORIA");
+            Categoria = objBd.ExecutaSQL("SELECT * FROM PostCategoria");
             if (Categoria == null)
             {
                 throw new Exception();
@@ -58,62 +65,86 @@ namespace BrincaderiasMusicais.administracao
             {
                 while (Categoria.Read())
                 {
-                    CAT_ID.Items.Add(new ListItem(Categoria["CAT_TITULO"].ToString(), Categoria["CAT_ID"].ToString()));
+                    PCA_ID.Items.Add(new ListItem(Categoria["PCA_TITULO"].ToString(), Categoria["PCA_ID"].ToString()));
                 }
             }
         }
 
-        public void PopulaLista()
+        public void PopulaLista(int ativo = 1)
         {
-            divLista.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
+            string objeto = "";
+            objeto = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
 
-            rsLista = objBD.ExecutaSQL("EXEC admin_psPostBlogPorAtivo 1");
+            rsLista = objBD.ExecutaSQL("EXEC admin_psPostBlogPorAtivo " + ativo);
             if (rsLista == null)
             {
                 throw new Exception();
             }
             if (rsLista.HasRows)
             {
-                divLista.InnerHtml += " <thead>";
-                divLista.InnerHtml += "     <tr>";
-                divLista.InnerHtml += "         <th style=\"width:30px;\">ID</th>";
-                divLista.InnerHtml += "         <th style=\"width:120px;\">Imagem</th>";
-                divLista.InnerHtml += "         <th>Título</th>";
-                divLista.InnerHtml += "         <th>Rede</th>";
-                divLista.InnerHtml += "         <th style=\"width:115px;\">Data Publicação</th>";
-                divLista.InnerHtml += "         <th style=\"width:85px;\">Ações</th>";
-                divLista.InnerHtml += "     </tr>";
-                divLista.InnerHtml += " </thead>";
+                objeto += " <thead>";
+                objeto += "     <tr>";
+                objeto += "         <th style=\"width:30px;\">ID</th>";
+                objeto += "         <th style=\"width:120px;\">Imagem</th>";
+                objeto += "         <th>Título</th>";
+                objeto += "         <th>Rede</th>";
+                objeto += "         <th style=\"width:115px;\">Data Publicação</th>";
+                objeto += "         <th style=\"width:85px;\">Ações</th>";
+                objeto += "     </tr>";
+                objeto += " </thead>";
 
-                divLista.InnerHtml += " <tbody id=\"tbCentral\">";
+                objeto += " <tbody id=\"tbCentral\">";
 
                 while (rsLista.Read())
                 {
-                    divLista.InnerHtml += " <tr id='tr_" + rsLista["POS_ID"].ToString() + "' class=\"\">";
-                    divLista.InnerHtml += "     <td>" + rsLista["POS_ID"].ToString() + "</td>";
-                    divLista.InnerHtml += "     <td><img width='150px' src='/upload/imagens/blog/thumb-" + rsLista["POS_IMAGEM"].ToString() + "'></td>";
-                    divLista.InnerHtml += "     <td>" + rsLista["POS_TITULO"].ToString() + "</td>";
-                    divLista.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
-                    divLista.InnerHtml += "     <td>" + rsLista["POS_DH_PUBLICACAO"].ToString() + "</td>";
-                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["POS_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["POS_ID"].ToString() + "' onclick='excluirPost(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
-                    divLista.InnerHtml += " </tr>";
+                    string tr = "tr_";
+
+                    if (ativo == 0)
+                    {
+                        tr = "xtr_";
+                    }
+
+                    objeto += " <tr id='" + tr + rsLista["POS_ID"].ToString() + "' class=\"\">";
+                    objeto += "     <td>" + rsLista["POS_ID"].ToString() + "</td>";
+                    objeto += "     <td><img width='150px' src='/upload/imagens/blog/thumb-" + rsLista["POS_IMAGEM"].ToString() + "'></td>";
+                    objeto += "     <td>" + rsLista["POS_TITULO"].ToString() + "</td>";
+                    objeto += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
+                    objeto += "     <td>" + rsLista["POS_DH_PUBLICACAO"].ToString() + "</td>";
+                    if (ativo == 1)
+                    {
+                        objeto += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["POS_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["POS_ID"].ToString() + "' onclick='excluirPost(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+
+                    }
+                    else
+                    {
+                        objeto += "     <td><li><a id='" + rsLista["POS_ID"].ToString() + "' onclick='restorePost(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/restore.png\"></a></li></ul>";
+                    }
+                    objeto += " </tr>";
                 }
 
-                divLista.InnerHtml += " </tbody>";
+                objeto += " </tbody>";
             }
 
             else
             {
-                divLista.InnerHtml += " <thead>";
-                divLista.InnerHtml += "     <tr>";
-                divLista.InnerHtml += "         <th>Nenhum registro cadastrado até o momento!</th>";
-                divLista.InnerHtml += "     </tr>";
-                divLista.InnerHtml += " </thead>";
+                objeto += " <thead>";
+                objeto += "     <tr>";
+                objeto += "         <th>Nenhum registro cadastrado até o momento!</th>";
+                objeto += "     </tr>";
+                objeto += " </thead>";
             }
             rsLista.Close();
             rsLista.Dispose();
 
-            divLista.InnerHtml += "</table>";
+            objeto += "</table>";
+            if (ativo == 1)
+            {
+                divLista.InnerHtml = objeto;
+            }
+            else
+            {
+                divExcluidos.InnerHtml = objeto;
+            }
         }
 
         public Int64 GerarID()
@@ -173,7 +204,7 @@ namespace BrincaderiasMusicais.administracao
                                             Redefinir.resizeImageAndSave(pth, 600, 390, prefixoG);
 
                                             // Salvar no BD
-                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, NULL, '" + Session["id"] + "','" + Request["POS_TITULO"] + "','" + filename + i + extensao + "','" + Request["POS_TEXTO"].Replace("'","\"") + "','" + Request["POS_IMPORTANTE"] + "' ");
+                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, NULL, '" + Session["id"] + "','" + Request["POS_TITULO"] + "','" + filename + i + extensao + "','" + Request["POS_TEXTO"].Replace("'", "\"") + "','" + Request["POS_IMPORTANTE"] + "', " + Request["PCA_ID"]);
 
                                             // inicia as notificações
                                             rsNotificar = objBD.ExecutaSQL("EXEC admin_psNotificarPost " + Request["POS_IMPORTANTE"]);
@@ -189,7 +220,7 @@ namespace BrincaderiasMusicais.administracao
                                                     destinatarios += rsNotificar["USU_EMAIL"] + ",";
                                                 }
 
-                                                if (objUtils.EnviaEmail(destinatarios, "Novo post no portal Brincadeiras Musicais", "Acabamos de postar no portal: <a href=\"http://localhost:5131/post/"+ Request["POS_TITULO"].Replace(" ","-") + "\">" + Request["POS_TITULO"] + "</a>") == false)
+                                                if (objUtils.EnviaEmail(destinatarios, "Novo post no portal Brincadeiras Musicais", "Acabamos de postar no portal: <a href=\"http://localhost:5131/post/" + Request["POS_TITULO"].Replace(" ", "-") + "\">" + Request["POS_TITULO"] + "</a>") == false)
                                                 {
                                                     throw new Exception();
                                                 }
