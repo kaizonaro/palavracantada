@@ -93,7 +93,10 @@
                 <input class="btn" type="submit" value="ENVIAR" />
             </div>
         </form>
+
     </div>
+
+
     <div class="box_logado esconde" id="box_logado" runat="server"></div>
 </aside>
 <script>
