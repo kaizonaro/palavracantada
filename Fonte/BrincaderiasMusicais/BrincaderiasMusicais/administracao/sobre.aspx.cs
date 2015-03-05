@@ -31,7 +31,7 @@ namespace BrincaderiasMusicais.administracao
                 if (rsEditar.HasRows)
                 {
                     rsEditar.Read();
-                    Response.Write(rsEditar["POS_ID"] + "|" + rsEditar["POS_TITULO"] + "|" + rsEditar["POS_TEXTO_INICIAL"] + "|" + rsEditar["POS_TEXTO_FINAL"]);
+                    Response.Write(rsEditar["SOB_ID"] + "|" + rsEditar["SOB_TITULO"] + "|" + rsEditar["SOB_TEXTO_INICIAL"] + "|" + rsEditar["SOB_TEXTO_FINAL"]);
                 }
 
             }

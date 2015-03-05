@@ -49,19 +49,18 @@
 
                         var resposta = ajax4.responseText.split("<!doctype html>");
                         var ss = resposta[0].split("|");
-                        
+
                         $('#SOB_ID').attr("value", ss[0]);
-                        alert(ss[0])
                         $('#SOB_TITULO').attr("value", ss[1]);
                         tinyMCE.get("SOB_TEXTO_INICIAL").setContent(ss[2]);
                         tinyMCE.get("SOB_TEXTO_FINAL").setContent(ss[3]);
-                        
+
                         editar_table2(id);
                     }
                 }
             }
             ajax4.send(null);
-        }    
+        }
     </script>
 </head>
 
@@ -84,11 +83,11 @@
                             <div class="widget-title">
                                 <h4>Sobre o Palavra Cantada</h4>
                                 <div class="btns_acoes">
-                                    
+
                                     <div class="incluir acoes_topo_form">
                                         <img src="images/mais.png" alt="Incluir"><p>Incluir</p>
                                     </div>
-                                    
+
                                     <div class="form_table">
 
                                         <!-- FORMULÁRIO DE INCLUSÃO -->
@@ -101,14 +100,15 @@
 
                                             <p>Texto inicial:*</p>
                                             <textarea id="SOB_TEXTO_INICIAL" name="SOB_TEXTO_INICIAL" style="width: 100%"></textarea>
-                                             <p>Texto Final:</p>
+                                            <br />
+                                            <p>Texto Final:</p>
                                             <textarea id="SOB_TEXTO_FINAL" name="SOB_TEXTO_FINAL" style="width: 100%"></textarea>
 
                                             <p class="p_btn">
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
-                                                 <asp:Button ID="Gravar" runat="server" Text="Gravar" OnClick="gravar" />
+                                                <asp:Button ID="Gravar" runat="server" Text="Gravar" OnClick="gravar" CssClass="btn_form" />
                                             </p>
-                                            
+
                                         </form>
                                     </div>
                                 </div>
