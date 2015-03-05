@@ -227,10 +227,8 @@ namespace BrincaderiasMusicais.administracao
         {
             string nome = "", filename = "", extensao = "", nomepdf = "";
 
-            if (ART_IMAGEM.PostedFile.ContentLength < 8388608)
-            {
-                try
-                {
+          
+               
                     if (ART_IMAGEM.HasFile)
                     {
                         try
@@ -278,8 +276,7 @@ namespace BrincaderiasMusicais.administracao
                             rsGravar = objBD.ExecutaSQL("EXEC admin_piuArtigos '" + Request["ART_ID"] + "', '" + Request["ART_TITULO"] + "', '" + Session["id"] + "', '" + Request["ART_DESCRICAO"] + "', '" + filename + extensao + "', '" + nomepdf + "'");
 
                             // Mensagem se tudo ocorreu bem
-                            // Response.Redirect("artigos.aspx");
-                            Response.End();
+                           
 
                         }
                         catch (Exception ex)
@@ -290,12 +287,6 @@ namespace BrincaderiasMusicais.administracao
                         }
                     }
                 }
-                catch (Exception)
-                {
-                    Response.Write("Imagem não pode ser superior a 8 MB");
-                }
+               
             }
         }
-
-    }
-}
