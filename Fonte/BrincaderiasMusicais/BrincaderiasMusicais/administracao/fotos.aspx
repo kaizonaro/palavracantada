@@ -43,9 +43,9 @@
                     if (ajax4.status == 200) {
 
                         var ss = ajax4.responseText.split("|");
-
+                        
                         $('#GFO_ID').attr("value", ss[0]);
-                        $("#RED_ID option[value='" + ss[1] + "']").attr("selected", "selected");
+                        $("#RED_ID option[value='" + parseInt(ss[1]) + "']").attr("selected", "selected");
                         $('#GFO_LEGENDA').attr("value", ss[2]);
                        
                         editar_table2(id);
