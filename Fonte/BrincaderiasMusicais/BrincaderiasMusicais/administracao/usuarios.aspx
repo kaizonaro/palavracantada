@@ -152,9 +152,9 @@
                             <div class="widget-title">
                                 <h4>Usuários</h4>
                                 <div class="btns_acoes">
-                                    <div class="filtrar acoes_topo_form">
+                                    <!--<div class="filtrar acoes_topo_form">
                                         <img src="images/filtro.png" alt="Filtrar"><p>Filtrar</p>
-                                    </div>
+                                    </div>-->
                                     <div class="incluir acoes_topo_form">
                                         <img src="images/mais.png" alt="Incluir"><p>Incluir</p>
                                     </div>
