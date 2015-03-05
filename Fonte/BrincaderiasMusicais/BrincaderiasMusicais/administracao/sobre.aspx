@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="sobre.aspx.cs" Inherits="BrincaderiasMusicais.administracao.sobre" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="sobre.aspx.cs" Inherits="BrincaderiasMusicais.administracao.sobre" ValidateRequest="false" %>
 
 
 <%@ Register Src="~/administracao/inc/script.ascx" TagPrefix="brincadeira" TagName="script" %>
@@ -40,7 +40,7 @@
 
         function popularFormulario(id) {
             ajax4 = ajaxInit();
-            ajax4.open("GET", "sobre.aspx?acao=editarSobre&POS_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+            ajax4.open("GET", "sobre.aspx?acao=editarSobre&SOB_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
             ajax4.setRequestHeader("Content-Type", "charset=iso-8859-1");
             ajax4.onreadystatechange = function () {
 
@@ -49,10 +49,12 @@
 
                         var resposta = ajax4.responseText.split("<!doctype html>");
                         var ss = resposta[0].split("|");
-
+                        
                         $('#SOB_ID').attr("value", ss[0]);
+                        alert(ss[0])
                         $('#SOB_TITULO').attr("value", ss[1]);
-                        tinyMCE.activeEditor.setContent(ss[2]);
+                        tinyMCE.get("SOB_TEXTO_INICIAL").setContent(ss[2]);
+                        tinyMCE.get("SOB_TEXTO_FINAL").setContent(ss[3]);
                         
                         editar_table2(id);
                     }
@@ -92,18 +94,21 @@
                                         <!-- FORMULÁRIO DE INCLUSÃO -->
                                         <form id="Form1" class="inc_form form" name="incluir" action="sobre.aspx" novalidate="novalidate" accept-charset="default" runat="server">
                                             <input type="hidden" id="acao" name="acao" value="gravar" />
-                                            <input type="hidden" id="POS_ID" name="SOB_ID" value="0" />
+                                            <input type="hidden" id="SOB_ID" name="SOB_ID" value="0" />
 
                                             <p>Título:*</p>
                                             <input type="text" name="SOB_TITULO" id="SOB_TITULO" class="input obg" placeholder="Título" />
 
-                                            <p>Texto:*</p>
-                                            <textarea id="SOB_TEXTO" name="SOB_TEXTO" style="width: 100%"></textarea>
+                                            <p>Texto inicial:*</p>
+                                            <textarea id="SOB_TEXTO_INICIAL" name="SOB_TEXTO_INICIAL" style="width: 100%"></textarea>
+                                             <p>Texto Final:</p>
+                                            <textarea id="SOB_TEXTO_FINAL" name="SOB_TEXTO_FINAL" style="width: 100%"></textarea>
 
                                             <p class="p_btn">
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
-                                                <input type="submit" value="Gravar" class="btn_form"/>
+                                                 <asp:Button ID="Gravar" runat="server" Text="Gravar" OnClick="gravar" />
                                             </p>
+                                            
                                         </form>
                                     </div>
                                 </div>
