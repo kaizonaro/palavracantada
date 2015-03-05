@@ -84,9 +84,9 @@
                                 <h4>Sobre o Palavra Cantada</h4>
                                 <div class="btns_acoes">
 
-                                    <div class="incluir acoes_topo_form">
+                                   <!-- <div class="incluir acoes_topo_form">
                                         <img src="images/mais.png" alt="Incluir"><p>Incluir</p>
-                                    </div>
+                                    </div>-->
 
                                     <div class="form_table">
 
