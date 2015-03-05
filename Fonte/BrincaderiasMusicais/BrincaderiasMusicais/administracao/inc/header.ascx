@@ -25,6 +25,7 @@
                 <!--conheça-->
                 <li><a href="javascript:void(0)"><img src="images/home.png" alt="Conheça"><p>Conheça</p></a>
                     <ul class="submenu">
+                        <li><a href="sobre.aspx">Sobre o Projeto</a></li>
                         <li><a href="redes.aspx">Redes</a></li>
                         <li><a href="Equipe.aspx">Equipe</a></li>
                     </ul>
