@@ -275,7 +275,9 @@ namespace BrincaderiasMusicais.administracao
 
                 }
                 mensagemtokens += "</ol>";
-                if (objUtils.EnviaEmail("zonaro@outlook.com,kaizonaroproject@outlook.com,gabriel.zonaro@misasi.com.br", "Tokens de Acesso: " + RED_TITULO, mensagemtokens) == false)
+
+
+                if (objUtils.EnviaEmail(Session["email"].ToString(), "Tokens de Acesso: " + RED_TITULO, mensagemtokens) == false)
                 {
                     throw new Exception();
                 }
