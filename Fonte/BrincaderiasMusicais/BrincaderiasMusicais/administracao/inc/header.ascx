@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="header.ascx.cs" Inherits="BrincaderiasMusicais.administracao.inc.menu" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="header.ascx.cs" Inherits="BrincaderiasMusicais.administracao.inc.menu"%>
 <header class="all">
     <div class="all_center">
         <div id="logo">
