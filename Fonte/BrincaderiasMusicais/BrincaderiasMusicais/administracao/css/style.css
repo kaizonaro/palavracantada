@@ -121,7 +121,7 @@ input[type=checkbox]{-webkit-appearance: checkbox;-moz-appearance:checkbox;appea
 .voltar_topo_form{display:none;float: right;margin-right: 20px;}
 .tr_ativo{background:#D0D0D0;}
 .alteracao_div{display:none;}
-.table form .input{height: 30px; width: 100%;margin-bottom:10px;}
+.table form .input{min-height: 30px; width: 100%;margin-bottom:10px;}
 .table form p{font-size:12px;color: #5a5a5a;font-weight: bold;width:100%;margin-bottom:10px;}
 .table form {width:100%;background:#fff;position:relative;overflow:hidden;-webkit-transition:all 0.5s linear;-moz-transition:all 0.5s linear;-o-transition:all 0.5s linear;-ms-transition:all 0.5s linear;transition:all 0.5s linear;text-align:left}
 .table form .btn_form{padding: 8px;}

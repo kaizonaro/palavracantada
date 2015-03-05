@@ -550,6 +550,39 @@ function validardinamico() {
 
 
 function editar_table2(id) {
+    if ($('.form_table').height() > 0) {
+        $('.form_table').removeAttr('style');
+        if ($('.fil_form').is(':visible')) {
+            $('.form_table form').fadeOut(0);
+            setTimeout(function () {
+                $('.form_table form').fadeOut()
+                $('.inc_form').fadeIn()
+                var antigo = $(".form_table").outerHeight(),
+                novo = $(".form_table").css('height', 'auto').outerHeight();
+                $('.form_table').height(antigo);
+                $('.form_table').animate({ height: novo }, 500);
+            }, 510)
+        } else {
+            $('.form_table').removeAttr('style');
+            $('.form_table form').fadeOut(0);
+            setTimeout(function () {
+                $('.form_table form').fadeOut()
+                $('.inc_form').fadeIn()
+                var antigo = $(".form_table").outerHeight(),
+                novo = $(".form_table").css('height', 'auto').outerHeight();
+                $('.form_table').height(antigo);
+                $('.form_table').animate({ height: novo }, 500);
+            }, 510)
+        }
+    } else {
+        $('.form_table form').fadeOut()
+        $('.inc_form').fadeIn()
+        var antigo = $(".form_table").outerHeight(),
+        novo = $(".form_table").css('height', 'auto').outerHeight();
+        $('.form_table').height(antigo);
+        $('.form_table').animate({ height: novo }, 500);
+    }
+    /***********************
     $('.img_ok').removeClass('img_ok')
     $('.tr_form').remove()
     $('tr').removeClass('tr_ativo');
@@ -561,7 +594,7 @@ function editar_table2(id) {
     var antigo = $(".tr_form td form").height(),
     novo = $(".tr_form td form").css('height', 'auto').height();
     $('.tr_form td form').height(antigo);
-    $('.tr_form td form').animate({ height: novo }, 900);
+    $('.tr_form td form').animate({ height: novo }, 900);*/
 }
 
 function editar_table3(id) {
