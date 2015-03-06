@@ -16,9 +16,9 @@
         tinymce.init({
             selector: "textarea",
             menubar: false
- });
- 
-    
+        });
+
+
 
         //AJAX
         function ajaxInit() {
@@ -55,9 +55,9 @@
                         $('#FORM_ID').attr("value", ss[0]);
                         $('#FORM_TITULO').attr("value", ss[1]);
                         tinyMCE.activeEditor.setContent(ss[2]);
-                        
-                         if (ss[3] == '1'){$('#POS_IMPORTANTE').attr("checked","checked");}
-                             
+
+                        if (ss[3] == '1') { $('#POS_IMPORTANTE').attr("checked", "checked"); }
+
 
                         editar_table2(id);
                     }
@@ -145,22 +145,22 @@
                                 <div class="btns_acoes">
                                     <div class="filtrar acoes_topo_form">
                                         <img src="images/filtro.png" alt="Filtrar"><p>Filtrar</p>
-                                    </div>                                  
-                            </div>
+                                    </div>
+                                </div>
 
-                            <div class="widget-body">
+                                <div class="widget-body">
 
-                                <!-- LISTAGEM INICIAL -->
-                                <div class="tabela_ok" id="divLista" runat="server"></div>
-                                <!-- FIM LISTAGEM INICIAL -->
+                                    <!-- LISTAGEM INICIAL -->
+                                    <div class="tabela_ok" id="divLista" runat="server"></div>
+                                    <!-- FIM LISTAGEM INICIAL -->
 
-                                <!-- LISTAGEM EXCLUÍDOS -->
-                                <div class="tabela_excluidos" id="divExcluidos" runat="server"></div>
-                                <!-- FIM LISTAGEM EXCLUÍDOS -->
+                                    <!-- LISTAGEM EXCLUÍDOS -->
+                                    <div class="tabela_excluidos" id="divExcluidos" runat="server"></div>
+                                    <!-- FIM LISTAGEM EXCLUÍDOS -->
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </section>
         </div>
 
@@ -169,5 +169,27 @@
     <!--FIM DO CONTEUDO GERAL-->
     <footer class='footer'>
     </footer>
+    <section id="mask">
+        <article id="modal">
+            <div class="Modal">
+                <p class="titu">Contato dia  - xx/xx/xxxx:</p>
+                <p class="sub_titu">as 16:30hs</p>
+                    <div class="full">
+                        <b>Nome: </b> <em>Fernando forti santos</em>
+                    </div>
+                    <div class="full">
+                        <b>Email: </b> <em>fernando@santos.com.br</em>
+                    </div>
+                    <div class="full">
+                        <b>Mensagem: </b> <em>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</em>
+                    </div>
+                    <nav>
+                        <button class="btn" onclick="fechar_modal()">Fechar[x]</button>
+                        <!-- <input class="btn" type="reset" value="cancelar">-->
+                    </nav>
+                    </div>
+            </div>
+        </article>
+    </section>
 </body>
 </html>
