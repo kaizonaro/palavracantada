@@ -31,7 +31,7 @@ namespace BrincaderiasMusicais
 
         public void Popula()
         {
-            rsTexto = objBD.ExecutaSQL("select SOB_TEXTO_INICIAL, SOB_TEXTO_FINAL from SobreProjeto where SOB_ATIVO = 1");
+            rsTexto = objBD.ExecutaSQL("select SOB_TITULO, SOB_TEXTO_INICIAL, SOB_TEXTO_FINAL from SobreProjeto where SOB_ID = 1");
             if (rsTexto == null)
             {
                 throw new Exception();
@@ -40,6 +40,11 @@ namespace BrincaderiasMusicais
             {
                 rsTexto.Read();
 
+                //TÍTULO
+                titu.InnerHtml += rsTexto["SOB_TITULO"].ToString();
+
+                //breadcrumb
+                breadcrumb.InnerHtml = "<a href='/' title='Home'>Home</a> >> <strong>Conheça - " + rsTexto["SOB_TITULO"].ToString() + "</strong>";
                 central.InnerHtml += rsTexto["SOB_TEXTO_INICIAL"].ToString();
                 central.InnerHtml += "<img src='/images/img_sobre.jpg'>";
                 central.InnerHtml += rsTexto["SOB_TEXTO_FINAL"].ToString();
