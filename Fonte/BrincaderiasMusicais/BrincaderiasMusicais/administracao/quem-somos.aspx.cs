@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace BrincaderiasMusicais.administracao
 {
-    public partial class sobre : System.Web.UI.Page
+    public partial class quem_somos : System.Web.UI.Page
     {
         private bd objBD;
         private utils objUtils;
@@ -21,9 +21,9 @@ namespace BrincaderiasMusicais.administracao
             objBD = new bd();
             PopulaLista();
 
-            if (Request["acao"] == "editarSobre")
+            if (Request["acao"] == "editar")
             {
-                rsEditar = objBD.ExecutaSQL("select * from SobreProjeto where SOB_ID = 1");
+                rsEditar = objBD.ExecutaSQL("select * from SobreProjeto where SOB_ID = 2");
                 if (rsEditar == null)
                 {
                     throw new Exception();
@@ -35,16 +35,14 @@ namespace BrincaderiasMusicais.administracao
                 }
 
             }
-           
         }
-
 
         public void PopulaLista()
         {
             string objetolista = "";
             objetolista = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
 
-            rsLista = objBD.ExecutaSQL("select * from SobreProjeto where SOB_ID = 1");
+            rsLista = objBD.ExecutaSQL("select * from SobreProjeto where SOB_ID = 2");
             if (rsLista == null)
             {
                 throw new Exception();
@@ -93,15 +91,14 @@ namespace BrincaderiasMusicais.administracao
 
         }
 
-
         public void gravar(object sender, EventArgs e)
         {
-            rsGravaUsuario = objBD.ExecutaSQL("EXEC admin_piuSobreProjeto '1', '" + Request["SOB_TITULO"] + "', '" + Request["SOB_TEXTO_INICIAL"] + "', '" + Request["SOB_TEXTO_FINAL"] + "'");
+            rsGravaUsuario = objBD.ExecutaSQL("EXEC admin_piuSobreProjeto '2', '" + Request["SOB_TITULO"] + "', '" + Request["SOB_TEXTO_INICIAL"] + "', '" + Request["SOB_TEXTO_FINAL"] + "'");
             if (rsGravaUsuario == null)
             {
                 throw new Exception();
             }
-            Response.Redirect("sobre.aspx");
+            Response.Redirect("quem-somos.aspx");
         }
     }
 }

@@ -32,11 +32,11 @@
 
             <!--CONTEUDO INTERNO (SOBRE)-->
             <div id="sobre" class="interna">
-                <div class="titu">
-                    Sobre o Projeto
+                <div class="titu" id="titu" runat="server">
+                    
                 </div>
-                <div id="breadcrumb">
-                    <a href="/" title="Home">Home</a> >> <strong>Conheça - sobre o Projeto</strong>
+                <div id="breadcrumb" runat="server">
+                    
                 </div>
                 <div class="banner_sobre">
                     <img src="/images/sobre.jpg" class="img_destaque" />
