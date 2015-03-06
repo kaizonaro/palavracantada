@@ -66,7 +66,7 @@ header .all_center{padding-top:5px}
 .submenu{display:none;}
 #menu ul li .submenu li{margin:0;border:none;}
 #menu ul li .submenu li a {color:#fff;font-size:13px;background:rgba(43, 94, 95, 1);margin:0;display:block;border:none;padding:3px;}
-#menu ul li .submenu li a:hover {color:#fff;font-size:13px;background:rgba(43, 94, 95, 0.7);margin:0;display:block;border:none;padding:3px;}
+#menu ul li .submenu li a:hover {color:#fff;font-size:13px;background:#6A8E8F;margin:0;display:block;border:none;padding:3px;}
 #menu ul li:hover .submenu{display:block;}
 
 /*CONTEUDO*/
