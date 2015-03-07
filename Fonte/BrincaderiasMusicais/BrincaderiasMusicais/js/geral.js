@@ -243,6 +243,42 @@ $(document).ready(function () {
 	$("#videos .left_galeria").click(function () {
 	    anterior_video()
 	});
+
+    //GALERIA DA HOME (interna)
+	$('.galeria_video_interna li:first').addClass('primeiro');
+	$('.galeria_video_interna li:last').addClass('ultimo');
+	$('.galeria_video_interna li:first').addClass('ativo');
+	$('.galeria_video_interna li').click(function (e) {
+	    e.preventDefault();
+	    $('.videos_home li').removeClass('ativo')
+	    $(this).addClass('ativo');
+	    var atual = $('.galeria_video_interna .ativo').index() + 1;
+	    var total = $('.galeria_video_interna li').length;
+	    var video = $(this).children('a').attr('href')
+	    var titu = $(this).children('p').text()
+	    $('#videos .controles .quantos .atual').text(atual);
+	    $('#videos .controles .quantos .total').text(total);
+	    $('#videos p').text(titu);
+	    if (atual == 1) {
+	        $('#videos .controles .left_galeria2').addClass('disabled');
+	    } else {
+	        $('#videos .controles .left_galeria2').removeClass('disabled');
+	    }
+	    if (atual == total) {
+	        $('#videos .controles .right_galeria2').addClass('disabled');
+	    } else {
+	        $('#videos .controles .right_galeria2').removeClass('disabled');
+	    }
+	    $('#videos iframe').attr('src', '//www.youtube.com/embed/' + video + '?autoplay=1');
+	    $('#mask').fadeIn(200);
+	    $('#mask #videos').fadeIn(400);
+	});
+	$("#videos .right_galeria2").click(function () {
+	    proximo_video2()
+	});
+	$("#videos .left_galeria2").click(function () {
+	    anterior_video2()
+	});
 	$('.fechar_foto').click(function () {
 	    $('#mask').fadeOut(400);
 	    $('#mask #fotos').fadeOut(200);
@@ -649,6 +685,60 @@ function anterior_video() {
             $('#videos .controles .right_galeria').addClass('disabled');
         } else {
             $('#videos .controles .right_galeria').removeClass('disabled');
+        }
+        $('#videos iframe').attr('src', '//www.youtube.com/embed/' + video + '?autoplay=1');
+        $('#videos p').text(titu);
+    }
+}
+
+function proximo_video2() {
+    if ($('.galeria_video_interna .ativo').hasClass('ultimo')) {
+
+    } else {
+        $('.galeria_video_interna .ativo').removeClass('ativo').next('li').addClass('ativo');
+        var atual = $('.galeria_video_interna .ativo').index() + 1;
+        var total = $('.galeria_video_interna li').length;
+        var video = $('.galeria_video_interna .ativo').children('a').attr('href')
+        var titu = $('.galeria_video_interna .ativo').children('p').text()
+        $('#videos .controles .quantos .atual').text(atual);
+        $('#videos .controles .quantos .total').text(total);
+        $('#videos p').text(titu);
+        if (atual == 1) {
+            $('#videos .controles .left_galeria2').addClass('disabled');
+        } else {
+            $('#videos .controles .left_galeria2').removeClass('disabled');
+        }
+        if (atual == total) {
+            $('#videos .controles .right_galeria2').addClass('disabled');
+        } else {
+            $('#videos .controles .right_galeria2').removeClass('disabled');
+        }
+        $('#videos iframe').attr('src', '//www.youtube.com/embed/' + video + '?autoplay=1');
+        $('#videos p').text(titu);
+    }
+}
+
+function anterior_video2() {
+    if ($('.galeria_video_interna .ativo').hasClass('primeiro')) {
+
+    } else {
+        $('.galeria_video_interna .ativo').removeClass('ativo').prev('li').addClass('ativo');
+        var atual = $('.galeria_video_interna .ativo').index() + 1;
+        var total = $('.galeria_video_interna li').length;
+        var video = $('.galeria_video_interna .ativo').children('a').attr('href')
+        var titu = $('.galeria_video_interna .ativo').children('p').text()
+        $('#videos .controles .quantos .atual').text(atual);
+        $('#videos .controles .quantos .total').text(total);
+        $('#videos p').text(titu);
+        if (atual == 1) {
+            $('#videos .controles .left_galeria2').addClass('disabled');
+        } else {
+            $('#videos .controles .left_galeria2').removeClass('disabled');
+        }
+        if (atual == total) {
+            $('#videos .controles .right_galeria2').addClass('disabled');
+        } else {
+            $('#videos .controles .right_galeria2').removeClass('disabled');
         }
         $('#videos iframe').attr('src', '//www.youtube.com/embed/' + video + '?autoplay=1');
         $('#videos p').text(titu);
