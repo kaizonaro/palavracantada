@@ -28,7 +28,7 @@
                         <li><a href="sobre.aspx">Sobre</a></li>
                         <li><a href="quem-somos.aspx">Quem somos</a></li>
                         <li><a href="redes.aspx">Redes</a></li>
-                        <!--<li><a href="palavra-cantada.aspx">Palavra Cantada</a></li>-->
+                        <li><a href="palavra-cantada.aspx">Palavra Cantada</a></li>
                         <li><a href="Equipe.aspx">Equipe</a></li>
                     </ul>
                 </li>
