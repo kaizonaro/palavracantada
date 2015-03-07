@@ -43,7 +43,7 @@ namespace BrincaderiasMusicais.administracao
                     objBD.ExecutaSQL("UPDATE Artigo set ART_ATIVO = 1 where ART_ID = " + Request["ART_ID"]);
                     break;
                 case ("ExcluirArtigo"):
-                    objBD.ExecutaSQL("UPDATE Artigo set ART_ATIVO = 0 where ART_ID = " + Request["ART_ID"]);
+                    objBD.ExecutaSQL("exec admin_pudExcluirArtigo " + Request["ART_ID"]);
                     break;
                 default:
                     PopulaLista();
@@ -82,7 +82,7 @@ namespace BrincaderiasMusicais.administracao
                     divLista.InnerHtml += "     <td><img width='150px' src='../upload/imagens/artigo/thumb-" + rsLista["ART_IMAGEM"].ToString() + "'></td>";
                     divLista.InnerHtml += "     <td>" + rsLista["ART_TITULO"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["ART_DH_PUBLICACAO"].ToString() + "</td>";
-                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["ART_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["ART_ID"].ToString() + "' onclick='excluirArtigo(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["ART_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["ART_ID"].ToString() + "' onclick='excluirArtigo(this.id,\"desativar\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
                 }
 
@@ -133,7 +133,7 @@ namespace BrincaderiasMusicais.administracao
                     divExcluidos.InnerHtml += "     <td><img width='150px' src='../upload/imagens/artigo/thumb-" + rsLista["ART_IMAGEM"].ToString() + "'></td>";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["ART_TITULO"].ToString() + "</td>";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["ART_DH_PUBLICACAO"].ToString() + "</td>";
-                    divExcluidos.InnerHtml += "     <td><a href=\"javascript:void(0)\" id='" + rsLista["ART_ID"].ToString() + "' onclick='restoreArtigo(this.id);' class=\"img_del\"><img src=\"images/restore.png\"></a>";
+                    divExcluidos.InnerHtml += "     <td><ul><li><a href=\"javascript:void(0)\" id='" + rsLista["ART_ID"].ToString() + "' onclick='restoreArtigo(this.id);' class=\"img_del\"><img src=\"images/restore.png\"></li><li><a id='" + rsLista["ART_ID"].ToString() + "' onclick='excluirArtigo(this.id,\"excluir permanentemente\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul></a>";
                     divExcluidos.InnerHtml += " </tr>";
                 }
 
@@ -206,27 +206,12 @@ namespace BrincaderiasMusicais.administracao
             Response.Write(retorno);
         }
 
-        public Int64 GerarID()
-        {
-            try
-            {
-                DateTime data = new DateTime();
-                data = DateTime.Now;
-                string s = data.ToString().Replace("/", "").Replace(":", "").Replace(" ", "");
-                return Convert.ToInt64(s);
-            }
-            catch (Exception erro)
-            {
-                throw;
-            }
-        }
+       
 
         public void gravar(object sender, EventArgs e)
         {
             string nome = "", filename = "", extensao = "", nomepdf = "";
 
-          
-               
                     if (ART_IMAGEM.HasFile)
                     {
                         try
