@@ -62,8 +62,8 @@
             ajax4.send(null);
         }
 
-        function excluirBanner(id) {
-            var r = confirm("Deseja mesmo desativar este Banner?");
+        function excluirBanner(id, msg) {
+            var r = confirm("Deseja mesmo "+msg+" este Banner?");
             if (r == true) {
                 ajax2 = ajaxInit();
                 ajax2.open("GET", "banners.aspx?acao=excluirBanner&BAN_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);

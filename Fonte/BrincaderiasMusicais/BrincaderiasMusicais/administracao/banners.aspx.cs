@@ -32,7 +32,7 @@ namespace BrincaderiasMusicais.administracao
                 {
                     case ("excluirBanner"):
 
-                        objBD.ExecutaSQL("update Banner set BAN_ATIVO = 0 where BAN_ID ='" + Request["BAN_ID"] + "'");
+                        objBD.ExecutaSQL("exec admin_pudExcluirBanner " + Request["BAN_ID"]);
 
                         break;
                     case ("restoreBanner"):
@@ -118,7 +118,7 @@ namespace BrincaderiasMusicais.administracao
                     divLista.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["BAN_LINK"].ToString().Replace("javascript:void(0)", "-") + "</td>";
 
-                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0)\" id='" + rsLista["BAN_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["BAN_ID"].ToString() + "' onclick='excluirBanner(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0)\" id='" + rsLista["BAN_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["BAN_ID"].ToString() + "' onclick='excluirBanner(this.id, \"desativar\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
                 }
 
@@ -172,7 +172,7 @@ namespace BrincaderiasMusicais.administracao
                     divExcluidos.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["BAN_LINK"].ToString().Replace("javascript:void(0)", "-") + "</td>";
 
-                    divExcluidos.InnerHtml += "     <td><a href=\"javascript:void(0)\" id='" + rsLista["BAN_ID"].ToString() + "' onclick='restoreBanner(this.id);' class=\"img_del\"><img src=\"images/restore.png\"></a>";
+                    divExcluidos.InnerHtml += "     <td><ul><li><a href=\"javascript:void(0)\" id='" + rsLista["BAN_ID"].ToString() + "' onclick='restoreBanner(this.id);' class=\"img_del\"><img src=\"images/restore.png\"></a></li><li><a id='" + rsLista["BAN_ID"].ToString() + "' onclick='excluirBanner(this.id, \"excluir permanentemente\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divExcluidos.InnerHtml += " </tr>";
                 }
 
