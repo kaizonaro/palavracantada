@@ -175,7 +175,7 @@
                                             <div id="thumb"></div>
                                             <p>Categoria*</p>
                                             <select name="PCA_ID" runat="server" id="PCA_ID" class="input obg">
-                                                <option>Selecione a categoria</option>
+                                                <option value="">Selecione a categoria</option>
                                             </select>
 
                                             <p>Post:*</p>
