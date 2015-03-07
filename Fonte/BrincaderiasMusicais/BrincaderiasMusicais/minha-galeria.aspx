@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="galeria.aspx.cs" Inherits="BrincaderiasMusicais.galeria" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="minha-galeria.aspx.cs" Inherits="BrincaderiasMusicais.minha_galeria" %>
 
 <%@ Register Src="~/inc/script.ascx" TagPrefix="brincadeira" TagName="script" %>
 <%@ Register Src="~/inc/header.ascx" TagPrefix="brincadeira" TagName="header" %>
@@ -55,15 +55,15 @@
                 <div class="links_box">
                     <div class="img_links">
                         <a href="#" title="Minhas fotos">
-                            <img src="/images/fotos_perfil2.png" alt="Minhas Fotos" /></a>
+                            <img src="/images/fotos_perfil.png" alt="Minhas Fotos" /></a>
                     </div>
                     <div class="img_links disabled">
                         <a href="#" title="Minhas fotos">
-                            <img src="/images/videos_perfil2.png" alt="Minhas Fotos" /></a>
+                            <img src="/images/videos_perfil.png" alt="Minhas Fotos" /></a>
                     </div>
                     <div class="img_links disabled">
                         <a href="#" title="Minhas fotos">
-                            <img src="/images/blog_perfil2.png" alt="Minhas Fotos" /></a>
+                            <img src="/images/blog_perfil.png" alt="Minhas Fotos" /></a>
                     </div>
                 </div>
                 <img src="/images/linha.png" class="linha" />

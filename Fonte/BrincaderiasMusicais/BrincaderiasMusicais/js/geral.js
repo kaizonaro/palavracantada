@@ -169,23 +169,23 @@ $(document).ready(function () {
 	    $('#fotos .controles .quantos .total').text(total);
 	    $('#fotos p').text(titu);
 	    if (atual == 1) {
-	        $('#fotos .controles .left_galeria').addClass('disabled');
+	        $('#fotos .controles .left_galeria2').addClass('disabled');
 	    } else {
-	        $('#fotos .controles .left_galeria').removeClass('disabled');
+	        $('#fotos .controles .left_galeria2').removeClass('disabled');
 	    }
 	    if (atual == total) {
-	        $('#fotos .controles .right_galeria').addClass('disabled');
+	        $('#fotos .controles .right_galeria2').addClass('disabled');
 	    } else {
-	        $('#fotos .controles .right_galeria').removeClass('disabled');
+	        $('#fotos .controles .right_galeria2').removeClass('disabled');
 	    }
 	    $('#fotos .img_galeria').attr('src', img);
 	    $('#mask').fadeIn(200);
 	    $('#mask #fotos').fadeIn(400);
 	});
-	$("#fotos .right_galeria").click(function () {
+	$("#fotos .right_galeria2").click(function () {
 	    proximo_foto2()
 	});
-	$("#fotos .left_galeria").click(function () {
+	$("#fotos .left_galeria2").click(function () {
 	    anterior_foto2()
 	});
 	$('.fechar_foto').click(function () {
@@ -663,7 +663,7 @@ function download(arquivo) {
 //GALERIA DE FOTOS
 function proximo_foto2() {
     if ($('.galeria_img_interna .ativo').hasClass('ultimo')) {
-
+        
     } else {
         $('.galeria_img_interna .ativo').removeClass('ativo').next('li').addClass('ativo');
         var atual = $('.galeria_img_interna .ativo').index() + 1;
@@ -673,14 +673,14 @@ function proximo_foto2() {
         $('#fotos .controles .quantos .atual').text(atual);
         $('#fotos .controles .quantos .total').text(total);
         if (atual == 1) {
-            $('#fotos .controles .left_galeria').addClass('disabled');
+            $('#fotos .controles .left_galeria2').addClass('disabled');
         } else {
-            $('#fotos .controles .left_galeria').removeClass('disabled');
+            $('#fotos .controles .left_galeria2').removeClass('disabled');
         }
         if (atual == total) {
-            $('#fotos .controles .right_galeria').addClass('disabled');
+            $('#fotos .controles .right_galeria2').addClass('disabled');
         } else {
-            $('#fotos .controles .right_galeria').removeClass('disabled');
+            $('#fotos .controles .right_galeria2').removeClass('disabled');
         }
         $('#fotos .img_galeria').attr('src', '' + img);
         $('#fotos p').text(titu);
@@ -699,14 +699,14 @@ function anterior_foto2() {
         $('#fotos .controles .quantos .atual').text(atual);
         $('#fotos .controles .quantos .total').text(total);
         if (atual == 1) {
-            $('#fotos .controles .left_galeria').addClass('disabled');
+            $('#fotos .controles .left_galeria2').addClass('disabled');
         } else {
-            $('#fotos .controles .left_galeria').removeClass('disabled');
+            $('#fotos .controles .left_galeria2').removeClass('disabled');
         }
         if (atual == total) {
-            $('#fotos .controles .right_galeria').addClass('disabled');
+            $('#fotos .controles .right_galeria2').addClass('disabled');
         } else {
-            $('#fotos .controles .right_galeria').removeClass('disabled');
+            $('#fotos .controles .right_galeria2').removeClass('disabled');
         }
         $('#fotos .img_galeria').attr('src', '' + img);
         $('#fotos p').text(titu);
