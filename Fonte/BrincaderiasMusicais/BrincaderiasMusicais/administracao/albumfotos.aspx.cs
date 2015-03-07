@@ -133,7 +133,7 @@ namespace BrincaderiasMusicais
                     divExcluidos.InnerHtml += "     <td>" + rsLista["AFO_ID"].ToString() + "</td>";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["AFO_TITULO"].ToString() + "</td>";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["AFO_DH_CADASTRO"].ToString() + "</td>";
-                    divExcluidos.InnerHtml += "     <td><ul class=\"icons_table\"><li><a id='" + rsLista["AFO_ID"].ToString() + "' onclick='restaurarFoto(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/restore.png\"></a></li><li><a id='" + rsLista["AFO_ID"].ToString() + "' onclick='excluirFoto(this.id,\"desativar\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    divExcluidos.InnerHtml += "     <td><ul class=\"icons_table\"><li><a id='" + rsLista["AFO_ID"].ToString() + "' onclick='restaurarFoto(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/restore.png\"></a></li><li><a id='" + rsLista["AFO_ID"].ToString() + "' onclick='excluirFoto(this.id,\"excluir permanentemente\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divExcluidos.InnerHtml += " </tr>";
                 }
 

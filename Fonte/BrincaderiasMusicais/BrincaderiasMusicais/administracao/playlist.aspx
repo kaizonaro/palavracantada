@@ -55,8 +55,8 @@
             ajax4.send(null);
         }
 
-        function excluirFoto(id) {
-            var r = confirm("Deseja mesmo desativar esta Playlist ?");
+        function excluirFoto(id, msg) {
+            var r = confirm("Deseja mesmo "+msg+" esta Playlist ?");
             if (r == true) {
                 ajax2 = ajaxInit();
                 ajax2.open("GET", "playlist.aspx?acao=excluirPlaylist&PLI_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
