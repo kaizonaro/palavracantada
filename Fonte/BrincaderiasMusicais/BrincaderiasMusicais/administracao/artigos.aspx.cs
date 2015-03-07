@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais.administracao
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista, rsGravar, rsNotificar;
+        private OleDbDataReader rsLista, rsGravar;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,7 +36,7 @@ namespace BrincaderiasMusicais.administracao
                     if (rsLista.HasRows)
                     {
                         rsLista.Read();
-                        Response.Write(rsLista["ART_ID"] + "|" + rsLista["ART_TITULO"] + "|" + rsLista["ART_DESCRICAO"]);
+                        Response.Write(rsLista["ART_ID"] + "|" + rsLista["ART_TITULO"] + "|" + rsLista["ART_DESCRICAO"] +"|<img width='150px' src='../upload/imagens/artigo/thumb-" + rsLista["ART_IMAGEM"] + "'>" + "|" + rsLista["ART_PDF"]);
                     }
                     break;
                 case ("AtivarArtigo"):
