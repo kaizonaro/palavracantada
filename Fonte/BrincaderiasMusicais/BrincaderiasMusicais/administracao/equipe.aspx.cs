@@ -202,7 +202,7 @@ namespace BrincaderiasMusicais.administracao
                                             //Caminho a onde será salvo
                                             hpf.SaveAs(Server.MapPath("~/upload/imagens/equipe/") + filename + extensao);
 
-                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuEquipe  '" + Request["EQU_ID"] + "', '" + Request["EQU_NOME"] + "', '" + filename + i + extensao + "', '" + Request["EQU_DESCRICAO"] + "'");
+                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuEquipe  '" + Request["EQU_ID"] + "', '" + Request["EQU_NOME"] + "', '" + filename + extensao + "', '" + Request["EQU_DESCRICAO"] + "'");
 
                                         }
                                     }
