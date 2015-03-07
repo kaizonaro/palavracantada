@@ -164,7 +164,7 @@
                                             <input type="hidden" id="EQU_ID" name="EQU_ID" value="0" />
 
                                             <p>Nome:*</p>
-                                            <input type="text" name="EQU_NOME" id="EQU_NOME" class="input obg" placeholder="Título do Post" />
+                                            <input type="text" name="EQU_NOME" id="EQU_NOME" class="input obg" placeholder="Nome do Integrante" />
 
                                             <p>Imagem:</p>
                                             <asp:FileUpload ID="EQU_FOTO" runat="server" class="input" />
