@@ -156,7 +156,7 @@ namespace BrincaderiasMusicais
         public void gravar(object sender, EventArgs e)
         {
 
-            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPlaylist '" + Request["PLI_ID"] + "','" + Request["PLI_TITULO"] + "', '" + Request["PLI_URL"].Replace("","") + "'");
+            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPlaylist '" + Request["PLI_ID"] + "','" + Request["PLI_TITULO"] + "', '" + Request["PLI_URL"] + "'");
 
             if (rsGravar == null)
             {
