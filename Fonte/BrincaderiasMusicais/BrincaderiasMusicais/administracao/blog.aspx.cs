@@ -206,25 +206,8 @@ namespace BrincaderiasMusicais.administracao
                                             // Salvar no BD
                                             rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, NULL, '" + Session["id"] + "','" + Request["POS_TITULO"] + "','" + filename + i + extensao + "','" + Request["POS_TEXTO"].Replace("'", "\"") + "','" + Request["POS_IMPORTANTE"] + "', " + Request["PCA_ID"]);
 
-                                            // inicia as notificações
-                                            rsNotificar = objBD.ExecutaSQL("EXEC admin_psNotificarPost " + Request["POS_IMPORTANTE"]);
-                                            if (rsNotificar == null)
-                                            {
-                                                throw new Exception();
-                                            }
-                                            if (rsNotificar.HasRows)
-                                            {
-                                                string destinatarios = "";
-                                                while (rsNotificar.Read())
-                                                {
-                                                    destinatarios += rsNotificar["USU_EMAIL"] + ",";
-                                                }
 
-                                                if (objUtils.EnviaEmail(destinatarios, "Novo post no portal Brincadeiras Musicais", "Acabamos de postar no portal: <a href=\"http://www.projetopalavracantada.net/post/" + Request["POS_TITULO"].Replace(" ", "-") + "\">" + Request["POS_TITULO"] + "</a>") == false)
-                                                {
-                                                    throw new Exception();
-                                                }
-                                            }
+
                                         }
                                     }
                                 }
@@ -249,10 +232,38 @@ namespace BrincaderiasMusicais.administracao
                             Response.End();
                         }
                     }
+                    else
+                    {
+                        rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, NULL, '" + Session["id"] + "','" + Request["POS_TITULO"] + "',NULL,'" + Request["POS_TEXTO"].Replace("'", "\"") + "','" + Request["POS_IMPORTANTE"] + "', " + Request["PCA_ID"]);
+                    }
+                    notificacoes();
                 }
+                  
                 catch (Exception)
                 {
                     Response.Write("Imagem não pode ser superior a 8 MB");
+                }
+            }
+        }
+
+        public void notificacoes()
+        {
+            rsNotificar = objBD.ExecutaSQL("EXEC admin_psNotificarPost " + Request["POS_IMPORTANTE"]);
+            if (rsNotificar == null)
+            {
+                throw new Exception();
+            }
+            if (rsNotificar.HasRows)
+            {
+                string destinatarios = "";
+                while (rsNotificar.Read())
+                {
+                    destinatarios += rsNotificar["USU_EMAIL"] + ",";
+                }
+
+                if (objUtils.EnviaEmail(destinatarios, "Novo post no portal Brincadeiras Musicais", "Acabamos de postar no portal: <a href=\"http://www.projetopalavracantada.net/post/" + Request["POS_TITULO"].Replace(" ", "-") + "\">" + Request["POS_TITULO"] + "</a>") == false)
+                {
+                    throw new Exception();
                 }
             }
         }
