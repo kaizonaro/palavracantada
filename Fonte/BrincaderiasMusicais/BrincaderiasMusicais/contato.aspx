@@ -57,7 +57,7 @@
                         <input type="hidden" value="enviar" name="acao"  id="acao"/>
                         <label>Nome:</label><input type="text" name="nome" class="input" /><label>E-mail:</label><input type="text" name="email" class="input email" /><br />
                         <label for="mensagem" class="label_msg">Mensagem:</label><br />
-                        <textarea id="mensagem" name="mensagem" class="input" rows="4"></textarea>
+                        <textarea id="mensagem" name="mensagem" class="input" rows="4" maxlength="1000"></textarea>
                         <input type="submit" class="btn" value="enviar" />    
                     </form>
                 </div>

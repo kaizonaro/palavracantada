@@ -69,7 +69,7 @@
                             <img src="/images/icone_foto.png" alt="icone de camera fotografica" />
                             Fotos</b> <b>
                                 <img src="/images/icone_video.png" alt="icone de filmadora" />
-                                Vídeo</b>
+                                Vídeos</b>
                     </div>
                 </div>
 

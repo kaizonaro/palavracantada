@@ -237,14 +237,12 @@ namespace BrincaderiasMusicais.administracao
 
                                         //Prefixo p/ img pequena
                                         var prefixoP = "thumb-";
-                                        var prefixoG = "big-";
-
+                                        
                                         //pega o arquivo já carregado
                                         string pth = Server.MapPath("~/upload/imagens/artigo/") + filename + extensao;
 
                                         //Redefine altura e largura da imagem e Salva o arquivo + prefixo
-                                        Redefinir.resizeImageAndSave(pth, 200, 130, prefixoP);
-                                        Redefinir.resizeImageAndSave(pth, 600, 390, prefixoG);
+                                        Redefinir.resizeImageAndSave(pth, 160, 90, prefixoP);
                                         break;
                                     }
 

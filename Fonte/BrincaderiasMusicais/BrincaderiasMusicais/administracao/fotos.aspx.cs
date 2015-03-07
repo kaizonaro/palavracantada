@@ -38,7 +38,7 @@ namespace BrincaderiasMusicais
                 default:
                     PopulaLista();
                     PopulaListaExcluidos();
-                    PopularRedes();
+                //    PopularRedes();
                     break;
             }
         }
@@ -71,7 +71,7 @@ namespace BrincaderiasMusicais
                 {
                     divLista.InnerHtml += " <tr id='tr_" + rsLista["GFO_ID"].ToString() + "' class=\"\">";
                     divLista.InnerHtml += "     <td>" + rsLista["GFO_ID"].ToString() + "</td>";
-                    divLista.InnerHtml += "     <td><img width='150px' src='/upload/imagens/galeria/" + rsLista["GFO_IMAGEM"].ToString() + "'></td>";
+                    divLista.InnerHtml += "     <td><img width='150px' src='/upload/imagens/galeria/thumb-" + rsLista["GFO_IMAGEM"].ToString() + "'></td>";
                     divLista.InnerHtml += "     <td>" + rsLista["GFO_LEGENDA"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["GFO_DH_PUBLICACAO"].ToString() + "</td>";
@@ -124,7 +124,7 @@ namespace BrincaderiasMusicais
                 {
                     divExcluidos.InnerHtml += " <tr id='tr_" + rsLista["GFO_ID"].ToString() + "' class=\"\">";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["GFO_ID"].ToString() + "</td>";
-                    divExcluidos.InnerHtml += "     <td><img width='150px' src='/upload/imagens/galeria/" + rsLista["GFO_IMAGEM"].ToString() + "'></td>";
+                    divExcluidos.InnerHtml += "     <td><img width='150px' src='/upload/imagens/galeria/thumb-" + rsLista["GFO_IMAGEM"].ToString() + "'></td>";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["GFO_LEGENDA"].ToString() + "</td>";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["GFO_DH_PUBLICACAO"].ToString() + "</td>";
@@ -149,7 +149,7 @@ namespace BrincaderiasMusicais
             divExcluidos.InnerHtml += "</table>";
         }
 
-        public void PopularRedes()
+        /*public void PopularRedes()
         {
             rsRedes = objBD.ExecutaSQL("EXEC ADMIN_psRedesPorAtivo 1");
             if (rsRedes == null)
@@ -170,12 +170,13 @@ namespace BrincaderiasMusicais
             }
             rsRedes.Close();
             rsRedes.Dispose();
-        }
+        } */
 
         public void gravar(object sender, EventArgs e)
         {
             if (GFO_IMAGEM.HasFile)
             {
+                /*
                 string arquivo = GFO_IMAGEM.FileName.Replace(" ", "-");
 
                 GFO_IMAGEM.SaveAs(Server.MapPath("~/upload/imagens/galeria") + "/" + arquivo);
@@ -199,9 +200,55 @@ namespace BrincaderiasMusicais
                 //Retornar para a Listagem
                 Response.Redirect("fotos.aspx");
                 Response.End();
+                */
+                string arquivo = "NULL", nome = "", filename = "", extensao = "";
+                HttpFileCollection hfc = Request.Files;
+                for (int i = 0; i < hfc.Count; i++)
+                {
+                    HttpPostedFile hpf = hfc[i];
+                    if (hpf.ContentLength > 0)
+                    {
+                        if (GFO_IMAGEM.PostedFile.ContentType == "image/jpeg" || GFO_IMAGEM.PostedFile.ContentType == "image/png" || GFO_IMAGEM.PostedFile.ContentType == "image/gif" || GFO_IMAGEM.PostedFile.ContentType == "image/bmp")
+                        {
+                            //Pega o nome do arquivo
+                            nome = System.IO.Path.GetFileName(hpf.FileName);
+                            //Pega a extensão do arquivo
+                            extensao = Path.GetExtension(hpf.FileName);
+                            //Gera nome novo do Arquivo numericamente
+                            filename = DateTime.Now.ToString().Replace("/", "").Replace(":", "").Replace(" ", "");
+                            
+                            //cria a pasta se a mesma nao existir
+                            if (Directory.Exists(Server.MapPath("~/upload/imagens/galeria/")) == false)
+                            {
+                                Directory.CreateDirectory(Server.MapPath("~/upload/imagens/galeria/"));
+                            }
+
+                            //Caminho a onde será salvo
+                            hpf.SaveAs(Server.MapPath("~/upload/imagens/galeria/") + filename + extensao);
+
+                            var prefixo = "thumb-";
+                            //pega o arquivo já carregado
+                            string pth = Server.MapPath("~/upload/imagens/galeria/") + filename + extensao;
+
+                            //Redefine altura e largura da imagem e Salva o arquivo + prefixo
+                            Redefinir.resizeImageAndSave(pth, 196, 110, prefixo);
+
+                            // Salvar no BD
+                            objBD.ExecutaSQL("EXEC admin_piuGaleriaFotos '" + Request["GFO_ID"] + "',null, '" + filename + extensao + "','" + Request["GFO_LEGENDA"] + "'");
+
+                            // File.Delete(Server.MapPath("~/upload/imagens/" + rsSize["PAG_PASTA"] + "/") + filename + i + extensao);
+                            arquivo = filename + extensao;
+                            break;
+                        }
+                    }
+
+                }
+                /**/
             }
 
-
+            //Retornar para a Listagem
+            Response.Redirect("fotos.aspx");
+            Response.End();
 
         }
     }

@@ -20,7 +20,6 @@ namespace BrincaderiasMusicais
         private utils objUtils;
         private OleDbDataReader rsBlog, rsVideo, rsVFoto, rsCargo, rsToken;
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -149,8 +148,8 @@ namespace BrincaderiasMusicais
                 while (rsVFoto.Read())
                 {
                     ulFotos.InnerHtml += " <li>";
-                    ulFotos.InnerHtml += "     <a href=\"/upload/imagens/galeria/ampliada/" + rsVFoto["GFO_IMAGEM"].ToString() + "\">";
-                    ulFotos.InnerHtml += "         <img src=\"/upload/imagens/galeria/" + rsVFoto["GFO_IMAGEM"].ToString() + "\" alt=\" " + rsVFoto["GFO_LEGENDA"].ToString() + "\" /></a>";
+                    ulFotos.InnerHtml += "     <a href=\"/upload/imagens/galeria/" + rsVFoto["GFO_IMAGEM"].ToString() + "\">";
+                    ulFotos.InnerHtml += "         <img src=\"/upload/imagens/galeria/thumb-" + rsVFoto["GFO_IMAGEM"].ToString() + "\" alt=\" " + rsVFoto["GFO_LEGENDA"].ToString() + "\" /></a>";
                     ulFotos.InnerHtml += "     </a>";
                     ulFotos.InnerHtml += "     <p>:: " + rsVFoto["GFO_LEGENDA"].ToString() + " ::</p>";
                     ulFotos.InnerHtml += " </li>";
