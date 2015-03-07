@@ -173,6 +173,7 @@ namespace BrincaderiasMusicais.administracao
 
         public void gravar(object sender, EventArgs e)
         {
+             
             if (EQU_FOTO.PostedFile.ContentLength < 8388608)
             {
                 try
@@ -199,9 +200,9 @@ namespace BrincaderiasMusicais.administracao
                                             //Gera nome novo do Arquivo numericamente
                                             string filename = Request["EQU_NOME"].ToString().Replace(" ", "_");
                                             //Caminho a onde será salvo
-                                            hpf.SaveAs(Server.MapPath("~/upload/imagens/equipe/") + filename + i + extensao);
+                                            hpf.SaveAs(Server.MapPath("~/upload/imagens/equipe/") + filename + extensao);
 
-                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuEquipe  '" + Request["EQU_ID"] + "', '" + Request["EQU_NOME"] + "', '" + Request["EQU_FOTO"] + "', '" + Request["EQU_DESCRICAO"] + "'");
+                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuEquipe  '" + Request["EQU_ID"] + "', '" + Request["EQU_NOME"] + "', '" + filename + i + extensao + "', '" + Request["EQU_DESCRICAO"] + "'");
 
                                         }
                                     }
@@ -226,6 +227,10 @@ namespace BrincaderiasMusicais.administracao
                             Response.Write(ex);
                             Response.End();
                         }
+                    }
+                    else
+                    {
+                        rsGravar = objBD.ExecutaSQL("EXEC admin_piuEquipe  '" + Request["EQU_ID"] + "', '" + Request["EQU_NOME"] + "', 'sem-foto.png', '" + Request["EQU_DESCRICAO"] + "'");
                     }
                 }
                 catch (Exception)
