@@ -36,11 +36,11 @@ namespace BrincaderiasMusicais.administracao
                     if (rsLista.HasRows)
                     {
                         rsLista.Read();
-                        Response.Write(rsLista["POS_ID"] + "|" + rsLista["POS_TITULO"] + "|" + rsLista["POS_TEXTO"] + "|" + rsLista["POS_IMPORTANTE"] + "|" + rsLista["POS_CATEGORIA"]);
+                        Response.Write(rsLista["POS_ID"] + "|" + rsLista["POS_TITULO"] + "|" + rsLista["POS_TEXTO"] + "|" + rsLista["POS_IMPORTANTE"] + "|" + rsLista["POS_CATEGORIA"] + "|" + "<img width='150px' src='/upload/imagens/blog/thumb-" + rsLista["POS_IMAGEM"].ToString() + "'>");
                     }
                     break;
                 case ("excluirPost"):
-                    objBD.ExecutaSQL("UPDATE PostBlog set POS_ATIVO = 0 where POS_ID ='" + Request["POS_ID"] + "'");
+                    objBD.ExecutaSQL("admin_pudExcluirPostBlog " + Request["POS_ID"]);
                     break;
                 case ("ativarPost"):
                     rsLista = objBD.ExecutaSQL("UPDATE PostBlog set POS_ATIVO = 1 where POS_ID ='" + Request["POS_ID"] + "'");
@@ -112,12 +112,12 @@ namespace BrincaderiasMusicais.administracao
                     objeto += "     <td>" + rsLista["POS_DH_PUBLICACAO"].ToString() + "</td>";
                     if (ativo == 1)
                     {
-                        objeto += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["POS_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["POS_ID"].ToString() + "' onclick='excluirPost(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                        objeto += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["POS_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["POS_ID"].ToString() + "' onclick='excluirPost(this.id,\"desativar\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
 
                     }
                     else
                     {
-                        objeto += "     <td><li><a id='" + rsLista["POS_ID"].ToString() + "' onclick='restorePost(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/restore.png\"></a></li></ul>";
+                        objeto += "     <td><ul><li><a id='" + rsLista["POS_ID"].ToString() + "' onclick='restorePost(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/restore.png\"></a></li><li><a id='" + rsLista["POS_ID"].ToString() + "' onclick='excluirPost(this.id,\"excluir permanentemente\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     }
                     objeto += " </tr>";
                 }
