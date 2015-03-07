@@ -39,12 +39,9 @@
                     <a href="/" title="Home">Home</a> >> <strong>Conheça - Palavra Cantada</strong>
                 </div>
                 <img src="/images/sandra-paulo.jpg" class="img_destaque" />
-                <div class="txt boxEsquerda">
-                    <p><strong>Sandra Peres</strong> é pianista e compositora, formada pela Faculdade de Música do Conservatório Dramático e Musical de São Paulo. Em 1986, em Paris, fez o curso completo de Análise de Composição Cotemporânea no IRCAM. De volta ao Brasil, se dedicou por dois anos ao curso de Musicoterapia na Universidade Marcelo Tupinambá. Em 1994, criou com Paulo Tatit o selo Palavra Cantada.</p>
-                </div>
-                <div class="txt boxDireita">
-                    <p><strong>Paulo Tait</strong> é arquiteto de formação e músico autodidata. Participou como principal arranjador do Grupo Rumo, que foi destaque da vanguarda musical paulistana na década de 1980, e trabalhou como músico e parceiro do compositor Arnaldo Antunes nos anos 1990. Em 1994, criou com Sandra Peres, o selo Palavra Cantada, que vem sendo aclamada pelo público e pela crítica do país como um trabalho diferenciado dentro da nossa cultura musical.</p>
-                </div>
+                <div class="txt boxEsquerda" id="sandra" runat="server"></div>
+                    
+                <div class="txt boxDireita" id="paulo" runat="server"></div>
                 <img src="/images/banner_bottom.jpg" class="interna_bottom" />
             </div>
             <!--FIM DO CONTEUDO INTERNO (REDES PARTICIPANTES)-->
