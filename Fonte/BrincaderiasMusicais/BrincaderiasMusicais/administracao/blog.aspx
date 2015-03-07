@@ -174,7 +174,7 @@
                                             <asp:FileUpload ID="POS_IMAGEM" runat="server" class="multi input" />
                                             <div id="thumb"></div>
                                             <p>Categoria*</p>
-                                            <select name="PCA_ID" runat="server" id="PCA_ID" class="input obg">
+                                            <select name="PCA_ID" runat="server" id="PCA_ID" data-validation="required" class="input obg">
                                                 <option value="">Selecione a categoria</option>
                                             </select>
 
