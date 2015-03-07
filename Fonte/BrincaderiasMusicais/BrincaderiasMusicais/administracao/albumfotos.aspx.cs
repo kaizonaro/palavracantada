@@ -29,7 +29,7 @@ namespace BrincaderiasMusicais
             switch (Request["acao"])
             {
                 case ("excluirFoto"):
-                    objBD.ExecutaSQL("UPDATE AlbumFotos set AFO_ATIVO = 0 where AFO_ID = '" + Request["AFO_ID"] + "'");
+                    objBD.ExecutaSQL("exec admin_pudExcluirAlbumFoto " + Request["AFO_ID"]);
                     break;
                 case ("restaurarFoto"):
                     objBD.ExecutaSQL("UPDATE AlbumFotos set AFO_ATIVO = 1 where AFO_ID = '" + Request["AFO_ID"] + "'");
@@ -84,7 +84,7 @@ namespace BrincaderiasMusicais
                     divLista.InnerHtml += "     <td>" + rsLista["AFO_TITULO"].ToString() + "</td>";
 
                     divLista.InnerHtml += "     <td>" + rsLista["AFO_DH_CADASTRO"].ToString() + "</td>";
-                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["AFO_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["AFO_ID"].ToString() + "' onclick='excluirFoto(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["AFO_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["AFO_ID"].ToString() + "' onclick='excluirFoto(this.id,\"desativar\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
                 }
 
@@ -133,7 +133,7 @@ namespace BrincaderiasMusicais
                     divExcluidos.InnerHtml += "     <td>" + rsLista["AFO_ID"].ToString() + "</td>";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["AFO_TITULO"].ToString() + "</td>";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["AFO_DH_CADASTRO"].ToString() + "</td>";
-                    divExcluidos.InnerHtml += "     <td><ul class=\"icons_table\"><li><a id='" + rsLista["AFO_ID"].ToString() + "' onclick='restaurarFoto(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/restore.png\"></a></li></ul>";
+                    divExcluidos.InnerHtml += "     <td><ul class=\"icons_table\"><li><a id='" + rsLista["AFO_ID"].ToString() + "' onclick='restaurarFoto(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/restore.png\"></a></li><li><a id='" + rsLista["AFO_ID"].ToString() + "' onclick='excluirFoto(this.id,\"desativar\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divExcluidos.InnerHtml += " </tr>";
                 }
 
