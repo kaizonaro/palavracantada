@@ -167,7 +167,7 @@
                                             <input type="text" name="EQU_NOME" id="EQU_NOME" class="input obg" placeholder="Título do Post" />
 
                                             <p>Imagem:</p>
-                                            <asp:FileUpload ID="EQU_FOTO" runat="server" class="multi obg input" />
+                                            <asp:FileUpload ID="EQU_FOTO" runat="server" class="input" />
 
                                             <p>Descrição:*</p>
                                             <textarea id="EQU_DESCRICAO" name="EQU_DESCRICAO" style="width: 100%">
