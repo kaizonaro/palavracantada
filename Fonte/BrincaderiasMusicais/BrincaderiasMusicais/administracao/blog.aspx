@@ -56,7 +56,7 @@
                         $('#POS_TITULO').attr("value", ss[1]);
                         tinyMCE.activeEditor.setContent(ss[2]);
                         $('#PCA_ID option[value="' + parseInt(ss[4]) + '"]').attr('selected', 'selected').change();
-
+                        $('#thumb').html(ss[5])
                         if (parseInt(ss[3]) == 1) { $('#POS_IMPORTANTE').attr("checked", "checked"); }
 
 
@@ -68,8 +68,8 @@
             ajax4.send(null);
         }
 
-        function excluirPost(id) {
-            var r = confirm("Deseja mesmo desativar este post ?");
+        function excluirPost(id, msg) {
+            var r = confirm("Deseja mesmo " + msg + " este post ?");
             if (r == true) {
                 ajax2 = ajaxInit();
                 ajax2.open("GET", "blog.aspx?acao=excluirPost&POS_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
@@ -77,7 +77,10 @@
                 ajax2.onreadystatechange = function () {
                     if (ajax2.readyState == 4) {
                         if (ajax2.status == 200) {
-                            $('#tr_' + id).hide();
+                            if (msg == "desativar") {
+                                $('#tr_' + id).hide();
+                            } else { $('#xtr_' + id).hide(); }
+                            
                         }
                     }
                 }
@@ -169,6 +172,7 @@
 
                                             <p>Imagem (190px x 80px)*:</p>
                                             <asp:FileUpload ID="POS_IMAGEM" runat="server" class="multi input" />
+                                            <div id="thumb"></div>
                                             <p>Categoria*</p>
                                             <select name="PCA_ID" runat="server" id="PCA_ID" class="input obg">
                                                 <option>Selecione a categoria</option>
