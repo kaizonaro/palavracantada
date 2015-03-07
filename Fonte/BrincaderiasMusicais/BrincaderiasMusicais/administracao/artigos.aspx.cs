@@ -206,8 +206,6 @@ namespace BrincaderiasMusicais.administracao
             Response.Write(retorno);
         }
 
-
-
         public Int64 GerarID()
         {
             try
@@ -250,14 +248,14 @@ namespace BrincaderiasMusicais.administracao
                                         //Gera nome novo do Arquivo numericamente
                                         filename = DateTime.Now.ToString().Replace("/", "").Replace(":", "").Replace(" ", "");
                                         //Caminho a onde será salvo
-                                        hpf.SaveAs(Server.MapPath("~/upload/imagens/artigo/") + filename + i + extensao);
+                                        hpf.SaveAs(Server.MapPath("~/upload/imagens/artigo/") + filename + extensao);
 
                                         //Prefixo p/ img pequena
                                         var prefixoP = "thumb-";
                                         var prefixoG = "big-";
 
                                         //pega o arquivo já carregado
-                                        string pth = Server.MapPath("~/upload/imagens/artigo/") + filename + i + extensao;
+                                        string pth = Server.MapPath("~/upload/imagens/artigo/") + filename + extensao;
 
                                         //Redefine altura e largura da imagem e Salva o arquivo + prefixo
                                         Redefinir.resizeImageAndSave(pth, 200, 130, prefixoP);
@@ -276,7 +274,8 @@ namespace BrincaderiasMusicais.administracao
                             rsGravar = objBD.ExecutaSQL("EXEC admin_piuArtigos '" + Request["ART_ID"] + "', '" + Request["ART_TITULO"] + "', '" + Session["id"] + "', '" + Request["ART_DESCRICAO"] + "', '" + filename + extensao + "', '" + nomepdf + "'");
 
                             // Mensagem se tudo ocorreu bem
-                           
+
+                            Response.Redirect("artigos.aspx");
 
                         }
                         catch (Exception ex)

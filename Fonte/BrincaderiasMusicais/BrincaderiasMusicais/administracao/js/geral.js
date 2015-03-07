@@ -635,12 +635,5 @@ function repaginar() {
 
 }
 
-function visualizar(id) {
-    $('#mask').fadeIn(300);
-    $('#modal').addClass('ativo')
-}
-function fechar_modal() {
-    $('#mask').fadeOut(500);
-    $('#modal').removeClass('ativo')
-}
+
 //<form class="inc_form form" name="incluir" action="fotos.aspx" novalidate="novalidate" accept-charset="default" runat="server">>>>>>>> .r107

@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais.administracao
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista, rsGravar, rsNotificar;
+        private OleDbDataReader rsLista, rsExibir;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,7 +39,9 @@ namespace BrincaderiasMusicais.administracao
                         Response.Write(rsLista["POS_ID"] + "|" + rsLista["POS_TITULO"] + "|" + rsLista["POS_TEXTO"] + "|" + rsLista["POS_IMPORTANTE"]);
                     }
                     break;
-
+                case("Exibir"):
+                    Exibir(Convert.ToInt16(Request["FORM_ID"].ToString()));
+                    break;
                 default:
                     PopulaLista();
                     break;
@@ -112,7 +114,24 @@ namespace BrincaderiasMusicais.administracao
             }
         }
 
- 
+        public void Exibir(int id)
+        {
+            rsExibir = objBD.ExecutaSQL("select FORM_NOME, FORM_EMAIL, Convert(varchar(10), FORM_DH_CONTATO, 103) as FORM_DIA_CONTATO, Convert(Char(5),FORM_DH_CONTATO,108) as FORM_HORA_CONTATO, FORM_MENSAGEM from FormularioContato where FORM_ID = '" + id + "'");
 
+            if (rsExibir == null)
+            {
+                throw new Exception();
+            }
+            if (rsExibir.HasRows)
+            {
+                rsExibir.Read();
+
+                Response.Write(rsExibir["FORM_DIA_CONTATO"].ToString() + "|" + rsExibir["FORM_HORA_CONTATO"].ToString() + "|" + rsExibir["FORM_NOME"] + "|" + rsExibir["FORM_EMAIL"] + "|" + rsExibir["FORM_MENSAGEM"]);
+                Response.End();
+
+            }
+            rsExibir.Close();
+            rsExibir.Dispose();
+        }
     }
 }

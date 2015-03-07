@@ -25,8 +25,8 @@
                 <!--conheça-->
                 <li><a href="javascript:void(0)"><img src="images/home.png" alt="Conheça"><p>Conheça</p></a>
                     <ul class="submenu">
-                        <li><a href="sobre.aspx">Sobre</a></li>
-                        <li><a href="quem-somos.aspx">Quem somos</a></li>
+                        <li><a href="sobre.aspx">Sobre o Projeto</a></li>
+                        <li><a href="quem-somos.aspx">Quem Somos</a></li>
                         <li><a href="redes.aspx">Redes</a></li>
                         <li><a href="palavra-cantada.aspx">Palavra Cantada</a></li>
                         <li><a href="Equipe.aspx">Equipe</a></li>
@@ -45,7 +45,6 @@
                 <li><a href="banners.aspx"><img src="images/home.png" alt="home"><p>Banners</p></a></li>
                 <li><a href="javascript:void(0)"><img src="images/home.png" alt="Galeria"><p>Galeria</p></a><ul class="submenu"><li><a href="videos.aspx">Vídeos</a></li><li><a href="fotos.aspx">Fotos</a></li></ul></li>
                 <li><a href="contato.aspx"><img src="images/home.png" alt="Contato"><p>Contato</p></a></li>
-                <li><a href="sobre.aspx"><img src="images/home.png" alt="Sobre"><p>Sobre</p></a></li>
             </ul>
         </nav>
             <!--FIM DO MENU-->

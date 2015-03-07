@@ -18,7 +18,34 @@
             menubar: false
         });
 
+        function visualizar(id) {
+            ajax2 = ajaxInit();
+            ajax2.open("GET", "contato.aspx?acao=Exibir&FORM_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+            ajax2.setRequestHeader("Content-Type", "charset=iso-8859-1");
+            ajax2.onreadystatechange = function () {
+                if (ajax2.readyState == 4) {
+                    if (ajax2.status == 200) {
 
+                        var ss = ajax2.responseText.split("|");
+
+                        $('#tit_contato').html("CONTATO RECEBIDO EM: " + ss[0] + " as " + ss[1]);
+                        $('#tit_nome').html("<b>Nome: </b> <em>" + ss[2] + "</em>");
+                        $('#tit_email').html("<b>E-mail: </b> <em>" + ss[3] + "</em>");
+                        $('#tit_message').html("<b>Mensagem: </b> <em>" + ss[4] + "</em>");
+                        
+                        //Exibir Resultado
+                        $('#mask').fadeIn(300);
+                        $('#modal').addClass('ativo');
+                    }
+                }
+            }
+            ajax2.send(null);
+        }
+
+        function fechar_modal() {
+            $('#mask').fadeOut(500);
+            $('#modal').removeClass('ativo')
+        }
 
         //AJAX
         function ajaxInit() {
@@ -172,22 +199,20 @@
     <section id="mask">
         <article id="modal">
             <div class="Modal">
-                <p class="titu">Contato dia  - xx/xx/xxxx:</p>
-                <p class="sub_titu">as 16:30hs</p>
-                    <div class="full">
-                        <b>Nome: </b> <em>Fernando forti santos</em>
-                    </div>
-                    <div class="full">
-                        <b>Email: </b> <em>fernando@santos.com.br</em>
-                    </div>
-                    <div class="full">
-                        <b>Mensagem: </b> <em>Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.</em>
-                    </div>
-                    <nav>
-                        <button class="btn" onclick="fechar_modal()">Fechar[x]</button>
-                        <!-- <input class="btn" type="reset" value="cancelar">-->
-                    </nav>
-                    </div>
+                <p class="titu" id="tit_contato"></p>
+                
+                <div class="full" id="tit_nome">
+                    
+                </div>
+                <div class="full" id="tit_email">
+                    
+                </div>
+                <div class="full" id="tit_message">
+                    
+                </div>
+                <nav>
+                    <button class="btn" onclick="fechar_modal()">Fechar</button>
+                </nav>
             </div>
         </article>
     </section>
