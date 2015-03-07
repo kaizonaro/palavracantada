@@ -57,7 +57,7 @@ header .all_center{padding-top:5px}
 
 /*MENU*/
 #menu{display:inline-block;margin-top:15px;width:100%;position:relative;}
-#menu ul li{list-style:none;float:left;text-align:center;width:100px;border-top:3px solid rgba(0, 0, 0, 0);border-bottom:5px solid rgba(0, 0, 0, 0);}
+#menu ul li{list-style:none;float:left;text-align:center;width:120px;border-top:3px solid rgba(0, 0, 0, 0);border-bottom:5px solid rgba(0, 0, 0, 0);}
 #menu ul li img{margin:0 auto;width:30px;}
 #menu ul li p{width:100%;display:inline-block;font-size:1.5em;color:#fff;}
 #menu ul li:hover, #menu ul .ativo{border-bottom:5px solid #B0EDDB;}
