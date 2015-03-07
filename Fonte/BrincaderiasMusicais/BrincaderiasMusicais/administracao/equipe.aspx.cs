@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais.administracao
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista, rsGravar, rsNotificar;
+        private OleDbDataReader rsLista, rsGravar;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -62,7 +62,7 @@ namespace BrincaderiasMusicais.administracao
         {
             divLista.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
 
-            rsLista = objBD.ExecutaSQL("SELECT * from Equipe where EQU_ATIVO =  1");
+            rsLista = objBD.ExecutaSQL("SELECT * from Equipe where EQU_ATIVO =  1 and EQU_MANAGER = 0");
             if (rsLista == null)
             {
                 throw new Exception();
@@ -241,7 +241,7 @@ namespace BrincaderiasMusicais.administracao
 
             else
             {
-                rsGravar = objBD.ExecutaSQL("EXEC admin_piuEquipe  '" + Request["EQU_ID"] + "', 'sem-foto.png', '" + Request["EQU_FOTO"] + "', '" + Request["EQU_DESCRICAO"] + "'");
+                rsGravar = objBD.ExecutaSQL("EXEC admin_piuEquipe  '" + Request["EQU_ID"] + "', '" + Request["EQU_NOME"] + "', 'sem-foto.png', '" + Request["EQU_DESCRICAO"] + "'");
             }
         }
 
