@@ -148,10 +148,10 @@
                                         <input type="hidden" id="acao" name="acao" value="gravarVideo" />
                                         <input type="hidden" id="GVI_ID" name="GVI_ID" value="0" />
 
-                                    	<p>Selecione uma rede:</p>
+                                    	<!--<p>Selecione uma rede:</p>
                                         <select id="RED_ID" name="RED_ID" class="input obg" runat="server">
                                             <option value="">Selecione</option>
-                                        </select>
+                                        </select>-->
                                         
                                         <p>Título:*</p>
                                 		<input type="text" name="GVI_TITULO" id="GVI_TITULO" class="input obg" placeholder="Título do Vídeo">
@@ -165,10 +165,10 @@
                                			</p>
                                     </form>
                                     <form class="fil_form form" novalidate accept-charset="default">
-                                        <p>Rede</p>
+                                     <!--   <p>Rede</p>
                                         <select id="FL_REDE_ID" name="FL_REDE_ID" class="input" runat="server" onchange="FiltrarPesquisa(FL_REDE_ID.value, FL_NOME.value, FL_EMAIL.value)">
                                             <option value="">Selecione</option>
-                                        </select>
+                                        </select>-->
 
                                     	<p>Nome:</p>
                                 		<input type="text" name="FL_NOME" id="FL_NOME" class="input"  onchange="FiltrarPesquisa(FL_REDE_ID.value, FL_NOME.value, FL_EMAIL.value)" />

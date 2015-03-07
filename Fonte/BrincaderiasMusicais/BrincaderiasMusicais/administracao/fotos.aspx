@@ -130,9 +130,9 @@
                         <div class="widget-title">
                             <h4>Fotos</h4>
                             <div class="btns_acoes">
-                            	<div class="filtrar acoes_topo_form">
+                            	<!--<div class="filtrar acoes_topo_form">
                                 	<img src="images/filtro.png" alt="Filtrar"><p>Filtrar</p>
-                                </div>
+                                </div>-->
                                 <div class="incluir acoes_topo_form">
                                 	<img src="images/mais.png" alt="Incluir"><p>Incluir</p>
                                 </div>                                
@@ -145,12 +145,12 @@
                                 <div class="form_table">
                                 	<form  class="inc_form form" name="incluir" action="fotos.aspx" novalidate="novalidate" accept-charset="default" runat="server">
                                         <input type="hidden" id="acao" name="acao" value="gravar" />
-                                        <input type="text" id="GFO_ID" name="GFO_ID" value="0" />
+                                        <input type="hidden" id="GFO_ID" name="GFO_ID" value="0" />
 
-                                    	<p>Selecione uma rede:</p>
+                                    	<!--<p>Selecione uma rede:</p>
                                         <select id="RED_ID" name="RED_ID" class="input obg" runat="server">
                                             <option value="NULL">Selecione</option>
-                                        </select>
+                                        </select>-->
                                         
                                         <p>Foto:*</p>
                                 		<asp:FileUpload runat="server" ID="GFO_IMAGEM" CssClass="input obg" />

@@ -57,7 +57,7 @@
                         tinyMCE.activeEditor.setContent(ss[2]);
                         $("#thumb").html(ss[3])
                         $('#ART_LINK').fadeIn();
-                        $('#ART_LINK').attr("href", "../upload/pdf/artigo/" + ss[4]);
+                        $('#ART_LINK').attr("href", "../upload/imagens/artigo/pdf/" + ss[4]);
 
 
                         editar_table2(id);
@@ -166,7 +166,7 @@
                                             <p>Título:*</p>
                                             <input type="text" name="ART_TITULO" id="ART_TITULO" class="input obg" placeholder="Título do Artigo" />
 
-                                            <p>Imagem:*</p>
+                                            <p>Imagem:* (160px x 90px)</p>
                                             <asp:FileUpload ID="ART_IMAGEM" runat="server" class="multi obg input" />
                                             <div id="thumb"></div>
 
@@ -177,7 +177,7 @@
 
                                             <p>PDF do Artigo:</p>
                                             <asp:FileUpload ID="ART_PDF" runat="server" class="multi input" />
-                                            <div><a href="#" id="ART_LINK" onclick="">Ver PDF</a></div>
+                                            <div><a href="#" id="ART_LINK" onclick="" target="_blank">Ver PDF</a></div>
 
                                             <p class="p_btn">
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />

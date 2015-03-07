@@ -43,7 +43,7 @@ namespace BrincaderiasMusicais.administracao
                 default:
                     PopulaLista();
                     PopulaListaExcluidos();
-                    PopularRedes();
+                   // PopularRedes();
                     break;
             }
         }
@@ -179,7 +179,7 @@ namespace BrincaderiasMusicais.administracao
         {
             try
             {
-                rsGravar = objBD.ExecutaSQL("EXEC admin_piuGaleriaVideos '" + Request["GVI_ID"] + "'," + Request["RED_ID"] + ", '" + Request["GVI_TITULO"] + "','" + Request["GVI_LINK"].Replace("http://youtu.be/", "") + "','" + Request["GVI_LINK"].Replace("http://youtu.be/", "http://i.ytimg.com/vi/") + "/mqdefault.jpg'");
+                rsGravar = objBD.ExecutaSQL("EXEC admin_piuGaleriaVideos '" + Request["GVI_ID"] + "',null, '" + Request["GVI_TITULO"] + "','" + Request["GVI_LINK"].Replace("http://youtu.be/", "").Replace("https://www.youtube.com/watch?v=", "") + "','" + Request["GVI_LINK"].Replace("http://youtu.be/", "http://i.ytimg.com/vi/").Replace("https://www.youtube.com/watch?v=", "http://i.ytimg.com/vi/") + "/mqdefault.jpg'");
 
                 if (rsGravar == null)
                 {
