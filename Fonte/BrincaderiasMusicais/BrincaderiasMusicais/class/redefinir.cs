@@ -20,7 +20,7 @@ namespace Etnia.classe
             var imageRectangle = new Rectangle(0, 0, largura, altura); 
             thumbGraph.DrawImage(fullSizeImg, imageRectangle);
             string targetPath = imagePath.Replace(Path.GetFileNameWithoutExtension(imagePath), prefixo + Path.GetFileNameWithoutExtension(imagePath)); 
-            thumbnailImg.Save(targetPath, System.Drawing.Imaging.ImageFormat.Jpeg); 
+            thumbnailImg.Save(targetPath, System.Drawing.Imaging.ImageFormat.Png); 
             thumbnailImg.Dispose(); 
             return targetPath;
         }
