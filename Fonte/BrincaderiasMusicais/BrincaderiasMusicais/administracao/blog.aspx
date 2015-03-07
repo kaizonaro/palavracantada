@@ -167,7 +167,7 @@
                                             <p>Título:*</p>
                                             <input type="text" name="POS_TITULO" id="POS_TITULO" class="input obg" placeholder="Título do Post" />
 
-                                            <p>Imagem:*</p>
+                                            <p>Imagem (190px x 80px)*:</p>
                                             <asp:FileUpload ID="POS_IMAGEM" runat="server" class="multi obg input" />
                                             <p>Categoria*</p>
                                             <select name="PCA_ID" runat="server" id="PCA_ID" class="input obg">
