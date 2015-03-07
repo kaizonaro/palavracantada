@@ -28,7 +28,7 @@ namespace BrincaderiasMusicais
             switch (Request["acao"])
             {
                 case ("excluirPlaylist"):
-                    objBD.ExecutaSQL("UPDATE Playlist set PLI_ATIVO = 0 where PLI_ID = '" + Request["PLI_ID"] + "'");
+                    objBD.ExecutaSQL("exec admin_pudExcluirPlaylist " + Request["PLI_ID"]);
                     break;
                 case ("restaurarPlaylist"):
                     objBD.ExecutaSQL("UPDATE Playlist set PLI_ATIVO = 1 where PLI_ID = '" + Request["PLI_ID"] + "'");
@@ -83,7 +83,7 @@ namespace BrincaderiasMusicais
                     divLista.InnerHtml += "     <td>" + rsLista["PLI_TITULO"].ToString() + "</td>";
 
                     divLista.InnerHtml += "     <td>" + rsLista["PLI_DH_CADASTRO"].ToString() + "</td>";
-                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["PLI_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["PLI_ID"].ToString() + "' onclick='excluirFoto(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["PLI_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["PLI_ID"].ToString() + "' onclick='excluirFoto(this.id,\"desativar\")' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
                 }
 
@@ -132,7 +132,7 @@ namespace BrincaderiasMusicais
                     divExcluidos.InnerHtml += "     <td>" + rsLista["PLI_ID"].ToString() + "</td>";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["PLI_TITULO"].ToString() + "</td>";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["PLI_DH_CADASTRO"].ToString() + "</td>";
-                    divExcluidos.InnerHtml += "     <td><ul class=\"icons_table\"><li><a id='" + rsLista["PLI_ID"].ToString() + "' onclick='restaurarFoto(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/restore.png\"></a></li></ul>";
+                    divExcluidos.InnerHtml += "     <td><ul class=\"icons_table\"><li><a id='" + rsLista["PLI_ID"].ToString() + "' onclick='restaurarFoto(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/restore.png\"></a></li><li><a id='" + rsLista["PLI_ID"].ToString() + "' onclick='excluirFoto(this.id,\"excluir permanentemente\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divExcluidos.InnerHtml += " </tr>";
                 }
 
