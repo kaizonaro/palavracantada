@@ -426,6 +426,18 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .galeria_video_interna li img{width:100%;}
 .galeria_video_interna li p{display:none;}
 
+/*INTERNA BLOG PERFIL*/
+.mini_blog .btn{margin-top:5px;}
+.mini_blog{display: inline-block;}
+
+/*INTERNA POST PERFIL*/
+.mini_perfil{width:55px;float:left;}
+#sobre2 .titu {display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:20px;color:#ae080f;text-align:left;font-weight:bold;float:left;margin-left:10px;width: 307px;margin-bottom: -5px;}
+#sobre2 .titu2 {display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:17px;color:#f68b1f;text-align:left;font-weight:bold;float:left;margin-left:10px;}
+#sobre2 .btn{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color: #fff;background: url(/images/menu3.png) no-repeat;width: 100px;height: 26px;display: inline-block;line-height: 29px;background-size: 100% 100%;float: left;margin-bottom: 15px;font-size:9px;text-align:center;margin-top:-5px; text-transform:uppercase;}
+#sobre2 .btn2{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color: #fff;background: url(/images/menu2.png) no-repeat;width: 100px;height: 26px;display: inline-block;line-height: 29px;background-size: 100% 100%;float: left;margin-bottom: 15px;font-size:9px;text-align:center;margin-top:-5px; text-transform:uppercase;}
+#sobre2 .btn3{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color: #fff;background: url(/images/save_perfil.png) no-repeat;width: 100px;height: 26px;display: inline-block;line-height: 29px;background-size: 100% 100%;float: left;margin-bottom: 15px;font-size:9px;text-align:center;margin-top:-5px; text-transform:uppercase;margin-left:20px;}
+
 /*AJUSTES*/
 .textoPost span {
     font-size: 10px;
