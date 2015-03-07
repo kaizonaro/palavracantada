@@ -40,12 +40,12 @@ namespace BrincaderiasMusicais.administracao
                     }
                     break;
                 case("ativar"):
-                    AtivarDesativar(Convert.ToInt16(Request["EQU_ID"].ToString()), 1);
+                    objBD.ExecutaSQL("update equipe set EQU_ativo = 1 where EQU_ID = " + Convert.ToInt16(Request["EQU_ID"].ToString()));
                     break;
                 case("desativar"):
-                     AtivarDesativar(Convert.ToInt16(Request["EQU_ID"].ToString()));
+                    objBD.ExecutaSQL("admin_pudExcluirEquipe " + Convert.ToInt16(Request["EQU_ID"].ToString()));
                     break;
-
+                
                 default:
                     PopulaLista();
                     PopulaExcluidos();
@@ -54,10 +54,7 @@ namespace BrincaderiasMusicais.administracao
         }
 
 
-        public void AtivarDesativar(int id, int ativo = 0)
-        {
-            objBD.ExecutaSQL("update equipe set EQU_ativo = " + ativo + " where EQU_ID = " + id);
-        }
+        
         public void PopulaLista()
         {
             divLista.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
@@ -86,7 +83,7 @@ namespace BrincaderiasMusicais.administracao
                     divLista.InnerHtml += "     <td>" + rsLista["EQU_ID"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td><img width='150px' src='/upload/imagens/equipe/" + rsLista["EQU_FOTO"].ToString() + "'></td>";
                     divLista.InnerHtml += "     <td>" + rsLista["EQU_NOME"].ToString() + "</td>";
-                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["EQU_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["EQU_ID"].ToString() + "' onclick='excluirPost(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["EQU_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["EQU_ID"].ToString() + "' onclick='excluirPost(this.id,\"desativar\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
                 }
 
@@ -135,7 +132,7 @@ namespace BrincaderiasMusicais.administracao
                     divExcluidos.InnerHtml += "     <td>" + rsLista["EQU_ID"].ToString() + "</td>";
                     divExcluidos.InnerHtml += "     <td><img width='150px' src='/upload/imagens/equipe/" + rsLista["EQU_FOTO"].ToString() + "'></td>";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["EQU_NOME"].ToString() + "</td>";
-                    divExcluidos.InnerHtml += "     <td><li><a id='" + rsLista["EQU_ID"].ToString() + "' onclick='restorePost(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/restore.png\"></a></li></ul>";
+                    divExcluidos.InnerHtml += "     <td><li><a id='" + rsLista["EQU_ID"].ToString() + "' onclick='restorePost(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/restore.png\"></a></li><li><a id='" + rsLista["EQU_ID"].ToString() + "' onclick='excluirPost(this.id,\"excluir definitivamente\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divExcluidos.InnerHtml += " </tr>";
                 }
 

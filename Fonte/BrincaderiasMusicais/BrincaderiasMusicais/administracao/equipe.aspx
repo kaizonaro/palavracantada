@@ -67,8 +67,8 @@
             ajax4.send(null);
         }
 
-        function excluirPost(id) {
-            var r = confirm("Deseja mesmo desativar este membro ?");
+        function excluirPost(id,nomeacao) {
+            var r = confirm("Deseja mesmo " + nomeacao + " este membro ?");
             if (r == true) {
                 ajax2 = ajaxInit();
                 ajax2.open("GET", "equipe.aspx?acao=desativar&EQU_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
