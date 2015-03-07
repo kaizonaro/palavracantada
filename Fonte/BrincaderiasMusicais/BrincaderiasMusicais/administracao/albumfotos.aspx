@@ -55,8 +55,8 @@
             ajax4.send(null);
         }
 
-        function excluirFoto(id) {
-            var r = confirm("Deseja mesmo desativar este Album de Foto ?");
+        function excluirFoto(id, msg) {
+            var r = confirm("Deseja mesmo "+msg+" este Album de Foto ?");
             if (r == true) {
                 ajax2 = ajaxInit();
                 ajax2.open("GET", "albumfotos.aspx?acao=excluirFoto&AFO_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
