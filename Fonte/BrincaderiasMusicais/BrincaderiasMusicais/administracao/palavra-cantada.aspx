@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="palavra-cantada.aspx.cs" Inherits="BrincaderiasMusicais.administracao.palavra_cantada" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="palavra-cantada.aspx.cs" Inherits="BrincaderiasMusicais.administracao.palavra_cantada" ValidateRequest="false" %>
 
 <%@ Register Src="~/administracao/inc/script.ascx" TagPrefix="brincadeira" TagName="script" %>
 <%@ Register Src="~/administracao/inc/header.ascx" TagPrefix="brincadeira" TagName="header" %>
@@ -87,7 +87,7 @@
                                     <div class="form_table">
 
                                         <!-- FORMULÁRIO DE INCLUSÃO -->
-                                        <form id="Form1" class="inc_form form" name="incluir" action="palvra-cantada.aspx" novalidate="novalidate" accept-charset="default" runat="server">
+                                        <form id="Form1" class="inc_form form" name="incluir" action="palavra-cantada.aspx" novalidate="novalidate" accept-charset="default" runat="server">
                                             <input type="hidden" id="acao" name="acao" value="gravar" />
                                             <input type="hidden" id="EQU_ID" name="EQU_ID" value="0" />
 
