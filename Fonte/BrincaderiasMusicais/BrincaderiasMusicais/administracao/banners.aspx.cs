@@ -219,7 +219,7 @@ namespace BrincaderiasMusicais.administracao
 
         ImageFormat porextensao(FileUpload arq)
         {
-           string ext = arq.FileName.Substring(arq.FileName.Length - Math.Min(3, arq.FileName.Length));
+            string ext = arq.FileName.Substring(arq.FileName.Length - Math.Min(3, arq.FileName.Length));
             switch (ext)
             {
                 case "png":
@@ -252,21 +252,21 @@ namespace BrincaderiasMusicais.administracao
 
                     if (BAN_IMAGEM.HasFile)
                     {
-                       /* VERSÃO ZONARO
-                        arquivo = BAN_IMAGEM.FileName.Replace(" ", "_");
-                        System.Drawing.Image image = System.Drawing.Image.FromStream(BAN_IMAGEM.PostedFile.InputStream);
-                        Graphics thumbnailGraph = Graphics.FromImage(image);
-                        thumbnailGraph.CompositingQuality = CompositingQuality.HighQuality;
-                        thumbnailGraph.SmoothingMode = SmoothingMode.HighQuality;
-                        thumbnailGraph.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                        var imageRectangle = new Rectangle(0, 0, LARGURA, ALTURA);
-                        Bitmap thumbnailBitmap = new Bitmap(LARGURA, ALTURA);
-                        thumbnailGraph.DrawImage(image, imageRectangle);
-                        thumbnailBitmap.Save(Server.MapPath("~/upload/imagens/banners") + "/" + arquivo, porextensao(BAN_IMAGEM));
-                        thumbnailGraph.Dispose();
-                        thumbnailBitmap.Dispose();
-                        image.Dispose();
-                        arquivo = "'" + arquivo + "'";*/
+                        /* VERSÃO ZONARO
+                         arquivo = BAN_IMAGEM.FileName.Replace(" ", "_");
+                         System.Drawing.Image image = System.Drawing.Image.FromStream(BAN_IMAGEM.PostedFile.InputStream);
+                         Graphics thumbnailGraph = Graphics.FromImage(image);
+                         thumbnailGraph.CompositingQuality = CompositingQuality.HighQuality;
+                         thumbnailGraph.SmoothingMode = SmoothingMode.HighQuality;
+                         thumbnailGraph.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                         var imageRectangle = new Rectangle(0, 0, LARGURA, ALTURA);
+                         Bitmap thumbnailBitmap = new Bitmap(LARGURA, ALTURA);
+                         thumbnailGraph.DrawImage(image, imageRectangle);
+                         thumbnailBitmap.Save(Server.MapPath("~/upload/imagens/banners") + "/" + arquivo, porextensao(BAN_IMAGEM));
+                         thumbnailGraph.Dispose();
+                         thumbnailBitmap.Dispose();
+                         image.Dispose();
+                         arquivo = "'" + arquivo + "'";*/
 
                         /*  VERSÃO FERNANDO */
                         HttpFileCollection hfc = Request.Files;
@@ -283,9 +283,16 @@ namespace BrincaderiasMusicais.administracao
                                     extensao = Path.GetExtension(hpf.FileName);
                                     //Gera nome novo do Arquivo numericamente
                                     filename = DateTime.Now.ToString().Replace("/", "").Replace(":", "").Replace(" ", "");
+                                    
+                                    //cria a pasta se a mesma nao existir (por Zonaro)
+                                    if (Directory.Exists(Server.MapPath("~/upload/imagens/" + rsSize["PAG_PASTA"] + "/")) == false)
+                                    {
+                                        Directory.CreateDirectory(Server.MapPath("~/upload/imagens/" + rsSize["PAG_PASTA"] + "/"));
+                                    }
+
                                     //Caminho a onde será salvo
                                     hpf.SaveAs(Server.MapPath("~/upload/imagens/" + rsSize["PAG_PASTA"] + "/") + filename + i + extensao);
-                                    
+
                                     var prefixo = "ban-";
                                     //pega o arquivo já carregado
                                     string pth = Server.MapPath("~/upload/imagens/" + rsSize["PAG_PASTA"] + "/") + filename + i + extensao;
@@ -293,7 +300,7 @@ namespace BrincaderiasMusicais.administracao
                                     //Redefine altura e largura da imagem e Salva o arquivo + prefixo
                                     Redefinir.resizeImageAndSave(pth, LARGURA, ALTURA, prefixo);
 
-                                   // File.Delete(Server.MapPath("~/upload/imagens/" + rsSize["PAG_PASTA"] + "/") + filename + i + extensao);
+                                    // File.Delete(Server.MapPath("~/upload/imagens/" + rsSize["PAG_PASTA"] + "/") + filename + i + extensao);
                                     arquivo = "ban-" + filename + i + extensao;
                                     break;
                                 }
@@ -308,7 +315,7 @@ namespace BrincaderiasMusicais.administracao
                     link = "javascript:void(0)";
                 }
 
-                if (arquivo != "NULL" && arquivo != null) { arquivo = " '" + arquivo + "' ";}
+                if (arquivo != "NULL" && arquivo != null) { arquivo = " '" + arquivo + "' "; }
 
                 rsGravaBanner = objBD.ExecutaSQL("EXEC admin_piuBanner " + Request["BAN_ID"] + ", " + Request["RED_ID"] + ", '" + Request["BAN_LEGENDA"] + "', " + arquivo + ", '" + link + "', '" + Request["PAG_ID"] + "'");
                 if (rsGravaBanner == null)
@@ -319,7 +326,7 @@ namespace BrincaderiasMusicais.administracao
                 //Libera o BD e Memória
                 rsGravaBanner.Close();
                 rsGravaBanner.Dispose();
-               
+
                 //Retornar para a Listagem
                 Response.Redirect("banners.aspx");
                 Response.End();
