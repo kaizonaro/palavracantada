@@ -40,6 +40,24 @@ namespace BrincaderiasMusicais.administracao {
         protected global::System.Web.UI.HtmlControls.HtmlSelect RED_ID;
         
         /// <summary>
+        /// USU_FOTO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload USU_FOTO;
+        
+        /// <summary>
+        /// Incluir control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Incluir;
+        
+        /// <summary>
         /// FL_REDE_ID control.
         /// </summary>
         /// <remarks>
