@@ -168,7 +168,7 @@
                                             <input type="hidden" id="POS_ID" name="POS_ID" value="0" />
 
                                             <p>Título:*</p>
-                                            <input type="text" name="POS_TITULO" id="POS_TITULO" class="input obg" placeholder="Título do Post" />
+                                            <input type="text" maxlength="15"  name="POS_TITULO" id="POS_TITULO" class="input obg" placeholder="Título do Post" />
 
                                             <p>Imagem (190px x 80px)*:</p>
                                             <asp:FileUpload ID="POS_IMAGEM" runat="server" class="multi input" />
