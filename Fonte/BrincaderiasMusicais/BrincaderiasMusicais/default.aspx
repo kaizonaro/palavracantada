@@ -72,13 +72,15 @@
                                 Vídeos</b>
                     </div>
                 </div>
+                <div class="mascara">
+                    <!-- FOTOS -->
+                    <ul class="fotos_home" id="ulFotos" runat="server"></ul>
 
-                <!-- FOTOS -->
-                <ul class="fotos_home" id="ulFotos" runat="server"></ul>
-
-                <!-- VIDEOS -->
-                <ul class="videos_home" id="ulVideos" runat="server"></ul>
-
+                    <!-- VIDEOS -->
+                    <ul class="videos_home carrousel" id="ulVideos" runat="server"></ul>
+                    <div class="left_video"><img src="images/arrow_left2.png" /></div>
+                    <div class="right_video"><img src="images/arrow_right2.png" /></div>
+                </div>
             </div>
             <!--FIM DA GALERIA-->
         </div>
@@ -128,18 +130,25 @@
                     <div class="full">
                         <input type="hidden" name="acao" id="acao" value="completarCadastro" />
                         <input type="hidden" name="TOK_TOKEN" id="TOK_TOKEN" value="" runat="server" />
-                        <label>Nome*: <br /></label><input type="text" name="USU_NOME" id="USU_NOME" class="input inp_grande" /><br />
-                        <label>Email*:<br /></label><input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input email inp_grande" />
+                        <label>Nome*:
+                            <br />
+                        </label>
+                        <input type="text" name="USU_NOME" id="USU_NOME" class="input inp_grande" /><br />
+                        <label>Email*:<br />
+                        </label>
+                        <input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input email inp_grande" />
                     </div>
                     <div class="left">
-                        <strong>Cargo: </strong><br />
+                        <strong>Cargo: </strong>
+                        <br />
                         <select id="CAR_ID" name="CAR_ID" class="input obg" data-validation="required" runat="server">
                             <option value="">Selecione o Cargo</option>
                         </select>
                     </div>
 
                     <div class="right">
-                        <strong>Categoria: </strong><br />
+                        <strong>Categoria: </strong>
+                        <br />
                         <input type="checkbox" id="fundamental" name="CAT_ID" class="checkbox" value="2" /><label for="fundamental">Ensino Fundamental</label>
                         <input type="checkbox" id="infantil" name="CAT_ID" class="checkbox" value="1" /><label for="infantil">Ensino Infantil</label>
                     </div>
@@ -150,13 +159,13 @@
                     <div>
                         <input type="checkbox" id="termo" class="checkbox termo" /><label for="termo" class='termo'>Marque esta opção para concordar com os termos e condições do Projeto Brincadeiras Musicais da Palavra Cantada</label>
                         <nav>
-                            <input class="btn" type="button"  value="cadastrar">
+                            <input class="btn" type="button" value="cadastrar">
                             <!-- <input class="btn" type="reset" value="cancelar">-->
                         </nav>
                     </div>
                 </form>
             </div>
-    </article>
+        </article>
     </div>
     <!-- FIM DO LIGHT VIEW MODAL E AFINS-->
 </body>
