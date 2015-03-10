@@ -200,13 +200,11 @@ namespace BrincaderiasMusicais.administracao
                                             string pth = Server.MapPath("~/upload/imagens/blog/") + filename + i + extensao;
 
                                             //Redefine altura e largura da imagem e Salva o arquivo + prefixo
-                                            Redefinir.resizeImageAndSave(pth, 200, 130, prefixoP);
-                                            Redefinir.resizeImageAndSave(pth, 600, 390, prefixoG);
+                                            Redefinir.resizeImageAndSave(pth, 190, 132, prefixoP);
+                                            Redefinir.resizeImageAndSave(pth, 478, 332, prefixoG);
 
                                             // Salvar no BD
                                             rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, NULL, '" + Session["id"] + "','" + Request["POS_TITULO"] + "','" + filename + i + extensao + "','" + Request["POS_TEXTO"].Replace("'", "\"") + "','" + Request["POS_IMPORTANTE"] + "', " + Request["PCA_ID"]);
-
-
 
                                         }
                                     }

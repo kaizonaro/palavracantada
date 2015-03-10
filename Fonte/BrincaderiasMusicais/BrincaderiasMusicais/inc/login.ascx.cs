@@ -16,13 +16,19 @@ namespace BrincaderiasMusicais.inc
 {
     public partial class login : System.Web.UI.UserControl
     {
-
-        private OleDbDataReader Categoria, Datas;
+        private bd objBD;
+        private utils objUtils;
+        private OleDbDataReader Categoria, Datas, rsBanner;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            objUtils = new utils();
+            objBD = new bd();
+
             populacategorias();
             populardatas();
+            populaBanner();
             if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1)
             {
                 //LOGADO
@@ -108,6 +114,27 @@ namespace BrincaderiasMusicais.inc
                     PCA_ID.Items.Add(new ListItem(Categoria["PCA_TITULO"].ToString(), Categoria["PCA_ID"].ToString()));
                 }
             }
+        }
+
+        public void populaBanner()
+        {
+            rsBanner = objBD.ExecutaSQL("select top 1 * from Banner where PAG_ID  =3");
+
+            if (rsBanner == null)
+            {
+                throw new Exception();
+            }
+            if (rsBanner.HasRows)
+            {
+                while (rsBanner.Read())
+                {
+                    banner_sidebar.InnerHtml += "<a href='http://palavracantada.com.br' title='Conmheça o site oficial do palalavra cantada' target='_blank'>";
+                    banner_sidebar.InnerHtml += "    <img src='/upload/imagens/banners/" + rsBanner["BAN_IMAGEM"] + "' alt='Conmheça o site oficial do palalavra cantada' />";
+                    banner_sidebar.InnerHtml += "</a>";
+                }
+            }
+            rsBanner.Close();
+            rsBanner.Dispose();
         }
     }
 }

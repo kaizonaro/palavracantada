@@ -17,9 +17,9 @@
                 <a href="https://twitter.com/brincamusicais" target="_blank">twitter</a>
             </li>
             <li>
-                <a href="https://www.youtube.com/channel/UCaDajiE_wPYRwshUw9RsQPA" target="_blank">
+                <a href="https://www.youtube.com/c/ProjetoPalavraCantadaNetBR" target="_blank">
                     <img src="/images/you.png" /></a>
-                <a href="https://www.youtube.com/channel/UCaDajiE_wPYRwshUw9RsQPA" target="_blank">youtube</a>
+                <a href="https://www.youtube.com/c/ProjetoPalavraCantadaNetBR" target="_blank">youtube</a>
             </li>
             <li>
                 <a href="http://instagram.com/brincamusicais" target="_blank">

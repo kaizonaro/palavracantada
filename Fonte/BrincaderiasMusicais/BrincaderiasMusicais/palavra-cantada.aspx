@@ -42,7 +42,7 @@
                 <div class="txt boxEsquerda" id="sandra" runat="server"></div>
                     
                 <div class="txt boxDireita" id="paulo" runat="server"></div>
-                <img src="/images/banner_bottom.jpg" class="interna_bottom" />
+                <img src="/images/banner_bottom.jpg" class="interna_bottom" runat="server"  id="banner"/>
             </div>
             <!--FIM DO CONTEUDO INTERNO (REDES PARTICIPANTES)-->
 

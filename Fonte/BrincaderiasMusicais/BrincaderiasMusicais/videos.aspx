@@ -88,12 +88,12 @@
                 </p>
                 <div class="social_video">
                     <div class="left">
-                        <a href="https://www.youtube.com/channel/UCaDajiE_wPYRwshUw9RsQPA" title="You Tube" target="_blank"><img src="images/you1.png" alt="Flickr Brincadeiras musicais" /></a>
-                        <p class="desc_social">Clique aqui e inscreva-se no<br /><a href="https://www.youtube.com/channel/UCaDajiE_wPYRwshUw9RsQPA" title="You Tube" target="_blank">YOUTUBE OFICIAL</a> do Projeto<br /><b>Brincadeiras Musicais</b></p>
+                        <a href="https://www.youtube.com/c/ProjetoPalavraCantadaNetBR" title="You Tube" target="_blank"><img src="images/you1.png" alt="Flickr Brincadeiras musicais" /></a>
+                        <p class="desc_social">Clique aqui e inscreva-se no<br /><a href="https://www.youtube.com/c/ProjetoPalavraCantadaNetBR" title="You Tube" target="_blank">YOUTUBE OFICIAL</a> do Projeto<br /><b>Brincadeiras Musicais</b></p>
                     </div>
                     <div class="right">
-                        <a href="https://www.youtube.com/user/palavracantadatube" title="You Tube" target="_blank"><img src="images/you2.png" alt="Flickr Brincadeiras musicais" /></a>
-                        <p class="desc_social">Clique aqui e inscreva-se no<br /><a href="https://www.youtube.com/user/palavracantadatube" title="You Tube" target="_blank">YOUTUBE OFICIAL</a> do Projeto<br /><b>Palavra Cantada</b></p>
+                        <a href="https://www.youtube.com/palavracantada" title="You Tube" target="_blank"><img src="images/you2.png" alt="Flickr Brincadeiras musicais" /></a>
+                        <p class="desc_social">Clique aqui e inscreva-se no<br /><a href="https://www.youtube.com/palavracantada" title="You Tube" target="_blank">YOUTUBE OFICIAL</a> do Projeto<br /><b>Palavra Cantada</b></p>
                     </div>
                 </div>
                 <ul class="social_foto">
