@@ -19,7 +19,7 @@ namespace BrincaderiasMusicais.administracao
 
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista, rsRede, rsGravaUsuario;
+        private OleDbDataReader rsLista, rsRede, rsGravaUsuario, rsEditar;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,19 +34,20 @@ namespace BrincaderiasMusicais.administracao
                 case ("excluirUsuario"):
                     excluirUsuario();
                     break;
-                case("AtivarUsuario"):
+                case ("AtivarUsuario"):
                     AtivarUsuario();
                     break;
-                case("FiltrarPesquisa"):
+                case ("FiltrarPesquisa"):
                     FiltrarPesquisa(Request["RED_ID"], Request["USU_NOME"], Request["USU_EMAIL"]);
                     break;
+
                 default:
                     PopulaLista();
                     PopularRedes();
                     PopulaExcluidos();
                     break;
             }
-            
+
         }
 
         public void PopulaLista()
@@ -196,34 +197,49 @@ namespace BrincaderiasMusicais.administracao
         public void gravarUsuario()
         {
 
-            try
+            string filename = "NULL", nome = "", extensao = "";
+            HttpFileCollection hfc = Request.Files;
+            for (int i = 0; i < hfc.Count; i++)
             {
-                rsGravaUsuario = objBD.ExecutaSQL("EXEC admin_piuUsuario '" + Request["USU_ID"] + "','" + Request["RED_ID"] + "', '" + Request["USU_NOME"] + "','" + Request["USU_EMAIL"] + "','" + objUtils.getMD5Hash(Request["USU_SENHA"]) + "'");
-
-                if (rsGravaUsuario == null)
+                HttpPostedFile hpf = hfc[i];
+                if (hpf.ContentLength > 0)
                 {
-                    throw new Exception();
+                    if (USU_FOTO.PostedFile.ContentType == "image/jpeg" || USU_FOTO.PostedFile.ContentType == "image/png" || USU_FOTO.PostedFile.ContentType == "image/gif" || USU_FOTO.PostedFile.ContentType == "image/bmp")
+                    {
+                        //Pega o nome do arquivo
+                        nome = System.IO.Path.GetFileName(hpf.FileName);
+                        //Pega a extensão do arquivo
+                        extensao = Path.GetExtension(hpf.FileName);
+                        //Gera nome novo do Arquivo numericamente
+                        if (Convert.ToInt32(Request["USU_ID"].ToString()) == 0)
+                        {
+                            filename = DateTime.Now.ToString().Replace("/", "").Replace(":", "").Replace(" ", "");
+                        }
+                        else
+                        {
+                            filename = Request["USU_ID"].ToString() + "_" + Request["USU_NOME"].ToString();
+                        }
+                        //cria a pasta se a mesma nao existir
+                        if (Directory.Exists(Server.MapPath("~/upload/imagens/usuarios/")) == false)
+                        {
+                            Directory.CreateDirectory(Server.MapPath("~/upload/imagens/usuarios/"));
+                        }
+
+                        //Caminho a onde será salvo
+                        hpf.SaveAs(Server.MapPath("~/upload/imagens/usuarios/") + filename + extensao);
+                        break;
+                    }
                 }
-
-                if (rsGravaUsuario.HasRows)
-                {
-                    rsGravaUsuario.Read();
-                }
-
-                //Libera o BD e Memória
-                rsGravaUsuario.Close();
-                rsGravaUsuario.Dispose();
-
-                //Retornar para a Listagem
-                Response.Redirect("usuarios.aspx");
-                Response.End();
-                
             }
-            catch (Exception)
-            {                
-                throw;
+            if (filename != "NULL")
+            {
+                filename = "'" + filename + extensao + "'";
             }
 
+            // Salvar no BD
+            objBD.ExecutaSQL("EXEC admin_piuUsuario '" + Request["USU_ID"] + "','" + Request["RED_ID"] + "', '" + Request["USU_NOME"] + "','" + Request["USU_EMAIL"] + "','" + objUtils.getMD5Hash(Request["USU_SENHA"]) + "','" + Request["USU_BIOGRAFIA"] + "', " + filename + ", '" + Request["USU_ATIVO"] + "'");
+            Response.Redirect("usuarios.aspx");
+            Response.End();
         }
 
         public void excluirUsuario()
@@ -250,7 +266,7 @@ namespace BrincaderiasMusicais.administracao
             string resposta = "";
             if (rsLista.HasRows)
             {
-                
+
                 while (rsLista.Read())
                 {
                     resposta += " <tr id='tr_" + rsLista["USU_ID"].ToString() + "' class=\"\">";
@@ -277,6 +293,11 @@ namespace BrincaderiasMusicais.administracao
 
             rsLista.Close();
             rsLista.Dispose();
+        }
+
+        protected void Incluir_Click(object sender, EventArgs e)
+        {
+            gravarUsuario();
         }
     }
 }

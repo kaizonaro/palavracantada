@@ -9,8 +9,15 @@
     <meta charset="utf-8">
     <title>:: Administração - Usuários</title>
     <brincadeira:script runat="server" ID="script" />
-
+    <script src="tinymce/tinymce.min.js"></script>
     <script type="text/javascript">
+
+
+        tinymce.init({
+            selector: "textarea",
+            menubar: false
+        });
+
 
         //AJAX
         function ajaxInit() {
@@ -47,12 +54,22 @@
                         $('#USU_ID').attr("value", ss[0]);
                         $("#RED_ID option[value='" + ss[1] + "']").attr("selected", "selected");
                         $('#USU_NOME').attr("value", ss[2]);
-                        $('#USU_EMAIL').attr("value", ss[3]);
-                        $('#USU_SENHA').attr("value", ss[4]);
+                        $('#USU_EMAIL').val(ss[3]);
+                        $('#USU_SENHA').val(ss[4]);
+                        tinyMCE.activeEditor.setContent(ss[5]);
+                        $('#thumb').html('<img src=\"../upload/imagens/usuarios/' + ss[6] + '\" width="70" height="70"/>');
+                        $('#USU_DH_CADASTRO').html("<p>Cadastrado desde: " + ss[7] + "</p>");
+                        $('#USU_QTD_ACESSO').html("<p>Quantidade de Acessos: " + ss[8] + "</p>");
+                        $('#USU_DH_ULTIMO_ACESSO').html("<p>Ultimo Acesso: " + ss[9] + "</p>");
 
-                        $('#USU_SENHA').attr("readonly", "");
+                        if (ss[10] == "True") {
+                            $('#USU_ATIVO').attr("checked", "checked");
+                        }
 
-                        editar_table(id);
+
+                       
+
+                        editar_table2(id);
                     }
                 }
             }
@@ -107,7 +124,7 @@
                 if (ajax4.readyState == 4) {
                     if (ajax4.status == 200) {
                         $("#tbCentral").html(ajax4.responseText);
-                       // var oTable = $('#tabela').dataTable().fnDestroy(); // Nothing happens
+                        // var oTable = $('#tabela').dataTable().fnDestroy(); // Nothing happens
                         setTimeout(function () {
                             var oTable = $('#tabela').dataTable({
                                 "dom": '<"top"iflp<"clear">>rt<"bottom"iflp<"clear">>',
@@ -125,9 +142,9 @@
             }
             // setTimeout(function () { repaginar(); }, 1000)
             //if ($('#tabela td').size() > 3) {
-                //alert($('#tabela td').size())
-                
-           // }
+            //alert($('#tabela td').size())
+
+            // }
             ajax4.send(null);
         }
     </script>
@@ -165,15 +182,19 @@
                                         <img src="images/restore.png" alt="Filtrar"><p>Voltar</p>
                                     </div>
                                     <div class="form_table">
-                                        <form class="inc_form form" name="incluir" action="usuarios.aspx" novalidate="novalidate" accept-charset="default">
+                                        <form class="inc_form form" name="incluir" action="usuarios.aspx" novalidate="novalidate" accept-charset="default" runat="server">
                                             <input type="hidden" id="acao" name="acao" value="gravarUsuario" />
                                             <input type="hidden" id="USU_ID" name="USU_ID" value="0" />
+
+                                             <div id="USU_DH_CADASTRO"></div>
+                                            <div id="USU_QTD_ACESSO"></div>
+                                            <div id="USU_DH_ULTIMO_ACESSO"></div>
 
                                             <p>Selecione uma rede:*</p>
                                             <select id="RED_ID" name="RED_ID" class="input obg" data-validation="required" runat="server">
                                                 <option value="">Selecione</option>
                                             </select>
-
+                                           
                                             <p>Nome:*</p>
                                             <input type="text" name="USU_NOME" id="USU_NOME" class="input obg" placeholder="Nome Completo">
 
@@ -183,15 +204,26 @@
                                             <p>Senha:*</p>
                                             <input type="password" name="USU_SENHA" id="USU_SENHA" class="input obg senha" placeholder="Escolha uma senha" />
 
+                                            <p>Biografia</p>
+                                            <textarea id="USU_BIOGRAFIA" name="USU_BIOGRAFIA"></textarea>
+
+                                            <p>Foto</p>
+                                            <asp:FileUpload ID="USU_FOTO" CssClass="input" runat="server" />
+                                            <div id="thumb"></div>
+                                            <p>Status</p>
+                                            <input type="checkbox" value="1" id="USU_ATIVO" name="USU_ATIVO" /><label for="USU_ATIVO">Ativo</label>
+
+
 
                                             <p class="p_btn">
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
-                                                <input type="submit" value="incluir" class="btn_form" formmethod="get" />
+                                                <asp:Button ID="Incluir" runat="server" Text="Incluir" OnClick="Incluir_Click" />
                                             </p>
+                                            
                                         </form>
                                         <form class="fil_form form" novalidate accept-charset="default">
                                             <p>Rede</p>
-                                            <select id="FL_REDE_ID" name="FL_REDE_ID" class="input" runat="server" >
+                                            <select id="FL_REDE_ID" name="FL_REDE_ID" class="input" runat="server">
                                                 <option value="">Selecione</option>
                                             </select>
 
