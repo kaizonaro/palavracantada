@@ -54,7 +54,7 @@
                         $('#REP_TITULO').attr("value", ss[1]);
                         $('#REP_CIDADE').attr("value", ss[2]);
                         $('#REP_UF').attr("value", ss[3]);
-                      
+
                         editar_table(id);
                     }
                 }
@@ -64,8 +64,8 @@
 
 
 
-        function excluirRede(id) {
-            var r = confirm("Deseja mesmo desativar esta rede?");
+        function excluirRede(id, msg) {
+            var r = confirm("Deseja mesmo " + msg + " esta rede?");
             if (r == true) {
                 ajax2 = ajaxInit();
                 ajax2.open("GET", "redesparticipantes.aspx?acao=excluirRede&REP_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
