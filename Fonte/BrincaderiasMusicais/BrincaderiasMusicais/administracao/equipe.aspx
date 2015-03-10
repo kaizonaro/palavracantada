@@ -136,7 +136,7 @@
             <section id="conteudo">
                 <h2>
                     <img src="images/home.png" alt="inicio"><br>
-                    Post Blog</h2>
+                    Equipe</h2>
                 <!-- TABELA-->
                 <div class="row-fluid">
                     <div class="span12">

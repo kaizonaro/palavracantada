@@ -79,7 +79,7 @@ namespace BrincaderiasMusicais.administracao
                 {
                     ListItem C = new ListItem();
                     C.Value = rsPagina["PAG_ID"].ToString();
-                    C.Text = rsPagina["PAG_TITULO"].ToString() + " (" + rsPagina["PAG_ALTURABANNER"].ToString() + "x" + rsPagina["PAG_LARGURABANNER"].ToString() + ")";
+                    C.Text = rsPagina["PAG_TITULO"].ToString() + " (" + rsPagina["PAG_LARGURABANNER"].ToString() + "x" + rsPagina["PAG_ALTURABANNER"].ToString() + ")";
                     PAG_ID.Items.Add(C);
                 }
             }

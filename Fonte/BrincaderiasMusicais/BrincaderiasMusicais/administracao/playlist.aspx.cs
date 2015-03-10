@@ -68,7 +68,7 @@ namespace BrincaderiasMusicais
                 divLista.InnerHtml += " <thead>";
                 divLista.InnerHtml += "     <tr>";
                 divLista.InnerHtml += "         <th style=\"width:60px;\">ID</th>";
-                divLista.InnerHtml += "         <th>Titulo</th>";
+                divLista.InnerHtml += "         <th style=\"width:300px;\">Titulo</th>";
                 divLista.InnerHtml += "         <th style=\"width:175px;\">Data Publicação</th>";
                 divLista.InnerHtml += "         <th style=\"width:85px;\">Ações</th>";
                 divLista.InnerHtml += "     </tr>";
@@ -156,7 +156,14 @@ namespace BrincaderiasMusicais
         public void gravar(object sender, EventArgs e)
         {
 
-            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPlaylist '" + Request["PLI_ID"] + "','" + Request["PLI_TITULO"] + "', '" + Request["PLI_URL"] + "'");
+            string video = Request["PLI_URL"].ToString();
+            string[] words = video.Split('?');
+            video = "https://www.youtube.com/embed/videoseries?" + words[1];
+
+           // Response.Write(video);
+          //  Response.End();
+
+            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPlaylist '" + Request["PLI_ID"] + "','" + Request["PLI_TITULO"] + "', '" + video + "'");
 
             if (rsGravar == null)
             {
@@ -175,10 +182,6 @@ namespace BrincaderiasMusicais
             //Retornar para a Listagem
             Response.Redirect("playlist.aspx");
             Response.End();
-
-
-
-
         }
     }
 }

@@ -62,8 +62,7 @@
         </form>
     </div>
     <div class="banner_sidebar" id="banner_sidebar" runat="server">
-        <a href="http://palavracantada.com.br" title="Conmheça o site oficial do palalavra cantada" target="_blank">
-            <img src="/images/banner_lateral.png" alt="Conmheça o site oficial do palalavra cantada" /></a>
+       
     </div>
 
     <div class="box_login esconde" style="margin-top: 10px;" id="divBlog" runat="server">

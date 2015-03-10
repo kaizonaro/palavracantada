@@ -62,7 +62,7 @@ namespace BrincaderiasMusicais.administracao
                 divLista.InnerHtml += " <thead>";
                 divLista.InnerHtml += "     <tr>";
                 divLista.InnerHtml += "         <th style=\"width:30px;\">ID</th>";
-                divLista.InnerHtml += "         <th style=\"width:120px;\">Nome</th>";
+                divLista.InnerHtml += "         <th style=\"width:300px;\">Nome</th>";
                 divLista.InnerHtml += "         <th>Email</th>";
                 divLista.InnerHtml += "         <th style=\"width:115px;\">Data</th>";
                 divLista.InnerHtml += "         <th style=\"width:85px;\">Ações</th>";

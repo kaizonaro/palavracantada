@@ -48,7 +48,7 @@
                 <div id="breadcrumb" runat="server"></div>
                  <div class="oculta"><a href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweetar</a>
                             <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script></div>
-                <img id="imgPost" src="/images/sobre.jpg" class="img_destaque" runat="server" style="height: 200px" />
+                <img id="imgPost" src="/images/sobre.jpg" class="img_destaque" runat="server" style="height: 332px; width: 478px;" />
                 <span id="logPost" runat="server"></span>
                 <div class="txt textoPost" runat="server" id="txtPost"></div><br /><br />
                 <ul class="social_blog">
