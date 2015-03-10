@@ -18,8 +18,7 @@
             menubar: false
         });
 
-
-
+       
         //AJAX
         function ajaxInit() {
             var req;
@@ -38,6 +37,11 @@
                 }
             }
             return req;
+        }
+
+        function hidelink() {
+            $('#ART_LINK').hide();
+            $("#thumb").html('');
         }
 
         function popularFormulario(id) {
@@ -147,7 +151,7 @@
                                     <!--<div class="filtrar acoes_topo_form">
                                         <img src="images/filtro.png" alt="Filtrar"><p>Filtrar</p>
                                     </div>-->
-                                    <div class="incluir acoes_topo_form">
+                                    <div class="incluir acoes_topo_form" onclick="hidelink()">
                                         <img src="images/mais.png" alt="Incluir"><p>Incluir</p>
                                     </div>
                                     <div class="excluidos acoes_topo_form">
