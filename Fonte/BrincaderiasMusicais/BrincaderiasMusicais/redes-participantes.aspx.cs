@@ -25,7 +25,7 @@ namespace BrincaderiasMusicais
             objBD = new bd();
             objUtils = new utils();
 
-            rsRedes = objBD.ExecutaSQL("SELECT RED_CIDADE, RED_UF FROM Rede where RED_ATIVO = 1");
+            rsRedes = objBD.ExecutaSQL("SELECT REP_CIDADE, REP_UF FROM RedesParticipantes where REP_ATIVO = 1");
             if (rsRedes == null)
             {
                 throw new Exception();
@@ -37,11 +37,11 @@ namespace BrincaderiasMusicais
                 {
                     if (contador % 2 == 0)
                     {
-                        listadireita.InnerHtml += "<li>" + rsRedes["RED_CIDADE"] + " - " + rsRedes["RED_UF"] + "</li>";
+                        listadireita.InnerHtml += "<li>" + rsRedes["REP_CIDADE"] + " - " + rsRedes["REP_UF"] + "</li>";
                     }
                     else
                     {
-                        listaesquerda.InnerHtml += "<li>" + rsRedes["RED_CIDADE"] + " - " + rsRedes["RED_UF"] + "</li>";
+                        listaesquerda.InnerHtml += "<li>" + rsRedes["REP_CIDADE"] + " - " + rsRedes["REP_UF"] + "</li>";
                     }
                     contador++;
                 }
