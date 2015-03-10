@@ -36,16 +36,16 @@ namespace BrincaderiasMusicais.administracao
                     if (rsLista.HasRows)
                     {
                         rsLista.Read();
-                        Response.Write(rsLista["EQU_ID"] + "|" + rsLista["EQU_NOME"] + "|" + rsLista["EQU_DESCRICAO"] );
+                        Response.Write(rsLista["EQU_ID"] + "|" + rsLista["EQU_NOME"] + "|" + rsLista["EQU_DESCRICAO"]);
                     }
                     break;
-                case("ativar"):
+                case ("ativar"):
                     objBD.ExecutaSQL("update equipe set EQU_ativo = 1 where EQU_ID = " + Convert.ToInt16(Request["EQU_ID"].ToString()));
                     break;
-                case("desativar"):
+                case ("desativar"):
                     objBD.ExecutaSQL("admin_pudExcluirEquipe " + Convert.ToInt16(Request["EQU_ID"].ToString()));
                     break;
-                
+
                 default:
                     PopulaLista();
                     PopulaExcluidos();
@@ -54,7 +54,7 @@ namespace BrincaderiasMusicais.administracao
         }
 
 
-        
+
         public void PopulaLista()
         {
             divLista.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
@@ -170,7 +170,7 @@ namespace BrincaderiasMusicais.administracao
 
         public void gravar(object sender, EventArgs e)
         {
-             
+
             if (EQU_FOTO.PostedFile.ContentLength < 8388608)
             {
                 try
@@ -227,7 +227,15 @@ namespace BrincaderiasMusicais.administracao
                     }
                     else
                     {
-                        rsGravar = objBD.ExecutaSQL("EXEC admin_piuEquipe  '" + Request["EQU_ID"] + "', '" + Request["EQU_NOME"] + "', 'sem-foto.png', '" + Request["EQU_DESCRICAO"] + "'");
+                        if (Convert.ToInt32(Request["EQU_ID"].ToString()) > 0)
+                        {
+                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuEquipe  '" + Request["EQU_ID"] + "', '" + Request["EQU_NOME"] + "', NULL, '" + Request["EQU_DESCRICAO"] + "'");
+                        }
+                        else
+                        {
+                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuEquipe  '" + Request["EQU_ID"] + "', '" + Request["EQU_NOME"] + "', 'sem-foto.png', '" + Request["EQU_DESCRICAO"] + "'");
+                        }
+
                     }
                 }
                 catch (Exception)
@@ -238,8 +246,16 @@ namespace BrincaderiasMusicais.administracao
 
             else
             {
-                rsGravar = objBD.ExecutaSQL("EXEC admin_piuEquipe  '" + Request["EQU_ID"] + "', '" + Request["EQU_NOME"] + "', 'sem-foto.png', '" + Request["EQU_DESCRICAO"] + "'");
+                if (Convert.ToInt32(Request["EQU_ID"].ToString()) > 0)
+                {
+                    rsGravar = objBD.ExecutaSQL("EXEC admin_piuEquipe  '" + Request["EQU_ID"] + "', '" + Request["EQU_NOME"] + "', NULL, '" + Request["EQU_DESCRICAO"] + "'");
+                }
+                else
+                {
+                    rsGravar = objBD.ExecutaSQL("EXEC admin_piuEquipe  '" + Request["EQU_ID"] + "', '" + Request["EQU_NOME"] + "', 'sem-foto.png', '" + Request["EQU_DESCRICAO"] + "'");
+                }
             }
+            Response.Redirect("equipe.aspx");
         }
 
     }
