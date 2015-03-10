@@ -634,6 +634,14 @@ function repaginar() {
     }
 
 }
-
+function limpaform(id) {
+    id.parentNode.className = 'limpaform';
+    $('.limpaform').removeClass('limpaform').parent().addClass('limpaform')
+    $('.limpaform .input').each(function () {
+        $(this).removeClass('error');
+        $(this).val('')
+    });
+    $('.limpaform').removeClass('limpaform')
+}
 
 //<form class="inc_form form" name="incluir" action="fotos.aspx" novalidate="novalidate" accept-charset="default" runat="server">>>>>>>> .r107
