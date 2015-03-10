@@ -176,7 +176,7 @@ namespace BrincaderiasMusicais.administracao.ajax
             if (rsUsuario.HasRows)
             {
                 rsUsuario.Read();
-                resultado = rsUsuario["USU_ID"] + "|" + rsUsuario["RED_ID"] + "|" + rsUsuario["USU_NOME"] + "|" + rsUsuario["USU_EMAIL"] + "|" + rsUsuario["USU_SENHA"];
+                resultado = rsUsuario["USU_ID"] + "|" + rsUsuario["RED_ID"] + "|" + rsUsuario["USU_NOME"] + "|" + rsUsuario["USU_EMAIL"] + "|" + rsUsuario["USU_SENHA"]+ "|" +rsUsuario["USU_BIOGRAFIA"] + "|" +rsUsuario["USU_FOTO"] + "|" + rsUsuario["USU_DH_CADASTRO"] + "|" + rsUsuario["USU_QTD_ACESSO"] + "|" + rsUsuario["USU_DH_ULTIMO_ACESSO"] + "|" + rsUsuario["USU_ATIVO"];
             }
 
             Response.Write(resultado);
