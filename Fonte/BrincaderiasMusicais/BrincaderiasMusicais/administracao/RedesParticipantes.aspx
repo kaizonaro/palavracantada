@@ -181,7 +181,7 @@
                                             <p>Cidade*</p>
                                             <input type="text" name="REP_CIDADE" class="input obg" id="REP_CIDADE" />
                                             <p>UF*</p>
-                                            <input type="text" name="REP_UF" maxlength="2" class="input uf obg" id="REP_UF" onkeypress="return uf(this.value, event)" onkeyup="maiuscula(this)" />
+                                            <input type="text" name="REP_UF" class="input uf obg" id="REP_UF" onkeypress="return uf(this.value, event)" onkeyup="maiuscula(this)" />
 
                                             <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
                                             <input type="submit" value="Incluir" class="btn_form" formmethod="get" onclick="validardinamico()" id="bt_cadastrar" />
