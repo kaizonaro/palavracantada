@@ -36,7 +36,7 @@ namespace BrincaderiasMusicais.administracao
                         break;
                     case ("excluirRede"):
 
-                        objBD.ExecutaSQL("update RedesParticipantes set REP_ATIVO = 0 where REP_ID ='" + Request["REP_ID"] + "'");
+                        objBD.ExecutaSQL("exec admin_pudExcluirRedeParticipante " + Request["REP_ID"]);
                         PopulaLista();
                         PopulaExcluidos();
 
@@ -105,7 +105,7 @@ namespace BrincaderiasMusicais.administracao
                     divLista.InnerHtml += "     <td>" + rsLista["REP_UF"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["REP_DATA_CRIACAO"].ToString() + "</td>";
                     
-                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0)\" id='" + rsLista["REP_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["REP_ID"].ToString() + "' onclick='excluirRede(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0)\" id='" + rsLista["REP_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["REP_ID"].ToString() + "' onclick='excluirRede(this.id,\"desativar\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
                 }
 
@@ -159,8 +159,8 @@ namespace BrincaderiasMusicais.administracao
                     divExcluidos.InnerHtml += "     <td>" + rsLista["REP_CIDADE"].ToString() + "</td>";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["REP_UF"].ToString() + "</td>";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["REP_DATA_CRIACAO"].ToString() + "</td>";
-                   
-                    divExcluidos.InnerHtml += "     <td><a href=\"javascript:void(0)\" id='" + rsLista["REP_ID"].ToString() + "' onclick='restoreRede(this.id);' class=\"img_del\"><img src=\"images/restore.png\"></a>";
+
+                    divExcluidos.InnerHtml += "     <td><ul><li><a href=\"javascript:void(0)\" id='" + rsLista["REP_ID"].ToString() + "' onclick='restoreRede(this.id);' class=\"img_del\"><img src=\"images/restore.png\"></a></li><li><a id='" + rsLista["REP_ID"].ToString() + "' onclick='excluirRede(this.id,\"excluir permanentemente\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divExcluidos.InnerHtml += " </tr>";
                 }
 
