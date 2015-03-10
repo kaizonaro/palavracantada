@@ -192,6 +192,7 @@ $(document).ready(function () {
 	    $('#mask').fadeOut(400);
 	    $('#mask #fotos').fadeOut(200);
 	    $('#videos iframe').attr('src', '')
+	    $('#mask #videos').fadeOut(200);
 	});
 
     /************************************/
@@ -282,6 +283,7 @@ $(document).ready(function () {
 	$('.fechar_foto').click(function () {
 	    $('#mask').fadeOut(400);
 	    $('#mask #fotos').fadeOut(200);
+	    $('#mask #videos').fadeOut(200);
 	});
 
 //VALIDAÇÃO DOS FORMS
