@@ -54,8 +54,7 @@
                         $('#REP_TITULO').attr("value", ss[1]);
                         $('#REP_CIDADE').attr("value", ss[2]);
                         $('#REP_UF').attr("value", ss[3]);
-                        $('#USU_MASSA').attr("value", ss[4]);
-                        $('#USU_MASSA').attr("disabled", true);
+                      
                         editar_table(id);
                     }
                 }
@@ -63,10 +62,7 @@
             ajax4.send(null);
         }
 
-        function renable() {
-            $('#USU_MASSA').attr("disabled", false);
-            $('#USU_MASSA').attr("value", "");
-        }
+
 
         function excluirRede(id) {
             var r = confirm("Deseja mesmo desativar esta rede?");
@@ -164,7 +160,7 @@
                                     <!--<div class="filtrar acoes_topo_form">
                                 	<img src="images/filtro.png" alt="Filtrar"><p>Filtrar</p>
                                 </div>-->
-                                    <div class="incluir acoes_topo_form" onclick="renable()">
+                                    <div class="incluir acoes_topo_form">
                                         <img src="images/mais.png" alt="Incluir"><p>Incluir</p>
                                     </div>
                                     <div class="excluidos acoes_topo_form">
