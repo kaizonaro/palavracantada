@@ -155,7 +155,7 @@ header {padding-top:20px;}
 .left_galeria img, .right_galeria img, .left_galeria2 img, .right_galeria2 img{width:20px;cursor:pointer;}
 .controles div{float:left;margin:10px;bottom:0}
 .quantos{font-size: 12px;font-family: Arial,sans-serif;font-weight: bold;color:#ae080f;}
-.controles{width:100%;display:inline-block;height:30px;line-height:22px;}
+.controles{/*width:100%;*/display:inline-block;height:30px;line-height:22px;}
 .fechar_galeria{color:#fff;background:#f68b1f;padding:0px 5px;font-size:10px;font-family: 'love_ya_like_a_sister_snormal', sans-serif;cursor:pointer;background:url(../images/bot-fechar.png) no-repeat center center;background-size:cover;}
 #modal{width:540px;height:356px;background:url(../images/bg_modal_home.png) no-repeat center center;background-size:cover;padding:30px 25px;margin:0 auto;margin-top:150px;}
 #modal .titu{color:#000;font-family:Arial, sans-serif;font-weight:bold;font-size:11px;margin-bottom:10px}
