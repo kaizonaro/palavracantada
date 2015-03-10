@@ -55,7 +55,7 @@ namespace BrincaderiasMusicais.administracao
                         if (rsLista.HasRows)
                         {
                             rsLista.Read();
-                            Response.Write(rsLista["REP_ID"] + "|" + rsLista["REP_TITULO"] + "|" + rsLista["REP_CIDADE"] + "|" + rsLista["REP_UF"] + "|" + rsLista["total"]);
+                            Response.Write(rsLista["REP_ID"] + "|" + rsLista["REP_TITULO"] + "|" + rsLista["REP_CIDADE"] + "|" + rsLista["REP_UF"]);
                         }
                         break;
                     default:
