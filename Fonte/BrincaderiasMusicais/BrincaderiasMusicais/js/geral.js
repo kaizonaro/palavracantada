@@ -16,6 +16,7 @@ $(document).ready(function () {
 	    if ($('.oculta').size() > 0) {
 	        $('.oculta').remove()
 	    }
+        caroussel()
 	}
 	
     //BANNER
@@ -111,6 +112,18 @@ $(document).ready(function () {
 	$('.notificacoes_logado .left_logado').click(function () {
 	    anterior_not();
 	})
+
+    //CaRROUSSEL
+    //CARROUSSEL MOBILE
+	$('.left_video').click(function () {
+	        anterior_item(this);
+	    
+	});
+	$('.right_video').click(function () {
+	        proximo_item(this);
+	    
+	});
+
 
     //GALERIA HOME(FOTOS)
 	$('.fotos_home li:first').addClass('primeiro');
@@ -554,6 +567,7 @@ $(document).ready(function () {
 	    $('.form_senha').fadeOut(0);
 	    $('.form_login').fadeIn(200);
 	})
+    /*FIM DO DOCUMENT READY*/
 });
 
 function twitter() {
@@ -802,5 +816,71 @@ function anterior_foto2() {
         }
         $('#fotos .img_galeria').attr('src', '' + img);
         $('#fotos p').text(titu);
+    }
+}
+//CARROUSSEL MOBILE
+function caroussel() {
+    $('.carrousel').each(function (e) {
+        var lis = $(this).children('li').size();
+        var largura = 100 / lis;
+        $(this).children('li').outerWidth('196px')
+        $(this).width(lis + '00%');
+        $(this).attr('rel', 0);
+        $(this).children('li:first').addClass('primeiro');
+        $(this).children('li:last').addClass('ultimo');
+        $(this).children('li:first').addClass('ativo');
+    });
+}
+
+function proximo_item(id) {
+    id.classList.add("esse");
+    $('.esse').removeClass('esse').parent('div').children('ul').addClass('esse');
+    var atual = $('.esse .ativo');
+    var margin = $('.esse li').outerWidth();
+    if ($('.esse .ativo').hasClass('primeiro')) {
+        $('.esse').parent('div').children('.left_video').fadeIn(200)
+    }
+    if ($('.esse .ativo').hasClass('ultimo')) {
+        //alert('Por favor Para melhor funcionamento do site não altere elementos manualmente')
+        return false
+    } else {
+        if (atual.next('li').hasClass('ultimo')) {
+            $('.esse').parent('div').children('.right_video').fadeOut(200)
+        }
+        //CASO AS SETAS ESTEJAM NO MESMO NIVEL (DENTRO DA UL) O -1 CONPENSA ELES NO INDEX, CASO CONTRARIO USAR +1 (obs: setas no ul nao valida na w3c)
+        var conta = atual.index() + 1;
+        total = conta * margin;
+        $('.esse').animate({ marginLeft: -220*conta }, 300);
+        $('.esse .ativo').removeClass('ativo').next('li').addClass('ativo');
+        if ($('.esse .ativo').hasClass('ultimo')) {
+            $('.esse').parent('div').children('.right_video').fadeOut(200)
+        }
+        $('.esse').removeClass('esse')
+    }
+}
+
+function anterior_item(id) {
+    id.classList.add("esse");
+    $('.esse').removeClass('esse').parent('div').children('ul').addClass('esse');
+    //$('.esse').removeClass('esse').next('ul').addClass('esse');
+    var atual = $('.esse .ativo');
+    var margin = $('.esse li').outerWidth();
+    if ($('.esse .ativo').hasClass('ultimo')) {
+        $('.esse').parent('div').children('.right_video').fadeIn(200)
+    }
+    if ($('.esse .ativo').hasClass('primeiro')) {
+        //alert('Por favor Para melhor funcionamento do site não altere elementos manualmente')
+        return false
+    } else {
+        $('.esse .ativo').removeClass('ativo').prev('li').addClass('ativo');
+        var atual2 = $('.esse .ativo');
+        //CASO AS SETAS ESTEJAM NO MESMO NIVEL (DENTRO DA UL) O -2 CONPENSA ELES NO INDEX, CASO CONTRARIO USAR 0(obs: setas no ul nao valida na w3c)
+        var conta = atual2.index();
+        total = conta * margin;
+        $('.esse').animate({ marginLeft: -220 * conta }, 300);
+        if ($('.esse .ativo').hasClass('primeiro')) {
+            $('.esse').parent('div').children('.left_video').fadeOut(200)
+        }
+        $('.esse').removeClass('esse')
     }
 }

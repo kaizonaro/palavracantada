@@ -138,7 +138,7 @@ header {padding-top:20px;}
 .ops_galeria{color:#ae080f;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;text-transform:uppercase;font-weight:bold;float:right;}
 .ops_galeria b{margin-left:20px;cursor:pointer;display:inline-block;}
 .galeria_home ul {width:100%;}
-.galeria_home ul li{width:22%;margin:1%;display:inline-table}
+.galeria_home ul li{width:196px;margin:12px;display:inline-block;float:left;}
 .galeria_home ul li img{margin:0 auto;width:196px;height:110px}
 .galeria_home ul li p {font-size: 12px;font-family: Arial,sans-serif;font-weight: bold;color:#ae080f;margin-top:8px;text-transform:uppercase;}
 .videos_home{display:none}
@@ -179,6 +179,11 @@ header {padding-top:20px;}
 .cadastro_home .full{text-align:left;}
 #termo, .termo{float:left;cursor:pointer;}
 #termo{margin-left:10px;}
+
+/*HOME CARROUSEL*/
+.left_video{position: absolute;top: 50%;margin-top: -38px;cursor:pointer;}
+.mascara{width:100%;overflow:hidden;position:relative;}
+.right_video{position: absolute;right: 0;top: 50%;margin-top: -38px;cursor:pointer;}
 
 /*FOOTER*/
 footer .titu{color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:14.5px;margin-top:10px;text-transform:uppercase;letter-spacing:-1px;}
