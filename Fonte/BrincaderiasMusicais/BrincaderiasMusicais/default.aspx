@@ -74,8 +74,11 @@
                 </div>
                 <div class="mascara">
                     <!-- FOTOS -->
-                    <ul class="fotos_home" id="ulFotos" runat="server"></ul>
-
+                    <ul class="fotos_home carrousel" id="ulFotos" runat="server"></ul>
+                    <div class="left_video"><img src="images/arrow_left2.png" /></div>
+                    <div class="right_video"><img src="images/arrow_right2.png" /></div>
+                </div>
+                <div class="mascara">
                     <!-- VIDEOS -->
                     <ul class="videos_home carrousel" id="ulVideos" runat="server"></ul>
                     <div class="left_video"><img src="images/arrow_left2.png" /></div>
