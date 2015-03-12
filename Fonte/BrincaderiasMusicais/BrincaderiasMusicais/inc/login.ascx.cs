@@ -73,12 +73,12 @@ namespace BrincaderiasMusicais.inc
             box_logado.InnerHtml += "<p class=\"titu_logado\">Selecione no menu abaixo qual sessão deseja visitar:</p>";
             box_logado.InnerHtml += "<ul class=\"opcao_logado\">";
             box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"/meu-perfil\" title=\"Meu perfil\">Meu perfil</a></li>";
-            box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"/agenda\" title=\"Agenda\">Agenda</a></li>";
-            box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"/faq\" title=\"FAQ\">FAQ</a></li>";
-            box_logado.InnerHtml += "   <li class=\"conheca pequeno\"><a href=\"/galeria-colaborativa\" title=\"Galeria Colaborativa\">Galeria Colaborativa</a></li>";
-            box_logado.InnerHtml += "   <li class=\"conheca medio\"><a href=\"/blog-regional\" title=\"Blog Regional\">Blog Regional</a></li>";
-            box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"/forum\" title=\"Fórum\">Fórum</a></li>";
-            box_logado.InnerHtml += "   <li class=\"conheca grande\"><a href=\"/criacoes-documentadas\" title=\"Criações Documentadas\">Criações Documentadas</a></li>";
+            box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"javascript:void(0)\" title=\"Agenda\">Agenda</a></li>";
+            box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"javascript:void(0)\" title=\"FAQ\">FAQ</a></li>";
+            box_logado.InnerHtml += "   <li class=\"conheca pequeno\"><a href=\"javascript:void(0)\" title=\"Galeria Colaborativa\">Galeria Colaborativa</a></li>";
+            box_logado.InnerHtml += "   <li class=\"conheca medio\"><a href=\"javascript:void(0)\" title=\"Blog Regional\">Blog Regional</a></li>";
+            box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"javascript:void(0)\" title=\"Fórum\">Fórum</a></li>";
+            box_logado.InnerHtml += "   <li class=\"conheca grande\"><a href=\"javascript:void(0)\" title=\"Criações Documentadas\">Criações Documentadas</a></li>";
             box_logado.InnerHtml += "</ul>";
         }
 

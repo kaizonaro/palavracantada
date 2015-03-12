@@ -58,6 +58,15 @@ namespace BrincaderiasMusicais.administracao {
         protected global::System.Web.UI.HtmlControls.HtmlSelect PCA_ID;
         
         /// <summary>
+        /// RED_ID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect RED_ID;
+        
+        /// <summary>
         /// Incluir control.
         /// </summary>
         /// <remarks>

@@ -31,15 +31,6 @@ namespace BrincaderiasMusicais {
         protected global::BrincaderiasMusicais.administracao.inc.menu header;
         
         /// <summary>
-        /// RED_ID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect RED_ID;
-        
-        /// <summary>
         /// GFO_IMAGEM control.
         /// </summary>
         /// <remarks>
@@ -47,6 +38,15 @@ namespace BrincaderiasMusicais {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload GFO_IMAGEM;
+        
+        /// <summary>
+        /// RED_ID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect RED_ID;
         
         /// <summary>
         /// Incluir control.

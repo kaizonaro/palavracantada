@@ -38,7 +38,7 @@ namespace BrincaderiasMusicais
                 default:
                     PopulaLista();
                     PopulaListaExcluidos();
-                //    PopularRedes();
+                    PopularRedes();
                     break;
             }
         }
@@ -149,7 +149,7 @@ namespace BrincaderiasMusicais
             divExcluidos.InnerHtml += "</table>";
         }
 
-        /*public void PopularRedes()
+        public void PopularRedes()
         {
             rsRedes = objBD.ExecutaSQL("EXEC ADMIN_psRedesPorAtivo 1");
             if (rsRedes == null)
@@ -170,7 +170,7 @@ namespace BrincaderiasMusicais
             }
             rsRedes.Close();
             rsRedes.Dispose();
-        } */
+        } 
 
         public void gravar(object sender, EventArgs e)
         {
@@ -234,7 +234,7 @@ namespace BrincaderiasMusicais
                             Redefinir.resizeImageAndSave(pth, 196, 110, prefixo);
 
                             // Salvar no BD
-                            objBD.ExecutaSQL("EXEC admin_piuGaleriaFotos '" + Request["GFO_ID"] + "',null, '" + filename + extensao + "','" + Request["GFO_LEGENDA"] + "'");
+                            objBD.ExecutaSQL("EXEC admin_piuGaleriaFotos '" + Request["GFO_ID"] + "','" + Request["RED_ID"] + "', '" + filename + extensao + "','" + Request["GFO_LEGENDA"] + "'");
 
                             // File.Delete(Server.MapPath("~/upload/imagens/" + rsSize["PAG_PASTA"] + "/") + filename + i + extensao);
                             arquivo = filename + extensao;
