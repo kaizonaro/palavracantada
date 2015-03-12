@@ -57,9 +57,8 @@
                         tinyMCE.activeEditor.setContent(ss[2]);
                         $('#PCA_ID option[value="' + parseInt(ss[4]) + '"]').attr('selected', 'selected').change();
                         $('#thumb').html(ss[5])
+                        $('#RED_ID option[value="' + parseInt(ss[6]) + '"]').attr('selected', 'selected').change(); 
                         if (parseInt(ss[3]) == 1) { $('#POS_IMPORTANTE').attr("checked", "checked"); }
-
-
 
                         editar_table2(id);
                     }
@@ -173,9 +172,15 @@
                                             <p>Imagem (190px x 80px)*:</p>
                                             <asp:FileUpload ID="POS_IMAGEM" runat="server" class="multi input" />
                                             <div id="thumb"></div>
+                                            
                                             <p>Categoria*</p>
                                             <select name="PCA_ID" runat="server" id="PCA_ID" data-validation="required" class="input obg">
                                                 <option value="">Selecione a categoria</option>
+                                            </select>
+
+                                            <p>Rede</p>
+                                            <select name="RED_ID" class="input" id="RED_ID" runat="server">
+                                                <option value="NULL">Nenhuma</option>
                                             </select>
 
                                             <p>Post:*</p>

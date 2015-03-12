@@ -41,6 +41,7 @@
                     </ul>
                 </li>
                 <li><a href="blog.aspx"><img src="images/home.png" alt="Blog"><p>Blog</p></a></li>
+                <li><a href="redes.aspx"><img src="images/home.png" alt="Blog"><p>Redes</p></a></li>
                 <li><a href="usuarios.aspx"><img src="images/home.png" alt="Usuários"><p>Usuários</p></a></li>
                 <li><a href="banners.aspx"><img src="images/home.png" alt="home"><p>Banners</p></a></li>
                 <li><a href="javascript:void(0)"><img src="images/home.png" alt="Galeria"><p>Galeria</p></a><ul class="submenu"><li><a href="videos.aspx">Vídeos</a></li><li><a href="fotos.aspx">Fotos</a></li></ul></li>

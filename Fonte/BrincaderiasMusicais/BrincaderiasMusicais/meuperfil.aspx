@@ -17,7 +17,7 @@
     <!--FACEBOOK-->
     <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Artigos" />
     <meta property="og:image" content="http://projetopalavracantada.net/images/logo-fb.png" />
-    <meta property="og:description" content="Página de Artigos" />
+    <meta property="og:description" content="M" />
     <meta property="og:url" content="http://projetopalavracantada.net/artigos" />
 
     <brincadeira:script runat="server" ID="script" />
@@ -39,49 +39,50 @@
 
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="meuperfil" class="interna">
-                <div class="img_perfil">
-                    <img src="/images/img_perfil.jpg" />
+                <div class="img_perfil" id="img_perfil" runat="server">
+                    
                 </div>
-                <div class="nome_perfil">
-                    Ana Maria Silva dos Santos
+                <div class="nome_perfil" id="nome_perfil" runat="server">
+                    
                 </div>
-                <div class="regiao_perfil">
-                    << nome da região do usuário >>
+                <div class="regiao_perfil" id="regiao_perfil" runat="server">
+                    
                 </div>
-                <div class="txt txt_perfil">
-                    Biografia do usuário com até 250 caracteres lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse blandit neque vel aliquam aliquet. Suspendisse hendrerit varius nisi, id sagittis neque ullamcorper et proin pulvinar blandit est libero.
+                <div class="txt txt_perfil" id="txt_perfil" runat="server">
+                    
                 </div>
                 <br />
                 <div class="links_box">
                     <div class="img_links">
-                        <a href="#" title="Minhas fotos">
+                        <a href="javascript:void(0)" title="Minhas fotos">
                             <img src="/images/fotos_perfil.png" alt="Minhas Fotos" /></a>
                     </div>
                     <div class="img_links">
-                        <a href="#" title="Minhas fotos">
+                        <a href="javascript:void(0)" title="Minhas fotos">
                             <img src="/images/videos_perfil.png" alt="Minhas Fotos" /></a>
                     </div>
                     <div class="img_links">
-                        <a href="#" title="Minhas fotos">
+                        <a href="javascript:void(0)" title="Minhas fotos">
                             <img src="/images/blog_perfil.png" alt="Minhas Fotos" /></a>
                     </div>
                 </div>
                 <img src="/images/linha.png" class="linha" />
                 <div class="menu_perfil">
                     <p class="sub_perfil">Ajustes de seu perfil</p>
-                    <span class="primeiro"><a href="#">Editar foto de perfil</a></span>
-                    <span class="segundo"><a href="#">Editar mini-biografia</a></span>
-                    <span class="terceiro"><a href="#">configurações</a></span>
+                    <span class="primeiro"><a href="editar-foto.aspx">Editar foto de perfil</a></span>
+                    <span class="segundo"><a href="javascript:void(0)">Editar mini-biografia</a></span>
+                    <span class="terceiro"><a href="javascript:void(0)">configurações</a></span>
 
                     <p class="sub_perfil">Ajustes de seu perfil</p>
-                    <span class="quarto"><a href="#">Editar foto de perfil</a></span>
-                    <span class="quinto"><a href="#">Editar mini-biografia</a></span>
-                    <span class="sexto"><a href="#">configurações</a></span>
+                    <span class="quarto"><a href="javascript:void(0)">Editar foto de perfil</a></span>
+                    <span class="quinto"><a href="javascript:void(0)">Editar mini-biografia</a></span>
+                    <span class="sexto"><a href="javascript:void(0)">configurações</a></span>
                 </div>
                 <div class="medalhas_perfil">
                     <p class="sub_perfil">Suas recompensas conquistadas</p>
                     <ul class="medalhas">
-                        <li class="ativo">
+                        <!--<li class="ativo">-->
+                        <li>
                             <img src="/images/medalha_ok.png" /><p>Iniciante</p>
                         </li>
                         <li>

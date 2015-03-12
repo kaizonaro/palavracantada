@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais.administracao
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista, rsGravar, rsNotificar, Categoria;
+        private OleDbDataReader rsLista, rsGravar, rsNotificar, Categoria, rsRedes;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,7 +36,7 @@ namespace BrincaderiasMusicais.administracao
                     if (rsLista.HasRows)
                     {
                         rsLista.Read();
-                        Response.Write(rsLista["POS_ID"] + "|" + rsLista["POS_TITULO"] + "|" + rsLista["POS_TEXTO"] + "|" + rsLista["POS_IMPORTANTE"] + "|" + rsLista["POS_CATEGORIA"] + "|" + "<img width='150px' src='/upload/imagens/blog/thumb-" + rsLista["POS_IMAGEM"].ToString() + "'>");
+                        Response.Write(rsLista["POS_ID"] + "|" + rsLista["POS_TITULO"] + "|" + rsLista["POS_TEXTO"] + "|" + rsLista["POS_IMPORTANTE"] + "|" + rsLista["POS_CATEGORIA"] + "|" + "<img width='150px' src='/upload/imagens/blog/thumb-" + rsLista["POS_IMAGEM"].ToString() + "'>" + "|" +  rsLista["RED_ID"].ToString());
                     }
                     break;
                 case ("excluirPost"):
@@ -49,6 +49,7 @@ namespace BrincaderiasMusicais.administracao
                     populacategorias();
                     PopulaLista();
                     PopulaLista(0);
+                    ListarRedes();
                     break;
             }
         }
@@ -147,6 +148,30 @@ namespace BrincaderiasMusicais.administracao
             }
         }
 
+        public void ListarRedes()
+        {
+            rsRedes = objBD.ExecutaSQL("EXEC ADMIN_psRedesPorAtivo 1");
+            if (rsRedes == null)
+            {
+                throw new Exception();
+            }
+            if (rsRedes.HasRows)
+            {
+
+                while (rsRedes.Read())
+                {
+                    ListItem C = new ListItem();
+                    C.Value = rsRedes["RED_ID"].ToString();
+                    C.Text = rsRedes["RED_TITULO"].ToString();
+                    RED_ID.Items.Add(C);
+
+                }
+
+            }
+            rsRedes.Close();
+            rsRedes.Dispose();
+        }
+
         public Int64 GerarID()
         {
             try
@@ -204,7 +229,7 @@ namespace BrincaderiasMusicais.administracao
                                             Redefinir.resizeImageAndSave(pth, 478, 332, prefixoG);
 
                                             // Salvar no BD
-                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, NULL, '" + Session["id"] + "','" + Request["POS_TITULO"] + "','" + filename + i + extensao + "','" + Request["POS_TEXTO"].Replace("'", "\"") + "','" + Request["POS_IMPORTANTE"] + "', " + Request["PCA_ID"]);
+                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, '" + Request["RED_ID"] + "', '" + Session["id"] + "','" + Request["POS_TITULO"] + "','" + filename + i + extensao + "','" + Request["POS_TEXTO"].Replace("'", "\"") + "','" + Request["POS_IMPORTANTE"] + "', " + Request["PCA_ID"]);
 
                                         }
                                     }
@@ -232,7 +257,7 @@ namespace BrincaderiasMusicais.administracao
                     }
                     else
                     {
-                        rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, NULL, '" + Session["id"] + "','" + Request["POS_TITULO"] + "',NULL,'" + Request["POS_TEXTO"].Replace("'", "\"") + "','" + Request["POS_IMPORTANTE"] + "', " + Request["PCA_ID"]);
+                        rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, '" + Request["RED_ID"] + "', '" + Session["id"] + "','" + Request["POS_TITULO"] + "',NULL,'" + Request["POS_TEXTO"].Replace("'", "\"") + "','" + Request["POS_IMPORTANTE"] + "', " + Request["PCA_ID"]);
                     }
                     notificacoes();
                 }

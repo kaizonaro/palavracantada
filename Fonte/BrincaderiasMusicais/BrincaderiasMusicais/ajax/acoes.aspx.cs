@@ -64,6 +64,7 @@ namespace BrincaderiasMusicais.ajax
                 rsLogin.Read();
                 //Salvar as Session do usuário
                 Session["nomeUsuario"] = rsLogin["USU_NOME"].ToString();
+                Session["usuID"] = rsLogin["USU_ID"].ToString();
                 Session["nomeInstituicao"] = rsLogin["RED_TITULO"].ToString();
                 Session["redeID"] = rsLogin["RED_ID"].ToString();
                 Session["redeTitulo"] = objUtils.GerarURLAmigavel(rsLogin["RED_TITULO"].ToString());

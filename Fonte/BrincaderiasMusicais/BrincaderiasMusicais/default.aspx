@@ -63,7 +63,7 @@
             <div class="galeria_home">
 
                 <div class="titu">
-                    GALERIA COLABORATIVA BRINCADEIRAS MUSICAIS:
+                    <span id="spanGaleria" runat="server">GALERIA BRINCADEIRAS MUSICAIS:</span>
                     <div class="ops_galeria">
                         <b class="ativo">
                             <img src="/images/icone_foto.png" alt="icone de camera fotografica" />
@@ -75,14 +75,14 @@
                 <div class="mascara">
                     <!-- FOTOS -->
                     <ul class="fotos_home carrousel" id="ulFotos" runat="server"></ul>
-                    <div class="left_video"><img src="images/arrow_left2.png" /></div>
-                    <div class="right_video"><img src="images/arrow_right2.png" /></div>
+                    <div class="left_video"><img src="/images/arrow_left2.png" /></div>
+                    <div class="right_video"><img src="/images/arrow_right2.png" /></div>
                 </div>
                 <div class="mascara">
                     <!-- VIDEOS -->
                     <ul class="videos_home carrousel" id="ulVideos" runat="server"></ul>
-                    <div class="left_video"><img src="images/arrow_left2.png" /></div>
-                    <div class="right_video"><img src="images/arrow_right2.png" /></div>
+                    <div class="left_video"><img src="/images/arrow_left2.png" /></div>
+                    <div class="right_video"><img src="/images/arrow_right2.png" /></div>
                 </div>
             </div>
             <!--FIM DA GALERIA-->

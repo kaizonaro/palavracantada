@@ -147,17 +147,18 @@
                                         <input type="hidden" id="acao" name="acao" value="gravar" />
                                         <input type="hidden" id="GFO_ID" name="GFO_ID" value="0" />
 
-                                    	<!--<p>Selecione uma rede:</p>
-                                        <select id="RED_ID" name="RED_ID" class="input obg" runat="server">
-                                            <option value="NULL">Selecione</option>
-                                        </select>-->
-                                        
+                                    	
                                         <p>Foto:*</p>
                                 		<asp:FileUpload runat="server" ID="GFO_IMAGEM" CssClass="input obg" />
                                         
                                         <p>Legenda:*</p>
                                         <input type="text" name="GFO_LEGENDA" id="GFO_LEGENDA" class="input"  placeholder="Lengenda da foto"/>
                                         
+                                        <p>Selecione uma rede:</p>
+                                        <select id="RED_ID" name="RED_ID" class="input obg" runat="server">
+                                            <option value="NULL">Selecione</option>
+                                        </select>
+
                                         <p class="p_btn">
                                     		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
                                             <asp:Button ID="Incluir" Cssclass="btn_form"  runat="server" Text="Incluir" OnClick="gravar" />

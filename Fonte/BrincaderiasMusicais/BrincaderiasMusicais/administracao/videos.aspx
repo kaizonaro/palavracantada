@@ -148,16 +148,16 @@
                                         <input type="hidden" id="acao" name="acao" value="gravarVideo" />
                                         <input type="hidden" id="GVI_ID" name="GVI_ID" value="0" />
 
-                                    	<!--<p>Selecione uma rede:</p>
-                                        <select id="RED_ID" name="RED_ID" class="input obg" runat="server">
-                                            <option value="">Selecione</option>
-                                        </select>-->
-                                        
                                         <p>Título:*</p>
                                 		<input type="text" name="GVI_TITULO" id="GVI_TITULO" class="input obg" placeholder="Título do Vídeo">
                                         
                                         <p>Link:*</p>
                                         <input type="text" name="GVI_LINK" id="GVI_LINK" class="input obg"  placeholder="Copie e o Cole a URL"/>
+                                        
+                                        <p>Selecione uma rede:</p>
+                                        <select id="RED_ID" name="RED_ID" class="input obg" runat="server">
+                                            <option value="">Selecione</option>
+                                        </select>
                                         
                                         </label><p class="p_btn">
                                     		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
