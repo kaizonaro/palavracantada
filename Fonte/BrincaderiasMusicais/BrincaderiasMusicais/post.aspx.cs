@@ -69,6 +69,8 @@ namespace BrincaderiasMusicais
 
                 liGPlus.InnerHtml = "<div class='g-plus' data-action='share' data-annotation='bubble' data-href='href=\"/post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\"'></div>";
             }
+            rsBlog.Close();
+            rsBlog.Dispose();
         }
     }
 }

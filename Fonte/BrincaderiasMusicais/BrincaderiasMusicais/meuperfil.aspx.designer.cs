@@ -85,6 +85,15 @@ namespace BrincaderiasMusicais {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl txt_perfil;
         
         /// <summary>
+        /// ulPost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ulPost;
+        
+        /// <summary>
         /// login control.
         /// </summary>
         /// <remarks>

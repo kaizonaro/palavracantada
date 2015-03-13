@@ -103,22 +103,12 @@
                     </ul>
                 </div>
                 <img src="/images/linha.png" class="linha" />
+                
+                <!-- BLOG-->
                 <p class="titu_blog_perfil">
                     <img src="/images/titu_blog_home.png">Blog pessoal <em>(suas publicações Recentes)</em></p>
-                <ul class="posts_home">
-                    <li>
-                        <p class="titu_post_home"><a href="post/post-aberto-3">Post aberto 3</a></p>
-                        <p class="desc_post_home"><a href="post/post-aberto-3">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris,...</a></p>
-                        <a href="post/post-aberto-3" class="btn">LEIA MAIS</a> </li>
-                    <li>
-                        <p class="titu_post_home"><a href="post/post-aberto-2">Post aberto 2</a></p>
-                        <p class="desc_post_home"><a href="post/post-aberto-2">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris,...</a></p>
-                        <a href="post/post-aberto-2" class="btn">LEIA MAIS</a> </li>
-                    <li>
-                        <p class="titu_post_home"><a href="post/post-aberto-">Post aberto </a></p>
-                        <p class="desc_post_home"><a href="post/post-aberto-">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris,...</a></p>
-                        <a href="post/post-aberto-" class="btn">LEIA MAIS</a> </li>
-                </ul>
+                <ul class="posts_home" id="ulPost" runat="server"></ul>
+
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
 

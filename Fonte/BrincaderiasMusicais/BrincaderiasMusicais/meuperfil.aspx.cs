@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsUser;
+        private OleDbDataReader rsUser, rsBlog;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -46,6 +46,8 @@ namespace BrincaderiasMusicais
                 }
                 rsUser.Dispose();
                 rsUser.Close();
+
+                PopularBlog();
             }
             else
             {
@@ -53,6 +55,30 @@ namespace BrincaderiasMusicais
                 Response.Redirect("/");
             }
             
+        }
+
+        public void PopularBlog()
+        {
+            rsBlog = objBD.ExecutaSQL("EXEC site_psPostBlogPorUsuID " + Session["usuID"] + " ");
+
+            if (rsBlog == null)
+            {
+                throw new Exception();
+            }
+            if (rsBlog.HasRows)
+            {
+                while (rsBlog.Read())
+                {
+                    ulPost.InnerHtml += " <li><a href=\"/meu-post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\" title=\"Titulo da postagem\"><img src='/upload/imagens/blog/thumb-" + rsBlog["POS_IMAGEM"].ToString() + "'></a>";
+                    ulPost.InnerHtml += "   <p class=\"titu_post_home\"><a href=\"post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\">" + objUtils.CortarString(true, 36, rsBlog["POS_TITULO"].ToString()) + "</a></p>";
+                    ulPost.InnerHtml += "   <p class=\"desc_post_home\"><a href=\"post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\">" + objUtils.RemoveHTML(objUtils.CortarString(true, 110, rsBlog["POS_TEXTO"].ToString())) + "</a></p>";
+                    ulPost.InnerHtml += "   <a href=\"/meu-post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\" class=\"btn\">LEIA MAIS</a>";
+                    ulPost.InnerHtml += " </li>";
+                }
+            }
+
+            rsBlog.Dispose();
+            rsBlog.Close();
         }
     }
 }

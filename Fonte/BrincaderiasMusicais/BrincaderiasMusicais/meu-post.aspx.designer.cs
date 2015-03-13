@@ -49,6 +49,24 @@ namespace BrincaderiasMusicais {
         protected global::BrincaderiasMusicais.inc.menu menu;
         
         /// <summary>
+        /// img_perfil control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl img_perfil;
+        
+        /// <summary>
+        /// nome_perfil control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl nome_perfil;
+        
+        /// <summary>
         /// img1 control.
         /// </summary>
         /// <remarks>
@@ -56,6 +74,24 @@ namespace BrincaderiasMusicais {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlImage img1;
+        
+        /// <summary>
+        /// logPost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl logPost;
+        
+        /// <summary>
+        /// txtPost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtPost;
         
         /// <summary>
         /// login control.
