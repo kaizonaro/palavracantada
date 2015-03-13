@@ -12,7 +12,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
 
-
     <title>Palavra Cantada - Redes</title>
     <!--FACEBOOK-->
     <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Artigos" />
@@ -39,22 +38,18 @@
 
             <!--CONTEUDO INTERNO (ARTIGOS)-->
              <div id="sobre2" class="interna">
-                 <img class="mini_perfil" src="/images/thumb_perfil.jpg" alt="Foto do Perfil do Fulano" />
+                <div class="img_perfil" id="img_perfil" runat="server"></div>
                 <div class="titu">
                     BLOG
                 </div>
-                 <div class="titu2">
-                    << nome do usuário >>
-                </div>
+                <div class="titu2" id="nome_perfil" runat="server"></div>
 
-                 <div class="oculta"><a href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweetar</a>
-                            <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script></div>
                 <img id="img1" src="/images/sobre.jpg" class="img_destaque" runat="server" style="height: 200px" />
-                <span id="logPost">Publicado por <strong><i>Fernando Santos</i></strong> em <strong><i>22/02/2015</i></strong> na categoria: <strong><i>Vídeo</i></strong><br><br></span>
-                <div id="txtPost" class="txt textoPost"><p class="tit_post">Post Teste</p><p>Inner ipsum code get amet, getElementById adipiscing split. Mauris finibus, felis id command dapibus, nisl ex #000000 nisl, id euismod mauris magna vel purus. send luctus augue euismod sapien rhoncus, et mattis lectus malesuada. Donuts fermentum turpis a getElementById accumsan. Aliquam send orci nibh. In code sem, pulvinar ultrices venenatis id, ultrices eu release. Ut tempor metus urna. Return get amet imperdiet turpis. Integer command ac ipsum send tempor. Aenean AJAX mollis null, volutpat euismod eros. _POSTs vitae ante set _POST luctus viverra condimentum id _POST. Cras vehicula congue ante, fakepath viverra quam rutrum set. Return non finibus ipsum, send ultrices lectus. Donuts tempus convallis purus ut ornare. Nam vel split sem.</p>
-<p>nullm set aliquam est. display:none efficitur Inner vitae augue imperdiet scelerisque. Vivamus fermentum arcu pulvinar fermentum laoreet. Phasellus id ante _POST. Praesent at blandit null, at ornare nisl. Quisque cursus non mi vitae facilisis. Maecenas command sem _POST, send tincidunt felis cursus set. Return at fakepath enim, malesuada consequat justo. Mauris blandit egestas Inner, get amet interdum eros ullamcorper set. Fusce mollis, risus id rutrum efficitur, magna risus rhoncus release, id #000000 lacus magna AJAX sapien. null facilisi.</p></div>
+                
+                <span id="logPost" runat="server"></span>
+                <div class="txt textoPost" runat="server" id="txtPost"></div><br /><br />
                 <a href="#" class="btn2">EXCLUIR POST</a>
-                 <a href="#" class="btn3">EDITAR POST</a>
+                <a href="#" class="btn3">EDITAR POST</a>
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
 
