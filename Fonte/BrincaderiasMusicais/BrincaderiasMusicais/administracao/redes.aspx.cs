@@ -26,7 +26,7 @@ namespace BrincaderiasMusicais.administracao
             {
                 switch (Request["acao"])
                 {
-                    case("ValidarRede"):
+                    case ("ValidarRede"):
                         ValidarRede();
                         break;
                     case ("gravarRede"):
@@ -55,7 +55,7 @@ namespace BrincaderiasMusicais.administracao
                         if (rsLista.HasRows)
                         {
                             rsLista.Read();
-                            Response.Write(rsLista["RED_ID"] + "|" + rsLista["RED_TITULO"] + "|" + rsLista["RED_CIDADE"] + "|" + rsLista["RED_UF"] + "|" +rsLista["total"]);
+                            Response.Write(rsLista["RED_ID"] + "|" + rsLista["RED_TITULO"] + "|" + rsLista["RED_CIDADE"] + "|" + rsLista["RED_UF"] + "|" + rsLista["total"]);
                         }
                         break;
                     default:
@@ -125,7 +125,7 @@ namespace BrincaderiasMusicais.administracao
 
             divLista.InnerHtml += "</table>";
         }
-    
+
         public void PopulaExcluidos()
         {
             divExcluidos.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
@@ -186,7 +186,7 @@ namespace BrincaderiasMusicais.administracao
             try
             {
                 rsRedes = objBD.ExecutaSQL("EXEC admin_piuRedes '" + Request["RED_ID"] + "','" + Request["RED_TITULO"] + "', '" + Request["RED_CIDADE"] + "','" + Request["RED_UF"] + "'");
-                
+
                 if (rsRedes == null)
                 {
                     throw new Exception();
@@ -196,9 +196,14 @@ namespace BrincaderiasMusicais.administracao
                 {
                     rsRedes.Read();
 
-                    if (Request["USU_MASSA"] != null && Request["USU_MASSA"].ToString() != "")
+                    if (Request["USU_MASSA_DISTANCIA"] != null && Request["USU_MASSA_DISTANCIA"].ToString() != "")
                     {
-                        UsuarioMassa(Convert.ToInt32(Request["USU_MASSA"]), Convert.ToInt32(rsRedes["RED_ID"].ToString()), Request["RED_TITULO"]);
+                        UsuarioMassa(Convert.ToInt32(Request["USU_MASSA_DISTANCIA"]), Convert.ToInt32(rsRedes["RED_ID"].ToString()), Request["RED_TITULO"], 0);
+                    }
+
+                    if (Request["USU_MASSA_PRESENCIAL"] != null && Request["USU_MASSA_PRESENCIAL"].ToString() != "")
+                    {
+                        UsuarioMassa(Convert.ToInt32(Request["USU_MASSA_PRESENCIAL"]), Convert.ToInt32(rsRedes["RED_ID"].ToString()), Request["RED_TITULO"], 1);
                     }
                 }
 
@@ -224,13 +229,13 @@ namespace BrincaderiasMusicais.administracao
                 {
                     throw new Exception();
                 }
-                 
+
 
 
                 if (rsRedes.HasRows)
                 {
                     rsRedes.Read();
-                   Response.Write(rsRedes["MENSAGEM"] + "|" + rsRedes["VALIDO"]);
+                    Response.Write(rsRedes["MENSAGEM"] + "|" + rsRedes["VALIDO"]);
                 }
 
                 //Libera o BD e Memória
@@ -251,14 +256,17 @@ namespace BrincaderiasMusicais.administracao
 
 
 
-        public void UsuarioMassa(int quantidade, int RED_ID, string RED_TITULO)
+        public void UsuarioMassa(int quantidade, int RED_ID, string RED_TITULO, int Presencial)
         {
             if (quantidade > 0)
             {
-                string mensagemtokens = "Lista de Tokens da Rede: " + RED_TITULO + "<br><ol>";
+                string tipousuario;
+                if (Presencial == 1) { tipousuario = "presenciais"; } else { tipousuario = "a distancia"; }
+
+                string mensagemtokens = "Lista de Tokens para usuarios " + tipousuario + " da Rede: " + RED_TITULO + "<br><ol>";
                 for (int i = 0; i < quantidade; i++)
                 {
-                    rsGravaUsuario = objBD.ExecutaSQL("EXEC admin_piuUsuario '" + 0 + "','" + RED_ID + "', 'usuario_" + i + "', '', 'e10adc3949ba59abbe56e057f20f883e'");
+                    rsGravaUsuario = objBD.ExecutaSQL("EXEC admin_piuUsuario '" + 0 + "','" + RED_ID + "', 'usuario_" + i + "', '', 'e10adc3949ba59abbe56e057f20f883e','',''," + Presencial);
 
                     if (rsGravaUsuario == null)
                     {

@@ -54,8 +54,10 @@
                         $('#RED_TITULO').attr("value", ss[1]);
                         $('#RED_CIDADE').attr("value", ss[2]);
                         $('#RED_UF').attr("value", ss[3]);
-                        $('#USU_MASSA').attr("value", ss[4]);
-                        $('#USU_MASSA').attr("disabled", true);
+                        $('#USU_MASSA_PRESENCIAL').attr("value", ss[4]);
+                        $('#USU_MASSA_PRESENCIAL').attr("disabled", true);
+                        $('#USU_MASSA_DISTANCIA').attr("value", ss[5]);
+                        $('#USU_MASSA_DISTANCIA').attr("disabled", true);
                         editar_table(id);
                     }
                 }
@@ -64,8 +66,10 @@
         }
 
         function renable() {
-            $('#USU_MASSA').attr("disabled", false);
-            $('#USU_MASSA').attr("value", "");
+            $('#USU_MASSA_PRESENCIAL').attr("disabled", false);
+            $('#USU_MASSA_PRESENCIAL').attr("value", "");
+            $('#USU_MASSA_DISTANCIA').attr("disabled", false);
+            $('#USU_MASSA_DISTANCIA').attr("value", "");
         }
 
         function excluirRede(id) {
@@ -186,8 +190,10 @@
                                             <input type="text" name="RED_CIDADE" class="input obg" id="RED_CIDADE" />
                                             <p>UF*</p>
                                             <input type="text" name="RED_UF" class="input uf obg" id="RED_UF" onkeypress="return uf(this.value, event)" onkeyup="maiuscula(this)" />
-                                            <p>Quantidade de Usuarios</p>
-                                            <input type="text" class="input sonumero" id="USU_MASSA" name="USU_MASSA" onkeypress="return sonumero(event)" />
+                                            <p>Quantidade de Usuarios Presenciais</p>
+                                            <input type="text" class="input sonumero" id="USU_MASSA_PRESENCIAL" name="USU_MASSA_PRESENCIAL" onkeypress="return sonumero(event)" />
+                                            <p>Quantidade de Usuarios a Distância</p>
+                                            <input type="text" class="input sonumero" id="USU_MASSA_DISTANCIA" name="USU_MASSA_DISTANCIA" onkeypress="return sonumero(event)" />
                                             <p>
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
                                                 <input type="submit" value="Incluir" class="btn_form" formmethod="get" onclick="validardinamico()" id="bt_cadastrar" />
