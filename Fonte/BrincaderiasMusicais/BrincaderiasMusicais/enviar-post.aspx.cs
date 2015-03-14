@@ -93,7 +93,7 @@ namespace BrincaderiasMusicais
                                 }
 
                                 // Mensagem se tudo ocorreu bem
-                                Response.Redirect("enviar-post.aspx");
+                                Response.Redirect("meu-perfil");
                                 Response.End();
                             }
                             else
