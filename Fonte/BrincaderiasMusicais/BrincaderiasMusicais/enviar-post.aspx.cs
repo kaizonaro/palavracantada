@@ -83,8 +83,7 @@ namespace BrincaderiasMusicais
                                             Redefinir.resizeImageAndSave(pth, 478, 332, prefixoG);
 
                                             // Salvar no BD
-                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, '" + Session["redeID"] + "', '" + Session["usuID"] + "','" + Request["POS_TITULO"] + "','" + filename + i + extensao + "','" + Request["POS_TEXTO"].Replace("'", "\"") + "',0, " + Request["PCA_ID"]);
-
+                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '0','" + Session["usuID"] + "', '" + Session["redeID"] + "', null, '" + Request["POS_TITULO"] + "', '" + filename + i + extensao + "','<p>" + Request["POS_TEXTO"].Replace("'", "\"") + "</p>',0," + Request["PCA_ID"]);
                                         }
                                     }
                                 }
@@ -94,7 +93,7 @@ namespace BrincaderiasMusicais
                                 }
 
                                 // Mensagem se tudo ocorreu bem
-                                Response.Redirect("blog.aspx");
+                                Response.Redirect("enviar-post.aspx");
                                 Response.End();
                             }
                             else
@@ -112,7 +111,7 @@ namespace BrincaderiasMusicais
                     }
                     else
                     {
-                        rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, '" + Request["RED_ID"] + "', '" + Session["usuID"] + "','" + Request["POS_TITULO"] + "',NULL,'" + Request["POS_TEXTO"].Replace("'", "\"") + "','" + Request["POS_IMPORTANTE"] + "', " + Request["PCA_ID"]);
+                        rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "','" + Session["usuID"] + "','" + Session["redeID"] + "', null,'" + Request["POS_TITULO"] + "',NULL,'" + Request["POS_TEXTO"].Replace("'", "\"") + "','0', " + Request["PCA_ID"]);
                     }
                     //notificacoes();
                 }
