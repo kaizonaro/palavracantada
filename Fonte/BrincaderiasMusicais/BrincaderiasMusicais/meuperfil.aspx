@@ -7,6 +7,7 @@
 <%@ Register Src="~/inc/blog.ascx" TagPrefix="brincadeira" TagName="blog" %>
 <%@ Register Src="~/inc/login.ascx" TagPrefix="brincadeira" TagName="login" %>
 <%@ Register Src="~/inc/headerperfil.ascx" TagPrefix="brincadeira" TagName="headerperfil" %>
+<%@ Register Src="~/inc/blogPessoal.ascx" TagPrefix="brincadeira" TagName="blogPessoal" %>
 
 <!DOCTYPE html>
 
@@ -83,9 +84,7 @@
                 <img src="/images/linha.png" class="linha" />
                 
                 <!-- BLOG-->
-                <p class="titu_blog_perfil">
-                    <img src="/images/titu_blog_home.png">Blog pessoal <em>(suas publicações Recentes)</em></p>
-                <ul class="posts_home" id="ulPost" runat="server"></ul>
+                <brincadeira:blogPessoal runat="server" ID="blogPessoal" />
 
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
