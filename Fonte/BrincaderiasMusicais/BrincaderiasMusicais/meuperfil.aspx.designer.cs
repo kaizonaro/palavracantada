@@ -58,13 +58,13 @@ namespace BrincaderiasMusicais {
         protected global::BrincaderiasMusicais.inc.headerperfil headerperfil;
         
         /// <summary>
-        /// ulPost control.
+        /// blogPessoal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ulPost;
+        protected global::BrincaderiasMusicais.inc.blogPessoal blogPessoal;
         
         /// <summary>
         /// login control.
