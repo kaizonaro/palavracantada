@@ -53,9 +53,9 @@
                     <span class="terceiro"><a href="javascript:void(0)">configurações</a></span>
 
                     <p class="sub_perfil">Ajustes de seu perfil</p>
-                    <span class="quarto"><a href="javascript:void(0)">Editar foto de perfil</a></span>
-                    <span class="quinto"><a href="javascript:void(0)">Editar mini-biografia</a></span>
-                    <span class="sexto"><a href="javascript:void(0)">configurações</a></span>
+                    <span class="quarto"><a href="enviar-post">Adicionar Post</a></span>
+                    <span class="quinto"><a href="javascript:void(0)">Adicionar Foto</a></span>
+                    <span class="sexto"><a href="javascript:void(0)">Adicionar Video</a></span>
                 </div>
                 <div class="medalhas_perfil">
                     <p class="sub_perfil">Suas recompensas conquistadas</p>
