@@ -67,20 +67,25 @@
                     </div>
                 </div>
                 <img src="/images/linha.png" class="linha" />
-                <form id="up_foto">
+                <form id="up_foto" runat="server">
+                    <input type="hidden" id="POS_ID" value="0"/>
                     <div class="titu_setup">ADICIONAR Post:</div>
                     <p class="mini_txt">Para publicar uma foto, preencha os campos abaixo e clique no botão "publicar post".</p>
                     <div class="full">
                         <label class="label">Título do post:</label>
-                        <input type="text" class="input" placeholder="Escreva aqui o título do seu post" />
+                        <input type="text" class="input" placeholder="Escreva aqui o título do seu post" id="POS_TITULO" />
                         <label class="label">Imagem do post:</label>
-                        <input type="file" id="subir_foto" class="esconde" />
+                        <asp:FileUpload ID="POS_IMAGEM" runat="server" />
                         <label for="subir_foto" class="subir_foto btn_save">CARREGAR ARQUIVO DA FOTO</label>
+                        <select name="PCA_ID" runat="server" id="PCA_ID" data-validation="required" class="input obg">
+                            <option value="">Selecione a categoria</option>
+                        </select>
                         <label class="label">Texto do post:</label>
-                        <textarea class="input" rows="15" placeholder="Escreva aqui o texto de seu post"></textarea>
+                        <textarea class="input" rows="15" placeholder="Escreva aqui o texto de seu post" id="POS_TEXTO"></textarea>
                     </div>
                     <div class="full up_post_btn">
-                        <input type="submit" class="btn_save" value="PUBLICAR vídeo"></input>
+
+                        <asp:Button ID="pub" runat="server" Text="PUBLICAR POST" OnClick="gravar" />
                         <button class="btn_back" onclick="window.history.go(-1); return false;">Cancelar</button>
                     </div>
                 </form>
