@@ -6,6 +6,7 @@
 <%@ Register Src="~/inc/menu.ascx" TagPrefix="brincadeira" TagName="menu" %>
 <%@ Register Src="~/inc/blog.ascx" TagPrefix="brincadeira" TagName="blog" %>
 <%@ Register Src="~/inc/login.ascx" TagPrefix="brincadeira" TagName="login" %>
+<%@ Register Src="~/inc/headerperfil.ascx" TagPrefix="brincadeira" TagName="headerperfil" %>
 
 <!DOCTYPE html>
 
@@ -39,38 +40,15 @@
 
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="meuperfil" class="interna">
-                <div class="img_perfil" id="img_perfil" runat="server">
-                    
-                </div>
-                <div class="nome_perfil" id="nome_perfil" runat="server">
-                    
-                </div>
-                <div class="regiao_perfil" id="regiao_perfil" runat="server">
-                    
-                </div>
-                <div class="txt txt_perfil" id="txt_perfil" runat="server">
-                    
-                </div>
-                <br />
-                <div class="links_box">
-                    <div class="img_links">
-                        <a href="javascript:void(0)" title="Minhas fotos">
-                            <img src="/images/fotos_perfil.png" alt="Minhas Fotos" /></a>
-                    </div>
-                    <div class="img_links">
-                        <a href="javascript:void(0)" title="Minhas fotos">
-                            <img src="/images/videos_perfil.png" alt="Minhas Fotos" /></a>
-                    </div>
-                    <div class="img_links">
-                        <a href="javascript:void(0)" title="Minhas fotos">
-                            <img src="/images/blog_perfil.png" alt="Minhas Fotos" /></a>
-                    </div>
-                </div>
+                
+                <!-- INCLUDE -->
+                <brincadeira:headerperfil runat="server" ID="headerperfil" />
+
                 <img src="/images/linha.png" class="linha" />
                 <div class="menu_perfil">
                     <p class="sub_perfil">Ajustes de seu perfil</p>
                     <span class="primeiro"><a href="editar-foto.aspx">Editar foto de perfil</a></span>
-                    <span class="segundo"><a href="javascript:void(0)">Editar mini-biografia</a></span>
+                    <span class="segundo"><a href="editar-biografia">Editar mini-biografia</a></span>
                     <span class="terceiro"><a href="javascript:void(0)">configurações</a></span>
 
                     <p class="sub_perfil">Ajustes de seu perfil</p>

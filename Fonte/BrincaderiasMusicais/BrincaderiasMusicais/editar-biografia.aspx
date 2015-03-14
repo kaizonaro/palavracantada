@@ -6,6 +6,7 @@
 <%@ Register Src="~/inc/menu.ascx" TagPrefix="brincadeira" TagName="menu" %>
 <%@ Register Src="~/inc/blog.ascx" TagPrefix="brincadeira" TagName="blog" %>
 <%@ Register Src="~/inc/login.ascx" TagPrefix="brincadeira" TagName="login" %>
+<%@ Register Src="~/inc/headerperfil.ascx" TagPrefix="brincadeira" TagName="headerperfil" %>
 
 <!DOCTYPE html>
 
@@ -39,38 +40,13 @@
 
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="meuperfil" class="interna">
-                <div class="img_perfil">
-                    <img src="/images/img_perfil.jpg" />
-                </div>
-                <div class="nome_perfil">
-                    Ana Maria Silva dos Santos
-                </div>
-                <div class="regiao_perfil">
-                    << nome da região do usuário >>
-                </div>
-                <div class="txt txt_perfil">
-                    Biografia do usuário com até 250 caracteres lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse blandit neque vel aliquam aliquet. Suspendisse hendrerit varius nisi, id sagittis neque ullamcorper et proin pulvinar blandit est libero.
-                </div>
-                <br />
-                <div class="links_box">
-                    <div class="img_links">
-                        <a href="#" title="Minhas fotos">
-                            <img src="/images/fotos_perfil.png" alt="Minhas Fotos" /></a>
-                    </div>
-                    <div class="img_links">
-                        <a href="#" title="Minhas fotos">
-                            <img src="/images/videos_perfil.png" alt="Minhas Fotos" /></a>
-                    </div>
-                    <div class="img_links">
-                        <a href="#" title="Minhas fotos">
-                            <img src="/images/blog_perfil.png" alt="Minhas Fotos" /></a>
-                    </div>
-                </div>
+                <brincadeira:headerperfil runat="server" ID="headerperfil" />
                 <img src="/images/linha.png" class="linha" />
+                
                 <div class="menu_perfil">
                     <p class="sub_perfil">Ajustes de seu perfil</p>
                     <span class="primeiro"><a href="#">Editar foto de perfil</a></span>
-                    <span class="segundo ativo"><a href="#">Editar mini-biografia</a></span>
+                    <span class="segundo ativo"><a href="javascript:void(0)">Editar mini-biografia</a></span>
                     <span class="terceiro"><a href="#">configurações</a></span>
 
                     <p class="sub_perfil">Ajustes de seu perfil</p>
@@ -78,18 +54,24 @@
                     <span class="quinto"><a href="#">Editar mini-biografia</a></span>
                     <span class="sexto"><a href="#">configurações</a></span>
                 </div>
+                
                 <div class="medalhas_perfil">
                     <p class="sub_perfil">Editar Mini-biografia</p>
                     <p class="txt">
                         Crie ou edite a sua mini-biografia no campo abaixo e clique no botão salvar.
                     </p>
-                    <form id="biografia" class="form">
-                        <textarea class="input" placeholder="Você ainda não criou a sua mini-biografia.Clique aqui para escrevar uma.(máximo 250 caracteres)"></textarea>
-                        <button class="btn_back" onClick="window.history.go(-1); return false;"><< voltar</button> <input type="submit" class="btn_save" value="salvar alterações"></input>
+                    <form id="biografia" class="form" action="editar-biografia.aspx">
+                        <input type="hidden" id="acao" name="acao" value="editar" />
+                        <textarea class="input" maxlength="250" runat="server" id="txtTextarea" name="txtTextarea" placeholder=""></textarea>
+                        <button class="btn_back" onClick="window.history.go(-1); return false;"><< voltar</button> 
+                        <input type="submit" class="btn_save" value="salvar alterações" />
                     </form>
                 </div>
+                
                 <img src="/images/linha.png" class="linha" />
-                <p class="titu_blog_perfil">
+               
+                <!-- INCLUDE BLOG PESSOAL --> 
+                <!--<p class="titu_blog_perfil">
                     <img src="/images/titu_blog_home.png">Blog pessoal <em>(suas publicações Recentes)</em></p>
                 <ul class="posts_home">
                     <li>
@@ -104,7 +86,8 @@
                         <p class="titu_post_home"><a href="post/post-aberto-">Post aberto </a></p>
                         <p class="desc_post_home"><a href="post/post-aberto-">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris,...</a></p>
                         <a href="post/post-aberto-" class="btn">LEIA MAIS</a> </li>
-                </ul>
+                </ul>-->
+
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
 

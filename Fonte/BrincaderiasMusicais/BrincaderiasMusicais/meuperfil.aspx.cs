@@ -28,25 +28,6 @@ namespace BrincaderiasMusicais
             //Verificar se ainda está logado
             if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1)
             {
-                //LOGADO -- Session["usuID"]
-                rsUser = objBD.ExecutaSQL("select USU_BIOGRAFIA, USU_FOTO from Usuario where USU_ID = " + Session["usuID"] + " ");
-                if (rsUser == null)
-                {
-                    throw new Exception();
-                }
-                if (rsUser.HasRows)
-                {
-                    rsUser.Read();
-
-                    nome_perfil.InnerHtml = Session["nomeUsuario"].ToString();
-                    regiao_perfil.InnerHtml = Session["nomeInstituicao"].ToString();
-                    txt_perfil.InnerHtml = rsUser["USU_BIOGRAFIA"].ToString();
-                    img_perfil.InnerHtml = "<img src=\"/upload/imagens/usuarios/" + rsUser["USU_FOTO"] + "\" />";
-                    
-                }
-                rsUser.Dispose();
-                rsUser.Close();
-
                 PopularBlog();
             }
             else
