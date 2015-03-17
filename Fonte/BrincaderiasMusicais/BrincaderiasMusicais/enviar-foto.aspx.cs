@@ -41,17 +41,17 @@ namespace BrincaderiasMusicais
                             filename = DateTime.Now.ToString().Replace("/", "").Replace(":", "").Replace(" ", "");
 
                             //cria a pasta se a mesma nao existir
-                            if (Directory.Exists(Server.MapPath("~/upload/imagens/usuario/galeria")) == false)
+                            if (Directory.Exists(Server.MapPath("~/upload/imagens/usuario/galeria/")) == false)
                             {
-                                Directory.CreateDirectory(Server.MapPath("~/upload/imagens/usuario/galeria"));
+                                Directory.CreateDirectory(Server.MapPath("~/upload/imagens/usuario/galeria/"));
                             }
 
                             //Caminho a onde será salvo
-                            hpf.SaveAs(Server.MapPath("~/upload/imagens/usuario/galeria") + filename + extensao);
+                            hpf.SaveAs(Server.MapPath("~/upload/imagens/usuario/galeria/") + filename + extensao);
 
                             var prefixo = "thumb-";
                             //pega o arquivo já carregado
-                            string pth = Server.MapPath("~/upload/imagens/usuario/galeria") + filename + extensao;
+                            string pth = Server.MapPath("~/upload/imagens/usuario/galeria/") + filename + extensao;
 
                             //Redefine altura e largura da imagem e Salva o arquivo + prefixo
                             Redefinir.resizeImageAndSave(pth, 196, 110, prefixo);
