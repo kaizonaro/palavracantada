@@ -58,16 +58,16 @@ namespace BrincaderiasMusicais {
         protected global::System.Web.UI.HtmlControls.HtmlForm up_foto;
         
         /// <summary>
-        /// GFO_IMAGEM control.
+        /// FOT_IMAGEM control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload GFO_IMAGEM;
+        protected global::System.Web.UI.WebControls.FileUpload FOT_IMAGEM;
         
         /// <summary>
-        /// Publicar Foto control.
+        /// PublicarFoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
