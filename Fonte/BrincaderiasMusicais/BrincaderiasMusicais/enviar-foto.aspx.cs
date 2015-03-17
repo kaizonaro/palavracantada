@@ -16,14 +16,14 @@ namespace BrincaderiasMusicais
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         public void gravar(object sender, EventArgs e)
         {
-            if (GFO_IMAGEM.HasFile)
+            if (FOT_IMAGEM.HasFile)
             {
-                
+
                 string arquivo = "NULL", nome = "", filename = "", extensao = "";
                 HttpFileCollection hfc = Request.Files;
                 for (int i = 0; i < hfc.Count; i++)
@@ -31,7 +31,7 @@ namespace BrincaderiasMusicais
                     HttpPostedFile hpf = hfc[i];
                     if (hpf.ContentLength > 0)
                     {
-                        if (GFO_IMAGEM.PostedFile.ContentType == "image/jpeg" || GFO_IMAGEM.PostedFile.ContentType == "image/png" || GFO_IMAGEM.PostedFile.ContentType == "image/gif" || GFO_IMAGEM.PostedFile.ContentType == "image/bmp")
+                        if (FOT_IMAGEM.PostedFile.ContentType == "image/jpeg" || FOT_IMAGEM.PostedFile.ContentType == "image/png" || FOT_IMAGEM.PostedFile.ContentType == "image/gif" || FOT_IMAGEM.PostedFile.ContentType == "image/bmp")
                         {
                             //Pega o nome do arquivo
                             nome = System.IO.Path.GetFileName(hpf.FileName);
@@ -41,26 +41,25 @@ namespace BrincaderiasMusicais
                             filename = DateTime.Now.ToString().Replace("/", "").Replace(":", "").Replace(" ", "");
 
                             //cria a pasta se a mesma nao existir
-                            if (Directory.Exists(Server.MapPath("~/upload/imagens/galeria/")) == false)
+                            if (Directory.Exists(Server.MapPath("~/upload/imagens/usuario/galeria")) == false)
                             {
-                                Directory.CreateDirectory(Server.MapPath("~/upload/imagens/galeria/"));
+                                Directory.CreateDirectory(Server.MapPath("~/upload/imagens/usuario/galeria"));
                             }
 
                             //Caminho a onde será salvo
-                            hpf.SaveAs(Server.MapPath("~/upload/imagens/galeria/") + filename + extensao);
+                            hpf.SaveAs(Server.MapPath("~/upload/imagens/usuario/galeria") + filename + extensao);
 
                             var prefixo = "thumb-";
                             //pega o arquivo já carregado
-                            string pth = Server.MapPath("~/upload/imagens/galeria/") + filename + extensao;
+                            string pth = Server.MapPath("~/upload/imagens/usuario/galeria") + filename + extensao;
 
                             //Redefine altura e largura da imagem e Salva o arquivo + prefixo
                             Redefinir.resizeImageAndSave(pth, 196, 110, prefixo);
 
                             // Salvar no BD
-                            objBD.ExecutaSQL("EXEC admin_piuGaleriaFotos '" + Request["GFO_ID"] + "','" + Session["redeID"] + "', '" + filename + extensao + "','" + Request["GFO_LEGENDA"] + "'");
+                            objBD.ExecutaSQL("EXEC admin_piuUsuarioFotos '" + Request["FOT_ID"] + "','" + Session["usuID"] + "', '" + filename + extensao + "','" + Request["FOT_LEGENDA"] + "'");
 
                             // File.Delete(Server.MapPath("~/upload/imagens/" + rsSize["PAG_PASTA"] + "/") + filename + i + extensao);
-                            arquivo = filename + extensao;
                             break;
                         }
                     }

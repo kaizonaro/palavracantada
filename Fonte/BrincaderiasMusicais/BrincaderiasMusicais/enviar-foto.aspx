@@ -72,11 +72,11 @@
                     <p class="mini_txt">Para publicar uma foto, preencha os campos abaixo e clique no botão "publicar foto”.</p>
                     <div class="left">
                         <label class="label">Legenda da foto</label>
-                        <input type="text" class="input" placeholder="Breve legenda" id="GFO_LEGENDA" name="GFO_LEGENDA" />
+                        <input type="text" class="input" placeholder="Breve legenda" id="FOT_LEGENDA" name="FOT_LEGENDA" />
                     </div>
                     <div class="right">
-                        <asp:FileUpload ID="GFO_IMAGEM" runat="server" CssClass="esconde" />
-                        <label for="GFO_IMAGEM" class="subir_foto btn_save">CARREGAR ARQUIVO DA FOTO</label>
+                        <asp:FileUpload ID="FOT_IMAGEM" runat="server" CssClass="esconde" />
+                        <label for="FOT_IMAGEM" class="subir_foto btn_save">CARREGAR ARQUIVO DA FOTO</label>
                     </div>
 
                     <div class="full">
