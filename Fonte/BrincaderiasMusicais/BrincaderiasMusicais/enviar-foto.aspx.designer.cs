@@ -49,6 +49,33 @@ namespace BrincaderiasMusicais {
         protected global::BrincaderiasMusicais.inc.menu menu;
         
         /// <summary>
+        /// up_foto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm up_foto;
+        
+        /// <summary>
+        /// GFO_IMAGEM control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload GFO_IMAGEM;
+        
+        /// <summary>
+        /// Publicar Foto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button PublicarFoto;
+        
+        /// <summary>
         /// login control.
         /// </summary>
         /// <remarks>

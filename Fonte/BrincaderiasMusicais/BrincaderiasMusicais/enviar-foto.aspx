@@ -67,20 +67,22 @@
                     </div>
                 </div>
                 <img src="/images/linha.png" class="linha" />
-                <form id="up_foto">
+                <form id="up_foto" runat="server">
                     <div class="titu_setup">Adicionar Foto:</div>
                     <p class="mini_txt">Para publicar uma foto, preencha os campos abaixo e clique no botão "publicar foto”.</p>
                     <div class="left">
                         <label class="label">Legenda da foto</label>
-                        <input type="text" class="input" placeholder="Breve legenda" />
+                        <input type="text" class="input" placeholder="Breve legenda" id="GFO_LEGENDA" name="GFO_LEGENDA" />
                     </div>
                     <div class="right">
-                        <input type="file" id="subir_foto" class="esconde" />
-                        <label for="subir_foto" class="subir_foto btn_save">CARREGAR ARQUIVO DA FOTO</label>
+                        <asp:FileUpload ID="GFO_IMAGEM" runat="server" CssClass="esconde" />
+                        <label for="GFO_IMAGEM" class="subir_foto btn_save">CARREGAR ARQUIVO DA FOTO</label>
                     </div>
+
                     <div class="full">
+                        
                         <button class="btn_back" onclick="window.history.go(-1); return false;">Cancelar</button>
-                        <input type="submit" class="btn_save" value="PUBLICAR foto"></input>
+                        <asp:Button ID="PublicarFoto" class="btn_save" runat="server" Text="Publicar foto" OnClick="gravar" />
                     </div>
                 </form>
             </div>
