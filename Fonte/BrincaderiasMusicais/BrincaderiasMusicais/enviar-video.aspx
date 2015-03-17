@@ -67,20 +67,20 @@
                     </div>
                 </div>
                 <img src="/images/linha.png" class="linha" />
-                <form id="up_foto">
+                <form id="up_foto" runat="server">
                     <div class="titu_setup">ADICIONAR VÍDEO:</div>
-                    <p class="mini_txt">Para publicar uma foto, preencha os campos abaixo e clique no botão "publicar vídeo”.</p>
+                    <p class="mini_txt">Para publicar um video, preencha os campos abaixo e clique no botão "publicar vídeo”.</p>
                     <div class="full">
                         <label class="label">Título do vídeo:</label>
-                        <input type="text" class="input" placeholder="Escreva aqui o título do seu vídeo" />
+                        <input type="text" class="input" placeholder="Escreva aqui o título do seu vídeo" name="VID_TITULO" />
                         <label class="label">Breve descritivo do vídeo:</label>
-                        <textarea class="input" rows="6" placeholder="Escreva aqui um breve descritivo do seu vídeo"></textarea>
+                        <textarea class="input" rows="6" placeholder="Escreva aqui um breve descritivo do seu vídeo" name="VID_DESCRICAO"></textarea>
                         <label class="label">Link (YouTube) do vídeo:</label>
-                        <input type="text" class="input" placeholder="Cole aqui o link de seu vídeo. Exemplo: http://youtu.be/e5ADrw5YpHU " />
+                        <input type="text" class="input" name="VID_LINK" placeholder="Cole aqui o link de seu vídeo. Exemplo: http://youtu.be/e5ADrw5YpHU " />
                     </div>
                     <div class="full">
                         <button class="btn_back" onclick="window.history.go(-1); return false;">Cancelar</button>
-                        <input type="submit" class="btn_save" value="PUBLICAR vídeo"></input>
+                         <asp:Button ID="publicar_video" runat="server" Text="Publicar Video" class="btn_save" OnClick="gravarVideo" />
                     </div>
                 </form>
             </div>
