@@ -6,6 +6,7 @@
 <%@ Register Src="~/inc/menu.ascx" TagPrefix="brincadeira" TagName="menu" %>
 <%@ Register Src="~/inc/blog.ascx" TagPrefix="brincadeira" TagName="blog" %>
 <%@ Register Src="~/inc/login.ascx" TagPrefix="brincadeira" TagName="login" %>
+<%@ Register Src="~/inc/headerperfil.ascx" TagPrefix="brincadeira" TagName="headerperfil" %>
 
 <!DOCTYPE html>
 
@@ -39,67 +40,46 @@
 
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="meuperfil" class="interna">
-                <div class="img_perfil">
-                    <img src="/images/img_perfil.jpg" />
-                </div>
-                <div class="nome_perfil">
-                    Ana Maria Silva dos Santos
-                </div>
-                <div class="regiao_perfil">
-                    << nome da região do usuário >>
-                </div>
-                <div class="txt txt_perfil">
-                    Biografia do usuário com até 250 caracteres lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse blandit neque vel aliquam aliquet. Suspendisse hendrerit varius nisi, id sagittis neque ullamcorper et proin pulvinar blandit est libero.
-                </div>
-                <br />
-                <div class="links_box">
-                    <div class="img_links disabled">
-                        <a href="#" title="Minhas fotos">
-                            <img src="/images/fotos_perfil.png" alt="Minhas Fotos" /></a>
-                    </div>
-                    <div class="img_links">
-                        <a href="#" title="Minhas fotos">
-                            <img src="/images/videos_perfil.png" alt="Minhas Fotos" /></a>
-                    </div>
-                    <div class="img_links disabled">
-                        <a href="#" title="Minhas fotos">
-                            <img src="/images/blog_perfil.png" alt="Minhas Fotos" /></a>
-                    </div>
-                </div>
-                <img src="/images/linha.png" class="linha" />
-                <div class="titu_galeria">
-                    VÍDEOS - << NOME DO USUÁRIO >>
-                </div>
-                <ul class="galeria_video_interna">
-                    <li><a href="KE7tMgm44x8">
-                        <img src="/images/video_galeria.jpg" alt=" Foto 01 - aberta"></a>
-                        <p>titulo numero 01</p>
-                    </li>
-                    <li><a href="KE7tMgm44x8">
-                        <img src="/images/video_galeria.jpg" alt=" Foto 01 - aberta"></a>
-                        <p>titulo numero 01</p>
-                    </li>
-                    <li><a href="KE7tMgm44x8">
-                        <img src="/images/video_galeria.jpg" alt=" Foto 01 - aberta"></a>
-                        <p>titulo numero 01</p>
-                    </li>
-                    <li><a href="KE7tMgm44x8">
-                        <img src="/images/video_galeria.jpg" alt=" Foto 01 - aberta"></a>
-                        <p>titulo numero 01</p>
-                    </li>                  
-                </ul>
+                 <brincadeira:headerperfil runat="server" ID="headerperfil" />
 
-                <nav class="paginacao">
-                    <ul>
-                        <li><a href="javascript:void(0);" class="nav_pg" title="Página anterior">
-                            <img src="images/nav_left.png">ANTERIORES</a></li>
-                        <li><a href="javascript:void(0);" title="Página atual" class="ativo">1</a></li>
-                        <li><a href="javascript:void(0);" title="Página 2">2</a></li>
-                        <li><a href="javascript:void(0);" title="Página 3">3</a></li>
-                        <li><a href="javascript:void(0);" class="nav_pg" title="Próxima Página">PRÓXIMOS
-                            <img src="images/nav_right.png "></a></li>
+                <img src="/images/linha.png" class="linha" />
+
+                <div id="divArtigos" runat="server">
+                
+                    <!--<div class="titu_galeria">
+                        VÍDEOS - << NOME DO USUÁRIO >>
+                    </div>
+                    <ul class="galeria_video_interna">
+                        <li><a href="KE7tMgm44x8">
+                            <img src="/images/video_galeria.jpg" alt=" Foto 01 - aberta"></a>
+                            <p>titulo numero 01</p>
+                        </li>
+                        <li><a href="KE7tMgm44x8">
+                            <img src="/images/video_galeria.jpg" alt=" Foto 01 - aberta"></a>
+                            <p>titulo numero 01</p>
+                        </li>
+                        <li><a href="KE7tMgm44x8">
+                            <img src="/images/video_galeria.jpg" alt=" Foto 01 - aberta"></a>
+                            <p>titulo numero 01</p>
+                        </li>
+                        <li><a href="KE7tMgm44x8">
+                            <img src="/images/video_galeria.jpg" alt=" Foto 01 - aberta"></a>
+                            <p>titulo numero 01</p>
+                        </li>                  
                     </ul>
-                </nav>
+
+                    <nav class="paginacao">
+                        <ul>
+                            <li><a href="javascript:void(0);" class="nav_pg" title="Página anterior">
+                                <img src="images/nav_left.png">ANTERIORES</a></li>
+                            <li><a href="javascript:void(0);" title="Página atual" class="ativo">1</a></li>
+                            <li><a href="javascript:void(0);" title="Página 2">2</a></li>
+                            <li><a href="javascript:void(0);" title="Página 3">3</a></li>
+                            <li><a href="javascript:void(0);" class="nav_pg" title="Próxima Página">PRÓXIMOS
+                                <img src="images/nav_right.png "></a></li>
+                        </ul>
+                    </nav>-->
+                </div>
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
 

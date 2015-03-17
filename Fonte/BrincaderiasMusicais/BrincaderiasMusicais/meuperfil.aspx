@@ -54,8 +54,8 @@
 
                     <p class="sub_perfil">Ajustes de seu perfil</p>
                     <span class="quarto"><a href="enviar-post">Adicionar Post</a></span>
-                    <span class="quinto"><a href="javascript:void(0)">Adicionar Foto</a></span>
-                    <span class="sexto"><a href="javascript:void(0)">Adicionar Video</a></span>
+                    <span class="quinto"><a href="enviar-foto">Adicionar Foto</a></span>
+                    <span class="sexto"><a href="enviar-video">Adicionar Video</a></span>
                 </div>
                 <div class="medalhas_perfil">
                     <p class="sub_perfil">Suas recompensas conquistadas</p>

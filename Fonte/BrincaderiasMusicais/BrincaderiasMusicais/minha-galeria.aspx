@@ -6,6 +6,7 @@
 <%@ Register Src="~/inc/menu.ascx" TagPrefix="brincadeira" TagName="menu" %>
 <%@ Register Src="~/inc/blog.ascx" TagPrefix="brincadeira" TagName="blog" %>
 <%@ Register Src="~/inc/login.ascx" TagPrefix="brincadeira" TagName="login" %>
+<%@ Register Src="~/inc/headerperfil.ascx" TagPrefix="brincadeira" TagName="headerperfil" %>
 
 <!DOCTYPE html>
 
@@ -21,6 +22,12 @@
     <meta property="og:url" content="http://projetopalavracantada.net/artigos" />
 
     <brincadeira:script runat="server" ID="script" />
+    
+    <script type="text/javascript">
+        function pagina(pg) {
+            location.href = "minha-galeria.aspx?pagina=" + pg + "";
+        }
+    </script>
 
 </head>
 <body>
@@ -39,87 +46,68 @@
 
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="meuperfil" class="interna">
-                <div class="img_perfil">
-                    <img src="/images/img_perfil.jpg" />
-                </div>
-                <div class="nome_perfil">
-                    Ana Maria Silva dos Santos
-                </div>
-                <div class="regiao_perfil">
-                    << nome da região do usuário >>
-                </div>
-                <div class="txt txt_perfil">
-                    Biografia do usuário com até 250 caracteres lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse blandit neque vel aliquam aliquet. Suspendisse hendrerit varius nisi, id sagittis neque ullamcorper et proin pulvinar blandit est libero.
-                </div>
-                <br />
-                <div class="links_box">
-                    <div class="img_links">
-                        <a href="#" title="Minhas fotos">
-                            <img src="/images/fotos_perfil.png" alt="Minhas Fotos" /></a>
-                    </div>
-                    <div class="img_links disabled">
-                        <a href="#" title="Minhas fotos">
-                            <img src="/images/videos_perfil.png" alt="Minhas Fotos" /></a>
-                    </div>
-                    <div class="img_links disabled">
-                        <a href="#" title="Minhas fotos">
-                            <img src="/images/blog_perfil.png" alt="Minhas Fotos" /></a>
-                    </div>
-                </div>
+                
+                <brincadeira:headerperfil runat="server" ID="headerperfil" />
+                
                 <img src="/images/linha.png" class="linha" />
-                <div class="titu_galeria">
-                    GALERIA DE FOTOS - << NOME DO USUÁRIO >>
-                </div>
-                <ul class="galeria_img_interna">
-                    <li><a href="/upload/imagens/galeria/ampliada/galeria.jpg">
-                        <img src="/upload/imagens/galeria/blog-pb.jpg" alt=" Foto 01 - aberta"></a>
-                        <p>titulo numero 01</p>
-                    </li>
-                    <li><a href="/upload/imagens/galeria/ampliada/galeria2.jpg">
-                        <img src="/upload/imagens/galeria/blog-pb.jpg" alt=" Foto 01 - aberta"></a>
-                        <p>titulo numero 01</p>
-                    </li>
-                    <li><a href="/upload/imagens/galeria/ampliada/galeria.jpg">
-                        <img src="/upload/imagens/galeria/blog-pb.jpg" alt=" Foto 01 - aberta"></a>
-                        <p>titulo numero 01</p>
-                    </li>
-                    <li><a href="/upload/imagens/galeria/ampliada/galeria2.jpg">
-                        <img src="/upload/imagens/galeria/blog-pb.jpg" alt=" Foto 01 - aberta"></a>
-                        <p>titulo numero 01</p>
-                    </li>
-                    <li><a href="/upload/imagens/galeria/ampliada/galeria.jpg">
-                        <img src="/upload/imagens/galeria/blog-pb.jpg" alt=" Foto 01 - aberta"></a>
-                        <p>titulo numero 01</p>
-                    </li>
-                    <li><a href="/upload/imagens/galeria/ampliada/galeria2.jpg">
-                        <img src="/upload/imagens/galeria/blog-pb.jpg" alt=" Foto 01 - aberta"></a>
-                        <p>titulo numero 01</p>
-                    </li>
-                    <li><a href="/upload/imagens/galeria/ampliada/galeria.jpg">
-                        <img src="/upload/imagens/galeria/blog-pb.jpg" alt=" Foto 01 - aberta"></a>
-                        <p>titulo numero 01</p>
-                    </li>
-                    <li><a href="/upload/imagens/galeria/ampliada/galeria2.jpg">
-                        <img src="/upload/imagens/galeria/blog-pb.jpg" alt=" Foto 01 - aberta"></a>
-                        <p>titulo numero 01</p>
-                    </li>
-                    <li><a href="/upload/imagens/galeria/ampliada/galeria.jpg">
-                        <img src="/upload/imagens/galeria/blog-pb.jpg" alt=" Foto 01 - aberta"></a>
-                        <p>titulo numero 01</p>
-                    </li>
-                </ul>
+                
+                <div id="divArtigos" runat="server">
 
-                <nav class="paginacao">
-                    <ul>
-                        <li><a href="javascript:void(0);" class="nav_pg" title="Página anterior">
-                            <img src="images/nav_left.png">ANTERIORES</a></li>
-                        <li><a href="javascript:void(0);" title="Página atual" class="ativo">1</a></li>
-                        <li><a href="javascript:void(0);" title="Página 2">2</a></li>
-                        <li><a href="javascript:void(0);" title="Página 3">3</a></li>
-                        <li><a href="javascript:void(0);" class="nav_pg" title="Próxima Página">PRÓXIMOS
-                            <img src="images/nav_right.png "></a></li>
-                    </ul>
-                </nav>
+                   <!-- <div class="titu_galeria">
+                        GALERIA DE FOTOS - << NOME DO USUÁRIO >>
+                    </div>
+                    
+                    <ul class="galeria_img_interna">
+                        <li><a href="/upload/imagens/galeria/ampliada/galeria.jpg">
+                            <img src="/upload/imagens/galeria/blog-pb.jpg" alt=" Foto 01 - aberta"></a>
+                            <p>titulo numero 01</p>
+                        </li>
+                        <li><a href="/upload/imagens/galeria/ampliada/galeria2.jpg">
+                            <img src="/upload/imagens/galeria/blog-pb.jpg" alt=" Foto 01 - aberta"></a>
+                            <p>titulo numero 01</p>
+                        </li>
+                        <li><a href="/upload/imagens/galeria/ampliada/galeria.jpg">
+                            <img src="/upload/imagens/galeria/blog-pb.jpg" alt=" Foto 01 - aberta"></a>
+                            <p>titulo numero 01</p>
+                        </li>
+                        <li><a href="/upload/imagens/galeria/ampliada/galeria2.jpg">
+                            <img src="/upload/imagens/galeria/blog-pb.jpg" alt=" Foto 01 - aberta"></a>
+                            <p>titulo numero 01</p>
+                        </li>
+                        <li><a href="/upload/imagens/galeria/ampliada/galeria.jpg">
+                            <img src="/upload/imagens/galeria/blog-pb.jpg" alt=" Foto 01 - aberta"></a>
+                            <p>titulo numero 01</p>
+                        </li>
+                        <li><a href="/upload/imagens/galeria/ampliada/galeria2.jpg">
+                            <img src="/upload/imagens/galeria/blog-pb.jpg" alt=" Foto 01 - aberta"></a>
+                            <p>titulo numero 01</p>
+                        </li>
+                        <li><a href="/upload/imagens/galeria/ampliada/galeria.jpg">
+                            <img src="/upload/imagens/galeria/blog-pb.jpg" alt=" Foto 01 - aberta"></a>
+                            <p>titulo numero 01</p>
+                        </li>
+                        <li><a href="/upload/imagens/galeria/ampliada/galeria2.jpg">
+                            <img src="/upload/imagens/galeria/blog-pb.jpg" alt=" Foto 01 - aberta"></a>
+                            <p>titulo numero 01</p>
+                        </li>
+                        <li><a href="/upload/imagens/galeria/ampliada/galeria.jpg">
+                            <img src="/upload/imagens/galeria/blog-pb.jpg" alt=" Foto 01 - aberta"></a>
+                            <p>titulo numero 01</p>
+                        </li>
+                    </ul>-->
+
+                   <!-- <nav class="paginacao">
+                        <ul>
+                            <li><a href="javascript:void(0);" class="nav_pg" title="Página anterior">
+                                <img src="images/nav_left.png">ANTERIORES</a></li>
+                            <li><a href="javascript:void(0);" title="Página atual" class="ativo">1</a></li>
+                            <li><a href="javascript:void(0);" title="Página 2">2</a></li>
+                            <li><a href="javascript:void(0);" title="Página 3">3</a></li>
+                            <li><a href="javascript:void(0);" class="nav_pg" title="Próxima Página">PRÓXIMOS
+                                <img src="images/nav_right.png "></a></li>
+                        </ul>
+                    </nav>-->
+                </div>
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
 

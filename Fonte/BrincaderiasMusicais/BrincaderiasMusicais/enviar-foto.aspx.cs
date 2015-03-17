@@ -69,7 +69,7 @@ namespace BrincaderiasMusicais
             }
 
             //Retornar para a Listagem
-            Response.Redirect("Minha-Galeria.aspx.aspx");
+            Response.Redirect("minhas-fotos");
             Response.End();
 
         }
