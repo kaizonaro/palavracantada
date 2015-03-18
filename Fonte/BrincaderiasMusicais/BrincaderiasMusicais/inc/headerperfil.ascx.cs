@@ -37,8 +37,15 @@ namespace BrincaderiasMusicais.inc
                    nome_perfil.InnerHtml = Session["nomeUsuario"].ToString();
                    regiao_perfil.InnerHtml = Session["nomeInstituicao"].ToString();
                    txt_perfil.InnerHtml = rsUser["USU_BIOGRAFIA"].ToString();
-                   img_perfil.InnerHtml = "<img src=\"/upload/imagens/usuarios/" + rsUser["USU_FOTO"] + "\" />";
-                    
+
+                   if (rsUser["USU_FOTO"].ToString().Length < 1)
+                   {
+                       img_perfil.InnerHtml = "<img src='/images/img_perfil.jpg'/>";
+                   }
+                   else
+                   {
+                       img_perfil.InnerHtml = "<img src=\"/upload/imagens/usuarios/" + rsUser["USU_FOTO"] + "\" />";
+                   }
                }
                rsUser.Dispose();
                rsUser.Close();
