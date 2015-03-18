@@ -73,6 +73,7 @@ namespace BrincaderiasMusicais
                 //Texto
                 txtPost.InnerHtml += "<p class='tit_post'>" + rsBlog["POS_TITULO"] + "</p>";
                 txtPost.InnerHtml += "" + rsBlog["POS_TEXTO"].ToString() + "";
+                editar_bt.Attributes.Add("href","/enviar-post?POS_ID=" + rsBlog["POS_ID"].ToString());
 
             }
 

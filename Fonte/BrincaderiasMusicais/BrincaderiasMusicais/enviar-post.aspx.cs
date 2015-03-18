@@ -14,7 +14,7 @@ namespace BrincaderiasMusicais
     {
         private utils objUtils = new utils();
         private bd objBD = new bd();
-        private OleDbDataReader rsGravar, Categoria;
+        private OleDbDataReader rsGravar, Categoria, rsTrazer;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -22,6 +22,24 @@ namespace BrincaderiasMusicais
             objBD = new bd();
             objUtils = new utils();
             populacategorias();
+
+            if (string.IsNullOrWhiteSpace(Request["POS_ID"]) == false)
+            {
+                rsTrazer = objBD.ExecutaSQL("EXEC psPostBlogPorID " + Request["POS_ID"]);
+                if (rsTrazer == null)
+                {
+                    throw new Exception();
+                }
+
+                if (rsTrazer.HasRows)
+                {
+                    rsTrazer.Read();
+                    POS_TITULO.Attributes.Add("value", rsTrazer["POS_TITULO"].ToString());
+                    POS_TEXTO.InnerText = rsTrazer["POS_TITULO"].ToString();
+                    PCA_ID.Value = rsTrazer["PCA_ID"].ToString();
+
+                }
+            }
         }
 
         public void populacategorias()

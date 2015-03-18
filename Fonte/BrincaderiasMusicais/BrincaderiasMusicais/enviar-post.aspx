@@ -50,18 +50,18 @@
                     <p class="mini_txt">Para publicar uma foto, preencha os campos abaixo e clique no botão "publicar post".</p>
                     <div class="full">
                         <label class="label">Título do post:</label>
-                        <input type="text" class="input" placeholder="Escreva aqui o título do seu post" id="POS_TITULO" name="POS_TITULO" />
+                        <input type="text" class="input" placeholder="Escreva aqui o título do seu post" id="POS_TITULO" name="POS_TITULO" runat="server" />
 
                         <label class="label" for="POS_IMAGEM">Imagem do post:</label>
                         <asp:FileUpload ID="POS_IMAGEM" runat="server" CssClass="obg esconde" />
                         
                         <label for="subir_foto" class="subir_foto btn_save">CARREGAR ARQUIVO DA FOTO</label>
-                        <select name="PCA_ID" runat="server" id="PCA_ID" data-validation="required" class="input obg">
+                        <select name="PCA_ID" runat="server" id="PCA_ID" data-validation="required" class="input obg" >
                             <option value="">Selecione a categoria</option>
                         </select>
                         
                         <label class="label">Texto do post:</label>
-                        <textarea class="input" rows="15" placeholder="Escreva aqui o texto de seu post" name="POS_TEXTO" id="POS_TEXTO"></textarea>
+                        <textarea class="input" rows="15" placeholder="Escreva aqui o texto de seu post" name="POS_TEXTO" id="POS_TEXTO" runat="server"></textarea>
                     </div>
                     <div class="full up_post_btn">
 
