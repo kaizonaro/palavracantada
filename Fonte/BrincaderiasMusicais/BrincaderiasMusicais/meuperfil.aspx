@@ -48,7 +48,7 @@
                 <img src="/images/linha.png" class="linha" />
                 <div class="menu_perfil">
                     <p class="sub_perfil">Ajustes de seu perfil</p>
-                    <span class="primeiro"><a href="editar-foto.aspx">Editar foto de perfil</a></span>
+                    <span class="primeiro"><a href="editar-foto-perfil">Editar foto de perfil</a></span>
                     <span class="segundo"><a href="editar-biografia">Editar mini-biografia</a></span>
                     <span class="terceiro"><a href="javascript:void(0)">configurações</a></span>
 

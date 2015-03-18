@@ -49,15 +49,6 @@ namespace BrincaderiasMusicais {
         protected global::BrincaderiasMusicais.inc.menu menu;
         
         /// <summary>
-        /// headerperfil control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::BrincaderiasMusicais.inc.headerperfil headerperfil;
-        
-        /// <summary>
         /// txtTextarea control.
         /// </summary>
         /// <remarks>
@@ -65,6 +56,15 @@ namespace BrincaderiasMusicais {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea txtTextarea;
+        
+        /// <summary>
+        /// blogPessoal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::BrincaderiasMusicais.inc.blogPessoal blogPessoal;
         
         /// <summary>
         /// login control.

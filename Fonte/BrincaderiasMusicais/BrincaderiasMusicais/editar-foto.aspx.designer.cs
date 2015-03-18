@@ -49,6 +49,69 @@ namespace BrincaderiasMusicais {
         protected global::BrincaderiasMusicais.inc.menu menu;
         
         /// <summary>
+        /// headerperfil control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::BrincaderiasMusicais.inc.headerperfil headerperfil;
+        
+        /// <summary>
+        /// foto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm foto;
+        
+        /// <summary>
+        /// FotoPerfil control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage FotoPerfil;
+        
+        /// <summary>
+        /// upload_foto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload upload_foto;
+        
+        /// <summary>
+        /// mini_txt control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mini_txt;
+        
+        /// <summary>
+        /// PublicarFoto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button PublicarFoto;
+        
+        /// <summary>
+        /// blogPessoal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::BrincaderiasMusicais.inc.blogPessoal blogPessoal;
+        
+        /// <summary>
         /// login control.
         /// </summary>
         /// <remarks>

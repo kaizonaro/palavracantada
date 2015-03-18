@@ -6,6 +6,8 @@
 <%@ Register Src="~/inc/menu.ascx" TagPrefix="brincadeira" TagName="menu" %>
 <%@ Register Src="~/inc/blog.ascx" TagPrefix="brincadeira" TagName="blog" %>
 <%@ Register Src="~/inc/login.ascx" TagPrefix="brincadeira" TagName="login" %>
+<%@ Register Src="~/inc/headerperfil.ascx" TagPrefix="brincadeira" TagName="headerperfil" %>
+<%@ Register Src="~/inc/blogPessoal.ascx" TagPrefix="brincadeira" TagName="blogPessoal" %>
 
 <!DOCTYPE html>
 
@@ -21,6 +23,18 @@
     <meta property="og:url" content="http://projetopalavracantada.net/artigos" />
 
     <brincadeira:script runat="server" ID="script" />
+
+    <script type="text/javascript">
+        function excluirFoto() {
+            decisao = confirm("Deseja excluir a foto atual?");
+            if (decisao){
+                window.location.href = 'editar-foto.aspx?acao=ExcluirFoto';
+            }
+            else {
+                return false;
+            }
+        }
+    </script>
 
 </head>
 <body>
@@ -39,34 +53,9 @@
 
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="meuperfil" class="interna">
-                <div class="img_perfil">
-                    <img src="/images/img_perfil.jpg" />
-                </div>
-                <div class="nome_perfil">
-                    Ana Maria Silva dos Santos
-                </div>
-                <div class="regiao_perfil">
-                    << nome da região do usuário >>
-                </div>
-                <div class="txt txt_perfil">
-                    Biografia do usuário com até 250 caracteres lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse blandit neque vel aliquam aliquet. Suspendisse hendrerit varius nisi, id sagittis neque ullamcorper et proin pulvinar blandit est libero.
-                </div>
-                <br />
-                <div class="links_box">
-                    <div class="img_links">
-                        <a href="#" title="Minhas fotos">
-                            <img src="/images/fotos_perfil.png" alt="Minhas Fotos" /></a>
-                    </div>
-                    <div class="img_links">
-                        <a href="#" title="Minhas fotos">
-                            <img src="/images/videos_perfil.png" alt="Minhas Fotos" /></a>
-                    </div>
-                    <div class="img_links">
-                        <a href="#" title="Minhas fotos">
-                            <img src="/images/blog_perfil.png" alt="Minhas Fotos" /></a>
-                    </div>
-                </div>
+                <brincadeira:headerperfil runat="server" ID="headerperfil" />
                 <img src="/images/linha.png" class="linha" />
+
                 <div class="menu_perfil">
                     <p class="sub_perfil">Ajustes de seu perfil</p>
                     <span class="primeiro ativo"><a href="#">Editar foto de perfil</a></span>
@@ -79,46 +68,34 @@
                     <span class="sexto"><a href="#">configurações</a></span>
                 </div>
                 <div class="medalhas_perfil">
-                    <p class="sub_perfil">Editar Mini-biografia</p>
+                    <p class="sub_perfil">Editar foto de perfil</p>
                     <p class="txt">
-                        Crie ou edite a sua mini-biografia no campo abaixo e clique no botão salvar.
+                        Carregue uma nova foto ou exclua a foto atual.
                     </p>
-                    <form id="foto" class="form">
+                    <form id="foto" class="form" runat="server">
                         <div class="left">
                             <b>Foto Atual</b>
                             <div class="editar_img">
-                                <img src="/images/img_perfil.jpg" />
+                                <img src="/images/img_perfil.jpg" id="FotoPerfil" runat="server"/>
                             </div>
                         </div>
                         <div class="right">
                             <label for="upload_foto"  class="btn_save subir_foto">Carregar nova foto</label>
-                            <input type="file" id="upload_foto" class="esconde" />
-                            <button class="btn_save excluir_foto">Excluir Foto Atual</button>
+                            <asp:FileUpload ID="upload_foto" runat="server" CssClass="esconde" />
+                           -<button class="btn_save excluir_foto" onclick="excluirFoto(); return false;">Excluir Foto Atual</button>
+                           
                         </div>
-                        <div class="mini_txt">Você ainda não definiu uma foto para o seu perfil.</div>
+                        <div class="mini_txt" id="mini_txt" runat="server"></div>
                         <button class="btn_back" onclick="window.history.go(-1); return false;"><< voltar</button>
-                        <input type="submit" class="btn_save" value="salvar alterações"></input>
+                        <asp:Button ID="PublicarFoto" class="btn_save" runat="server" Text="salvar alterações" OnClick="gravar" />
                     </form>
                 </div>
                 <img src="/images/linha.png" class="linha" />
-                <p class="titu_blog_perfil">
-                    <img src="/images/titu_blog_home.png">Blog pessoal <em>(suas publicações Recentes)</em>
-                </p>
-                <ul class="posts_home">
-                    <li>
-                        <p class="titu_post_home"><a href="post/post-aberto-3">Post aberto 3</a></p>
-                        <p class="desc_post_home"><a href="post/post-aberto-3">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris,...</a></p>
-                        <a href="post/post-aberto-3" class="btn">LEIA MAIS</a> </li>
-                    <li>
-                        <p class="titu_post_home"><a href="post/post-aberto-2">Post aberto 2</a></p>
-                        <p class="desc_post_home"><a href="post/post-aberto-2">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris,...</a></p>
-                        <a href="post/post-aberto-2" class="btn">LEIA MAIS</a> </li>
-                    <li>
-                        <p class="titu_post_home"><a href="post/post-aberto-">Post aberto </a></p>
-                        <p class="desc_post_home"><a href="post/post-aberto-">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris,...</a></p>
-                        <a href="post/post-aberto-" class="btn">LEIA MAIS</a> </li>
-                </ul>
-            </div>
+                
+                <!-- BLOG-->
+                <brincadeira:blogPessoal runat="server" ID="blogPessoal" />
+
+             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
 
             <!--BOX LOGIN-->
