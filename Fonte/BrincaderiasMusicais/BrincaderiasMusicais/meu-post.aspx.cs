@@ -25,6 +25,13 @@ namespace BrincaderiasMusicais
             objUtils = new utils();
             objBD = new bd();
 
+            if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1 && string.IsNullOrWhiteSpace(Request["POS_ID"]) == false)
+            {
+                objBD.ExecutaSQL("update PostBlog set POS_ATIVO = 0 where POS_ID = " + Request["POS_ID"]);
+                Response.Redirect("meu-perfil");
+            }
+
+
             //Verificar se ainda está logado
             if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1 && Request["titulo"] != null)
             {
@@ -45,6 +52,8 @@ namespace BrincaderiasMusicais
                 rsUser.Close();
 
                 PopulaBlog();
+
+                
                 
             }
             else
@@ -74,6 +83,7 @@ namespace BrincaderiasMusicais
                 txtPost.InnerHtml += "<p class='tit_post'>" + rsBlog["POS_TITULO"] + "</p>";
                 txtPost.InnerHtml += "" + rsBlog["POS_TEXTO"].ToString() + "";
                 editar_bt.Attributes.Add("href","/enviar-post?POS_ID=" + rsBlog["POS_ID"].ToString());
+                excluir_bt.Attributes.Add("href", "/meu-post.aspx?POS_ID=" + rsBlog["POS_ID"].ToString());
 
             }
 
