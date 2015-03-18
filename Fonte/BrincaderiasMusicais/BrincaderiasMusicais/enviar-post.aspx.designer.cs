@@ -67,6 +67,15 @@ namespace BrincaderiasMusicais {
         protected global::System.Web.UI.HtmlControls.HtmlForm up_foto;
         
         /// <summary>
+        /// POS_TITULO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText POS_TITULO;
+        
+        /// <summary>
         /// POS_IMAGEM control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace BrincaderiasMusicais {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect PCA_ID;
+        
+        /// <summary>
+        /// POS_TEXTO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea POS_TEXTO;
         
         /// <summary>
         /// pub control.

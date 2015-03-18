@@ -48,8 +48,9 @@
                 
                 <span id="logPost" runat="server"></span>
                 <div class="txt textoPost" runat="server" id="txtPost"></div><br /><br />
-                <a href="#" class="btn2">EXCLUIR POST</a>
-                <a href="#" class="btn3">EDITAR POST</a>
+                
+                <a runat="server" href="#" class="btn2">EXCLUIR POST</a>
+                <a runat="server" href="#" class="btn3" id="editar_bt">EDITAR POST</a>
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
 
