@@ -49,6 +49,15 @@ namespace BrincaderiasMusicais {
         protected global::BrincaderiasMusicais.inc.menu menu;
         
         /// <summary>
+        /// headerperfil control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::BrincaderiasMusicais.inc.headerperfil headerperfil;
+        
+        /// <summary>
         /// login control.
         /// </summary>
         /// <remarks>
