@@ -443,6 +443,19 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 #sobre2 .btn2{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color: #fff;background: url(/images/menu2.png) no-repeat;width: 100px;height: 26px;display: inline-block;line-height: 29px;background-size: 100% 100%;float: left;margin-bottom: 15px;font-size:9px;text-align:center;margin-top:-5px; text-transform:uppercase;}
 #sobre2 .btn3{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color: #fff;background: url(/images/save_perfil.png) no-repeat;width: 100px;height: 26px;display: inline-block;line-height: 29px;background-size: 100% 100%;float: left;margin-bottom: 15px;font-size:9px;text-align:center;margin-top:-5px; text-transform:uppercase;margin-left:20px;}
 
+/*FAQ*/
+.faq {background:url(/images/beleleu.png) no-repeat center right;}
+.box_prof{color:#336600;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;display:inline-block;margin-top:50px;margin-left:-50px;font-weight:bold;margin-bottom:80px}
+.prof{float:left;}
+.select_faq .txt{font-size:11px;margin-top:10px;}
+.select_faq{width:330px;float:right;}
+.select_faq select{-webkit-appearance:menulist;-moz-appearance:menulist;appearance:menulist;font-size:11px;float:left;border:1px solid rgba(107,107,107,0.67); padding: 5px 0px;}
+.select_faq .btn{width: 34px;  height: 26px;  font-family: 'love_ya_like_a_sister_snormal', sans-serif;  background: url(../images/ok_verde.png) center center;  font-family: 'love_ya_like_a_sister_snormal', sans-serif;  font-size: 13px;  text-transform: uppercase;cursor: pointer; }
+.select_faq .desc_faq{margin-top:10px;}
+.desc_faq a {color:#336600;}
+
+.titu_verde {width:100%;display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:13px;color:#336600;margin-top:5px;}
+
 /*AJUSTES*/
 .textoPost span {
     font-size: 10px;
