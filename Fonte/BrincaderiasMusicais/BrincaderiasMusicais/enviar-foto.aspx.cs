@@ -58,7 +58,7 @@ namespace BrincaderiasMusicais
 
                             // Salvar no BD
                             objBD.ExecutaSQL("EXEC admin_piuUsuarioFotos '" + Request["FOT_ID"] + "','" + Session["usuID"] + "', '" + filename + extensao + "','" + Request["FOT_LEGENDA"] + "'");
-
+                            
                             // File.Delete(Server.MapPath("~/upload/imagens/" + rsSize["PAG_PASTA"] + "/") + filename + i + extensao);
                             break;
                         }

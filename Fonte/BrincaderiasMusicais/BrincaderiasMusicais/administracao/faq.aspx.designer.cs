@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BrincaderiasMusicais {
+namespace BrincaderiasMusicais.administracao {
     
     
-    public partial class fac {
+    public partial class faq {
         
         /// <summary>
         /// script control.
@@ -19,7 +19,7 @@ namespace BrincaderiasMusicais {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::BrincaderiasMusicais.inc.script script;
+        protected global::BrincaderiasMusicais.administracao.inc.script script;
         
         /// <summary>
         /// header control.
@@ -28,69 +28,42 @@ namespace BrincaderiasMusicais {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::BrincaderiasMusicais.inc.header header;
+        protected global::BrincaderiasMusicais.administracao.inc.menu header;
         
         /// <summary>
-        /// menu control.
+        /// Form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::BrincaderiasMusicais.inc.menu menu;
+        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
         
         /// <summary>
-        /// pergunta control.
+        /// Incluir control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect pergunta;
+        protected global::System.Web.UI.WebControls.Button Incluir;
         
         /// <summary>
-        /// pPergunta control.
+        /// divLista control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pPergunta;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLista;
         
         /// <summary>
-        /// pResposta control.
+        /// divExcluidos control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl pResposta;
-        
-        /// <summary>
-        /// login control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::BrincaderiasMusicais.inc.login login;
-        
-        /// <summary>
-        /// blog control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::BrincaderiasMusicais.inc.blog blog;
-        
-        /// <summary>
-        /// footer control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::BrincaderiasMusicais.inc.footer footer;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divExcluidos;
     }
 }

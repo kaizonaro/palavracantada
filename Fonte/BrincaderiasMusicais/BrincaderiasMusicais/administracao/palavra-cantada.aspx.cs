@@ -91,8 +91,6 @@ namespace BrincaderiasMusicais.administracao
             divLista.InnerHtml += "</table>";
         }
 
-
-
         public void gravar(object sender, EventArgs e)
         {
             rsGravar = objBD.ExecutaSQL("EXEC admin_piuEquipe  '" + Request["EQU_ID"] + "', '" + Request["EQU_NOME"] + "', NULL, '" + Request["EQU_DESCRICAO"] + "'");
