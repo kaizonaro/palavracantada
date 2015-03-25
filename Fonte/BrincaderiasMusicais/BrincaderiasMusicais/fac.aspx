@@ -15,6 +15,37 @@
 
     <brincadeira:script runat="server" ID="script" />
 
+    <script type="text/javascript">
+        //ajax
+        function GetXMLHttp() {
+            if (navigator.appName == "Microsoft Internet Explorer") {
+                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            } else {
+                xmlHttp = new XMLHttpRequest();
+            }
+            return xmlHttp;
+        }
+        var mod = GetXMLHttp();
+
+        function MudarFAQ(id) {
+            //validar se há pergunta selecionado
+            if (id != 0) {
+                mod.open("GET", "fac.aspx?id=" + id + "&ACAO=mudarFAQ", true);
+                mod.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                mod.onreadystatechange = function () {
+                    if (mod.readyState == 4) {
+                        if (mod.status == 200) {
+                            var ss = mod.responseText.split("|");
+                            $('#pPergunta').html(ss[0]);
+                            $('#pResposta').html(ss[1]);
+                        }
+                    }
+                };
+                mod.send(null);
+            }
+        }
+    </script>
+
 </head>
 <body>
 
@@ -50,21 +81,21 @@
                     </div>
                     <div class="select_faq">
                         <p class="txt"><strong>Selecione na caixa de opções abaixo a resposta que deseja visualizar e clique no botão de ok para visualizar a respota.</strong> </p>
-                        <select name="pergunta">
-                            <option selected>Lorem ipsum dorem magna signat lorem est ipsum?</option>
-                            <option>Lorem ipsum dorem magna signat lorem est ipsum?</option>
-                            <option>Lorem ipsum dorem magna signat lorem est ipsum?</option>
-                            <option>Lorem ipsum dorem magna signat lorem est ipsum?</option>
-                            <option>Lorem ipsum dorem magna signat lorem est ipsum?</option>
-                        </select>
-                        <input type="submit" class="btn" value="ok" />
+                        
+                        <form action="javascript:void(0)" onsubmit="MudarFAQ($('#pergunta').val())">
+                            <select name="pergunta" id="pergunta" runat="server">
+                                <option value="0" selected="selected">Selecione uma das perguntas abaixo:</option>
+                            </select>
+                            <input type="submit" class="btn" value="ok" />
+                        </form>
                         <p class="txt desc_faq">Caso você não encontre a resposta para a sua questão, entre em contato com a equipe Brincadeiras Musicais através do link <a href="/contato" title="contato">contato</a></</p>
+
                     </div>
                     <div class="full">
-                        <p class="titu_verde">
-                            Lorem ipsum dorem magna signat lorem est ipsum?
+                        <p class="titu_verde" id="pPergunta" runat="server">
+                            
                         </p>
-                        <p class="txt">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed imperdiet diam tortor, nec varius arcu blandit vel. Vestibulum accumsan ut augue et aliquam. Curabitur in nibh ut orci gravida euismod.Nam nec nisi et magna interdum posuere vel at metus. Fusce egestas vehicula risus ac lacinia. Integer est leo, viverra sed dictum id, ultricies non nibh. Duis tempus erat eget gravida vestibulum. Duis tempor a quam ullamcorper tristique.Nullam sollicitudin, elit tempor dapibus euismod, sem velit accumsan est, sed eleifend nisi nibh non turpis. Vivamus nisi velit, vulputate in scelerisque nec, egestas a eros. Nam nec magna sit amet lorem pharetra sodales. Pellentesque porta, felis non fringilla mattis, purus nunc dapibus quam, id vulputate eros erat eu nisl. Vivamus blandit, elit quis finibus feugiat, ante orci porttitor turpisLorem ipsum dorem est signat lorem ipsum signat nam nec nisi et magna interdum posuere vel at metus. Fusce egestas vehicula risus ac lacinia. Integer est leo, viverra sed dictum id, ultricies.</p>
+                        <p class="txt" id="pResposta" runat="server"></p>
                     </div>
                 </div>
 

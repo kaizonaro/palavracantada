@@ -74,7 +74,7 @@ namespace BrincaderiasMusicais.inc
             box_logado.InnerHtml += "<ul class=\"opcao_logado\">";
             box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"/meu-perfil\" title=\"Meu perfil\">Meu perfil</a></li>";
             box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"javascript:void(0)\" title=\"Agenda\">Agenda</a></li>";
-            box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"javascript:void(0)\" title=\"FAQ\">FAQ</a></li>";
+            box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"/faq\" title=\"FAQ\">FAQ</a></li>";
             box_logado.InnerHtml += "   <li class=\"conheca pequeno\"><a href=\"javascript:void(0)\" title=\"Galeria Colaborativa\">Galeria Colaborativa</a></li>";
             box_logado.InnerHtml += "   <li class=\"conheca medio\"><a href=\"javascript:void(0)\" title=\"Blog Regional\">Blog Regional</a></li>";
             box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"javascript:void(0)\" title=\"Fórum\">Fórum</a></li>";

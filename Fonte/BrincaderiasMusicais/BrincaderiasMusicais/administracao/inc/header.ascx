@@ -45,6 +45,7 @@
                 <li><a href="usuarios.aspx"><img src="images/home.png" alt="Usuários"><p>Usuários</p></a></li>
                 <li><a href="banners.aspx"><img src="images/home.png" alt="home"><p>Banners</p></a></li>
                 <li><a href="javascript:void(0)"><img src="images/home.png" alt="Galeria"><p>Galeria</p></a><ul class="submenu"><li><a href="videos.aspx">Vídeos</a></li><li><a href="fotos.aspx">Fotos</a></li></ul></li>
+                <li><a href="faq.aspx"><img src="images/home.png" alt="faq"><p>FAQ</p></a></li>
                 <li><a href="contato.aspx"><img src="images/home.png" alt="Contato"><p>Contato</p></a></li>
             </ul>
         </nav>
