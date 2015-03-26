@@ -7,6 +7,7 @@
 <%@ Register Src="~/inc/blog.ascx" TagPrefix="brincadeira" TagName="blog" %>
 <%@ Register Src="~/inc/login.ascx" TagPrefix="brincadeira" TagName="login" %>
 <%@ Register Src="~/inc/headerperfil.ascx" TagPrefix="brincadeira" TagName="headerperfil" %>
+<%@ Register Src="~/inc/menuperfil.ascx" TagPrefix="brincadeira" TagName="menuperfil" %>
 <%@ Register Src="~/inc/blogPessoal.ascx" TagPrefix="brincadeira" TagName="blogPessoal" %>
 
 <!DOCTYPE html>
@@ -56,17 +57,8 @@
                 <brincadeira:headerperfil runat="server" ID="headerperfil" />
                 <img src="/images/linha.png" class="linha" />
 
-                <div class="menu_perfil">
-                    <p class="sub_perfil">Ajustes de seu perfil</p>
-                    <span class="primeiro ativo"><a href="#">Editar foto de perfil</a></span>
-                    <span class="segundo"><a href="#">Editar mini-biografia</a></span>
-                    <span class="terceiro"><a href="#">configurações</a></span>
+                <brincadeira:menuperfil runat="server" ID="menuperfil" />
 
-                    <p class="sub_perfil">Ajustes de seu perfil</p>
-                    <span class="quarto"><a href="#">Editar foto de perfil</a></span>
-                    <span class="quinto"><a href="#">Editar mini-biografia</a></span>
-                    <span class="sexto"><a href="#">configurações</a></span>
-                </div>
                 <div class="medalhas_perfil">
                     <p class="sub_perfil">Editar foto de perfil</p>
                     <p class="txt">
