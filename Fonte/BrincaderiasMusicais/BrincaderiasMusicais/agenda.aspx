@@ -73,6 +73,14 @@
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
 
+            <!--BOX LOGIN-->
+            <brincadeira:login runat="server" ID="login" />
+
+            <!--BLOG-->
+            <brincadeira:blog runat="server" ID="blog" />
+
+        </div>
+    </section>
             <!--RODAPÉ-->
             <brincadeira:footer runat="server" ID="footer" />
             <!--FIM DO RODAPÉ-->
