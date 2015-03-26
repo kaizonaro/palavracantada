@@ -454,7 +454,17 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .select_faq .desc_faq{margin-top:10px;}
 .desc_faq a {color:#336600;}
 
-.titu_verde {width:100%;display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:13px;color:#336600;margin-top:5px;}
+.titu_verde {width:100%;display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:13px;color:#336600;margin-top:5px;}
+
+/*AGENDA*/
+.titu_agenda{width:100%;display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:18px;color:#736d9b;margin-top:10px;text-align:left;}
+.data_agendada{width:100%;display:inline-block;}
+.data_agendada a{color: #fff;background: url(/images/menu1.png);width: 100px;height: 31px;display: inline-block;line-height: 34px;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:12px;margin-top:10px;float:left;margin-bottom:-15px;}
+.titu_calendario{width:100%;display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:18px;color:#736d9b;margin-top:-10px;text-align:left;}
+.interna .sub_calendario {margin-top:0px;}
+.interna .txt_menor{font-size:11px}
+.box_info_data{background:#29b5c4;width:100%;text-align:left;color:#fff;font-size:11px;font-family:Arial;padding:10px;border-radius:5px;font-weight:normal;}
+.box_info_data p{margin-bottom:4px;}
 
 /*AJUSTES*/
 .textoPost span {
