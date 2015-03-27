@@ -14,10 +14,10 @@ namespace BrincaderiasMusicais
         utils objUtils = new utils();
         bd objBD = new bd();
         OleDbDataReader rsLista;
-
+        string RED_ID;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string RED_ID;
+
             try
             {
                 RED_ID = Session["redeID"].ToString();
@@ -27,8 +27,36 @@ namespace BrincaderiasMusicais
                 RED_ID = "NULL";
             }
 
+            if (Page.IsPostBack == false)
+            {
+                rsLista = objBD.ExecutaSQL("SELECT TOP(3) EVE_DIA, EVE_TITULO, EVE_DESCRICAO from Eventos WHERE EVE_ATIVO =  1 and RED_ID = " + RED_ID + " ORDER BY EVE_DIA DESC");
+                if (rsLista == null)
+                {
+                    throw new Exception();
+                }
+                if (rsLista.HasRows)
+                {
 
-            rsLista = objBD.ExecutaSQL("SELECT TOP(3) EVE_DIA, EVE_TITULO, EVE_DESCRICAO from Eventos WHERE EVE_ATIVO =  1 and RED_ID = " + RED_ID + " ORDER BY EVE_DIA DESC");
+                    while (rsLista.Read())
+                    {
+                        topeventos.InnerHtml += "<div class=\"box_eventos\">";
+                        topeventos.InnerHtml += "   <p class=\"data_agendada\"><a href=\"#\">" + Convert.ToDateTime(rsLista["EVE_DIA"]).ToShortDateString() + "</a></p>";
+                        topeventos.InnerHtml += "   <p class=\"txt txt_menor\">" + rsLista["EVE_TITULO"] + " - " + rsLista["EVE_DESCRICAO"] + "</p>";
+                        topeventos.InnerHtml += "</div>";
+
+
+                    }
+                }
+                else
+                {
+                    topeventos.InnerHtml += "<div class=\"box_eventos\">Não há eventos próximos</div>";
+                }
+            }
+        }
+
+        protected void calendario_SelectionChanged(object sender, EventArgs e)
+        {
+            rsLista = objBD.ExecutaSQL("SELECT EVE_DIA, EVE_TITULO, EVE_DESCRICAO from Eventos WHERE EVE_ATIVO =  1 and RED_ID = " + RED_ID + " and EVE_DIA = convert(datetime,'"+ calendario.SelectedDate +"')");
             if (rsLista == null)
             {
                 throw new Exception();
@@ -38,23 +66,12 @@ namespace BrincaderiasMusicais
 
                 while (rsLista.Read())
                 {
-                    topeventos.InnerHtml += "<div class=\"box_eventos\">";
-                    topeventos.InnerHtml += "   <p class=\"data_agendada\"><a href=\"#\">" + Convert.ToDateTime(rsLista["EVE_DIA"]).ToShortDateString() + "</a></p>";
-                    topeventos.InnerHtml += "   <p class=\"txt txt_menor\">"+ rsLista["EVE_TITULO"]+ " - " + rsLista["EVE_DESCRICAO"] + "</p>";
-                    topeventos.InnerHtml += "</div>";
-
-
+                    detalhe_dataevento.InnerText = rsLista["EVE_DIA"].ToString();
+                    detalhe_descricaoevento.InnerText = rsLista["EVE_DESCRICAO"].ToString();
+                    detalhe_tituloevento.InnerHtml = rsLista["EVE_TITULO"].ToString();
                 }
             }
-            else
-            {
-                topeventos.InnerHtml += "<div class=\"box_eventos\">Não há eventos próximos</div>";
-            }
-        }
 
-        protected void calendario_SelectionChanged(object sender, EventArgs e)
-        {
-            detalhe_dataevento.InnerText = calendario.SelectedDate.ToShortDateString();
         }
     }
 }
