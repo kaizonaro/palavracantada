@@ -41,7 +41,7 @@ namespace BrincaderiasMusicais
             {
                 while (rsCargo.Read())
                 {
-                    cargo.Items.Add(new ListItem(rsCargo["CAR_TITULO"].ToString(), rsCargo["CAR_ID"].ToString()));
+                    CAR_ID.Items.Add(new ListItem(rsCargo["CAR_TITULO"].ToString(), rsCargo["CAR_ID"].ToString()));
                 }
 
             }
@@ -64,7 +64,7 @@ namespace BrincaderiasMusicais
                     USU_NOME.Attributes.Add("value", rsConfig["USU_NOME"].ToString());
                     USU_EMAIL.Attributes.Add("value", rsConfig["USU_EMAIL"].ToString());
 
-                    ListItem li = cargo.Items.FindByValue(rsConfig["CAR_ID"].ToString());
+                    ListItem li = CAR_ID.Items.FindByValue(rsConfig["CAR_ID"].ToString());
                     li.Selected = true;
                     
                     //pivacidade
