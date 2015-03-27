@@ -94,13 +94,13 @@ namespace BrincaderiasMusicais {
         protected global::System.Web.UI.HtmlControls.HtmlInputText USU_NOME;
         
         /// <summary>
-        /// cargo control.
+        /// CAR_ID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect cargo;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect CAR_ID;
         
         /// <summary>
         /// USU_EMAIL control.

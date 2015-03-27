@@ -51,7 +51,7 @@
                         <label class="label">Nome:</label>
                         <input type="text" class="input obg" runat="server" id="USU_NOME" />
                         <label class="label">Cargo:</label>
-                        <select id="cargo" name="CAR_ID" class="input obg" runat="server">
+                        <select id="CAR_ID" name="CAR_ID" class="input obg" runat="server">
                             <option value="">Selecione um cargo</option>
                         
                         </select>
