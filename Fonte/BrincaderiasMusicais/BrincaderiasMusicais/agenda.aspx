@@ -43,33 +43,39 @@
                     Agenda
                 </div>
                 <div id="breadcrumb">
-                    <a href="/" title="Home">Home</a> >> <strong>Agenda</strong>
+                    <a href="/" title="Home">Home</a>  <strong>Agenda</strong>
                 </div>
                 <!-- INCLUDE -->
-                <p class="titu_agenda">Próximos eventos de sua região:</p>
-                <div class="box_eventos">
-                    <p class="data_agendada"><a href="#">10/03/2015</a></p>
-                    <p class="txt txt_menor">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare orci massa, ut esting porttitor dui condimentum id. Phasellus vitae efficitr eros lorem ipsum (máximo 195 caracteres).</p>
-                </div>
-                <div class="box_eventos">
-                    <p class="data_agendada"><a href="#">10/03/2015</a></p>
-                    <p class="txt txt_menor">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare orci massa, ut esting porttitor dui condimentum id. Phasellus vitae efficitr eros lorem ipsum (máximo 195 caracteres).</p>
-                </div>
-                <div class="box_eventos">
-                    <p class="data_agendada"><a href="#">10/03/2015</a></p>
-                    <p class="txt txt_menor">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare orci massa, ut esting porttitor dui condimentum id. Phasellus vitae efficitr eros lorem ipsum (máximo 195 caracteres).</p>
-                </div>
-                <br /><br /><img src="/images/linha.png" class="linha" />
-                <p class="titu_calendario">AGENDA COMPLETA - << MARÇO 2015 >>:</p>
-                <p class="txt sub_calendario txt_menor"><strong>Clique em uma data para visualizar mais detalhes sobre o evento.</strong></p><br /><br />
-                <img src="/images/calendario.png" width="100%" /><br /><br />
-                <p class="txt sub_calendario txt_menor"><strong>Detalhes sobre o evento selecionado:</strong></p>
-                <div class="box_info_data">
-                    <p><strong><< Título do evento selecionado >></strong></p>
-                    <p>Data:<strong> << data do evento >></strong></p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare orci massa, ut esting porttitor dui condimentum id. Phasellus vitae efficitr eros lorem ipsum (máximo 195 caracteres).</p>
-                </div>
+                <form runat="server">
+                    <p class="titu_agenda">Próximos eventos de sua região:</p>
+                    <div id="topeventos" runat="server">
+                      
+                    </div>
+                    <br />
+                    <br />
+                    <img src="/images/linha.png" class="linha" />
+                    <p class="titu_calendario">AGENDA COMPLETA -  MARÇO 2015 :</p>
+                    <p class="txt sub_calendario txt_menor"><strong>Clique em uma data para visualizar mais detalhes sobre o evento.</strong></p>
+                    <br />
+                    <br />
 
+                    <asp:Calendar ID="calendario" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" OnSelectionChanged="calendario_SelectionChanged" Width="100%">
+                        <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+                        <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
+                        <OtherMonthDayStyle ForeColor="#999999" />
+                        <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                        <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
+                        <TodayDayStyle BackColor="#CCCCCC" />
+                    </asp:Calendar>
+                    <br />
+                    <br />
+                    <p class="txt sub_calendario txt_menor"><strong>Detalhes sobre o evento selecionado:</strong></p>
+                    <div class="box_info_data">
+                        <p><strong><span id="detalhe_tituloevento" runat="server">Título do evento selecionado </span></strong></p>
+                        <p>Data:<strong>  <span id="detalhe_dataevento" runat="server">data do evento </span></strong></p>
+                        <p id="detalhe_descricaoevento" runat="server">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare orci massa, ut esting porttitor dui condimentum id. Phasellus vitae efficitr eros lorem ipsum (máximo 195 caracteres).</p>
+                    </div>
+                </form>
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
 
@@ -81,9 +87,9 @@
 
         </div>
     </section>
-            <!--RODAPÉ-->
-            <brincadeira:footer runat="server" ID="footer" />
-            <!--FIM DO RODAPÉ-->
+    <!--RODAPÉ-->
+    <brincadeira:footer runat="server" ID="footer" />
+    <!--FIM DO RODAPÉ-->
 </body>
 </html>
 
