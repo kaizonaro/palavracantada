@@ -43,7 +43,7 @@ namespace BrincaderiasMusicais
                     {
                         topeventos.InnerHtml += "<div class=\"box_eventos\">";
 
-                        topeventos.InnerHtml += "   <p class=\"data_agendada\"><a href=\"#\">" + Convert.ToDateTime(rsLista["EVE_DIA"]).ToShortDateString() + "</a></p>";
+                        topeventos.InnerHtml += "   <p class=\"data_agendada\"><a href=\"#\" onclick=\"selecionaevento(" + Convert.ToDateTime(rsLista["EVE_DIA"]).ToShortDateString() + ")\">" + Convert.ToDateTime(rsLista["EVE_DIA"]).ToShortDateString() + "</a></p>";
                         topeventos.InnerHtml += "   <p class=\"txt txt_menor\">" + rsLista["EVE_TITULO"] + " - " + rsLista["EVE_DESCRICAO"] + "</p>";
                         topeventos.InnerHtml += "</div>";
 
