@@ -23,47 +23,50 @@ namespace BrincaderiasMusicais.inc
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            objUtils = new utils();
-            objBD = new bd();
-
-            populacategorias();
-            populardatas();
-            populaBanner();
-            if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1)
+            if (!IsPostBack)
             {
-                //LOGADO
-                box_logado.Attributes.Add("class", "box_logado");
-                banner_sidebar.Attributes.Add("class", "esconde");
-                box_login.Attributes.Add("class", "esconde");
+                objUtils = new utils();
+                objBD = new bd();
 
-                populuarBoxLogado();
-
-
-            }
-            else
-            {
-                //DESLOGADO
-                if (Request["msg"] != null && Request["msg"].ToString().Length > 1)
+                populacategorias();
+                populardatas();
+                populaBanner();
+                if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1)
                 {
-                    msgErro.InnerHtml = "<br/>Usuário e/ou senha inválida";
+                    //LOGADO
+                    box_logado.Attributes.Add("class", "box_logado");
+                    banner_sidebar.Attributes.Add("class", "esconde");
+                    box_login.Attributes.Add("class", "esconde");
+
+                    populuarBoxLogado();
+
+
+                }
+                else
+                {
+                    //DESLOGADO
+                    if (Request["msg"] != null && Request["msg"].ToString().Length > 1)
+                    {
+                        msgErro.InnerHtml = "<br/>Usuário e/ou senha inválida";
+                    }
+                }
+
+                string urlCompleta = Request.Url.AbsoluteUri;
+                string paginaAtual = Request.CurrentExecutionFilePath;
+                paginaAtual = paginaAtual.Remove(0, paginaAtual.LastIndexOf("/") + 1);
+
+                switch (paginaAtual)
+                {
+                    case "blog.aspx":
+                        divBlog.Attributes.Remove("class");
+                        divBlog.Attributes["class"] = "box_login";
+
+                        banner_sidebar.Attributes.Remove("class");
+                        banner_sidebar.Attributes["class"] = "esconde";
+                        break;
                 }
             }
-
-            string urlCompleta = Request.Url.AbsoluteUri;
-            string paginaAtual = Request.CurrentExecutionFilePath;
-            paginaAtual = paginaAtual.Remove(0, paginaAtual.LastIndexOf("/") + 1);
-
-            switch (paginaAtual)
-            {
-                case "blog.aspx":
-                    divBlog.Attributes.Remove("class");
-                    divBlog.Attributes["class"] = "box_login";
-
-                    banner_sidebar.Attributes.Remove("class");
-                    banner_sidebar.Attributes["class"] = "esconde";
-                    break;
-            }
-
+            
         }
 
         public void populuarBoxLogado()
@@ -73,7 +76,7 @@ namespace BrincaderiasMusicais.inc
             box_logado.InnerHtml += "<p class=\"titu_logado\">Selecione no menu abaixo qual sessão deseja visitar:</p>";
             box_logado.InnerHtml += "<ul class=\"opcao_logado\">";
             box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"/meu-perfil\" title=\"Meu perfil\">Meu perfil</a></li>";
-            box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"agenda\" title=\"Agenda\">Agenda</a></li>";
+            box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"/agenda\" title=\"Agenda\">Agenda</a></li>";
             box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"/faq\" title=\"FAQ\">FAQ</a></li>";
             box_logado.InnerHtml += "   <li class=\"conheca pequeno\"><a href=\"javascript:void(0)\" title=\"Galeria Colaborativa\">Galeria Colaborativa</a></li>";
             box_logado.InnerHtml += "   <li class=\"conheca medio\"><a href=\"javascript:void(0)\" title=\"Blog Regional\">Blog Regional</a></li>";

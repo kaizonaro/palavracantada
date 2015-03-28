@@ -22,30 +22,35 @@ namespace BrincaderiasMusicais.inc
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            if (!IsPostBack)
             {
-                objUtils = new utils();
-                objBD = new bd();
-
-                if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1)
+                try
                 {
-                    //LOGADO
-                    pBlog.InnerHtml = "BLOG BRINCADEIRAS MUSICAIS<br />Blog Regional - " + Session["nomeInstituicao"] + "";
+                    objUtils = new utils();
+                    objBD = new bd();
+
+                    if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1)
+                    {
+                        //LOGADO
+                        pBlog.InnerHtml = "BLOG BRINCADEIRAS MUSICAIS<br />Blog Regional - " + Session["nomeInstituicao"] + "";
+                    }
+                    else
+                    {
+                        //DESLOGADO
+                        pBlog.InnerHtml = "BLOG BRINCADEIRAS MUSICAIS<br />(PUBLICAÇÕES RECENTES)";
+                    }
+
+
+                    PopularBlog(Convert.ToInt16(Session["redeID"]));
                 }
-                else
+                catch (Exception)
                 {
-                    //DESLOGADO
-                    pBlog.InnerHtml = "BLOG BRINCADEIRAS MUSICAIS<br />(PUBLICAÇÕES RECENTES)";
+
+                    throw;
                 }
-
-
-                PopularBlog(Convert.ToInt16(Session["redeID"]));
             }
-            catch (Exception)
-            {
-                
-                throw;
-            }
+
+            
         }
 
         public void PopularBlog(int RED_ID)
