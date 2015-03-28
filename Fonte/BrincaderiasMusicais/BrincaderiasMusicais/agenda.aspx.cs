@@ -31,7 +31,7 @@ namespace BrincaderiasMusicais
 
             if (Page.IsPostBack == false)
             {
-                rsLista = objBD.ExecutaSQL("SELECT TOP(3) EVE_DIA, EVE_TITULO, EVE_DESCRICAO from Eventos WHERE EVE_ATIVO =  1 and RED_ID = " + RED_ID + " ORDER BY EVE_DIA DESC");
+                rsLista = objBD.ExecutaSQL("SELECT TOP(3) EVE_DIA, EVE_TITULO, EVE_DESCRICAO from Eventos WHERE EVE_ATIVO =  1 and RED_ID = " + RED_ID + " and EVE_DIA >= getdate() ORDER BY EVE_DIA DESC");
                 if (rsLista == null)
                 {
                     throw new Exception();
@@ -43,7 +43,7 @@ namespace BrincaderiasMusicais
                     {
                         topeventos.InnerHtml += "<div class=\"box_eventos\">";
 
-                        topeventos.InnerHtml += "   <p class=\"data_agendada\"><a href=\"#\" onclick=\"selecionaevento(" + Convert.ToDateTime(rsLista["EVE_DIA"]).ToShortDateString() + ")\">" + Convert.ToDateTime(rsLista["EVE_DIA"]).ToShortDateString() + "</a></p>";
+                        topeventos.InnerHtml += "   <p class=\"data_agendada\">" + Convert.ToDateTime(rsLista["EVE_DIA"]).ToShortDateString() + "</p>";
                         topeventos.InnerHtml += "   <p class=\"txt txt_menor\">" + rsLista["EVE_TITULO"] + " - " + rsLista["EVE_DESCRICAO"] + "</p>";
                         topeventos.InnerHtml += "</div>";
 
@@ -79,7 +79,7 @@ namespace BrincaderiasMusicais
 
         protected void calendario_DayRender(object sender, DayRenderEventArgs e)
         {
-            rsLista = objBD.ExecutaSQL("SELECT EVE_DIA from Eventos WHERE EVE_ATIVO =  1 and RED_ID = " + RED_ID + " ORDER BY EVE_DIA DESC");
+            rsLista = objBD.ExecutaSQL("SELECT EVE_DIA from Eventos WHERE EVE_ATIVO =  1 and RED_ID = " + RED_ID + "  ORDER BY EVE_DIA DESC");
             if (rsLista == null)
             {
                 throw new Exception();
@@ -102,5 +102,8 @@ namespace BrincaderiasMusicais
                 }
             }
         }
+
+        
+         
     }
 }

@@ -73,7 +73,7 @@
                                 <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
                                 <TodayDayStyle BackColor="#CCCCCC" />
                             </asp:Calendar>
-
+                            
                             <br />
                             <br />
                             <p class="txt sub_calendario txt_menor"><strong>Detalhes sobre o evento selecionado:</strong></p>
