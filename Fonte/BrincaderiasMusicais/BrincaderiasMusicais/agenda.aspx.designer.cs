@@ -31,6 +31,15 @@ namespace BrincaderiasMusicais {
         protected global::BrincaderiasMusicais.inc.script script;
         
         /// <summary>
+        /// sm1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager sm1;
+        
+        /// <summary>
         /// header control.
         /// </summary>
         /// <remarks>
@@ -56,6 +65,15 @@ namespace BrincaderiasMusicais {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl topeventos;
+        
+        /// <summary>
+        /// up1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel up1;
         
         /// <summary>
         /// calendario control.
