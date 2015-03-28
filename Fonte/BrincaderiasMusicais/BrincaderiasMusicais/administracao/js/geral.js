@@ -190,6 +190,14 @@ $(document).ready(function () {
     });
 
     $(function ($) {
+        $('.hora').mask("99:99");
+    });
+
+    $(function ($) {
+        $('.data').mask("99/99/9999");
+    });
+
+    $(function ($) {
         $('.cel').mask("(99) 9999-9999?9");
     });
 

@@ -46,27 +46,105 @@
                     <a href="/" title="Home">Home</a>  <strong>Agenda</strong>
                 </div>
                 <!-- INCLUDE -->
-                <form id="Form1" runat="server">
-                    <p class="titu_agenda">Próximos eventos de sua região:</p>
-                    <div id="topeventos" runat="server">
-                      
+                    <p class="titu_agenda">Galeria Colaborativa de Fotos</p>
+                    <p class="sub_galeria_geral">Fotografias enviadas pelos membros da rede de ensino de <strong><< nome da rede de ensino >></strong>(use as setas para navegar nas fotos e clique na foto para ampliá-la).</p>
+                    <div class="galeria_geral">
+
+                        <div class="mascara">
+                            <!-- FOTOS -->
+                            <ul id="ulFotos" class="fotos_home carrousel" rel="0">
+                               <li><a href="/upload/imagens/galeria/10032015030302.jpg">
+                                    <img src="/upload/imagens/galeria/thumb-10032015030302.jpg" alt=" Brincadeiras Musicais em Osasco (SP)"></a>
+                                    <p>:: Brincadeiras Musicais em Osasco (SP) ::</p>
+                                </li>
+                                <li><a href="/upload/imagens/galeria/10032015030302.jpg">
+                                    <img src="/upload/imagens/galeria/thumb-10032015030302.jpg" alt=" Brincadeiras Musicais em Osasco (SP)"></a>
+                                    <p>:: Brincadeiras Musicais em Osasco (SP) ::</p>
+                                </li>
+                                <li><a href="/upload/imagens/galeria/10032015030302.jpg">
+                                    <img src="/upload/imagens/galeria/thumb-10032015030302.jpg" alt=" Brincadeiras Musicais em Osasco (SP)"></a>
+                                    <p>:: Brincadeiras Musicais em Osasco (SP) ::</p>
+                                </li>
+                                <li><a href="/upload/imagens/galeria/10032015030302.jpg">
+                                    <img src="/upload/imagens/galeria/thumb-10032015030302.jpg" alt=" Brincadeiras Musicais em Osasco (SP)"></a>
+                                    <p>:: Brincadeiras Musicais em Osasco (SP) ::</p>
+                                </li>
+                                <li><a href="/upload/imagens/galeria/10032015030302.jpg">
+                                    <img src="/upload/imagens/galeria/thumb-10032015030302.jpg" alt=" Brincadeiras Musicais em Osasco (SP)"></a>
+                                    <p>:: Brincadeiras Musicais em Osasco (SP) ::</p>
+                                </li>
+                                <li><a href="/upload/imagens/galeria/10032015030302.jpg">
+                                    <img src="/upload/imagens/galeria/thumb-10032015030302.jpg" alt=" Brincadeiras Musicais em Osasco (SP)"></a>
+                                    <p>:: Brincadeiras Musicais em Osasco (SP) ::</p>
+                                </li>
+                                
+                            </ul>
+                            <div class="left_video">
+                                <img src="/images/arrow_left2.png">
+                            </div>
+                            <div class="right_video">
+                                <img src="/images/arrow_right2.png">
+                            </div>
+                        </div>
+
                     </div>
-                    <br />
-                    <br />
+
+                    <div class="upload_geral">
+                        <p>Participe da Galeria Colaborativa de Fotos!</p>
+                        <a href="#"><img src="images/foto_icon.png" alt="Icone Camera"/> Clique para enviar a sua foto</a>
+                    </div>
                     <img src="/images/linha.png" class="linha" />
-                    <p class="titu_calendario">AGENDA COMPLETA -  MARÇO 2015 :</p>
-                    <p class="txt sub_calendario txt_menor"><strong>Clique em uma data para visualizar mais detalhes sobre o evento.</strong></p>
-                    <br />
-                    <br />
-                    <br />
-                    <br />
-                    <p class="txt sub_calendario txt_menor"><strong>Detalhes sobre o evento selecionado:</strong></p>
-                    <div class="box_info_data">
-                        <p><strong><span id="detalhe_tituloevento" runat="server">Título do evento selecionado </span></strong></p>
-                        <p>Data:<strong>  <span id="detalhe_dataevento" runat="server">data do evento </span></strong></p>
-                        <p id="detalhe_descricaoevento" runat="server">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare orci massa, ut esting porttitor dui condimentum id. Phasellus vitae efficitr eros lorem ipsum (máximo 195 caracteres).</p>
+                    <p class="titu_agenda">Galeria Colaborativa de Fotos</p>
+                    <p class="sub_galeria_geral">Vídeos enviados pelos membros da rede de ensino de  <strong><< nome da rede de ensino >></strong>(use as setas para navegar nos vídeos e clique na imagem para assistir o vídeo).</p>
+                    <div class="galeria_geral">
+                        <div class="mascara">
+                            <!-- VIDEOS -->
+                            <ul id="ulVideos" class="videos_home carrousel" rel="0" style="display:block;">
+                                <li class="primeiro ativo" style="width: 196px;"><a href="fFo1i8EIS74">
+                                    <img src="http://i.ytimg.com/vi/fFo1i8EIS74/mqdefault.jpg" alt="ABC dos Copos (Galinha não voa)">
+                                </a>
+                                    <p>:: ABC dos Copos (Galinha não voa) ::</p>
+                                </li>
+                                <li><a href="vBKT-__Ghpk">
+                                    <img src="http://i.ytimg.com/vi/vBKT-__Ghpk/mqdefault.jpg" alt="Arrastadinho (Pomar)">
+                                </a>
+                                    <p>:: Arrastadinho (Pomar) ::</p>
+                                </li>
+                               <li><a href="vBKT-__Ghpk">
+                                    <img src="http://i.ytimg.com/vi/vBKT-__Ghpk/mqdefault.jpg" alt="Arrastadinho (Pomar)">
+                                </a>
+                                    <p>:: Arrastadinho (Pomar) ::</p>
+                                </li>
+                                <li><a href="vBKT-__Ghpk">
+                                    <img src="http://i.ytimg.com/vi/vBKT-__Ghpk/mqdefault.jpg" alt="Arrastadinho (Pomar)">
+                                </a>
+                                    <p>:: Arrastadinho (Pomar) ::</p>
+                                </li>
+                               <li><a href="vBKT-__Ghpk">
+                                    <img src="http://i.ytimg.com/vi/vBKT-__Ghpk/mqdefault.jpg" alt="Arrastadinho (Pomar)">
+                                </a>
+                                    <p>:: Arrastadinho (Pomar) ::</p>
+                                </li>
+                               <li><a href="vBKT-__Ghpk">
+                                    <img src="http://i.ytimg.com/vi/vBKT-__Ghpk/mqdefault.jpg" alt="Arrastadinho (Pomar)">
+                                </a>
+                                    <p>:: Arrastadinho (Pomar) ::</p>
+                                </li>
+                                <li><a href="vBKT-__Ghpk">
+                                    <img src="http://i.ytimg.com/vi/vBKT-__Ghpk/mqdefault.jpg" alt="Arrastadinho (Pomar)">
+                                </a>
+                                    <p>:: Arrastadinho (Pomar) ::</p>
+                                </li>
+                               
+                            </ul>
+                            <div class="left_video">
+                                <img src="/images/arrow_left2.png">
+                            </div>
+                            <div class="right_video">
+                                <img src="/images/arrow_right2.png">
+                            </div>
+                        </div>
                     </div>
-                </form>
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
 
@@ -81,5 +159,39 @@
     <!--RODAPÉ-->
     <brincadeira:footer runat="server" ID="footer" />
     <!--FIM DO RODAPÉ-->
+
+     <!-- LIGHT VIEW MODAL E AFINS-->
+    <div id="mask" runat="server">
+        <article id="fotos">
+            <img src="/images/galeri0202a.jpg" class="img_galeria" />
+            <p>:: LEGANDA DA FOTO 001 ::</p>
+            <div class="controles">
+                <div class="left_galeria">
+                    <img src="/images/arrow_left2.png" />
+                </div>
+                <div class="quantos"><b class="atual">1</b>/<b class="total">4</b></div>
+                <div class="right_galeria">
+                    <img src="/images/arrow_right2.png" />
+                </div>
+                <div class="fechar_galeria fechar_foto">FECHAR</div>
+            </div>
+        </article>
+
+        <article id="videos">
+            <iframe width="640" height="360" src="//www.youtube.com/embed/CaTXgmHyMSk" frameborder="0" allowfullscreen></iframe>
+            <p>:: titulo Do video 001 ::</p>
+            <div class="controles">
+                <div class="left_galeria">
+                    <img src="/images/arrow_left2.png" />
+                </div>
+                <div class="quantos"><b class="atual">1</b>/<b class="total">4</b></div>
+                <div class="right_galeria">
+                    <img src="/images/arrow_right2.png" />
+                </div>
+                <div class="fechar_galeria fechar_foto">FECHAR</div>
+            </div>
+        </article>
+    </div>
+    <!-- FIM DO LIGHT VIEW MODAL E AFINS-->
 </body>
 </html>
