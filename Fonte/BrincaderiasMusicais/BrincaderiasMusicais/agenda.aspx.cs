@@ -70,8 +70,8 @@ namespace BrincaderiasMusicais
                 while (rsLista.Read())
                 {
                     detalhe_dataevento.InnerText = rsLista["EVE_DIA"].ToString();
-                    detalhe_descricaoevento.InnerText = rsLista["EVE_DESCRICAO"].ToString();
-                    detalhe_tituloevento.InnerHtml = rsLista["EVE_TITULO"].ToString();
+                    detalhe_descricaoevento.InnerHtml = rsLista["EVE_DESCRICAO"].ToString();
+                    detalhe_tituloevento.InnerText = rsLista["EVE_TITULO"].ToString();
                 }
             }
 
