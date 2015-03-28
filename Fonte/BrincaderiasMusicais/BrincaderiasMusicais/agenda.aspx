@@ -62,9 +62,7 @@
                     <p class="txt sub_calendario txt_menor"><strong>Clique em uma data para visualizar mais detalhes sobre o evento.</strong></p>
                     <br />
                     <br />
-
-                    <a onclick="calendario.setDate(new Date(1982, 1, 1), new Date(1982, 1, 3));">Click to set date to February 3, 1982
-                    </a>
+                     
                     <asp:UpdatePanel runat="Server" ID="up1" RenderMode="Inline">
                         <ContentTemplate>
                             <asp:Calendar ID="calendario" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" OnSelectionChanged="calendario_SelectionChanged" Width="100%" OnDayRender="calendario_DayRender" SelectionMode="None">
