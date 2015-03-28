@@ -54,7 +54,7 @@
                     <br />
                     <br />
                     <img src="/images/linha.png" class="linha" />
-                    <p class="titu_calendario">AGENDA COMPLETA -  MARÇO 2015 :</p>
+                    <p class="titu_calendario">AGENDA COMPLETA -  MARÇO 2015 :</p> <!-- acho que poderia ser removida esta linha -->
                     <p class="txt sub_calendario txt_menor"><strong>Clique em uma data para visualizar mais detalhes sobre o evento.</strong></p>
                     <br />
                     <br />
@@ -71,9 +71,9 @@
                     <br />
                     <p class="txt sub_calendario txt_menor"><strong>Detalhes sobre o evento selecionado:</strong></p>
                     <div class="box_info_data">
-                        <p><strong><span id="detalhe_tituloevento" runat="server">Título do evento selecionado </span></strong></p>
-                        <p>Data:<strong>  <span id="detalhe_dataevento" runat="server">data do evento </span></strong></p>
-                        <p id="detalhe_descricaoevento" runat="server">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare orci massa, ut esting porttitor dui condimentum id. Phasellus vitae efficitr eros lorem ipsum (máximo 195 caracteres).</p>
+                        <p><strong><span id="detalhe_tituloevento" runat="server"></span></strong></p>
+                        <p>Data:<strong>  <span id="detalhe_dataevento" runat="server"></span></strong></p>
+                        <p id="detalhe_descricaoevento" runat="server"></p>
                     </div>
                 </form>
             </div>
