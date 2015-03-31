@@ -55,7 +55,7 @@
                         <label class="label" for="POS_IMAGEM">Imagem do post:</label>
                         <asp:FileUpload ID="POS_IMAGEM" runat="server" CssClass="obg esconde" />
                         
-                        <label for="subir_foto" class="subir_foto btn_save">CARREGAR ARQUIVO DA FOTO</label>
+                        <label for="POS_IMAGEM" class="subir_foto btn_save">CARREGAR ARQUIVO DA FOTO</label>
                         <select name="PCA_ID" runat="server" id="PCA_ID" data-validation="required" class="input obg" >
                             <option value="">Selecione a categoria</option>
                         </select>
