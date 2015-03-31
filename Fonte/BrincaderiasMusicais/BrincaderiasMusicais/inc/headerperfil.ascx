@@ -10,18 +10,18 @@
 <br />
 
 <div class="links_box">
-    <div class="img_links">
+    <div class="img_links" id="fotos" runat="server">
         <a href="minhas-fotos" title="Minhas fotos">
             <img src="/images/fotos_perfil.png" alt="Minhas Fotos" /></a>
     </div>
-    <div class="img_links">
+    <div class="img_links" id="videos" runat="server">
         <a href="meus-videos" title="Meus Videos">
             <img src="/images/videos_perfil.png" alt="Meus Videos" /></a>
     </div>
 
-    <div class="img_links">
-        <a href="javascript:void(0)" title="Minhas fotos">
-            <img src="/images/blog_perfil.png" alt="Minhas Fotos" />
+    <div class="img_links" id="blog" runat="server">
+        <a href="javascript:void(0)" title="Meu Blog">
+            <img src="/images/blog_perfil.png" alt="Meu Blog" />
         </a>
     </div>
 

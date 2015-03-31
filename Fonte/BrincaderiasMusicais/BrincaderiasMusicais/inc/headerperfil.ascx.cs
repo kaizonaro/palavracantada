@@ -25,30 +25,59 @@ namespace BrincaderiasMusicais.inc
             objUtils = new utils();
             objBD = new bd();
 
-             rsUser = objBD.ExecutaSQL("select USU_BIOGRAFIA, USU_FOTO from Usuario where USU_ID = " + Session["usuID"] + " ");
-               if (rsUser == null)
-               {
-                   throw new Exception();
-               }
-               if (rsUser.HasRows)
-               {
-                   rsUser.Read();
+            //Ajustando as classes dos botões
+            string urlCompleta = Request.Url.AbsoluteUri;
+            string paginaAtual = Request.CurrentExecutionFilePath;
+            paginaAtual = paginaAtual.Remove(0, paginaAtual.LastIndexOf("/") + 1);
 
-                   nome_perfil.InnerHtml = Session["nomeUsuario"].ToString();
-                   regiao_perfil.InnerHtml = Session["nomeInstituicao"].ToString();
-                   txt_perfil.InnerHtml = rsUser["USU_BIOGRAFIA"].ToString();
 
-                   if (rsUser["USU_FOTO"].ToString().Length < 1)
-                   {
-                       img_perfil.InnerHtml = "<img src='/images/img_perfil.jpg'/>";
-                   }
-                   else
-                   {
-                       img_perfil.InnerHtml = "<img src=\"/upload/imagens/usuarios/" + rsUser["USU_FOTO"] + "\" />";
-                   }
-               }
-               rsUser.Dispose();
-               rsUser.Close();
+            switch (paginaAtual)
+            {
+                case "minha-galeria.aspx":
+                    videos.Attributes["class"] += " disabled ";
+                    blog.Attributes["class"] += " disabled ";
+                    break;
+
+                case "meus-videos.aspx":
+                    fotos.Attributes["class"] += " disabled ";
+                    blog.Attributes["class"] += " disabled ";
+                    break;
+
+                /* case "editar_config.aspx":
+                     fotos.Attributes["class"] += " disabled ";
+                     videos.Attributes["class"] += " disabled ";
+                     break;*/
+                default:
+                    fotos.Attributes["class"] = " img_links";
+                    videos.Attributes["class"] = " img_links ";
+                    blog.Attributes["class"] = " img_links ";
+                    break;
+            }
+
+            rsUser = objBD.ExecutaSQL("select USU_BIOGRAFIA, USU_FOTO from Usuario where USU_ID = " + Session["usuID"] + " ");
+            if (rsUser == null)
+            {
+                throw new Exception();
+            }
+            if (rsUser.HasRows)
+            {
+                rsUser.Read();
+
+                nome_perfil.InnerHtml = Session["nomeUsuario"].ToString();
+                regiao_perfil.InnerHtml = Session["nomeInstituicao"].ToString();
+                txt_perfil.InnerHtml = rsUser["USU_BIOGRAFIA"].ToString();
+
+                if (rsUser["USU_FOTO"].ToString().Length < 1)
+                {
+                    img_perfil.InnerHtml = "<img src='/images/img_perfil.jpg'/>";
+                }
+                else
+                {
+                    img_perfil.InnerHtml = "<img src=\"/upload/imagens/usuarios/" + rsUser["USU_FOTO"] + "\" />";
+                }
+            }
+            rsUser.Dispose();
+            rsUser.Close();
         }
     }
 }
