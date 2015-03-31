@@ -70,7 +70,7 @@
                                 <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#73435B" VerticalAlign="Bottom" />
                                 <OtherMonthDayStyle ForeColor="#999999" />
                                 <SelectedDayStyle BackColor="#333399" ForeColor="White" />
-                                <TitleStyle BackColor="White"  BorderWidth="0" Font-Names="love_ya_like_a_sister_snormal" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
+                                <TitleStyle BackColor="White"  BorderWidth="0" Font-Names="love_ya_like_a_sister_snormal" Font-Bold="True" Font-Size="12pt" ForeColor="#736d9b" />
                                 <TodayDayStyle BackColor="#29B5C4" ForeColor="White" />
                                 
                             </asp:Calendar>
