@@ -474,6 +474,8 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .galeria_geral ul li p {font-size: 12px;font-family: Arial,sans-serif;font-weight: bold;color:#ae080f;margin-top:8px;text-transform:uppercase;}
 .sub_galeria_geral{width:100%;font-family:Arial, sans-serif;font-size:12px;color:#68455b;text-align:justify;line-height:17px;}
 .upload_geral p{width:100%;display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;color:#68455b;margin-top:10px;text-align:center;}
+.upload_geral a{color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;background:#f68b1f;display:block;width:80%;margin:0 auto;padding:8px;font-size:15px;margin:20px auto;border-radius:8px;}
+.upload_geral a img{  display: inline;}
 
 /*AJUSTES*/
 .textoPost span {

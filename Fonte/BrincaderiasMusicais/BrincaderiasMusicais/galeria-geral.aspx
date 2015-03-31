@@ -47,7 +47,8 @@
                 </div>
                 <!-- INCLUDE -->
                     <p class="titu_agenda">Galeria Colaborativa de Fotos</p>
-                    <p class="sub_galeria_geral">Fotografias enviadas pelos membros da rede de ensino de <strong><< nome da rede de ensino >></strong>(use as setas para navegar nas fotos e clique na foto para ampliá-la).</p>
+                    <p class="sub_galeria_geral">Fotografias enviadas pelos membros da rede de ensino de <strong><< nome da rede de ensino >></strong>
+(use as setas para navegar nas fotos e clique na foto para ampliá-la).</p>
                     <div class="galeria_geral">
 
                         <div class="mascara">
@@ -91,11 +92,12 @@
 
                     <div class="upload_geral">
                         <p>Participe da Galeria Colaborativa de Fotos!</p>
-                        <a href="#"><img src="images/foto_icon.png" alt="Icone Camera"/> Clique para enviar a sua foto</a>
+                        <a href="enviar-foto.aspx"><img src="images/foto_icon.png" alt="Icone Camera"/> Clique para enviar a sua foto</a>
                     </div>
                     <img src="/images/linha.png" class="linha" />
                     <p class="titu_agenda">Galeria Colaborativa de Fotos</p>
-                    <p class="sub_galeria_geral">Vídeos enviados pelos membros da rede de ensino de  <strong><< nome da rede de ensino >></strong>(use as setas para navegar nos vídeos e clique na imagem para assistir o vídeo).</p>
+                    <p class="sub_galeria_geral">Vídeos enviados pelos membros da rede de ensino de  <strong><< nome da rede de ensino >></strong>
+(use as setas para navegar nos vídeos e clique na imagem para assistir o vídeo).</p>
                     <div class="galeria_geral">
                         <div class="mascara">
                             <!-- VIDEOS -->
@@ -144,6 +146,10 @@
                                 <img src="/images/arrow_right2.png">
                             </div>
                         </div>
+                    </div>
+                <div class="upload_geral">
+                        <p>Participe da Galeria Colaborativa de Fotos!</p>
+                        <a href="enviar-video.aspx"><img src="images/icone_video.png" alt="Icone Camera"/> Clique para enviar a sua foto</a>
                     </div>
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
