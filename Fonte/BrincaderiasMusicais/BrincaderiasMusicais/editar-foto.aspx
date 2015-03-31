@@ -66,7 +66,7 @@
                     </p>
                     <form id="foto" class="form" runat="server">
                         <div class="left">
-                            <b>Foto Atual</b>
+                            <b>Foto Atual:</b>
                             <div class="editar_img">
                                 <img src="/images/img_perfil.jpg" id="FotoPerfil" runat="server"/>
                             </div>
@@ -74,7 +74,7 @@
                         <div class="right">
                             <label for="upload_foto"  class="btn_save subir_foto">Carregar nova foto</label>
                             <asp:FileUpload ID="upload_foto" runat="server" CssClass="esconde" />
-                           -<button class="btn_save excluir_foto" onclick="excluirFoto(); return false;">Excluir Foto Atual</button>
+                            <button class="btn_save excluir_foto" onclick="excluirFoto(); return false;">Excluir Foto Atual</button>
                            
                         </div>
                         <div class="mini_txt" id="mini_txt" runat="server"></div>

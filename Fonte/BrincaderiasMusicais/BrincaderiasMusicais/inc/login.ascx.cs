@@ -83,6 +83,20 @@ namespace BrincaderiasMusicais.inc
             box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"javascript:void(0)\" title=\"Fórum\">Fórum</a></li>";
             box_logado.InnerHtml += "   <li class=\"conheca grande\"><a href=\"javascript:void(0)\" title=\"Criações Documentadas\">Criações Documentadas</a></li>";
             box_logado.InnerHtml += "</ul>";
+
+            box_logado.InnerHtml += "<div class=\"notificacoes_logado\">";
+            box_logado.InnerHtml += "   <p>Notificações recentes:</p>";
+            box_logado.InnerHtml += "   <img src=\"/images/arrow_left.png\" class=\"left_logado\" />";
+            box_logado.InnerHtml += "   <img src=\"/images/arrow_right.png\" class=\"right_logado\" />";
+            box_logado.InnerHtml += "   <ul class=\"notificacao\">";
+            box_logado.InnerHtml += "       <li>Parabéns! Você ganhou uma recompensa por publicar três vídeos na galeria colaborativa de sua rede de ensino.</li>";
+            box_logado.InnerHtml += "       <li>Segunda notificação! Aqui será exibida as notificações do usuário;</li>";
+            box_logado.InnerHtml += "       <li>Tereira! Você ganhou uma recompensa por publicar três vídeos na galeria colaborativa de sua rede de ensino.</li>";
+            box_logado.InnerHtml += "       <li>Quarta! ! Aqui será exibida as notificações do usuário;</li>";
+            box_logado.InnerHtml += "       <li>Quinta! Você ganhou uma recompensa por publicar três vídeos na galeria colaborativa de sua rede de ensino.</li>";
+            box_logado.InnerHtml += "       <li>Sexta! ! Aqui será exibida as notificações do usuário;</li>";
+            box_logado.InnerHtml += "   </ul>";
+            box_logado.InnerHtml += "</div>";
         }
 
         public void populardatas()
