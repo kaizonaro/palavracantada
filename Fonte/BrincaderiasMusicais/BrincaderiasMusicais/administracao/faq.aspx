@@ -51,8 +51,8 @@
 
                         $('#FAQ_ID').attr("value", ss[0]);
                         $('#FAQ_PERGUNTA').attr("value", ss[1]);
-
                         tinyMCE.activeEditor.setContent(ss[2]);
+                        $('#RED_ID option[value="' + parseInt(ss[3]) + '"]').attr('selected', 'selected').change();
 
                         editar_table2(id);
                     }
@@ -134,6 +134,11 @@
                                         <form id="Form1" class="inc_form form" name="incluir" action="faq.aspx" novalidate="novalidate" accept-charset="default" runat="server">
                                             <input type="hidden" id="acao" name="acao" value="gravar" />
                                             <input type="hidden" id="FAQ_ID" name="FAQ_ID" value="0" />
+
+                                            <p>Rede</p>
+                                            <select name="RED_ID" class="input" id="RED_ID" runat="server">
+                                                <option value="NULL">Nenhuma</option>
+                                            </select>
 
                                             <p>Pergunta:*</p>
                                             <input type="text" maxlength="128" name="FAQ_PERGUNTA" id="FAQ_PERGUNTA" class="input obg" placeholder="Faça a pergunta" />

@@ -49,7 +49,7 @@ namespace BrincaderiasMusicais
 
         public void populaIntegrante()
         {
-            rsFAQ = objBD.ExecutaSQL("select FAQ_ID, FAQ_PERGUNTA from Faq where FAQ_ATIVO = 1");
+            rsFAQ = objBD.ExecutaSQL("select FAQ_ID, FAQ_PERGUNTA, RED_ID from Faq where FAQ_ATIVO = 1 AND (RED_ID IS NULL OR RED_ID = " + Session["usuID"] + ")");
             if (rsFAQ == null)
             {
                 throw new Exception();

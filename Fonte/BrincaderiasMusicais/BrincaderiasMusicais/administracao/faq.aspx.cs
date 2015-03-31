@@ -13,7 +13,7 @@ namespace BrincaderiasMusicais.administracao
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista, rsGravar;
+        private OleDbDataReader rsLista, rsGravar, rsRedes;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,7 +23,7 @@ namespace BrincaderiasMusicais.administracao
             switch (Request["acao"])
             {
                 case ("editar"):
-                    rsLista = objBD.ExecutaSQL("select FAQ_ID, FAQ_PERGUNTA, FAQ_RESPOSTA from Faq where FAQ_ID ='" + Request["FAQ_ID"] + "'");
+                    rsLista = objBD.ExecutaSQL("select FAQ_ID, FAQ_PERGUNTA, FAQ_RESPOSTA, RED_ID from Faq where FAQ_ID ='" + Request["FAQ_ID"] + "'");
                     if (rsLista == null)
                     {
                         throw new Exception();
@@ -31,7 +31,7 @@ namespace BrincaderiasMusicais.administracao
                     if (rsLista.HasRows)
                     {
                         rsLista.Read();
-                        Response.Write(rsLista["FAQ_ID"] + "|" + rsLista["FAQ_PERGUNTA"] + "|" + rsLista["FAQ_RESPOSTA"]);
+                        Response.Write(rsLista["FAQ_ID"] + "|" + rsLista["FAQ_PERGUNTA"] + "|" + rsLista["FAQ_RESPOSTA"] + "|" + rsLista["RED_ID"]);
                     }
                     break;
                 case ("excluir"):
@@ -43,9 +43,33 @@ namespace BrincaderiasMusicais.administracao
                 default:
                     PopulaLista();
                     PopulaListaExcluidos();
+                    ListarRedes();
                     break;
             }
 
+        }
+
+        public void ListarRedes()
+        {
+            rsRedes = objBD.ExecutaSQL("EXEC ADMIN_psRedesPorAtivo 1");
+            if (rsRedes == null)
+            {
+                throw new Exception();
+            }
+            if (rsRedes.HasRows)
+            {
+
+                while (rsRedes.Read())
+                {
+                    ListItem C = new ListItem();
+                    C.Value = rsRedes["RED_ID"].ToString();
+                    C.Text = rsRedes["RED_TITULO"].ToString();
+                    RED_ID.Items.Add(C);
+                }
+
+            }
+            rsRedes.Close();
+            rsRedes.Dispose();
         }
 
         public void PopulaLista()
@@ -140,7 +164,7 @@ namespace BrincaderiasMusicais.administracao
 
         public void gravar(object sender, EventArgs e)
         {
-            rsGravar = objBD.ExecutaSQL("EXEC admin_piuFaq  '" + Request["FAQ_ID"] + "', '" + Request["FAQ_PERGUNTA"] + "','" + Request["FAQ_RESPOSTA"] + "'");
+            rsGravar = objBD.ExecutaSQL("EXEC admin_piuFaq  '" + Request["FAQ_ID"] + "'," + Request["RED_ID"] + ", '" + Request["FAQ_PERGUNTA"] + "','" + Request["FAQ_RESPOSTA"] + "'");
             Response.Redirect("faq.aspx");
         }
     }
