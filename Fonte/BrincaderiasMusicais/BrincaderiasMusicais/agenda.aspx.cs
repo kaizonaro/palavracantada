@@ -89,11 +89,13 @@ namespace BrincaderiasMusicais
 
                 while (rsLista.Read())
                 {
-
+                    
                     if (e.Day.Date == Convert.ToDateTime(rsLista["EVE_DIA"].ToString()))
                     {
                         e.Day.IsSelectable = true;
-                        e.Cell.BackColor = System.Drawing.Color.Orange;
+                        e.Cell.ForeColor = System.Drawing.ColorTranslator.FromHtml("#AE080F");
+                        e.Cell.Font.Underline = true;
+                        e.Cell.Font.Bold = true;
                     }
                     else
                     {
