@@ -62,7 +62,7 @@
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="sobre" class="interna">
                 <div class="titu">
-                    Blog - << Nome da Região >>
+                    Blog Regional -  Nome da Região 
                 </div>
                 <div id="breadcrumb">
                     <a href="/" title="Home">Home</a> >> <strong><a href="
