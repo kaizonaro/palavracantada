@@ -65,6 +65,8 @@
        
     </div>
 
+    <div class="box_logado esconde" id="box_logado" runat="server"></div>
+
     <div class="box_login esconde" style="margin-top: 10px;" id="divBlog" runat="server">
         <p>BUSCAR NO BLOG BRINCADEIRAS MUSICAIS:</p>
         <form class="form_pesquisa" action="blog.aspx">
@@ -84,8 +86,8 @@
             <input type="hidden" name="nomecampo" id="nomecampo" value="" />
         </form>
         <form class="form_senha" action="">
-            <input type="hidden" id="acao" name="acao" value="FazerLogin" />
-            <label>email:</label><input type="text" id="email" name="email" class="input email" /><br />
+            <input type="hidden" id="Hidden1" name="acao" value="FazerLogin" />
+            <label>email:</label><input type="text" id="Text1" name="email" class="input email" /><br />
             <div>
                 <a href="javascript:void(0)" class="link esqueci_voltar">voltar</a>
                 <!--<a href="javascript:void(0)" class="link">esqueci meu login</a>-->
@@ -95,8 +97,6 @@
 
     </div>
 
-
-    <div class="box_logado esconde" id="box_logado" runat="server"></div>
 </aside>
 <script>
     $("#login_POS_DH_CRIACAO").attr("name", "POS_DH_CRIACAO")

@@ -40,6 +40,15 @@ namespace BrincaderiasMusicais.inc {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl banner_sidebar;
         
         /// <summary>
+        /// box_logado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl box_logado;
+        
+        /// <summary>
         /// divBlog control.
         /// </summary>
         /// <remarks>
@@ -65,14 +74,5 @@ namespace BrincaderiasMusicais.inc {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlSelect PCA_ID;
-        
-        /// <summary>
-        /// box_logado control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl box_logado;
     }
 }

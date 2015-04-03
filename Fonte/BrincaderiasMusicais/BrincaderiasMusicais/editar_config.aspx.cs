@@ -121,7 +121,8 @@ namespace BrincaderiasMusicais
                 objBD.ExecutaSQL("insert into UsuarioCategoria(USU_ID,CAT_ID) values (" + Session["usuID"].ToString() + ", 2)");
             }
             //Response.Redirect("meu-perfil");
-            Response.Redirect("editar_config.aspx");
+            Session["nomeUsuario"] = Request["USU_NOME"].ToString();
+            Response.Redirect("editar-configuracoes");
 
         }
 

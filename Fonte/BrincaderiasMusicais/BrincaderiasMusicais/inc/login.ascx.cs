@@ -58,6 +58,7 @@ namespace BrincaderiasMusicais.inc
                 switch (paginaAtual)
                 {
                     case "blog.aspx":
+                    case "blog-regional.aspx":
                         divBlog.Attributes.Remove("class");
                         divBlog.Attributes["class"] = "box_login";
 
@@ -79,7 +80,7 @@ namespace BrincaderiasMusicais.inc
             box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"/agenda\" title=\"Agenda\">Agenda</a></li>";
             box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"/faq\" title=\"FAQ\">FAQ</a></li>";
             box_logado.InnerHtml += "   <li class=\"conheca pequeno\"><a href=\"javascript:void(0)\" title=\"Galeria Colaborativa\">Galeria Colaborativa</a></li>";
-            box_logado.InnerHtml += "   <li class=\"conheca medio\"><a href=\"javascript:void(0)\" title=\"Blog Regional\">Blog Regional</a></li>";
+            box_logado.InnerHtml += "   <li class=\"conheca medio\"><a href=\"/blog-regional\" title=\"Blog Regional\">Blog Regional</a></li>";
             box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"javascript:void(0)\" title=\"Fórum\">Fórum</a></li>";
             box_logado.InnerHtml += "   <li class=\"conheca grande\"><a href=\"javascript:void(0)\" title=\"Criações Documentadas\">Criações Documentadas</a></li>";
             box_logado.InnerHtml += "</ul>";

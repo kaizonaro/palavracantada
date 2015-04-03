@@ -148,10 +148,10 @@
                                             <textarea id="EVE_DESCRICAO" name="EVE_DESCRICAO" style="width: 100%"></textarea>
 
                                             <p>Dia:*</p>
-                                            <input type="text" maxlength="10" name="EVE_DIA" id="EVE_DIA" class="input obg" placeholder="Dia do Evento" />
+                                            <input type="text" maxlength="10" name="EVE_DIA" id="EVE_DIA" class="input data obg" placeholder="Dia do Evento" />
 
                                             <p>Hora:*</p>
-                                            <input type="text" maxlength="32" name="EVE_HORA" id="EVE_HORA" class="input obg" placeholder="Digite a hora de início do evento" />
+                                            <input type="text" maxlength="32" name="EVE_HORA" id="EVE_HORA" class="input hora obg" placeholder="Digite a hora de início do evento" />
 
                                             <p class="p_btn">
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
