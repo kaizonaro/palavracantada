@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais.inc
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader Categoria, Datas, rsBanner;
+        private OleDbDataReader Categoria, Datas, rsBanner, rsNotificacoes;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,7 +39,6 @@ namespace BrincaderiasMusicais.inc
                     box_login.Attributes.Add("class", "esconde");
 
                     populuarBoxLogado();
-
 
                 }
                 else
@@ -90,12 +89,27 @@ namespace BrincaderiasMusicais.inc
             box_logado.InnerHtml += "   <img src=\"/images/arrow_left.png\" class=\"left_logado\" />";
             box_logado.InnerHtml += "   <img src=\"/images/arrow_right.png\" class=\"right_logado\" />";
             box_logado.InnerHtml += "   <ul class=\"notificacao\">";
-            box_logado.InnerHtml += "       <li>Parabéns! Você ganhou uma recompensa por publicar três vídeos na galeria colaborativa de sua rede de ensino.</li>";
-            box_logado.InnerHtml += "       <li>Segunda notificação! Aqui será exibida as notificações do usuário;</li>";
-            box_logado.InnerHtml += "       <li>Tereira! Você ganhou uma recompensa por publicar três vídeos na galeria colaborativa de sua rede de ensino.</li>";
-            box_logado.InnerHtml += "       <li>Quarta! ! Aqui será exibida as notificações do usuário;</li>";
-            box_logado.InnerHtml += "       <li>Quinta! Você ganhou uma recompensa por publicar três vídeos na galeria colaborativa de sua rede de ensino.</li>";
-            box_logado.InnerHtml += "       <li>Sexta! ! Aqui será exibida as notificações do usuário;</li>";
+
+            rsNotificacoes = objBD.ExecutaSQL("select TOP 5 LOG_ACONTECIMENTO from log WHERE LOG_EXIBIR = 1 AND (USU_ID = " + Session["usuID"] + " OR USU_ID IS NULL) ORDER BY LOG_DH_ACONTECIMENTO DESC");
+
+            if (rsNotificacoes == null)
+            {
+                throw new Exception();
+            }
+            if (rsNotificacoes.HasRows)
+            {
+                while (rsNotificacoes.Read())
+                {
+                    box_logado.InnerHtml += "       <li>" + rsNotificacoes["LOG_ACONTECIMENTO"] + "</li>";
+                }
+            }
+
+            else
+            {
+                box_logado.InnerHtml += "       <li>Não há notificações disponíveis!</li>";
+            }
+            rsNotificacoes.Close();
+            rsNotificacoes.Dispose();
             box_logado.InnerHtml += "   </ul>";
             box_logado.InnerHtml += "</div>";
         }
