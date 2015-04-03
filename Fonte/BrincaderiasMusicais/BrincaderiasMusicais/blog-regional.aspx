@@ -4,7 +4,6 @@
 <%@ Register Src="~/inc/header.ascx" TagPrefix="brincadeira" TagName="header" %>
 <%@ Register Src="~/inc/footer.ascx" TagPrefix="brincadeira" TagName="footer" %>
 <%@ Register Src="~/inc/menu.ascx" TagPrefix="brincadeira" TagName="menu" %>
-<%@ Register Src="~/inc/blog.ascx" TagPrefix="brincadeira" TagName="blog" %>
 <%@ Register Src="~/inc/login.ascx" TagPrefix="brincadeira" TagName="login" %>
 
 <!DOCTYPE html>
@@ -64,9 +63,6 @@
 
             <!--BOX LOGIN-->
             <brincadeira:login runat="server" ID="login" />
-
-            <!--BLOG-->
-            <brincadeira:blog runat="server" ID="blog" />
 
         </div>
     </section>
