@@ -24,6 +24,16 @@
     <meta property="og:url" content="http://projetopalavracantada.net/artigos" />
 
     <brincadeira:script runat="server" ID="script" />
+    <script type="text/javascript">
+        function contarCaracteres(box, valor, campospan) {
+            var conta = valor - box.length;
+            document.getElementById(campospan).innerHTML = "Você ainda pode digitar " + conta + " caracteres";
+            if (box.length >= valor) {
+                document.getElementById(campospan).innerHTML = "Opss.. você não pode mais digitar..";
+                document.getElementById("campo").value = document.getElementById("campo").value.substr(0, valor);
+            }
+        }
+    </script>
 
 </head>
 <body>
@@ -50,11 +60,13 @@
                 <div class="medalhas_perfil">
                     <p class="sub_perfil">Editar Mini-biografia</p>
                     <p class="txt">
-                        Crie ou edite a sua mini-biografia no campo abaixo e clique no botão salvar.
+                        Crie ou edite a sua mini-biografia (até 250 caracteres) no campo abaixo e clique no botão salvar.
                     </p>
                     <form id="biografia" class="form" action="editar-biografia.aspx">
                         <input type="hidden" id="acao" name="acao" value="editar" />
-                        <textarea class="input" maxlength="250" runat="server" id="txtTextarea" name="txtTextarea" placeholder=""></textarea>
+                        <textarea class="input" maxlength="250" runat="server" id="txtTextarea" name="txtTextarea" onkeyup="contarCaracteres(this.value,250,'sprestante')"></textarea>
+                        <span style="font-size: 8px; float: right; width: 100%; height: 20px;" id="sprestante"></span>
+
                         <button class="btn_back" onClick="window.history.go(-1); return false;"><< voltar</button> 
                         <input type="submit" class="btn_save" value="salvar alterações" />
                     </form>

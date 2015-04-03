@@ -68,7 +68,7 @@
                     <div class="full">
                         <p class="label">Trocar senha <em>(digite a nova senha abaixo - deixe em branco para manter a senha atual)</em></p>
                         <div class="left">
-                            <input type="password" class="input senha2" placeholder="Nova senha" />
+                            <input type="password" class="input senha2" id="USU_SENHA" name="USU_SENHA" placeholder="Nova senha" />
                         </div>
                         <div class="right">
                             <input type="password" class="input senha2" placeholder="Confirme a nova senha" />

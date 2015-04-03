@@ -44,7 +44,7 @@
                 </div>
                 <div class="titu2" id="nome_perfil" runat="server"></div>
 
-                <img id="img1" src="/images/sobre.jpg" class="img_destaque" runat="server" style="height: 200px" />
+                <img id="img1" src="/images/sobre.jpg" class="img_destaque" runat="server" />
                 
                 <span id="logPost" runat="server"></span>
                 <div class="txt textoPost" runat="server" id="txtPost"></div><br /><br />
