@@ -47,7 +47,7 @@
                 
                 <div id="breadcrumb">
                     <a href="/" title="Home">Home</a> >> <strong><a href="
-                        3">Blog-Regional</a></strong></span>
+                        3">Blog-Regional</a></strong> >> <span id="bread" runat="server"></span>
                 </div>
                 <div id="msg" class="txt" runat="server"></div>
                 <div class="oculta">
