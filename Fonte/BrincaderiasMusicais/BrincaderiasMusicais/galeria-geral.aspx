@@ -47,37 +47,16 @@
                 </div>
                 <!-- INCLUDE -->
                     <p class="titu_agenda">Galeria Colaborativa de Fotos</p>
-                    <p class="sub_galeria_geral">Fotografias enviadas pelos membros da rede de ensino de <strong><< nome da rede de ensino >></strong>
+                    <p class="sub_galeria_geral">Fotografias enviadas pelos membros da rede de ensino de <strong id="nomerede1" runat="server"></strong>
 (use as setas para navegar nas fotos e clique na foto para ampliá-la).</p>
                     <div class="galeria_geral">
 
                         <div class="mascara">
                             <!-- FOTOS -->
-                            <ul id="ulFotos" class="fotos_home carrousel" rel="0">
-                               <li><a href="/upload/imagens/galeria/10032015030302.jpg">
-                                    <img src="/upload/imagens/galeria/thumb-10032015030302.jpg" alt=" Brincadeiras Musicais em Osasco (SP)"></a>
-                                    <p>:: Brincadeiras Musicais em Osasco (SP) ::</p>
-                                </li>
-                                <li><a href="/upload/imagens/galeria/10032015030302.jpg">
-                                    <img src="/upload/imagens/galeria/thumb-10032015030302.jpg" alt=" Brincadeiras Musicais em Osasco (SP)"></a>
-                                    <p>:: Brincadeiras Musicais em Osasco (SP) ::</p>
-                                </li>
-                                <li><a href="/upload/imagens/galeria/10032015030302.jpg">
-                                    <img src="/upload/imagens/galeria/thumb-10032015030302.jpg" alt=" Brincadeiras Musicais em Osasco (SP)"></a>
-                                    <p>:: Brincadeiras Musicais em Osasco (SP) ::</p>
-                                </li>
-                                <li><a href="/upload/imagens/galeria/10032015030302.jpg">
-                                    <img src="/upload/imagens/galeria/thumb-10032015030302.jpg" alt=" Brincadeiras Musicais em Osasco (SP)"></a>
-                                    <p>:: Brincadeiras Musicais em Osasco (SP) ::</p>
-                                </li>
-                                <li><a href="/upload/imagens/galeria/10032015030302.jpg">
-                                    <img src="/upload/imagens/galeria/thumb-10032015030302.jpg" alt=" Brincadeiras Musicais em Osasco (SP)"></a>
-                                    <p>:: Brincadeiras Musicais em Osasco (SP) ::</p>
-                                </li>
-                                <li><a href="/upload/imagens/galeria/10032015030302.jpg">
-                                    <img src="/upload/imagens/galeria/thumb-10032015030302.jpg" alt=" Brincadeiras Musicais em Osasco (SP)"></a>
-                                    <p>:: Brincadeiras Musicais em Osasco (SP) ::</p>
-                                </li>
+                            <ul id="ulFotos" class="fotos_home carrousel" rel="0" runat="server">
+                              
+                               
+                                
                                 
                             </ul>
                             <div class="left_video">
@@ -96,47 +75,13 @@
                     </div>
                     <img src="/images/linha.png" class="linha" />
                     <p class="titu_agenda">Galeria Colaborativa de Fotos</p>
-                    <p class="sub_galeria_geral">Vídeos enviados pelos membros da rede de ensino de  <strong><< nome da rede de ensino >></strong>
+                    <p class="sub_galeria_geral">Vídeos enviados pelos membros da rede de ensino de  <strong id="nomerede2" runat="server"></strong>
 (use as setas para navegar nos vídeos e clique na imagem para assistir o vídeo).</p>
                     <div class="galeria_geral">
                         <div class="mascara">
                             <!-- VIDEOS -->
-                            <ul id="ulVideos" class="videos_home carrousel" rel="0" style="display:block;">
-                                <li class="primeiro ativo" style="width: 196px;"><a href="fFo1i8EIS74">
-                                    <img src="http://i.ytimg.com/vi/fFo1i8EIS74/mqdefault.jpg" alt="ABC dos Copos (Galinha não voa)">
-                                </a>
-                                    <p>:: ABC dos Copos (Galinha não voa) ::</p>
-                                </li>
-                                <li><a href="vBKT-__Ghpk">
-                                    <img src="http://i.ytimg.com/vi/vBKT-__Ghpk/mqdefault.jpg" alt="Arrastadinho (Pomar)">
-                                </a>
-                                    <p>:: Arrastadinho (Pomar) ::</p>
-                                </li>
-                               <li><a href="vBKT-__Ghpk">
-                                    <img src="http://i.ytimg.com/vi/vBKT-__Ghpk/mqdefault.jpg" alt="Arrastadinho (Pomar)">
-                                </a>
-                                    <p>:: Arrastadinho (Pomar) ::</p>
-                                </li>
-                                <li><a href="vBKT-__Ghpk">
-                                    <img src="http://i.ytimg.com/vi/vBKT-__Ghpk/mqdefault.jpg" alt="Arrastadinho (Pomar)">
-                                </a>
-                                    <p>:: Arrastadinho (Pomar) ::</p>
-                                </li>
-                               <li><a href="vBKT-__Ghpk">
-                                    <img src="http://i.ytimg.com/vi/vBKT-__Ghpk/mqdefault.jpg" alt="Arrastadinho (Pomar)">
-                                </a>
-                                    <p>:: Arrastadinho (Pomar) ::</p>
-                                </li>
-                               <li><a href="vBKT-__Ghpk">
-                                    <img src="http://i.ytimg.com/vi/vBKT-__Ghpk/mqdefault.jpg" alt="Arrastadinho (Pomar)">
-                                </a>
-                                    <p>:: Arrastadinho (Pomar) ::</p>
-                                </li>
-                                <li><a href="vBKT-__Ghpk">
-                                    <img src="http://i.ytimg.com/vi/vBKT-__Ghpk/mqdefault.jpg" alt="Arrastadinho (Pomar)">
-                                </a>
-                                    <p>:: Arrastadinho (Pomar) ::</p>
-                                </li>
+                            <ul id="ulVideos" class="videos_home carrousel" rel="0" style="display:block;" runat="server">
+                                 
                                
                             </ul>
                             <div class="left_video">
