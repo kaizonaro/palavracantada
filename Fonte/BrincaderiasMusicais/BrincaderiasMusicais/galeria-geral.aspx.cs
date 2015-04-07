@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace BrincaderiasMusicais
 {
@@ -17,16 +18,35 @@ namespace BrincaderiasMusicais
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (Request["acao"] == "gravavideo")
+            {
+                gravavideo();
+                Response.Redirect("galeria-geral.aspx?sucesso=2");
 
+            }
+
+            switch (Convert.ToInt32(Request["sucesso"]))
+            {
+
+                case 1:
+                     fotodiv.InnerHtml = "<p>Sua foto foi enviada com sucesso e passará pelo processo de moderação dos administradores do Projeto Brincadeiras Musicais da Palavra Cantada. Agradecemos a sua participação!</p>";
+                    break;
+                case 2:
+                     videodiv.InnerHtml = "<p>Seu vídeo foi enviado com sucesso e passará pelo processo de moderação dos administradores do Projeto Brincadeiras Musicais da Palavra Cantada. Agradecemos a sua participação!</p>";
+                    break;
+                default:
+                    break;
+            }
+           
             rsGaleria = objBD.ExecutaSQL("EXEC psGaleriaColaborativa " + Session["redeID"]);
             if (rsGaleria == null) { throw new Exception(); }
             if (rsGaleria.HasRows)
             {
                 while (rsGaleria.Read())
                 {
-                    ulFotos.InnerHtml += "<li><a href=\"/upload/imagens/galeria/" + rsGaleria["COF_IMAGEM"] + "\">" +
-                    "<img src=\"/upload/imagens/galeria/thumb-" + rsGaleria["COF_IMAGEM"] + "\" alt=\" " + rsGaleria["COF_TITULO"] + "\"></a>" +
-                    "<p>:: " + rsGaleria["COL_TITULO"] + " ::</p>" +
+                    ulFotos.InnerHtml += "<li><a href=\"/upload/imagens/galeriacolaborativa/" + rsGaleria["COF_IMAGEM"] + "\">" +
+                    "<img src=\"/upload/imagens/galeriacolaborativa/thumb-" + rsGaleria["COF_IMAGEM"] + "\" alt=\" " + rsGaleria["COF_LEGENDA"] + "\"></a>" +
+                    "<p>:: " + rsGaleria["COF_LEGENDA"] + " ::</p>" +
                     "</li>";
 
                 }
@@ -56,6 +76,74 @@ namespace BrincaderiasMusicais
                 nomerede1.InnerText = rsGaleria["RED_TITULO"].ToString();
                 nomerede2.InnerText = rsGaleria["RED_TITULO"].ToString();
             }
+
+        }
+
+        private void gravavideo()
+        {
+            string videoid = objUtils.getYoutubeVideoId(Request["COV_LINK"]);
+            if (string.IsNullOrWhiteSpace(videoid))
+            {
+                Response.Write("insira um video do youtube válido");
+            }
+            else
+            {
+                objBD.ExecutaSQL("insert into ColaborativaVideos (RED_ID, USU_ID, COV_TITULO, COV_DESCRICAO, COV_VIDEO_ID) values ('" + Session["redeID"] + "','" + Session["usuID"] + "', '" + Request["COV_TITULO"] + "','" + Request["COV_DESCRICAO"] + "', '" + videoid + "')");
+            }
+        }
+
+
+        public void gravar(object sender, EventArgs e)
+        {
+            if (COF_IMAGEM.HasFile)
+            {
+
+                string arquivo = "NULL", nome = "", filename = "", extensao = "";
+                HttpFileCollection hfc = Request.Files;
+                for (int i = 0; i < hfc.Count; i++)
+                {
+                    HttpPostedFile hpf = hfc[i];
+                    if (hpf.ContentLength > 0)
+                    {
+                        if (COF_IMAGEM.PostedFile.ContentType == "image/jpeg" || COF_IMAGEM.PostedFile.ContentType == "image/png" || COF_IMAGEM.PostedFile.ContentType == "image/gif" || COF_IMAGEM.PostedFile.ContentType == "image/bmp")
+                        {
+                            //Pega o nome do arquivo
+                            nome = System.IO.Path.GetFileName(hpf.FileName);
+                            //Pega a extensão do arquivo
+                            extensao = Path.GetExtension(hpf.FileName);
+                            //Gera nome novo do Arquivo numericamente
+                            filename = DateTime.Now.ToString().Replace("/", "").Replace(":", "").Replace(" ", "");
+
+                            //cria a pasta se a mesma nao existir
+                            if (Directory.Exists(Server.MapPath("~/upload/imagens/galeriacolaborativa/")) == false)
+                            {
+                                Directory.CreateDirectory(Server.MapPath("~/upload/imagens/galeriacolaborativa/"));
+                            }
+
+                            //Caminho a onde será salvo
+                            hpf.SaveAs(Server.MapPath("~/upload/imagens/galeriacolaborativa/") + filename + extensao);
+
+                            //pega o arquivo já carregado
+                            string pth = Server.MapPath("~/upload/imagens/galeriacolaborativa/") + filename + extensao;
+
+                            //Redefine altura e largura da imagem e Salva o arquivo + prefixo
+                            Redefinir.resizeImageAndSave(pth, 196, 110, "thumb-");
+
+                            // Salvar no BD
+                            objBD.ExecutaSQL("insert into ColaborativaFotos (RED_ID, USU_ID, COF_IMAGEM, COF_LEGENDA) values ('" + Session["redeID"] + "','" + Session["usuID"] + "', '" + filename + extensao + "','" + Request["COF_LEGENDA"] + "')");
+
+                            // File.Delete(Server.MapPath("~/upload/imagens/" + rsSize["PAG_PASTA"] + "/") + filename + i + extensao);
+                            break;
+                        }
+                    }
+
+                }
+                /**/
+            }
+
+            //Retornar para a Listagem
+            Response.Redirect("galeria-geral.aspx?sucesso=1");
+            Response.End();
 
         }
 
