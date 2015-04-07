@@ -55,37 +55,38 @@
                     <a href="/" title="Home">Home</a>  <strong>Agenda</strong>
                 </div>
 
-                
-           
+
+
                 <!-- INCLUDE -->
                 <p class="titu_agenda">Galeria Colaborativa de Fotos</p>
-                <p class="sub_galeria_geral">
-                    Fotografias enviadas pelos membros da rede de ensino de <strong id="nomerede1" runat="server"></strong>
-                    (use as setas para navegar nas fotos e clique na foto para ampliá-la).
-                </p>
-                <div class="galeria_geral">
+                <span id="fotodiv" runat="server">
+                    <p class="sub_galeria_geral">
+                        Fotografias enviadas pelos membros da rede de ensino de <strong id="nomerede1" runat="server"></strong>
+                        (use as setas para navegar nas fotos e clique na foto para ampliá-la).
+                    </p>
+                    <div class="galeria_geral">
 
-                    <div class="mascara">
-                        <!-- FOTOS -->
-                        <ul id="ulFotos" class="fotos_home carrousel" rel="0" runat="server">
-                        </ul>
-                        <div class="left_video">
-                            <img src="/images/arrow_left2.png">
+                        <div class="mascara">
+                            <!-- FOTOS -->
+                            <ul id="ulFotos" class="fotos_home carrousel" rel="0" runat="server">
+                            </ul>
+                            <div class="left_video">
+                                <img src="/images/arrow_left2.png">
+                            </div>
+                            <div class="right_video">
+                                <img src="/images/arrow_right2.png">
+                            </div>
                         </div>
-                        <div class="right_video">
-                            <img src="/images/arrow_right2.png">
-                        </div>
+
                     </div>
 
-                </div>
-
-                <div class="upload_geral" id="fotodiv" runat="server">
-                    <p>Participe da Galeria Colaborativa de Fotos!</p>
-                    <a onclick="showform('up_foto','fotodiv')">
-                        <img src="images/foto_icon.png" alt="Icone Camera" />
-                        Clique para enviar a sua foto</a>
-                </div>
-
+                    <div class="upload_geral" runat="server">
+                        <p>Participe da Galeria Colaborativa de Fotos!</p>
+                        <a onclick="showform('up_foto','fotodiv')">
+                            <img src="images/foto_icon.png" alt="Icone Camera" />
+                            Clique para enviar a sua foto</a>
+                    </div>
+                </span>
                 <form id="up_foto" runat="server" style="display: none" action="galeria-geral.aspx">
                     <div class="titu_setup">Adicionar Foto:</div>
                     <p class="mini_txt">Para publicar uma foto, preencha os campos abaixo e clique no botão "publicar foto".</p>
@@ -104,57 +105,63 @@
                         <asp:Button ID="PublicarFoto" class="btn_save" runat="server" Text="Publicar foto" OnClick="gravar" />
                     </div>
                 </form>
-            
-            <img src="/images/linha.png" class="linha" />
-            <p class="titu_agenda">Galeria Colaborativa de Fotos</p>
-            <p class="sub_galeria_geral">
-                Vídeos enviados pelos membros da rede de ensino de  <strong id="nomerede2" runat="server"></strong>
-                (use as setas para navegar nos vídeos e clique na imagem para assistir o vídeo).
-            </p>
-            <div class="galeria_geral">
-                <div class="mascara">
-                    <!-- VIDEOS -->
-                    <ul id="ulVideos" class="videos_home carrousel" rel="0" style="display: block;" runat="server">
-                    </ul>
-                    <div class="left_video">
-                        <img src="/images/arrow_left2.png">
-                    </div>
-                    <div class="right_video">
-                        <img src="/images/arrow_right2.png">
-                    </div>
-                </div>
-            </div>
-            <div class="upload_geral" id="videodiv" runat="server">
-                <p>Participe da Galeria Colaborativa de Videos!</p>
-                <a onclick="showform('up_video','videodiv')">
-                    <img src="images/icone_video.png" alt="Icone Camera" />
-                    Clique para enviar a seu video</a>
-            </div>
-            <form id="up_video" style="display: none" action="galeria-geral.aspx">
-                <input type="hidden" name="acao" value="gravavideo" />
-                <div class="titu_setup">ADICIONAR VÍDEO:</div>
-                <p class="mini_txt">Para publicar um video, preencha os campos abaixo e clique no botão "publicar vídeo".</p>
-                <div class="full">
-                    <label class="label">Título do vídeo:</label>
-                    <input type="text" class="input" placeholder="Escreva aqui o título do seu vídeo" name="COV_TITULO" />
-                    <label class="label">Breve descritivo do vídeo:</label>
-                    <textarea class="input" rows="6" placeholder="Escreva aqui um breve descritivo do seu vídeo" name="COV_DESCRICAO"></textarea>
-                    <label class="label">Link (YouTube) do vídeo:</label>
-                    <input type="text" class="input" name="COV_LINK" placeholder="Cole aqui o link de seu vídeo. Exemplo: http://youtu.be/e5ADrw5YpHU " />
-                </div>
-                <div class="full">
-                    <button class="btn_back" onclick="showform('up_video','videodiv')">Cancelar</button>
-                    <input type="submit" id="publicar_video" value="Publicar Video" class="btn_save" />
-                </div>
-            </form>
-        </div>
-        <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
+               
+                <img src="/images/linha.png" class="linha" />
+                <p class="titu_agenda">Galeria Colaborativa de Videos</p>
+                <span id="videodiv" runat="server">
+                    <p class="sub_galeria_geral">
+                        Vídeos enviados pelos membros da rede de ensino de  <strong id="nomerede2" runat="server"></strong>
+                        (use as setas para navegar nos vídeos e clique na imagem para assistir o vídeo).
+                    </p>
 
-        <!--BOX LOGIN-->
-        <brincadeira:login runat="server" ID="login" />
+                    <div class="galeria_geral">
+                        <div class="mascara">
+                            <!-- VIDEOS -->
+                            <ul id="ulVideos" class="videos_home carrousel" rel="0" style="display: block;" runat="server">
+                            </ul>
+                            <div class="left_video">
+                                <img src="/images/arrow_left2.png">
+                            </div>
+                            <div class="right_video">
+                                <img src="/images/arrow_right2.png">
+                            </div>
+                        </div>
+                    </div>
 
-        <!--BLOG-->
-        <brincadeira:blog runat="server" ID="blog" />
+
+                    <div class="upload_geral" runat="server">
+                        <p>Participe da Galeria Colaborativa de Videos!</p>
+                        <a onclick="showform('up_video','videodiv')">
+                            <img src="images/icone_video.png" alt="Icone Camera" />
+                            Clique para enviar a seu video</a>
+                    </div>
+                </span>
+                <form id="up_video" style="display: none" action="galeria-geral.aspx">
+                    <input type="hidden" name="acao" value="gravavideo" />
+                    <div class="titu_setup">ADICIONAR VÍDEO:</div>
+                    <p class="mini_txt">Para publicar um video, preencha os campos abaixo e clique no botão "publicar vídeo".</p>
+                    <div class="full">
+                        <label class="label">Título do vídeo:</label>
+                        <input type="text" class="input" placeholder="Escreva aqui o título do seu vídeo" name="COV_TITULO" />
+                        <label class="label">Breve descritivo do vídeo:</label>
+                        <textarea class="input" rows="6" placeholder="Escreva aqui um breve descritivo do seu vídeo" name="COV_DESCRICAO"></textarea>
+                        <label class="label">Link (YouTube) do vídeo:</label>
+                        <input type="text" class="input" name="COV_LINK" placeholder="Cole aqui o link de seu vídeo. Exemplo: http://youtu.be/e5ADrw5YpHU " />
+                    </div>
+                    <div class="full">
+                         <button class="btn_back" onclick="showform('up_video','videodiv')">Cancelar</button>
+                        
+                        <input type="submit" id="publicar_video" value="Publicar Video" class="btn_save" />
+                    </div>
+                </form>
+            </div>
+            <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
+
+            <!--BOX LOGIN-->
+            <brincadeira:login runat="server" ID="login" />
+
+            <!--BLOG-->
+            <brincadeira:blog runat="server" ID="blog" />
 
         </div>
     </section>
