@@ -650,16 +650,7 @@ namespace Etnia.classe
 
         public string getYoutubeVideoId(string URL)
         {
-            Match youtubeMatch = new Regex(@"youtu(?:\.be|be\.com)/(?:(.*)v(/|=)|(.*/)?)([a-zA-Z0-9-_]+)", RegexOptions.IgnoreCase).Match(URL);
-            if (youtubeMatch.Success)
-            {
-                return youtubeMatch.Groups[1].Value;
-            }
-            else
-            {
-                return null;
-            }
-
+            return Regex.Match(URL.Replace("&feature=youtu.be",""), @"(?:https?:\/\/)?(?:www\.)?youtu(?:.be\/|be\.com\/watch\?v=|be\.com\/v\/)(.{8,})").Groups[1].Value;
 
         }
 
