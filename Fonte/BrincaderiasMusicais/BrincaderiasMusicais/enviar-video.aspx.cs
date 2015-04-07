@@ -13,7 +13,7 @@ namespace BrincaderiasMusicais
     {
         private utils objUtils = new utils();
         private bd objBD = new bd();
-        private OleDbDataReader rsGravar;
+        private OleDbDataReader rsGravar, rsMedalhas;
         protected void Page_Load(object sender, EventArgs e)
         {
             objBD = new bd();
@@ -35,6 +35,7 @@ namespace BrincaderiasMusicais
                 if (rsGravar.HasRows)
                 {
                     rsGravar.Read();
+                    VerificarMedalhas();
                 }
 
                 //Libera o BD e Memória
@@ -49,6 +50,24 @@ namespace BrincaderiasMusicais
             catch (Exception)
             {
                 throw;
+            }
+        }
+
+        public void VerificarMedalhas()
+        {
+            rsMedalhas = objBD.ExecutaSQL("SELECT COUNT(*) as TOTAL_VIDEOS FROM UsuarioVideos where USU_ID = " + Session["usuID"] + "");
+
+            if (rsMedalhas == null)
+            {
+                throw new Exception();
+            }
+            if (rsMedalhas.HasRows)
+            {
+                rsMedalhas.Read();
+                if (Convert.ToInt16(rsMedalhas["TOTAL_VIDEOS"]) == 3)
+                {
+                    objBD.ExecutaSQL("insert into Log (USU_ID, LOG_ACONTECIMENTO, LOG_EXIBIR) VALUES ('" + Session["usuID"] + "','Parabéns! Você ganhou uma medalha por publicar três vídeos em seu galeria pessoal','1')");
+                }
             }
         }
     }

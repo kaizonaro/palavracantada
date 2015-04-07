@@ -1,11 +1,12 @@
 ﻿using Etnia.classe;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.OleDb;
+using System.IO;
 
 namespace BrincaderiasMusicais
 {
@@ -13,6 +14,7 @@ namespace BrincaderiasMusicais
     {
         private utils objUtils = new utils();
         private bd objBD = new bd();
+        private OleDbDataReader rsMedalhas;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -58,7 +60,7 @@ namespace BrincaderiasMusicais
 
                             // Salvar no BD
                             objBD.ExecutaSQL("EXEC admin_piuUsuarioFotos '" + Request["FOT_ID"] + "','" + Session["usuID"] + "', '" + filename + extensao + "','" + Request["FOT_LEGENDA"] + "'");
-                            
+                            VerificarMedalhas();
                             // File.Delete(Server.MapPath("~/upload/imagens/" + rsSize["PAG_PASTA"] + "/") + filename + i + extensao);
                             break;
                         }
@@ -72,6 +74,24 @@ namespace BrincaderiasMusicais
             Response.Redirect("minhas-fotos");
             Response.End();
 
+        }
+
+        public void VerificarMedalhas()
+        {
+            rsMedalhas = objBD.ExecutaSQL("SELECT COUNT(*) as TOTAL_FOTOS FROM UsuarioFotos where USU_ID = " + Session["usuID"] + "");
+
+            if (rsMedalhas == null)
+            {
+                throw new Exception();
+            }
+            if (rsMedalhas.HasRows)
+            {
+                rsMedalhas.Read();
+                if (Convert.ToInt16(rsMedalhas["TOTAL_FOTOS"]) == 3)
+                {
+                    objBD.ExecutaSQL("insert into Log (USU_ID, LOG_ACONTECIMENTO, LOG_EXIBIR) VALUES ('" + Session["usuID"] + "','Parabéns! Você ganhou uma medalha por publicar três fotos em seu galeria pessoal','1')");
+                }
+            }
         }
     }
 }
