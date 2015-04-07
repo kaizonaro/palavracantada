@@ -6,7 +6,7 @@
     <span class="terceiro" id="configuracoes" runat="server"><a href="editar-configuracoes">configurações</a></span>
 
     <p class="sub_perfil">Ajustes de seu perfil</p>
-    <span class="quarto"><a href="enviar-post">Adicionar Post</a></span>
-    <span class="quinto"><a href="enviar-foto">Adicionar Foto</a></span>
-    <span class="sexto"><a href="enviar-video">Adicionar Video</a></span>
+    <span class="quarto"><a href="/enviar-post">Adicionar Post</a></span>
+    <span class="quinto"><a href="/enviar-foto">Adicionar Foto</a></span>
+    <span class="sexto"><a href="/enviar-video">Adicionar Video</a></span>
 </div>
