@@ -49,6 +49,15 @@ namespace BrincaderiasMusicais {
         protected global::BrincaderiasMusicais.inc.menu menu;
         
         /// <summary>
+        /// fotodiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl fotodiv;
+        
+        /// <summary>
         /// nomerede1 control.
         /// </summary>
         /// <remarks>
@@ -65,15 +74,6 @@ namespace BrincaderiasMusicais {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ulFotos;
-        
-        /// <summary>
-        /// fotodiv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl fotodiv;
         
         /// <summary>
         /// up_foto control.
@@ -103,6 +103,15 @@ namespace BrincaderiasMusicais {
         protected global::System.Web.UI.WebControls.Button PublicarFoto;
         
         /// <summary>
+        /// videodiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl videodiv;
+        
+        /// <summary>
         /// nomerede2 control.
         /// </summary>
         /// <remarks>
@@ -119,15 +128,6 @@ namespace BrincaderiasMusicais {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ulVideos;
-        
-        /// <summary>
-        /// videodiv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl videodiv;
         
         /// <summary>
         /// login control.
