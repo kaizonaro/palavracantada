@@ -648,6 +648,22 @@ namespace Etnia.classe
         }
 
 
+        public string getYoutubeVideoId(string URL)
+        {
+            Match youtubeMatch = new Regex(@"youtu(?:\.be|be\.com)/(?:(.*)v(/|=)|(.*/)?)([a-zA-Z0-9-_]+)", RegexOptions.IgnoreCase).Match(URL);
+            if (youtubeMatch.Success)
+            {
+                return youtubeMatch.Groups[1].Value;
+            }
+            else
+            {
+                return null;
+            }
+
+
+        }
+
+
 
     }
 }
