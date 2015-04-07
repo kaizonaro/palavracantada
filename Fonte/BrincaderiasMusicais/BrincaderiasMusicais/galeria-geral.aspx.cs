@@ -29,15 +29,15 @@ namespace BrincaderiasMusicais
             {
 
                 case 1:
-                     fotodiv.InnerHtml = "<p>Sua foto foi enviada com sucesso e passará pelo processo de moderação dos administradores do Projeto Brincadeiras Musicais da Palavra Cantada. Agradecemos a sua participação!</p>";
+                    fotodiv.InnerHtml = "<p>Sua foto foi enviada com sucesso e passará pelo processo de moderação dos administradores do Projeto Brincadeiras Musicais da Palavra Cantada. Agradecemos a sua participação!</p>";
                     break;
                 case 2:
-                     videodiv.InnerHtml = "<p>Seu vídeo foi enviado com sucesso e passará pelo processo de moderação dos administradores do Projeto Brincadeiras Musicais da Palavra Cantada. Agradecemos a sua participação!</p>";
+                    videodiv.InnerHtml = "<p>Seu vídeo foi enviado com sucesso e passará pelo processo de moderação dos administradores do Projeto Brincadeiras Musicais da Palavra Cantada. Agradecemos a sua participação!</p>";
                     break;
                 default:
                     break;
             }
-           
+
             rsGaleria = objBD.ExecutaSQL("EXEC psGaleriaColaborativa " + Session["redeID"]);
             if (rsGaleria == null) { throw new Exception(); }
             if (rsGaleria.HasRows)
@@ -89,6 +89,8 @@ namespace BrincaderiasMusicais
             else
             {
                 objBD.ExecutaSQL("insert into ColaborativaVideos (RED_ID, USU_ID, COV_TITULO, COV_DESCRICAO, COV_VIDEO_ID) values ('" + Session["redeID"] + "','" + Session["usuID"] + "', '" + Request["COV_TITULO"] + "','" + Request["COV_DESCRICAO"] + "', '" + videoid + "')");
+                string mensagem = "O usuario "+Session["nomeUsuario"].ToString()+ " enviou um novo <a href='https://www.youtube.com/watch?v="+videoid+"' target='_blank'>video</a>. Entre na area administrativa para aprovar ou reprovar.";
+                objUtils.EnviaEmail("zonaro@outlook.com", "Galeria Colaborativa | Video", mensagem, nome: Session["nomeUsuario"].ToString());
             }
         }
 
@@ -131,7 +133,9 @@ namespace BrincaderiasMusicais
 
                             // Salvar no BD
                             objBD.ExecutaSQL("insert into ColaborativaFotos (RED_ID, USU_ID, COF_IMAGEM, COF_LEGENDA) values ('" + Session["redeID"] + "','" + Session["usuID"] + "', '" + filename + extensao + "','" + Request["COF_LEGENDA"] + "')");
-
+                            string mensagem = "O usuario " + Session["nomeUsuario"].ToString() + " enviou uma nova foto. Entre na area administrativa para aprovar ou reprovar.";
+                            objUtils.EnviaEmail("zonaro@outlook.com", "Galeria Colaborativa | Foto", mensagem, nome: Session["nomeUsuario"].ToString());
+           
                             // File.Delete(Server.MapPath("~/upload/imagens/" + rsSize["PAG_PASTA"] + "/") + filename + i + extensao);
                             break;
                         }
