@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsUsuario;
+        private OleDbDataReader rsUsuario, rsMedalhas;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,38 +28,44 @@ namespace BrincaderiasMusicais
             //Verificar se ainda está logado
             if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1)
             {
-                rsUsuario = objBD.ExecutaSQL("select USU_ID, RED_ID from usuario where USU_USUARIO = '" + Request["usuario"].ToString() + "'");
-
-                if (rsUsuario == null)
+                if (Request["usuario"] != null && Request["usuario"].ToString().Length > 1)
                 {
-                    throw new Exception();
-                }
-                if (rsUsuario.HasRows)
-                {
-                    rsUsuario.Read();
+                    rsUsuario = objBD.ExecutaSQL("select USU_ID, RED_ID from usuario where USU_USUARIO = '" + Request["usuario"].ToString() + "'");
 
-                    if (rsUsuario["USU_ID"].ToString() == Session["usuID"].ToString())
+                    if (rsUsuario == null)
                     {
-                        Response.Write("é o mesmo");
-
+                        throw new Exception();
                     }
-                    else if ((rsUsuario["USU_ID"].ToString() != Session["usuID"].ToString()) && rsUsuario["RED_ID"].ToString() == Session["redeID"].ToString())
+                    if (rsUsuario.HasRows)
                     {
-                        Response.Redirect("/perfil/" + Request["usuario"].ToString());
-                        Response.End();
-               
+                        rsUsuario.Read();
+
+                        if (rsUsuario["USU_ID"].ToString() == Session["usuID"].ToString())
+                        {
+                            Response.Write("é o mesmo");
+
+                        }
+                        else if ((rsUsuario["USU_ID"].ToString() != Session["usuID"].ToString()) && rsUsuario["RED_ID"].ToString() == Session["redeID"].ToString())
+                        {
+                            Response.Redirect("/perfil/" + Request["usuario"].ToString());
+                            Response.End();
+
+                        }
+                        else
+                        {
+                            Response.Write("outro e rede diferente");
+                        }
                     }
                     else
                     {
-                        Response.Write("outro e rede diferente");
+
                     }
-                }
-                else
-                {
+                    rsUsuario.Close();
+                    rsUsuario.Dispose();
 
                 }
-                rsUsuario.Close();
-                rsUsuario.Dispose();
+
+                VerificarMedalhas();
             }
             else
             {
@@ -68,5 +74,44 @@ namespace BrincaderiasMusicais
             }
         }
 
+        public void VerificarMedalhas()
+        {
+            rsMedalhas = objBD.ExecutaSQL("Exec psMedalhasLis " + Session["usuID"].ToString() + "");
+
+            if (rsMedalhas == null)
+            {
+                throw new Exception();
+            }
+            if (rsMedalhas.HasRows)
+            {
+                rsMedalhas.Read();
+
+                if (Convert.ToInt16(rsMedalhas["TOTAL_LOGIN"]) > 2)
+                {
+                    liDedicado.Attributes.Add("class", "ativo");
+                    imgDedicado.Attributes.Add("src", "/images/medalha_ok.png");
+                }
+
+                if (Convert.ToInt16(rsMedalhas["TOTAL_POST_BLOG"]) > 2)
+                {
+                    liBlogueiro.Attributes.Add("class", "ativo");
+                    imgBlogueiro.Attributes.Add("src", "/images/medalha_ok.png");
+                }
+
+                if (Convert.ToInt16(rsMedalhas["TOTAL_FOTOS"]) > 2)
+                {
+                    liFotografo.Attributes.Add("class", "ativo");
+                    imgFotografo.Attributes.Add("src", "/images/medalha_ok.png");
+                }
+
+                if (Convert.ToInt16(rsMedalhas["TOTAL_VIDEOS"]) > 2)
+                {
+                    liProdutor.Attributes.Add("class", "ativo");
+                    imgProdutor.Attributes.Add("src", "/images/medalha_ok.png");
+                }
+            }
+            rsMedalhas.Close();
+            rsMedalhas.Dispose();
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace BrincaderiasMusicais
     {
         private utils objUtils = new utils();
         private bd objBD = new bd();
-        private OleDbDataReader rsGravar, Categoria, rsTrazer;
+        private OleDbDataReader rsGravar, Categoria, rsTrazer, rsMedalhas;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -102,6 +102,9 @@ namespace BrincaderiasMusicais
 
                                             // Salvar no BD
                                             rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '0','" + Session["usuID"] + "', '" + Session["redeID"] + "', null, '" + Request["POS_TITULO"] + "', '" + filename + i + extensao + "','<p>" + Request["POS_TEXTO"].Replace("'", "\"") + "</p>',0," + Request["PCA_ID"]);
+
+                                            VerificarMedalhas();
+
                                         }
                                     }
                                 }
@@ -130,6 +133,7 @@ namespace BrincaderiasMusicais
                     else
                     {
                         rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "','" + Session["usuID"] + "','" + Session["redeID"] + "', null,'" + Request["POS_TITULO"] + "',NULL,'" + Request["POS_TEXTO"].Replace("'", "\"") + "','0', " + Request["PCA_ID"]);
+                        VerificarMedalhas();
                     }
                     //notificacoes();
                 }
@@ -137,6 +141,24 @@ namespace BrincaderiasMusicais
                 catch (Exception)
                 {
                     Response.Write("Imagem não pode ser superior a 8 MB");
+                }
+            }
+        }
+
+        public void VerificarMedalhas()
+        {
+            rsMedalhas = objBD.ExecutaSQL("SELECT COUNT(*) as TOTAL_BLOG FROM PostBlog where USU_ID = " + Session["usuID"] + "");
+
+            if (rsMedalhas == null)
+            {
+                throw new Exception();
+            }
+            if (rsMedalhas.HasRows)
+            {
+                rsMedalhas.Read();
+                if (Convert.ToInt16(rsMedalhas["TOTAL_BLOG"]) == 3)
+                {
+                    objBD.ExecutaSQL("insert into Log (USU_ID, LOG_ACONTECIMENTO, LOG_EXIBIR) VALUES ('" + Session["usuID"] + "','Parabéns! Você ganhou uma medalha por publicar três posts em seu blog pessoal','1')");
                 }
             }
         }

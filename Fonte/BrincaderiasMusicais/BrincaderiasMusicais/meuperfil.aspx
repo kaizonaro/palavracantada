@@ -54,23 +54,23 @@
                     <p class="sub_perfil">Suas recompensas conquistadas</p>
                     <ul class="medalhas">
                         <!--<li class="ativo">-->
-                        <li>
+                        <li class="ativo">
                             <img src="/images/medalha_ok.png" /><p>Iniciante</p>
                         </li>
-                        <li>
-                            <img src="/images/medalha.png" /><p>dedicado</p>
+                        <li id="liDedicado" runat="server">
+                            <img src="/images/medalha.png" id="imgDedicado" runat="server"/><p>Dedicado</p>
+                        </li>
+                        <li id="liBlogueiro" runat="server">
+                            <img src="/images/medalha.png" id="imgBlogueiro" runat="server"/><p>Blogueiro</p>
+                        </li>
+                        <li id="liFotografo" runat="server">
+                            <img src="/images/medalha.png" id="imgFotografo" runat="server"/><p>Fotografo</p>
+                        </li>
+                        <li id="liProdutor" runat="server">
+                            <img src="/images/medalha.png" id="imgProdutor" runat="server"/><p>Produtor</p>
                         </li>
                         <li>
-                            <img src="/images/medalha.png" /><p>blogueiro</p>
-                        </li>
-                        <li>
-                            <img src="/images/medalha.png" /><p>fotografo</p>
-                        </li>
-                        <li>
-                            <img src="/images/medalha.png" /><p>produtor</p>
-                        </li>
-                        <li>
-                            <img src="/images/medalha.png" /><p>experiente</p>
+                            <img src="/images/medalha.png" /><p>Experiente</p>
                         </li>
                     </ul>
                 </div>
