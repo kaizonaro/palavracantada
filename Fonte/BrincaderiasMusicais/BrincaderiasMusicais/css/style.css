@@ -420,6 +420,23 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 #up_foto .up_post_btn .btn_save{float:right!important;}
 #up_foto .up_post_btn .btn_back{float:right!important;}
 
+/*Colaborativa UPLOAD Video*/
+#up_video .mini_txt{text-align:left;margin-top:0px}
+#up_video .label{color:#68455b;font-family:Arial;font-weight:700;font-size:11.5px;width:100%;margin-bottom:5px;display:inline-block}
+#up_video .input{border: 1px solid #B8B6B6;width: 100%;height: 25px;-webkit-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);-moz-box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);box-shadow: inset 0px 1px 1px 0px rgba(107,107,107,0.67);margin-right: 10px;margin-bottom:10px;padding-left:2px;}
+#up_video{text-align:left;}
+#up_video .left{width:270px;float:left;}
+#up_video .right{float:right;width:200px;}
+#up_video .btn_back {color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase; background:url(../images/back_perfil.png) center center no-repeat;background-size:cover;font-size:10px;width:71px;height:31px;float:left;cursor:pointer;}
+#up_video .btn_save {color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase; background:url(../images/save_perfil.png) center center no-repeat;background-size:cover;font-size:10px;width:148px;height:31px;float:left;cursor:pointer;margin-left:30px;}
+#up_video .subir_foto{margin-top:13px;line-height:32px;background:url(../images/upload_perfil.png) center center no-repeat;background-size:cover; text-align:center;width:185px; background:url(../images/bg_up.png) center center no-repeat;background-size:cover;}
+#up_video .full{width:100%;display:inline-block;text-align:left;}
+#up_video .input.error{background: rgba(174, 8, 15, 0.29);border: 1px solid #ae080f;}
+#up_video textarea{height:auto!important;resize:none;}
+#up_video .full .subir_foto{margin:0;margin-bottom:10px;}
+#up_video .up_post_btn .btn_save{float:right!important;}
+#up_video .up_post_btn .btn_back{float:right!important;}
+
 /*INTERNA GALERIA*/
 .titu_galeria{display: inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size: 15px;color: #db4f36;text-align: left;font-weight: bold;width: 100%;}
 .galeria_img_interna{width:100%;display:inline-block;}
