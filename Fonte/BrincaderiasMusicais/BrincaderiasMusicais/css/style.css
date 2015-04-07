@@ -497,11 +497,15 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .upload_geral a img{  display: inline;}
 
 /*FORUM*/
-.titu_forum{font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:14px;color:#f68b1f;margin-top:20px;margin-bottom:5px;}
+.titu_forum{font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:14px;color:#f68b1f;margin-top:20px;margin-bottom:5px;text-align:left}
 .titu_forum img{vertical-align:middle;}
-.mini_txt_forum{  width: 100%; display: inline-block; font-family: Arial; color: #ae0810; text-transform: none; margin-bottom: 15px; height: 11px;}
+.mini_txt_forum{  width: 100%; display: inline-block; font-family: Arial; color: #ae0810; text-transform: none; margin-bottom: 15px; height: 11px;text-align:left}
 #up_foto .btn_back.up_forum{background: url(../images/back_perfil2.png) center center no-repeat !important;padding:0 20px;}
 #up_foto .btn_save.up_forum{background: url(../images/save_perfil2.png) center center no-repeat !important;padding:0 30px;width: 172px;}
+.div_forum{border-bottom:1px rgb(102, 0, 51) dotted;width:100%;margin-top:20px;display:inline-block;}
+.destque_forum{color:#29b5c4;margin-bottom:0px !important;}
+.destque_forum a{color:#29b5c4;font-weight:bold;text-decoration:underline;}
+.txt_forum{background:url(../images/bg_forum_txt.png) no-repeat;padding-left:30px;}
 
 
 /*AJUSTES*/
