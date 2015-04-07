@@ -68,11 +68,13 @@ namespace BrincaderiasMusicais.ajax
                 Session["nomeInstituicao"] = rsLogin["RED_TITULO"].ToString();
                 Session["redeID"] = rsLogin["RED_ID"].ToString();
                 Session["redeTitulo"] = objUtils.GerarURLAmigavel(rsLogin["RED_TITULO"].ToString());
-
+                Session["usuUsuario"] = rsLogin["USU_USUARIO"].ToString();
+                
                 //Salva no log
                 objBD.ExecutaSQL("EXEC psLog '" + rsLogin["USU_ID"] + "',null,'Login efetuado no sistema'");
 
-                Response.Redirect("/rede/" + objUtils.GerarURLAmigavel(rsLogin["RED_TITULO"].ToString()));
+                //Response.Redirect("/rede/" + objUtils.GerarURLAmigavel(rsLogin["RED_TITULO"].ToString()));
+                Response.Redirect("/meu-perfil/" + Session["usuUsuario"].ToString());
                 Response.End();
                
             }
