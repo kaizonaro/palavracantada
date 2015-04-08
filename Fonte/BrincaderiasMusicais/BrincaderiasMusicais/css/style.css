@@ -506,6 +506,11 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .destque_forum{color:#29b5c4;margin-bottom:0px !important;}
 .destque_forum a{color:#29b5c4;font-weight:bold;text-decoration:underline;}
 .txt_forum{background:url(../images/bg_forum_txt.png) no-repeat;padding-left:30px;}
+.div_forum2{border-bottom:1px rgb(102, 0, 51) dotted;width:100%;display:inline-block;}
+.linha_forum{width: 100%;margin-bottom:-10px;}
+.titu_forum2{font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:14px;color:#29b5c4;margin-bottom:5px;text-align:left;}
+.titu_forum2 a{color:#29b5c4;text-decoration:underline;}
+.titu_forum2 img{vertical-align:middle;}
 
 
 /*AJUSTES*/
