@@ -42,7 +42,7 @@ namespace BrincaderiasMusicais
 
                         if (rsUsuario["USU_ID"].ToString() == Session["usuID"].ToString())
                         {
-                            Response.Write("é o mesmo");
+                            //Response.Write("é o mesmo");
 
                         }
                         else if ((rsUsuario["USU_ID"].ToString() != Session["usuID"].ToString()) && rsUsuario["RED_ID"].ToString() == Session["redeID"].ToString())
@@ -53,7 +53,7 @@ namespace BrincaderiasMusicais
                         }
                         else
                         {
-                            Response.Write("outro e rede diferente");
+                           // Response.Write("outro e rede diferente");
                         }
                     }
                     else
