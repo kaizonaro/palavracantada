@@ -14,12 +14,12 @@
 <head id="Head1" runat="server">
 
 
-    <title>Palavra Cantada - Redes</title>
+    <title>Palavra Cantada - Fórum</title>
     <!--FACEBOOK-->
-    <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Artigos" />
+    <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Fórum" />
     <meta property="og:image" content="http://projetopalavracantada.net/images/logo-fb.png" />
-    <meta property="og:description" content="Página de Artigos" />
-    <meta property="og:url" content="http://projetopalavracantada.net/artigos" />
+    <meta property="og:description" content="Página do Fórum" />
+    <meta property="og:url" content="http://projetopalavracantada.net/Fórum" />
 
     <brincadeira:script runat="server" ID="script" />
 
@@ -51,58 +51,41 @@
                     Tópicos do fórum:
                 </p><br />
 
-                <p class="titu_forum2">
-                    <img src="images/titu_forum.png" alt="Icone" />
-                   <a href="#" title="encontros com Brincantes">encontros com Brincantes:</a>
-                </p>
-
-                <p class="titu_forum2">
-                    <img src="images/titu_forum.png" alt="Icone" />
-                   <a href="#" title="encontros com Brincantes">encontros com Brincantes:</a>
-                </p>
-
-                <p class="titu_forum2">
-                    <img src="images/titu_forum.png" alt="Icone" />
-                   <a href="#" title="encontros com Brincantes">encontros com Brincantes:</a>
-                </p>
-
-                <p class="titu_forum2">
-                    <img src="images/titu_forum.png" alt="Icone" />
-                   <a href="#" title="encontros com Brincantes">encontros com Brincantes:</a>
-                </p>
-
-                <p class="titu_forum2">
-                    <img src="images/titu_forum.png" alt="Icone" />
-                   <a href="#" title="encontros com Brincantes">encontros com Brincantes:</a>
-                </p>
+                <!-- lista de categorias-->
+                <div id="listaForum" runat="server"></div>
 
                 <img src="/images/linha.png" class="linha_forum">
+                
                 <p class="titu_forum">
                     Mensagens recentes publicadas no fórum:
                     <hr class="div_forum2" />
                 </p>
-                <div class="txt blog_txt txt_forum">
-                    <div class="txt">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pellentesque urna ac sem maximus pulvinar.  volutpat feugiat eu id tortor(...)</p>
-                        <p class="destque_forum">Mensagem enviada por: <a href='#' title='João da Silva'>João da Silva</a></p>
-                        <p class="destque_forum">Enviada em: <b>10/03/2015</b></p><br /><br />
-                    </div>
-                </div>
-
-                <div class="txt blog_txt txt_forum">
-                    <div class="txt">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pellentesque urna ac sem maximus pulvinar.  volutpat feugiat eu id tortor(...)</p>
-                        <p class="destque_forum">Mensagem enviada por: <a href='#' title='João da Silva'>João da Silva</a></p>
-                        <p class="destque_forum">Enviada em: <b>10/03/2015</b></p><br /><br />
-                    </div>
-                </div>
                 
-                <div class="txt blog_txt txt_forum">
-                    <div class="txt">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pellentesque urna ac sem maximus pulvinar.  volutpat feugiat eu id tortor(...)</p>
-                        <p class="destque_forum">Mensagem enviada por: <a href='#' title='João da Silva'>João da Silva</a></p>
-                        <p class="destque_forum">Enviada em: <b>10/03/2015</b></p><br /><br />
+                <div id="ultimasMensagens" runat="server">
+                
+                  <!--  <div class="txt blog_txt txt_forum">
+                        <div class="txt">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pellentesque urna ac sem maximus pulvinar.  volutpat feugiat eu id tortor(...)</p>
+                            <p class="destque_forum">Mensagem enviada por: <a href='#' title='João da Silva'>João da Silva</a></p>
+                            <p class="destque_forum">Enviada em: <b>10/03/2015</b></p><br /><br />
+                        </div>
                     </div>
+
+                    <div class="txt blog_txt txt_forum">
+                        <div class="txt">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pellentesque urna ac sem maximus pulvinar.  volutpat feugiat eu id tortor(...)</p>
+                            <p class="destque_forum">Mensagem enviada por: <a href='#' title='João da Silva'>João da Silva</a></p>
+                            <p class="destque_forum">Enviada em: <b>10/03/2015</b></p><br /><br />
+                        </div>
+                    </div>
+                
+                    <div class="txt blog_txt txt_forum">
+                        <div class="txt">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pellentesque urna ac sem maximus pulvinar.  volutpat feugiat eu id tortor(...)</p>
+                            <p class="destque_forum">Mensagem enviada por: <a href='#' title='João da Silva'>João da Silva</a></p>
+                            <p class="destque_forum">Enviada em: <b>10/03/2015</b></p><br /><br />
+                        </div>
+                    </div>-->
                 </div>
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
