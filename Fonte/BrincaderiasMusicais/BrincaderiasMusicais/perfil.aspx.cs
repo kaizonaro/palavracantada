@@ -26,7 +26,7 @@ namespace BrincaderiasMusicais
                 if (Session["usuID"].ToString() == rsPerfil["USU_ID"].ToString()) { Response.Redirect("../meu-perfil/" + Request["usuario"]); Response.End(); }
 
                 if (Session["redeID"].ToString() != rsPerfil["RED_ID"].ToString()) { Response.Redirect("../default.aspx"); Response.End(); }
-               
+
                 nomeusuario.InnerText = rsPerfil["USU_NOME"].ToString();
                 nomeusuario1.InnerText = rsPerfil["USU_NOME"].ToString();
                 regiao.InnerText = rsPerfil["USU_REGIAO"].ToString();
@@ -34,7 +34,9 @@ namespace BrincaderiasMusicais
                 foto.Attributes.Add("src", "upload/imagens/usuarios/" + rsPerfil["USU_FOTO"].ToString());
                 foto_outro.Attributes.Add("src", "upload/imagens/galeria/" + rsPerfil["USU_ULTIMAFOTO"].ToString());
                 video_outro.Attributes.Add("src", rsPerfil["USU_ULTIMOVIDEO"].ToString());
-
+                linkfotos.Attributes.Add("href","perfil/fotos/" + rsPerfil["USU_USUARIO"]);
+                linkvideos.Attributes.Add("href", "perfil/videos/" + rsPerfil["USU_USUARIO"]);
+                linkblog.Attributes.Add("href", "perfil/blog/" + rsPerfil["USU_USUARIO"]);
             }
             rsPerfil.NextResult();
             posts.InnerHtml = "";
@@ -50,6 +52,37 @@ namespace BrincaderiasMusicais
                 }
 
             }
+            rsPerfil.NextResult();
+            if (rsPerfil.HasRows)
+            {
+                rsPerfil.Read();
+
+                if (Convert.ToInt16(rsPerfil["TOTAL_LOGIN"]) > 2)
+                {
+                    liDedicado.Attributes.Add("class", "ativo");
+                    imgDedicado.Attributes.Add("src", "/images/medalha_ok.png");
+                }
+
+                if (Convert.ToInt16(rsPerfil["TOTAL_POST_BLOG"]) > 2)
+                {
+                    liBlogueiro.Attributes.Add("class", "ativo");
+                    imgBlogueiro.Attributes.Add("src", "/images/medalha_ok.png");
+                }
+
+                if (Convert.ToInt16(rsPerfil["TOTAL_FOTOS"]) > 2)
+                {
+                    liFotografo.Attributes.Add("class", "ativo");
+                    imgFotografo.Attributes.Add("src", "/images/medalha_ok.png");
+                }
+
+                if (Convert.ToInt16(rsPerfil["TOTAL_VIDEOS"]) > 2)
+                {
+                    liProdutor.Attributes.Add("class", "ativo");
+                    imgProdutor.Attributes.Add("src", "/images/medalha_ok.png");
+                }
+            }
+            rsPerfil.Close();
+            rsPerfil.Dispose();
         }
     }
 }
