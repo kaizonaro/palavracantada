@@ -54,15 +54,15 @@
                 <br />
                 <div class="links_box">
                     <div class="img_links">
-                        <a href="#" title="Minhas fotos">
+                        <a id="linkfotos" runat="server"   title="Minhas fotos">
                             <img src="/images/fotos_perfil2.png" alt="Minhas Fotos" /></a>
                     </div>
                     <div class="img_links">
-                        <a href="#" title="Minhas fotos">
+                        <a id="linkvideos" runat="server"   title="Minhas fotos">
                             <img src="/images/videos_perfil2.png" alt="Minhas Fotos" /></a>
                     </div>
                     <div class="img_links">
-                        <a href="#" title="Minhas fotos">
+                        <a id="linkblog" runat="server"   title="Minhas fotos">
                             <img src="/images/blog_perfil2.png" alt="Minhas Fotos" /></a>
                     </div>
                 </div>
@@ -77,23 +77,24 @@
                 <div class="medalhas_perfil">
                     <p class="sub_perfil_outro">RECOMPENSAS CONQUISTADAS:</p>
                     <ul class="medalhas">
+                        <!--<li class="ativo">-->
                         <li class="ativo">
                             <img src="/images/medalha_ok.png" /><p>Iniciante</p>
                         </li>
-                        <li>
-                            <img src="/images/medalha.png" /><p>dedicado</p>
+                        <li id="liDedicado" runat="server">
+                            <img src="/images/medalha.png" id="imgDedicado" runat="server" /><p>Dedicado</p>
+                        </li>
+                        <li id="liBlogueiro" runat="server">
+                            <img src="/images/medalha.png" id="imgBlogueiro" runat="server" /><p>Blogueiro</p>
+                        </li>
+                        <li id="liFotografo" runat="server">
+                            <img src="/images/medalha.png" id="imgFotografo" runat="server" /><p>Fotografo</p>
+                        </li>
+                        <li id="liProdutor" runat="server">
+                            <img src="/images/medalha.png" id="imgProdutor" runat="server" /><p>Produtor</p>
                         </li>
                         <li>
-                            <img src="/images/medalha.png" /><p>blogueiro</p>
-                        </li>
-                        <li>
-                            <img src="/images/medalha.png" /><p>fotografo</p>
-                        </li>
-                        <li>
-                            <img src="/images/medalha.png" /><p>produtor</p>
-                        </li>
-                        <li>
-                            <img src="/images/medalha.png" /><p>experiente</p>
+                            <img src="/images/medalha.png" /><p>Experiente</p>
                         </li>
                     </ul>
                 </div>
