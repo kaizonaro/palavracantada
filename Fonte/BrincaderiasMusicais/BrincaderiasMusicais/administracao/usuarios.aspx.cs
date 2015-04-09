@@ -19,7 +19,7 @@ namespace BrincaderiasMusicais.administracao
 
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista, rsRede, rsGravaUsuario, rsEditar;
+        private OleDbDataReader rsLista, rsRede, rsGravaUsuario, rsEditar, rsUsuario;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,6 +28,9 @@ namespace BrincaderiasMusicais.administracao
 
             switch (Request["acao"])
             {
+                case ("ValidarUsuario"):
+                    ValidarUsuario();
+                    break;
                 case ("gravarUsuario"):
                     gravarUsuario();
                     break;
@@ -298,6 +301,32 @@ namespace BrincaderiasMusicais.administracao
         protected void Incluir_Click(object sender, EventArgs e)
         {
             gravarUsuario();
+        }
+
+        public void ValidarUsuario()
+        {
+            try
+            {
+                rsUsuario = objBD.ExecutaSQL("EXEC admin_VerificaExistenciaUsuario '" + Request["USU_USUARIO"] + "'");
+
+                if (rsUsuario == null)
+                {
+                    throw new Exception();
+                }
+                if (rsUsuario.HasRows)
+                {
+                    rsUsuario.Read();
+                    Response.Write(rsUsuario["MENSAGEM"] + "|" + rsUsuario["VALIDO"]);
+                }
+
+                //Libera o BD e Memória
+                rsUsuario.Close();
+                rsUsuario.Dispose();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
     }
 }
