@@ -149,6 +149,37 @@
             // }
             ajax4.send(null);
         }
+
+        function ValidarUsuario() {
+            ajax2 = ajaxInit();
+            ajax2.open("GET", "usuarios.aspx?acao=ValidarUsuario&USU_USUARIO=" + USU_USUARIO.value, true);
+            ajax2.setRequestHeader("Content-Type", "charset=iso-8859-1");
+            ajax2.onreadystatechange = function () {
+                if (ajax2.readyState == 4) {
+                    if (ajax2.status == 200) {
+
+                        var ss = ajax2.responseText.split("|");
+
+                        $("#redemensagem").html(ss[0]);
+
+                        if (ss[1] == 0) {
+                            $("#Incluir").attr("disabled", true);
+                            $("#USU_USUARIO").attr("style", "background-color:#FFAEAE");
+                            $("#USU_USUARIO").focus();
+                            $("#USU_USUARIO").select();
+                        }
+                        else {
+                            $("#Incluir").removeAttr("disabled");
+                            $("#USU_USUARIO").removeAttr("style");
+                        }
+
+                    }
+                }
+            }
+            ajax2.send(null);
+
+        }
+
     </script>
 </head>
 
@@ -199,6 +230,10 @@
                                            
                                             <p>Nome:*</p>
                                             <input type="text" name="USU_NOME" id="USU_NOME" class="input obg" placeholder="Nome Completo">
+
+                                            <p>Usuário:*</p>
+                                            <input type="text" name="USU_USUARIO" id="USU_USUARIO" onchange="ValidarUsuario()" class="input obg" placeholder="Nome de Usuário">
+                                            <p id="redemensagem"></p>
 
                                             <p>E-mail:*</p>
                                             <input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input obg" placeholder="Digite um e-mail válido" />
