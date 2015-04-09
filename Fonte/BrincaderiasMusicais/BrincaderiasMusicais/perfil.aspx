@@ -40,15 +40,15 @@
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="meuperfil" class="interna">
                 <div class="img_perfil">
-                    <img src="/images/img_perfil.jpg" />
+                    <img id="foto" runat="server" />
                 </div>
-                <div class="nome_perfil">
+                <div class="nome_perfil" id="nomeusuario" runat="server">
                     Ana Maria Silva dos Santos
                 </div>
-                <div class="regiao_perfil">
+                <div class="regiao_perfil" id="regiao" runat="server">
                     << nome da região do usuário >>
                 </div>
-                <div class="txt txt_perfil">
+                <div class="txt txt_perfil" id="biografia" runat="server">
                     Biografia do usuário com até 250 caracteres lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse blandit neque vel aliquam aliquet. Suspendisse hendrerit varius nisi, id sagittis neque ullamcorper et proin pulvinar blandit est libero.
                 </div>
                 <br />
@@ -70,8 +70,8 @@
                 <div class="menu_perfil">
                     <p class="sub_perfil_outro">Foto & vídeo (recentes)</p>
                     <div class="img_lateral_perfil">
-                        <img src="/images/foto_perfil_outro.jpg" />
-                        <img src="/images/video_perfil_outro.jpg" />
+                        <img runat="server" id="foto_outro" />
+                        <img runat="server" id="video_outro" />
                     </div>
                 </div>
                 <div class="medalhas_perfil">
@@ -99,9 +99,9 @@
                 </div>
                 <img src="/images/linha.png" class="linha" />
                 <p class="titu_blog_perfil">
-                    <img src="/images/titu_blog_home.png">Blog << Nome do Usuario >> <em>(Posts Recentes)</em>
+                    <img src="/images/titu_blog_home.png">Blog <span id="nomeusuario1" runat="server"></span><em>(Posts Recentes)</em>
                 </p>
-                <ul class="posts_home">
+                <ul class="posts_home" runat="server" id="posts">
                     <li>
                         <p class="titu_post_home"><a href="post/post-aberto-3">Post aberto 3</a></p>
                         <p class="desc_post_home"><a href="post/post-aberto-3">Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris,...</a></p>
