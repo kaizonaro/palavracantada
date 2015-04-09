@@ -26,6 +26,9 @@ namespace BrincaderiasMusicais
         {
             try
             {
+                Response.Write(Request["usuario"]);
+                Response.End();
+
                 objUtils = new utils();
                 objBD = new bd();
 
