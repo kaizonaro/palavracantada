@@ -41,12 +41,12 @@ namespace BrincaderiasMusicais.administracao
                 case ("Aprovar"):
                     OleDbDataReader aprova = objBD.ExecutaSQL("exec AprovaFoto " + Convert.ToInt16(Request["COF_ID"].ToString()));
                     aprova.Read();
-                    objUtils.EnviaEmail(aprova["USU_EMAIL"].ToString(), "Foto Galeria Colaborativa", "Parabéns, sua foto " + aprova["COF_LEGENDA"] + " acabou de ser publicada em nossa Galeria Colaborativa!");
+                    objUtils.EnviaEmail(aprova["USU_EMAIL"].ToString(), "Foto Galeria Colaborativa", "Parabéns, sua foto <strong>" + aprova["COF_LEGENDA"] + "</strong> acabou de ser publicada em nossa Galeria Colaborativa!");
                     break;
                 case ("Reprovar"):
                     OleDbDataReader reprova = objBD.ExecutaSQL("EXEC ReprovaFoto " + Convert.ToInt16(Request["COF_ID"].ToString()));
                     reprova.Read();
-                    objUtils.EnviaEmail(reprova["USU_EMAIL"].ToString(), "Foto Galeria Colaborativa", "Que pena, sua foto " + reprova["COF_LEGENDA"] + " não foi aprovada pelos nossos administradores");
+                    objUtils.EnviaEmail(reprova["USU_EMAIL"].ToString(), "Foto Galeria Colaborativa", "Que pena, sua foto <strong>" + reprova["COF_LEGENDA"] + "</strong> não foi aprovada pelos nossos administradores");
                     
                     File.Delete(Server.MapPath("~/upload/imagens/galeriacolaborativa/thumb-" + Request["imagem"].ToString() + ""));
                     File.Delete(Server.MapPath("~/upload/imagens/galeriacolaborativa/" + Request["imagem"].ToString() + ""));
