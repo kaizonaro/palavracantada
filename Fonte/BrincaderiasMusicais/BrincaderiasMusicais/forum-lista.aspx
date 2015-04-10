@@ -14,24 +14,24 @@
 <head id="Head1" runat="server">
 
 
-    <title>Palavra Cantada - Redes</title>
+    <title>Palavra Cantada - Fórum</title>
     <!--FACEBOOK-->
-    <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Artigos" />
+    <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Fórum" />
     <meta property="og:image" content="http://projetopalavracantada.net/images/logo-fb.png" />
     <meta property="og:description" content="Página de Artigos" />
-    <meta property="og:url" content="http://projetopalavracantada.net/artigos" />
+    <meta property="og:url" content="http://projetopalavracantada.net/forum" />
 
-    <brincadeira:script runat="server" ID="script" />
+    <brincadeira:script runat="server" id="script" />
 
 </head>
 <body>
 
     <!--TOPO-->
-    <brincadeira:header runat="server" ID="header" />
+    <brincadeira:header runat="server" id="header" />
     <!--FIM DO TOPO-->
 
     <!--MENU-->
-    <brincadeira:menu runat="server" ID="menu" />
+    <brincadeira:menu runat="server" id="menu" />
     <!--FIM DO MENU-->
 
     <!-- CONTEUDO-->
@@ -43,20 +43,23 @@
                 <div class="titu">
                     Fórum
                 </div>
-                <div id="breadcrumb">
-                    <a href="/" title="Home">Home</a>  &gt;&gt; <a href="forum" title="Fórum">Fórum</a> &gt;&gt; <strong>Conteúdos transversais / Interdisciplinaridade</strong>
+                <div id="breadcrumb" runat="server">
                 </div>
                 <p class="titu_forum">
-                    <img src="images/titu_forum.png" alt="Icone" />
-                    Conteúdos transversais / Interdisciplinaridade:
+                    <img src="/images/titu_forum.png" alt="Icone" />
+                    <span id="spanTitulo" runat="server"></span>
                 </p>
                 <p class="mini_txt_forum">Escreva sua mensagem no campo abaixo e clique no botão "Publicar mensagem"..</p>
                 <div id="up_foto" class="full up_post_btn">
                     <button class="btn_back up_forum" onclick="window.history.go(-1); return false;">Voltar</button>
-                    <input type="submit" name="pub" value="PUBLICAR MENSAGEM" id="pub" class="btn_save up_forum">
+                    <form id="frmPostar" name="frmPostar" action="/postar-forum" method="post">
+                        <input type="hidden" runat="server" id="FTO_ID" name="FTO_ID"/>
+                        <input type="submit" name="pub" value="PUBLICAR MENSAGEM" id="pub" class="btn_save up_forum">
+                    </form>
                     <hr class="div_forum" />
                 </div>
-                <div class="txt blog_txt txt_forum">
+                <div id="divLista" runat="server">
+                    <!-- <div class="txt blog_txt txt_forum">
                     <div class="txt">
                         <p class="destque_forum">Mensagem enviada por: <a href='#' title='João da Silva'>João da Silva</a></p>
                         <p class="destque_forum">Enviada em: <b>10/03/2015</b></p>
@@ -85,28 +88,29 @@
                 <nav class="paginacao">
                     <ul>
                         <li><a href="javascript:void(0);" class="nav_pg" title="Página anterior">
-                            <img src="images/nav_left.png">ANTERIORES</a></li>
+                            <img src="/images/nav_left.png">ANTERIORES</a></li>
                         <li><a href="javascript:void(0);" title="Página atual" class="ativo">1</a></li>
                         <li><a href="javascript:void(0);" onclick="pagina('2')" title="Página 2">2</a></li>
                         <li><a href="javascript:void(0);" onclick="pagina('2')" class="nav_pg" title="Próxima Página">PRÓXIMOS
-                            <img src="images/nav_right.png "></a></li>
+                            <img src="/images/nav_right.png "></a></li>
                     </ul>
-                </nav>
+                </nav>-->
+                </div>
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
 
             <!--BOX LOGIN-->
-            <brincadeira:login runat="server" ID="login" />
+            <brincadeira:login runat="server" id="login" />
 
             <!--BLOG-->
-            <brincadeira:blog runat="server" ID="blog" />
+            <brincadeira:blog runat="server" id="blog" />
 
         </div>
     </section>
     <!--FIM DO CONTEUDO-->
 
     <!--RODAPÉ-->
-    <brincadeira:footer runat="server" ID="footer" />
+    <brincadeira:footer runat="server" id="footer" />
     <!--FIM DO RODAPÉ-->
 </body>
 </html>
