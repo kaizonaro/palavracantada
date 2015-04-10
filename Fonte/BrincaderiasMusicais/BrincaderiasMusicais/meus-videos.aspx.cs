@@ -30,6 +30,8 @@ namespace BrincaderiasMusicais
                 objUtils = new utils();
                 objBD = new bd();
 
+                
+
                 if (Request.QueryString["pagina"] != null)
                 {
                     pagina_atual = Convert.ToInt16(Request.QueryString["pagina"]);
@@ -46,7 +48,10 @@ namespace BrincaderiasMusicais
 
         private void PopularBlog()
         {
-            rs = objBD.ExecutaSQL("EXEC site_meus_videos_lis '4','" + pagina_atual + "','1', '" + Session["usuID"] + "'");
+            int USU_ID = objUtils.RetornarUsuarioPorURL(Request["usuario"], "USU_ID");
+            string USU_NOME = objUtils.RetornarUsuarioPorURL(Request["usuario"], "USU_NOME");
+
+            rs = objBD.ExecutaSQL("EXEC site_meus_videos_lis '4','" + pagina_atual + "','1', '" + USU_ID + "'");
 
             if (rs == null)
             {
@@ -55,7 +60,7 @@ namespace BrincaderiasMusicais
             if (rs.HasRows)
             {
                 divArtigos.InnerHtml += " <div class='titu_galeria'>";
-                divArtigos.InnerHtml += "   VÍDEOS - " + Session["nomeUsuario"].ToString().ToUpper() + " ";
+                divArtigos.InnerHtml += "   VÍDEOS - " + USU_NOME.ToUpper() + " ";
                 divArtigos.InnerHtml += " </div>";
                 divArtigos.InnerHtml += " <ul class='galeria_video_interna'>";
 
