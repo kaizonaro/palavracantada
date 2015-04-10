@@ -63,7 +63,7 @@ namespace BrincaderiasMusicais
 
         public void Ultimas()
         {
-            rsLista = objBD.ExecutaSQL("select top 3 U.USU_NOME, FME_MENSAGEM, CONVERT(VARCHAR(10),FME_DH_PUBLICACAO, 103) AS FME_DH_PUBLICACAO from ForumMensagem F inner join Usuario U ON (U.USU_ID = F.USU_ID) order by FME_DH_PUBLICACAO desc");
+            rsLista = objBD.ExecutaSQL("select top 3 U.USU_NOME, U.USU_USUARIO, FME_MENSAGEM, CONVERT(VARCHAR(10),FME_DH_PUBLICACAO, 103) AS FME_DH_PUBLICACAO from ForumMensagem F inner join Usuario U ON (U.USU_ID = F.USU_ID) order by FME_DH_PUBLICACAO desc");
 
             if (rsLista == null)
             {
@@ -73,13 +73,13 @@ namespace BrincaderiasMusicais
             {
                 while (rsLista.Read())
                 {
-                    listaForum.InnerHtml += " <div class=\"txt blog_txt txt_forum\">";
-                    listaForum.InnerHtml += "   <div class=\"txt\">";
-                    listaForum.InnerHtml += "       <p>" + objUtils.CortarString(true,100,rsLista["FME_MENSAGEM"].ToString())+"</p>";
-                    listaForum.InnerHtml += "       <p class=\"destque_forum\">Mensagem enviada por: <a href='javascript:void(0);' title='" + rsLista["USU_NOME"].ToString() + "'>" + rsLista["USU_NOME"].ToString() + "</a></p>";
-                    listaForum.InnerHtml += "       <p class=\"destque_forum\">Enviada em: <b>"+rsLista["FME_DH_PUBLICACAO"].ToString()+"</b></p><br /><br />";
-                    listaForum.InnerHtml += "   </div>";
-                    listaForum.InnerHtml += " </div>";
+                    ultimasMensagens.InnerHtml += " <div class=\"txt blog_txt txt_forum\">";
+                    ultimasMensagens.InnerHtml += "   <div class=\"txt\">";
+                    ultimasMensagens.InnerHtml += "       <p>" + objUtils.CortarString(true, 100, rsLista["FME_MENSAGEM"].ToString()) + "</p>";
+                    ultimasMensagens.InnerHtml += "       <p class=\"destque_forum\">Mensagem enviada por: <a href='/perfil/" + rsLista["USU_USUARIO"].ToString() + "' title='" + rsLista["USU_NOME"].ToString() + "'>" + rsLista["USU_NOME"].ToString() + "</a></p>";
+                    ultimasMensagens.InnerHtml += "       <p class=\"destque_forum\">Enviada em: <b>" + rsLista["FME_DH_PUBLICACAO"].ToString() + "</b></p><br /><br />";
+                    ultimasMensagens.InnerHtml += "   </div>";
+                    ultimasMensagens.InnerHtml += " </div>";
                 }
             }
             rsLista.Close();
