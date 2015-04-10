@@ -28,10 +28,14 @@ namespace BrincaderiasMusicais.administracao
             switch (Request["acao"])
             {
                 case ("Aprovar"):
-                    objBD.ExecutaSQL("update ColaborativaVideos set COV_STATUS = 'Aprovado' where COV_ID = " + Convert.ToInt16(Request["COV_ID"].ToString()));
+                    OleDbDataReader aprova = objBD.ExecutaSQL("exec AprovaVideo " + Convert.ToInt16(Request["COV_ID"].ToString()));
+                    aprova.Read();
+                    objUtils.EnviaEmail(aprova["USU_EMAIL"].ToString(), "Video Galeria Colaborativa", "Parabéns, seu video " + aprova["COV_DESCRICAO"] + " acabou de ser publicado em nossa Galeria Colaborativa!");
                     break;
                 case ("Reprovar"):
-                    objBD.ExecutaSQL("update ColaborativaVideos set COV_STATUS = 'Reprovado' where COV_ID = " + Convert.ToInt16(Request["COV_ID"].ToString()));
+                    OleDbDataReader reprova = objBD.ExecutaSQL("EXEC ReprovaVideo " + Convert.ToInt16(Request["COV_ID"].ToString()));
+                    reprova.Read();
+                    objUtils.EnviaEmail(reprova["USU_EMAIL"].ToString(), "Foto Galeria Colaborativa", "Que pena, seu video " + reprova["COV_DESCRICAO"] + " não foi aprovado pelos nossos administradores");
                     break;
                 default:
                     PopulaLista();
