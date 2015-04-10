@@ -72,11 +72,10 @@
                     <ul class="submenu">
                         <li><a href="eventos.aspx">Eventos</a></li>
                         <li><a href="faq.aspx">FAQ</a></li>
-                        <li><a href="galeria-fotos.aspx">Galeria Colaborativa</a>
+                        <li><a href="javascript:void(0)">Galeria Colaborativa</a>
                             <ul class="submenu2">
-                                <li><a href="eventos.aspx">Eventos</a></li>
-                                <li><a href="faq.aspx">FAQ</a></li>
-                                <li><a href="galeria-fotos.aspx">Galeria Colaborativa</a></li>
+                                <li><a href="galeria-fotos.aspx">Galeria Fotos</a></li>
+                                <li><a href="galeria-videos.aspx">Galeria Videos</a></li>
                             </ul>
                         </li>
                     </ul>
