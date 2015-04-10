@@ -26,8 +26,7 @@ namespace BrincaderiasMusicais
         {
             try
             {
-                Response.Write(Request["usuario"]);
-                Response.End();
+                 
 
                 objUtils = new utils();
                 objBD = new bd();
@@ -48,7 +47,11 @@ namespace BrincaderiasMusicais
 
         private void PopularBlog()
         {
-            rs = objBD.ExecutaSQL("EXEC site_minha_galeria_lis '9','" + pagina_atual + "','1', '" + Session["usuID"] + "'");
+            string USU_ID = objUtils.RetornarUsuarioPorURL(Request["usuario"], "USU_ID");
+            string USU_NOME = objUtils.RetornarUsuarioPorURL(Request["usuario"], "USU_NOME");
+
+
+            rs = objBD.ExecutaSQL("EXEC site_minha_galeria_lis '9','" + pagina_atual + "','1', '" + USU_ID + "'");
 
             if (rs == null)
             {
@@ -57,7 +60,7 @@ namespace BrincaderiasMusicais
             if (rs.HasRows)
             {
                 divArtigos.InnerHtml += " <div class='titu_galeria'>";
-                divArtigos.InnerHtml += "   GALERIA DE FOTOS - " + Session["nomeUsuario"].ToString().ToUpper() + " ";
+                divArtigos.InnerHtml += "   GALERIA DE FOTOS - " + USU_NOME.ToString().ToUpper() + " ";
                 divArtigos.InnerHtml += " </div>";
                 divArtigos.InnerHtml += " <ul class='galeria_img_interna'>";
 
