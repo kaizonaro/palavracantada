@@ -180,6 +180,20 @@
 
         }
 
+        function capturar(campo) {
+            document.getElementById("USU_USUARIO").value = removeCaracteres(trim(campo.value));
+        }
+
+        function trim(e) {
+            espacos = /\s/g;
+            return e.replace(espacos, "").toLowerCase();
+        }
+
+        function removeCaracteres(e) {
+            remove = /á|é|í|ó|ã|à|ê|#|!|@|$|%|&|(|)|{|}|&|(|)|ú/g;  // adicione os caracteres indesejáveis
+            return e.replace(remove, "");
+        }
+
     </script>
 </head>
 
@@ -231,8 +245,8 @@
                                             <p>Nome:*</p>
                                             <input type="text" name="USU_NOME" id="USU_NOME" class="input obg" placeholder="Nome Completo">
 
-                                            <p>Usuário:*</p>
-                                            <input type="text" name="USU_USUARIO" id="USU_USUARIO" onchange="ValidarUsuario()" class="input obg" placeholder="Nome de Usuário">
+                                            <p>Usuário:* <span style="font-size:10px; display:block; font-weight:normal;">Não utilizer acentos e/ou caracteres especiais(ex.: @, #, &...)</span></p>
+                                            <input type="text" name="USU_USUARIO" onblur="capturar(this);" id="USU_USUARIO" onchange="ValidarUsuario()" class="input obg" placeholder="Nome de Usuário">
                                             <p id="redemensagem"></p>
 
                                             <p>E-mail:*</p>
