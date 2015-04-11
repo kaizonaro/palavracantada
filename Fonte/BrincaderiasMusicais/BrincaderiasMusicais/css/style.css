@@ -512,6 +512,25 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .titu_forum2 a{color:#29b5c4;text-decoration:underline;}
 .titu_forum2 img{vertical-align:middle;}
 
+/*AGENDA*/
+.tabela_verde{color:#29b5c4}
+
+/*CRIAÇÕES DOCUMENTADAS*/
+.tabela{margin-top:20px;width:100%;display:inline-block; border-collapse:collapse;border:1px dotted #736d9b;border-top:none;border-left:none;border-right:none;margin-bottom:30px;}
+.tabela th{color:#fff;background:#736d9b;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:13px;font-weight:normal;padding:2px 5px; border-collapse:collapse;border:1px dotted #fff;border-top:none;}
+.tabela th:first-child{text-align:left;}
+.tabela td{color:#736d9b;font-family:arial;font-weight:700;font-size:11px;padding:5px; border-collapse:collapse;border:1px dotted #736d9b;}
+.tabela tr td:first-child{border-left:none}
+.tabela tr td:last-child{border-right:none}
+.tabela a{color:#736d9b;text-decoration:underline; text-transform:uppercase;}
+
+.tabela2{margin-top:20px;width:100%;display:inline-block; border-collapse:collapse;border:1px dotted #29b5c4;border-top:none;border-left:none;border-right:none;margin-bottom:30px;}
+.tabela2 th:first-child{text-align:left;}
+.tabela2 th{color:#fff;background:#29b5c4;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:13px;font-weight:normal;padding:2px 5px; border-collapse:collapse;border:1px dotted #fff;border-top:none;}
+.tabela2 td{color:#29b5c4;font-family:arial;font-weight:700;font-size:11px;padding:5px; border-collapse:collapse;border:1px dotted #29b5c4;}
+.tabela2 tr td:first-child{border-left:none}
+.tabela2 tr td:last-child{border-right:none}
+.tabela2 a{color:#29b5c4;text-decoration:underline; text-transform:uppercase;}
 
 /*AJUSTES*/
 .textoPost span {

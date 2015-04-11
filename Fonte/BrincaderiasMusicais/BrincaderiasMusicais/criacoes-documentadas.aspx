@@ -1,0 +1,152 @@
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="criacoes-documentadas.aspx.cs" Inherits="BrincaderiasMusicais.criacoes_documentas" %>
+
+<%@ Register Src="~/inc/script.ascx" TagPrefix="brincadeira" TagName="script" %>
+<%@ Register Src="~/inc/header.ascx" TagPrefix="brincadeira" TagName="header" %>
+<%@ Register Src="~/inc/footer.ascx" TagPrefix="brincadeira" TagName="footer" %>
+<%@ Register Src="~/inc/menu.ascx" TagPrefix="brincadeira" TagName="menu" %>
+<%@ Register Src="~/inc/blog.ascx" TagPrefix="brincadeira" TagName="blog" %>
+<%@ Register Src="~/inc/login.ascx" TagPrefix="brincadeira" TagName="login" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+
+
+    <title>Palavra Cantada - Redes</title>
+    <!--FACEBOOK-->
+    <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Artigos" />
+    <meta property="og:image" content="http://projetopalavracantada.net/images/logo-fb.png" />
+    <meta property="og:description" content="Página de Artigos" />
+    <meta property="og:url" content="http://projetopalavracantada.net/artigos" />
+
+    <brincadeira:script runat="server" ID="script" />
+
+
+
+
+</head>
+<body>
+
+    <!--TOPO-->
+    <brincadeira:header runat="server" ID="header" />
+    <!--FIM DO TOPO-->
+
+    <!--MENU-->
+    <brincadeira:menu runat="server" ID="menu" />
+    <!--FIM DO MENU-->
+
+    <!-- CONTEUDO-->
+    <section class="all">
+        <div class="all_center">
+
+            <!--CONTEUDO INTERNO (ARTIGOS)-->
+            <div id="sobre" class="interna">
+                <div class="titu">
+                   Criações Documentadas
+                </div>
+                <div id="breadcrumb">
+                    <a href="/" title="Home">Home</a>  <strong>Criações Documentadas</strong>
+                </div>
+                <!-- INCLUDE -->
+                <form runat="server">
+                    <p class="titu_agenda">Tarefas ativas em sua região:</p>
+                    <br />
+                    <table class="tabela">
+                        <tr>
+                            <th>Tarefa</th>
+                            <th>Data</th>
+                            <th>Relatos</th>
+                            <th>Visualizar</th>
+                        </tr>
+                        <tr>
+                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit iaculis mauris es lorem.</td>
+                            <td>10/03/2015</td>
+                            <td>05</td>
+                            <td><a href="#">Visualizar Tarefa</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit iaculis mauris es lorem.</td>
+                            <td>10/03/2015</td>
+                            <td>05</td>
+                            <td><a href="#">Visualizar Tarefa</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit iaculis mauris es lorem.</td>
+                            <td>10/03/2015</td>
+                            <td>05</td>
+                            <td><a href="#">Visualizar Tarefa</a></td>
+                        </tr>
+                    </table>
+                    <br />
+                    <img src="/images/linha.png" class="linha" />
+                    <p class="titu_calendario tabela_verde">Tarefas arquivadas em sua região:</p>
+                    <table class="tabela2">
+                        <tr>
+                            <th>Tarefa</th>
+                            <th>Data</th>
+                            <th>Relatos</th>
+                            <th>Visualizar</th>
+                        </tr>
+                        <tr>
+                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit iaculis mauris es lorem.</td>
+                            <td>10/03/2015</td>
+                            <td>05</td>
+                            <td><a href="#">Visualizar Tarefa</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit iaculis mauris es lorem.</td>
+                            <td>10/03/2015</td>
+                            <td>05</td>
+                            <td><a href="#">Visualizar Tarefa</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit iaculis mauris es lorem.</td>
+                            <td>10/03/2015</td>
+                            <td>05</td>
+                            <td><a href="#">Visualizar Tarefa</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit iaculis mauris es lorem.</td>
+                            <td>10/03/2015</td>
+                            <td>05</td>
+                            <td><a href="#">Visualizar Tarefa</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit iaculis mauris es lorem.</td>
+                            <td>10/03/2015</td>
+                            <td>05</td>
+                            <td><a href="#">Visualizar Tarefa</a></td>
+                        </tr>
+
+                        <tr>
+                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit iaculis mauris es lorem.</td>
+                            <td>10/03/2015</td>
+                            <td>05</td>
+                            <td><a href="#">Visualizar Tarefa</a></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
+
+            <!--BOX LOGIN-->
+            <brincadeira:login runat="server" ID="login" />
+
+            <!--BLOG-->
+            <brincadeira:blog runat="server" ID="blog" />
+
+        </div>
+    </section>
+    <!--RODAPÉ-->
+    <brincadeira:footer runat="server" ID="footer" />
+    <!--FIM DO RODAPÉ-->
+</body>
+</html>
+
