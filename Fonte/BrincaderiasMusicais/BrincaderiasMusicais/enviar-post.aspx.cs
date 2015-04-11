@@ -102,7 +102,7 @@ namespace BrincaderiasMusicais
 
                                             // Salvar no BD
                                             rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '0','" + Session["usuID"] + "', '" + Session["redeID"] + "', null, '" + Request["POS_TITULO"] + "', '" + filename + i + extensao + "','<p>" + Request["POS_TEXTO"].Replace("'", "\"") + "</p>',0," + Request["PCA_ID"]);
-
+                                            objUtils.EnviaEmail(Session["email"].ToString(), "Post Publicado com sucesso!", "Parabéns, seu pos acabou de ser publicado!");
                                             VerificarMedalhas();
 
                                         }
@@ -133,6 +133,7 @@ namespace BrincaderiasMusicais
                     else
                     {
                         rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "','" + Session["usuID"] + "','" + Session["redeID"] + "', null,'" + Request["POS_TITULO"] + "',NULL,'" + Request["POS_TEXTO"].Replace("'", "\"") + "','0', " + Request["PCA_ID"]);
+                        objUtils.EnviaEmail(Session["email"].ToString(), "Video Enviado com sucesso!", "Parabéns, seu video acabou de ser postado!");
                         VerificarMedalhas();
                     }
                     //notificacoes();
