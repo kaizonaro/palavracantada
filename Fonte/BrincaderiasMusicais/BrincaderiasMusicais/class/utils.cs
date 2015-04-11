@@ -650,7 +650,33 @@ namespace Etnia.classe
 
         public string getYoutubeVideoId(string URL)
         {
-            return Regex.Match(URL.Replace("&feature=youtu.be",""), @"(?:https?:\/\/)?(?:www\.)?youtu(?:.be\/|be\.com\/watch\?v=|be\.com\/v\/)(.{8,})").Groups[1].Value;
+            return Regex.Match(URL.Replace("&feature=youtu.be", ""), @"(?:https?:\/\/)?(?:www\.)?youtu(?:.be\/|be\.com\/watch\?v=|be\.com\/v\/)(.{8,})").Groups[1].Value;
+
+        }
+
+        public dynamic RetornarUsuarioPorURL(string Usuario, string nome)
+        {
+            
+            bd banco = new bd();
+            OleDbDataReader resposta = banco.ExecutaSQL("SELECT * FROM Usuario where USU_USUARIO = '" + Usuario + "'");
+            if (resposta.HasRows)
+            {
+                resposta.Read();
+                return resposta[nome];
+            }
+            else
+            {
+
+                switch (nome)
+                {
+                    case "USU_ID":
+                        return Session["usuID"];
+                    default:
+                        return Session["nomeUsuario"];
+                        break;
+                }
+
+            }
 
         }
 
@@ -658,3 +684,4 @@ namespace Etnia.classe
 
     }
 }
+
