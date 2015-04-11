@@ -44,6 +44,7 @@ namespace BrincaderiasMusicais
                     spanTitulo.InnerHtml += "" + rsDados["FTO_TITULO"].ToString() + ":";
 
                     FTO_ID.Attributes.Add("value", rsDados["FTO_ID"].ToString());
+                    REDIRECT.Attributes.Add("value", Request.RawUrl);
                 }
 
                 //Verifiar em qual página está
@@ -81,10 +82,10 @@ namespace BrincaderiasMusicais
                 {
                     divLista.InnerHtml += " <div class=\"txt blog_txt txt_forum\">";
                     divLista.InnerHtml += "     <div class=\"txt\">";
-                    divLista.InnerHtml += "         <p class=\"destque_forum\">Mensagem enviada por: <a href='#' title='João da Silva'>João da Silva</a></p>";
-                    divLista.InnerHtml += "         <p class=\"destque_forum\">Enviada em: <b>10/03/2015</b></p>";
+                    divLista.InnerHtml += "         <p class=\"destque_forum\">Mensagem enviada por: <a href='/perfil/" + rsResultado["USU_NOME"] + "' title='" + rsResultado["USU_NOME"] + "'>" + rsResultado["USU_NOME"] + "</a></p>";
+                    divLista.InnerHtml += "         <p class=\"destque_forum\">Enviada em: " + rsResultado["FME_DH_PUBLICACAO"] + "</b></p>";
                     divLista.InnerHtml += "         <br />";
-                    divLista.InnerHtml += "         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pellentesque urna ac sem maximus pulvinar. Proin id hendrerit nunc. Cras vel vehicula erat. Praesent vel aliquam felis. Etiam vitae arcu at turpis volutpat feugiat eu id tortor. In tristique tempor dui, a dictum ex venenatis nec. Nulla facilisi. Phasellus sodales euismod ligula, vel pretium libero scelerisque in. Fusce consequat magna a diam consectetur, et fermentum risus laoreet.</p>";
+                    divLista.InnerHtml += "         <p>"+rsResultado["FME_MENSAGEM"]+"</p>";
                     divLista.InnerHtml += "     </div>";
                     divLista.InnerHtml += " </div>";
 

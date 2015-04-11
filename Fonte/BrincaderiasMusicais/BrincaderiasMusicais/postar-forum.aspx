@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="postar-forum.aspx.cs" Inherits="BrincaderiasMusicais.postar_forum" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="postar-forum.aspx.cs" Inherits="BrincaderiasMusicais.postar_forum"   %>
 
 
 <%@ Register Src="~/inc/script.ascx" TagPrefix="brincadeira" TagName="script" %>
@@ -47,15 +47,19 @@
                 <div id="breadcrumb">
                     <a href="/" title="Home">Home</a>  &gt;&gt; <a href="forum" title="Fórum">Fórum</a> &gt;&gt; <strong>Conteúdos transversais / Interdisciplinaridade</strong>
                 </div>
-                <form method="post" action="enviar-post.aspx" id="up_foto" enctype="multipart/form-data">
-                    <p class="titu_forum"><img src="images/titu_forum.png" alt="Icone" /> Conteúdos transversais / Interdisciplinaridade:</p>
+                <form method="post" action="postar-forum.aspx" id="up_foto" enctype="multipart/form-data" runat="server">
+                    <p class="titu_forum">
+                        <img src="images/titu_forum.png" alt="Icone" />
+                        Conteúdos transversais / Interdisciplinaridade:</p>
                     <p class="mini_txt_forum">Escreva sua mensagem no campo abaixo e clique no botão "Publicar mensagem"..</p>
                     <div class="full">
-                        <textarea name="POS_TEXTO" id="POS_TEXTO" class="input" rows="35"></textarea>
+                        <input type="hidden" id="FTO_ID" runat="server" />
+                         <input type="hidden" id="REDIRECT" runat="server" />
+                        <textarea name="FME_MENSAGEM" id="FME_MENSAGEM" class="input" rows="35" runat="server"></textarea>
                     </div>
                     <div class="full up_post_btn">
+                        <asp:Button ID="pub" runat="server" Text="PUBLICAR MENSAGEM" CssClass="btn_save up_forum" OnClick="pub_Click" />
 
-                        <input type="submit" name="pub" value="PUBLICAR MENSAGEM" id="pub" class="btn_save up_forum">
                         <button class="btn_back up_forum" onclick="window.history.go(-1); return false;">Voltar</button>
                     </div>
                 </form>
