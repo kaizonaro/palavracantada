@@ -35,6 +35,7 @@ namespace BrincaderiasMusicais
                 if (rsGravar.HasRows)
                 {
                     rsGravar.Read();
+                   
                     VerificarMedalhas();
                 }
 
