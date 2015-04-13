@@ -48,7 +48,7 @@ namespace BrincaderiasMusicais
 
         private void PopularBlog()
         {
-            int USU_ID = objUtils.RetornarUsuarioPorURL(Request["usuario"], "USU_ID");
+            string USU_ID = objUtils.RetornarUsuarioPorURL(Request["usuario"], "USU_ID");
             string USU_NOME = objUtils.RetornarUsuarioPorURL(Request["usuario"], "USU_NOME");
 
             rs = objBD.ExecutaSQL("EXEC site_meus_videos_lis '4','" + pagina_atual + "','1', '" + USU_ID + "'");
