@@ -101,6 +101,6 @@
 <script>
     $("#login_POS_DH_CRIACAO").attr("name", "POS_DH_CRIACAO")
     $("#login_PCA_ID").attr("name", "PCA_ID")    
-    var camp = getURLParameter('nomecampo');    
+    var camp = "" + getURLParameter('nomecampo');    
     $("#" + camp + " option[value='" + getURLParameter(camp.replace('login_','')) + "']").attr("selected", "selected");
 </script>
