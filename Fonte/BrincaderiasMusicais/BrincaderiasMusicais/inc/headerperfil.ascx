@@ -20,7 +20,7 @@
     </div>
 
     <div class="img_links" id="blog" runat="server">
-        <a href="javascript:void(0)" title="Meu Blog">
+        <a href="/meu-blog" title="Meu Blog">
             <img src="/images/blog_perfil.png" alt="Meu Blog" />
         </a>
     </div>
