@@ -11,11 +11,11 @@
 
 <div class="links_box">
     <div class="img_links" id="fotos" runat="server">
-        <a href="minhas-fotos" title="Minhas fotos">
+        <a href="/minhas-fotos" title="Minhas fotos">
             <img src="/images/fotos_perfil.png" alt="Minhas Fotos" /></a>
     </div>
     <div class="img_links" id="videos" runat="server">
-        <a href="meus-videos" title="Meus Videos">
+        <a href="/meus-videos" title="Meus Videos">
             <img src="/images/videos_perfil.png" alt="Meus Videos" /></a>
     </div>
 
