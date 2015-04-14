@@ -15,10 +15,10 @@
 
     <title>Palavra Cantada - Redes</title>
     <!--FACEBOOK-->
-    <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Artigos" />
+    <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Criações Documentadas" />
     <meta property="og:image" content="http://projetopalavracantada.net/images/logo-fb.png" />
     <meta property="og:description" content="Página de Artigos" />
-    <meta property="og:url" content="http://projetopalavracantada.net/artigos" />
+    <meta property="og:url" content="http://projetopalavracantada.net/criacoes-documentadas" />
 
     <brincadeira:script runat="server" ID="script" />
 
@@ -49,90 +49,16 @@
                     <a href="/" title="Home">Home</a>  <strong>Criações Documentadas</strong>
                 </div>
                 <!-- INCLUDE -->
-                <form runat="server">
                     <p class="titu_agenda">Tarefas ativas em sua região:</p>
                     <br />
-                    <table class="tabela">
-                        <tr>
-                            <th>Tarefa</th>
-                            <th>Data</th>
-                            <th>Relatos</th>
-                            <th>Visualizar</th>
-                        </tr>
-                        <tr>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit iaculis mauris es lorem.</td>
-                            <td>10/03/2015</td>
-                            <td>05</td>
-                            <td><a href="#">Visualizar Tarefa</a></td>
-                        </tr>
-
-                        <tr>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit iaculis mauris es lorem.</td>
-                            <td>10/03/2015</td>
-                            <td>05</td>
-                            <td><a href="#">Visualizar Tarefa</a></td>
-                        </tr>
-
-                        <tr>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit iaculis mauris es lorem.</td>
-                            <td>10/03/2015</td>
-                            <td>05</td>
-                            <td><a href="#">Visualizar Tarefa</a></td>
-                        </tr>
-                    </table>
+                    <div id="tbAtiva" runat="server">
+                        
+                    </div>
                     <br />
                     <img src="/images/linha.png" class="linha" />
                     <p class="titu_calendario tabela_verde">Tarefas arquivadas em sua região:</p>
-                    <table class="tabela2">
-                        <tr>
-                            <th>Tarefa</th>
-                            <th>Data</th>
-                            <th>Relatos</th>
-                            <th>Visualizar</th>
-                        </tr>
-                        <tr>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit iaculis mauris es lorem.</td>
-                            <td>10/03/2015</td>
-                            <td>05</td>
-                            <td><a href="#">Visualizar Tarefa</a></td>
-                        </tr>
-
-                        <tr>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit iaculis mauris es lorem.</td>
-                            <td>10/03/2015</td>
-                            <td>05</td>
-                            <td><a href="#">Visualizar Tarefa</a></td>
-                        </tr>
-
-                        <tr>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit iaculis mauris es lorem.</td>
-                            <td>10/03/2015</td>
-                            <td>05</td>
-                            <td><a href="#">Visualizar Tarefa</a></td>
-                        </tr>
-
-                        <tr>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit iaculis mauris es lorem.</td>
-                            <td>10/03/2015</td>
-                            <td>05</td>
-                            <td><a href="#">Visualizar Tarefa</a></td>
-                        </tr>
-
-                        <tr>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit iaculis mauris es lorem.</td>
-                            <td>10/03/2015</td>
-                            <td>05</td>
-                            <td><a href="#">Visualizar Tarefa</a></td>
-                        </tr>
-
-                        <tr>
-                            <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit iaculis mauris es lorem.</td>
-                            <td>10/03/2015</td>
-                            <td>05</td>
-                            <td><a href="#">Visualizar Tarefa</a></td>
-                        </tr>
-                    </table>
-                </form>
+                    
+                   <div id="tbArquivada" runat="server"></div>
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
 
