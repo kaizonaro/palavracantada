@@ -546,6 +546,19 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .btn_relato{font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;color:#fff;background:url(../images/btn_relato.png) no-repeat center center;background-size:cover;width:142px;height:31px;display:block;line-height:34px;  padding-left: 21px;float:right;}
 .titu_criacoes{  width: 100%; display: inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif; font-size: 15px; color: #736d9b; margin-top: 10px; text-align: left;}
 .relatos_ul li{padding:10px;float:left;position:relative;}
+.topo_relatos{width:100%;display:inline-block;}
+.topo_relatos .left{float:left;width:40%;}
+.topo_relatos .right{float:right;width:49%;position:relative;}
+.left_relato{cursor:pointer;left:0;position:absolute;margin-top: 10px;z-index:3}
+.right_relato{cursor:pointer;right:0;position:absolute;margin-top: 10px;z-index:3}
+.cont_relato{font-size:12px;font-family:Arial;color:#68455b; position: relative;float: left; width: 100%; margin-top: 16px;z-index:1;}
+.sub_criacoes .left{float:left;width:50%;}
+.sub_criacoes .right{float:right;width:50%;}
+.sub_criacoes .detalhes_autor{display:inline-block;margin-bottom:10px;}
+.btn_comentario2{font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;color:#fff;background:url(../images/ver_comentario.png) no-repeat center center;background-size:cover;width:151px;height:31px;display:block;line-height:34px;  padding-left: 21px;float:left;margin-right:10px;}
+.btn_relato2{font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;color:#fff;background:url(../images/btn_comentar.png) no-repeat center center;background-size:cover;width:171px;height:31px;display:block;line-height:34px;  padding-left: 21px;float:left;}
+.sub_criacoes, .btn_relato2{margin-top:10px;}
+.btn_comentario3{font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;color:#fff;background:url(../images/btn_comente.png) no-repeat center center;background-size:cover;width:171px;height:31px;display:block;line-height:34px;  padding-left: 21px;float:right;}
 
 /*AJUSTES*/
 .textoPost span {
