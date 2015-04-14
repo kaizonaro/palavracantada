@@ -552,3 +552,10 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
     font-size: 10px;
     color: #525252;
 }
+
+#fotodiv .pAvisoGaleria {
+    color: rgb(104, 69, 91);
+    font-family: arial;
+    font-size: 1.1em;
+    line-height: 16px;
+}

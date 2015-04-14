@@ -68,7 +68,7 @@ namespace BrincaderiasMusicais
                     }
                     else
                     {
-                        bread.InnerHtml = "";
+                        bread.InnerHtml = " " + Session["nomeInstituicao"] + " ";
                         msg.InnerHtml = "";
                     }
 
