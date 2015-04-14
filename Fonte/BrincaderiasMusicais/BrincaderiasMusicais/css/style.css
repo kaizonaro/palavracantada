@@ -95,10 +95,12 @@ header {padding-top:20px;}
 .opcao_logado {width:100%;display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;float:left;}
 .opcao_logado li {display:inline-block;font-size:13px;text-transform:uppercase;margin-right:5px;margin-bottom:9px}
 .opcao_logado .conheca a{background:url(/images/menu1.png)}
+.opcao_logado .conheca.ativo a{background:url(/images/btn_ativo.png)}
 .opcao_logado a {color:#fff;background:#000;width: 100px;height: 31px;display: inline-block;line-height: 31px;}
 .opcao_logado .pequeno{font-size:6px;}
 .opcao_logado .medio{font-size:10px;}
 .opcao_logado .grande a{background:url(/images/btn_grande.png);width: 185px;}
+.opcao_logado .grande.ativo a{background:url(/images/btn_grande_ok.png);width: 185px;}
 .opcao_logado .grande{font-size:10px}
 .notificacoes_logado {width:100%;display:inline-block;}
 .notificacoes_logado p{font-weight:bold;width:284px}
