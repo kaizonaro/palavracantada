@@ -654,7 +654,7 @@ namespace Etnia.classe
 
         }
 
-        public dynamic RetornarUsuarioPorURL(string Usuario, string nome)
+        public string RetornarUsuarioPorURL(string Usuario, string nome)
         {
             
             bd banco = new bd();
@@ -662,7 +662,7 @@ namespace Etnia.classe
             if (resposta.HasRows)
             {
                 resposta.Read();
-                return resposta[nome];
+                return resposta[nome].ToString();
             }
             else
             {
@@ -670,9 +670,9 @@ namespace Etnia.classe
                 switch (nome)
                 {
                     case "USU_ID":
-                        return Session["usuID"];
+                        return Session["usuID"].ToString();
                     default:
-                        return Session["nomeUsuario"];
+                        return Session["nomeUsuario"].ToString();
                         break;
                 }
 
