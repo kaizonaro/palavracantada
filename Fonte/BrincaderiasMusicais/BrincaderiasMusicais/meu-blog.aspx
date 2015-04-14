@@ -21,6 +21,11 @@
     <meta property="og:url" content="http://projetopalavracantada.net/artigos" />
 
     <brincadeira:script runat="server" ID="script" />
+    <script type="text/javascript">
+        function pagina(pg, us) {
+            location.href = "meu-blog.aspx?pagina=" + pg + "&usuario=" + us;
+        }
+    </script>
 
 </head>
 <body>
@@ -67,18 +72,20 @@
                     </div>
                 </div>
                 <img src="/images/linha.png" class="linha" />
-                <div class="titu_galeria">
-                    Blog - << NOME DO USUÁRIO >>
-                </div>
-                <div class="txt blog_txt mini_blog">
-                    <a href="/post/post-teste" title="Ver Post">
-                        <img width="190px" height="80px" src="/upload/imagens/blog/img_blog.jpg" class="thumb_artigo"></a>
-                    <span class="titu_blog"><a href="#" title="Ver Post"><strong>Post Teste</strong></a></span>
-                    <span>Em: <strong>22/02/2015</strong>, às <strong>23:53</strong></span>
-                    <span>Inner ipsum code get amet, ....</span>
-                    
-                    <a href="/post/post-teste" class="btn">LEIA MAIS</a>
-                    <!--<ul class="social_blog">
+                <div id="divArtigos" runat="server">
+                    <div class="titu_galeria" runat="server" id="blog_nomeusuario">
+                        Blog - << NOME DO USUÁRIO >>
+                    </div>
+
+                    <div class="txt blog_txt mini_blog">
+                        <a href="/post/post-teste" title="Ver Post">
+                            <img width="190px" height="80px" src="/upload/imagens/blog/img_blog.jpg" class="thumb_artigo"></a>
+                        <span class="titu_blog"><a href="#" title="Ver Post"><strong>Post Teste</strong></a></span>
+                        <span>Em: <strong>22/02/2015</strong>, às <strong>23:53</strong></span>
+                        <span>Inner ipsum code get amet, ....</span>
+
+                        <a href="/post/post-teste" class="btn">LEIA MAIS</a>
+                        <!--<ul class="social_blog">
                         <li>
                             <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fprojetopalavracantada.net%2Fpost%2Fpost-teste&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=404437276390840" scrolling="no" frameborder="0" style="border: none; overflow: hidden; height: 21px;" allowtransparency="true"></iframe>
                         </li>
@@ -92,17 +99,17 @@
                             </div>
                         </li>
                     </ul>-->
-                </div>
+                    </div>
 
-                <div class="txt blog_txt mini_blog">
-                    <a href="/post/post-teste" title="Ver Post">
-                        <img width="190px" height="80px" src="/upload/imagens/blog/img_blog.jpg" class="thumb_artigo"></a>
-                    <span class="titu_blog"><a href="#" title="Ver Post"><strong>Post Teste</strong></a></span>
-                    <span>Em: <strong>22/02/2015</strong>, às <strong>23:53</strong></span>
-                    <span>Inner ipsum code get amet, ....</span>
-                    
-                    <a href="/post/post-teste" class="btn">LEIA MAIS</a>
-                    <!--<ul class="social_blog">
+                    <div class="txt blog_txt mini_blog">
+                        <a href="/post/post-teste" title="Ver Post">
+                            <img width="190px" height="80px" src="/upload/imagens/blog/img_blog.jpg" class="thumb_artigo"></a>
+                        <span class="titu_blog"><a href="#" title="Ver Post"><strong>Post Teste</strong></a></span>
+                        <span>Em: <strong>22/02/2015</strong>, às <strong>23:53</strong></span>
+                        <span>Inner ipsum code get amet, ....</span>
+
+                        <a href="/post/post-teste" class="btn">LEIA MAIS</a>
+                        <!--<ul class="social_blog">
                         <li>
                             <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fprojetopalavracantada.net%2Fpost%2Fpost-teste&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=404437276390840" scrolling="no" frameborder="0" style="border: none; overflow: hidden; height: 21px;" allowtransparency="true"></iframe>
                         </li>
@@ -116,17 +123,17 @@
                             </div>
                         </li>
                     </ul>-->
-                </div>
+                    </div>
 
-                <div class="txt blog_txt mini_blog">
-                    <a href="/post/post-teste" title="Ver Post">
-                        <img width="190px" height="80px" src="/upload/imagens/blog/img_blog.jpg" class="thumb_artigo"></a>
-                    <span class="titu_blog"><a href="#" title="Ver Post"><strong>Post Teste</strong></a></span>
-                    <span>Em: <strong>22/02/2015</strong>, às <strong>23:53</strong></span>
-                    <span>Inner ipsum code get amet, ....</span>
-                    
-                    <a href="/post/post-teste" class="btn">LEIA MAIS</a>
-                    <!--<ul class="social_blog">
+                    <div class="txt blog_txt mini_blog">
+                        <a href="/post/post-teste" title="Ver Post">
+                            <img width="190px" height="80px" src="/upload/imagens/blog/img_blog.jpg" class="thumb_artigo"></a>
+                        <span class="titu_blog"><a href="#" title="Ver Post"><strong>Post Teste</strong></a></span>
+                        <span>Em: <strong>22/02/2015</strong>, às <strong>23:53</strong></span>
+                        <span>Inner ipsum code get amet, ....</span>
+
+                        <a href="/post/post-teste" class="btn">LEIA MAIS</a>
+                        <!--<ul class="social_blog">
                         <li>
                             <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fprojetopalavracantada.net%2Fpost%2Fpost-teste&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=404437276390840" scrolling="no" frameborder="0" style="border: none; overflow: hidden; height: 21px;" allowtransparency="true"></iframe>
                         </li>
@@ -140,19 +147,20 @@
                             </div>
                         </li>
                     </ul>-->
-                </div>
+                    </div>
 
-                <nav class="paginacao">
-                    <ul>
-                        <li><a href="javascript:void(0);" class="nav_pg" title="Página anterior">
-                            <img src="images/nav_left.png">ANTERIORES</a></li>
-                        <li><a href="javascript:void(0);" title="Página atual" class="ativo">1</a></li>
-                        <li><a href="javascript:void(0);" title="Página 2">2</a></li>
-                        <li><a href="javascript:void(0);" title="Página 3">3</a></li>
-                        <li><a href="javascript:void(0);" class="nav_pg" title="Próxima Página">PRÓXIMOS
+                    <nav class="paginacao">
+                        <ul>
+                            <li><a href="javascript:void(0);" class="nav_pg" title="Página anterior">
+                                <img src="images/nav_left.png">ANTERIORES</a></li>
+                            <li><a href="javascript:void(0);" title="Página atual" class="ativo">1</a></li>
+                            <li><a href="javascript:void(0);" title="Página 2">2</a></li>
+                            <li><a href="javascript:void(0);" title="Página 3">3</a></li>
+                            <li><a href="javascript:void(0);" class="nav_pg" title="Próxima Página">PRÓXIMOS
                             <img src="images/nav_right.png "></a></li>
-                    </ul>
-                </nav>
+                        </ul>
+                    </nav>
+                </div>
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
 
@@ -169,4 +177,3 @@
     <!--RODAPÉ-->
     <brincadeira:footer runat="server" ID="footer" />
     <!--FIM DO RODAPÉ-->
-
