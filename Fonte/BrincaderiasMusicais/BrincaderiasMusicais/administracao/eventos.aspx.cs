@@ -119,11 +119,11 @@ namespace BrincaderiasMusicais.administracao
 
         public void gravar(object sender, EventArgs e)
         {
-            Response.Write("EXEC admin_piuEventos  '" + Request["EVE_ID"] + "', '" + Request["RED_ID"] + "','" + Session["id"] + "','" + Request["EVE_TITULO"] + "','" + Request["EVE_DESCRICAO"] + "','" + Request["EVE_DIA"] + "','" + Request["EVE_HORA"] + "'");
-            Response.End();
+            //Response.Write("EXEC admin_piuEventos  '" + Request["EVE_ID"] + "', '" + Request["RED_ID"] + "','" + Session["id"] + "','" + Request["EVE_TITULO"] + "','" + Request["EVE_DESCRICAO"] + "','" + Request["EVE_DIA"] + "','" + Request["EVE_HORA"] + "'");
+            //Response.End();
 
-           // rsGravar = objBD.ExecutaSQL("EXEC admin_piuEventos  '" + Request["EVE_ID"] + "', '" + Request["RED_ID"] + "','" + Session["id"] + "','" + Request["EVE_TITULO"] + "','" + Request["EVE_DESCRICAO"] + "','" + Request["EVE_DIA"] + "','" + Request["EVE_HORA"] + "'");
-           // Response.Redirect("eventos.aspx");
+            rsGravar = objBD.ExecutaSQL("EXEC admin_piuEventos  '" + Request["EVE_ID"] + "', '" + Request["RED_ID"] + "','" + Session["id"] + "','" + Request["EVE_TITULO"] + "','" + Request["EVE_DESCRICAO"] + "','" + Request["EVE_DIA"] + "','" + Request["EVE_HORA"] + "'");
+            Response.Redirect("eventos.aspx");
         }
     }
 }

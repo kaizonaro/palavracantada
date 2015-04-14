@@ -15,10 +15,10 @@
 
     <title>Palavra Cantada - Redes</title>
     <!--FACEBOOK-->
-    <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Artigos" />
+    <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Galeria Colaborativa" />
     <meta property="og:image" content="http://projetopalavracantada.net/images/logo-fb.png" />
-    <meta property="og:description" content="Página de Artigos" />
-    <meta property="og:url" content="http://projetopalavracantada.net/artigos" />
+    <meta property="og:description" content="Galeria Colaborativa" />
+    <meta property="og:url" content="http://projetopalavracantada.net/galeria-colaborativa" />
 
     <brincadeira:script runat="server" ID="script" />
 
@@ -28,7 +28,6 @@
             $("#" + idform).fadeToggle();
             $("#" + iddiv).fadeToggle();
         }
-
     </script>
 
 </head>
@@ -49,10 +48,10 @@
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="sobre" class="interna">
                 <div class="titu">
-                    Agenda
+                    Galeria Colaborativa
                 </div>
                 <div id="breadcrumb">
-                    <a href="/" title="Home">Home</a>  <strong>Agenda</strong>
+                    <a href="/" title="Home">Home</a>  <strong>Galeria Colaborativa</strong>
                 </div>
 
 

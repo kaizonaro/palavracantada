@@ -29,10 +29,12 @@ namespace BrincaderiasMusicais
             {
 
                 case 1:
-                    fotodiv.InnerHtml = "<p>Sua foto foi enviada com sucesso e passará pelo processo de moderação dos administradores do Projeto Brincadeiras Musicais da Palavra Cantada. Agradecemos a sua participação!</p>";
+                    fotodiv.InnerHtml = "<p class='pAvisoGaleria'>Sua foto foi enviada com sucesso e passará pelo processo de moderação dos administradores do Projeto Brincadeiras Musicais da Palavra Cantada. Agradecemos a sua participação!</p>";
+                    fotodiv.InnerHtml += "<button class=\"btn_back up_forum\" style=\"margin-top: 20px; margin-bottom: 20px; cursor: pointer;\" onclick=\"showform('up_foto','fotodiv'); return false;\">Voltar</button>";
                     break;
                 case 2:
-                    videodiv.InnerHtml = "<p>Seu vídeo foi enviado com sucesso e passará pelo processo de moderação dos administradores do Projeto Brincadeiras Musicais da Palavra Cantada. Agradecemos a sua participação!</p>";
+                    videodiv.InnerHtml = "<p class='pAvisoGaleria'>Seu vídeo foi enviado com sucesso e passará pelo processo de moderação dos administradores do Projeto Brincadeiras Musicais da Palavra Cantada. Agradecemos a sua participação!</p>";
+                    videodiv.InnerHtml += "<button class=\"btn_back up_forum\" style=\"margin-top: 20px; margin-bottom: 20px; cursor: pointer;\" onclick=\"showform('up_video','videodiv'); return false;\">Voltar</button>";
                     break;
                 default:
                     break;
