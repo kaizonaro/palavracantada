@@ -78,6 +78,7 @@
                                 <li><a href="galeria-videos.aspx">Galeria Videos</a></li>
                             </ul>
                         </li>
+                        <li><a href="Criacoes-Documentadas.aspx">Criações Documentadas</a></li>
                     </ul>
                 </li>
                 <li><a href="contato.aspx">
