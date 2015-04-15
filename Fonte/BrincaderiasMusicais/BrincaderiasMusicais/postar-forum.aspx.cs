@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -17,9 +18,13 @@ namespace BrincaderiasMusicais
 
         private string url = "";
         protected void Page_Load(object sender, EventArgs e)
-        {
+        { 
+            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
             FTO_ID.Value = Request["FTO_ID"];
             REDIRECT.Value = Request["REDIRECT"];
+            
+            titulo.InnerText = textInfo.ToTitleCase(Request["REDIRECT"].Substring(Request["REDIRECT"].LastIndexOf('/') + 1)).Replace("-", " ");
+            titulobrd.InnerText = textInfo.ToTitleCase(Request["REDIRECT"].Substring(Request["REDIRECT"].LastIndexOf('/') + 1)).Replace("-", " ");
         }
 
 

@@ -45,12 +45,12 @@
                     Fórum
                 </div>
                 <div id="breadcrumb">
-                    <a href="/" title="Home">Home</a>  &gt;&gt; <a href="forum" title="Fórum">Fórum</a> &gt;&gt; <strong>Conteúdos transversais / Interdisciplinaridade</strong>
+                    <a href="/" title="Home">Home</a>  &gt;&gt; <a href="forum" title="Fórum">Fórum</a> &gt;&gt; <strong id="titulobrd" runat="server">Conteúdos transversais / Interdisciplinaridade</strong>
                 </div>
                 <form method="post" action="postar-forum.aspx" id="up_foto" enctype="multipart/form-data" runat="server">
                     <p class="titu_forum">
                         <img src="images/titu_forum.png" alt="Icone" />
-                        Conteúdos transversais / Interdisciplinaridade:</p>
+                       <span id="titulo" runat="server"> Conteúdos transversais / Interdisciplinaridade:</span></p>
                     <p class="mini_txt_forum">Escreva sua mensagem no campo abaixo e clique no botão "Publicar mensagem"..</p>
                     <div class="full">
                         <input type="hidden" id="FTO_ID" runat="server" />
