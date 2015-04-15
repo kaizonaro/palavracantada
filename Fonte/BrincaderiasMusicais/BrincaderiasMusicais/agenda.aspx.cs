@@ -59,7 +59,7 @@ namespace BrincaderiasMusicais
 
         protected void calendario_SelectionChanged(object sender, EventArgs e)
         {
-            rsLista = objBD.ExecutaSQL("SELECT EVE_DIA, EVE_TITULO, EVE_DESCRICAO from Eventos WHERE EVE_ATIVO =  1 and RED_ID = " + RED_ID + " and EVE_DIA = convert(date,'" + calendario.SelectedDate.Date + "',103)");
+            rsLista = objBD.ExecutaSQL("SELECT EVE_DIA, EVE_TITULO, EVE_DESCRICAO, EVE_HORA from Eventos WHERE EVE_ATIVO =  1 and RED_ID = " + RED_ID + " and EVE_DIA = convert(date,'" + calendario.SelectedDate.Date + "',103)");
             if (rsLista == null)
             {
                 throw new Exception();
@@ -70,6 +70,7 @@ namespace BrincaderiasMusicais
                 while (rsLista.Read())
                 {
                     detalhe_dataevento.InnerText = Convert.ToDateTime(rsLista["EVE_DIA"].ToString()).ToShortDateString();
+                    detalhe_horaevento.InnerText = Convert.ToDateTime(rsLista["EVE_HORA"].ToString()).ToShortTimeString();
                     detalhe_descricaoevento.InnerHtml = rsLista["EVE_DESCRICAO"].ToString();
                     detalhe_tituloevento.InnerText = rsLista["EVE_TITULO"].ToString();
                 }

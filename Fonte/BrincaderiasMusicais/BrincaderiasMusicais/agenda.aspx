@@ -46,7 +46,7 @@
                     Agenda
                 </div>
                 <div id="breadcrumb">
-                    <a href="/" title="Home">Home</a>  <strong>Agenda</strong>
+                    <a href="/" title="Home">Home</a> >> <strong>Agenda</strong>
                 </div>
                 <!-- INCLUDE -->
                 <form runat="server">
@@ -80,7 +80,8 @@
                             <p class="txt sub_calendario txt_menor"><strong>Detalhes sobre o evento selecionado:</strong></p>
                             <div class="box_info_data">
                                 <p><strong><span id="detalhe_tituloevento" runat="server"></span></strong></p>
-                                <p>Data:<strong>  <span id="detalhe_dataevento" runat="server"></span></strong></p>
+                                <p>Data:<strong> <span id="detalhe_dataevento" runat="server"></span></strong></p>
+                                <p>Horário:<strong> <span id="detalhe_horaevento" runat="server"></span></strong></p>
                                 <p id="detalhe_descricaoevento" runat="server"></p>
                             </div>
                         </ContentTemplate>
