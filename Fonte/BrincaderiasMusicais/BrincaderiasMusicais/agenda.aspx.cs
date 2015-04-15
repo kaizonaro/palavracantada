@@ -27,7 +27,7 @@ namespace BrincaderiasMusicais
                 RED_ID = "NULL";
             }
 
-           
+
 
             if (Page.IsPostBack == false)
             {
@@ -79,33 +79,22 @@ namespace BrincaderiasMusicais
 
         protected void calendario_DayRender(object sender, DayRenderEventArgs e)
         {
-            rsLista = objBD.ExecutaSQL("SELECT EVE_DIA from Eventos WHERE EVE_ATIVO =  1 and RED_ID = " + RED_ID + "  ORDER BY EVE_DIA DESC");
+            rsLista = objBD.ExecutaSQL("SELECT EVE_DIA from Eventos WHERE EVE_ATIVO =  1 and EVE_DIA = convert(date,'" + e.Day.Date + "',103) and RED_ID = " + RED_ID + "  ORDER BY EVE_DIA DESC");
             if (rsLista == null)
             {
                 throw new Exception();
             }
             if (rsLista.HasRows)
             {
-
-                while (rsLista.Read())
-                {
-                    
-                    if (e.Day.Date == Convert.ToDateTime(rsLista["EVE_DIA"].ToString()))
-                    {
-                        e.Day.IsSelectable = true;
-                        e.Cell.ForeColor = System.Drawing.ColorTranslator.FromHtml("#AE080F");
-                        e.Cell.Font.Underline = true;
-                        e.Cell.Font.Bold = true;
-                    }
-                    else
-                    {
-                        e.Day.IsSelectable = false;
-                    }
-                }
+                rsLista.Read();
+                e.Cell.ForeColor = System.Drawing.ColorTranslator.FromHtml("#AE080F");
+                e.Cell.Font.Underline = true;
+                e.Cell.Font.Bold = true;
+                e.Day.IsSelectable = true; 
             }
         }
 
-        
-         
+
+
     }
 }
