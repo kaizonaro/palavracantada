@@ -18,13 +18,13 @@ namespace BrincaderiasMusicais.inc
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsUser;
+        private OleDbDataReader rsUser, rsPerfil;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             objUtils = new utils();
             objBD = new bd();
-
+            ModificaBotoes();
             //Ajustando as classes dos botões
             string urlCompleta = Request.Url.AbsoluteUri;
             string paginaAtual = Request.CurrentExecutionFilePath;
@@ -63,9 +63,9 @@ namespace BrincaderiasMusicais.inc
             {
                 rsUser.Read();
 
-                nome_perfil.InnerHtml = Session["nomeUsuario"].ToString();
-                regiao_perfil.InnerHtml = Session["nomeInstituicao"].ToString();
-                txt_perfil.InnerHtml = rsUser["USU_BIOGRAFIA"].ToString();
+                ///nome_perfil.InnerHtml = Session["nomeUsuario"].ToString();
+                // regiao_perfil.InnerHtml = Session["nomeInstituicao"].ToString();
+                // txt_perfil.InnerHtml = rsUser["USU_BIOGRAFIA"].ToString();
 
                 if (rsUser["USU_FOTO"].ToString().Length < 1)
                 {
@@ -78,6 +78,41 @@ namespace BrincaderiasMusicais.inc
             }
             rsUser.Dispose();
             rsUser.Close();
+        }
+
+        void ModificaBotoes()
+        {
+            rsPerfil = objBD.ExecutaSQL("EXEC PerfilUsuarioPorUsername " + Request["usuario"]);
+            if (rsPerfil == null) { Response.Redirect("./default.aspx"); }
+            if (rsPerfil.HasRows)
+            {
+                rsPerfil.Read();
+                nomeusuario.InnerText = rsPerfil["USU_NOME"].ToString();
+                regiao.InnerText = rsPerfil["USU_REGIAO"].ToString();
+                biografia.InnerText = rsPerfil["USU_BIOGRAFIA"].ToString();
+                foto.Attributes.Add("src", "upload/imagens/usuarios/" + rsPerfil["USU_FOTO"].ToString());
+
+                if (Session["usuID"].ToString() != rsPerfil["USU_ID"].ToString())
+                {
+                    linkfotos.Attributes.Add("href", "/perfil/fotos/" + rsPerfil["USU_USUARIO"]);
+                    linkvideos.Attributes.Add("href", "/perfil/videos/" + rsPerfil["USU_USUARIO"]);
+                    linkblog.Attributes.Add("href", "/perfil/blog/" + rsPerfil["USU_USUARIO"]);
+
+
+
+
+                }
+                else
+                {
+                    linkfotos.Attributes.Add("href", "/minhas-fotos/");
+                    linkvideos.Attributes.Add("href", "/meus-videos/");
+                    linkblog.Attributes.Add("href", "/meu-blog/");
+                }
+
+                if (Session["redeID"].ToString() != rsPerfil["RED_ID"].ToString()) { Response.Redirect("../default.aspx"); Response.End(); }
+
+
+            }
         }
     }
 }
