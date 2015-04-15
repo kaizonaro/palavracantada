@@ -103,6 +103,15 @@ namespace BrincaderiasMusicais {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl detalhe_dataevento;
         
         /// <summary>
+        /// detalhe_horaevento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl detalhe_horaevento;
+        
+        /// <summary>
         /// detalhe_descricaoevento control.
         /// </summary>
         /// <remarks>
