@@ -15,10 +15,10 @@
 
     <title>Palavra Cantada - Redes</title>
     <!--FACEBOOK-->
-    <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Artigos" />
+    <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Tarefa" />
     <meta property="og:image" content="http://projetopalavracantada.net/images/logo-fb.png" />
     <meta property="og:description" content="Página de Artigos" />
-    <meta property="og:url" content="http://projetopalavracantada.net/artigos" />
+    <meta property="og:url" content="http://projetopalavracantada.net/Criacoes-Documentadas" />
 
     <brincadeira:script runat="server" ID="script" />
 
@@ -49,7 +49,7 @@
                     <a href="/" title="Home">Home</a>  <strong>Criações Documentadas</strong>
                 </div>
                 <!-- INCLUDE -->
-                    <p class="titu_criacoes"><< Título da Tarefa - Título da Tarefa - Título datarefa - Título da Tarefa - Título da Tarefa >></p><br /><br />
+                    <p class="titu_criacoes" runat="server" id="titu_criacoes"><< Título da Tarefa - Título da Tarefa - Título datarefa - Título da Tarefa - Título da Tarefa >></p><br /><br />
                     <span class="tafera_detalhe">Tarefa criada por: <strong><< NOME DO ADMIN >></strong></span>
                     <span class="tafera_detalhe">Publicada Em: <strong>12/03/2015</strong></span>
                     <br />                    
