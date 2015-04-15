@@ -81,7 +81,7 @@
         }
 
         function restaurar(id) {
-            var r = confirm("Deseja deseja mesmo ativar esta FAQ ?");
+            var r = confirm("Deseja deseja mesmo ativar esta Criação Documentada ?");
             if (r == true) {
                 ajax2 = ajaxInit();
                 ajax2.open("GET", "criacoes-documentadas.aspx?acao=restaurar&FAQ_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
@@ -123,9 +123,9 @@
                                 <div class="btns_acoes">
 
                                     <div class="incluir acoes_topo_form">
-                                	    <img src="images/mais.png" alt="Incluir"><p>Incluir</p>
-                                    </div>  
-                                    
+                                        <img src="images/mais.png" alt="Incluir"><p>Incluir</p>
+                                    </div>
+
                                     <div class="form_table">
 
                                         <!-- FORMULÁRIO DE INCLUSÃO -->
@@ -138,7 +138,7 @@
                                                 <option value="NULL">Nenhuma</option>
                                             </select>
 
-                                            <p>Descrição:*</p>
+                                            <p>Titulo:*</p>
                                             <textarea id="CDO_TAREFA" name="CDO_TAREFA" style="width: 100%"></textarea>
 
                                             <p>Data:*</p>
@@ -149,6 +149,19 @@
                                                 <option value="Ativa">Ativa</option>
                                                 <option value="Arquivada">Arquivada</option>
                                             </select>
+
+                                            <p>Descrição:</p>
+                                            <textarea id="CDO_DESCRITIVO" name="CDO_DESCRITIVO" style="width: 100%"></textarea>
+
+                                            <p>Video:</p>
+                                            <input type="text" maxlength="10" name="CDO_VIDEO" id="CDO_VIDEO" class="input data obg" placeholder="Data da Tarefa" />
+
+                                            <p>Devolutiva:</p>
+                                            <input type="text" maxlength="10" name="CDO_DEVOLUTIVA" id="CDO_DEVOLUTIVA" class="input data obg" placeholder="Data da Tarefa" />
+                                            
+                                            <p>Video da Devolutiva:</p>
+                                            <input type="text" maxlength="10" name="CDO_VIDEO_DEVOLUTIVA" id="CDO_VIDEO_DEVOLUTIVA" class="input data obg" placeholder="Data da Tarefa" />
+
 
                                             <p class="p_btn">
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />

@@ -31,7 +31,7 @@ namespace BrincaderiasMusicais.administracao
                     if (rsLista.HasRows)
                     {
                         rsLista.Read();
-                        Response.Write(rsLista["CDO_ID"] + "|" + rsLista["RED_ID"] + "|" + rsLista["CDO_TAREFA"] + "|" + rsLista["CDO_DATA"] + "|" + rsLista["CDO_STATUS"] );
+                        Response.Write(rsLista["CDO_ID"] + "|" + rsLista["RED_ID"] + "|" + rsLista["CDO_TAREFA"] + "|" + rsLista["CDO_DATA"] + "|" + rsLista["CDO_STATUS"]);
                     }
                     break;
                 case ("excluir"):
@@ -94,7 +94,7 @@ namespace BrincaderiasMusicais.administracao
                 {
                     divLista.InnerHtml += " <tr id='tr_" + rsLista["CDO_ID"].ToString() + "' class=\"\">";
                     divLista.InnerHtml += "     <td>" + rsLista["CDO_DATA"].ToString() + "</td>";
-                    divLista.InnerHtml += "     <td>" + objUtils.CortarString(true,90,rsLista["CDO_TAREFA"].ToString()) + "</td>";
+                    divLista.InnerHtml += "     <td>" + objUtils.CortarString(true, 90, rsLista["CDO_TAREFA"].ToString()) + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["CDO_STATUS"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["CDO_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["CDO_ID"].ToString() + "' onclick='excluir(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
@@ -119,8 +119,8 @@ namespace BrincaderiasMusicais.administracao
 
         public void gravar(object sender, EventArgs e)
         {
-             rsGravar = objBD.ExecutaSQL("EXEC admin_piuCriacoesDocumetadas  '" + Request["CDO_ID"] + "', '" + Request["RED_ID"] + "','" + Session["id"] + "','" + Request["CDO_TAREFA"] + "','" + Request["CDO_DATA"] + "','" + Request["CDO_STATUS"] + "'");
-             Response.Redirect("criacoes-documentadas.aspx");
+            rsGravar = objBD.ExecutaSQL("EXEC admin_piuCriacoesDocumetadas  '" + Request["CDO_ID"] + "', '" + Request["RED_ID"] + "','" + Session["id"] + "','" + Request["CDO_TAREFA"] + "','" + Request["CDO_DATA"] + "','" + Request["CDO_STATUS"] + "','" + Request["CDO_DESCRITIVO"] + "','" + Request["CDO_VIDEO"] + "','" + Request["CDO_DEVOLUTIVA"] + "','" + Request["CDO_VIDEO_DEVOLUTIVA"] + "'");
+            Response.Redirect("criacoes-documentadas.aspx");
         }
     }
 }
