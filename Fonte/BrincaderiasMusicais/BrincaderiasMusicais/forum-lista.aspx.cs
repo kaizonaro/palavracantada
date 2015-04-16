@@ -39,7 +39,7 @@ namespace BrincaderiasMusicais
                 {
                     rsDados.Read();
                     //breadcrumb
-                    breadcrumb.InnerHtml += "<a href=\"/\" title=\"Home\">Home</a>  &gt;&gt; <a href=\"forum\" title=\"Fórum\">Fórum</a> &gt;&gt; <strong>" + rsDados["FTO_TITULO"].ToString() + "</strong>";
+                    breadcrumb.InnerHtml += "<a href=\"/\" title=\"Home\">Home</a>  &gt;&gt; <a href=\"/forum\" title=\"Fórum\">Fórum</a> &gt;&gt; <strong>" + rsDados["FTO_TITULO"].ToString() + "</strong>";
                     //Título
                     spanTitulo.InnerHtml += "" + rsDados["FTO_TITULO"].ToString() + ":";
 
@@ -103,7 +103,7 @@ namespace BrincaderiasMusicais
                         }
                         else
                         {
-                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" class=\"nav_pg\" title=\"Página anterior\"><img src=\"images/nav_left.png\" />ANTERIORES</a></li>";
+                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" class=\"nav_pg\" title=\"Página anterior\"><img src=\"/images/nav_left.png\" />ANTERIORES</a></li>";
                         }
 
                         //ajuste de primeira página
@@ -131,11 +131,11 @@ namespace BrincaderiasMusicais
                         if (pagina_atual < Convert.ToInt16(rsResultado["total_paginas"]))
                         {
                             int pgAvancar = pagina_atual + 1;
-                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" onClick=\"pagina('" + pgAvancar + "')\" class=\"nav_pg\" title=\"Próxima Página\">PRÓXIMOS <img src=\"images/nav_right.png \"/></a></li>";
+                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" onClick=\"pagina('" + pgAvancar + "')\" class=\"nav_pg\" title=\"Próxima Página\">PRÓXIMOS <img src=\"/images/nav_right.png \"/></a></li>";
                         }
                         else
                         {
-                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" class=\"nav_pg\" title=\"Próxima Página\">PRÓXIMOS <img src=\"images/nav_right.png \"/></a></li>";
+                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" class=\"nav_pg\" title=\"Próxima Página\">PRÓXIMOS <img src=\"/images/nav_right.png \"/></a></li>";
                         }
 
                         conteudoPaginacao += "   </ul> ";
