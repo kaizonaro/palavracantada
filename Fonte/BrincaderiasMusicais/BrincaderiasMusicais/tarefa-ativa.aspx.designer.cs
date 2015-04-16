@@ -94,6 +94,24 @@ namespace BrincaderiasMusicais {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl video_criacoes;
         
         /// <summary>
+        /// relato_detalhe control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl relato_detalhe;
+        
+        /// <summary>
+        /// aRelato control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor aRelato;
+        
+        /// <summary>
         /// divRelatos control.
         /// </summary>
         /// <remarks>
