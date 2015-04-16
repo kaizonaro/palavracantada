@@ -99,6 +99,25 @@
             }
         }
 
+        function arquivar(id) {
+            var r = confirm("Deseja deseja mesmo arquivar esta Criação Documentada ?");
+            if (r == true) {
+                ajax2 = ajaxInit();
+                ajax2.open("GET", "criacoes-documentadas.aspx?acao=arquivar&CDO_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+                ajax2.setRequestHeader("Content-Type", "charset=iso-8859-1");
+                ajax2.onreadystatechange = function () {
+                    if (ajax2.readyState == 4) {
+                        if (ajax2.status == 200) {
+                            $('#' + id + ' .img_edit').hide();
+                        }
+                    }
+                }
+                ajax2.send(null);
+            } else {
+                return false;
+            }
+        }
+
     </script>
 </head>
 
@@ -154,13 +173,13 @@
                                             <textarea id="CDO_DESCRITIVO" name="CDO_DESCRITIVO" style="width: 100%"></textarea>
 
                                             <p>Video:</p>
-                                            <input type="text" maxlength="10" name="CDO_VIDEO" id="CDO_VIDEO" class="input data obg" placeholder="Data da Tarefa" />
+                                            <input type="text"   name="CDO_VIDEO" id="CDO_VIDEO" class="input" placeholder="Digite o link do video" />
 
                                             <p>Devolutiva:</p>
-                                            <input type="text" maxlength="10" name="CDO_DEVOLUTIVA" id="CDO_DEVOLUTIVA" class="input data obg" placeholder="Data da Tarefa" />
+                                            <input type="text"  name="CDO_DEVOLUTIVA" id="CDO_DEVOLUTIVA" class="input" placeholder="" />
                                             
                                             <p>Video da Devolutiva:</p>
-                                            <input type="text" maxlength="10" name="CDO_VIDEO_DEVOLUTIVA" id="CDO_VIDEO_DEVOLUTIVA" class="input data obg" placeholder="Data da Tarefa" />
+                                            <input type="text" name="CDO_VIDEO_DEVOLUTIVA" id="CDO_VIDEO_DEVOLUTIVA" class="input" placeholder="Digite o link do video" />
 
 
                                             <p class="p_btn">
