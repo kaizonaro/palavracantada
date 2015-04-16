@@ -51,7 +51,7 @@
                     Galeria Colaborativa
                 </div>
                 <div id="breadcrumb">
-                    <a href="/" title="Home">Home</a>  <strong>Galeria Colaborativa</strong>
+                    <a href="/" title="Home">Home</a> >> <strong>Galeria Colaborativa</strong>
                 </div>
 
 
@@ -188,6 +188,7 @@
         <article id="videos">
             <iframe width="640" height="360" src="//www.youtube.com/embed/CaTXgmHyMSk" frameborder="0" allowfullscreen></iframe>
             <p>:: titulo Do video 001 ::</p>
+
             <div class="controles">
                 <div class="left_galeria">
                     <img src="/images/arrow_left2.png" />

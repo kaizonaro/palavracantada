@@ -37,7 +37,7 @@ namespace BrincaderiasMusicais
                     pagina_atual = Convert.ToInt16(Request.QueryString["pagina"]);
                 }
 
-                PopularBlog();
+               // PopularBlog();
             }
             catch (Exception)
             {

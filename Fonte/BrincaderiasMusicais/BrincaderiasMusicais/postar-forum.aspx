@@ -24,6 +24,12 @@
 
     <brincadeira:script runat="server" ID="script" />
 
+    <script type="text/javascript">
+        function pagina() {
+            location.href = "/forum";
+        }
+    </script>
+
 </head>
 <body>
 
@@ -60,7 +66,7 @@
                     <div class="full up_post_btn">
                         <asp:Button ID="pub" runat="server" Text="PUBLICAR MENSAGEM" CssClass="btn_save up_forum" OnClick="pub_Click" />
 
-                        <button class="btn_back up_forum" onclick="window.history.go(-1); return false;">Voltar</button>
+                        <button class="btn_back up_forum" onclick="pagina(); return false;">Voltar</button>
                     </div>
                 </form>
             </div>

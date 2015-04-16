@@ -54,7 +54,7 @@ namespace BrincaderiasMusicais
                 metaDescription.Content = "" + rsBlog["POS_TEXTO"].ToString() + "";
                 metaURL.Content = "http://projetopalavracantada.net/post/" + Request["titulo"] + "";
 
-                liFace.InnerHtml = "<iframe src=\"//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fprojetopalavracantada.net%2Fpost%2F" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=404437276390840\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; height:21px;\" allowTransparency=\"true\"></iframe>";
+               // liFace.InnerHtml = "<iframe src=\"//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fprojetopalavracantada.net%2Fpost%2F" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=404437276390840\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; height:21px;\" allowTransparency=\"true\"></iframe>";
  
                 //breadcrumb
                 breadcrumb.InnerHtml = "<a href='/' title='Home'>Home</a> >> <strong>Blog</strong> >> " + rsBlog["POS_TITULO"] + " ";
@@ -67,7 +67,7 @@ namespace BrincaderiasMusicais
                 txtPost.InnerHtml += "<p class='tit_post'>" + rsBlog["POS_TITULO"] + "</p>";
                 txtPost.InnerHtml += "" + rsBlog["POS_TEXTO"].ToString() + "";
 
-                liGPlus.InnerHtml = "<div class='g-plus' data-action='share' data-annotation='bubble' data-href='href=\"/post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\"'></div>";
+                //liGPlus.InnerHtml = "<div class='g-plus' data-action='share' data-annotation='bubble' data-href='href=\"/post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\"'></div>";
             }
             rsBlog.Close();
             rsBlog.Dispose();
