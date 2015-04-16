@@ -55,7 +55,7 @@
                     <img src="/images/titu_forum.png" alt="Icone" />
                     <span id="spanTitulo" runat="server"></span>
                 </p>
-                <p class="mini_txt_forum">Escreva sua mensagem no campo abaixo e clique no botão "Publicar mensagem"..</p>
+                <p class="mini_txt_forum">Escreva sua mensagem no campo abaixo e clique no botão "Publicar mensagem".</p>
                 <div id="up_foto" class="full up_post_btn">
                     <button class="btn_back up_forum" onclick="pagina(); return false;">Voltar</button>
                     <form id="frmPostar" name="frmPostar" action="/postar-forum" method="post">

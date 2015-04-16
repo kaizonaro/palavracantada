@@ -57,7 +57,7 @@
                     <p class="titu_forum">
                         <img src="images/titu_forum.png" alt="Icone" />
                        <span id="titulo" runat="server"> Conteúdos transversais / Interdisciplinaridade:</span></p>
-                    <p class="mini_txt_forum">Escreva sua mensagem no campo abaixo e clique no botão "Publicar mensagem"..</p>
+                    <p class="mini_txt_forum">Escreva sua mensagem no campo abaixo e clique no botão "Publicar mensagem".</p>
                     <div class="full">
                         <input type="hidden" id="FTO_ID" runat="server" />
                          <input type="hidden" id="REDIRECT" runat="server" />
