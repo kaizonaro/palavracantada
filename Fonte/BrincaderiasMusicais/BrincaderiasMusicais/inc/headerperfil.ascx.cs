@@ -82,8 +82,16 @@ namespace BrincaderiasMusicais.inc
 
         void ModificaBotoes()
         {
-            rsPerfil = objBD.ExecutaSQL("EXEC PerfilUsuarioPorUsername " + Request["usuario"]);
-            if (rsPerfil == null) { Response.Redirect("./default.aspx"); }
+            string usuario = Request["usuario"];
+            if (string.IsNullOrWhiteSpace(usuario))
+            {
+                usuario = Session["nomeUsuario"].ToString();
+            }
+            rsPerfil = objBD.ExecutaSQL("EXEC PerfilUsuarioPorUsername " + usuario);
+            if (rsPerfil == null)
+            {
+                Response.Redirect("./default.aspx");
+            }
             if (rsPerfil.HasRows)
             {
                 rsPerfil.Read();
@@ -98,15 +106,12 @@ namespace BrincaderiasMusicais.inc
                     linkvideos.Attributes.Add("href", "/perfil/videos/" + rsPerfil["USU_USUARIO"]);
                     linkblog.Attributes.Add("href", "/perfil/blog/" + rsPerfil["USU_USUARIO"]);
 
-
-
-
                 }
                 else
                 {
-                    linkfotos.Attributes.Add("href", "/minhas-fotos/");
-                    linkvideos.Attributes.Add("href", "/meus-videos/");
-                    linkblog.Attributes.Add("href", "/meu-blog/");
+                    linkfotos.Attributes.Add("href", "/minhas-fotos");
+                    linkvideos.Attributes.Add("href", "/meus-videos");
+                    linkblog.Attributes.Add("href", "/meu-blog");
                 }
 
                 if (Session["redeID"].ToString() != rsPerfil["RED_ID"].ToString()) { Response.Redirect("../default.aspx"); Response.End(); }
