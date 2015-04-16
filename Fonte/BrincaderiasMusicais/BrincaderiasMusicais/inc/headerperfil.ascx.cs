@@ -42,6 +42,10 @@ namespace BrincaderiasMusicais.inc
                     fotos.Attributes["class"] += " disabled ";
                     blog.Attributes["class"] += " disabled ";
                     break;
+                case "meu-blog.aspx":
+                    fotos.Attributes["class"] += " disabled ";
+                    videos.Attributes["class"] += " disabled ";
+                    break;
 
                 /* case "editar_config.aspx":
                      fotos.Attributes["class"] += " disabled ";
