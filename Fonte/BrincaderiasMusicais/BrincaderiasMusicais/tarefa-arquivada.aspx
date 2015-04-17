@@ -80,7 +80,7 @@ Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra n
                             <span class="comentario_detalhe"><strong><< x >> Comentarios</strong></span>
                         </div>
                         <div class="criacoes_btn2">
-                            <a href="#" class="btn_comentario3">Comente esta tarefa</a>
+                            <a href="#" class="btn_comentario3 abre_comentario">Comente esta tarefa</a>
                         </div>
                         <br /><br /><br />
                     </div>
@@ -149,7 +149,7 @@ Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra n
                                         <span class="relato_detalhe">Este relato possui: <strong>&lt;&lt; xx &gt;&gt; comentarios</strong></span>
                                     </div>
                                         <a href="#" class="btn_comentario2">Ver comentários</a>
-                                        <a href="#" class="btn_relato2">Comente este relato</a>
+                                        <a href="#" class="btn_relato2 abre_comentario2">Comente este relato</a>
                                 </div>
                                 <div class="right">
                                     <p class="titu_criacoes">
@@ -228,6 +228,52 @@ Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra n
     <!--RODAPÉ-->
     <brincadeira:footer runat="server" ID="footer" />
     <!--FIM DO RODAPÉ-->
+
+    <!--MODAL COENTARIO-->
+    <div id="mask" style="display:block;">
+        <div class="modal_comentario">
+            <div class="fechar_comentario x">
+                <img src="/images/x.jpg" />
+            </div>
+            <p class="titu_criacoes">
+                COMENTE A TAREFA
+            </p>
+            <span class="tafera_detalhe">Deixe seu comentário para a tarefa <strong><< nome da tarefa - nome da tarefa - nome da tarefa - nome da tarefa - nome ... >> </strong></span>
+            <form method="post" action="enviar-relato.aspx" id="up_foto"><br /><br />
+                <textarea class="box_criacoes input" rows="10"></textarea><br /><br />
+                <div class="full enviar_relato">
+                    <button class="btn_back">Cancelar</button>
+                    <input type="submit" name="PublicarFoto" value="Enviar Relato" id="PublicarFoto" class="btn_save">
+                </div>
+            </form>
+        </div>
+
+        <div class="modal_comentario2">
+            <div class="fechar_comentario2 x">
+                <img src="/images/x.jpg" />
+            </div>
+            <p class="titu_criacoes">
+                COMENTE A TAREFA
+            </p>
+            <span class="tafera_detalhe">Deixe seu comentário para a tarefa <strong><< nome da tarefa - nome da tarefa - nome da tarefa - nome da tarefa - nome ... >> </strong></span>
+            <form method="post" action="enviar-relato.aspx" id="up_foto"><br /><br />
+                <textarea class="box_criacoes input" rows="10"></textarea><br /><br />
+                <div class="full enviar_relato">
+                    <button class="btn_back">Cancelar</button>
+                    <input type="submit" name="PublicarFoto" value="Enviar Relato" id="PublicarFoto" class="btn_save">
+                </div>
+            </form>
+        </div>
+
+        <div class="modal_relatos">
+            <div class="fechar_relato x">
+                <img src="/images/x.jpg" />
+            </div>
+            <p class="titu_criacoes">
+                <img src="/images/icon_comente.png" alt="Icone de comentários" /> COMENTÁRIOS DA TAREFA
+            </p>
+        </div>
+    </div>
 </body>
 </html>
 

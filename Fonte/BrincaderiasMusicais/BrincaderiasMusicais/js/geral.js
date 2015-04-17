@@ -137,6 +137,30 @@ $(document).ready(function () {
 	    $('.cont_relato b').text($('.relatos_ul li').size())
 	}
 
+    //MODAL COMENTARIO TAREFA
+	$('.abre_comentario').click(function (e) {
+	    e.preventDefault();
+	    $("#mask").fadeIn(200);
+	    $('.modal_comentario').fadeIn(400);
+	});
+
+	$('.fechar_comentario').click(function () {
+	    $('.modal_comentario').fadeOut(200);
+	    $('#mask').fadeOut(400);
+	})
+
+    //MODAL COMENTARIO RELATO TAREFA
+	$('.abre_comentario2').click(function (e) {
+	    e.preventDefault();
+	    $("#mask").fadeIn(200);
+	    $('.modal_comentario2').fadeIn(400);
+	});
+
+	$('.fechar_comentario2').click(function () {
+	    $('.modal_comentario2').fadeOut(200);
+	    $('#mask').fadeOut(400);
+	})
+
 
     //GALERIA HOME(FOTOS)
 	$('.fotos_home li:first').addClass('primeiro');
