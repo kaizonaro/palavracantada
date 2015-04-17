@@ -17,7 +17,7 @@ namespace BrincaderiasMusicais
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            rsPerfil = objBD.ExecutaSQL("EXEC PerfilUsuarioPorUsername " + Request["usuario"]);
+            rsPerfil = objBD.ExecutaSQL("EXEC PerfilUsuarioPorUsername '" + Request["usuario"]+ "'");
             if (rsPerfil == null) { Response.Redirect("./default.aspx"); }
             if (rsPerfil.HasRows)
             {
