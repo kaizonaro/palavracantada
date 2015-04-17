@@ -28,8 +28,20 @@ namespace BrincaderiasMusicais
             //Verificar se ainda está logado
             if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1)
             {
-                PopulaTela();
-                Relatos();
+                switch (Request["acao"])
+                {
+                    case ("comentarTarefa"):
+
+                        objBD.ExecutaSQL("exec Site_piComentario '" + Request["idCDO"] + "',null,'" + Session["usuID"] + "',null,'" + Request["comentarioTarefa"] + "'");
+                        Response.Redirect("/tarefa-ativa/" + Request["idCDO"]);
+                        break;
+                   
+                    default:
+                        PopulaTela();
+                        Relatos();
+                        break;
+                }
+
             }
             else
             {
@@ -56,8 +68,10 @@ namespace BrincaderiasMusicais
                 box_descritivo.InnerHtml = rsListar["CDO_DESCRITIVO"].ToString();
                 video_criacoes.Attributes.Add("src","https://www.youtube.com/embed/"+rsListar["CDO_VIDEO"].ToString());
                 aRelato.Attributes.Add("href", "/enviar-relato.aspx?CDO_ID="+ Request["CDO_ID"] +"");
-
+                idCDO.Attributes.Add("value", Request["CDO_ID"].ToString());
                 relato_detalhe.InnerHtml = "<strong>" + rsListar["TOTAL_RELATOS"].ToString() + " Relatos Enviados</strong>";
+
+                totalComentarios.InnerHtml = rsListar["TOTAL_COMENTARIOS"].ToString() + " Comentários";
             }
             else
             {

@@ -297,6 +297,7 @@ Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra n
             </p>
             <span class="tafera_detalhe">Deixe seu comentário para a tarefa <strong><< nome da tarefa - nome da tarefa - nome da tarefa - nome da tarefa - nome ... >> </strong></span>
             <form method="post" action="enviar-relato.aspx" id="up_foto"><br /><br />
+                <input type="text" id="CDO_ID" runat="server" />
                 <textarea class="box_criacoes input" rows="10"></textarea><br /><br />
                 <div class="full enviar_relato">
                     <button class="btn_back">Cancelar</button>
