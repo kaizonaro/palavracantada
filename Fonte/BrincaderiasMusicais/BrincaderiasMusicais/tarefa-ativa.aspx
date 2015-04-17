@@ -40,57 +40,69 @@
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="sobre" class="interna2">
                 <div class="titu">
-                   Criações Documentadas
+                    Criações Documentadas
                 </div>
                 <div id="breadcrumb">
                     <a href="/" title="Home">Home</a>  <strong>Criações Documentadas</strong>
                 </div>
                 <!-- INCLUDE -->
-                    <p class="titu_criacoes" id="titu_criacoes" runat="server"></p><br /><br />
-                    <span class="tafera_detalhe">Tarefa criada por: <strong id="criador" runat="server"></strong></span>
-                    <span class="tafera_detalhe">Publicada Em: <strong id="data" runat="server"></strong></span>
-                    <br />                    
-                    <br />
-                    <p class="titu_criacoes">
-                        Descritivo da tarefa:
-                    </p>
-                    <div class="box_criacoes" id="box_descritivo" runat="server"></div>
-                    <br /><br />
-                    <p class="titu_criacoes">
-                        Vídeo / Referência sobre esta tarefa:
-                    </p>
-                    <iframe class="video_criacoes" id="video_criacoes" runat="server" src="" frameborder="0" allowfullscreen></iframe>
-                    <br /><br />
-                    <div class="detalhe_criacoes">
-                        <div class="detalhes_autor">
-                            <span class="relato_detalhe" id="relato_detalhe" runat="server"><!--<strong>Relatos Enviados</strong>--></span><br />
-                            <span class="comentario_detalhe"><strong><< x >> Comentarios</strong></span>
-                        </div>
-                        <div class="criacoes_btn">
-                            <a href="javascript:void(0);" class="btn_comentario">Comente esta tarefa</a>
-                            <a href="javascript:void(0);" id="aRelato" runat="server" class="btn_relato">Envie seu relato</a>
-                        </div>
-                        <br /><br /><br />
+                <p class="titu_criacoes" id="titu_criacoes" runat="server"></p>
+                <br />
+                <br />
+                <span class="tafera_detalhe">Tarefa criada por: <strong id="criador" runat="server"></strong></span>
+                <span class="tafera_detalhe">Publicada Em: <strong id="data" runat="server"></strong></span>
+                <br />
+                <br />
+                <p class="titu_criacoes">
+                    Descritivo da tarefa:
+                </p>
+                <div class="box_criacoes" id="box_descritivo" runat="server"></div>
+                <br />
+                <br />
+                <p class="titu_criacoes">
+                    Vídeo / Referência sobre esta tarefa:
+                </p>
+                <iframe class="video_criacoes" id="video_criacoes" runat="server" src="" frameborder="0" allowfullscreen></iframe>
+                <br />
+                <br />
+                <div class="detalhe_criacoes">
+                    <div class="detalhes_autor">
+                        <span class="relato_detalhe" id="relato_detalhe" runat="server">
+                            <!--<strong>Relatos Enviados</strong>-->
+                        </span>
+                        <br />
+                        <span class="comentario_detalhe"><strong><< x >> Comentarios</strong></span>
                     </div>
-                    
-                    <img src="/images/linha.png" class="linha" />
+                    <div class="criacoes_btn">
+                        <a href="javascript:void(0);" class="btn_comentario abre_comentario">Comente esta tarefa</a>
+                        <a href="javascript:void(0);" id="aRelato" runat="server" class="btn_relato">Envie seu relato</a>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                </div>
+
+                <img src="/images/linha.png" class="linha" />
 
                 <div class="mascara" id="divRelatos" runat="server">
-                    <!-- CARROUSEL -->   
-                    <div class="topo_relatos">      
+                    <!-- CARROUSEL -->
+                    <div class="topo_relatos">
                         <div class="left">
                             <p class="titu_criacoes">
                                 Relatos enviados:
                             </p>
-                        </div>   
+                        </div>
                         <div class="right">
-                            <div class="left_relato"><img src="/images/arrow_left2.png"></div>
+                            <div class="left_relato">
+                                <img src="/images/arrow_left2.png">
+                            </div>
                             <span class="cont_relato">Visualizando Relato <strong>1</strong> de <b>xx</b></span>
-                            <div class="right_relato"><img src="/images/arrow_right2.png"></div>
-                        </div> 
-                    </div>       
+                            <div class="right_relato">
+                                <img src="/images/arrow_right2.png">
+                            </div>
+                        </div>
+                    </div>
                     <ul class="carrousel relatos_ul" runat="server" id="ulRelatos">
-                        
                     </ul>
                 </div>
             </div>
@@ -107,5 +119,42 @@
     <!--RODAPÉ-->
     <brincadeira:footer runat="server" ID="footer" />
     <!--FIM DO RODAPÉ-->
+
+    <!--MODAL COENTARIO-->
+    <div id="mask">
+        <div class="modal_comentario">
+            <div class="fechar_comentario x">
+                <img src="/images/x.jpg" />
+            </div>
+            <p class="titu_criacoes">
+                COMENTE A TAREFA
+            </p>
+            <span class="tafera_detalhe">Deixe seu comentário para a tarefa <strong><< nome da tarefa - nome da tarefa - nome da tarefa - nome da tarefa - nome ... >> </strong></span>
+            <form method="post" action="enviar-relato.aspx" id="up_foto"><br /><br />
+                <textarea class="box_criacoes input" rows="10"></textarea><br /><br />
+                <div class="full enviar_relato">
+                    <button class="btn_back">Cancelar</button>
+                    <input type="submit" name="PublicarFoto" value="Enviar Relato" id="PublicarFoto" class="btn_save">
+                </div>
+            </form>
+        </div>
+
+        <div class="modal_comentario2">
+            <div class="fechar_comentario2 x">
+                <img src="/images/x.jpg" />
+            </div>
+            <p class="titu_criacoes">
+                COMENTE ESTE RELATO
+            </p>
+            <span class="tafera_detalhe">Deixe seu comentário para o relato <strong><< nome da tarefa - nome da tarefa - nome da tarefa - nome da tarefa - nome ... >> </strong></span>
+            <form method="post" action="enviar-relato.aspx" id="up_foto"><br /><br />
+                <textarea class="box_criacoes input" rows="10"></textarea><br /><br />
+                <div class="full enviar_relato">
+                    <button class="btn_back">Cancelar</button>
+                    <input type="submit" name="PublicarFoto" value="Enviar Relato" id="PublicarFoto" class="btn_save">
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
