@@ -43,22 +43,27 @@
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="sobre" class="interna2">
                 <div class="titu">
-                   Criações Documentadas
+                    Criações Documentadas
                 </div>
                 <div id="breadcrumb">
                     <a href="/" title="Home">Home</a>  <strong>Criações Documentadas</strong>
                 </div>
                 <!-- INCLUDE -->
-                    <p class="titu_criacoes" runat="server" id="titu_criacoes"><< Título da Tarefa - Título da Tarefa - Título datarefa - Título da Tarefa - Título da Tarefa >></p><br /><br />
-                    <span class="tafera_detalhe">Tarefa criada por: <strong><< NOME DO ADMIN >></strong></span>
-                    <span class="tafera_detalhe">Publicada Em: <strong>12/03/2015</strong></span>
-                    <br />                    
-                    <br />
-                    <p class="titu_criacoes">
-                        Descritivo da tarefa:
-                    </p>
-                    <div class="box_criacoes">
-                        Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
+                <p class="titu_criacoes" runat="server" id="titu_criacoes">
+                    << Título da Tarefa - Título da Tarefa - Título da
+tarefa - Título da Tarefa - Título da Tarefa >>
+                </p>
+                <br />
+                <br />
+                <span class="tafera_detalhe">Tarefa criada por: <strong id="criador" runat="server"><< NOME DO ADMIN >></strong></span>
+                <span class="tafera_detalhe">Publicada Em: <strong id="data" runat="server">12/03/2015</strong></span>
+                <br />
+                <br />
+                <p class="titu_criacoes" id="box_descritivo" runat="server">
+                    Descritivo da tarefa:
+                </p>
+                <div class="box_criacoes" runat="server" id="box_criacoes">
+                    Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
 
 Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.
 
@@ -67,7 +72,24 @@ Casamentiss faiz malandris se pirulitá, Nam liber tempor cum soluta nobis eleif
 Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra nisl condimentum ut. Donec eget justis enim. Atirei o pau no gatis. Viva Forevis aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Copo furadis é disculpa de babadis, arcu quam euismod magna, bibendum egestas augue arcu ut est. Delegadis gente finis. In sit amet mattis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis. Pellentesque viverra accumsan ipsum elementum gravidis.
 
 
+                </div>
+                <br />
+                <br />
+                <p class="titu_criacoes">
+                    Vídeo / Referência sobre esta tarefa:
+                </p>
+                <iframe class="video_criacoes" id="video_criacoes" runat="server" src="https://www.youtube.com/embed/x8VNNyobJRo" frameborder="0" allowfullscreen></iframe>
+                <br />
+                <br />
+                <div class="detalhe_criacoes">
+                    <div class="detalhes_autor">
+                        <span class="relato_detalhe"><strong><< x >> Relatos Enviados</strong></span><br />
+                        <span class="comentario_detalhe"><strong><< x >> Comentarios</strong></span>
                     </div>
+ 
+                    <div class="criacoes_btn2">
+                        <a href="#" class="btn_comentario3">Comente esta tarefa</a>
+ 
                     <br /><br />
                     <p class="titu_criacoes">
                         Vídeo / Referência sobre esta tarefa:
@@ -83,15 +105,20 @@ Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra n
                             <a href="#" class="btn_comentario3 abre_comentario">Comente esta tarefa</a>
                         </div>
                         <br /><br /><br />
+ 
                     </div>
-                    
-                    <img src="/images/linha.png" class="linha" />
+                    <br />
+                    <br />
+                    <br />
+                </div>
 
-                    <p class="titu_criacoes">
-                        Devolutiva da equipe formativa sobre esta tarefa:
-                    </p>
-                    <div class="box_criacoes">
-                        Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
+                <img src="/images/linha.png" class="linha" />
+
+                <p class="titu_criacoes">
+                    Devolutiva da equipe formativa sobre esta tarefa:
+                </p>
+                <div class="box_criacoes">
+                    Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
 
 Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.
 
@@ -100,38 +127,44 @@ Casamentiss faiz malandris se pirulitá, Nam liber tempor cum soluta nobis eleif
 Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra nisl condimentum ut. Donec eget justis enim. Atirei o pau no gatis. Viva Forevis aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Copo furadis é disculpa de babadis, arcu quam euismod magna, bibendum egestas augue arcu ut est. Delegadis gente finis. In sit amet mattis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis. Pellentesque viverra accumsan ipsum elementum gravidis.
 
 
-                    </div>
-                <br /><br />
-                    <span class="tafera_detalhe">Tarefa criada por: <strong><< NOME DO ADMIN >></strong></span>
-                    <span class="tafera_detalhe">Publicada Em: <strong>12/03/2015</strong></span>
-                <br /><br />
-                <p class="titu_criacoes">
-                        Vídeo da devolutiva:
-                    </p>
-                <div class="video_criacoes">
-
                 </div>
-                <br /><br />
+                <br />
+                <br />
+                <span class="tafera_detalhe">Tarefa criada por: <strong><< NOME DO ADMIN >></strong></span>
+                <span class="tafera_detalhe">Publicada Em: <strong>12/03/2015</strong></span>
+                <br />
+                <br />
+                <p class="titu_criacoes">
+                    Vídeo da devolutiva:
+                </p>
+                <div class="video_criacoes">
+                </div>
+                <br />
+                <br />
                 <img src="/images/linha.png" class="linha" />
 
                 <div class="mascara">
-                    <!-- CARROUSEL -->   
-                    <div class="topo_relatos">      
+                    <!-- CARROUSEL -->
+                    <div class="topo_relatos" id="divRelatos" runat="server">
                         <div class="left">
                             <p class="titu_criacoes">
                                 Relatos enviados:
                             </p>
-                        </div>   
+                        </div>
                         <div class="right">
-                            <div class="left_relato"><img src="/images/arrow_left2.png"></div>
+                            <div class="left_relato">
+                                <img src="/images/arrow_left2.png">
+                            </div>
                             <span class="cont_relato">Visualizando Relato <strong>1</strong> de <b>xx</b></span>
-                            <div class="right_relato"><img src="/images/arrow_right2.png"></div>
-                        </div> 
-                    </div>       
-                    <ul class="carrousel relatos_ul">
+                            <div class="right_relato">
+                                <img src="/images/arrow_right2.png">
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="carrousel relatos_ul" id="ulRelatos" runat="server">
                         <li>
                             <div class="box_criacoes">
-                        Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
+                                Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
 
 Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.
 
@@ -140,16 +173,23 @@ Casamentiss faiz malandris se pirulitá, Nam liber tempor cum soluta nobis eleif
 Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra nisl condimentum ut. Donec eget justis enim. Atirei o pau no gatis. Viva Forevis aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Copo furadis é disculpa de babadis, arcu quam euismod magna, bibendum egestas augue arcu ut est. Delegadis gente finis. In sit amet mattis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis. Pellentesque viverra accumsan ipsum elementum gravidis.
 
 
-                    </div>
+                            </div>
                             <div class="sub_criacoes">
                                 <div class="left">
                                     <div class="detalhes_autor">
-                                        <span class="comentario_detalhe">Relato enviado por: <br /><strong>&lt;&lt; Nome do usuarios &gt;&gt;</strong></span><br>
+                                        <span class="comentario_detalhe">Relato enviado por:
+                                            <br />
+                                            <strong>&lt;&lt; Nome do usuarios &gt;&gt;</strong></span><br>
                                         <span class="relato_detalhe">Data: <strong>&lt;&lt; xx/xx/xxxx &gt;&gt;</strong></span><br />
                                         <span class="relato_detalhe">Este relato possui: <strong>&lt;&lt; xx &gt;&gt; comentarios</strong></span>
                                     </div>
+ 
+                                    <a href="#" class="btn_comentario2">Ver comentários</a>
+                                    <a href="#" class="btn_relato2">Comente este relato</a>
+ 
                                         <a href="#" class="btn_comentario2">Ver comentários</a>
                                         <a href="#" class="btn_relato2 abre_comentario2">Comente este relato</a>
+ 
                                 </div>
                                 <div class="right">
                                     <p class="titu_criacoes">
@@ -162,7 +202,7 @@ Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra n
                         </li>
                         <li>
                             <div class="box_criacoes">
-                        Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
+                                Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
 
 Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.
 
@@ -171,11 +211,11 @@ Casamentiss faiz malandris se pirulitá, Nam liber tempor cum soluta nobis eleif
 Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra nisl condimentum ut. Donec eget justis enim. Atirei o pau no gatis. Viva Forevis aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Copo furadis é disculpa de babadis, arcu quam euismod magna, bibendum egestas augue arcu ut est. Delegadis gente finis. In sit amet mattis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis. Pellentesque viverra accumsan ipsum elementum gravidis.
 
 
-                    </div>
+                            </div>
                         </li>
                         <li>
                             <div class="box_criacoes">
-                        Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
+                                Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
 
 Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.
 
@@ -184,11 +224,11 @@ Casamentiss faiz malandris se pirulitá, Nam liber tempor cum soluta nobis eleif
 Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra nisl condimentum ut. Donec eget justis enim. Atirei o pau no gatis. Viva Forevis aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Copo furadis é disculpa de babadis, arcu quam euismod magna, bibendum egestas augue arcu ut est. Delegadis gente finis. In sit amet mattis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis. Pellentesque viverra accumsan ipsum elementum gravidis.
 
 
-                    </div>
+                            </div>
                         </li>
                         <li>
                             <div class="box_criacoes">
-                        Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
+                                Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
 
 Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.
 
@@ -197,11 +237,11 @@ Casamentiss faiz malandris se pirulitá, Nam liber tempor cum soluta nobis eleif
 Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra nisl condimentum ut. Donec eget justis enim. Atirei o pau no gatis. Viva Forevis aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Copo furadis é disculpa de babadis, arcu quam euismod magna, bibendum egestas augue arcu ut est. Delegadis gente finis. In sit amet mattis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis. Pellentesque viverra accumsan ipsum elementum gravidis.
 
 
-                    </div>
+                            </div>
                         </li>
                         <li>
                             <div class="box_criacoes">
-                        Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
+                                Mussum ipsum cacilds, vidis litro abertis. Consetis adipiscings elitis. Pra lá , depois divoltis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis, nisi eros vermeio, in elementis mé pra quem é amistosis quis leo. Manduma pindureta quium dia nois paga. Sapien in monti palavris qui num significa nadis i pareci latim. Interessantiss quisso pudia ce receita de bolis, mais bolis eu num gostis.
 
 Suco de cevadiss, é um leite divinis, qui tem lupuliz, matis, aguis e fermentis. Interagi no mé, cursus quis, vehicula ac nisi. Aenean vel dui dui. Nullam leo erat, aliquet quis tempus a, posuere ut mi. Ut scelerisque neque et turpis posuere pulvinar pellentesque nibh ullamcorper. Pharetra in mattis molestie, volutpat elementum justo. Aenean ut ante turpis. Pellentesque laoreet mé vel lectus scelerisque interdum cursus velit auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac mauris lectus, non scelerisque augue. Aenean justo massa.
 
@@ -210,7 +250,7 @@ Casamentiss faiz malandris se pirulitá, Nam liber tempor cum soluta nobis eleif
 Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra nisl condimentum ut. Donec eget justis enim. Atirei o pau no gatis. Viva Forevis aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Copo furadis é disculpa de babadis, arcu quam euismod magna, bibendum egestas augue arcu ut est. Delegadis gente finis. In sit amet mattis porris, paradis. Paisis, filhis, espiritis santis. Mé faiz elementum girarzis. Pellentesque viverra accumsan ipsum elementum gravidis.
 
 
-                    </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
