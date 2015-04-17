@@ -90,7 +90,7 @@ namespace BrincaderiasMusicais.ajax
 
         public void completarCadastro()
         {
-            rsCadastro = objBD.ExecutaSQL("EXEC site_puCastro '" + Request["TOK_TOKEN"] + "','" + Request["USU_NOME"] + "','" + Request["USU_EMAIL"] + "','" + Request["CAR_ID"] + "','" + objUtils.TrataSQLInjection(objUtils.getMD5Hash(Request["USU_SENHA"])) + "'");
+            rsCadastro = objBD.ExecutaSQL("EXEC site_puCastro '" + Request["TOK_TOKEN"] + "','" + Request["USU_NOME"] + "','" + Request["USU_EMAIL"] + "','" + Request["CAR_ID"] + "','" + objUtils.TrataSQLInjection(objUtils.getMD5Hash(Request["USU_SENHA"])) + "','"+Request["USU_USUARIO"]+"'");
 
             if (rsCadastro == null)
             {
@@ -108,9 +108,11 @@ namespace BrincaderiasMusicais.ajax
 
                 //Salvar as Session do usuário
                 Session["nomeUsuario"] = rsCadastro["USU_NOME"].ToString();
+                Session["usuID"] = rsCadastro["USU_ID"].ToString();
                 Session["nomeInstituicao"] = rsCadastro["RED_TITULO"].ToString();
                 Session["redeID"] = rsCadastro["RED_ID"].ToString();
                 Session["redeTitulo"] = objUtils.GerarURLAmigavel(rsCadastro["RED_TITULO"].ToString());
+                Session["usuUsuario"] = rsCadastro["USU_USUARIO"].ToString();
 
                 //Salva no log
                 objBD.ExecutaSQL("EXEC psLog '" + rsCadastro["USU_ID"] + "',null,'Login efetuado no sistema'");

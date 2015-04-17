@@ -32,6 +32,22 @@
                 return false;
             }
         }
+
+        function capturar(campo) {
+            document.getElementById("USU_USUARIO").value = removeCaracteres(trim(campo.value));
+        }
+
+        function trim(e) {
+            espacos = /\s/g;
+            return e.replace(espacos, "").toLowerCase();
+        }
+
+        function removeCaracteres(e) {
+            remove = /á|é|í|ó|ã|à|ê|#|!|@|$|%|&|(|)|{|}|&|(|)|ú/g;  // adicione os caracteres indesejáveis
+            return e.replace(remove, "");
+        }
+
+
     </script>
 
 </head>
@@ -142,7 +158,7 @@
                         <input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input email inp_grande" /><br />
                         <label>Usuário*:<br />
                         </label>
-                        <input type="text" name="USU_USUARIO" id="Text1" class="input email inp_grande" />
+                        <input type="text" name="USU_USUARIO" onblur="capturar(this);" id="USU_USUARIO" class="input inp_grande" />
                     </div>
                     <div class="left">
                         <strong>Cargo: </strong>
