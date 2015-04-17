@@ -139,7 +139,10 @@
                         <input type="text" name="USU_NOME" id="USU_NOME" class="input inp_grande" /><br />
                         <label>Email*:<br />
                         </label>
-                        <input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input email inp_grande" />
+                        <input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input email inp_grande" /><br />
+                        <label>Usuário*:<br />
+                        </label>
+                        <input type="text" name="USU_USUARIO" id="Text1" class="input email inp_grande" />
                     </div>
                     <div class="left">
                         <strong>Cargo: </strong>

@@ -47,6 +47,10 @@
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="meuperfil" class="interna">
                 
+                <div id="breadcrumb">
+                    <a href="/" title="Home">Home</a> >> <a href="/meu-perfil/" title="Home">Meu Perfil</a> >> <strong>Fotos</strong>
+                </div>
+
                 <brincadeira:headerperfil runat="server" ID="headerperfil" />
                 
                 <img src="/images/linha.png" class="linha" />
