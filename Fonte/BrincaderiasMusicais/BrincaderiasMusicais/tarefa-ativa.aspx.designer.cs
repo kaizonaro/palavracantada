@@ -103,6 +103,15 @@ namespace BrincaderiasMusicais {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl relato_detalhe;
         
         /// <summary>
+        /// totalComentarios control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl totalComentarios;
+        
+        /// <summary>
         /// aRelato control.
         /// </summary>
         /// <remarks>
@@ -155,5 +164,14 @@ namespace BrincaderiasMusicais {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::BrincaderiasMusicais.inc.footer footer;
+        
+        /// <summary>
+        /// idCDO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden idCDO;
     }
 }
