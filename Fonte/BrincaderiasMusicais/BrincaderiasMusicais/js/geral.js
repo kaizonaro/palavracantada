@@ -161,6 +161,17 @@ $(document).ready(function () {
 	    $('#mask').fadeOut(400);
 	})
 
+    //modal lista realos
+	$('.abre_relatos').click(function (e) {
+	    e.preventDefault();
+	    $("#mask").fadeIn(200);
+	    $('.modal_realtos').fadeIn(400);
+	})
+
+	$('.fechar_relato').click(function () {
+	    $('.modal_relatos').fadeOut(200);
+	    $('#mask').fadeOut(400);
+	})
 
     //GALERIA HOME(FOTOS)
 	$('.fotos_home li:first').addClass('primeiro');

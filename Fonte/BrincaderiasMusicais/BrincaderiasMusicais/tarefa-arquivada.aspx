@@ -230,7 +230,7 @@ Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra n
     <!--FIM DO RODAPÉ-->
 
     <!--MODAL COENTARIO-->
-    <div id="mask" style="display:block;">
+    <div id="mask">
         <div class="modal_comentario">
             <div class="fechar_comentario x">
                 <img src="/images/x.jpg" />
@@ -265,14 +265,7 @@ Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra n
             </form>
         </div>
 
-        <div class="modal_relatos">
-            <div class="fechar_relato x">
-                <img src="/images/x.jpg" />
-            </div>
-            <p class="titu_criacoes">
-                <img src="/images/icon_comente.png" alt="Icone de comentários" /> COMENTÁRIOS DA TAREFA
-            </p>
-        </div>
+        
     </div>
 </body>
 </html>
