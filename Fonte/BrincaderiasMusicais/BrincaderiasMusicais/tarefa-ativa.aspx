@@ -155,6 +155,58 @@
                 </div>
             </form>
         </div>
+
+        <div class="modal_relatos">
+            <div class="fechar_relato x">
+                <img src="/images/x.jpg" />
+            </div>
+            <p class="titu_criacoes">
+                <img src="/images/icon_comente.png" alt="Icone de comentários" /> COMENTÁRIOS DA TAREFA
+            </p>
+            <span class="tafera_detalhe">Visualizando comentários da tarefa <strong><< nome da tarefa - nome da tarefa - nome da tarefa - nome da tarefa - nome da tarefa - nome da tarefa - nome da tarefa... >> </strong></span>
+            <hr />
+            <div class="box_lista_relato">
+                <img class="mini_perfil" src="/images/thumb_perfil.jpg" alt="Foto do Perfil do Fulano" />
+                <p class="txt">
+                    Dolor quisque faucibus ligula nec urna hendrerit, at dignissim mauris tristique. Etiam ipsum dolor, feugiat non lacinia ut, lacinia in nisi. Vivamus dictum risus nulla, sit amet sodales ligula sagittis ac. Fusce ac consectetur enim, ac dignissim nunc.
+                </p>
+                <span class="tafera_detalhe">Comentário  enviado por:  <strong><< nome do usuário >> </strong></span>
+            </div>
+
+            <div class="box_lista_relato">
+                <img class="mini_perfil" src="/images/thumb_perfil.jpg" alt="Foto do Perfil do Fulano" />
+                <p class="txt">
+                    Dolor quisque faucibus ligula nec urna hendrerit, at dignissim mauris tristique. Etiam ipsum dolor, feugiat non lacinia ut, lacinia in nisi. Vivamus dictum risus nulla, sit amet sodales ligula sagittis ac. Fusce ac consectetur enim, ac dignissim nunc.
+                </p>
+                <span class="tafera_detalhe">Comentário  enviado por:  <strong><< nome do usuário >> </strong></span>
+            </div>
+
+            <div class="box_lista_relato">
+                <img class="mini_perfil" src="/images/thumb_perfil.jpg" alt="Foto do Perfil do Fulano" />
+                <p class="txt">
+                    Dolor quisque faucibus ligula nec urna hendrerit, at dignissim mauris tristique. Etiam ipsum dolor, feugiat non lacinia ut, lacinia in nisi. Vivamus dictum risus nulla, sit amet sodales ligula sagittis ac. Fusce ac consectetur enim, ac dignissim nunc.
+                </p>
+                <span class="tafera_detalhe">Comentário  enviado por:  <strong><< nome do usuário >> </strong></span>
+            </div>
+
+            <div class="box_lista_relato">
+                <img class="mini_perfil" src="/images/thumb_perfil.jpg" alt="Foto do Perfil do Fulano" />
+                <p class="txt">
+                    Dolor quisque faucibus ligula nec urna hendrerit, at dignissim mauris tristique. Etiam ipsum dolor, feugiat non lacinia ut, lacinia in nisi. Vivamus dictum risus nulla, sit amet sodales ligula sagittis ac. Fusce ac consectetur enim, ac dignissim nunc.
+                </p>
+                <span class="tafera_detalhe">Comentário  enviado por:  <strong><< nome do usuário >> </strong></span>
+            </div>
+            <div class="box_lista_relato">
+                <img class="mini_perfil" src="/images/thumb_perfil.jpg" alt="Foto do Perfil do Fulano" />
+                <p class="txt">
+                    Dolor quisque faucibus ligula nec urna hendrerit, at dignissim mauris tristique. Etiam ipsum dolor, feugiat non lacinia ut, lacinia in nisi. Vivamus dictum risus nulla, sit amet sodales ligula sagittis ac. Fusce ac consectetur enim, ac dignissim nunc.
+                </p>
+                <span class="tafera_detalhe">Comentário  enviado por:  <strong><< nome do usuário >> </strong></span>
+            </div>
+
+            <nav class="paginacao">   <ul>   <li><a href="javascript:void(0);" class="nav_pg" title="Página anterior"><img src="images/nav_left.png">ANTERIORES</a></li>   <li><a href="javascript:void(0);" title="Página atual" class="ativo">1</a></li>   <li><a href="javascript:void(0);" onclick="pagina('2')" title="Página 2">2</a></li>   <li><a href="javascript:void(0);" onclick="pagina('3')" title="Página 3">3</a></li>   <li><a href="javascript:void(0);" onclick="pagina('2')" class="nav_pg" title="Próxima Página">PRÓXIMOS <img src="images/nav_right.png "></a></li>   </ul>  </nav>
+
+        </div>
     </div>
 </body>
 </html>

@@ -577,11 +577,16 @@ textarea{resize:none;}
 .modal_comentario2 .x{width:100%;text-align:right;cursor:pointer;}
 .modal_comentario2 .titu_criacoes{text-align:center;margin-top:0;margin-bottom:5px;}
 
-.modal_relatos{width:540px;height:791px;padding:15px;background:url(../images/bg_relate.png) no-repeat center center;margin:20px auto;z-index:15;position:relative;}
+.modal_relatos{width:540px;height:791px;padding:25px;background:url(../images/bg_relate.png) no-repeat center center;margin:10px auto;z-index:15;position:relative;}
 .modal_relatos .box_criacoes{height:250px;}
 textarea{resize:none;}
 .modal_relatos .x{width:100%;text-align:right;cursor:pointer;}
 .modal_relatos .titu_criacoes{text-align:center;margin-top:0;margin-bottom:5px;}
+.modal_relatos hr{border-top:1px dotted #68455b;width:100%;display:inline-block;}
+.modal_relatos .mini_perfil{padding:3px;width:47px;background: url(../images/bg_img_perfil.png) no-repeat center center; background-size: cover;margin-right:10px;}
+.box_lista_relato{margin-top:10px;width:100%;display:inline-block;border-bottom:1px dotted #68455b;padding-bottom:20px;}
+.box_lista_relato .txt{font-family:arial, sans-serif;font-size:12px;text-align:left;color:#68455b;}
+.box_lista_relato span{margin-left:60px;margin-top:5px}
 
 
 /*AJUSTES*/

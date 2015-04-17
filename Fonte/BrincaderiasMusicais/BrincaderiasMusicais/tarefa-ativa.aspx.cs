@@ -89,8 +89,8 @@ namespace BrincaderiasMusicais
                     ulRelatos.InnerHtml += "                <span class=\"comentario_detalhe\">Data: <strong>" + rsListar["CDR_DATA"] + "</strong></span><br>";
                     ulRelatos.InnerHtml += "                <span class=\"comentario_detalhe\">Este relato possui: <strong>xx comentarios</strong></span><br>";
                     ulRelatos.InnerHtml += "            </div>";
-                    ulRelatos.InnerHtml += "            <a href=\"javascript:void(0);\" class=\"btn_comentario2\">Ver comentários</a>";
-                    ulRelatos.InnerHtml += "            <a href=\"javascript:void(0);\" class=\"btn_relato2\">Comente este relato</a>";
+                    ulRelatos.InnerHtml += "            <a href=\"javascript:void(0);\" class=\"btn_comentario2 abre_relatos\">Ver comentários</a>";
+                    ulRelatos.InnerHtml += "            <a href=\"javascript:void(0);\" class=\"btn_relato2 abre_comentario2\">Comente este relato</a>";
                     ulRelatos.InnerHtml += "        </div>";
 
                     if (string.IsNullOrWhiteSpace(rsListar["CDR_VIDEO"].ToString()) == false)
