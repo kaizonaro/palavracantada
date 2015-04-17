@@ -109,6 +109,9 @@ namespace BrincaderiasMusicais.inc
                     linkvideos.Attributes.Add("href", "/perfil/videos/" + rsPerfil["USU_USUARIO"]);
                     linkblog.Attributes.Add("href", "/perfil/blog/" + rsPerfil["USU_USUARIO"]);
 
+                    linkfotos.Attributes.Add("src", "/images/fotos_perfil2.png");
+                    linkvideos.Attributes.Add("src", "/images/videos_perfil2.png");
+                    linkblog.Attributes.Add("src", "/images/blog_perfil2.png");
                 }
                 else
                 {
