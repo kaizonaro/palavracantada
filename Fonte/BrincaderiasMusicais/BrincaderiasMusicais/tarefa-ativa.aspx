@@ -165,10 +165,10 @@
                 COMENTE A TAREFA
             </p>
             <span class="tafera_detalhe">Deixe seu comentário para a tarefa: <!--<strong><< nome da tarefa - nome da tarefa - nome da tarefa - nome da tarefa - nome ... >> </strong>--></span>
-            <form method="post" action="tarefa-ativa.aspx" id="up_foto"><br /><br />
+            <form method="post" action="tarefa-ativa.aspx" id="up_foto2"><br /><br />
                 <input type="hidden" id="acao" name="acao" value="comentarTarefa" />
                 <input type="hidden" id="idCDO" runat="server" name="idCDO" value="" />
-                <textarea class="box_criacoes input" id="comentarioTarefa" rows="10"></textarea><br /><br />
+                <textarea class="box_criacoes input" id="comentarioTarefa" name="comentarioTarefa" rows="10"></textarea><br /><br />
                 <div class="full enviar_relato">
                     <button class="btn_back">Cancelar</button>
                     <input type="submit" name="comentarTarefa" value="Enviar Relato" id="comentarTarefa" class="btn_save"/>
