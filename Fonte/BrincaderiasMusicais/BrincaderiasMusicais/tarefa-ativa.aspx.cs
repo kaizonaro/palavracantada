@@ -31,9 +31,17 @@ namespace BrincaderiasMusicais
                 switch (Request["acao"])
                 {
                     case ("comentarTarefa"):
-
                         objBD.ExecutaSQL("exec Site_piComentario '" + Request["idCDO"] + "',null,'" + Session["usuID"] + "',null,'" + Request["comentarioTarefa"] + "'");
                         Response.Redirect("/tarefa-ativa/" + Request["idCDO"]);
+                        break;
+
+                    case ("comentarRelato"):
+
+                       // Response.Write("exec Site_piComentario null,'" + Request["idREL"] + "','" + Session["usuID"] + "',null,'" + Request["comentarioRelato"] + "'");
+                      //  Response.End();
+
+                        objBD.ExecutaSQL("exec Site_piComentario null,'" + Request["idREL"] + "','" + Session["usuID"] + "',null,'" + Request["comentarioRelato"] + "'");
+                        Response.Redirect("/tarefa-ativa/" + Request["idCDO1"]);
                         break;
                    
                     default:
@@ -68,7 +76,10 @@ namespace BrincaderiasMusicais
                 box_descritivo.InnerHtml = rsListar["CDO_DESCRITIVO"].ToString();
                 video_criacoes.Attributes.Add("src","https://www.youtube.com/embed/"+rsListar["CDO_VIDEO"].ToString());
                 aRelato.Attributes.Add("href", "/enviar-relato.aspx?CDO_ID="+ Request["CDO_ID"] +"");
+                
                 idCDO.Attributes.Add("value", Request["CDO_ID"].ToString());
+                idCDO1.Attributes.Add("value", Request["CDO_ID"].ToString());
+                
                 relato_detalhe.InnerHtml = "<strong>" + rsListar["TOTAL_RELATOS"].ToString() + " Relatos Enviados</strong>";
 
                 totalComentarios.InnerHtml = rsListar["TOTAL_COMENTARIOS"].ToString() + " Comentários";
@@ -101,10 +112,10 @@ namespace BrincaderiasMusicais
                     ulRelatos.InnerHtml += "            <div class=\"detalhes_autor\">";
                     ulRelatos.InnerHtml += "                <span class=\"comentario_detalhe\">Relato enviado por: <br /><strong>" + rsListar["USU_NOME"] + "</strong></span><br>";
                     ulRelatos.InnerHtml += "                <span class=\"comentario_detalhe\">Data: <strong>" + rsListar["CDR_DATA"] + "</strong></span><br>";
-                    ulRelatos.InnerHtml += "                <span class=\"comentario_detalhe\">Este relato possui: <strong>xx comentarios</strong></span><br>";
+                    ulRelatos.InnerHtml += "                <span class=\"comentario_detalhe\">Este relato possui: <strong>" + rsListar["TOTAL_COMENTARIOS"] + " comentarios</strong></span><br>";
                     ulRelatos.InnerHtml += "            </div>";
-                    ulRelatos.InnerHtml += "            <a href=\"javascript:void(0);\" class=\"btn_comentario2 abre_relatos\">Ver comentários</a>";
-                    ulRelatos.InnerHtml += "            <a href=\"javascript:void(0);\" class=\"btn_relato2 abre_comentario2\">Comente este relato</a>";
+                    ulRelatos.InnerHtml += "            <a href=\"javascript:void(0);\" onclick='verComentarios(1," + rsListar["CDR_ID"] + ");' class=\"btn_comentario2 abre_relatos\">Ver comentários</a>";
+                    ulRelatos.InnerHtml += "            <a href=\"javascript:void(0);\" onclick='teste(" + rsListar["CDR_ID"] + ");' class=\"btn_relato2 abre_comentario2\">Comente este relato</a>";
                     ulRelatos.InnerHtml += "        </div>";
 
                     if (string.IsNullOrWhiteSpace(rsListar["CDR_VIDEO"].ToString()) == false)
@@ -118,6 +129,7 @@ namespace BrincaderiasMusicais
                     ulRelatos.InnerHtml += "    </div>";
                     ulRelatos.InnerHtml += " </li>";
                 }
+
             }
             else
             {

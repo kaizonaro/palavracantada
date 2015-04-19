@@ -21,6 +21,41 @@
     <meta property="og:url" content="http://projetopalavracantada.net/artigos" />
 
     <brincadeira:script runat="server" ID="script" />
+    <script type="text/javascript">
+        function GetXMLHttp() {
+            if (navigator.appName == "Microsoft Internet Explorer") {
+                xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+            } else {
+                xmlHttp = new XMLHttpRequest();
+            }
+            return xmlHttp;
+        }
+        var mod = GetXMLHttp();
+
+        function teste(id) {
+            $("#idREL").attr("value", id);
+            $("#mask").fadeIn(200);
+            $('.modal_comentario2').fadeIn(400);
+            $('.modal_relatos').fadeOut(0);
+
+        }
+        
+        function verComentarios(pg, id) {
+            mod.open("GET", "/ajax/acoes.aspx?pg=" + pg + "&id=" + id + "&acao=verComentarios", true);
+            mod.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            mod.onreadystatechange = function () {
+                if (mod.readyState == 4) {
+                    if (mod.status == 200) {
+                        var resposta = mod.responseText.split("<script>");
+                        document.getElementById('comentarioRelatos').innerHTML = resposta[0];
+                        $("#mask").fadeIn(200);
+                        $('.modal_realtos').fadeIn(1000);
+                    }
+                }
+            };
+            mod.send(null);
+        }
+    </script>
 
 </head>
 <body>
@@ -148,10 +183,13 @@
             <p class="titu_criacoes">
                 COMENTE ESTE RELATO
             </p>
-            <span class="tafera_detalhe">Deixe seu comentário para o relato <strong><< nome da tarefa - nome da tarefa - nome da tarefa - nome da tarefa - nome ... >> </strong></span>
-            <form method="post" action="tarefa-ativa.aspx" id="up_fotox"><br /><br />
+            <span class="tafera_detalhe">Deixe seu comentário para o relato: <!--<strong><< nome da tarefa - nome da tarefa - nome da tarefa - nome da tarefa - nome ... >> </strong>--></span>
+            <form method="post" action="tarefa-ativa.aspx" id="up_foto"><br /><br />
+                 <input type="hidden" id="acao1" name="acao" value="comentarRelato" />
+                <input type="hidden" id="idREL" runat="server" name="idREL" value="" />
+                <input type="hidden" id="idCDO1" runat="server" name="idCDO1" value="" />
                 
-                <textarea class="box_criacoes input" rows="10"></textarea><br /><br />
+                <textarea class="box_criacoes input" id="comentarioRelato" name="comentarioRelato" rows="9"></textarea><br /><br />
                 <div class="full enviar_relato">
                     <button class="btn_back">Cancelar</button>
                     <input type="submit" name="comentarRelato" value="Enviar Relato" id="comentarRelato" class="btn_save">
@@ -159,56 +197,8 @@
             </form>
         </div>
 
-        <div class="modal_relatos">
-            <div class="fechar_relato x">
-                <img src="/images/x.jpg" />
-            </div>
-            <p class="titu_criacoes">
-                <img src="/images/icon_comente.png" alt="Icone de comentários" /> COMENTÁRIOS DA TAREFA
-            </p>
-            <span class="tafera_detalhe">Visualizando comentários da tarefa <strong><< nome da tarefa - nome da tarefa - nome da tarefa - nome da tarefa - nome da tarefa - nome da tarefa - nome da tarefa... >> </strong></span>
-            <hr />
-            <div class="box_lista_relato">
-                <img class="mini_perfil" src="/images/thumb_perfil.jpg" alt="Foto do Perfil do Fulano" />
-                <p class="txt">
-                    Dolor quisque faucibus ligula nec urna hendrerit, at dignissim mauris tristique. Etiam ipsum dolor, feugiat non lacinia ut, lacinia in nisi. Vivamus dictum risus nulla, sit amet sodales ligula sagittis ac. Fusce ac consectetur enim, ac dignissim nunc.
-                </p>
-                <span class="tafera_detalhe">Comentário  enviado por:  <strong><< nome do usuário >> </strong></span>
-            </div>
-
-            <div class="box_lista_relato">
-                <img class="mini_perfil" src="/images/thumb_perfil.jpg" alt="Foto do Perfil do Fulano" />
-                <p class="txt">
-                    Dolor quisque faucibus ligula nec urna hendrerit, at dignissim mauris tristique. Etiam ipsum dolor, feugiat non lacinia ut, lacinia in nisi. Vivamus dictum risus nulla, sit amet sodales ligula sagittis ac. Fusce ac consectetur enim, ac dignissim nunc.
-                </p>
-                <span class="tafera_detalhe">Comentário  enviado por:  <strong><< nome do usuário >> </strong></span>
-            </div>
-
-            <div class="box_lista_relato">
-                <img class="mini_perfil" src="/images/thumb_perfil.jpg" alt="Foto do Perfil do Fulano" />
-                <p class="txt">
-                    Dolor quisque faucibus ligula nec urna hendrerit, at dignissim mauris tristique. Etiam ipsum dolor, feugiat non lacinia ut, lacinia in nisi. Vivamus dictum risus nulla, sit amet sodales ligula sagittis ac. Fusce ac consectetur enim, ac dignissim nunc.
-                </p>
-                <span class="tafera_detalhe">Comentário  enviado por:  <strong><< nome do usuário >> </strong></span>
-            </div>
-
-            <div class="box_lista_relato">
-                <img class="mini_perfil" src="/images/thumb_perfil.jpg" alt="Foto do Perfil do Fulano" />
-                <p class="txt">
-                    Dolor quisque faucibus ligula nec urna hendrerit, at dignissim mauris tristique. Etiam ipsum dolor, feugiat non lacinia ut, lacinia in nisi. Vivamus dictum risus nulla, sit amet sodales ligula sagittis ac. Fusce ac consectetur enim, ac dignissim nunc.
-                </p>
-                <span class="tafera_detalhe">Comentário  enviado por:  <strong><< nome do usuário >> </strong></span>
-            </div>
-            <div class="box_lista_relato">
-                <img class="mini_perfil" src="/images/thumb_perfil.jpg" alt="Foto do Perfil do Fulano" />
-                <p class="txt">
-                    Dolor quisque faucibus ligula nec urna hendrerit, at dignissim mauris tristique. Etiam ipsum dolor, feugiat non lacinia ut, lacinia in nisi. Vivamus dictum risus nulla, sit amet sodales ligula sagittis ac. Fusce ac consectetur enim, ac dignissim nunc.
-                </p>
-                <span class="tafera_detalhe">Comentário  enviado por:  <strong><< nome do usuário >> </strong></span>
-            </div>
-
-            <nav class="paginacao">   <ul>   <li><a href="javascript:void(0);" class="nav_pg" title="Página anterior"><img src="images/nav_left.png">ANTERIORES</a></li>   <li><a href="javascript:void(0);" title="Página atual" class="ativo">1</a></li>   <li><a href="javascript:void(0);" onclick="pagina('2')" title="Página 2">2</a></li>   <li><a href="javascript:void(0);" onclick="pagina('3')" title="Página 3">3</a></li>   <li><a href="javascript:void(0);" onclick="pagina('2')" class="nav_pg" title="Próxima Página">PRÓXIMOS <img src="images/nav_right.png "></a></li>   </ul>  </nav>
-
+        <div class="modal_relatos" id="comentarioRelatos" runat="server">
+            
         </div>
     </div>
 </body>
