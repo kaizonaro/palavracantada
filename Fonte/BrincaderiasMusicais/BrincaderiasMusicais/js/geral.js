@@ -150,11 +150,12 @@ $(document).ready(function () {
 	})
 
     //MODAL COMENTARIO RELATO TAREFA
-	$('.abre_comentario2').click(function (e) {
+	/*$('.abre_comentario2').click(function (e) {
 	    e.preventDefault();
 	    $("#mask").fadeIn(200);
 	    $('.modal_comentario2').fadeIn(400);
-	});
+//	    $('.modal_relatos').fadeOut(0);
+	});*/
 
 	$('.fechar_comentario2').click(function () {
 	    $('.modal_comentario2').fadeOut(200);
@@ -162,11 +163,11 @@ $(document).ready(function () {
 	})
 
     //modal lista realos
-	$('.abre_relatos').click(function (e) {
+	/*$('.abre_relatos').click(function (e) {
 	    e.preventDefault();
 	    $("#mask").fadeIn(200);
 	    $('.modal_realtos').fadeIn(400);
-	})
+	})*/
 
 	$('.fechar_relato').click(function () {
 	    $('.modal_relatos').fadeOut(200);

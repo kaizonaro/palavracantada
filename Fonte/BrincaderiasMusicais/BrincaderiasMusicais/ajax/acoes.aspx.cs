@@ -18,8 +18,8 @@ namespace BrincaderiasMusicais.ajax
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLogin, rsCadastro, rsArtigos;
-        int registro = 1;
+        private OleDbDataReader rsLogin, rsCadastro, rsComentarios;
+        int registro = 1, pagina_atual = 1;
         string conteudoPaginacao = "", retorno = "";
 
         protected void Page_Load(object sender, EventArgs e)
@@ -29,8 +29,17 @@ namespace BrincaderiasMusicais.ajax
             
             string acao = Request["acao"];
 
+            if (Request.QueryString["pg"] != null)
+            {
+                pagina_atual = Convert.ToInt16(Request.QueryString["pg"]);
+            }
+
             switch (acao)
             {
+                case ("verComentarios"):
+                    verComentarios(Convert.ToInt16(Request["pg"]), Convert.ToInt16(Request["id"]));
+                    break;
+
                 case "FazerLogin":
                     FazerLogin();
                     break;
@@ -136,5 +145,100 @@ namespace BrincaderiasMusicais.ajax
             Response.Redirect("/");
         }
 
+        public void verComentarios(int pg, int id)
+        {
+            retorno += " <div class=\"fechar_relato x\">";
+            retorno += "    <img src=\"/images/x.jpg\" />";
+            retorno += " </div>";
+            retorno += " <p class=\"titu_criacoes\">";
+            retorno += "    <img src=\"/images/icon_comente.png\" alt=\"Icone de comentários\" /> COMENTÁRIOS DESTE RELATO";
+            retorno += " </p>";
+            retorno += " <hr />";
+
+            rsComentarios = objBD.ExecutaSQL("exec site_comentarios_Relato_lis 4," + pg + ",1," + id + ""); // MUDAR PARA PROC COM PAGINAÇÃO
+
+            
+
+            if (rsComentarios == null)
+            {
+                throw new Exception();
+            }
+            if (rsComentarios.HasRows)
+            {
+                while (rsComentarios.Read())
+                {
+                    retorno +=" <div class=\"box_lista_relato\">";
+                    retorno += "     <img class=\"mini_perfil\" src=\"/upload/imagens/usuarios/" + rsComentarios["USU_FOTO"].ToString() + "\" alt=\"Foto do Perfil do Fulano\" />";
+                    retorno +="     <p class=\"txt\">";
+                    retorno += "     " + rsComentarios["COM_TEXTO"] + "";
+                    retorno +="     </p>";
+                    retorno += "     <span class=\"tafera_detalhe\">Comentário  enviado por:  <strong>" + rsComentarios["USU_NOME"].ToString() + "</strong></span>";
+                    retorno +="</div>";
+
+                    //PAGINAÇÃO
+                    if (registro == 1 && Convert.ToInt16(rsComentarios["total_paginas"]) > 1)
+                    {
+                        conteudoPaginacao += "<nav class=\"paginacao\">";
+                        conteudoPaginacao += "   <ul>";
+
+                        //Validações do voltar
+                        if (pagina_atual > 1)
+                        {
+                            int pgVoltar = pagina_atual - 1;
+                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" onClick=\"verComentarios(" + pgVoltar + "," + id + ")\" class=\"nav_pg\" title=\"Página anterior\"><img src=\"/images/nav_left.png\"/>ANTERIORES</a></li>";
+                        }
+                        else
+                        {
+                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" class=\"nav_pg\" title=\"Página anterior\"><img src=\"/images/nav_left.png\" />ANTERIORES</a></li>";
+                        }
+
+                        //ajuste de primeira página
+                        int cont_inicio = pagina_atual - 1;
+                        if (cont_inicio <= 0) { cont_inicio = 1; }
+
+                        //ajueste de última página
+                        int cont_fim = Convert.ToInt16(rsComentarios["total_paginas"]);
+                        if ((cont_fim - cont_inicio) >= 2) { cont_fim = (cont_inicio + 2); }
+
+                        for (int aux = cont_inicio; aux < cont_fim + 1; aux++)
+                        {
+                            //verificar se é a página atual
+                            if (pagina_atual == aux)
+                            {
+                                conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" title=\"Página atual\" class=\"ativo\">" + aux + "</a></li>";
+                            }
+                            else
+                            {
+                                conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" onClick=\"verComentarios(" + aux + "," + id + ")\" title=\"Página " + aux + "\">" + aux + "</a></li>";
+                            }
+                        }
+
+                        //Validações do avançar
+                        if (pagina_atual < Convert.ToInt16(rsComentarios["total_paginas"]))
+                        {
+                            int pgAvancar = pagina_atual + 1;
+                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" onClick=\"verComentarios(" + pgAvancar + "," + id + ")\" class=\"nav_pg\" title=\"Próxima Página\">PRÓXIMOS <img src=\"/images/nav_right.png \"/></a></li>";
+                        }
+                        else
+                        {
+                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" class=\"nav_pg\" title=\"Próxima Página\">PRÓXIMOS <img src=\"/images/nav_right.png \"/></a></li>";
+                        }
+
+                        conteudoPaginacao += "   </ul> ";
+                        conteudoPaginacao += " </nav> ";
+                    }
+                    registro++;
+
+
+                }
+
+                //retorno += "<nav class=\"paginacao\">   <ul>   <li><a href=\"javascript:void(0);\" class=\"nav_pg\" title=\"Página anterior\"><img src=\"/images/nav_left.png\">ANTERIORES</a></li>   <li><a href=\"javascript:void(0);\" title=\"Página atual\" class=\"ativo\">1</a></li>   <li><a href=\"javascript:void(0);\" onclick=\"pagina('2')\" title=\"Página 2\">2</a></li>   <li><a href=\"javascript:void(0);\" onclick=\"pagina('3')\" title=\"Página 3\">3</a></li>   <li><a href=\"javascript:void(0);\" onclick=\"pagina('2')\" class=\"nav_pg\" title=\"Próxima Página\">PRÓXIMOS <img src=\"/images/nav_right.png \"></a></li>   </ul>  </nav>";
+
+            }
+            retorno += conteudoPaginacao;
+
+            Response.Write(retorno);
+            Response.End();
+        }
     }
 }
