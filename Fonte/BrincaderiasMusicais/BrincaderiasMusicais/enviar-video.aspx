@@ -9,7 +9,7 @@
 <%@ Register Src="~/inc/headerperfil.ascx" TagPrefix="brincadeira" TagName="headerperfil" %>
 
 <!DOCTYPE html>
-
+enviar video
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
 
@@ -44,7 +44,7 @@
                 <brincadeira:headerperfil runat="server" ID="headerperfil" />
 
                 <img src="/images/linha.png" class="linha" />
-                <form id="up_foto" runat="server">
+                <form id="up_foto" runat="server" action="enviar-video.aspx">
                     <div class="titu_setup">ADICIONAR VÍDEO:</div>
                     <p class="mini_txt">Para publicar um video, preencha os campos abaixo e clique no botão "publicar vídeo”.</p>
                     <div class="full">
