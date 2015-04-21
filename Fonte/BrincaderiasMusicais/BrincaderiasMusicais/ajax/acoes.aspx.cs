@@ -147,7 +147,7 @@ namespace BrincaderiasMusicais.ajax
 
         public void verComentarios(int pg, int id)
         {
-            retorno += " <div class=\"fechar_relato x\">";
+            retorno += " <div onClick=\"fechar_relato()\" class=\"fechar_relato x\">";
             retorno += "    <img src=\"/images/x.jpg\" />";
             retorno += " </div>";
             retorno += " <p class=\"titu_criacoes\">";
