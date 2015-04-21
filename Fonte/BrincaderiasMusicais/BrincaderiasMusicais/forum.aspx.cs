@@ -53,7 +53,7 @@ namespace BrincaderiasMusicais
                 {
                     listaForum.InnerHtml += " <p class=\"titu_forum2\">";
                     listaForum.InnerHtml += "   <img src=\"images/titu_forum.png\" alt=\"Icone\" />";
-                    listaForum.InnerHtml += "   <a href=\"/forum-lista/" + objUtils.GerarURLAmigavel(rsLista["FTO_TITULO"].ToString()) + "\" title=\"" + rsLista["FTO_TITULO"] + "\">" + rsLista["FTO_TITULO"] + ":</a>";
+                    listaForum.InnerHtml += "   <a href=\"/forum-lista/" + objUtils.GerarURLAmigavel(rsLista["FTO_TITULO"].ToString()) + "/1\" title=\"" + rsLista["FTO_TITULO"] + "\">" + rsLista["FTO_TITULO"] + ":</a>";
                     listaForum.InnerHtml += " </p>";
                 }
             }
