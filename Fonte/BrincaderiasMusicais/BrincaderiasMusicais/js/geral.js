@@ -170,6 +170,7 @@ $(document).ready(function () {
 	})*/
 
 	$('.fechar_relato').click(function () {
+        alert("tete")
 	    $('.modal_relatos').fadeOut(200);
 	    $('#mask').fadeOut(400);
 	})
