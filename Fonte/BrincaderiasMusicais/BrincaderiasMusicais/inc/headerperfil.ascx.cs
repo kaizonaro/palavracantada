@@ -123,6 +123,8 @@ namespace BrincaderiasMusicais.inc
                 if (Session["redeID"].ToString() != rsPerfil["RED_ID"].ToString()) { Response.Redirect("../default.aspx"); Response.End(); }
 
 
+            }else{
+                Response.Redirect("/");
             }
         }
     }
