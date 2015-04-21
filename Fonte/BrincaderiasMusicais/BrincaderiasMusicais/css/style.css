@@ -416,8 +416,8 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 #up_foto .btn_save {color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase; background:url(../images/save_perfil.png) center center no-repeat;background-size:cover;font-size:10px;width:148px;height:31px;float:left;cursor:pointer;margin-left:30px;}
 #up_foto .subir_foto{margin-top:13px;line-height:32px;background:url(../images/upload_perfil.png) center center no-repeat;background-size:cover; text-align:center;width:185px; background:url(../images/bg_up.png) center center no-repeat;background-size:cover;}
 #up_foto .full{width:100%;display:inline-block;text-align:left;}
-#up_foto .input.error{background: rgba(174, 8, 15, 0.29);border: 1px solid #ae080f;}
-#up_foto textarea{height:auto!important;resize:none;}
+#up_foto .input.error, #up_foto2 .input.error{background: rgba(174, 8, 15, 0.29);border: 1px solid #ae080f;}
+#up_foto textarea, #up_foto2 textarea{height:auto!important;resize:none;}
 #up_foto .full .subir_foto{margin:0;margin-bottom:10px;}
 #up_foto .up_post_btn .btn_save{float:right!important;}
 #up_foto .up_post_btn .btn_back{float:right!important;}
@@ -581,7 +581,7 @@ textarea{resize:none;}
 .modal_comentario2 .x{width:100%;text-align:right;cursor:pointer;}
 .modal_comentario2 .titu_criacoes{text-align:center;margin-top:0;margin-bottom:5px;}
 
-.modal_relatos{width:540px;height:791px;padding:25px;background:url(../images/bg_relate.png) no-repeat center center;margin:10px auto;z-index:15;position:relative;}
+.modal_relatos{width:540px;height:791px;padding:25px;background:url(../images/bg_relate.png) no-repeat center center;margin:10px auto;z-index:15;position:relative;display:none;}
 .modal_relatos .box_criacoes{height:250px;}
 textarea{resize:none;}
 .modal_relatos .x{width:100%;text-align:right;cursor:pointer;}
