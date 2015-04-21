@@ -63,7 +63,7 @@ namespace BrincaderiasMusicais
 
         public void Ultimas()
         {
-            rsLista = objBD.ExecutaSQL("select top 3 U.USU_NOME, U.USU_USUARIO, FME_MENSAGEM, CONVERT(VARCHAR(10),FME_DH_PUBLICACAO, 103) AS FME_DH_PUBLICACAO from ForumMensagem F inner join Usuario U ON (U.USU_ID = F.USU_ID) order by FME_DH_PUBLICACAO desc");
+            rsLista = objBD.ExecutaSQL("select top 3 U.USU_NOME, U.USU_USUARIO, FME_MENSAGEM, CONVERT(VARCHAR(10),FME_DH_PUBLICACAO, 103) AS FME_DH_PUBLICACAO from ForumMensagem F inner join Usuario U ON (U.USU_ID = F.USU_ID) order by F.FME_DH_PUBLICACAO desc");
 
             if (rsLista == null)
             {
