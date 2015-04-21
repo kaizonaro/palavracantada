@@ -612,3 +612,5 @@ textarea{resize:none;}
     line-height: 16px;
     text-align:left;
 }
+#ulVideos span{display:none;}
+#videos span{widtrh:100%;display:inline-block;font-family:Arial;color:#68455b;font-size:12px}

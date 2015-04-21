@@ -283,9 +283,11 @@ $(document).ready(function () {
 	    var total = $('.videos_home li').length;
 	    var video = $(this).children('a').attr('href')
 	    var titu = $(this).children('p').text()
+        var descricao =$(this).children('span').text()
 	    $('#videos .controles .quantos .atual').text(atual);
 	    $('#videos .controles .quantos .total').text(total);
 	    $('#videos p').text(titu);
+	    $('#videos span').text(descricao);
 	    if (atual == 1) {
 	        $('#videos .controles .left_galeria').addClass('disabled');
 	    } else {
