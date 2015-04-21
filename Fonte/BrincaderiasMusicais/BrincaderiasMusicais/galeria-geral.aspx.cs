@@ -48,7 +48,7 @@ namespace BrincaderiasMusicais
                 {
                     ulFotos.InnerHtml += "<li><a href=\"/upload/imagens/galeriacolaborativa/" + rsGaleria["COF_IMAGEM"] + "\">" +
                     "<img src=\"/upload/imagens/galeriacolaborativa/thumb-" + rsGaleria["COF_IMAGEM"] + "\" alt=\" " + rsGaleria["COF_LEGENDA"] + "\"></a>" +
-                    "<p>:: " + rsGaleria["COF_LEGENDA"] + " ::</p>" +
+                    "<p>:: " + rsGaleria["COF_LEGENDA"] + " ::</p>" +                    
                     "</li>";
 
                 }
@@ -61,10 +61,11 @@ namespace BrincaderiasMusicais
 
                 while (rsGaleria.Read())
                 {
-                    ulVideos.InnerHtml += "<li class=\"primeiro ativo\" style=\"width: 196px;\"><a href=\"" + rsGaleria["COV_VIDEO_ID"] + "\">" +
+                    ulVideos.InnerHtml += "<li class=\"\" style=\"width: 196px;\"><a href=\"" + rsGaleria["COV_VIDEO_ID"] + "\">" +
                     "<img src=\"http://i.ytimg.com/vi/" + rsGaleria["COV_VIDEO_ID"] + "/mqdefault.jpg\" alt=\"" + rsGaleria["COV_TITULO"] + "\">" +
                     "</a>" +
                     "<p>:: " + rsGaleria["COV_TITULO"] + " ::</p>" +
+                    "<span>:: Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impresso ::</span>" +
                     "</li>";
                 }
             }
