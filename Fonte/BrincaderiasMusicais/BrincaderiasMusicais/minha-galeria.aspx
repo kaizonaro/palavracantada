@@ -50,7 +50,7 @@
                 <div id="breadcrumb">
                     <a href="/" title="Home">Home</a> >> <a href="/meu-perfil/" title="Home">Meu Perfil</a> >> <strong>Fotos</strong>
                 </div>
-
+                <br /><br />
                 <brincadeira:headerperfil runat="server" ID="headerperfil" />
                 
                 <img src="/images/linha.png" class="linha" />

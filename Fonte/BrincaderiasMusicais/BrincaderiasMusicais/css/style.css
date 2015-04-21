@@ -200,8 +200,8 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 #sobre .titu {width:100%;display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:22px;color:#ae080f;text-align:left;font-weight:bold;}
 #breadcrumb {width:100%;display:inline-block;text-align:left;font-family:Arial, sans-serif;font-size:11px;}
 #breadcrumb a{text-decoration:underline;}
-#sobre #breadcrumb {color:#ae080f;margin-top:8px;}
-#sobre #breadcrumb a{color:#ae080f;}
+#breadcrumb {color:#ae080f;margin-top:8px;}
+#breadcrumb a{color:#ae080f;}
 .interna .img_destaque{width:100%;margin-top:25px;display:inline-block;}
 .interna .txt{width:100%;font-family:Arial, sans-serif;font-size:12px;color:#68455b;text-align:justify;margin-top:20px;line-height:17px;}
 .txt p{margin-bottom:20px;}
