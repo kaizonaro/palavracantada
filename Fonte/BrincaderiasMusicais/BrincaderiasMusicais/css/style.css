@@ -412,7 +412,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 #up_foto{text-align:left;}
 #up_foto .left{width:270px;float:left;}
 #up_foto .right{float:right;width:200px;}
-#up_foto .btn_back {color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase; background:url(../images/back_perfil.png) center center no-repeat;background-size:cover;font-size:10px;width:71px;height:31px;float:left;cursor:pointer;}
+#up_foto .btn_back, .up_forum {color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase; background:url(../images/back_perfil.png) center center no-repeat;background-size:cover;font-size:10px;width:71px;height:31px;float:left;cursor:pointer;}
 #up_foto .btn_save {color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-transform:uppercase; background:url(../images/save_perfil.png) center center no-repeat;background-size:cover;font-size:10px;width:148px;height:31px;float:left;cursor:pointer;margin-left:30px;}
 #up_foto .subir_foto{margin-top:13px;line-height:32px;background:url(../images/upload_perfil.png) center center no-repeat;background-size:cover; text-align:center;width:185px; background:url(../images/bg_up.png) center center no-repeat;background-size:cover;}
 #up_foto .full{width:100%;display:inline-block;text-align:left;}
@@ -499,7 +499,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .galeria_geral ul li p {font-size: 12px;font-family: Arial,sans-serif;font-weight: bold;color:#ae080f;margin-top:8px;text-transform:uppercase;}
 .sub_galeria_geral{width:100%;font-family:Arial, sans-serif;font-size:12px;color:#68455b;text-align:justify;line-height:17px;}
 .upload_geral p{width:100%;display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:15px;color:#68455b;margin-top:10px;text-align:center;}
-.upload_geral a{color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;background:#f68b1f;display:block;width:80%;margin:0 auto;padding:8px;font-size:15px;margin:20px auto;border-radius:8px;}
+.upload_geral a{color:#fff;font-family: 'love_ya_like_a_sister_snormal', sans-serif;background:#f68b1f;display:block;width:80%;margin:0 auto;padding:8px;font-size:15px;margin:20px auto;border-radius:8px;cursor:pointer;}
 .upload_geral a img{  display: inline;}
 
 /*FORUM*/
@@ -604,4 +604,11 @@ textarea{resize:none;}
     font-family: arial;
     font-size: 1.1em;
     line-height: 16px;
+}
+.pAvisoGaleria {
+    color: rgb(104, 69, 91);
+    font-family: arial;
+    font-size: 1.1em;
+    line-height: 16px;
+    text-align:left;
 }
