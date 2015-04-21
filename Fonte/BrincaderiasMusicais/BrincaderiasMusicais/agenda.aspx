@@ -66,10 +66,10 @@
                     <asp:UpdatePanel runat="Server" ID="up1" RenderMode="Inline">
                         <ContentTemplate>
                             <asp:Calendar ID="calendario" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" OnSelectionChanged="calendario_SelectionChanged" Width="100%" OnDayRender="calendario_DayRender" SelectionMode="None" >
-                                <DayHeaderStyle Font-Bold="True" Font-Names="love_ya_like_a_sister_snormal" Font-Size="8pt"  ForeColor="#ae080f" CssClass="cap" />
+                                <DayHeaderStyle Font-Bold="True" Font-Names="love_ya_like_a_sister_snormal" Font-Size="8pt"  ForeColor="#FFF" CssClass="cap" />
                                 <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#73435B" VerticalAlign="Bottom" />
                                 <OtherMonthDayStyle ForeColor="#999999" />
-                                <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                                <SelectedDayStyle BackColor="#f68d1e" ForeColor="White" />
                                 <TitleStyle BackColor="White"  BorderWidth="0" Font-Names="love_ya_like_a_sister_snormal" Font-Bold="True" Font-Size="12pt" ForeColor="#736d9b" />
                                 <TodayDayStyle BackColor="#29B5C4" ForeColor="White" />
                                 
