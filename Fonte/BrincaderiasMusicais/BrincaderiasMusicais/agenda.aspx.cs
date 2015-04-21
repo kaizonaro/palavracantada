@@ -88,10 +88,15 @@ namespace BrincaderiasMusicais
             if (rsLista.HasRows)
             {
                 rsLista.Read();
-                e.Cell.ForeColor = System.Drawing.ColorTranslator.FromHtml("#AE080F");
+                if (e.Day.IsSelected == false)
+                {
+                    e.Cell.ForeColor = System.Drawing.ColorTranslator.FromHtml("#AE080F");
+                }
+
                 e.Cell.Font.Underline = true;
                 e.Cell.Font.Bold = true;
-                e.Day.IsSelectable = true; 
+                e.Day.IsSelectable = true;
+
             }
         }
 
