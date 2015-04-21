@@ -55,6 +55,10 @@
             };
             mod.send(null);
         }
+        function fechar_relato() {
+            $('.modal_relatos').fadeOut(200);
+            $('#mask').fadeOut(400);
+        }
     </script>
 
 </head>
