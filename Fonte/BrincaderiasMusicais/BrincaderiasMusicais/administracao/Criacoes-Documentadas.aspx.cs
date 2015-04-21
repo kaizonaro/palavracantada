@@ -13,7 +13,7 @@ namespace BrincaderiasMusicais.administracao
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista, rsRedes, rsGravar;
+        private OleDbDataReader rsLista, rsRedes, rsGravar, rsNotificar;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,7 +35,7 @@ namespace BrincaderiasMusicais.administracao
                     }
                     break;
                 case ("arquivar"):
-                    objBD.ExecutaSQL("UPDATE Criacoes_Documentadas set CDO_STATUS = 'Arquivada' where  CDO_ID = '" + Request["CDO_ID"] + "'");
+                    objBD.ExecutaSQL("UPDATE Criacoes_Documentadas set CDO_STATUS = '" + Request["CDO_STATUS"] + "' where  CDO_ID = '" + Request["CDO_ID"] + "'");
                     break;
                 case ("excluir"):
                     objBD.ExecutaSQL("delete Criacoes_Documentadas where  CDO_ID = '" + Request["CDO_ID"] + "'");
@@ -98,8 +98,16 @@ namespace BrincaderiasMusicais.administracao
                     divLista.InnerHtml += " <tr id='tr_" + rsLista["CDO_ID"].ToString() + "' class=\"\">";
                     divLista.InnerHtml += "     <td>" + rsLista["CDO_DATA"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + objUtils.CortarString(true, 90, rsLista["CDO_TAREFA"].ToString()) + "</td>";
-                    divLista.InnerHtml += "     <td>" + rsLista["CDO_STATUS"].ToString() + "</td>";
-                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["CDO_ID"].ToString() + "' onclick='arquivar(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["CDO_ID"].ToString() + "' onclick='excluir(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    if (rsLista["CDO_STATUS"].ToString() == "Ativa")
+                    {
+                        divLista.InnerHtml += "     <td><select class='input' onchange='arquivar(" + rsLista["CDO_ID"].ToString() + ", this);'><option value='Ativa' selected='selected'>Ativa</option><option value='Arquivada'>Arquivada</option></select></td>";
+                    }
+                    else
+                    {
+                        divLista.InnerHtml += "     <td><select class='input' onchange='arquivar(" + rsLista["CDO_ID"].ToString() + ", this);'><option value='Ativa'>Ativa</option><option selected='selected' value='Arquivada'>Arquivada</option></select></td>";
+                    }
+
+                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a id='" + rsLista["CDO_ID"].ToString() + "' onclick='popularFormulario(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["CDO_ID"].ToString() + "' onclick='excluir(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
                 }
 
@@ -120,9 +128,32 @@ namespace BrincaderiasMusicais.administracao
             divLista.InnerHtml += "</table>";
         }
 
+        public void notificacoes()
+        {
+            rsNotificar = objBD.ExecutaSQL("EXEC admin_psNotificarPost 1");
+            if (rsNotificar == null)
+            {
+                throw new Exception();
+            }
+            if (rsNotificar.HasRows)
+            {
+                string destinatarios = "";
+                while (rsNotificar.Read())
+                {
+                    destinatarios += rsNotificar["USU_EMAIL"] + ",";
+                }
+
+                if (objUtils.EnviaEmail(destinatarios, "Nova Criação Documentada", "Uma nova criação documentada foi postada no <a href='http://projetopalavracantada.net' target='_blank'>portal palavra cantada</a>") == false)
+                {
+                    throw new Exception();
+                }
+            }
+        }
+
         public void gravar(object sender, EventArgs e)
         {
             rsGravar = objBD.ExecutaSQL("EXEC admin_piuCriacoesDocumetadas  '" + Request["CDO_ID"] + "', '" + Request["RED_ID"] + "','" + Session["id"] + "','" + Request["CDO_TAREFA"] + "','" + Request["CDO_DATA"] + "','" + Request["CDO_STATUS"] + "','" + Request["CDO_DESCRITIVO"] + "','" + objUtils.getYoutubeVideoId(Request["CDO_VIDEO"]) + "','" + Request["CDO_DEVOLUTIVA"] + "','" + objUtils.getYoutubeVideoId(Request["CDO_VIDEO_DEVOLUTIVA"]) + "'");
+            notificacoes();
             Response.Redirect("criacoes-documentadas.aspx");
         }
     }
