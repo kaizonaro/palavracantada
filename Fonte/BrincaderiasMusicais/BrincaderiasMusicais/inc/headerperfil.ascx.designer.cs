@@ -76,6 +76,15 @@ namespace BrincaderiasMusicais.inc {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor linkfotos;
         
         /// <summary>
+        /// linkfotos_img control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage linkfotos_img;
+        
+        /// <summary>
         /// videos control.
         /// </summary>
         /// <remarks>
@@ -94,6 +103,15 @@ namespace BrincaderiasMusicais.inc {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor linkvideos;
         
         /// <summary>
+        /// linkvideos_img control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage linkvideos_img;
+        
+        /// <summary>
         /// blog control.
         /// </summary>
         /// <remarks>
@@ -110,5 +128,14 @@ namespace BrincaderiasMusicais.inc {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlAnchor linkblog;
+        
+        /// <summary>
+        /// linkblog_img control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage linkblog_img;
     }
 }

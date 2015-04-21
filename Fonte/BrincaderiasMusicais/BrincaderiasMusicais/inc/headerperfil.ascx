@@ -16,17 +16,17 @@
 
 <div class="links_box">
     <div class="img_links" id="fotos" runat="server">
-        <a href="/minhas-fotos" title="Minhas fotos" id="linkfotos" runat="server"  >
-            <img src="/images/fotos_perfil.png" alt="Minhas Fotos" /></a>
+        <a href="/minhas-fotos" title="Minhas fotos" id="linkfotos" runat="server" >
+            <img src="/images/fotos_perfil.png" alt="Minhas Fotos" runat="server" id="linkfotos_img" /></a>
     </div>
     <div class="img_links" id="videos" runat="server">
         <a href="/meus-videos" title="Meus Videos" id="linkvideos" runat="server" >
-            <img src="/images/videos_perfil.png" alt="Meus Videos" /></a>
+            <img src="/images/videos_perfil.png" alt="Meus Videos" runat="server" id="linkvideos_img" /></a>
     </div>
 
     <div class="img_links" id="blog" runat="server">
         <a href="/meu-blog" title="Meu Blog" id="linkblog" runat="server">
-            <img src="/images/blog_perfil.png" alt="Meu Blog" />
+            <img src="/images/blog_perfil.png" alt="Meu Blog" runat="server" id="linkblog_img" />
         </a>
     </div>
 
