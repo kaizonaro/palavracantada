@@ -49,7 +49,7 @@
                         var resposta = mod.responseText.split("<script>");
                         document.getElementById('comentarioRelatos').innerHTML = resposta[0];
                         $("#mask").fadeIn(200);
-                        $('.modal_realtos').fadeIn(1000);
+                        $('.modal_realtos').fadeIn(400);
                     }
                 }
             };
