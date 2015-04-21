@@ -99,7 +99,7 @@ namespace BrincaderiasMusicais
                         if (pagina_atual > 1)
                         {
                             int pgVoltar = pagina_atual - 1;
-                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" onClick=\"pagina('" + pgVoltar + "')\" class=\"nav_pg\" title=\"Página anterior\"><img src=\"images/nav_left.png\"/>ANTERIORES</a></li>";
+                            conteudoPaginacao += "   <li><a href=\"/forum-lista/" + Request["titulo"].ToString() + "/" + pgVoltar + "\" class=\"nav_pg\" title=\"Página anterior\"><img src=\"/images/nav_left.png\"/>ANTERIORES</a></li>";
                         }
                         else
                         {
@@ -123,7 +123,7 @@ namespace BrincaderiasMusicais
                             }
                             else
                             {
-                                conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" onClick=\"pagina('" + aux + "')\" title=\"Página " + aux + "\">" + aux + "</a></li>";
+                                conteudoPaginacao += "   <li><a href=\"/forum-lista/" + Request["titulo"].ToString() + "/" + aux + "\" title=\"Página " + aux + "\">" + aux + "</a></li>";
                             }
                         }
 
@@ -131,7 +131,7 @@ namespace BrincaderiasMusicais
                         if (pagina_atual < Convert.ToInt16(rsResultado["total_paginas"]))
                         {
                             int pgAvancar = pagina_atual + 1;
-                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" onClick=\"pagina('" + pgAvancar + "')\" class=\"nav_pg\" title=\"Próxima Página\">PRÓXIMOS <img src=\"/images/nav_right.png \"/></a></li>";
+                            conteudoPaginacao += "   <li><a href=\"/forum-lista/"+ Request["titulo"].ToString() +"/" + pgAvancar + "\" class=\"nav_pg\" title=\"Próxima Página\">PRÓXIMOS <img src=\"/images/nav_right.png \"/></a></li>";
                         }
                         else
                         {
