@@ -52,7 +52,7 @@ namespace BrincaderiasMusicais
                 }
                 else
                 {
-                    topeventos.InnerHtml += "<div class=\"box_eventos\">Não há eventos próximos</div>";
+                    topeventos.InnerHtml += "<div class=\"box_eventos\"><p class=\"txt txt_menor\">Não há eventos próximos</p></div>";
                 }
             }
         }
