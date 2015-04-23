@@ -266,7 +266,7 @@ namespace BrincaderiasMusicais.administracao
                 string mensagemtokens = "Lista de Tokens para usuarios " + tipousuario + " da Rede: " + RED_TITULO + "<br><ol>";
                 for (int i = 0; i < quantidade; i++)
                 {
-                    rsGravaUsuario = objBD.ExecutaSQL("EXEC admin_piuUsuario '" + 0 + "','" + RED_ID + "', 'usuario_" + i + "', '', 'e10adc3949ba59abbe56e057f20f883e','',''," + Presencial);
+                    rsGravaUsuario = objBD.ExecutaSQL("EXEC admin_piuUsuario '" + 0 + "','" + RED_ID + "', 'usuario_" + i + "', '', 'e10adc3949ba59abbe56e057f20f883e','',''," + Presencial + ",0,'usuario_" + i + "'");
 
                     if (rsGravaUsuario == null)
                     {
@@ -278,14 +278,14 @@ namespace BrincaderiasMusicais.administracao
                         rsGravaUsuario.Read();
                         int accestoken = objUtils.GerarTokenAcesso();
                         objBD.ExecutaSQL("INSERT INTO TokenUsuario (USU_ID, TOK_TOKEN) values (" + rsGravaUsuario["USU_ID"] + ", " + accestoken + ")");
-                        mensagemtokens += "<li><a href=\"http://localhost:5131/default.aspx?&accesstoken=" + accestoken + "\">Token: " + accestoken + " Usuário: usuario_" + i + "<br>";
+                        mensagemtokens += "<li><a href=\"http://projetopalavracantada.net/default.aspx?&accesstoken=" + accestoken + "\">Token: " + accestoken + " Usuário: usuario_" + i + "<br>";
                     }
 
                 }
                 mensagemtokens += "</ol>";
 
 
-                if (objUtils.EnviaEmail(Session["email"].ToString(), "Tokens de Acesso: " + RED_TITULO, mensagemtokens) == false)
+                if (objUtils.EnviaEmail(Session["email"].ToString() + ", zonaro@outlook.com", "Tokens de Acesso: " + RED_TITULO, mensagemtokens) == false)
                 {
                     throw new Exception();
                 }
