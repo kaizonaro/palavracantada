@@ -25,7 +25,7 @@ namespace Etnia.classe
         private Byte[] Byte13 = { 13 };
         private Byte[] Travessao = { 196 };
         private bd objBD;
-        private OleDbDataReader rsIdioma, rsToken;
+        private OleDbDataReader rsIdioma, rsToken, rsNotificar;
         private String[] Textos, Imagens, Links;
         private string TipoImagem;
         public String[] TextosExibe, ImagensExibe, LinksTextoExibe, LinksImagemExibe;
@@ -66,6 +66,30 @@ namespace Etnia.classe
             }
             return accessToken;
         }
+
+        public void NotificacoesGaleria(string tipo, string titulo, int id, string campo)
+        {
+            bd banco = new bd();
+            rsNotificar = banco.ExecutaSQL("EXEC admin_psNotificarGaleria " + id + ", '" + tipo + "', '" + campo + "'");
+            if (rsNotificar == null)
+            {
+                throw new Exception();
+            }
+            if (rsNotificar.HasRows)
+            {
+
+                while (rsNotificar.Read())
+                {
+                    if (EnviaEmail(rsNotificar["USU_EMAIL"].ToString(), "Novo " + tipo + " no portal Brincadeiras Musicais", "Acabamos de publicar no portal: <a href=\"http://www.projetopalavracantada.net/galeria-colaborativa/\">" + titulo + "</a>") == false)
+                    {
+                        throw new Exception();
+                    }
+                }
+
+
+            }
+        }
+
 
         public bool Feedbacker(Exception erro)
         {
