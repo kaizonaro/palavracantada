@@ -125,7 +125,7 @@ namespace BrincaderiasMusicais.ajax
 
                 //Salva no log
                 objBD.ExecutaSQL("EXEC psLog '" + rsCadastro["USU_ID"] + "',null,'Login efetuado no sistema'");
-
+                objBD.ExecutaSQL("insert into Log (USU_ID, LOG_ACONTECIMENTO, LOG_EXIBIR) VALUES ('" + Session["usuID"] + "','Parabéns! Você ganhou uma medalha por se cadastrar no site.','1')");
                 Response.Redirect("/rede/" + objUtils.GerarURLAmigavel(rsCadastro["RED_TITULO"].ToString()));
                 Response.End();
 
