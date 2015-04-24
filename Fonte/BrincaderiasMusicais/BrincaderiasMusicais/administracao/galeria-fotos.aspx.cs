@@ -17,7 +17,7 @@ namespace BrincaderiasMusicais.administracao
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista;
+        private OleDbDataReader rsLista, rsNotificar;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -42,12 +42,13 @@ namespace BrincaderiasMusicais.administracao
                     OleDbDataReader aprova = objBD.ExecutaSQL("exec AprovaFoto " + Convert.ToInt16(Request["COF_ID"].ToString()));
                     aprova.Read();
                     objUtils.EnviaEmail(aprova["USU_EMAIL"].ToString(), "Foto Galeria Colaborativa", "Parabéns, sua foto <strong>" + aprova["COF_LEGENDA"] + "</strong> acabou de ser publicada em nossa Galeria Colaborativa!");
+                    objUtils.NotificacoesGaleria("foto", aprova["COF_LEGENDA"].ToString(), Convert.ToInt16(Request["COF_ID"].ToString()),"COF_ID");
                     break;
                 case ("Reprovar"):
                     OleDbDataReader reprova = objBD.ExecutaSQL("EXEC ReprovaFoto " + Convert.ToInt16(Request["COF_ID"].ToString()));
                     reprova.Read();
                     objUtils.EnviaEmail(reprova["USU_EMAIL"].ToString(), "Foto Galeria Colaborativa", "Que pena, sua foto <strong>" + reprova["COF_LEGENDA"] + "</strong> não foi aprovada pelos nossos administradores");
-                    
+
                     File.Delete(Server.MapPath("~/upload/imagens/galeriacolaborativa/thumb-" + Request["imagem"].ToString() + ""));
                     File.Delete(Server.MapPath("~/upload/imagens/galeriacolaborativa/" + Request["imagem"].ToString() + ""));
                     break;
@@ -110,6 +111,9 @@ namespace BrincaderiasMusicais.administracao
 
             divLista.InnerHtml += "</table>";
         }
+
+
+      
 
         public void gravar(object sender, EventArgs e)
         {
