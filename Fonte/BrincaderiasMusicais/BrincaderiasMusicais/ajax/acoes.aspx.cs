@@ -82,6 +82,12 @@ namespace BrincaderiasMusicais.ajax
                 //Salva no log
                 objBD.ExecutaSQL("EXEC psLog '" + rsLogin["USU_ID"] + "',null,'Login efetuado no sistema'");
 
+                //Medalha dedicado
+                if (Convert.ToInt16(rsLogin["USU_QTD_ACESSO"]) == 2)
+                {
+                    objBD.ExecutaSQL("INSERT INTO LOG (USU_ID, ADM_ID, LOG_ACONTECIMENTO, LOG_EXIBIR) VALUES ('" + rsLogin["USU_ID"] + "',null,'Parabéns! Você ganhou a medalha de Dedicado ao se logar pela 3ª vez.', '1') ");
+                }
+
                 //Response.Redirect("/rede/" + objUtils.GerarURLAmigavel(rsLogin["RED_TITULO"].ToString()));
                 Response.Redirect("/meu-perfil/" + Session["usuUsuario"].ToString());
                 Response.End();
