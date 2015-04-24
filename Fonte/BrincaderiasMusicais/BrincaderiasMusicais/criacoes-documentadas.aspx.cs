@@ -49,8 +49,8 @@ namespace BrincaderiasMusicais
             {
                 tbAtiva.InnerHtml += "<table class=\"tabela\">";
                 tbAtiva.InnerHtml += "  <tr>";
-                tbAtiva.InnerHtml += "      <th>Tarefa</th>";
-                tbAtiva.InnerHtml += "      <th>Data</th>";
+                tbAtiva.InnerHtml += "      <th style='min-width: 245px;'>Tarefa</th>";
+                tbAtiva.InnerHtml += "       <th style='min-width: 65px;'>Data</th>";
                 tbAtiva.InnerHtml += "      <th>Relatos</th>";
                 tbAtiva.InnerHtml += "      <th>Visualizar</th>";
                 tbAtiva.InnerHtml += " </tr>";
@@ -60,7 +60,7 @@ namespace BrincaderiasMusicais
                     tbAtiva.InnerHtml += " <tr>";
                     tbAtiva.InnerHtml += "  <td>" + rsListar["CDO_TAREFA"] + "</td>";
                     tbAtiva.InnerHtml += "  <td>" + rsListar["CDO_DATA"] + "</td>";
-                    tbAtiva.InnerHtml += "  <td>05</td>";
+                    tbAtiva.InnerHtml += "  <td>" + rsListar["TOTAL_RELATOS"] + "</td>";
                     tbAtiva.InnerHtml += "  <td><a href=\"/tarefa-ativa/" + rsListar["CDO_ID"] + "\">Visualizar Tarefa</a></td>";
                     tbAtiva.InnerHtml += " </tr>";
                 }
@@ -70,8 +70,8 @@ namespace BrincaderiasMusicais
                 rsListar.NextResult();
                 tbArquivada.InnerHtml += "<table class=\"tabela2\">";
                 tbArquivada.InnerHtml += "  <tr>";
-                tbArquivada.InnerHtml += "      <th>Tarefa</th>";
-                tbArquivada.InnerHtml += "      <th>Data</th>";
+                tbArquivada.InnerHtml += "      <th style='min-width: 245px;'>Tarefa</th>";
+                tbArquivada.InnerHtml += "      <th style='min-width: 65px;'>Data</th>";
                 tbArquivada.InnerHtml += "      <th>Relatos</th>";
                 tbArquivada.InnerHtml += "      <th>Visualizar</th>";
                 tbArquivada.InnerHtml += " </tr>";
@@ -81,7 +81,7 @@ namespace BrincaderiasMusicais
                     tbArquivada.InnerHtml += " <tr>";
                     tbArquivada.InnerHtml += "  <td>" + rsListar["CDO_TAREFA"] + "</td>";
                     tbArquivada.InnerHtml += "  <td>" + rsListar["CDO_DATA"] + "</td>";
-                    tbArquivada.InnerHtml += "  <td>05</td>";
+                    tbArquivada.InnerHtml += "  <td>" + rsListar["TOTAL_RELATOS"] + "</td>";
                     tbArquivada.InnerHtml += "  <td><a href=\"/tarefa-arquivada/" + rsListar["CDO_ID"] + "\">Visualizar Tarefa</a></td>";
                     tbArquivada.InnerHtml += " </tr>";
                 }
