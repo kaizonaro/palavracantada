@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais.administracao
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista;
+        private OleDbDataReader rsLista, rsNotificar;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,11 +31,12 @@ namespace BrincaderiasMusicais.administracao
                     OleDbDataReader aprova = objBD.ExecutaSQL("exec AprovaVideo " + Convert.ToInt16(Request["COV_ID"].ToString()));
                     aprova.Read();
                     objUtils.EnviaEmail(aprova["USU_EMAIL"].ToString(), "Video Galeria Colaborativa", "Parabéns, seu video <strong>" + aprova["COV_DESCRICAO"] + "</strong> acabou de ser publicado em nossa Galeria Colaborativa!");
+                    objUtils.NotificacoesGaleria("video", aprova["COV_DESCRICAO"].ToString(), Convert.ToInt16(Request["COV_ID"].ToString()),"COV_ID");
                     break;
                 case ("Reprovar"):
                     OleDbDataReader reprova = objBD.ExecutaSQL("EXEC ReprovaVideo " + Convert.ToInt16(Request["COV_ID"].ToString()));
                     reprova.Read();
-                    objUtils.EnviaEmail(reprova["USU_EMAIL"].ToString(), "Foto Galeria Colaborativa", "Que pena, seu video <strong>" + reprova["COV_DESCRICAO"] + "</strong> não foi aprovado pelos nossos administradores");
+                    objUtils.EnviaEmail(reprova["USU_EMAIL"].ToString(), "Video Galeria Colaborativa", "Que pena, seu video <strong>" + reprova["COV_DESCRICAO"] + "</strong> não foi aprovado pelos nossos administradores");
                     break;
                 default:
                     PopulaLista();
@@ -43,6 +44,8 @@ namespace BrincaderiasMusicais.administracao
                     break;
             }
         }
+
+       
 
         public void PopulaLista()
         {
