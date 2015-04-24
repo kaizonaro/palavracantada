@@ -69,7 +69,7 @@ namespace BrincaderiasMusicais
 
         public void PopulaLista(int FTO_ID)
         {
-            rsResultado = objBD.ExecutaSQL("EXEC site_forum_lis '3','" + pagina_atual + "','1', '" + FTO_ID + "'");
+            rsResultado = objBD.ExecutaSQL("EXEC site_forum_lis '3','" + pagina_atual + "','1', '" + FTO_ID + "','" + Session["redeID"] + "'");
 
             if (rsResultado == null)
             {
