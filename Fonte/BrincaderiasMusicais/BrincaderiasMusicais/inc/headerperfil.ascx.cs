@@ -88,7 +88,7 @@ namespace BrincaderiasMusicais.inc
             string usuario = Request["usuario"];
             if (string.IsNullOrWhiteSpace(usuario))
             {
-                usuario = Session["nomeUsuario"].ToString();
+                usuario = Session["usuUsuario"].ToString();
             }
             rsPerfil = objBD.ExecutaSQL("EXEC PerfilUsuarioPorUsername " + usuario);
             if (rsPerfil == null)
