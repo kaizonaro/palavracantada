@@ -49,8 +49,8 @@ namespace BrincaderiasMusicais
             {
                 tbAtiva.InnerHtml += "<table class=\"tabela\">";
                 tbAtiva.InnerHtml += "  <tr>";
-                tbAtiva.InnerHtml += "      <th style='min-width: 245px;'>Tarefa</th>";
-                tbAtiva.InnerHtml += "       <th style='min-width: 65px;'>Data</th>";
+                tbAtiva.InnerHtml += "      <th style='min-width: 242px;'>Tarefa</th>";
+                tbAtiva.InnerHtml += "      <th style='min-width: 65px;'>Data</th>";
                 tbAtiva.InnerHtml += "      <th>Relatos</th>";
                 tbAtiva.InnerHtml += "      <th>Visualizar</th>";
                 tbAtiva.InnerHtml += " </tr>";
@@ -70,7 +70,7 @@ namespace BrincaderiasMusicais
                 rsListar.NextResult();
                 tbArquivada.InnerHtml += "<table class=\"tabela2\">";
                 tbArquivada.InnerHtml += "  <tr>";
-                tbArquivada.InnerHtml += "      <th style='min-width: 245px;'>Tarefa</th>";
+                tbArquivada.InnerHtml += "      <th style='min-width: 242px;'>Tarefa</th>";
                 tbArquivada.InnerHtml += "      <th style='min-width: 65px;'>Data</th>";
                 tbArquivada.InnerHtml += "      <th>Relatos</th>";
                 tbArquivada.InnerHtml += "      <th>Visualizar</th>";

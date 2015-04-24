@@ -32,7 +32,7 @@ namespace BrincaderiasMusicais.inc
                     if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1)
                     {
                         //LOGADO
-                        pBlog.InnerHtml = "BLOG BRINCADEIRAS MUSICAIS<br />Blog Regional - " + Session["nomeInstituicao"] + "";
+                        pBlog.InnerHtml = "BLOG BRINCADEIRAS MUSICAIS<br />" + Session["nomeInstituicao"] + "";
                     }
                     else
                     {
