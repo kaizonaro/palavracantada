@@ -23,7 +23,7 @@ namespace BrincaderiasMusicais.administracao
             switch (Request["acao"])
             {
                 case ("editar"):
-                    rsLista = objBD.ExecutaSQL("select CDO_ID, RED_ID, CDO_TAREFA, Convert(varchar(10),CDO_DATA, 103) as CDO_DATA, CDO_STATUS from Criacoes_Documentadas where CDO_ID ='" + Request["CDO_ID"] + "'");
+                    rsLista = objBD.ExecutaSQL("select CDO_ID, RED_ID, CDO_TAREFA, CDO_DATA, CDO_STATUS CDO_DESCRITIVO, CDO_VIDEO, CDO_DEVOLUTIVA, CDO_VIDEO_DEVOLUTIVA Convert(varchar(10),CDO_DATA, 103) as CDO_DATA, CDO_STATUS from Criacoes_Documentadas where CDO_ID ='" + Request["CDO_ID"] + "'");
                     if (rsLista == null)
                     {
                         throw new Exception();
@@ -31,7 +31,7 @@ namespace BrincaderiasMusicais.administracao
                     if (rsLista.HasRows)
                     {
                         rsLista.Read();
-                        Response.Write(rsLista["CDO_ID"] + "|" + rsLista["RED_ID"] + "|" + rsLista["CDO_TAREFA"] + "|" + rsLista["CDO_DATA"] + "|" + rsLista["CDO_STATUS"]);
+                        Response.Write(rsLista["CDO_ID"] + "|" + rsLista["RED_ID"] + "|" + rsLista["CDO_TAREFA"] + "|" + rsLista["CDO_DATA"] + "|" + rsLista["CDO_STATUS"] + "|" + rsLista["CDO_DESCRITIVO"] + "|" + rsLista["CDO_VIDEO"] + "|" + rsLista["CDO_DEVOLUTIVA"] + "|" + rsLista["CDO_VIDEO_DEVOLUTIVA"]);
                     }
                     break;
                 case ("arquivar"):
@@ -130,23 +130,23 @@ namespace BrincaderiasMusicais.administracao
 
         public void notificacoes()
         {
-            rsNotificar = objBD.ExecutaSQL("EXEC admin_psNotificarPost 1");
+            rsNotificar = objBD.ExecutaSQL("EXEC admin_psNotificarCriacao " + Request["RED_ID"]);
             if (rsNotificar == null)
             {
                 throw new Exception();
             }
             if (rsNotificar.HasRows)
             {
-                string destinatarios = "";
+                 
                 while (rsNotificar.Read())
                 {
-                    destinatarios += rsNotificar["USU_EMAIL"] + ",";
+                    if (objUtils.EnviaEmail(rsNotificar["USU_EMAIL"].ToString(), "Nova Criação Documentada", "Uma nova criação documentada foi postada no <a href='http://projetopalavracantada.net' target='_blank'>portal palavra cantada</a>") == false)
+                    {
+                        throw new Exception();
+                    }
                 }
 
-                if (objUtils.EnviaEmail(destinatarios, "Nova Criação Documentada", "Uma nova criação documentada foi postada no <a href='http://projetopalavracantada.net' target='_blank'>portal palavra cantada</a>") == false)
-                {
-                    throw new Exception();
-                }
+
             }
         }
 

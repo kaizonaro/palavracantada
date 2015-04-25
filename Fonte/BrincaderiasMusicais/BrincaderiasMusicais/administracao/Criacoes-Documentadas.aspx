@@ -53,7 +53,12 @@
                         tinyMCE.activeEditor.setContent(ss[2]);
                         $('#CDO_DATA').attr("value", ss[3]);
                         $('#CDO_STATUS option[value="' + parseInt(ss[4]) + '"]').attr('selected', 'selected').change();
-
+                        $('#CDO_DATA').attr("value", ss[5]);
+                        //aqui vai status
+                        $('#CDO_DESCRITIVO').attr("value", ss[7]);
+                        $('#CDO_VIDEO').attr("value", ss[8]);
+                        $('#CDO_DEVOLUTIVA').attr("value", ss[9]);
+                        $('#CDO_VIDEO_DEVOLUTIVA').attr("value", ss[10]);
                         editar_table2(id);
                     }
                 }
