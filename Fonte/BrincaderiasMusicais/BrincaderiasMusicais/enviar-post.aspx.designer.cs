@@ -67,6 +67,15 @@ namespace BrincaderiasMusicais {
         protected global::System.Web.UI.HtmlControls.HtmlForm up_foto;
         
         /// <summary>
+        /// POS_ID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText POS_ID;
+        
+        /// <summary>
         /// POS_TITULO control.
         /// </summary>
         /// <remarks>

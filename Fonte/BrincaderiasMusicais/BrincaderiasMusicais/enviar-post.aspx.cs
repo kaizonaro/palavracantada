@@ -37,6 +37,7 @@ namespace BrincaderiasMusicais
                     POS_TITULO.Attributes.Add("value", rsTrazer["POS_TITULO"].ToString());
                     POS_TEXTO.InnerText = rsTrazer["POS_TITULO"].ToString();
                     PCA_ID.Value = rsTrazer["PCA_ID"].ToString();
+                    POS_ID.Value = Request["POS_ID"];
 
                 }
             }
@@ -101,7 +102,7 @@ namespace BrincaderiasMusicais
                                             Redefinir.resizeImageAndSave(pth, 478, 332, prefixoG);
 
                                             // Salvar no BD
-                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '0','" + Session["usuID"] + "', '" + Session["redeID"] + "', null, '" + Request["POS_TITULO"] + "', '" + filename + i + extensao + "','<p>" + Request["POS_TEXTO"].Replace("'", "\"") + "</p>',0," + Request["PCA_ID"]);
+                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "','" + Session["usuID"] + "', '" + Session["redeID"] + "', null, '" + Request["POS_TITULO"] + "', '" + filename + i + extensao + "','<p>" + Request["POS_TEXTO"].Replace("'", "\"") + "</p>',0," + Request["PCA_ID"]);
                                             objUtils.EnviaEmail(Session["email"].ToString(), "Post Publicado com sucesso!", "Parabéns, seu pos acabou de ser publicado!");
                                             VerificarMedalhas();
 
@@ -114,7 +115,8 @@ namespace BrincaderiasMusicais
                                 }
 
                                 // Mensagem se tudo ocorreu bem
-                                Response.Redirect("meu-perfil");
+                               // Response.Redirect("meu-perfil");
+                                Response.Redirect("/meu-post/" + objUtils.GerarURLAmigavel(Request["POS_TITULO"].ToString()) + "");
                                 Response.End();
                             }
                             else
