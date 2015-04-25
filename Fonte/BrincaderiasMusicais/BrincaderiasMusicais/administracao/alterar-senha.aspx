@@ -46,14 +46,14 @@
                     Alterar Senha</h2>
                 <!-- TABELA-->
                 <div class="content">
-                    <form class="" name="frmSenhas" id="frmBriefing" action="javascript:void(0);" method="post" novalidate accept-charset="default">
+                    <form style="text-align:left;"  name="frmSenhas" id="frmBriefing" action="javascript:void(0);" method="post" novalidate accept-charset="default">
                         <input type="hidden" id="acao" name="acao" value="AlterarSenha" />
 
-                        <p>Senha nova:</p>
-                        <input type="password" name="senha1" id="senha1" size="20" class="obg input" data-validation="required" />
+                        <p style="color:#5a5a5a; font-size:13px; font-weight:bold; margin-bottom:10px; width:100%;">Senha nova:</p>
+                        <input type="password" name="senha1" id="senha1" size="20" class="obg input" style="width:200px; height:34px; margin-bottom:10px;" data-validation="required" />
 
-                        <p>Confirmar Senha:</p>
-                        <input type="password" name="senha2" size="20" class="obg input" data-validation="required" />
+                        <p style="color:#5a5a5a; font-size:13px; font-weight:bold; margin-bottom:10px; width:100%;">Confirmar Senha:</p>
+                        <input type="password" name="senha2" size="20" class="obg input" style="width:200px; height:34px; margin-bottom:10px;" data-validation="required" />
                         <br>
                         <br>
                         <input type="button" class="btn_form" value="Alterar" onclick="validarSenha()">
