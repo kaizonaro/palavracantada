@@ -14,6 +14,7 @@
             <nav class="user_menu">
                 <ul>
                     <li><a href="alterar-senha.aspx">Alterar senha</a></li>
+                    <li style="display:none;" runat="server" id="liAdm"><a href="administrador.aspx">Novo Administrador</a></li>
                     <!--<li><a href="javascript:void(0)">Dados Pessoais</a></li>-->
                     <li><a href="logout.aspx">Sair</a></li>
                 </ul>
