@@ -71,6 +71,7 @@ namespace BrincaderiasMusicais
                     if (rsConfig["PRI_PERFIL"].ToString() == "True") { sim_perfil.Checked = true; } else { nao_perfil.Checked = true; }
                     if (rsConfig["PRI_BLOG"].ToString() == "True") { sim_blog.Checked = true; } else { nao_blog.Checked = true; }
                     if (rsConfig["PRI_FOTOS"].ToString() == "True") { sim_midia.Checked = true; } else { nao_midia.Checked = true; }
+                    if (rsConfig["PRI_FOTOS"].ToString() == "True") { sim_video.Checked = true; } else { nao_video.Checked = true; }
                     //notificaoes
                     if (rsConfig["NOT_BLOG"].ToString() == "True") { sim_blog2.Checked = true; } else { nao_blog2.Checked = true; }
                     if (rsConfig["NOT_GALERIA"].ToString() == "True") { sim_galeria.Checked = true; } else { nao_galeria.Checked = true; }
@@ -79,13 +80,8 @@ namespace BrincaderiasMusicais
 
                     InsereCategoria(infantil);
                     InsereCategoria(fundamental);
-
-
-
                 }
-
             }
-
         }
 
         public void InsereCategoria(System.Web.UI.HtmlControls.HtmlInputCheckBox chk)
@@ -123,9 +119,6 @@ namespace BrincaderiasMusicais
             //Response.Redirect("meu-perfil");
             Session["nomeUsuario"] = Request["USU_NOME"].ToString();
             Response.Redirect("editar-configuracoes");
-
         }
-
-
     }
 }
