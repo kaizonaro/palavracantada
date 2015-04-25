@@ -31,7 +31,31 @@ namespace BrincaderiasMusicais
         protected void pub_Click(object sender, EventArgs e)
         {
             objBD.ExecutaSQL("INSERT INTO ForumMensagem (USU_ID, FME_MENSAGEM, FTO_ID) values ('" + Session["usuID"] + "','" + Request["FME_MENSAGEM"] + "', '" + Request["FTO_ID"] + "')");
+            notificacoes();
             Response.Redirect(Request["REDIRECT"]);
+        }
+
+        public void notificacoes()
+        {
+            bd banco = new bd();
+            OleDbDataReader rsNotificar = banco.ExecutaSQL("EXEC admin_psNotificarForum " + Session["usuID"]);
+            if (rsNotificar == null)
+            {
+                throw new Exception();
+            }
+            if (rsNotificar.HasRows)
+            {
+                
+                while (rsNotificar.Read())
+                {
+                    if (objUtils.EnviaEmail(rsNotificar["USU_EMAIL"].ToString(), "Novo post no forum Brincadeiras Musicais", "Nova mensagem no forum: " + Request["FME_MENSAGEM"]) == false)
+                    {
+                        throw new Exception();
+                    }
+                }
+
+               
+            }
         }
     }
 }
