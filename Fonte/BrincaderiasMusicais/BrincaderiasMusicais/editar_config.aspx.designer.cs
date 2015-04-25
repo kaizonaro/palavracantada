@@ -184,6 +184,24 @@ namespace BrincaderiasMusicais {
         protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton nao_midia;
         
         /// <summary>
+        /// sim_video control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton sim_video;
+        
+        /// <summary>
+        /// nao_video control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputRadioButton nao_video;
+        
+        /// <summary>
         /// sim_blog2 control.
         /// </summary>
         /// <remarks>

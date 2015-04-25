@@ -92,11 +92,19 @@
                         <br />
                         <br />
 
-                        <label class="label">Fotos e vídeos privados?</label>
+                        <label class="label">Fotos privadas?</label>
                         <input type="radio" value="1" id="sim_midia" name="PRI_FOTOS" class="radio esconde" runat="server" />
                         <label for="sim_midia">SIM (visível somente para você)</label><br />
                         <input type="radio" value="0" id="nao_midia" name="PRI_FOTOS" class="radio esconde" runat="server" />
-                        <label for="nao_midia">NÃO (perfil público para sua região)</label>
+                        <label for="nao_midia">NÃO (perfil público para sua região)</label><br />
+                        <br />
+                        <br />
+
+                        <label class="label">Vídeos privados?</label>
+                        <input type="radio" value="1" id="sim_video" name="PRI_VIDEOS" class="radio esconde" runat="server" />
+                        <label for="sim_video">SIM (visível somente para você)</label><br />
+                        <input type="radio" value="0" id="nao_video" name="PRI_VIDEOS" class="radio esconde" runat="server" />
+                        <label for="nao_video">NÃO (perfil público para sua região)</label>
                     </div>
                     <div class="right">
                         <div class="titu_setup">Opções de notificação de e-mail:</div>
