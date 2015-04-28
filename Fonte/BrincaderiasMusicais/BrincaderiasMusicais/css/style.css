@@ -149,7 +149,7 @@ header {padding-top:20px;}
 #mask{width:100%;height:100%;left:0;top:0;position:fixed;background: rgba(0,0,0,0.4);text-align:center;display:none;z-index: 10;}
 #mask article{display:none;}
 #fotos {width:950px;min-height:300px;background:url(../images/load.gif) #fff no-repeat center center;border-radius:10px;margin:0 auto;margin-top:80px;padding:20px}
-#fotos .img_galeria{max-width:900px;min-width:200px;  max-height: 531px;}
+#fotos .img_galeria{max-width:700px;min-width:200px;  max-height: 531px;}
 #fotos p{font-size: 15px;font-family: Arial,sans-serif;font-weight: bold;color:#ae080f;margin-top:8px;text-transform:uppercase;}
 #videos {width:950px;min-height:300px;background-color:#fff;border-radius:10px;margin:0 auto;margin-top:80px;padding:20px;background:url(../images/load.gif) #fff no-repeat center center;}
 #videos iframe{max-width:900px;}
