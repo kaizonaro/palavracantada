@@ -97,7 +97,7 @@
 
                                             <p class="p_btn">
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
-                                                <asp:Button ID="Incluir" runat="server" Text="Incluir" OnClick="Incluir_Click" />
+                                                <asp:Button ID="Incluir" runat="server" Text="Incluir" OnClick="Incluir_Click"  class="btn_form"/>
                                             </p>
                                         </form>                                       
                                     </div>
