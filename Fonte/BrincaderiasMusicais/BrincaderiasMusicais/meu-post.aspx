@@ -37,7 +37,7 @@
         <div class="all_center">
 
             <!--CONTEUDO INTERNO (ARTIGOS)-->
-             <div id="sobre2" class="interna">
+             <div id="sobre2" class="interna2">
                 <div class="img_perfil_post" id="img_perfil" runat="server"></div>
                 <div class="titu">
                     BLOG

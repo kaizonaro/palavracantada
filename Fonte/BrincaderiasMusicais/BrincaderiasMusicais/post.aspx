@@ -40,7 +40,7 @@
         <div class="all_center">
 
             <!--CONTEUDO INTERNO (SOBRE)-->
-            <div id="sobre" class="interna">
+            <div id="sobre" class="interna2">
                 <div class="titu">
                     BLOG
                 </div>
