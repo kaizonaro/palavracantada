@@ -14,7 +14,57 @@
 
     <brincadeira:script runat="server" ID="script" />
 
+
+
     <script type="text/javascript">
+
+        function ajaxInit() {
+            var req;
+            try {
+                req = new ActiveXObject("Microsoft.XMLHTTP");
+            } catch (e) {
+                try {
+                    req = new ActiveXObject("Msxml2.XMLHTTP");
+                } catch (ex) {
+                    try {
+                        req = new XMLHttpRequest();
+                    } catch (exc) {
+                        alert("Esse browser não tem recursos para uso do Ajax");
+                        req = null;
+                    }
+                }
+            }
+            return req;
+        }
+
+        function validaemail() {
+
+            ajax4 = ajaxInit();
+            ajax4.open("GET", "default.aspx?acao=validaemail&USU_EMAIL=" + USU_EMAIL.value + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+            ajax4.setRequestHeader("Content-Type", "charset=iso-8859-1");
+            ajax4.onreadystatechange = function () {
+
+
+                if (ajax4.readyState == 4) {
+                    if (ajax4.status == 200) {
+
+                        if (ajax4.responseText == "OK") {
+                            $("#erro_mensagem").html("")
+                            $("#cadastrar_bt").fadeIn();
+
+                        } else {
+                            $("#erro_mensagem").html(ajax4.responseText)
+                            $("#cadastrar_bt").fadeOut();
+                        }
+
+                    }
+                }
+            }
+            ajax4.send(null);
+
+        }
+
+
         function validarSenha() {
             senha1 = document.frmCadastro.USU_SENHA.value
             senha2 = document.frmCadastro.USU_SENHA2.value
@@ -91,14 +141,22 @@
                 <div class="mascara">
                     <!-- FOTOS -->
                     <ul class="fotos_home carrousel" id="ulFotos" runat="server"></ul>
-                    <div class="left_video"><img src="/images/arrow_left2.png" /></div>
-                    <div class="right_video"><img src="/images/arrow_right2.png" /></div>
+                    <div class="left_video">
+                        <img src="/images/arrow_left2.png" />
+                    </div>
+                    <div class="right_video">
+                        <img src="/images/arrow_right2.png" />
+                    </div>
                 </div>
                 <div class="mascara">
                     <!-- VIDEOS -->
                     <ul class="videos_home carrousel" id="ulVideos" runat="server"></ul>
-                    <div class="left_video"><img src="/images/arrow_left2.png" /></div>
-                    <div class="right_video"><img src="/images/arrow_right2.png" /></div>
+                    <div class="left_video">
+                        <img src="/images/arrow_left2.png" />
+                    </div>
+                    <div class="right_video">
+                        <img src="/images/arrow_right2.png" />
+                    </div>
                 </div>
             </div>
             <!--FIM DA GALERIA-->
@@ -149,14 +207,18 @@
                     <div class="full">
                         <input type="hidden" name="acao" id="acao" value="completarCadastro" />
                         <input type="hidden" name="TOK_TOKEN" id="TOK_TOKEN" value="" runat="server" />
-                        <label>Nome*:
+                        <label>
+                            Nome*:
                             <br />
                         </label>
                         <input type="text" name="USU_NOME" id="USU_NOME" class="input inp_grande" /><br />
-                        <label>Email*:<br />
+                        <label>
+                            Email*:<br />
                         </label>
-                        <input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input email inp_grande" /><br />
-                        <label>Usuário*:<br />
+                        <input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input email inp_grande" onchange="validaemail()" /><br />
+                        <div id="erro_mensagem"></div>
+                        <label>
+                            Usuário*:<br />
                         </label>
                         <input type="text" name="USU_USUARIO" onblur="capturar(this);" id="USU_USUARIO" class="input inp_grande" />
                     </div>
@@ -181,7 +243,7 @@
                     <div>
                         <input type="checkbox" id="termo" class="checkbox termo" /><label for="termo" class='termo'>Marque esta opção para concordar com os termos e condições do Projeto Brincadeiras Musicais da Palavra Cantada</label>
                         <nav>
-                            <input class="btn" type="button" value="cadastrar">
+                            <input class="btn" type="button" value="cadastrar" id="cadastrar_bt">
                             <!-- <input class="btn" type="reset" value="cancelar">-->
                         </nav>
                     </div>

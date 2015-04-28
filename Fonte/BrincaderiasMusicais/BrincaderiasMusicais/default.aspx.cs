@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsBlog, rsVideo, rsVFoto, rsCargo, rsToken;
+        private OleDbDataReader rsBlog, rsVideo, rsVFoto, rsCargo, rsToken, rsEmail;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,6 +31,20 @@ namespace BrincaderiasMusicais
 
                 switch (acao)
                 {
+                    case "validaemail":
+                        rsEmail = objBD.ExecutaSQL("SELECT USU_USUARIO from Usuario where USU_EMAIL = '" + Request["USU_EMAIL"] + "'");
+                        if (rsEmail.HasRows)
+                        {
+                            rsEmail.Read();
+                            Response.Write("<p>Esse email já está cadastrado!</p>");
+                            Response.End();
+                        }
+                        else
+                        {
+                            Response.Write("OK");
+                            Response.End();
+                        }
+                        break;
                     default:
                         PopularBlog(Convert.ToInt16(Session["redeID"]));
                         PopularVideos(Convert.ToInt16(Session["redeID"]));
@@ -83,7 +97,7 @@ namespace BrincaderiasMusicais
             catch (Exception ex)
             {
                 objUtils.Feedbacker(ex);
-                 throw;
+                throw;
             }
         }
 
@@ -100,7 +114,7 @@ namespace BrincaderiasMusicais
                 while (rsBlog.Read())
                 {
                     ulPost.InnerHtml += " <li><a href=\"/post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\" title=\"Titulo da postagem\"><img src='/upload/imagens/blog/thumb-" + rsBlog["POS_IMAGEM"].ToString() + "'></a>";
-                    ulPost.InnerHtml += "   <p class=\"titu_post_home\"><a href=\"post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\">" + objUtils.CortarString(true,36,rsBlog["POS_TITULO"].ToString()) + "</a></p>";
+                    ulPost.InnerHtml += "   <p class=\"titu_post_home\"><a href=\"post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\">" + objUtils.CortarString(true, 36, rsBlog["POS_TITULO"].ToString()) + "</a></p>";
                     ulPost.InnerHtml += "   <p class=\"desc_post_home\"><a href=\"post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\">" + objUtils.RemoveHTML(objUtils.CortarString(true, 110, rsBlog["POS_TEXTO"].ToString())) + "</a></p>";
                     ulPost.InnerHtml += "   <a href=\"/post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\" class=\"btn\">LEIA MAIS</a>";
                     ulPost.InnerHtml += " </li>";
