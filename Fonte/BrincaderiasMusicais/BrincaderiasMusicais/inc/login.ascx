@@ -20,6 +20,12 @@
         return req;
     }
 
+    function EsqueciSenha() {
+        window.location = "/ajax/acoes.aspx?acao=EsqueciSenha&email=" + $('#esqueciEmail').val() + "";
+        //$('#frmEsqueci').submit();
+        //alert($('#esqueciEmail').val());
+    }
+
     function sair() {
         window.location = "/ajax/acoes.aspx?acao=logout"
         return false;
@@ -51,13 +57,13 @@
                 <input class="btn" type="submit" value="ENTRAR" />
             </div>
         </form>
-        <form class="form_senha" action="">
-            <input type="hidden" id="acao" name="acao" value="FazerLogin" />
-            <label>email:</label><input type="text" id="email" name="email" class="input email" /><br />
+        <form class="form_senha" id="frmEsqueci" action="/ajax/acoes.aspx">
+            <input type="hidden" id="acao2" name="acao2" value="EsqueciSenha" />
+            <label>email:</label><input type="text" id="esqueciEmail" style="width:245px;" name="esqueciEmail" class="input email" /><br />
             <div>
                 <a href="javascript:void(0)" class="link esqueci_voltar">voltar</a>
                 <!--<a href="javascript:void(0)" class="link">esqueci meu login</a>-->
-                <input class="btn" type="submit" value="ENVIAR" />
+                <input class="btn" onclick="EsqueciSenha();" type="submit" value="ENVIAR"/>
             </div>
         </form>
     </div>

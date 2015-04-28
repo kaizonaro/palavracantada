@@ -26,7 +26,7 @@ namespace BrincaderiasMusicais.ajax
         {
             objUtils = new utils();
             objBD = new bd();
-            
+
             string acao = Request["acao"];
 
             if (Request.QueryString["pg"] != null)
@@ -43,7 +43,15 @@ namespace BrincaderiasMusicais.ajax
                 case "FazerLogin":
                     FazerLogin();
                     break;
-                
+
+                case "EsqueciSenha":
+                    EsqueciSenha();
+                    break;
+
+                case ("ResetarSenha"):
+                    ResetarSenha();
+                    break;
+
                 case "completarCadastro":
                     completarCadastro();
                     break;
@@ -245,6 +253,53 @@ namespace BrincaderiasMusicais.ajax
 
             Response.Write(retorno);
             Response.End();
+        }
+
+        public void EsqueciSenha()
+        {
+            string  msg = "  <table>";
+                    msg += "    <tr><td>Recebemos o seu aviso de que esqueceu a senha!</td></tr>";
+                    msg += "    <tr><td>Se realmente quer fazer a mudança, <a href=\"http://www.projetopalavracantada.net/ajax/acoes.aspx?acao=ResetarSenha&email=" + Request["email"] + "\">clique aqui</a> e lhe enviaremos outro e-mail com as intruções</td></tr>";
+                    msg += "    <tr><td>Se não fez a solicitação, por favor, ignore este e-mail.</td></tr>";
+                    msg += " </table>";
+
+                    //ERRO
+                    if (objUtils.EnviaEmail("fernando@agenciaetnia.com.br", "Contato Projeto Brincadeiras Musicais da Palavra Cantada", msg, remetente: Request["email"], nome: "Fernando") == false)
+                    {
+                        Response.Write("<script>alert('Erro ao enviar o email!');</script>");
+                    }
+                    //SUCESSO
+                    else
+                    {
+                        //objBD = new bd();
+                        //objBD.ExecutaSQL("EXEC piContatoSite '" + Request["nome"] + "', '" + Request["email"] + "', '" + Request["mensagem"] + "'");
+                        Response.Redirect("/default.aspx?msg=EsqueciSenha");
+                    }
+        }
+
+        public void ResetarSenha()
+        {
+            string  msg = "  <table>";
+                    msg += "    <tr><td>Mudamos a sua senha</td></tr>";
+                    msg += "    <tr><td>A sunha senha foi alterada para: 123456 provisóriamente!</td></tr>";
+                    msg += "    <tr><td>Se logue no site e mude através do menu Meu Perfil | Configurações.</td></tr>";
+                    msg += " </table>";
+
+                    //ERRO
+                    if (objUtils.EnviaEmail("fernando@agenciaetnia.com.br", "Contato Projeto Brincadeiras Musicais da Palavra Cantada", msg, remetente: Request["email"], nome: "Fernando") == false)
+                    {
+                        Response.Write("<script>alert('Erro ao enviar o email!');</script>");
+                    }
+                    //SUCESSO
+                    else
+                    {
+                        //objBD = new bd();
+                         objBD.ExecutaSQL("update Usuario set usu_senha = 'e10adc3949ba59abbe56e057f20f883e' where usu_email = '" + Request["email"] + "'");
+
+                        //Response.Write("update Usuario set usu_senha = 'e10adc3949ba59abbe56e057f20f883e' where usu_email = '" + Request["email"] + "'");
+                        //Response.End();
+                        Response.Redirect("/default.aspx?msg=EsqueciSenha");
+                    }
         }
     }
 }

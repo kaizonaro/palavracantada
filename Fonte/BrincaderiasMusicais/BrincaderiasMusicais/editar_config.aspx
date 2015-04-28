@@ -14,7 +14,7 @@
 <head id="Head1" runat="server">
 
 
-    <title>Palavra Cantada - Redes</title>
+    <title>Palavra Cantada - Configurações</title>
     <!--FACEBOOK-->
     <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Artigos" />
     <meta property="og:image" content="http://projetopalavracantada.net/images/logo-fb.png" />
