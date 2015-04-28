@@ -48,6 +48,10 @@ namespace BrincaderiasMusicais.inc
                     {
                         msgErro.InnerHtml = "<br/>Usuário e/ou senha inválida";
                     }
+                    if (Request["msg"] != null && Request["msg"].ToString().Length > 1 && Request["msg"].ToString() == "EsqueciSenha")
+                    {
+                        msgErro.InnerHtml = "<br/>Foi enviado um e-mail com instruções";
+                    }
                 }
 
                 string urlCompleta = Request.Url.AbsoluteUri;
