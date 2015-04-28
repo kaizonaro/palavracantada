@@ -38,7 +38,7 @@
         <div class="all_center">
 
             <!--CONTEUDO INTERNO (ARTIGOS)-->
-             <div id="sobre2" class="interna">
+             <div id="sobre2" class="interna2">
                  <img class="mini_perfil" src="/images/thumb_perfil.jpg" alt="Foto do Perfil do Fulano" />
                 <div class="titu">
                     BLOG
