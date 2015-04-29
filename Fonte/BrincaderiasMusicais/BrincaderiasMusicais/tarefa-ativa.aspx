@@ -175,7 +175,7 @@
                 <textarea class="box_criacoes input" id="comentarioTarefa" name="comentarioTarefa" rows="10"></textarea><br /><br />
                 <div class="full enviar_relato">
                     <button class="btn_back">Cancelar</button>
-                    <input type="submit" name="comentarTarefa" value="Enviar Relato" id="comentarTarefa" class="btn_save"/>
+                    <input type="submit" name="comentarTarefa" value="ENVIAR COMENTÁRIO" id="comentarTarefa" class="btn_save"/>
                 </div>
             </form>
         </div>
@@ -196,7 +196,7 @@
                 <textarea class="box_criacoes input" id="comentarioRelato" name="comentarioRelato" rows="9"></textarea><br /><br />
                 <div class="full enviar_relato">
                     <button class="btn_back">Cancelar</button>
-                    <input type="submit" name="comentarRelato" value="Enviar Relato" id="comentarRelato" class="btn_save">
+                    <input type="submit" name="comentarRelato" value="COMENTAR RELATO" id="comentarRelato" class="btn_save">
                 </div>
             </form>
         </div>

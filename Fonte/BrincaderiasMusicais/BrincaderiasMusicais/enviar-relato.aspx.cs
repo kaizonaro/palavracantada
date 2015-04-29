@@ -50,13 +50,20 @@ namespace BrincaderiasMusicais
             {
                 rsListar.Read();
                 CDO_ID.Attributes.Add("value", Request["CDO_ID"].ToString());
-                titu_criacoes.InnerHtml = rsListar["CDO_TAREFA"].ToString();
+                titu_criacoes.InnerHtml = objUtils.RemoveHTML(rsListar["CDO_TAREFA"].ToString());
                 criador.InnerHtml = rsListar["ADM_NOME"].ToString();
                 data.InnerHtml = rsListar["CDO_DATA"].ToString();
                 box_descritivo.InnerHtml = rsListar["CDO_DESCRITIVO"].ToString();
                 video_criacoes.Attributes.Add("src", "https://www.youtube.com/embed/" + rsListar["CDO_VIDEO"].ToString());
                // aRelato.Attributes.Add("href", "/enviar-relato.aspx?CDO_ID=" + Request["CDO_ID"] + "");
                 relato_detalhe.InnerHtml = "<strong>" + rsListar["TOTAL_RELATOS"].ToString() + " Relatos Enviados</strong>";
+
+                totalComentarios.InnerHtml = rsListar["TOTAL_COMENTARIOS"].ToString() + " Comentário";
+
+                if (Convert.ToInt16(rsListar["TOTAL_COMENTARIOS"]) > 1)
+                {
+                    totalComentarios.InnerHtml += "s";
+                }
             }
             else
             {

@@ -45,7 +45,7 @@
 
                 <img src="/images/linha.png" class="linha" />
                 <form id="up_foto" runat="server">
-                    <input type="text" id="POS_ID" runat="server" value="0"/>
+                    <input type="hidden" id="posID" name="posID" runat="server" value="0"/>
                     <div class="titu_setup">ADICIONAR Post:</div>
                     <p class="mini_txt">Para publicar uma foto, preencha os campos abaixo e clique no botão "publicar post".</p>
                     <div class="full">
