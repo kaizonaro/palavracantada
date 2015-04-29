@@ -23,6 +23,12 @@
 
     <brincadeira:script runat="server" ID="script" />
 
+    <script type="text/javascript">
+        function pagina(pg) {
+            location.href = "meus-videos.aspx?pagina=" + pg + "";
+        }
+    </script>
+
 </head>
 <body>
 
