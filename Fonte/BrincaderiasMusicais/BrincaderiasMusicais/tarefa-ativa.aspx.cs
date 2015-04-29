@@ -70,7 +70,7 @@ namespace BrincaderiasMusicais
             {
                 rsListar.Read();
 
-                titu_criacoes.InnerHtml = rsListar["CDO_TAREFA"].ToString();
+                titu_criacoes.InnerHtml = objUtils.RemoveHTML(rsListar["CDO_TAREFA"].ToString());
                 criador.InnerHtml = rsListar["ADM_NOME"].ToString();
                 data.InnerHtml = rsListar["CDO_DATA"].ToString();
                 box_descritivo.InnerHtml = rsListar["CDO_DESCRITIVO"].ToString();
@@ -82,7 +82,13 @@ namespace BrincaderiasMusicais
                 
                 relato_detalhe.InnerHtml = "<strong>" + rsListar["TOTAL_RELATOS"].ToString() + " Relatos Enviados</strong>";
 
-                totalComentarios.InnerHtml = rsListar["TOTAL_COMENTARIOS"].ToString() + " Comentários";
+                totalComentarios.InnerHtml = rsListar["TOTAL_COMENTARIOS"].ToString() + " Comentário";
+
+                if (Convert.ToInt16(rsListar["TOTAL_COMENTARIOS"]) > 1)
+                {
+                    totalComentarios.InnerHtml += "s";
+                }
+
             }
             else
             {
@@ -112,7 +118,13 @@ namespace BrincaderiasMusicais
                     ulRelatos.InnerHtml += "            <div class=\"detalhes_autor\">";
                     ulRelatos.InnerHtml += "                <span class=\"comentario_detalhe\">Relato enviado por: <br /><strong>" + rsListar["USU_NOME"] + "</strong></span><br>";
                     ulRelatos.InnerHtml += "                <span class=\"comentario_detalhe\">Data: <strong>" + rsListar["CDR_DATA"] + "</strong></span><br>";
-                    ulRelatos.InnerHtml += "                <span class=\"comentario_detalhe\">Este relato possui: <strong>" + rsListar["TOTAL_COMENTARIOS"] + " comentarios</strong></span><br>";
+                    if (Convert.ToInt16(rsListar["TOTAL_COMENTARIOS"]) == 1) {
+                        ulRelatos.InnerHtml += "                <span class=\"comentario_detalhe\">Este relato possui: <strong>" + rsListar["TOTAL_COMENTARIOS"] + " comentario</strong></span><br>";
+                    }
+                    else{
+                        ulRelatos.InnerHtml += "                <span class=\"comentario_detalhe\">Este relato possui: <strong>" + rsListar["TOTAL_COMENTARIOS"] + " comentarios</strong></span><br>";
+                    }
+
                     ulRelatos.InnerHtml += "            </div>";
                     ulRelatos.InnerHtml += "            <a href=\"javascript:void(0);\" onclick='verComentarios(1," + rsListar["CDR_ID"] + ");' class=\"btn_comentario2 abre_relatos\">Ver comentários</a>";
                     ulRelatos.InnerHtml += "            <a href=\"javascript:void(0);\" onclick='teste(" + rsListar["CDR_ID"] + ");' class=\"btn_relato2 abre_comentario2\">Comente este relato</a>";

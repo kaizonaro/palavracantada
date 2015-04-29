@@ -13,7 +13,7 @@
 <head id="Head1" runat="server">
 
 
-    <title>Palavra Cantada - Redes</title>
+    <title>Palavra Cantada - Criações Documentadas</title>
     <!--FACEBOOK-->
     <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Artigos" />
     <meta property="og:image" content="http://projetopalavracantada.net/images/logo-fb.png" />
@@ -43,7 +43,7 @@
                     Criações Documentadas
                 </div>
                 <div id="breadcrumb">
-                    <a href="/" title="Home">Home</a> >> <strong>Criações Documentadas</strong>
+                    <a href="/" title="Home">Home</a> >> <a href="/Criacoes-Documentadas" title="Home">Criações Documentadas</a> >> <strong>Enviar Relato</strong>
                 </div>
                 <!-- INCLUDE -->
                 <p class="titu_criacoes" id="titu_criacoes" runat="server"></p><br /><br />
@@ -99,7 +99,7 @@
                 <br />
                 <div class="detalhes_autor">
                     <span class="relato_detalhe" id="relato_detalhe" runat="server"></span><br />
-                    <span class="comentario_detalhe"><strong>&lt;&lt; x &gt;&gt; Comentarios</strong></span>
+                    <span class="comentario_detalhe"><strong runat="server" id="totalComentarios"><!--<< x >> Comentarios--></strong></span>
                 </div>
 
 

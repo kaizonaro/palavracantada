@@ -37,7 +37,7 @@ namespace BrincaderiasMusicais
                     POS_TITULO.Attributes.Add("value", rsTrazer["POS_TITULO"].ToString());
                     POS_TEXTO.InnerText = rsTrazer["POS_TITULO"].ToString();
                     PCA_ID.Value = rsTrazer["PCA_ID"].ToString();
-                    POS_ID.Value = Request["POS_ID"];
+                    posID.Value = Request["POS_ID"];
 
                 }
             }

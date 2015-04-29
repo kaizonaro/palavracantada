@@ -59,6 +59,10 @@ namespace BrincaderiasMusicais
                     break;
 
                 default:
+
+                    Response.Write("EXEC pesquisa_site_blog_lis '3','" + pagina_atual + "','1', '', '' , '" + Request["POS_TEXTO"] + "'");
+                    Response.End();
+
                     rsArtigos = objBD.ExecutaSQL("EXEC pesquisa_site_blog_lis '3','" + pagina_atual + "','1', '', '' , '" + Request["POS_TEXTO"] + "'");
                     if (string.IsNullOrWhiteSpace(Request["POS_TEXTO"]) == false)
                     {
