@@ -13,25 +13,27 @@ namespace BrincaderiasMusicais.administracao
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista, rsRedes, rsGravar, rsNotificar;
+
+        private OleDbDataReader rsLista, rsRedes, rsGravar, rsNotificar, rsEditar;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
             objUtils = new utils();
             objBD = new bd();
 
             switch (Request["acao"])
             {
                 case ("editar"):
-                    rsLista = objBD.ExecutaSQL("select CDO_ID, RED_ID, CDO_TAREFA, CDO_DATA, CDO_STATUS CDO_DESCRITIVO, CDO_VIDEO, CDO_DEVOLUTIVA, CDO_VIDEO_DEVOLUTIVA Convert(varchar(10),CDO_DATA, 103) as CDO_DATA, CDO_STATUS from Criacoes_Documentadas where CDO_ID ='" + Request["CDO_ID"] + "'");
-                    if (rsLista == null)
+                    rsEditar = objBD.ExecutaSQL("select CDO_ID, RED_ID, CDO_TAREFA, CDO_DATA, CDO_STATUS, CDO_DESCRITIVO, CDO_VIDEO, CDO_DEVOLUTIVA, CDO_VIDEO_DEVOLUTIVA, convert(varchar,CDO_DATA, 103) as CDO_DATA from Criacoes_Documentadas where CDO_ID = '" + Request["CDO_ID"] + "'");
+                    if (rsEditar == null)
                     {
                         throw new Exception();
                     }
-                    if (rsLista.HasRows)
+                    if (rsEditar.HasRows)
                     {
-                        rsLista.Read();
-                        Response.Write(rsLista["CDO_ID"] + "|" + rsLista["RED_ID"] + "|" + rsLista["CDO_TAREFA"] + "|" + rsLista["CDO_DATA"] + "|" + rsLista["CDO_STATUS"] + "|" + rsLista["CDO_DESCRITIVO"] + "|" + rsLista["CDO_VIDEO"] + "|" + rsLista["CDO_DEVOLUTIVA"] + "|" + rsLista["CDO_VIDEO_DEVOLUTIVA"]);
+                        rsEditar.Read();
+                        Response.Write(rsEditar["CDO_ID"] + "|" + rsEditar["RED_ID"] + "|" + rsEditar["CDO_TAREFA"] + "|" + Convert.ToDateTime(rsEditar["CDO_DATA"]).ToShortDateString() + "|" + rsEditar["CDO_STATUS"] + "|" + rsEditar["CDO_DESCRITIVO"] + "|" + rsEditar["CDO_VIDEO"] + "|" + rsEditar["CDO_DEVOLUTIVA"] + "|" + rsEditar["CDO_VIDEO_DEVOLUTIVA"]);
                     }
                     break;
                 case ("arquivar"):
@@ -137,7 +139,7 @@ namespace BrincaderiasMusicais.administracao
             }
             if (rsNotificar.HasRows)
             {
-                 
+
                 while (rsNotificar.Read())
                 {
                     if (objUtils.EnviaEmail(rsNotificar["USU_EMAIL"].ToString(), "Nova Criação Documentada", "Uma nova criação documentada foi postada no <a href='http://projetopalavracantada.net' target='_blank'>portal palavra cantada</a>") == false)

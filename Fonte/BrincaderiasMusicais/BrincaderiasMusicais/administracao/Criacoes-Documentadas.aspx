@@ -39,26 +39,30 @@
 
         function popularFormulario(id) {
             ajax4 = ajaxInit();
-            ajax4.open("GET", "criacoes-documentadas.aspx?acao=editar&CDO_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+            ajax4.open("GET", "criacoes-documentadas.aspx?acao=editar&CDO_ID=" + id, true);
             ajax4.setRequestHeader("Content-Type", "charset=iso-8859-1");
             ajax4.onreadystatechange = function () {
-
+            
                 if (ajax4.readyState == 4) {
                     if (ajax4.status == 200) {
+                        
                         var resposta = ajax4.responseText.split("<!doctype html>");
                         var ss = resposta[0].split("|");
-                        //alert(ss[3]);
+                        console.log(resposta[0]);
                         $('#CDO_ID').attr("value", ss[0]);
                         $('#RED_ID option[value="' + parseInt(ss[1]) + '"]').attr('selected', 'selected').change();
-                        tinyMCE.activeEditor.setContent(ss[2]);
-                        $('#CDO_DATA').attr("value", ss[3]);
+                        tinyMCE.get('CDO_TAREFA').setContent(ss[2]);
+
+                        $('#CDO_DATA').val(ss[3]);
                         $('#CDO_STATUS option[value="' + parseInt(ss[4]) + '"]').attr('selected', 'selected').change();
-                        $('#CDO_DATA').attr("value", ss[5]);
+                        
                         //aqui vai status
-                        $('#CDO_DESCRITIVO').attr("value", ss[7]);
-                        $('#CDO_VIDEO').attr("value", ss[8]);
-                        $('#CDO_DEVOLUTIVA').attr("value", ss[9]);
-                        $('#CDO_VIDEO_DEVOLUTIVA').attr("value", ss[10]);
+                        tinyMCE.get('CDO_DESCRITIVO').setContent(ss[5]);
+
+                        $('#CDO_VIDEO').attr("value", ss[6]);
+
+                        tinyMCE.get('CDO_DEVOLUTIVA').setContent(ss[7]);
+                        $('#CDO_VIDEO_DEVOLUTIVA').attr("value", ss[8]);
                         editar_table2(id);
                     }
                 }
@@ -111,7 +115,7 @@
             ajax2.onreadystatechange = function () {
                 if (ajax2.readyState == 4) {
                     if (ajax2.status == 200) {
-                       // $('#' + id + ' .img_edit').hide();
+                        // $('#' + id + ' .img_edit').hide();
                     }
                 }
             }
@@ -177,7 +181,8 @@
                                             <input type="text" name="CDO_VIDEO" id="CDO_VIDEO" class="input" placeholder="Digite o link do video" />
 
                                             <p>Devolutiva:</p>
-                                            <input type="text" name="CDO_DEVOLUTIVA" id="CDO_DEVOLUTIVA" class="input" placeholder="" />
+                                            <textarea name="CDO_DEVOLUTIVA" id="CDO_DEVOLUTIVA" class="input" placeholder=""></textarea>
+
 
                                             <p>Video da Devolutiva:</p>
                                             <input type="text" name="CDO_VIDEO_DEVOLUTIVA" id="CDO_VIDEO_DEVOLUTIVA" class="input" placeholder="Digite o link do video" />
