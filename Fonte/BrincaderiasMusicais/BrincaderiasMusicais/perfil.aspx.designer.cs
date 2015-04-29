@@ -112,6 +112,15 @@ namespace BrincaderiasMusicais {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor linkblog;
         
         /// <summary>
+        /// img_lateral_perfil control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl img_lateral_perfil;
+        
+        /// <summary>
         /// foto_outro control.
         /// </summary>
         /// <remarks>

@@ -69,9 +69,9 @@
                 <img src="/images/linha.png" class="linha" />
                 <div class="menu_perfil">
                     <p class="sub_perfil_outro">Foto & vídeo (recentes)</p>
-                    <div class="img_lateral_perfil">
-                        <img runat="server" id="foto_outro" />
-                        <img runat="server" id="video_outro" />
+                    <div class="img_lateral_perfil" id="img_lateral_perfil" runat="server">
+                        <img runat="server" src="#" id="foto_outro" />
+                        <img runat="server" src="#" id="video_outro" />
                     </div>
                 </div>
                 <div class="medalhas_perfil">
