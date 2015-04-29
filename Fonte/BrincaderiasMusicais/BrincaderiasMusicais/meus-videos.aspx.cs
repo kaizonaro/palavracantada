@@ -66,7 +66,7 @@ namespace BrincaderiasMusicais
 
                 while (rs.Read())
                 {
-                    //int totalPaginas = Convert.ToInt16(rs["total_paginas"]);
+                    Session["totalPaginas"] = Convert.ToInt16(rs["total_paginas"]);
 
                     divArtigos.InnerHtml += " <li>";
                     divArtigos.InnerHtml += "   <a href='" + rs["VID_LINK"] + "'>";
@@ -79,7 +79,7 @@ namespace BrincaderiasMusicais
 
                 divArtigos.InnerHtml += " </ul>";
 
-                int totalPaginas = 0; // AJUAR ISSO
+                int totalPaginas = Convert.ToInt16(Session["totalPaginas"]);
 
                 //PAGINAÇÃO
                 if (registro == 1 && totalPaginas > 1)

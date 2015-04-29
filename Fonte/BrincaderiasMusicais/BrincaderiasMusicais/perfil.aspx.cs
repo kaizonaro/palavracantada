@@ -32,8 +32,8 @@ namespace BrincaderiasMusicais
                 regiao.InnerText = rsPerfil["USU_REGIAO"].ToString();
                 biografia.InnerText = rsPerfil["USU_BIOGRAFIA"].ToString();
                 foto.Attributes.Add("src", "upload/imagens/usuarios/" + rsPerfil["USU_FOTO"].ToString());
-                
-                foto_outro.Attributes.Add("src", "upload/imagens/galeria/" + rsPerfil["USU_ULTIMAFOTO"].ToString());
+
+                foto_outro.Attributes.Add("src", "upload/imagens/usuario/galeria/thumb-" + rsPerfil["USU_ULTIMAFOTO"].ToString());
                 video_outro.Attributes.Add("src", rsPerfil["USU_ULTIMOVIDEO"].ToString());
 
                 if (rsPerfil["USU_ULTIMAFOTO"].ToString().Length < 1){foto_outro.Attributes.Add("style", "display: none;");}

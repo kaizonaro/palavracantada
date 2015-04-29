@@ -447,7 +447,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .titu_galeria{display: inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size: 15px;color: #db4f36;text-align: left;font-weight: bold;width: 100%;}
 .galeria_img_interna{width:100%;display:inline-block;}
 .galeria_img_interna li{display:inline-block;margin:15px;cursor:pointer;width:115px;}
-.galeria_img_interna li img{width:100%;}
+.galeria_img_interna li img{width:120px; height:90px;}
 .galeria_img_interna li p{display:none;}
 
 .galeria_video_interna{width:100%;display:inline-block;}

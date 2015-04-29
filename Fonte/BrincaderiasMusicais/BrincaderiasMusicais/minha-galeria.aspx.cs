@@ -66,7 +66,7 @@ namespace BrincaderiasMusicais
 
                 while (rs.Read())
                 {
-                    //int totalPaginas = Convert.ToInt16(rs["total_paginas"]);
+                    Session["totalPaginas"] = Convert.ToInt16(rs["total_paginas"]);
 
                     divArtigos.InnerHtml += " <li><a href='/upload/imagens/usuario/galeria/" + rs["FOT_IMAGEM"].ToString() + "'>";
                     divArtigos.InnerHtml += "   <img src='/upload/imagens/usuario/galeria/thumb-" + rs["FOT_IMAGEM"].ToString() + "' alt='" + rs["FOT_LEGENDA"].ToString ()+ "'></a>";
@@ -75,7 +75,7 @@ namespace BrincaderiasMusicais
                 }
                 divArtigos.InnerHtml += " </ul>";
 
-                int totalPaginas = 0; // AJUAR ISSO
+                int totalPaginas = Convert.ToInt16(Session["totalPaginas"]);
 
                 //PAGINAÇÃO
                 if (registro == 1 && totalPaginas > 1)
@@ -87,11 +87,11 @@ namespace BrincaderiasMusicais
                     if (pagina_atual > 1)
                     {
                         int pgVoltar = pagina_atual - 1;
-                        conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" onClick=\"pagina('" + pgVoltar + "')\" class=\"nav_pg\" title=\"Página anterior\"><img src=\"images/nav_left.png\"/>ANTERIORES</a></li>";
+                        conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" onClick=\"pagina('" + pgVoltar + "')\" class=\"nav_pg\" title=\"Página anterior\"><img src=\"/images/nav_left.png\"/>ANTERIORES</a></li>";
                     }
                     else
                     {
-                        conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" class=\"nav_pg\" title=\"Página anterior\"><img src=\"images/nav_left.png\" />ANTERIORES</a></li>";
+                        conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" class=\"nav_pg\" title=\"Página anterior\"><img src=\"/images/nav_left.png\" />ANTERIORES</a></li>";
                     }
 
                     //ajuste de primeira página
@@ -119,11 +119,11 @@ namespace BrincaderiasMusicais
                     if (pagina_atual < totalPaginas)
                     {
                         int pgAvancar = pagina_atual + 1;
-                        conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" onClick=\"pagina('" + pgAvancar + "')\" class=\"nav_pg\" title=\"Próxima Página\">PRÓXIMOS <img src=\"images/nav_right.png \"/></a></li>";
+                        conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" onClick=\"pagina('" + pgAvancar + "')\" class=\"nav_pg\" title=\"Próxima Página\">PRÓXIMOS <img src=\"/images/nav_right.png \"/></a></li>";
                     }
                     else
                     {
-                        conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" class=\"nav_pg\" title=\"Próxima Página\">PRÓXIMOS <img src=\"images/nav_right.png \"/></a></li>";
+                        conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" class=\"nav_pg\" title=\"Próxima Página\">PRÓXIMOS <img src=\"/images/nav_right.png \"/></a></li>";
                     }
 
                     conteudoPaginacao += "   </ul> ";
