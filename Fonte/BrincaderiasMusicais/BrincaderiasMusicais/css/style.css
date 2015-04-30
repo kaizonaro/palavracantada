@@ -621,5 +621,6 @@ textarea{resize:none;}
 
 .youtube object {
     max-width:460px;
+    display:none;
 }
 
