@@ -22,6 +22,16 @@ namespace BrincaderiasMusicais.inc
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                Session["usuUsuario"].ToString();
+            }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('Desculpe... Você não pode vizualizar perfis enquanto estiver deslogado. Por favor efetue login e tente novamente.'); window.history.back();</script>");
+                Response.End();
+            }
+
             objUtils = new utils();
             objBD = new bd();
             ModificaBotoes();
@@ -86,10 +96,19 @@ namespace BrincaderiasMusicais.inc
         void ModificaBotoes()
         {
             string usuario = Request["usuario"];
+            bool valida = true;
+
             if (string.IsNullOrWhiteSpace(usuario))
             {
                 usuario = Session["usuUsuario"].ToString();
+                valida = false;
             }
+
+            if (Request["usuario"] == Session["usuUsuario"].ToString())
+            {
+                valida = false;
+            }
+
             rsPerfil = objBD.ExecutaSQL("EXEC PerfilUsuarioPorUsername " + usuario);
             if (rsPerfil == null)
             {
@@ -98,6 +117,9 @@ namespace BrincaderiasMusicais.inc
             if (rsPerfil.HasRows)
             {
                 rsPerfil.Read();
+                ValidaPrivacidade(valida);
+
+
                 nomeusuario.InnerText = rsPerfil["USU_NOME"].ToString();
                 regiao.InnerText = rsPerfil["USU_REGIAO"].ToString();
                 biografia.InnerText = rsPerfil["USU_BIOGRAFIA"].ToString();
@@ -120,11 +142,55 @@ namespace BrincaderiasMusicais.inc
                     linkblog.Attributes.Add("href", "/meu-blog");
                 }
 
-                if (Session["redeID"].ToString() != rsPerfil["RED_ID"].ToString()) { Response.Redirect("../default.aspx"); Response.End(); }
+                if (Session["redeID"].ToString() != rsPerfil["RED_ID"].ToString()) { Response.Write("<script>alert('Desculpe... Este usuario não é da sua Rede.'); window.history.back();</script>"); }
 
 
-            }else{
-                Response.Redirect("/");
+            }
+            else
+            {
+                Response.Write("<script>alert('Desculpe... Este usuario não existe'); window.history.back();</script>");
+                Response.End();
+            }
+        }
+
+        private void ValidaPrivacidade(bool validacao)
+        {
+            if (validacao == false)
+            {
+                return;
+            }
+
+            if (rsPerfil["PRI_PERFIL"].ToString() == "true")
+            {
+                Response.Write("<script>alert('Desculpe... Este perfil é privado.'); window.history.back();</script>");
+                Response.End();
+            }
+
+            switch (new FileInfo(this.Request.Url.LocalPath).Name)
+            {
+                case "perfil-blog.aspx":
+                    if (rsPerfil["PRI_BLOG"].ToString() == "True")
+                    {
+                        Response.Write("<script>alert('Desculpe... Este blog é privado.'); window.history.back();</script>");
+                        Response.End();
+                    }
+                    break;
+                case "minha-galeria.aspx":
+                    if (rsPerfil["PRI_FOTOS"].ToString() == "True")
+                    {
+                        Response.Write("<script>alert('Desculpe... Esta galeria de fotos é privada.'); window.history.back();</script>");
+                        Response.End();
+                    }
+                    break;
+                case "meus-videos.aspx":
+                    if (rsPerfil["PRI_VIDEOS"].ToString() == "True")
+                    {
+                        Response.Write("<script>alert('Desculpe... Este galeria de videos é privada.'); window.history.back();</script>");
+                        Response.End();
+                    }
+                    break;
+                default:
+                    break;
             }
         }
     }
