@@ -618,3 +618,8 @@ textarea{resize:none;}
 #txtPost iframe {
     max-width:490px;
 }
+
+.youtube object {
+    max-width:460px;
+}
+
