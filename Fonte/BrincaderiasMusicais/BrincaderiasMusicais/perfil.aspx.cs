@@ -16,12 +16,22 @@ namespace BrincaderiasMusicais
         private OleDbDataReader rsPerfil;
         protected void Page_Load(object sender, EventArgs e)
         {
+            try
+            {
+                Session["usuUsuario"].ToString();
+            }
+            catch (Exception)
+            {
+                Response.Write("<script>alert('Desculpe... Você não pode vizualizar perfis enquanto estiver deslogado. Por favor efetue login e tente novamente.'); window.history.back();</script>");
+                Response.End();
+            }
 
             rsPerfil = objBD.ExecutaSQL("EXEC PerfilUsuarioPorUsername '" + Request["usuario"]+ "'");
             if (rsPerfil == null) { Response.Redirect("./default.aspx"); }
             if (rsPerfil.HasRows)
             {
                 rsPerfil.Read();
+               
 
                 if (Session["usuID"].ToString() == rsPerfil["USU_ID"].ToString()) { Response.Redirect("../meu-perfil/" + Request["usuario"]); Response.End(); }
 
