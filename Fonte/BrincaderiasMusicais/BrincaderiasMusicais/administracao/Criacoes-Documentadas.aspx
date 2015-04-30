@@ -51,10 +51,11 @@
                         console.log(resposta[0]);
                         $('#CDO_ID').attr("value", ss[0]);
                         $('#RED_ID option[value="' + parseInt(ss[1]) + '"]').attr('selected', 'selected').change();
-                        tinyMCE.get('CDO_TAREFA').setContent(ss[2]);
+                        $('#CDO_TAREFA').attr("value", ss[2]);
+                        
 
                         $('#CDO_DATA').val(ss[3]);
-                        $('#CDO_STATUS option[value="' + parseInt(ss[4]) + '"]').attr('selected', 'selected').change();
+                        $('#CDO_STATUS option[value="' + ss[4] + '"]').attr('selected', 'selected').change();
                         
                         //aqui vai status
                         tinyMCE.get('CDO_DESCRITIVO').setContent(ss[5]);
@@ -62,7 +63,7 @@
                         $('#CDO_VIDEO').attr("value", ss[6]);
 
                         tinyMCE.get('CDO_DEVOLUTIVA').setContent(ss[7]);
-                        $('#CDO_VIDEO_DEVOLUTIVA').attr("value", ss[8]);
+                        $('#CDO_VIDEO_DEVOLUTIVA').val(ss[8]);
                         editar_table2(id);
                     }
                 }
