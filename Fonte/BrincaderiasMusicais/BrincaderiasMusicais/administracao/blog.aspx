@@ -15,8 +15,17 @@
 
         tinymce.init({
             selector: "textarea",
-            menubar: false
+            menubar: false,
+            language: "pt_BR",
+
+            plugins: [
+                    "advlist autolink lists link image charmap print preview anchor",
+                    "searchreplace visualblocks code fullscreen",
+                    "insertdatetime media table contextmenu paste youtube"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image| youtube"
         });
+
 
 
 
@@ -57,7 +66,7 @@
                         tinyMCE.activeEditor.setContent(ss[2]);
                         $('#PCA_ID option[value="' + parseInt(ss[4]) + '"]').attr('selected', 'selected').change();
                         $('#thumb').html(ss[5])
-                        $('#RED_ID option[value="' + parseInt(ss[6]) + '"]').attr('selected', 'selected').change(); 
+                        $('#RED_ID option[value="' + parseInt(ss[6]) + '"]').attr('selected', 'selected').change();
                         if (parseInt(ss[3]) == 1) { $('#POS_IMPORTANTE').attr("checked", "checked"); }
 
                         editar_table2(id);
@@ -79,7 +88,7 @@
                             if (msg == "desativar") {
                                 $('#tr_' + id).hide();
                             } else { $('#xtr_' + id).hide(); }
-                            
+
                         }
                     }
                 }
@@ -167,12 +176,12 @@
                                             <input type="hidden" id="POS_ID" name="POS_ID" value="0" />
 
                                             <p>Título:*</p>
-                                            <input type="text" maxlength="60"  name="POS_TITULO" id="POS_TITULO" class="input obg" placeholder="Título do Post" />
+                                            <input type="text" maxlength="60" name="POS_TITULO" id="POS_TITULO" class="input obg" placeholder="Título do Post" />
 
                                             <p>Imagem (190px x 80px)*:</p>
                                             <asp:FileUpload ID="POS_IMAGEM" runat="server" class="multi input" />
                                             <div id="thumb"></div>
-                                            
+
                                             <p>Categoria*</p>
                                             <select name="PCA_ID" runat="server" id="PCA_ID" data-validation="required" class="input obg">
                                                 <option value="">Selecione a categoria</option>
