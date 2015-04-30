@@ -102,7 +102,7 @@ namespace BrincaderiasMusicais
                                             Redefinir.resizeImageAndSave(pth, 478, 332, prefixoG);
 
                                             // Salvar no BD
-                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "','" + Session["usuID"] + "', '" + Session["redeID"] + "', null, '" + Request["POS_TITULO"] + "', '" + filename + i + extensao + "','<p>" + Request["POS_TEXTO"].Replace("'", "\"") + "</p>',0," + Request["PCA_ID"]);
+                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "','" + Session["usuID"] + "', '" + Session["redeID"] + "', null, '" + Request["POS_TITULO"] + "', '" + filename + i + extensao + "','" + Request["POS_TEXTO"] + "',0," + Request["PCA_ID"]);
                                             objUtils.EnviaEmail(Session["email"].ToString(), "Post Publicado com sucesso!", "Parabéns, seu pos acabou de ser publicado!");
                                             VerificarMedalhas();
 

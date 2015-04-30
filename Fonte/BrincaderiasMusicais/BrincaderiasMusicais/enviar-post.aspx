@@ -22,6 +22,13 @@
     <meta property="og:url" content="http://projetopalavracantada.net/artigos" />
 
     <brincadeira:script runat="server" ID="script" />
+    <script src="administracao/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea",
+            menubar: false
+        });
+    </script>
 
 </head>
 <body>
@@ -61,7 +68,7 @@
                         </select>
                         
                         <label class="label">Texto do post:</label>
-                        <textarea class="input" rows="15" placeholder="Escreva aqui o texto de seu post" name="POS_TEXTO" id="POS_TEXTO" runat="server"></textarea>
+                        <textarea class="input" rows="10" placeholder="Escreva aqui o texto de seu post" name="POS_TEXTO" id="POS_TEXTO" runat="server"></textarea><br />
                     </div>
                     <div class="full up_post_btn">
 
