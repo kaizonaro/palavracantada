@@ -36,7 +36,7 @@ namespace BrincaderiasMusicais.administracao
                     if (rsLista.HasRows)
                     {
                         rsLista.Read();
-                        Response.Write(rsLista["POS_ID"] + "|" + rsLista["POS_TITULO"] + "|" + rsLista["POS_TEXTO"] + "|" + rsLista["POS_IMPORTANTE"] + "|" + rsLista["POS_CATEGORIA"] + "|" + "<img width='150px' src='/upload/imagens/blog/thumb-" + rsLista["POS_IMAGEM"].ToString() + "'>" + "|" +  rsLista["RED_ID"].ToString());
+                        Response.Write(rsLista["POS_ID"] + "|" + rsLista["POS_TITULO"] + "|" + rsLista["POS_TEXTO"] + "|" + rsLista["POS_IMPORTANTE"] + "|" + rsLista["POS_CATEGORIA"] + "|" + "<img width='150px' src='/upload/imagens/blog/thumb-" + rsLista["POS_IMAGEM"].ToString() + "'>" + "|" + rsLista["RED_ID"].ToString());
                     }
                     break;
                 case ("excluirPost"):
@@ -260,9 +260,9 @@ namespace BrincaderiasMusicais.administracao
                         rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, " + Request["RED_ID"] + ", " + Session["id"] + ",'" + Request["POS_TITULO"] + "',NULL,'" + Request["POS_TEXTO"].Replace("'", "\"") + "'," + Request["POS_IMPORTANTE"] + ", " + Request["PCA_ID"]);
                         notificacoes();
                     }
-                   
+
                 }
-                  
+
                 catch (Exception)
                 {
                     Response.Write("Imagem não pode ser superior a 8 MB");
@@ -279,16 +279,16 @@ namespace BrincaderiasMusicais.administracao
             }
             if (rsNotificar.HasRows)
             {
-                string destinatarios = "";
+               
                 while (rsNotificar.Read())
                 {
-                    destinatarios += rsNotificar["USU_EMAIL"] + ",";
+                    if (objUtils.EnviaEmail(rsNotificar["USU_EMAIL"].ToString(), "Novo post no portal Brincadeiras Musicais", "Acabamos de postar no portal: <a href=\"http://www.projetopalavracantada.net/post/" + Request["POS_TITULO"].Replace(" ", "-") + "\">" + Request["POS_TITULO"] + "</a>") == false)
+                    {
+                        throw new Exception();
+                    }
                 }
 
-                if (objUtils.EnviaEmail(destinatarios, "Novo post no portal Brincadeiras Musicais", "Acabamos de postar no portal: <a href=\"http://www.projetopalavracantada.net/post/" + Request["POS_TITULO"].Replace(" ", "-") + "\">" + Request["POS_TITULO"] + "</a>") == false)
-                {
-                    throw new Exception();
-                }
+
             }
         }
 
