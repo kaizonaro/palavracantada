@@ -26,7 +26,15 @@
     <script type="text/javascript">
         tinymce.init({
             selector: "textarea",
-            menubar: false
+            menubar: false,
+            language: "pt_BR",
+
+            plugins: [
+                    "advlist autolink lists link image charmap print preview anchor",
+                    "searchreplace visualblocks code fullscreen",
+                    "insertdatetime media table contextmenu paste youtube"
+            ],
+            toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image| youtube"
         });
     </script>
 
@@ -68,7 +76,7 @@
                         </select>
                         
                         <label class="label">Texto do post:</label>
-                        <textarea class="input" rows="10" placeholder="Escreva aqui o texto de seu post" name="POS_TEXTO" id="POS_TEXTO" runat="server"></textarea><br />
+                        <textarea name="POS_TEXTO" id="POS_TEXTO" runat="server"></textarea><br />
                     </div>
                     <div class="full up_post_btn">
 
