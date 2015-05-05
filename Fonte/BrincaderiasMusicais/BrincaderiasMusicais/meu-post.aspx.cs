@@ -74,6 +74,12 @@ namespace BrincaderiasMusicais
             if (rsBlog.HasRows)
             {
                 rsBlog.Read();
+                var USU_ID_BLOG = rsBlog["USU_ID"].ToString();
+                var USU_ID_SESSAO = Session["usuId"].ToString();
+                if (USU_ID_BLOG != USU_ID_SESSAO)
+                {
+                    Response.Redirect("../post/" + Request["titulo"]);
+                }
 
                 //imagem
                 img1.Src = "/upload/imagens/blog/big-" + rsBlog["POS_IMAGEM"].ToString() + "";
