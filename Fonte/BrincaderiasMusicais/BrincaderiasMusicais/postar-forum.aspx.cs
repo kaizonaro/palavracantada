@@ -14,7 +14,7 @@ namespace BrincaderiasMusicais
     {
         private utils objUtils = new utils();
         private bd objBD = new bd();
-        private OleDbDataReader rsMedalhas;
+        private OleDbDataReader rsMedalhas, rsForum;
 
         private string url = "";
         protected void Page_Load(object sender, EventArgs e)
@@ -22,9 +22,23 @@ namespace BrincaderiasMusicais
             TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
             FTO_ID.Value = Request["FTO_ID"];
             REDIRECT.Value = Request["REDIRECT"];
+
+            bd banco = new bd();
+            OleDbDataReader rsForum = banco.ExecutaSQL("select FTO_ID, FTO_TITULO from ForumTopicos where FTO_ID = " + textInfo.ToTitleCase(Request["REDIRECT"].Substring(Request["REDIRECT"].LastIndexOf('/') + 1)).Replace("-", " ") + "");
             
-            titulo.InnerText = textInfo.ToTitleCase(Request["REDIRECT"].Substring(Request["REDIRECT"].LastIndexOf('/') + 1)).Replace("-", " ");
-            titulobrd.InnerText = textInfo.ToTitleCase(Request["REDIRECT"].Substring(Request["REDIRECT"].LastIndexOf('/') + 1)).Replace("-", " ");
+            if (rsForum == null)
+            {
+                throw new Exception();
+            }
+            if (rsForum.HasRows)
+            {
+                rsForum.Read();
+                titulobrd.InnerText = rsForum["FTO_TITULO"].ToString();
+                titulo.InnerText = rsForum["FTO_TITULO"].ToString();
+            }
+
+           // titulo.InnerText = textInfo.ToTitleCase(Request["REDIRECT"].Substring(Request["REDIRECT"].LastIndexOf('/') + 1)).Replace("-", " ");
+            //titulobrd.InnerText = textInfo.ToTitleCase(Request["REDIRECT"].Substring(Request["REDIRECT"].LastIndexOf('/') + 1)).Replace("-", " ");
         }
 
 

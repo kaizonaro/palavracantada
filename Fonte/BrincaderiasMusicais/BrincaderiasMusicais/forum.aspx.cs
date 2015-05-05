@@ -53,7 +53,7 @@ namespace BrincaderiasMusicais
                 {
                     listaForum.InnerHtml += " <p class=\"titu_forum2\">";
                     listaForum.InnerHtml += "   <img src=\"images/titu_forum.png\" alt=\"Icone\" />";
-                    listaForum.InnerHtml += "   <a href=\"/forum-lista/" + objUtils.GerarURLAmigavel(rsLista["FTO_TITULO"].ToString()) + "/1\" title=\"" + rsLista["FTO_TITULO"] + "\">" + rsLista["FTO_TITULO"] + ":</a>";
+                    listaForum.InnerHtml += "   <a href=\"/forum-lista/" + objUtils.GerarURLAmigavel(rsLista["FTO_TITULO"].ToString()) + "/"+rsLista["FTO_ID"]+"\" title=\"" + rsLista["FTO_TITULO"] + "\">" + rsLista["FTO_TITULO"] + ":</a>";
                     listaForum.InnerHtml += " </p>";
                 }
             }
@@ -63,7 +63,7 @@ namespace BrincaderiasMusicais
 
         public void Ultimas()
         {
-            rsLista = objBD.ExecutaSQL("select top 3 U.USU_NOME, U.USU_USUARIO, FME_MENSAGEM, CONVERT(VARCHAR(10),FME_DH_PUBLICACAO, 103) AS FME_DH_PUBLICACAO from ForumMensagem F inner join Usuario U ON (U.USU_ID = F.USU_ID) where RED_ID = " + Session["redeID"] + " order by F.FME_DH_PUBLICACAO desc");
+            rsLista = objBD.ExecutaSQL("select top 3  F.FTO_ID, U.USU_NOME, U.USU_USUARIO, FME_MENSAGEM, CONVERT(VARCHAR(10),FME_DH_PUBLICACAO, 103) AS FME_DH_PUBLICACAO, T.FTO_TITULO from ForumMensagem F inner join ForumTopicos T on (T.FTO_ID = F.FTO_ID) inner join Usuario U ON (U.USU_ID = F.USU_ID) where RED_ID = " + Session["redeID"] + " order by F.FME_DH_PUBLICACAO desc");
 
             if (rsLista == null)
             {
@@ -77,7 +77,8 @@ namespace BrincaderiasMusicais
                     ultimasMensagens.InnerHtml += "   <div class=\"txt\">";
                     ultimasMensagens.InnerHtml += "       <p>" + objUtils.CortarString(true, 100, rsLista["FME_MENSAGEM"].ToString()) + "</p>";
                     ultimasMensagens.InnerHtml += "       <p class=\"destque_forum\">Mensagem enviada por: <a href='/perfil/" + rsLista["USU_USUARIO"].ToString() + "' title='" + rsLista["USU_NOME"].ToString() + "'>" + rsLista["USU_NOME"].ToString() + "</a></p>";
-                    ultimasMensagens.InnerHtml += "       <p class=\"destque_forum\">Enviada em: <b>" + rsLista["FME_DH_PUBLICACAO"].ToString() + "</b></p><br /><br />";
+                    ultimasMensagens.InnerHtml += "       <p class=\"destque_forum\">Enviada em: <b>" + rsLista["FME_DH_PUBLICACAO"].ToString() + "</b></p>";
+                    ultimasMensagens.InnerHtml += "       <p class=\"destque_forum\">Tópico: <b><a href=\"/forum-lista/" + objUtils.GerarURLAmigavel(rsLista["FTO_TITULO"].ToString()) + "/" + rsLista["FTO_ID"] + "\" title=\"" + rsLista["FTO_TITULO"] + "\">" + rsLista["FTO_TITULO"].ToString() + "</a></b></p><br /><br />";
                     ultimasMensagens.InnerHtml += "   </div>";
                     ultimasMensagens.InnerHtml += " </div>";
                 }
