@@ -14,13 +14,31 @@ namespace BrincaderiasMusicais
     {
         private utils objUtils = new utils();
         private bd objBD = new bd();
-        private OleDbDataReader rsGravar, Categoria, rsTrazer, rsMedalhas;
+        private OleDbDataReader rsGravar, Categoria, rsTrazer, rsMedalhas, rsPosts;
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
             objBD = new bd();
             objUtils = new utils();
+            switch (Request["acao"])
+            {
+                case "validapost":
+                    rsPosts = objBD.ExecutaSQL("SELECT POS_TITULO from PostBlog where POS_TITULO='" + Request["POS_TITULO"] + "'");
+                    if (rsPosts.HasRows)
+                    {
+                        Response.Write("FAIL");
+                    }
+                    else
+                    {
+                        Response.Write("PASS");
+                    }
+                    Response.End();
+                    break;
+
+                default:
+                    break;
+            }
             populacategorias();
 
             if (string.IsNullOrWhiteSpace(Request["POS_ID"]) == false)
@@ -111,11 +129,11 @@ namespace BrincaderiasMusicais
                                 }
                                 catch (Exception)
                                 {
-                                   
+
                                 }
 
                                 // Mensagem se tudo ocorreu bem
-                               // Response.Redirect("meu-perfil");
+                                // Response.Redirect("meu-perfil");
                                 Response.Redirect("/meu-post/" + objUtils.GerarURLAmigavel(Request["POS_TITULO"].ToString()) + "");
                                 Response.End();
                             }
