@@ -36,6 +36,19 @@
             ],
             toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image| youtube"
         });
+
+        function validapost() {
+            $.get("enviar-post.aspx?acao=validapost&POS_TITULO=" + $("#POS_TITULO").val(), function (data) {
+                if (data == "PASS") {
+                    $("#POS_TITULO").removeClass("error");
+                    $("#mensagem").html("");
+                } else {
+                    $("#POS_TITULO").addClass("error")
+                    $("#mensagem").html("Já existe um post com este titulo, por favor escolha outro titulo");
+                }
+
+            })
+        }
     </script>
 
 </head>
@@ -55,26 +68,27 @@
 
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="meuperfil" class="interna">
-               
+
                 <brincadeira:headerperfil runat="server" ID="headerperfil" />
 
                 <img src="/images/linha.png" class="linha" />
                 <form id="up_foto" runat="server">
-                    <input type="hidden" id="posID" name="posID" runat="server" value="0"/>
+                    <input type="hidden" id="posID" name="posID" runat="server" value="0" />
                     <div class="titu_setup">ADICIONAR Post:</div>
                     <p class="mini_txt">Para publicar uma foto, preencha os campos abaixo e clique no botão "publicar post".</p>
                     <div class="full">
                         <label class="label">Título do post:</label>
-                        <input type="text" class="input" placeholder="Escreva aqui o título do seu post" id="POS_TITULO" name="POS_TITULO" runat="server" />
-
+                        <input type="text" class="input" placeholder="Escreva aqui o título do seu post" id="POS_TITULO" name="POS_TITULO" runat="server" onblur="validapost()" />
+                        <p class="mini_txt" id="mensagem"></p>
+                        <br />
                         <label class="label" for="POS_IMAGEM">Imagem do post:</label>
                         <asp:FileUpload ID="POS_IMAGEM" runat="server" CssClass="obg esconde" />
-                        
+
                         <label for="POS_IMAGEM" class="subir_foto btn_save">CARREGAR ARQUIVO DA FOTO</label>
-                        <select name="PCA_ID" runat="server" id="PCA_ID" data-validation="required" class="input obg" >
+                        <select name="PCA_ID" runat="server" id="PCA_ID" data-validation="required" class="input obg">
                             <option value="">Selecione a categoria</option>
                         </select>
-                        
+
                         <label class="label">Texto do post:</label>
                         <textarea name="POS_TEXTO" id="POS_TEXTO" runat="server"></textarea><br />
                     </div>
