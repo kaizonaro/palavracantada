@@ -229,7 +229,7 @@ namespace BrincaderiasMusicais.administracao
                                             Redefinir.resizeImageAndSave(pth, 478, 332, prefixoG);
 
                                             // Salvar no BD
-                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, " + Request["RED_ID"] + ", " + Session["id"] + ",'" + Request["POS_TITULO"] + "','" + filename + i + extensao + "','" + Request["POS_TEXTO"].Replace("'", "\"") + "'," + Request["POS_IMPORTANTE"] + ", " + Request["PCA_ID"]);
+                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, " + Request["RED_ID"] + ", " + Session["id"] + ",'" + Request["POS_TITULO"] + "','" + filename + i + extensao + "','" + Request["POS_TEXTO"].Replace("'", "\"") + "','" + Request["POS_IMPORTANTE"] + "', " + Request["PCA_ID"]);
                                             notificacoes();
                                         }
                                     }
