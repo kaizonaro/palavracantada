@@ -54,10 +54,13 @@ namespace BrincaderiasMusicais
                 metaDescription.Content = "" + rsBlog["POS_TEXTO"].ToString() + "";
                 metaURL.Content = "http://projetopalavracantada.net/post/" + Request["titulo"] + "";
                 var USU_ID_BLOG = rsBlog["USU_ID"].ToString();
-                var USU_ID_SESSAO = Session["usuId"].ToString();
-                if (USU_ID_BLOG == USU_ID_SESSAO)
+                if (!string.IsNullOrWhiteSpace(USU_ID_BLOG))
                 {
-                    Response.Redirect("../meu-post/" + Request["titulo"]);
+                    var USU_ID_SESSAO = Session["usuId"].ToString();
+                    if (USU_ID_BLOG == USU_ID_SESSAO)
+                    {
+                        Response.Redirect("../meu-post/" + Request["titulo"]);
+                    }
                 }
                 // liFace.InnerHtml = "<iframe src=\"//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fprojetopalavracantada.net%2Fpost%2F" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=404437276390840\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; height:21px;\" allowTransparency=\"true\"></iframe>";
 
