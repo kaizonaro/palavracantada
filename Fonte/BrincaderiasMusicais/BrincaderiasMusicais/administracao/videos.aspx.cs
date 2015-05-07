@@ -177,9 +177,12 @@ namespace BrincaderiasMusicais.administracao
 
         public void gravarVideo()
         {
+            //Response.Write("EXEC admin_piuGaleriaVideos '" + Request["GVI_ID"] + "',"+ Request["RED_ID"] + ", '" + Request["GVI_TITULO"] + "','" + Request["GVI_LINK"].Replace("http://youtu.be/", "").Replace("https://www.youtube.com/watch?v=", "").Replace("https://youtu.be/", "") + "','" + Request["GVI_LINK"].Replace("http://youtu.be/", "http://i.ytimg.com/vi/").Replace("https://www.youtube.com/watch?v=", "http://i.ytimg.com/vi/").Replace("https://youtu.be/", "http://i.ytimg.com/vi/") + "/mqdefault.jpg'");
+            //Response.End();
+
             try
             {
-                rsGravar = objBD.ExecutaSQL("EXEC admin_piuGaleriaVideos '" + Request["GVI_ID"] + "','" + Request["RED_ID"] + "', '" + Request["GVI_TITULO"] + "','" + Request["GVI_LINK"].Replace("http://youtu.be/", "").Replace("https://www.youtube.com/watch?v=", "").Replace("https://youtu.be/", "") + "','" + Request["GVI_LINK"].Replace("http://youtu.be/", "http://i.ytimg.com/vi/").Replace("https://www.youtube.com/watch?v=", "http://i.ytimg.com/vi/").Replace("https://youtu.be/","http://i.ytimg.com/vi/") + "/mqdefault.jpg'");
+                rsGravar = objBD.ExecutaSQL("EXEC admin_piuGaleriaVideos '" + Request["GVI_ID"] + "'," + Request["RED_ID"] + ", '" + Request["GVI_TITULO"] + "','" + Request["GVI_LINK"].Replace("http://youtu.be/", "").Replace("https://www.youtube.com/watch?v=", "").Replace("https://youtu.be/", "") + "','" + Request["GVI_LINK"].Replace("http://youtu.be/", "http://i.ytimg.com/vi/").Replace("https://www.youtube.com/watch?v=", "http://i.ytimg.com/vi/").Replace("https://youtu.be/","http://i.ytimg.com/vi/") + "/mqdefault.jpg'");
 
                 if (rsGravar == null)
                 {

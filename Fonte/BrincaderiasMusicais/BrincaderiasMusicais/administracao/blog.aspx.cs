@@ -258,8 +258,8 @@ namespace BrincaderiasMusicais.administracao
                     else
                     {
                         rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "',NULL, " + Request["RED_ID"] + ", " + Session["id"] + ",'" + Request["POS_TITULO"] + "',NULL,'" + Request["POS_TEXTO"].Replace("'", "\"") + "','" + Request["POS_IMPORTANTE"] + "', " + Request["PCA_ID"]);
-                       
                         notificacoes();
+                        Response.Redirect("blog.aspx");
                     }
 
                 }
