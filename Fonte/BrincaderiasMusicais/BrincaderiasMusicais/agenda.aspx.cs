@@ -31,7 +31,7 @@ namespace BrincaderiasMusicais
 
             if (Page.IsPostBack == false)
             {
-                rsLista = objBD.ExecutaSQL("SELECT TOP(3) EVE_DIA, EVE_TITULO, EVE_DESCRICAO from Eventos WHERE EVE_ATIVO =  1 and RED_ID = " + RED_ID + " and EVE_DIA >= getdate() ORDER BY EVE_DIA DESC");
+                rsLista = objBD.ExecutaSQL("EXEC site_psEventos " + RED_ID);
                 if (rsLista == null)
                 {
                     throw new Exception();
