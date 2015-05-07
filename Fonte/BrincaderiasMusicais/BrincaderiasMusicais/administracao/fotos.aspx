@@ -156,7 +156,7 @@
                                         
                                         <p>Selecione uma rede:</p>
                                         <select id="RED_ID" name="RED_ID" class="input obg" runat="server">
-                                            <option value="NULL">Selecione</option>
+                                             <option value="null">Todas as Redes</option>
                                         </select>
 
                                         <p class="p_btn">

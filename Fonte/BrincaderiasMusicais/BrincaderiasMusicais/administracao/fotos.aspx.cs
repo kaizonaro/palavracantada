@@ -234,7 +234,7 @@ namespace BrincaderiasMusicais
                             Redefinir.resizeImageAndSave(pth, 196, 110, prefixo);
 
                             // Salvar no BD
-                            objBD.ExecutaSQL("EXEC admin_piuGaleriaFotos '" + Request["GFO_ID"] + "','" + Request["RED_ID"] + "', '" + filename + extensao + "','" + Request["GFO_LEGENDA"] + "'");
+                            objBD.ExecutaSQL("EXEC admin_piuGaleriaFotos '" + Request["GFO_ID"] + "'," + Request["RED_ID"] + ", '" + filename + extensao + "','" + Request["GFO_LEGENDA"] + "'");
 
                             // File.Delete(Server.MapPath("~/upload/imagens/" + rsSize["PAG_PASTA"] + "/") + filename + i + extensao);
                             arquivo = filename + extensao;

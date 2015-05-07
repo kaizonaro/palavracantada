@@ -155,8 +155,8 @@
                                         <input type="text" name="GVI_LINK" id="GVI_LINK" class="input obg"  placeholder="Copie e o Cole a URL"/>
                                         
                                         <p>Selecione uma rede:</p>
-                                        <select id="RED_ID" name="RED_ID" class="input obg" runat="server">
-                                            <option value="">Selecione</option>
+                                        <select id="RED_ID" name="RED_ID" class="input" runat="server">
+                                            <option value="null">Todas as Redes</option>
                                         </select>
                                         
                                         </label><p class="p_btn">
