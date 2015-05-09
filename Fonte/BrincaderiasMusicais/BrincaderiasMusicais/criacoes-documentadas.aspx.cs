@@ -45,16 +45,18 @@ namespace BrincaderiasMusicais
             {
                 throw new Exception();
             }
+
+            tbAtiva.InnerHtml += "<table class=\"tabela\">";
+            tbAtiva.InnerHtml += "  <tr>";
+            tbAtiva.InnerHtml += "      <th style='min-width: 242px;'>Tarefa</th>";
+            tbAtiva.InnerHtml += "      <th style='min-width: 65px;'>Data</th>";
+            tbAtiva.InnerHtml += "      <th>Relatos</th>";
+            tbAtiva.InnerHtml += "      <th>Visualizar</th>";
+            tbAtiva.InnerHtml += " </tr>";
+
             if (rsListar.HasRows)
             {
-                tbAtiva.InnerHtml += "<table class=\"tabela\">";
-                tbAtiva.InnerHtml += "  <tr>";
-                tbAtiva.InnerHtml += "      <th style='min-width: 242px;'>Tarefa</th>";
-                tbAtiva.InnerHtml += "      <th style='min-width: 65px;'>Data</th>";
-                tbAtiva.InnerHtml += "      <th>Relatos</th>";
-                tbAtiva.InnerHtml += "      <th>Visualizar</th>";
-                tbAtiva.InnerHtml += " </tr>";
-
+               
                 while (rsListar.Read())
                 {
                     tbAtiva.InnerHtml += " <tr>";
@@ -86,6 +88,29 @@ namespace BrincaderiasMusicais
                     tbArquivada.InnerHtml += " </tr>";
                 }
                 tbArquivada.InnerHtml += "</table>";
+            }
+            else
+            {
+                rsListar.NextResult();
+                tbArquivada.InnerHtml += "<table class=\"tabela2\">";
+                tbArquivada.InnerHtml += "  <tr>";
+                tbArquivada.InnerHtml += "      <th style='min-width: 242px;'>Tarefa</th>";
+                tbArquivada.InnerHtml += "      <th style='min-width: 65px;'>Data</th>";
+                tbArquivada.InnerHtml += "      <th>Relatos</th>";
+                tbArquivada.InnerHtml += "      <th>Visualizar</th>";
+                tbArquivada.InnerHtml += " </tr>";
+
+                while (rsListar.Read())
+                {
+                    tbArquivada.InnerHtml += " <tr>";
+                    tbArquivada.InnerHtml += "  <td>" + rsListar["CDO_TAREFA"] + "</td>";
+                    tbArquivada.InnerHtml += "  <td>" + rsListar["CDO_DATA"] + "</td>";
+                    tbArquivada.InnerHtml += "  <td>" + rsListar["TOTAL_RELATOS"] + "</td>";
+                    tbArquivada.InnerHtml += "  <td><a href=\"/tarefa-arquivada/" + rsListar["CDO_ID"] + "\">Visualizar Tarefa</a></td>";
+                    tbArquivada.InnerHtml += " </tr>";
+                }
+                tbArquivada.InnerHtml += "</table>";
+
             }
         }
     }
