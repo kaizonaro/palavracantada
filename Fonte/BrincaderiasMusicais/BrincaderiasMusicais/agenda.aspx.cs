@@ -59,7 +59,7 @@ namespace BrincaderiasMusicais
 
         protected void calendario_SelectionChanged(object sender, EventArgs e)
         {
-            rsLista = objBD.ExecutaSQL("SELECT EVE_DIA, EVE_TITULO, EVE_DESCRICAO, EVE_HORA from Eventos WHERE EVE_ATIVO =  1 and RED_ID = " + RED_ID + " and EVE_DIA = convert(date,'" + calendario.SelectedDate.Date + "',103)");
+            rsLista = objBD.ExecutaSQL("SELECT EVE_DIA, EVE_TITULO, EVE_DESCRICAO, EVE_HORA from Eventos WHERE EVE_ATIVO =  1 and (RED_ID = " + RED_ID + " or RED_ID is NULL) and EVE_DIA = convert(date,'" + calendario.SelectedDate.Date + "',103)");
             if (rsLista == null)
             {
                 throw new Exception();
@@ -80,7 +80,7 @@ namespace BrincaderiasMusicais
 
         protected void calendario_DayRender(object sender, DayRenderEventArgs e)
         {
-            rsLista = objBD.ExecutaSQL("SELECT EVE_DIA from Eventos WHERE EVE_ATIVO =  1 and EVE_DIA = convert(date,'" + e.Day.Date + "',103) and RED_ID = " + RED_ID + "  ORDER BY EVE_DIA DESC");
+            rsLista = objBD.ExecutaSQL("SELECT EVE_DIA from Eventos WHERE EVE_ATIVO =  1 and EVE_DIA = convert(date,'" + e.Day.Date + "',103) and (RED_ID = " + RED_ID + " or RED_ID is NULL)  ORDER BY EVE_DIA DESC");
             if (rsLista == null)
             {
                 throw new Exception();
