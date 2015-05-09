@@ -101,8 +101,8 @@ namespace BrincaderiasMusicais
                     divArtigos.InnerHtml += "   <span>Em: <strong>" + rsArtigos["POS_DATA_PUBLICACAO"] + "</strong>, às <strong>" + rsArtigos["POS_HORA_PUBLICAO"] + "</strong></span>";
                     divArtigos.InnerHtml += "   <span>na categoria: <strong>" + rsArtigos["POS_CATEGORIA"] + "</strong></span>";
                     divArtigos.InnerHtml += "   <div class=\"txt\">";
-                    //divArtigos.InnerHtml += "       <p>" + objUtils.CortarString(true, 230, rsArtigos["POS_TEXTO"].ToString()) + "</p>";
-                    divArtigos.InnerHtml += "       <p>&nbsp;</p>";
+                    divArtigos.InnerHtml += "       <p>" + objUtils.CortarString(true, 230, rsArtigos["POS_TEXTO"].ToString()) + "</p>";
+                    //divArtigos.InnerHtml += "       <p>&nbsp;</p>";
                     divArtigos.InnerHtml += "   </div>";
                     divArtigos.InnerHtml += "   <a href=\"/post/" + objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString()) + "\" class=\"btn\">LEIA MAIS</a>";
                     divArtigos.InnerHtml += "   <ul class=\"social_blog\">";
