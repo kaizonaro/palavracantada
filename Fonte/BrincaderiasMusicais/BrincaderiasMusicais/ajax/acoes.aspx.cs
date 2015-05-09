@@ -267,7 +267,7 @@ namespace BrincaderiasMusicais.ajax
             retorno += " </p>";
             retorno += " <hr />";
 
-            rsComentarios = objBD.ExecutaSQL("exec site_comentarios_tarefas 4" + pg + ",1," + id + "");
+            rsComentarios = objBD.ExecutaSQL("exec site_comentarios_tarefas 4," + pg + ",1," + id + "");
 
             if (rsComentarios == null)
             {
