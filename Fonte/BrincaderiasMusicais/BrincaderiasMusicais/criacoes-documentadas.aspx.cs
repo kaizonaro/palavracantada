@@ -83,8 +83,8 @@ namespace BrincaderiasMusicais
                     tbArquivada.InnerHtml += " <tr>";
                     tbArquivada.InnerHtml += "  <td>" + rsListar["CDO_TAREFA"] + "</td>";
                     tbArquivada.InnerHtml += "  <td>" + rsListar["CDO_DATA"] + "</td>";
-                    tbArquivada.InnerHtml += "  <td>" + rsListar["TOTAL_RELATOS"] + "</td>";
-                    tbArquivada.InnerHtml += "  <td><a href=\"/tarefa-arquivada/" + rsListar["CDO_ID"] + "\">Visualizar Tarefa</a></td>";
+                    //tbArquivada.InnerHtml += "  <td><a href=\"/tarefa-arquivada/" + rsListar["CDO_ID"] + "\">Visualizar Tarefa</a></td>";
+                    tbArquivada.InnerHtml += "  <td>Visualizar Tarefa</td>";
                     tbArquivada.InnerHtml += " </tr>";
                 }
                 tbArquivada.InnerHtml += "</table>";
@@ -106,7 +106,8 @@ namespace BrincaderiasMusicais
                     tbArquivada.InnerHtml += "  <td>" + rsListar["CDO_TAREFA"] + "</td>";
                     tbArquivada.InnerHtml += "  <td>" + rsListar["CDO_DATA"] + "</td>";
                     tbArquivada.InnerHtml += "  <td>" + rsListar["TOTAL_RELATOS"] + "</td>";
-                    tbArquivada.InnerHtml += "  <td><a href=\"/tarefa-arquivada/" + rsListar["CDO_ID"] + "\">Visualizar Tarefa</a></td>";
+                    //tbArquivada.InnerHtml += "  <td><a href=\"/tarefa-arquivada/" + rsListar["CDO_ID"] + "\">Visualizar Tarefa</a></td>";
+                    tbArquivada.InnerHtml += "  <td>Visualizar Tarefa</td>";
                     tbArquivada.InnerHtml += " </tr>";
                 }
                 tbArquivada.InnerHtml += "</table>";

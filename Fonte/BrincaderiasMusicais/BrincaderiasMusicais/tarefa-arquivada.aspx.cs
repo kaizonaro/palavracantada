@@ -43,7 +43,7 @@ namespace BrincaderiasMusicais
             {
                 rsListar.Read();
 
-                titu_criacoes.InnerHtml = rsListar["CDO_TAREFA"].ToString();
+                titu_criacoes.InnerHtml = objUtils.RemoveHTML(rsListar["CDO_TAREFA"].ToString());
                 criador.InnerHtml = rsListar["ADM_NOME"].ToString();
                 data.InnerHtml = rsListar["CDO_DATA"].ToString();
                 box_descritivo.InnerHtml = rsListar["CDO_DESCRITIVO"].ToString();
