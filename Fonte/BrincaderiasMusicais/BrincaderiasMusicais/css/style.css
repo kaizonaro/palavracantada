@@ -126,7 +126,7 @@ header {padding-top:20px;}
 .posts_home li a{color:#68455b;}
 .posts_home li img{width:115px;background:url(../images/bg_post_home.png) no-repeat center center;background-size:cover;padding:9px;display:inline-block;}
 .titu_post_home{font-family:Arial,sans-serif;font-weight:bold;font-size:13px;margin-top:5px;margin-bottom:5px;height: 30px;}
-.desc_post_home{font-family:Arial,sans-serif;font-size:11px; text-align:left;height: 57px;}
+.desc_post_home{font-family:Arial,sans-serif;font-size:11px; text-align:left;max-height: 57px;}
 .posts_home li .btn{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color:#fff;background:url(/images/menu3.png) no-repeat;width: 70px;height: 26px;display: inline-block;line-height: 26px;background-size: cover;float: right;margin-top: 7px;}
 /*@-moz-document url-prefix() {.blog_home .titu{padding-left: 24px;}}
  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
@@ -588,12 +588,25 @@ textarea{resize:none;}
 .modal_relatos .titu_criacoes{text-align:center;margin-top:0;margin-bottom:5px;}
 .modal_relatos hr{border-top:1px dotted #68455b;width:100%;display:inline-block;}
 .modal_relatos .mini_perfil{padding:3px;width:47px;background: url(../images/bg_img_perfil.png) no-repeat center center; background-size: cover;margin-right:10px;}
+
 .box_lista_relato{margin-top:10px;width:100%;display:inline-block;border-bottom:1px dotted #68455b;padding-bottom:20px;}
 .box_lista_relato .txt{font-family:arial, sans-serif;font-size:12px;text-align:left;color:#68455b;}
 .box_lista_relato span{margin-left:60px;margin-top:5px}
 
 
 /*AJUSTES*/
+.modal_comentario1{width:540px;height:591px;padding:25px;background:url(../images/bg_relate.png) no-repeat center center;margin:10px auto;z-index:15;position:relative;display:none;}
+.modal_comentario1 .box_criacoes{height:250px;}
+textarea{resize:none;}
+.modal_comentario1 .x{width:100%;text-align:right;cursor:pointer;}
+.modal_comentario1 .titu_criacoes{text-align:center;margin-top:0;margin-bottom:5px;}
+.modal_comentario1 hr{border-top:1px dotted #68455b;width:100%;display:inline-block;}
+.modal_comentario1 .mini_perfil{padding:3px;width:47px;background: url(../images/bg_img_perfil.png) no-repeat center center; background-size: cover;margin-right:10px;}
+
+#totalComentarios a {
+    color: #68455b !important;
+}
+
 .textoPost span {
     font-size: 10px;
     color: #525252;

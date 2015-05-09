@@ -39,7 +39,9 @@ namespace BrincaderiasMusicais.ajax
                 case ("verComentarios"):
                     verComentarios(Convert.ToInt16(Request["pg"]), Convert.ToInt16(Request["id"]));
                     break;
-
+                case("verComentarios2"):
+                    verComentarios2(Convert.ToInt16(Request["pg"]), Convert.ToInt16(Request["id"]));
+                    break;
                 case "FazerLogin":
                     FazerLogin();
                     break;
@@ -247,6 +249,97 @@ namespace BrincaderiasMusicais.ajax
                 }
 
                 //retorno += "<nav class=\"paginacao\">   <ul>   <li><a href=\"javascript:void(0);\" class=\"nav_pg\" title=\"Página anterior\"><img src=\"/images/nav_left.png\">ANTERIORES</a></li>   <li><a href=\"javascript:void(0);\" title=\"Página atual\" class=\"ativo\">1</a></li>   <li><a href=\"javascript:void(0);\" onclick=\"pagina('2')\" title=\"Página 2\">2</a></li>   <li><a href=\"javascript:void(0);\" onclick=\"pagina('3')\" title=\"Página 3\">3</a></li>   <li><a href=\"javascript:void(0);\" onclick=\"pagina('2')\" class=\"nav_pg\" title=\"Próxima Página\">PRÓXIMOS <img src=\"/images/nav_right.png \"></a></li>   </ul>  </nav>";
+
+            }
+            retorno += conteudoPaginacao;
+
+            Response.Write(retorno);
+            Response.End();
+        }
+
+        public void verComentarios2(int pg, int id)
+        {
+            retorno += " <div onClick=\"fechar_relato()\" class=\"fechar_relato x\">";
+            retorno += "    <img src=\"/images/x.jpg\" />";
+            retorno += " </div>";
+            retorno += " <p class=\"titu_criacoes\">";
+            retorno += "    <img src=\"/images/icon_comente.png\" alt=\"Icone de comentários\" /> COMENTÁRIOS DESTA TAREFA";
+            retorno += " </p>";
+            retorno += " <hr />";
+
+            rsComentarios = objBD.ExecutaSQL("exec site_comentarios_tarefas 4" + pg + ",1," + id + "");
+
+            if (rsComentarios == null)
+            {
+                throw new Exception();
+            }
+            if (rsComentarios.HasRows)
+            {
+                while (rsComentarios.Read())
+                {
+                    retorno += " <div class=\"box_lista_relato\">";
+                    retorno += "     <img class=\"mini_perfil\" src=\"/upload/imagens/usuarios/" + rsComentarios["USU_FOTO"].ToString() + "\" alt=\"" + rsComentarios["USU_NOME"].ToString() + "\" />";
+                    retorno += "     <p class=\"txt\">";
+                    retorno += "     " + rsComentarios["COM_TEXTO"] + "";
+                    retorno += "     </p>";
+                    retorno += "     <span class=\"tafera_detalhe\">Comentário  enviado por:  <strong>" + rsComentarios["USU_NOME"].ToString() + "</strong></span>";
+                    retorno += "</div>";
+
+                    //PAGINAÇÃO
+                    if (registro == 1 && Convert.ToInt16(rsComentarios["total_paginas"]) > 1)
+                    {
+                        conteudoPaginacao += "<nav class=\"paginacao\">";
+                        conteudoPaginacao += "   <ul>";
+
+                        //Validações do voltar
+                        if (pagina_atual > 1)
+                        {
+                            int pgVoltar = pagina_atual - 1;
+                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" onClick=\"verComentarios2(" + pgVoltar + "," + id + ")\" class=\"nav_pg\" title=\"Página anterior\"><img src=\"/images/nav_left.png\"/>ANTERIORES</a></li>";
+                        }
+                        else
+                        {
+                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" class=\"nav_pg\" title=\"Página anterior\"><img src=\"/images/nav_left.png\" />ANTERIORES</a></li>";
+                        }
+
+                        //ajuste de primeira página
+                        int cont_inicio = pagina_atual - 1;
+                        if (cont_inicio <= 0) { cont_inicio = 1; }
+
+                        //ajueste de última página
+                        int cont_fim = Convert.ToInt16(rsComentarios["total_paginas"]);
+                        if ((cont_fim - cont_inicio) >= 2) { cont_fim = (cont_inicio + 2); }
+
+                        for (int aux = cont_inicio; aux < cont_fim + 1; aux++)
+                        {
+                            //verificar se é a página atual
+                            if (pagina_atual == aux)
+                            {
+                                conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" title=\"Página atual\" class=\"ativo\">" + aux + "</a></li>";
+                            }
+                            else
+                            {
+                                conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" onClick=\"verComentarios2(" + aux + "," + id + ")\" title=\"Página " + aux + "\">" + aux + "</a></li>";
+                            }
+                        }
+
+                        //Validações do avançar
+                        if (pagina_atual < Convert.ToInt16(rsComentarios["total_paginas"]))
+                        {
+                            int pgAvancar = pagina_atual + 1;
+                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" onClick=\"verComentarios2(" + pgAvancar + "," + id + ")\" class=\"nav_pg\" title=\"Próxima Página\">PRÓXIMOS <img src=\"/images/nav_right.png \"/></a></li>";
+                        }
+                        else
+                        {
+                            conteudoPaginacao += "   <li><a href=\"javascript:void(0);\" class=\"nav_pg\" title=\"Próxima Página\">PRÓXIMOS <img src=\"/images/nav_right.png \"/></a></li>";
+                        }
+
+                        conteudoPaginacao += "   </ul> ";
+                        conteudoPaginacao += " </nav> ";
+                    }
+                    registro++;
+
+                }
 
             }
             retorno += conteudoPaginacao;

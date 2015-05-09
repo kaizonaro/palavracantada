@@ -55,6 +55,23 @@
             };
             mod.send(null);
         }
+
+        function verComentarios2(pg, id) {
+            mod.open("GET", "/ajax/acoes.aspx?pg=" + pg + "&id=" + id + "&acao=verComentarios2", true);
+            mod.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            mod.onreadystatechange = function () {
+                if (mod.readyState == 4) {
+                    if (mod.status == 200) {
+                        var resposta = mod.responseText.split("<script>");
+                        document.getElementById('divcomentario1').innerHTML = resposta[0];
+                        $("#mask").fadeIn(200);
+                        $('.modal_comentario1').fadeIn(400);
+                    }
+                }
+            };
+            mod.send(null);
+        }
+
         function fechar_relato() {
             $('.modal_relatos').fadeOut(200);
             $('#mask').fadeOut(400);
@@ -203,6 +220,15 @@
 
         <div class="modal_relatos" id="comentarioRelatos" runat="server">
             
+        </div>
+
+        <div class="modal_comentario1" id="divcomentario1">
+            <!--<div class="fechar_comentario x">
+                <img src="/images/x.jpg" />
+            </div>
+            <p class="titu_criacoes">
+                COMENTÁRIOS DA TAREFA
+            </p>-->
         </div>
     </div>
 </body>

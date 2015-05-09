@@ -82,13 +82,13 @@ namespace BrincaderiasMusicais
                 
                 relato_detalhe.InnerHtml = "<strong>" + rsListar["TOTAL_RELATOS"].ToString() + " Relatos Enviados</strong>";
 
-                totalComentarios.InnerHtml = rsListar["TOTAL_COMENTARIOS"].ToString() + " Comentário";
+                totalComentarios.InnerHtml = "<a href='javascript:void(0)' onClick='verComentarios2(1," + Request["CDO_ID"] + ");'> " + rsListar["TOTAL_COMENTARIOS"].ToString() + " Comentário";
 
                 if (Convert.ToInt16(rsListar["TOTAL_COMENTARIOS"]) > 1)
                 {
                     totalComentarios.InnerHtml += "s";
                 }
-
+                totalComentarios.InnerHtml += "</a>";
             }
             else
             {
