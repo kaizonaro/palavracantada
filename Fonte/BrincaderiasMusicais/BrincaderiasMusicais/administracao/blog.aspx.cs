@@ -273,19 +273,29 @@ namespace BrincaderiasMusicais.administracao
 
         public void notificacoes()
         {
-            rsNotificar = objBD.ExecutaSQL("EXEC admin_psNotificarPost " + Request["POS_IMPORTANTE"]);
+            rsNotificar = objBD.ExecutaSQL("EXEC admin_psNotificarPost '" + Request["POS_IMPORTANTE"] +"'," + Request["RED_ID"]);
             if (rsNotificar == null)
             {
                 throw new Exception();
             }
             if (rsNotificar.HasRows)
             {
-               
+
                 while (rsNotificar.Read())
                 {
-                    if (objUtils.EnviaEmail(rsNotificar["USU_EMAIL"].ToString(), "Novo post no portal Brincadeiras Musicais", "Acabamos de postar no portal: <a href=\"http://www.projetopalavracantada.net/post/" + Request["POS_TITULO"].Replace(" ", "-") + "\">" + Request["POS_TITULO"] + "</a>") == false)
+                    if (Request["POS_IMPORTANTE"].ToString() == "1")
                     {
-                        throw new Exception();
+                        if (objUtils.EnviaEmail(rsNotificar["USU_EMAIL"].ToString(), Request["POS_TITULO"], "<center><h3>" + Request["POS_TITULO"] + "</h3></center><br>" + Request["POS_TEXTO"]) == false)
+                        {
+                            throw new Exception();
+                        }
+                    }
+                    else
+                    {
+                        if (objUtils.EnviaEmail(rsNotificar["USU_EMAIL"].ToString(), "Novo post no portal Brincadeiras Musicais", "Um novo Post foi publicado no portal Brincadeiras Musicais da Palavra cantada, confira agora mesmo no link: <a href=\"http://www.projetopalavracantada.net/post/" + objUtils.GerarURLAmigavel(Request["POS_TITULO"].ToString()) + "\">" + Request["POS_TITULO"] + "</a>") == false)
+                        {
+                            throw new Exception();
+                        }
                     }
                 }
 
