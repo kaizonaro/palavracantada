@@ -14,6 +14,9 @@
     <script type="text/javascript">
 
         tinymce.init({
+            height: 500,
+            resize: false,
+            language: "pt_BR",
             selector: "textarea",
             menubar: false
         });
