@@ -64,8 +64,18 @@ namespace BrincaderiasMusicais
                 }
                 // liFace.InnerHtml = "<iframe src=\"//www.facebook.com/plugins/like.php?href=http%3A%2F%2Fprojetopalavracantada.net%2Fpost%2F" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=404437276390840\" scrolling=\"no\" frameborder=\"0\" style=\"border:none; overflow:hidden; height:21px;\" allowTransparency=\"true\"></iframe>";
 
-                //breadcrumb
-                breadcrumb.InnerHtml = "<a href='/' title='Home'>Home</a> >> <strong>Blog</strong> >> " + rsBlog["POS_TITULO"] + " ";
+
+                if (!string.IsNullOrWhiteSpace(rsBlog["RED_ID"].ToString()))
+                {
+                    //breadcrumb
+                    breadcrumb.InnerHtml = "<a href='/' title='Home'>Home</a> >> <strong>Blog Regional</strong> >> " + rsBlog["POS_TITULO"] + " ";
+                }
+                else
+                {
+                    //breadcrumb
+                    breadcrumb.InnerHtml = "<a href='/' title='Home'>Home</a> >> <strong>Blog</strong> >> " + rsBlog["POS_TITULO"] + " ";
+                }
+                
 
                 //imagem
                 imgPost.Src = "/upload/imagens/blog/big-" + rsBlog["POS_IMAGEM"].ToString() + "";

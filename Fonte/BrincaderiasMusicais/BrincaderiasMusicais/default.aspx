@@ -14,8 +14,6 @@
 
     <brincadeira:script runat="server" ID="script" />
 
-
-
     <script type="text/javascript">
 
         function ajaxInit() {
@@ -241,7 +239,7 @@
                         <input type="password" name="USU_SENHA2" id="USU_SENHA2" class="input" placeholder="digite aqui novamente a senha definida" />
                     </div>
                     <div>
-                        <input type="checkbox" id="termo" class="checkbox termo" /><label for="termo" class='termo'>Marque esta opção para concordar com os termos e condições do Projeto Brincadeiras Musicais da Palavra Cantada</label>
+                        <input type="checkbox" id="termo" class="checkbox termo obg" /><label for="termo" class='termo'>Marque esta opção para concordar com os termos e condições do Projeto Brincadeiras Musicais da Palavra Cantada</label>
                         <nav>
                             <input class="btn" type="button" value="cadastrar" id="cadastrar_bt">
                             <!-- <input class="btn" type="reset" value="cancelar">-->
