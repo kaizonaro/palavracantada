@@ -89,25 +89,25 @@ namespace BrincaderiasMusicais
                 if (Convert.ToInt16(rsMedalhas["TOTAL_LOGIN"]) > 2)
                 {
                     liDedicado.Attributes.Add("class", "ativo");
-                    imgDedicado.Attributes.Add("src", "/images/medalha_ok.png");
+                    imgDedicado.Attributes.Add("src", "/images/medalha1_ok.png");
                 }
 
                 if (Convert.ToInt16(rsMedalhas["TOTAL_POST_BLOG"]) > 2)
                 {
                     liBlogueiro.Attributes.Add("class", "ativo");
-                    imgBlogueiro.Attributes.Add("src", "/images/medalha_ok.png");
+                    imgBlogueiro.Attributes.Add("src", "/images/medalha2_ok.png");
                 }
 
                 if (Convert.ToInt16(rsMedalhas["TOTAL_FOTOS"]) > 2)
                 {
                     liFotografo.Attributes.Add("class", "ativo");
-                    imgFotografo.Attributes.Add("src", "/images/medalha_ok.png");
+                    imgFotografo.Attributes.Add("src", "/images/medalha3_ok.png");
                 }
 
                 if (Convert.ToInt16(rsMedalhas["TOTAL_VIDEOS"]) > 2)
                 {
                     liProdutor.Attributes.Add("class", "ativo");
-                    imgProdutor.Attributes.Add("src", "/images/medalha_ok.png");
+                    imgProdutor.Attributes.Add("src", "/images/medalha4_ok.png");
                 }
             }
             rsMedalhas.Close();
