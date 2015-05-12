@@ -109,6 +109,12 @@ namespace BrincaderiasMusicais
                     liProdutor.Attributes.Add("class", "ativo");
                     imgProdutor.Attributes.Add("src", "/images/medalha4_ok.png");
                 }
+
+                if (Convert.ToInt16(rsMedalhas["TOTAL_FORUM"]) > 1 && Convert.ToInt16(rsMedalhas["TOTAL_RELATOS"]) > 1)
+                {
+                    liExperiente.Attributes.Add("class", "ativo");
+                    imgExperiente.Attributes.Add("src", "/images/medalha5_ok.png");
+                }
             }
             rsMedalhas.Close();
             rsMedalhas.Dispose();
