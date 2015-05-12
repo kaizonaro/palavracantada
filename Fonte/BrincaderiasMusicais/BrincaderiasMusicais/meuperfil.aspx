@@ -69,8 +69,8 @@
                         <li id="liProdutor" runat="server">
                             <img src="/images/medalha4.png" id="imgProdutor" runat="server"/><p>Produtor</p>
                         </li>
-                        <li>
-                            <img src="/images/medalha5.png" /><p>Experiente</p>
+                        <li id="liExperiente" runat="server">
+                            <img src="/images/medalha5.png" id="imgExperiente" runat="server"/><p>Experiente</p>
                         </li>
                     </ul>
                 </div>
