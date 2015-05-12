@@ -196,7 +196,7 @@
                                             <input type="text" class="input sonumero" id="USU_MASSA_DISTANCIA" name="USU_MASSA_DISTANCIA" onkeypress="return sonumero(event)" />
                                             <p>
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
-                                                <input type="submit" value="Incluir" class="btn_form" formmethod="get" onclick="validardinamico()" id="bt_cadastrar" />
+                                                <input type="submit" value="Salvar" class="btn_form" formmethod="get" onclick="validardinamico()" id="bt_cadastrar" />
                                             </p>
                                         </form>
                                     </div>

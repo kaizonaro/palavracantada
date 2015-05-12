@@ -153,7 +153,7 @@
                                             <input type="text" name="BAN_LINK" class="input" id="BAN_LINK" />
                                             <p>
                                                 <input type="button" value="Limpar" class="btn_form"  formmethod="get" onclick="limpaform(this)" />
-                                                <asp:Button ID="Incluir" Cssclass="btn_form"  runat="server" Text="Incluir" OnClick="gravarBanner" />
+                                                <asp:Button ID="Incluir" Cssclass="btn_form"  runat="server" Text="Salvar" OnClick="gravarBanner" />
                                                  
                                             </p>
                                         </form>
