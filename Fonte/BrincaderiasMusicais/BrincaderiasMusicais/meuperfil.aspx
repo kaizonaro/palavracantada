@@ -58,19 +58,19 @@
                             <img src="/images/medalha_ok.png" /><p>Iniciante</p>
                         </li>
                         <li id="liDedicado" runat="server">
-                            <img src="/images/medalha.png" id="imgDedicado" runat="server"/><p>Dedicado</p>
+                            <img src="/images/medalha1.png" id="imgDedicado" runat="server"/><p>Dedicado</p>
                         </li>
                         <li id="liBlogueiro" runat="server">
-                            <img src="/images/medalha.png" id="imgBlogueiro" runat="server"/><p>Blogueiro</p>
+                            <img src="/images/medalha2.png" id="imgBlogueiro" runat="server"/><p>Blogueiro</p>
                         </li>
                         <li id="liFotografo" runat="server">
-                            <img src="/images/medalha.png" id="imgFotografo" runat="server"/><p>Fotógrafo</p>
+                            <img src="/images/medalha3.png" id="imgFotografo" runat="server"/><p>Fotógrafo</p>
                         </li>
                         <li id="liProdutor" runat="server">
-                            <img src="/images/medalha.png" id="imgProdutor" runat="server"/><p>Produtor</p>
+                            <img src="/images/medalha4.png" id="imgProdutor" runat="server"/><p>Produtor</p>
                         </li>
                         <li>
-                            <img src="/images/medalha.png" /><p>Experiente</p>
+                            <img src="/images/medalha5.png" /><p>Experiente</p>
                         </li>
                     </ul>
                 </div>
