@@ -637,3 +637,8 @@ textarea{resize:none;}
     display:none;
 }
 
+.erro_pesquisa {
+    color: #736d9b;
+    font-family: "love_ya_like_a_sister_snormal",sans-serif;
+    font-size: 9px;
+}
