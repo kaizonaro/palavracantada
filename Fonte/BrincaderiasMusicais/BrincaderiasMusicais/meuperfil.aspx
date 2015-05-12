@@ -64,7 +64,7 @@
                             <img src="/images/medalha.png" id="imgBlogueiro" runat="server"/><p>Blogueiro</p>
                         </li>
                         <li id="liFotografo" runat="server">
-                            <img src="/images/medalha.png" id="imgFotografo" runat="server"/><p>Fotografo</p>
+                            <img src="/images/medalha.png" id="imgFotografo" runat="server"/><p>Fotógrafo</p>
                         </li>
                         <li id="liProdutor" runat="server">
                             <img src="/images/medalha.png" id="imgProdutor" runat="server"/><p>Produtor</p>
