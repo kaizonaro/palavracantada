@@ -161,7 +161,7 @@
                                         
                                         </label><p class="p_btn">
                                     		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
-                                            <input type="submit" value="incluir" class="btn_form" formmethod="get" />
+                                            <input type="submit" value="Salvar" class="btn_form" formmethod="get" />
                                			</p>
                                     </form>
                                     <form class="fil_form form" novalidate accept-charset="default">
