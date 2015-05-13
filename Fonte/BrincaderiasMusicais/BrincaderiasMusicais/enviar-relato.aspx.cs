@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsListar;
+        private OleDbDataReader rsListar, rsMedalhas;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -77,11 +77,29 @@ namespace BrincaderiasMusicais
         public void gravar(object sender, EventArgs e)
         {
             objBD.ExecutaSQL("insert into Criacoes_Documentadas_Relatos (CDO_ID, CDR_RELATO,USU_ID,CDR_VIDEO) values ('" + Request["CDO_ID"] + "', '" + Request["CDR_RELATO"] + "', '" + Session["usuID"] + "', '" + objUtils.getYoutubeVideoId(Request["CDR_VIDEO"].ToString()) + "')");
-            //Response.Write(Request["CDO_ID"] + "</br>");
-            //Response.Write(Request["CDR_RELATO"] + "</br>");
-            //Response.Write(objUtils.getYoutubeVideoId(Request["CDR_VIDEO"].ToString()));
-            //Response.End();
+
+            VerificarMedalhas();
+
             Response.Redirect("/tarefa-ativa/" + Request["CDO_ID"] + "");
         }
+
+        public void VerificarMedalhas()
+        {
+            rsMedalhas = objBD.ExecutaSQL("Exec psMedalhasLis " + Session["usuID"].ToString() + "");
+
+            if (rsMedalhas == null)
+            {
+                throw new Exception();
+            }
+            if (rsMedalhas.HasRows)
+            {
+                rsMedalhas.Read();
+                if (Convert.ToInt16(rsMedalhas["TOTAL_FORUM"]) > 1 && Convert.ToInt16(rsMedalhas["TOTAL_RELATOS"]) > 1)
+                {
+                    objBD.ExecutaSQL("insert into Log (USU_ID, LOG_ACONTECIMENTO, LOG_EXIBIR) VALUES ('" + Session["usuID"] + "','Parabéns! Você ganhou a medalha Experiente','1')");
+                }
+            }
+        }
+
     }
 }

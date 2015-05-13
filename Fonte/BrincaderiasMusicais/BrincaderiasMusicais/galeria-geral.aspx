@@ -106,7 +106,7 @@
                 </form>
                
                 <img src="/images/linha.png" class="linha" />
-                <p class="titu_agenda">Galeria Colaborativa de Videos</p>
+                <p class="titu_agenda" id="pVideos">Galeria Colaborativa de Videos</p>
                 <span id="videodiv" runat="server">
                     <p class="sub_galeria_geral">
                         Vídeos enviados pelos membros da rede de ensino de  <strong id="nomerede2" runat="server"></strong>
@@ -201,6 +201,16 @@
             </div>
         </article>
     </div>
+    <script>
+        var url = location.href;
+        if (url.indexOf("sucesso=2") != -1) {
+            $('html, body').animate({
+                scrollTop: $("#pVideos").offset().top
+            }, 2000);
+        }
+</script>
+
+
     <!-- FIM DO LIGHT VIEW MODAL E AFINS-->
 </body>
 </html>
