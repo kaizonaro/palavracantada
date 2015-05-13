@@ -60,8 +60,8 @@ namespace BrincaderiasMusicais
 
                 default:
 
-                  //  Response.Write("EXEC pesquisa_site_blog_lis '3','" + pagina_atual + "','1', '', '' , '" + Request["POS_TEXTO"] + "'");
-                  //  Response.End();
+                   // Response.Write("EXEC pesquisa_site_blog_lis '3','" + pagina_atual + "','1', '', '' , '" + Request["POS_TEXTO"] + "'");
+                    //Response.End();
 
                     rsArtigos = objBD.ExecutaSQL("EXEC pesquisa_site_blog_lis '3','" + pagina_atual + "','1', '', '' , '" + Request["POS_TEXTO"] + "'");
                     if (string.IsNullOrWhiteSpace(Request["POS_TEXTO"]) == false)
@@ -95,7 +95,16 @@ namespace BrincaderiasMusicais
                     }
 
                     divArtigos.InnerHtml += "<div class=\"txt blog_txt\">";
-                    divArtigos.InnerHtml += "   <a href=\"/post/" + objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString()) + "\" title=\"Ver Post\"><img width='190px' height='132px' src=\"/upload/imagens/blog/thumb-" + rsArtigos["POS_IMAGEM"] + "\" class=\"thumb_artigo\"></a>";
+                    divArtigos.InnerHtml += "   <a href=\"/post/" + objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString()) + "\" title=\"Ver Post\">";
+                    if (string.IsNullOrWhiteSpace(rsArtigos["POS_IMAGEM"].ToString()) == false)
+                    {
+                        divArtigos.InnerHtml += "       <img width='190px' height='132px' src=\"/upload/imagens/blog/thumb-" + rsArtigos["POS_IMAGEM"] + "\" class=\"thumb_artigo\">";
+                    }
+                    else
+                    {
+                        divArtigos.InnerHtml += "       <img width='190px' height='132px' src='images/img-post-blog-padrao.png' class='thumb_artigo'>";
+                    }
+                    divArtigos.InnerHtml += "   </a>";
                     divArtigos.InnerHtml += "   <span class=\"titu_blog\"><a href=\"/post/" + objUtils.GerarURLAmigavel(rsArtigos["POS_TITULO"].ToString()) + "\" title=\"Ver Post\"><strong>" + rsArtigos["POS_TITULO"] + "</strong></a></span>";
                     divArtigos.InnerHtml += "   <span>Publicado por: <strong> " + rsArtigos["ADM_NOME"] + " </strong></span>";
                     divArtigos.InnerHtml += "   <span>Em: <strong>" + rsArtigos["POS_DATA_PUBLICACAO"] + "</strong>, às <strong>" + rsArtigos["POS_HORA_PUBLICAO"] + "</strong></span>";
