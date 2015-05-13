@@ -178,6 +178,7 @@ header {padding-top:20px;}
 .cadastro_home .right{float:right;width:55%;text-align:left;}
 .cadastro_home .error{background:rgba(174, 8, 15, 0.29);border:#ae080f;}
 .cadastro_home .checkbox.error{box-shadow: inset -0px -0px 5px 0px #f00;}
+.cadastro_home .checkbox.error +label{color:#ae080f;}
 .cadastro_home .full{text-align:left;}
 #termo, .termo{float:left;cursor:pointer;}
 #termo{margin-left:10px;}
