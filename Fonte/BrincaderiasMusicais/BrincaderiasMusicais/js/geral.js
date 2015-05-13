@@ -454,6 +454,7 @@ $(document).ready(function () {
 	        }
 	    });
 	    if ($('.cadastro_home .right .checkbox:checked').size() < 1) {
+            //return false
 	        $('.cadastro_home .right .checkbox').addClass('error');
 	    } else {
 	        $('.cadastro_home .right .checkbox').removeClass('error');
@@ -464,9 +465,10 @@ $(document).ready(function () {
 	        $('.cadastro_home #termo').removeClass('error');
 	    }
 	    if ($('.cadastro_home .input').hasClass('error')) {
-	        return false
+	    } else if ($('.checkbox').hasClass('error')) {
+            return false
 	    } else {
-	        validarSenha();
+	       validarSenha();
 	    }
 	});
 
