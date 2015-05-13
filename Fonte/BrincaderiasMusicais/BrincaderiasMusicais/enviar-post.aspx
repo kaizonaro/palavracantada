@@ -28,7 +28,8 @@
             selector: "textarea",
             menubar: false,
             language: "pt_BR",
-
+            height: 200,
+            resize: false,
             plugins: [
                     "advlist autolink lists link image charmap print preview anchor",
                     "searchreplace visualblocks code fullscreen",
