@@ -53,7 +53,7 @@ namespace BrincaderiasMusicais
                         }
                         else
                         {
-                           // Response.Write("outro e rede diferente");
+                            // Response.Write("outro e rede diferente");
                         }
                     }
                     else
@@ -71,6 +71,12 @@ namespace BrincaderiasMusicais
             {
                 //DESLOGADO
                 Response.Redirect("/");
+            }
+
+            string msg = Request["mensagem"];
+            if (!string.IsNullOrWhiteSpace(msg))
+            {
+                Response.Write("<script>alert('" + msg + "');</script>");
             }
         }
 
