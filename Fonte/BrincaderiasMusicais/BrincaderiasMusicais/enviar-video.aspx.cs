@@ -67,7 +67,7 @@ namespace BrincaderiasMusicais
                 rsMedalhas.Read();
                 if (Convert.ToInt16(rsMedalhas["TOTAL_VIDEOS"]) == 3)
                 {
-                    objBD.ExecutaSQL("insert into Log (USU_ID, LOG_ACONTECIMENTO, LOG_EXIBIR) VALUES ('" + Session["usuID"] + "','Parabéns! Você ganhou uma medalha por publicar três vídeos em seu galeria pessoal','1')");
+                    objBD.ExecutaSQL("insert into Log (USU_ID, LOG_ACONTECIMENTO, LOG_EXIBIR) VALUES ('" + Session["usuID"] + "','Parabéns! Você ganhou a medalha produtor por publicar três vídeos em seu galeria pessoal','1')");
                 }
             }
         }
