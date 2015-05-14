@@ -124,7 +124,7 @@ namespace BrincaderiasMusicais
                                             objUtils.EnviaEmail(Session["usuEmail"].ToString(), "Post Publicado com sucesso!", "Parabéns, seu post acabou de ser publicado!");
                                             VerificarMedalhas();
                                             Response.Redirect("./meu-perfil/" + Session["usuUsuario"].ToString() + "?mensagem=Post%20publicado%20com%20sucesso!");
-                                           // Response.Write("<script>alert('Post publicado com sucesso!'); window.location = \"/meu-post/" + objUtils.GerarURLAmigavel(Request["POS_TITULO"].ToString()) + "\" </script>");
+                                            Response.Write("<script>alert('Post publicado com sucesso!'); window.location = \"/meu-post/" + objUtils.GerarURLAmigavel(Request["POS_TITULO"].ToString()) + "\" </script>");
                                       
 
                                         }
@@ -137,7 +137,7 @@ namespace BrincaderiasMusicais
 
                                 // Mensagem se tudo ocorreu bem
                                 // Response.Redirect("meu-perfil");
-                               // Response.Redirect("/meu-post/" + objUtils.GerarURLAmigavel(Request["POS_TITULO"].ToString()) + "");
+                                Response.Redirect("/meu-post/" + objUtils.GerarURLAmigavel(Request["POS_TITULO"].ToString()) + "");
                                 Response.End();
                             }
                             else

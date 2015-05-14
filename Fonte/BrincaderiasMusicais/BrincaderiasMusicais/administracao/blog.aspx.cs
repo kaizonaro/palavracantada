@@ -89,6 +89,7 @@ namespace BrincaderiasMusicais.administracao
                 objeto += "         <th style=\"width:120px;\">Imagem</th>";
                 objeto += "         <th>Título</th>";
                 objeto += "         <th>Rede</th>";
+                objeto += "         <th>Usuário</th>";
                 objeto += "         <th style=\"width:115px;\">Data Publicação</th>";
                 objeto += "         <th style=\"width:85px;\">Ações</th>";
                 objeto += "     </tr>";
@@ -110,15 +111,23 @@ namespace BrincaderiasMusicais.administracao
                     objeto += "     <td><img width='150px' src='/upload/imagens/blog/thumb-" + rsLista["POS_IMAGEM"].ToString() + "'></td>";
                     objeto += "     <td>" + rsLista["POS_TITULO"].ToString() + "</td>";
                     objeto += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
+                    objeto += "     <td>" + rsLista["USU_NOME"].ToString() + "</td>";
                     objeto += "     <td>" + rsLista["POS_DH_PUBLICACAO"].ToString() + "</td>";
                     if (ativo == 1)
                     {
-                        objeto += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["POS_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["POS_ID"].ToString() + "' onclick='excluirPost(this.id,\"desativar\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                        //objeto += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["POS_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["POS_ID"].ToString() + "' onclick='excluirPost(this.id,\"desativar\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                        objeto += "     <td><ul class=\"icons_table\">";
+                        if (string.IsNullOrWhiteSpace(rsLista["USU_ID"].ToString()) == true)
+                        {
+                            objeto += "         <li><a href=\"javascript:void(0);\" id='" + rsLista["POS_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li>";
+                        }
+                        objeto += "         <li><a id='" + rsLista["POS_ID"].ToString() + "' onclick='excluirPost(this.id,\"desativar\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li>";
+                        objeto += "    </td>";
 
                     }
                     else
                     {
-                        objeto += "     <td><ul><li><a id='" + rsLista["POS_ID"].ToString() + "' onclick='restorePost(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/restore.png\"></a></li><li><a id='" + rsLista["POS_ID"].ToString() + "' onclick='excluirPost(this.id,\"excluir permanentemente\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                        objeto += "     <td><ul><li><a id='" + rsLista["POS_ID"].ToString() + "' onclick='restorePost(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/restore.png\"></a></li><li><a id='" + rsLista["POS_ID"].ToString() + "' onclick='excluirPost(this.id,\"excluir permanentemente\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul></td>";
                     }
                     objeto += " </tr>";
                 }
