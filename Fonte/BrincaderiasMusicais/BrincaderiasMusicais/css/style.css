@@ -484,7 +484,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 /*AGENDA*/
 .titu_agenda{width:100%;display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:18px;color:#736d9b;margin-top:10px;text-align:left;}
 .data_agendada{width:100%;display:inline-block;}
-.data_agendada a{color: #fff;background: url(/images/menu1.png);width: 100px;height: 31px;display: inline-block;line-height: 34px;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:12px;margin-top:10px;float:left;margin-bottom:-15px;}
+.data_agendada a{color: #fff;background: url(/images/menu1.png);width: 100px;height: 31px;display: inline-block;line-height: 34px;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:12px;margin-top:10px;float:left;margin-bottom:-15px; cursor:default;}
 .titu_calendario{width:100%;display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:18px;color:#736d9b;margin-top:-10px;text-align:left;}
 .interna .sub_calendario {margin-top:0px;}
 .interna .txt_menor{font-size:11px}
