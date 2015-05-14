@@ -21,6 +21,7 @@ namespace BrincaderiasMusicais.ajax
         private OleDbDataReader rsLogin, rsCadastro, rsComentarios;
         int registro = 1, pagina_atual = 1;
         string conteudoPaginacao = "", retorno = "";
+        HttpCookie myCookie = new HttpCookie("palavracantada");
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -88,9 +89,8 @@ namespace BrincaderiasMusicais.ajax
                 Session["redeID"] = rsLogin["RED_ID"].ToString();
                 Session["redeTitulo"] = objUtils.GerarURLAmigavel(rsLogin["RED_TITULO"].ToString());
                 Session["usuUsuario"] = rsLogin["USU_USUARIO"].ToString();
-                Session["usuEmail"] = Request["email"];
+                Session["usuEmail"] = Request["email"]; 
 
-                HttpCookie myCookie = new HttpCookie("palavracantada");
                 myCookie.Value = rsLogin["USU_ID"].ToString();
                 myCookie.Expires = DateTime.Now.AddHours(168); //1 semana
                 Response.Cookies.Add(myCookie);
@@ -163,10 +163,9 @@ namespace BrincaderiasMusicais.ajax
 
         public void logout()
         {
-            Session.Abandon();
-
-            HttpCookie myCookie = new HttpCookie("palavracantada");
+            Session.Abandon(); 
             myCookie.Expires = DateTime.Now.AddHours(-168); //1 semana
+            Response.Cookies.Add(myCookie);
             Response.Redirect("/");
         }
 
