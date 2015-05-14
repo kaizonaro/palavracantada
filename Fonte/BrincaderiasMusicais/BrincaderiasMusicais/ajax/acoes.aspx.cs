@@ -43,7 +43,7 @@ namespace BrincaderiasMusicais.ajax
                     verComentarios2(Convert.ToInt16(Request["pg"]), Convert.ToInt16(Request["id"]));
                     break;
                 case "FazerLogin":
-                    FazerLogin();
+                    FazerLogin(Request["email"].ToString(), Request["senha"].ToString());
                     break;
 
                 case "EsqueciSenha":
@@ -69,10 +69,10 @@ namespace BrincaderiasMusicais.ajax
             }
         }
 
-        public void FazerLogin()
+        public void FazerLogin(string email, string senha)
         {
 
-            rsLogin = objBD.ExecutaSQL("EXEC site_psUsuarioPorEmaileSenha '" + objUtils.TrataSQLInjection(Request["email"]) + "','" + objUtils.TrataSQLInjection(objUtils.getMD5Hash(Request["senha"])) + "'");
+            rsLogin = objBD.ExecutaSQL("EXEC site_psUsuarioPorEmaileSenha '" + objUtils.TrataSQLInjection(email) + "','" + objUtils.TrataSQLInjection(objUtils.getMD5Hash(senha)) + "'");
 
             if (rsLogin == null)
             {
@@ -88,7 +88,13 @@ namespace BrincaderiasMusicais.ajax
                 Session["redeID"] = rsLogin["RED_ID"].ToString();
                 Session["redeTitulo"] = objUtils.GerarURLAmigavel(rsLogin["RED_TITULO"].ToString());
                 Session["usuUsuario"] = rsLogin["USU_USUARIO"].ToString();
-                
+                Session["usuEmail"] = Request["email"];
+
+                HttpCookie myCookie = new HttpCookie("palavracantada");
+                myCookie.Value = rsLogin["USU_ID"].ToString();
+                myCookie.Expires = DateTime.Now.AddHours(168); //1 semana
+                Response.Cookies.Add(myCookie);
+
                 //Salva no log
                 objBD.ExecutaSQL("EXEC psLog '" + rsLogin["USU_ID"] + "',null,'Login efetuado no sistema'");
 
