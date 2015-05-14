@@ -164,6 +164,9 @@ namespace BrincaderiasMusicais.ajax
         public void logout()
         {
             Session.Abandon();
+
+            HttpCookie myCookie = new HttpCookie("palavracantada");
+            myCookie.Expires = DateTime.Now.AddHours(-168); //1 semana
             Response.Redirect("/");
         }
 
