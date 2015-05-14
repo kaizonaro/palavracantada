@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 /* CSS Document by Rafael Carvalho @ Web CP*/
@@ -31,7 +31,7 @@
 	/*----*****---- << Mobile >> ----*****----*/	
 
 	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-	@media only screen and (max-width: 479px) {
-		
+	@media only screen and (max-height: 813px) {
+		#mask{overflow-x:scroll;}
 	}
 	/* CSS Document */
