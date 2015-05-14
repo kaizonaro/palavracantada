@@ -292,7 +292,7 @@ namespace BrincaderiasMusicais.administracao
                     }
                     else
                     {
-                        if (objUtils.EnviaEmail(rsNotificar["USU_EMAIL"].ToString(), "Novo post no portal Brincadeiras Musicais", "Um novo Post foi publicado no portal Brincadeiras Musicais da Palavra cantada, confira agora mesmo no link: <a href=\"http://www.projetopalavracantada.net/post/" + objUtils.GerarURLAmigavel(Request["POS_TITULO"].ToString()) + "\">" + Request["POS_TITULO"] + "</a>") == false)
+                        if (objUtils.EnviaEmail(rsNotificar["USU_EMAIL"].ToString(), "Novo post no portal Brincadeiras Musicais", "Um novo Post foi publicado no portal Brincadeiras Musicais da Palavra Cantada, confira agora mesmo no link: <a href=\"http://www.projetopalavracantada.net/post/" + objUtils.GerarURLAmigavel(Request["POS_TITULO"].ToString()) + "\">" + Request["POS_TITULO"] + "</a>") == false)
                         {
                             throw new Exception();
                         }
