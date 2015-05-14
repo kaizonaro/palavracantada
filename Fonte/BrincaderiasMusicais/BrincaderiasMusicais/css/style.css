@@ -183,6 +183,7 @@ header {padding-top:20px;}
 #termo, .termo{float:left;cursor:pointer;}
 #termo{margin-left:10px;}
 
+
 /*HOME CARROUSEL*/
 .left_video{position: absolute;top: 50%;margin-top: -38px;cursor:pointer;}
 .mascara{width:100%;overflow:hidden;position:relative;}
@@ -478,7 +479,6 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .select_faq .btn{width: 34px;  height: 26px;  font-family: 'love_ya_like_a_sister_snormal', sans-serif;  background: url(../images/ok_verde.png) center center;  font-family: 'love_ya_like_a_sister_snormal', sans-serif;  font-size: 13px;  text-transform: uppercase;cursor: pointer; }
 .select_faq .desc_faq{margin-top:10px;}
 .desc_faq a {color:#336600;}
-
 .titu_verde {width:100%;display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:13px;color:#336600;margin-top:5px; text-align:left;}
 
 /*AGENDA*/
