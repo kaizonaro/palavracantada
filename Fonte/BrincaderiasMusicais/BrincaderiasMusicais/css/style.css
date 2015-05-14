@@ -474,12 +474,12 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .prof{float:left;}
 .select_faq .txt{font-size:11px;margin-top:10px;}
 .select_faq{width:330px;float:right;}
-.select_faq select{-webkit-appearance:menulist;-moz-appearance:menulist;appearance:menulist;font-size:11px;float:left;border:1px solid rgba(107,107,107,0.67); padding: 5px 0px;}
+.select_faq select{-webkit-appearance:menulist;-moz-appearance:menulist;appearance:menulist;font-size:11px;float:left;border:1px solid rgba(107,107,107,0.67); padding: 5px 0px; width:290px;}
 .select_faq .btn{width: 34px;  height: 26px;  font-family: 'love_ya_like_a_sister_snormal', sans-serif;  background: url(../images/ok_verde.png) center center;  font-family: 'love_ya_like_a_sister_snormal', sans-serif;  font-size: 13px;  text-transform: uppercase;cursor: pointer; }
 .select_faq .desc_faq{margin-top:10px;}
 .desc_faq a {color:#336600;}
 
-.titu_verde {width:100%;display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:13px;color:#336600;margin-top:5px;}
+.titu_verde {width:100%;display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:13px;color:#336600;margin-top:5px; text-align:left;}
 
 /*AGENDA*/
 .titu_agenda{width:100%;display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:18px;color:#736d9b;margin-top:10px;text-align:left;}
