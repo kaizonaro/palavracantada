@@ -48,6 +48,9 @@
                 <li><a href="blog.aspx">
                     <img src="images/home.png" alt="Blog"><p>Blog</p>
                 </a></li>
+                 <li><a href="posts-forum.aspx">
+                    <img src="images/home.png" alt="Forum"><p>Forum</p>
+                </a></li>
                 <li><a href="redes.aspx">
                     <img src="images/home.png" alt="Blog"><p>Redes</p>
                 </a></li>
