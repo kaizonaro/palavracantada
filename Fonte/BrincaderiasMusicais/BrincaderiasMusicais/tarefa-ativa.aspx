@@ -116,7 +116,7 @@
                 <br />
                 <br />
                 <span class="tafera_detalhe">Tarefa criada por: <strong id="criador" runat="server"></strong></span>
-                <span class="tafera_detalhe">Publicada Em: <strong id="data" runat="server"></strong></span>
+                <span class="tafera_detalhe">Prazo para envio de relatos: <strong id="data" runat="server"></strong></span>
                 <br />
                 <br />
                 <p class="titu_criacoes">
