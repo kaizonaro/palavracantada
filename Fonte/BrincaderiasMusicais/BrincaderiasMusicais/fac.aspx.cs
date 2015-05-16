@@ -60,6 +60,7 @@ namespace BrincaderiasMusicais
                 {
                     System.Web.UI.WebControls.ListItem R = new System.Web.UI.WebControls.ListItem();
                     R.Value = rsFAQ["FAQ_ID"].ToString();
+                    //R.Text = objUtils.CortarString(true, 65, rsFAQ["FAQ_PERGUNTA"].ToString());
                     R.Text = rsFAQ["FAQ_PERGUNTA"].ToString();
                     pergunta.Items.Add(R);
                 }

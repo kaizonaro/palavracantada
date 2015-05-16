@@ -115,18 +115,18 @@
                 <p class="titu_criacoes" id="titu_criacoes" runat="server"></p>
                 <br />
                 <br />
-                <span class="tafera_detalhe">Tarefa criada por: <strong id="criador" runat="server"></strong></span>
+                <span class="tafera_detalhe">Proposta criada por: <strong id="criador" runat="server"></strong></span>
                 <span class="tafera_detalhe">Prazo para envio de relatos: <strong id="data" runat="server"></strong></span>
                 <br />
                 <br />
                 <p class="titu_criacoes">
-                    Descritivo da tarefa:
+                    Descritivo da proposta:
                 </p>
                 <div class="box_criacoes" id="box_descritivo" runat="server"></div>
                 <br />
                 <br />
                 <p class="titu_criacoes" id="titu_video" runat="server" >
-                    Vídeo / Referência sobre esta tarefa:
+                    Vídeo / Referência sobre esta proposta:
                 </p>
                 <iframe class="video_criacoes" id="video_criacoes" runat="server" src="" frameborder="0" allowfullscreen></iframe>
                 <br />
@@ -142,7 +142,7 @@
                         </strong></span>
                     </div>
                     <div class="criacoes_btn">
-                        <a href="javascript:void(0);" class="btn_comentario abre_comentario">Comente esta tarefa</a>
+                        <a href="javascript:void(0);" class="btn_comentario abre_comentario">Comente esta proposta</a>
                         <a href="javascript:void(0);" id="aRelato" runat="server" class="btn_relato">Envie seu relato</a>
                     </div>
                     <br />
@@ -195,9 +195,9 @@
                 <img src="/images/x.jpg" />
             </div>
             <p class="titu_criacoes">
-                COMENTE A TAREFA
+                COMENTE A PROPOSTA
             </p>
-            <span class="tafera_detalhe">Deixe seu comentário para a tarefa:
+            <span class="tafera_detalhe">Deixe seu comentário para a proposta:
                 <!--<strong><< nome da tarefa - nome da tarefa - nome da tarefa - nome da tarefa - nome ... >> </strong>-->
             </span>
             <form method="post" action="tarefa-ativa.aspx" id="up_foto2">

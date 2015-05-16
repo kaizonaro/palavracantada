@@ -138,7 +138,8 @@ namespace BrincaderiasMusicais.inc
             {
                 while (Datas.Read())
                 {
-                    POS_DH_CRIACAO.Items.Add(new ListItem(Convert.ToDateTime(Datas["data"].ToString()).ToShortDateString(), Datas["data"].ToString()));
+                   // POS_DH_CRIACAO.Items.Add(new ListItem(Convert.ToDateTime(Datas["data"].ToString()).ToShortDateString(), Datas["data"].ToString()));
+                    POS_DH_CRIACAO.Items.Add(new ListItem(Datas["data"].ToString(), Datas["data"].ToString()));
                 }
             }
         }
