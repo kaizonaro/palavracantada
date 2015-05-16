@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="tarefa-arquivada.aspx.cs" Inherits="BrincaderiasMusicais.tarefa_arquivada" %>
+﻿box_descritivo<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="tarefa-arquivada.aspx.cs" Inherits="BrincaderiasMusicais.tarefa_arquivada" %>
 
 <%@ Register Src="~/inc/script.ascx" TagPrefix="brincadeira" TagName="script" %>
 <%@ Register Src="~/inc/header.ascx" TagPrefix="brincadeira" TagName="header" %>
@@ -150,19 +150,18 @@
                     <p class="titu_criacoes">
                         Devolutiva da equipe formativa sobre esta tarefa:
                     </p>
-                    <div class="box_criacoes" id="divDevolutiva">
+                    <div class="box_criacoes" id="divDevolutiva"  runat="server">
                        
-
                     </div>
                 <br /><br />
-                    <span class="tafera_detalhe">Tarefa criada por: <strong><< NOME DO ADMIN >></strong></span>
-                    <span class="tafera_detalhe">Publicada Em: <strong>12/03/2015</strong></span>
+                   <%-- <span class="tafera_detalhe">Tarefa criada por: <strong><< NOME DO ADMIN >></strong></span>
+                    <span class="tafera_detalhe">Publicada Em: <strong>12/03/2015</strong></span>--%>
                 <br /><br />
-                <p class="titu_criacoes">
+                <p class="titu_criacoes" runat="server" id="titulovideodevolutiva">
                         Vídeo da devolutiva:
                     </p>
-                <div class="video_criacoes">
-
+                <div class="video_criacoes" runat="server" id="video_criacoesdevolutiva">
+                    <iframe class="video_criacoes" id="video_devolutiva" runat="server" src="" frameborder="0" allowfullscreen></iframe>
                 </div>
                 <br /><br />
                 <img src="/images/linha.png" class="linha" />

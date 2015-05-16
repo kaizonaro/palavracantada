@@ -121,6 +121,42 @@ namespace BrincaderiasMusicais {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl totalComentarios;
         
         /// <summary>
+        /// divDevolutiva control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDevolutiva;
+        
+        /// <summary>
+        /// titulovideodevolutiva control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl titulovideodevolutiva;
+        
+        /// <summary>
+        /// video_criacoesdevolutiva control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl video_criacoesdevolutiva;
+        
+        /// <summary>
+        /// video_devolutiva control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl video_devolutiva;
+        
+        /// <summary>
         /// divRelatos control.
         /// </summary>
         /// <remarks>
