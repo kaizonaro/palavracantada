@@ -48,22 +48,23 @@ namespace BrincaderiasMusicais
 
             switch (Request["nomecampo"])
             {
+                case ("POS_TEXTO"):
+                    bread.InnerHtml = "Busca \"" + Request["POS_TEXTO"] + "\"";
+                    msg.InnerHtml = "<center>Exibindo resultados da pesquisa por \"<strong>" + Request["POS_TEXTO"] + "\"</strong></center>";
+                    rsArtigos = objBD.ExecutaSQL("EXEC pesquisa_site_blog_lis_v4 '3','" + pagina_atual + "','1', '" + Request["POS_TEXTO"] + "', '" + Session["redeID"] + "'");
+                    break;
 
                 case ("login_POS_DH_CRIACAO"):
                     bread.InnerHtml = "Arquivos " + Request["POS_DH_CRIACAO"];
                     msg.InnerHtml = "<center>Exibindo resultados do arquivo <strong>" + Request["POS_DH_CRIACAO"] + "</strong></center>";
-                    rsArtigos = objBD.ExecutaSQL("EXEC pesquisa_site_blog_lis '3','" + pagina_atual + "','1', '" + Request["POS_DH_CRIACAO"] + "'");
+                    rsArtigos = objBD.ExecutaSQL("EXEC pesquisa_site_blog_lis_v3 '3','" + pagina_atual + "','1', '" + Request["POS_DH_CRIACAO"] + "', '0'");
                     break;
                 case ("login_PCA_ID"):
-                    rsArtigos = objBD.ExecutaSQL("EXEC pesquisa_site_blog_lis '3','" + pagina_atual + "','1', '', '" + Request["PCA_ID"] + "'");
+                    rsArtigos = objBD.ExecutaSQL("EXEC pesquisa_site_blog_lis_v2 '3','" + pagina_atual + "','1', '" + Request["PCA_ID"] + "', '0'");
                     break;
 
                 default:
-
-                    Response.Write("EXEC pesquisa_site_blog_lis '3','" + pagina_atual + "','1', '', '' , '" + Request["POS_TEXTO"] + "'");
-                    //Response.End();
-
-                    rsArtigos = objBD.ExecutaSQL("EXEC pesquisa_site_blog_lis '3','" + pagina_atual + "','1', '', '' , '" + Request["POS_TEXTO"] + "'");
+                    rsArtigos = objBD.ExecutaSQL("EXEC pesquisa_site_blog_lis_v2 '3','" + pagina_atual + "','1', NULL, '0'");
                     if (string.IsNullOrWhiteSpace(Request["POS_TEXTO"]) == false)
                     {
                         bread.InnerHtml = "Busca \"" + Request["POS_TEXTO"] + "\"";

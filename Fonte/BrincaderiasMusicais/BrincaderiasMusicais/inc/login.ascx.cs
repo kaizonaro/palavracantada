@@ -61,10 +61,16 @@ namespace BrincaderiasMusicais.inc
                 switch (paginaAtual)
                 {
                     case "blog.aspx":
+                        divBlog.Attributes.Remove("class");
+                        divBlog.Attributes["class"] = "box_login";
+                        banner_sidebar.Attributes.Remove("class");
+                        banner_sidebar.Attributes["class"] = "esconde";
+                        break;
+
                     case "blog-regional.aspx":
                         divBlog.Attributes.Remove("class");
                         divBlog.Attributes["class"] = "box_login";
-
+                        frmPesquisa.Attributes["action"] = "blog-regional.aspx";
                         banner_sidebar.Attributes.Remove("class");
                         banner_sidebar.Attributes["class"] = "esconde";
                         break;
