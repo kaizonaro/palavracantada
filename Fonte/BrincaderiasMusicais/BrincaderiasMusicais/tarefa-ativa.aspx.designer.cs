@@ -94,6 +94,15 @@ namespace BrincaderiasMusicais {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl box_descritivo;
         
         /// <summary>
+        /// titu_video control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl titu_video;
+        
+        /// <summary>
         /// video_criacoes control.
         /// </summary>
         /// <remarks>
