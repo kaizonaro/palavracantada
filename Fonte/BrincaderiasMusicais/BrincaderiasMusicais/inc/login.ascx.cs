@@ -63,6 +63,7 @@ namespace BrincaderiasMusicais.inc
                     case "blog.aspx":
                         divBlog.Attributes.Remove("class");
                         divBlog.Attributes["class"] = "box_login";
+                        action.Attributes["value"] = "blog.aspx";
                         banner_sidebar.Attributes.Remove("class");
                         banner_sidebar.Attributes["class"] = "esconde";
                         break;
@@ -70,7 +71,8 @@ namespace BrincaderiasMusicais.inc
                     case "blog-regional.aspx":
                         divBlog.Attributes.Remove("class");
                         divBlog.Attributes["class"] = "box_login";
-                        frmPesquisa.Attributes["action"] = "blog-regional.aspx";
+                        //frmPesquisa.Attributes["action"] = "blog-regional.aspx";
+                        action.Attributes["value"] = "blog-regional.aspx";
                         banner_sidebar.Attributes.Remove("class");
                         banner_sidebar.Attributes["class"] = "esconde";
                         break;

@@ -58,13 +58,13 @@ namespace BrincaderiasMusicais.inc {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBlog;
         
         /// <summary>
-        /// frmPesquisa control.
+        /// action control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm frmPesquisa;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden action;
         
         /// <summary>
         /// POS_DH_CRIACAO control.

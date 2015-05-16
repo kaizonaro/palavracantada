@@ -38,6 +38,8 @@
     function pesquisablog(item) {
         
         nomecampo.value = item
+        
+        $("#frmPesquisa").attr("action", $("#action").val());
         //$("#pesquisabt").click()
         $('#frmPesquisa').submit();
 
@@ -77,7 +79,8 @@
 
     <div class="box_login esconde" style="margin-top: 10px;" id="divBlog" runat="server">
         <p>BUSCAR NO BLOG BRINCADEIRAS MUSICAIS:</p>
-        <form class="form_pesquisa" action="blog.aspx" runat="server" id="frmPesquisa">
+        <form class="form_pesquisa" action="#" id="frmPesquisa">
+            <input type="hidden" name="action" class="input" id="action" runat="server" />
             <input type="text" name="POS_TEXTO" class="input" id="POS_TEXTO" /><%--<input type="submit" id="pesquisabt" class="btn" value="OK" />--%><input type="button" onclick="pesquisablog('POS_TEXTO')" id="pesquisabt" class="btn" value="OK" />
             <div>
                 <p>ARQUIVO DO BLOG:</p>
