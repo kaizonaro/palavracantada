@@ -38,6 +38,7 @@
                             var ss = mod.responseText.split("|");
                             $('#pPergunta').html(ss[0]);
                             $('#pResposta').html(ss[1]);
+                            $('.recebe_faq').addClass('resposta_do_faq')
                         }
                     }
                 };
@@ -91,7 +92,7 @@
                         <p class="txt desc_faq">Caso você não encontre a resposta para a sua questão, entre em contato com a equipe Brincadeiras Musicais através do link <a href="/contato" title="contato">contato</a></</p>
 
                     </div>
-                    <div class="full">
+                    <div class="full recebe_faq">
                         <p class="titu_verde" id="pPergunta" runat="server">
                             
                         </p>
