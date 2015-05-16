@@ -12,14 +12,7 @@
     <script src="tinymce/tinymce.min.js"></script>
     <script type="text/javascript">
 
-        tinymce.init({
-            height: 500,
-            resize: false,
-            language: "pt_BR",
-            selector: "textarea",
-            menubar: false
-        });
-
+         
         //AJAX
         function ajaxInit() {
             var req;
@@ -167,7 +160,7 @@
                                             </select>
 
                                             <p>Titulo:*</p>
-                                            <textarea id="CDO_TAREFA" name="CDO_TAREFA" style="width: 100%"></textarea>
+                                            <input type="text" id="CDO_TAREFA" name="CDO_TAREFA"class="input obg" placeholder="Titulo da Tarefa" />
 
                                             <p>Data:*</p>
                                             <input type="text" maxlength="10" name="CDO_DATA" id="CDO_DATA" class="input data obg" placeholder="Data da Tarefa" />
