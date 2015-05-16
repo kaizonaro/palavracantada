@@ -65,7 +65,16 @@ namespace BrincaderiasMusicais.inc
             {
                 while (rsBlog.Read())
                 {
-                    ulPost.InnerHtml += " <li><a href=\"/post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\" title=\"Titulo da postagem\"><img src='/upload/imagens/blog/thumb-" + rsBlog["POS_IMAGEM"].ToString() + "'></a>";
+                    ulPost.InnerHtml += " <li><a href=\"/post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\" title=\"Titulo da postagem\">";
+                    if (string.IsNullOrWhiteSpace(rsBlog["POS_IMAGEM"].ToString()) == false)
+                    {
+                        ulPost.InnerHtml += "   <img src='/upload/imagens/blog/thumb-" + rsBlog["POS_IMAGEM"].ToString() + "'>";
+                    }
+                    else
+                    {
+                        ulPost.InnerHtml += "   <img src='images/img-post-blog-padrao.png'>";
+                    }
+                    ulPost.InnerHtml += " </a>";
                     ulPost.InnerHtml += "   <p class=\"titu_post_interna\"><a href=\"post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\">" + objUtils.CortarString(true, 45, rsBlog["POS_TITULO"].ToString()) + "</a></p>";
                     ulPost.InnerHtml += "   <p class=\"desc_post_interna\"><a href=\"post/" + objUtils.GerarURLAmigavel(rsBlog["POS_TITULO"].ToString()) + "\">" + objUtils.RemoveHTML(objUtils.CortarString(true, 60, rsBlog["POS_TEXTO"].ToString())) + "</a></p>";
                     ulPost.InnerHtml += "   <p class=\"desc_post_interna\">&nbsp;</p>";
