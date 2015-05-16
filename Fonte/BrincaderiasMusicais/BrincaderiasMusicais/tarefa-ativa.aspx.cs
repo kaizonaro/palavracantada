@@ -131,7 +131,7 @@ namespace BrincaderiasMusicais
                     ulRelatos.InnerHtml += "            <div class=\"detalhes_autor\">";
                     ulRelatos.InnerHtml += "                <span class=\"comentario_detalhe\">Relato enviado por: <br /><strong>" + rsListar["USU_NOME"] + "</strong></span><br>";
                     ulRelatos.InnerHtml += "                <span class=\"comentario_detalhe\">Data: <strong>" + rsListar["CDR_DATA"] + "</strong></span><br>";
-                    if (Convert.ToInt16(rsListar["TOTAL_COMENTARIOS"]) == 1)
+                    if (Convert.ToInt16(rsListar["TOTAL_COMENTARIOS"]) < 1)
                     {
                         ulRelatos.InnerHtml += "                <span class=\"comentario_detalhe\">Este relato possui: <strong>" + rsListar["TOTAL_COMENTARIOS"] + " comentario</strong></span><br>";
                     }
