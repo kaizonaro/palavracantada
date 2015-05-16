@@ -37,13 +37,13 @@ namespace BrincaderiasMusicais
 
                     case ("comentarRelato"):
 
-                       // Response.Write("exec Site_piComentario null,'" + Request["idREL"] + "','" + Session["usuID"] + "',null,'" + Request["comentarioRelato"] + "'");
-                      //  Response.End();
+                        // Response.Write("exec Site_piComentario null,'" + Request["idREL"] + "','" + Session["usuID"] + "',null,'" + Request["comentarioRelato"] + "'");
+                        //  Response.End();
 
                         objBD.ExecutaSQL("exec Site_piComentario null,'" + Request["idREL"] + "','" + Session["usuID"] + "',null,'" + Request["comentarioRelato"] + "'");
                         Response.Redirect("/tarefa-ativa/" + Request["idCDO1"]);
                         break;
-                   
+
                     default:
                         PopulaTela();
                         Relatos();
@@ -71,19 +71,28 @@ namespace BrincaderiasMusicais
                 rsListar.Read();
 
                 //breadcrumb
-                breadcrumb.InnerHtml = "<a href='/' title='Home'>Home</a> >> <strong>"+objUtils.RemoveHTML(rsListar["CDO_TAREFA"].ToString())+"</strong> >> Criações Documentadas ";
+                breadcrumb.InnerHtml = "<a href='/' title='Home'>Home</a> >> <strong>" + objUtils.RemoveHTML(rsListar["CDO_TAREFA"].ToString()) + "</strong> >> Criações Documentadas ";
 
                 //<a href="/" title="Home">Home</a> >> <strong>Criações Documentadas</strong>
                 titu_criacoes.InnerHtml = objUtils.RemoveHTML(rsListar["CDO_TAREFA"].ToString());
                 criador.InnerHtml = rsListar["ADM_NOME"].ToString();
                 data.InnerHtml = rsListar["CDO_DATA"].ToString();
                 box_descritivo.InnerHtml = rsListar["CDO_DESCRITIVO"].ToString();
-                video_criacoes.Attributes.Add("src","https://www.youtube.com/embed/"+rsListar["CDO_VIDEO"].ToString());
-                aRelato.Attributes.Add("href", "/enviar-relato.aspx?CDO_ID="+ Request["CDO_ID"] +"");
-                
+                if (!string.IsNullOrWhiteSpace(rsListar["CDO_VIDEO"].ToString()))
+                {
+                    video_criacoes.Attributes.Add("src", "https://www.youtube.com/embed/" + rsListar["CDO_VIDEO"].ToString());
+                }
+                else
+                {
+                    video_criacoes.Visible = false;
+                    titu_video.Visible = false;
+                }
+
+                aRelato.Attributes.Add("href", "/enviar-relato.aspx?CDO_ID=" + Request["CDO_ID"] + "");
+
                 idCDO.Attributes.Add("value", Request["CDO_ID"].ToString());
                 idCDO1.Attributes.Add("value", Request["CDO_ID"].ToString());
-                
+
                 relato_detalhe.InnerHtml = "<strong>" + rsListar["TOTAL_RELATOS"].ToString() + " Relatos Enviados</strong>";
 
                 totalComentarios.InnerHtml = "<a href='javascript:void(0)' onClick='verComentarios2(1," + Request["CDO_ID"] + ");'> " + rsListar["TOTAL_COMENTARIOS"].ToString() + " Comentário";
@@ -116,16 +125,18 @@ namespace BrincaderiasMusicais
                 while (rsListar.Read())
                 {
                     ulRelatos.InnerHtml += " <li>";
-                    ulRelatos.InnerHtml += "    <div class=\"box_criacoes\">"+rsListar["CDR_RELATO"]+"</div>";
+                    ulRelatos.InnerHtml += "    <div class=\"box_criacoes\">" + rsListar["CDR_RELATO"] + "</div>";
                     ulRelatos.InnerHtml += "    <div class=\"sub_criacoes\">";
                     ulRelatos.InnerHtml += "        <div class=\"left\">";
                     ulRelatos.InnerHtml += "            <div class=\"detalhes_autor\">";
                     ulRelatos.InnerHtml += "                <span class=\"comentario_detalhe\">Relato enviado por: <br /><strong>" + rsListar["USU_NOME"] + "</strong></span><br>";
                     ulRelatos.InnerHtml += "                <span class=\"comentario_detalhe\">Data: <strong>" + rsListar["CDR_DATA"] + "</strong></span><br>";
-                    if (Convert.ToInt16(rsListar["TOTAL_COMENTARIOS"]) == 1) {
+                    if (Convert.ToInt16(rsListar["TOTAL_COMENTARIOS"]) == 1)
+                    {
                         ulRelatos.InnerHtml += "                <span class=\"comentario_detalhe\">Este relato possui: <strong>" + rsListar["TOTAL_COMENTARIOS"] + " comentario</strong></span><br>";
                     }
-                    else{
+                    else
+                    {
                         ulRelatos.InnerHtml += "                <span class=\"comentario_detalhe\">Este relato possui: <strong>" + rsListar["TOTAL_COMENTARIOS"] + " comentarios</strong></span><br>";
                     }
 
