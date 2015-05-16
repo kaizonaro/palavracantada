@@ -15,10 +15,10 @@
 
     <title>Palavra Cantada - Redes</title>
     <!--FACEBOOK-->
-    <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Artigos" />
+    <meta property="og:title" content="Projeto Brincadeiras Musicais da Palavra Cantada - Tarefa" />
     <meta property="og:image" content="http://projetopalavracantada.net/images/logo-fb.png" />
     <meta property="og:description" content="Página de Artigos" />
-    <meta property="og:url" content="http://projetopalavracantada.net/artigos" />
+    <meta property="og:url" content="http://projetopalavracantada.net/Criacoes-Documentadas" />
 
     <brincadeira:script runat="server" ID="script" />
 
@@ -49,7 +49,7 @@
                     <a href="/" title="Home">Home</a>  <strong>Criações Documentadas</strong>
                 </div>
                 <!-- INCLUDE -->
-                    <p class="titu_criacoes"><< Título da Tarefa - Título da Tarefa - Título datarefa - Título da Tarefa - Título da Tarefa >></p><br /><br />
+                    <p class="titu_criacoes" runat="server" id="titu_criacoes"><< Título da Tarefa - Título da Tarefa - Título datarefa - Título da Tarefa - Título da Tarefa >></p><br /><br />
                     <span class="tafera_detalhe">Tarefa criada por: <strong><< NOME DO ADMIN >></strong></span>
                     <span class="tafera_detalhe">Publicada Em: <strong>12/03/2015</strong></span>
                     <br />                    
@@ -79,9 +79,8 @@ Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra n
                             <span class="relato_detalhe"><strong><< x >> Relatos Enviados</strong></span><br />
                             <span class="comentario_detalhe"><strong><< x >> Comentarios</strong></span>
                         </div>
-                        <div class="criacoes_btn">
-                            <a href="#" class="btn_comentario">Comente esta tarefa</a>
-                            <a href="#" class="btn_relato">Envie seu relato</a>
+                        <div class="criacoes_btn2">
+                            <a href="#" class="btn_comentario3">Comente esta tarefa</a>
                         </div>
                         <br /><br /><br />
                     </div>
@@ -116,7 +115,19 @@ Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra n
                 <img src="/images/linha.png" class="linha" />
 
                 <div class="mascara">
-                    <!-- FOTOS -->
+                    <!-- CARROUSEL -->   
+                    <div class="topo_relatos">      
+                        <div class="left">
+                            <p class="titu_criacoes">
+                                Relatos enviados:
+                            </p>
+                        </div>   
+                        <div class="right">
+                            <div class="left_relato"><img src="/images/arrow_left2.png"></div>
+                            <span class="cont_relato">Visualizando Relato <strong>1</strong> de <b>xx</b></span>
+                            <div class="right_relato"><img src="/images/arrow_right2.png"></div>
+                        </div> 
+                    </div>       
                     <ul class="carrousel relatos_ul">
                         <li>
                             <div class="box_criacoes">
@@ -130,6 +141,24 @@ Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra n
 
 
                     </div>
+                            <div class="sub_criacoes">
+                                <div class="left">
+                                    <div class="detalhes_autor">
+                                        <span class="comentario_detalhe">Relato enviado por: <br /><strong>&lt;&lt; Nome do usuarios &gt;&gt;</strong></span><br>
+                                        <span class="relato_detalhe">Data: <strong>&lt;&lt; xx/xx/xxxx &gt;&gt;</strong></span><br />
+                                        <span class="relato_detalhe">Este relato possui: <strong>&lt;&lt; xx &gt;&gt; comentarios</strong></span>
+                                    </div>
+                                        <a href="#" class="btn_comentario2">Ver comentários</a>
+                                        <a href="#" class="btn_relato2">Comente este relato</a>
+                                </div>
+                                <div class="right">
+                                    <p class="titu_criacoes">
+                                        Vídeo deste relato:
+                                    </p>
+                                    <iframe width="240px" height="135px" src="https://www.youtube.com/embed/x8VNNyobJRo" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+
                         </li>
                         <li>
                             <div class="box_criacoes">
@@ -184,8 +213,6 @@ Cevadis im ampola pa arma uma pindureta. Nam varius eleifend orci, sed viverra n
                     </div>
                         </li>
                     </ul>
-                    <div class="left_relato"><img src="/images/arrow_left2.png"></div>
-                    <div class="right_relato"><img src="/images/arrow_right2.png"></div>
                 </div>
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
