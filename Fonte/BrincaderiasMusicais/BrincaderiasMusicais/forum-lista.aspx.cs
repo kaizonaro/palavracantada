@@ -51,6 +51,7 @@ namespace BrincaderiasMusicais
                 if (Request.QueryString["pagina"] != null)
                 {
                     pagina_atual = Convert.ToInt16(Request.QueryString["pagina"]);
+                    Response.Write(pagina_atual);
                 }
 
                 PopulaLista(Convert.ToInt16(rsDados["FTO_ID"]));

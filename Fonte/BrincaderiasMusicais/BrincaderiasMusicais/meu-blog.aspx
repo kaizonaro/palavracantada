@@ -46,8 +46,8 @@
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="meuperfil" class="interna">
 
-                <div id="breadcrumb">
-                    <a href="/" title="Home">Home</a> >> <a href="/meu-perfil/" title="Home">Meu Perfil</a> >> <strong>Meu Blog</strong>
+                <div id="breadcrumb" runat="server">
+                    
                 </div>
                 <br /><br />
 

@@ -98,8 +98,8 @@
                 <div class="titu">
                     Criações Documentadas
                 </div>
-                <div id="breadcrumb">
-                    <a href="/" title="Home">Home</a>  <strong>Criações Documentadas</strong>
+                <div id="breadcrumb" runat="server">
+                    
                 </div>
                 <!-- INCLUDE -->
                 <p class="titu_criacoes" id="titu_criacoes" runat="server"></p>

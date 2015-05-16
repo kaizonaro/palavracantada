@@ -38,6 +38,7 @@ namespace BrincaderiasMusicais
                 }
 
                PopularBlog();
+               breadcrumb.InnerHtml = "<a href=\"/\" title=\"Home\">Home</a> >> <a href=\"/meu-perfil/" + Session["usuUsuario"] + "\" title=\"Home\">Meu Perfil</a> >> <strong>Meus Vídeos</strong>";
             }
             catch (Exception)
             {

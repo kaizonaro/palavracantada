@@ -31,6 +31,8 @@ namespace BrincaderiasMusicais
                     pagina_atual = Convert.ToInt16(Request.QueryString["pagina"]);
                 }
 
+                breadcrumb.InnerHtml = "<a href=\"/\" title=\"Home\">Home</a> >> <a href=\"/meu-perfil/" + Session["usuUsuario"] + "\" title=\"Home\">Meu Perfil</a> >> <strong>Meu Blog</strong>";
+
                 PopularBlog();
             }
             catch (Exception)
