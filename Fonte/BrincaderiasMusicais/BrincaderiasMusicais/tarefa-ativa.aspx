@@ -125,7 +125,7 @@
                 <div class="box_criacoes" id="box_descritivo" runat="server"></div>
                 <br />
                 <br />
-                <p class="titu_criacoes">
+                <p class="titu_criacoes" id="titu_video" runat="server" >
                     Vídeo / Referência sobre esta tarefa:
                 </p>
                 <iframe class="video_criacoes" id="video_criacoes" runat="server" src="" frameborder="0" allowfullscreen></iframe>
