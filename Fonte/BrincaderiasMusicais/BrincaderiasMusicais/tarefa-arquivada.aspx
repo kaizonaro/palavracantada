@@ -82,7 +82,7 @@
                     <p class="titu_criacoes">
                         Devolutiva da equipe formativa sobre esta tarefa:
                     </p>
-                    <div class="box_criacoes">
+                    <div class="box_criacoes" id="divDevolutiva">
                        
 
                     </div>
