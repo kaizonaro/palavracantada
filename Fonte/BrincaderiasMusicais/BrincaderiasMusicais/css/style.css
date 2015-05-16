@@ -480,6 +480,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .select_faq .desc_faq{margin-top:10px;}
 .desc_faq a {color:#336600;}
 .titu_verde {width:100%;display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:13px;color:#336600;margin-top:5px; text-align:left;}
+.resposta_do_faq{display:inline-block;height: 268px;overflow-y:scroll;padding:0px 4px;width:100%;}
 
 /*AGENDA*/
 .titu_agenda{width:100%;display:inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:18px;color:#736d9b;margin-top:10px;text-align:left;}
