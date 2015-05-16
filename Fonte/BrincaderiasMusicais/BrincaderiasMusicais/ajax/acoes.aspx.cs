@@ -101,7 +101,7 @@ namespace BrincaderiasMusicais.ajax
                 //Medalha dedicado
                 if (Convert.ToInt16(rsLogin["USU_QTD_ACESSO"]) == 2)
                 {
-                    objBD.ExecutaSQL("INSERT INTO LOG (USU_ID, ADM_ID, LOG_ACONTECIMENTO, LOG_EXIBIR) VALUES ('" + rsLogin["USU_ID"] + "',null,'Parabéns! Você ganhou a medalha de Dedicado ao se logar pela 3ª vez.', '1') ");
+                    objBD.ExecutaSQL("INSERT INTO LOG (USU_ID, ADM_ID, LOG_ACONTECIMENTO, LOG_EXIBIR) VALUES ('" + rsLogin["USU_ID"] + "',null,'Parabéns! Você ganhou a medalha DEDICADO por efetuar o login pela 3ª vez no site.', '1') ");
                 }
 
                 //Response.Redirect("/rede/" + objUtils.GerarURLAmigavel(rsLogin["RED_TITULO"].ToString()));
@@ -147,7 +147,7 @@ namespace BrincaderiasMusicais.ajax
 
                 //Salva no log
                 objBD.ExecutaSQL("EXEC psLog '" + rsCadastro["USU_ID"] + "',null,'Login efetuado no sistema'");
-                objBD.ExecutaSQL("insert into Log (USU_ID, LOG_ACONTECIMENTO, LOG_EXIBIR) VALUES ('" + Session["usuID"] + "','Parabéns! Você ganhou uma medalha por se cadastrar no site.','1')");
+                objBD.ExecutaSQL("insert into Log (USU_ID, LOG_ACONTECIMENTO, LOG_EXIBIR) VALUES ('" + Session["usuID"] + "',Parabéns! Você ganhou a medalha INICIANTE por se cadastrar e efetuar o login no site.','1')");
                 Response.Redirect("/rede/" + objUtils.GerarURLAmigavel(rsCadastro["RED_TITULO"].ToString()));
                 Response.End();
 

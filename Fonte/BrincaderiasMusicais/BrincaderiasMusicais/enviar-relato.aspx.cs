@@ -96,7 +96,7 @@ namespace BrincaderiasMusicais
                 rsMedalhas.Read();
                 if (Convert.ToInt16(rsMedalhas["TOTAL_FORUM"]) > 1 && Convert.ToInt16(rsMedalhas["TOTAL_RELATOS"]) > 1)
                 {
-                    objBD.ExecutaSQL("insert into Log (USU_ID, LOG_ACONTECIMENTO, LOG_EXIBIR) VALUES ('" + Session["usuID"] + "','Parabéns! Você ganhou a medalha Experiente','1')");
+                    objBD.ExecutaSQL("insert into Log (USU_ID, LOG_ACONTECIMENTO, LOG_EXIBIR) VALUES ('" + Session["usuID"] + "','Parabéns! Você ganhou a medalha EXPERIENTE por participar do fórum e da criação documentada.','1')");
                 }
             }
         }
