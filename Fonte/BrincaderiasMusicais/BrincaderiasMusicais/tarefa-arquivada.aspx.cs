@@ -14,10 +14,43 @@ namespace BrincaderiasMusicais
         utils objUtils = new utils();
         bd objBD = new bd();
         OleDbDataReader rsListar;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-            PopulaTela();
-            Relatos();
+            objUtils = new utils();
+            objBD = new bd();
+
+            //Verificar se ainda está logado
+            if (Session["nomeUsuario"] != null && Session["nomeUsuario"].ToString().Length > 1)
+            {
+                switch (Request["acao"])
+                {
+                    case ("comentarTarefa"):
+                        objBD.ExecutaSQL("exec Site_piComentario '" + Request["idCDO"] + "',null,'" + Session["usuID"] + "',null,'" + Request["comentarioTarefa"] + "'");
+                        Response.Redirect("/tarefa-arquivada/" + Request["idCDO"]);
+                        break;
+
+                    case ("comentarRelato"):
+
+                        // Response.Write("exec Site_piComentario null,'" + Request["idREL"] + "','" + Session["usuID"] + "',null,'" + Request["comentarioRelato"] + "'");
+                        //  Response.End();
+
+                        objBD.ExecutaSQL("exec Site_piComentario null,'" + Request["idREL"] + "','" + Session["usuID"] + "',null,'" + Request["comentarioRelato"] + "'");
+                        Response.Redirect("/tarefa-arquivada/" + Request["idCDO1"]);
+                        break;
+
+                    default:
+                        PopulaTela();
+                        Relatos();
+                        break;
+                }
+
+            }
+            else
+            {
+                //DESLOGADO
+                Response.Redirect("/");
+            }
         }
 
 
@@ -46,6 +79,19 @@ namespace BrincaderiasMusicais
                     titulovideo.Visible = false;
                     video_criacoes.Visible = false;
                 }
+
+                idCDO.Attributes.Add("value", Request["CDO_ID"].ToString());
+                idCDO1.Attributes.Add("value", Request["CDO_ID"].ToString());
+
+                relato_detalhe.InnerHtml = "<strong>" + rsListar["TOTAL_RELATOS"].ToString() + " Relatos Enviados</strong>";
+
+                totalComentarios.InnerHtml = "<a href='javascript:void(0)' onClick='verComentarios2(1," + Request["CDO_ID"] + ");'> " + rsListar["TOTAL_COMENTARIOS"].ToString() + " Comentário";
+
+                if (Convert.ToInt16(rsListar["TOTAL_COMENTARIOS"]) > 1)
+                {
+                    totalComentarios.InnerHtml += "s";
+                }
+                totalComentarios.InnerHtml += "</a>";
 
             }
             else
