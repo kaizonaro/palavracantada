@@ -549,7 +549,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .relato_detalhe{float: left;font-size: 12px;display: inline-block;font-family:Arial;color:#68455b;text-align:left;}
 .comentario_detalhe{float: left;font-size: 12px;display: inline-block;font-family:Arial;color:#736d9b;text-align:left;}
 .criacoes_btn{display:inline-block;}
-.btn_comentario{font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;color:#fff;background:url(../images/btn_comente.png) no-repeat center center;background-size:cover;width:171px;height:31px;display:block;line-height:34px;  padding-left: 21px;float:left;margin-right:10px;}
+.btn_comentario{font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:10px;color:#fff;background:url(../images/btn_comente.png) no-repeat center center;background-size:cover;width:171px;height:31px;display:block;line-height:34px;  padding-left: 21px;float:left;margin-right:10px;}
 .btn_relato{font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;color:#fff;background:url(../images/btn_relato.png) no-repeat center center;background-size:cover;width:142px;height:31px;display:block;line-height:34px;  padding-left: 21px;float:right;}
 .titu_criacoes{  width: 100%; display: inline-block;font-family: 'love_ya_like_a_sister_snormal', sans-serif; font-size: 15px; color: #736d9b; margin-top: 10px; text-align: left;}
 .relatos_ul li{padding:10px;float:left;position:relative;}
@@ -583,7 +583,7 @@ textarea{resize:none;}
 .modal_comentario2 .x{width:100%;text-align:right;cursor:pointer;}
 .modal_comentario2 .titu_criacoes{text-align:center;margin-top:0;margin-bottom:5px;}
 
-.modal_relatos{width:540px;height:791px;padding:25px;background:url(../images/bg_relate.png) no-repeat center center;margin:10px auto;z-index:15;position:relative;display:none;}
+.modal_relatos{width:540px;height:591px;padding:25px;background:url(../images/bg_relate.png) no-repeat center center;margin:10px auto;z-index:15;position:relative;display:none;}
 .modal_relatos .box_criacoes{height:250px;}
 textarea{resize:none;}
 .modal_relatos .x{width:100%;text-align:right;cursor:pointer;}

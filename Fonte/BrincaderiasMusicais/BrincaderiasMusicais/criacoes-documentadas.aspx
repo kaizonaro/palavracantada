@@ -49,14 +49,14 @@
                     <a href="/" title="Home">Home</a> >> <strong>Criações Documentadas</strong>
                 </div>
                 <!-- INCLUDE -->
-                    <p class="titu_agenda">Tarefas ativas em sua região:</p>
+                    <p class="titu_agenda">Propostas ativas em sua região:</p>
                     <br />
                     <div id="tbAtiva" runat="server">
                         
                     </div>
                     <br />
                     <img src="/images/linha.png" class="linha" />
-                    <p class="titu_calendario tabela_verde">Tarefas arquivadas em sua região:</p>
+                    <p class="titu_calendario tabela_verde">Propostas arquivadas em sua região:</p>
                     
                    <div id="tbArquivada" runat="server"></div>
             </div>

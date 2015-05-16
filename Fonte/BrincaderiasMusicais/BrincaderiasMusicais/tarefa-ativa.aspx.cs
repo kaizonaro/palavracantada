@@ -71,7 +71,7 @@ namespace BrincaderiasMusicais
                 rsListar.Read();
 
                 //breadcrumb
-                breadcrumb.InnerHtml = "<a href='/' title='Home'>Home</a> >> <strong>" + objUtils.RemoveHTML(rsListar["CDO_TAREFA"].ToString()) + "</strong> >> Criações Documentadas ";
+                breadcrumb.InnerHtml = "<a href='/' title='Home'>Home</a> >> <strong> <a href='/Criacoes-Documentadas' title='Criações Documentadas'>Criações Documentadas</a> </strong> >> " + objUtils.RemoveHTML(rsListar["CDO_TAREFA"].ToString()) + " ";
 
                 //<a href="/" title="Home">Home</a> >> <strong>Criações Documentadas</strong>
                 titu_criacoes.InnerHtml = objUtils.RemoveHTML(rsListar["CDO_TAREFA"].ToString());
