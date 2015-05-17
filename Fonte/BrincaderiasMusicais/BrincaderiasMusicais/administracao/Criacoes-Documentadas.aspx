@@ -173,11 +173,11 @@
                                                 <option value="NULL">Nenhuma</option>
                                             </select>
 
-                                            <p>Titulo:*</p>
-                                            <input type="text" id="CDO_TAREFA" name="CDO_TAREFA"class="input obg" placeholder="Titulo da Tarefa" />
+                                            <p>Titulo da Proposta:*</p>
+                                            <input type="text" id="CDO_TAREFA" name="CDO_TAREFA"class="input obg" placeholder="Titulo da Proposta" />
 
                                             <p>Data:*</p>
-                                            <input type="text" maxlength="10" name="CDO_DATA" id="CDO_DATA" class="input data obg" placeholder="Data da Tarefa" />
+                                            <input type="text" maxlength="10" name="CDO_DATA" id="CDO_DATA" class="input data obg" placeholder="Data da Proposta" />
 
                                             <p>Status*</p>
                                             <select name="CDO_STATUS" class="input" id="CDO_STATUS" runat="server">
