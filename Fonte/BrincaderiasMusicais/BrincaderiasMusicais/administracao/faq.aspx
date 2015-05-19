@@ -140,7 +140,7 @@
 
                                             <p>Rede</p>
                                             <select name="RED_ID" class="input" id="RED_ID" runat="server">
-                                                <option value="NULL">Nenhuma</option>
+                                                <option value="NULL">Todas as Redes</option>
                                             </select>
 
                                             <p>Pergunta:*</p>

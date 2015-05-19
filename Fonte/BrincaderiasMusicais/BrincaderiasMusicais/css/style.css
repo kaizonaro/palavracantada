@@ -566,7 +566,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .btn_comentario2{font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;color:#fff;background:url(../images/ver_comentario.png) no-repeat center center;background-size:cover;width:151px;height:31px;display:block;line-height:34px;  padding-left: 21px;float:left;margin-right:10px;}
 .btn_relato2{font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;color:#fff;background:url(../images/btn_comentar.png) no-repeat center center;background-size:cover;width:171px;height:31px;display:block;line-height:34px;  padding-left: 21px;float:left;}
 .sub_criacoes, .btn_relato2{margin-top:10px;}
-.btn_comentario3{font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;color:#fff;background:url(../images/btn_comente.png) no-repeat center center;background-size:cover;width:171px;height:31px;display:block;line-height:34px;  padding-left: 21px;float:right;}
+.btn_comentario3{font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:10px;color:#fff;background:url(../images/btn_comente.png) no-repeat center center;background-size:cover;width:171px;height:31px;display:block;line-height:34px;  padding-left: 21px;float:right;}
 .enviar_relato{text-align:right !important;}
 .enviar_relato .btn_back, .enviar_relato .btn_save{float:none !important;}
 #totalComentarios a{text-decoration:underline;}
