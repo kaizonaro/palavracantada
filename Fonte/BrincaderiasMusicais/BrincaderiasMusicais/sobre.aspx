@@ -112,7 +112,7 @@
                     </div>
                     <label>senha:</label><input type="password" name="senha" class="input" placeholder="defina sua senha de acesso" /><label>Senha:</label><input type="password" name="senhanovamente" class="input" placeholder="Confirme a senha" />
                     <div>
-                        <input type="checkbox" id="termo" class="checkbox termo" /><label for="termo" class='termo'>Marque esta opção para concordar com os termos e condições do Projeto Brincadeiras Musicais da Palavra Cantada</label><nav>
+                        <input type="checkbox" id="termo" class="checkbox termo" /><label for="termo" class='termo'>Marque esta opção para concordar com os <a href="termos/termos.html" target="_blank">termos e condições</a> do Projeto Brincadeiras Musicais da Palavra Cantada</label><nav>
                             <input class="btn" type="submit" value="cadastrar">
                             <input class="btn" type="reset" value="cancelar">
                         </nav>
