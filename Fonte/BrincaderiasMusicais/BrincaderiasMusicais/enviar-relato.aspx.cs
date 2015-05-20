@@ -76,7 +76,9 @@ namespace BrincaderiasMusicais
 
         public void gravar(object sender, EventArgs e)
         {
-            objBD.ExecutaSQL("insert into Criacoes_Documentadas_Relatos (CDO_ID, CDR_RELATO,USU_ID,CDR_VIDEO) values ('" + Request["CDO_ID"] + "', '" + Request["CDR_RELATO"] + "', '" + Session["usuID"] + "', '" + objUtils.getYoutubeVideoId(Request["CDR_VIDEO"].ToString()) + "')");
+            string mensagem = Request["CDR_RELATO"];
+            mensagem = mensagem.Replace(Environment.NewLine, "<br />");
+            objBD.ExecutaSQL("insert into Criacoes_Documentadas_Relatos (CDO_ID, CDR_RELATO,USU_ID,CDR_VIDEO) values ('" + Request["CDO_ID"] + "', '" + mensagem + "', '" + Session["usuID"] + "', '" + objUtils.getYoutubeVideoId(Request["CDR_VIDEO"].ToString()) + "')");
 
             VerificarMedalhas();
 
