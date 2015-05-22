@@ -31,7 +31,9 @@ namespace BrincaderiasMusicais
                 switch (Request["acao"])
                 {
                     case ("comentarTarefa"):
-                        objBD.ExecutaSQL("exec Site_piComentario '" + Request["idCDO"] + "',null,'" + Session["usuID"] + "',null,'" + Request["comentarioTarefa"] + "'");
+                        string mensagem = Request["comentarioTarefa"];
+                        mensagem = mensagem.Replace(Environment.NewLine, "<br />");
+                        objBD.ExecutaSQL("exec Site_piComentario '" + Request["idCDO"] + "',null,'" + Session["usuID"] + "',null,'" + mensagem + "'");
                         Response.Redirect("/tarefa-ativa/" + Request["idCDO"]);
                         break;
 
@@ -39,8 +41,9 @@ namespace BrincaderiasMusicais
 
                         // Response.Write("exec Site_piComentario null,'" + Request["idREL"] + "','" + Session["usuID"] + "',null,'" + Request["comentarioRelato"] + "'");
                         //  Response.End();
-
-                        objBD.ExecutaSQL("exec Site_piComentario null,'" + Request["idREL"] + "','" + Session["usuID"] + "',null,'" + Request["comentarioRelato"] + "'");
+                         mensagem = Request["comentarioRelato"];
+                        mensagem = mensagem.Replace(Environment.NewLine, "<br />");
+                        objBD.ExecutaSQL("exec Site_piComentario null,'" + Request["idREL"] + "','" + Session["usuID"] + "',null,'" + mensagem + "'");
                         Response.Redirect("/tarefa-ativa/" + Request["idCDO1"]);
                         break;
 
