@@ -209,7 +209,7 @@ namespace Etnia.classe
 
             conteudoMensagem = conteudoMensagem += "    <tr>";
             conteudoMensagem = conteudoMensagem += "        <td colspan=\"2\" align=\"left\" valign=\"middle\">";
-            conteudoMensagem = conteudoMensagem += "            <img width='100%' src='http://projetopalavracantada.net/images/email-topo.jpg' />";
+            conteudoMensagem = conteudoMensagem += "            <img width='100%' src='http://projetopalavracantada.net/images/email-topo_2.png' />";
             conteudoMensagem = conteudoMensagem += "        </td>";
             conteudoMensagem = conteudoMensagem += "    </tr>";
             conteudoMensagem = conteudoMensagem += "    <tr>";
