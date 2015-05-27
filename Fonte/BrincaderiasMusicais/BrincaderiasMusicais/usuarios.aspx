@@ -14,9 +14,9 @@
     <title></title>
 
      <!--FACEBOOK-->
-    <meta property="og:title" content="Palavra Cantada - Blog" /> 
+    <meta property="og:title" content="Palavra Cantada - Usuários" /> 
     <meta property="og:image" content="http://projetopalavracantada.net/images/logo-fb.png" />
-    <meta property="og:description" content="Página de Blog" />
+    <meta property="og:description" content="Página de Usuários" />
 
     <brincadeira:script runat="server" ID="script" />
     <script type="text/javascript">
@@ -57,15 +57,15 @@
 
     <!-- CONTEUDO-->
     <section class="all">
-        <div class="all_center">
+        <div class="all_center"> 
 
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="sobre" class="interna">
                 <div class="titu">
-                    Blog
+                    Usuários
                 </div>
                 <div id="breadcrumb">
-                    <a href="/" title="Home">Home</a> >> <strong><a href="blog.aspx">Blog</a></strong> >> <span id="bread" runat="server"></span>
+                    <a href="/" title="Home">Home</a> >> <strong><a href="Usuários.aspx">Usuários</a></strong> >> <span id="bread" runat="server"></span>
                 </div>
                 <div id="msg" class="txt" runat="server" ></div>
                 <div class="oculta"><a href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweetar</a>
