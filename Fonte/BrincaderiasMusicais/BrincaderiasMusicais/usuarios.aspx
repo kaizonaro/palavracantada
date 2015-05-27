@@ -4,7 +4,7 @@
 <%@ Register Src="~/inc/header.ascx" TagPrefix="brincadeira" TagName="header" %>
 <%@ Register Src="~/inc/footer.ascx" TagPrefix="brincadeira" TagName="footer" %>
 <%@ Register Src="~/inc/menu.ascx" TagPrefix="brincadeira" TagName="menu" %>
-<%@ Register Src="~/inc/usuarios.ascx" TagPrefix="brincadeira" TagName="usuarios" %>
+<%@ Register Src="~/inc/blog.ascx" TagPrefix="brincadeira" TagName="blog" %>
 <%@ Register Src="~/inc/login.ascx" TagPrefix="brincadeira" TagName="login" %>
 
 <!DOCTYPE html>
@@ -14,9 +14,9 @@
     <title></title>
 
      <!--FACEBOOK-->
-    <meta property="og:title" content="Palavra Cantada - usuarios" /> 
+    <meta property="og:title" content="Palavra Cantada - Blog" /> 
     <meta property="og:image" content="http://projetopalavracantada.net/images/logo-fb.png" />
-    <meta property="og:description" content="Página de usuarios" />
+    <meta property="og:description" content="Página de Blog" />
 
     <brincadeira:script runat="server" ID="script" />
     <script type="text/javascript">
@@ -32,7 +32,7 @@
         var mod = GetXMLHttp();
 
         function pagina(pg) {
-           /* mod.open("GET", "ajax/acoes.aspx?pagina=" + pg + "&ACAO=paginacaousuarios", true);
+           /* mod.open("GET", "ajax/acoes.aspx?pagina=" + pg + "&ACAO=paginacaoBlog", true);
             mod.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             mod.onreadystatechange = function () {
                 if (mod.readyState == 4) {
@@ -40,7 +40,7 @@
                 }
             };
             mod.send(null);*/
-            location.href = "usuarios.aspx?pagina=" + pg + "";
+            location.href = "blog.aspx?pagina=" + pg + "";
              
         }
     </script>
@@ -62,10 +62,10 @@
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="sobre" class="interna">
                 <div class="titu">
-                    usuarios
+                    Blog
                 </div>
                 <div id="breadcrumb">
-                    <a href="/" title="Home">Home</a> >> <strong><a href="usuarios.aspx">usuarios</a></strong> >> <span id="bread" runat="server"></span>
+                    <a href="/" title="Home">Home</a> >> <strong><a href="blog.aspx">Blog</a></strong> >> <span id="bread" runat="server"></span>
                 </div>
                 <div id="msg" class="txt" runat="server" ></div>
                 <div class="oculta"><a href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweetar</a>
@@ -91,8 +91,8 @@
             <!--BOX LOGIN-->
             <brincadeira:login runat="server" ID="login" />
 
-            <!--usuarios-->
-            <brincadeira:usuarios runat="server" ID="usuarios" />
+            <!--BLOG-->
+            <brincadeira:blog runat="server" ID="blog" />
 
         </div>
     </section>
