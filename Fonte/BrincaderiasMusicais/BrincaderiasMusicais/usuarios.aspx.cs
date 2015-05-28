@@ -60,7 +60,7 @@ namespace BrincaderiasMusicais
 
                     divArtigos.InnerHtml += "<div style=\"display:inline-block\" class=\"txt blog_txt\">";
                     divArtigos.InnerHtml += "   <a href=\"/perfil/" + rsArtigos["USU_USUARIO"].ToString() + "\" title=\"Ver usuario\">";
-                    string src = !string.IsNullOrWhiteSpace(rsArtigos["USU_FOTO"].ToString()) ? "/upload/imagens/usuarios/" + rsArtigos["USU_FOTO"] : "images/img-post-blog-padrao.png";
+                    string src = !string.IsNullOrWhiteSpace(rsArtigos["USU_FOTO"].ToString()) ? "/upload/imagens/usuarios/" + rsArtigos["USU_FOTO"] : "images/img_perfil.jpg";
 
                     divArtigos.InnerHtml += "       <img width='80px' height='80px' src='"+src+"' class='thumb_artigo'>";
 
