@@ -54,6 +54,7 @@ namespace BrincaderiasMusicais
 
             if (rsArtigos.HasRows)
             {
+                msg.InnerHtml += " Visualizando usuários com perfil público da rede " + Session["nomeInstituicao"] + ", em ordem alfabética. (clique no link “ver perfil” para visualizar o perfil do usuário).";
                 while (rsArtigos.Read())
                 {
 
@@ -64,13 +65,17 @@ namespace BrincaderiasMusicais
                     divArtigos.InnerHtml += "       <img width='80px' height='80px' src='"+src+"' class='thumb_artigo'>";
 
                     divArtigos.InnerHtml += "   </a>";
-                    divArtigos.InnerHtml += "   <span class=\"titu_blog\"><a href=\"/usuario/" + rsArtigos["USU_USUARIO"].ToString() + "\" title=\"Ver usuario\"><strong>" + rsArtigos["USU_NOME"] + "</strong></a><br>" + rsArtigos["USU_USUARIO"] + "</span>";
-
+                    divArtigos.InnerHtml += "   <span class=\"titu_blog\"><a href=\"/usuario/" + rsArtigos["USU_USUARIO"].ToString() + "\" title=\"Ver usuario\"><strong>" + rsArtigos["USU_NOME"] + "</strong></a><br>";
+                    divArtigos.InnerHtml += "<a href=\"/usuario/" + rsArtigos["USU_USUARIO"].ToString() + "\" title=\"Ver usuario\">Ver Perfil</a></span>";
                     divArtigos.InnerHtml += "</div>";
 
                 }
 
 
+            }
+            else
+            {
+                msg.InnerHtml += " Não existem usuários com perfil público na rede " + Session["nomeInstituicao"] + ".";
             }
 
             rsArtigos.Close();
