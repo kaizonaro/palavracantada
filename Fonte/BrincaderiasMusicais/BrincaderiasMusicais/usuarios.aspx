@@ -62,7 +62,7 @@
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="sobre" class="interna">
                 <div class="titu">
-                    Usuários
+                    Usuários - <% Response.Write(Session["nomeInstituicao"]); %>
                 </div>
                 <div id="breadcrumb">
                     <a href="/" title="Home">Home</a> >> <strong><a href="Usuários.aspx">Usuários</a></strong> >> <span id="bread" runat="server"></span>
@@ -72,18 +72,7 @@
                             <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script></div>
                 <!-- ARTIGOS -->
                 <div id="divArtigos" runat="server">
-                    <!-- PAGINAÇÃO -->
-                    <!--<nav class="paginacao">
-                        <ul>
-                            <li><a href="javascript:void(0);" class="nav_pg" title="Página anterior">
-                                <img src="images/nav_left.png">ANTERIORES</a></li>
-                            <li><a href="javascript:void(0);" title="Página atual" class="ativo">1</a></li>
-                            <li><a href="javascript:void(0);" onclick="pagina('2')" title="Página 2">2</a></li>
-                            <li><a href="javascript:void(0);" onclick="pagina('3')" title="Página 3">3</a></li>
-                            <li><a href="javascript:void(0);" onclick="pagina('2')" class="nav_pg" title="Próxima Página">PRÓXIMOS
-                                <img src="images/nav_right.png "></a></li>
-                        </ul>
-                    </nav>-->
+                   
                 </div>
             </div>
             <!--FIM DO CONTEUDO INTERNO (ARTIGOS)-->
