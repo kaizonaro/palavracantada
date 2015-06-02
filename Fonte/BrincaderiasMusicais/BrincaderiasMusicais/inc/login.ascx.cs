@@ -90,9 +90,12 @@ namespace BrincaderiasMusicais.inc
             box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"/meu-perfil/" + Session["usuUsuario"] + "\" title=\"Meu perfil\">Meu perfil</a></li>";
             box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"/agenda\" title=\"Agenda\">Agenda</a></li>";
             box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"/faq\" title=\"FAQ\">FAQ</a></li>";
-            box_logado.InnerHtml += "   <li class=\"conheca pequeno\"><a href=\"/galeria-colaborativa\" title=\"Galeria Colaborativa\">Galeria Colaborativa</a></li>";
+
+            box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"/usuarios\" title=\"Usuários\">Usuários</a></li>";
+
             box_logado.InnerHtml += "   <li class=\"conheca medio\"><a href=\"/blog-regional\" title=\"Blog Regional\">Blog Regional</a></li>";
             box_logado.InnerHtml += "   <li class=\"conheca\"><a href=\"/forum\" title=\"Fórum\">Fórum</a></li>";
+            box_logado.InnerHtml += "   <li class=\"conheca grande\"><a href=\"/galeria-colaborativa\" title=\"Galeria Colaborativa\">Galeria Colaborativa</a></li>";
             box_logado.InnerHtml += "   <li class=\"conheca grande\"><a href=\"/Criacoes-Documentadas\" title=\"Criações Documentadas\">Criações Documentadas</a></li>";
             box_logado.InnerHtml += "</ul>";
 
