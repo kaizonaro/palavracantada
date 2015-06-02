@@ -81,7 +81,7 @@
                     <div class="select_equipe txt">
                         <form action="javascript:void(0)" onsubmit="MudarIntegrante($('#slIntegrante').val())">
                             <select name="equipe" runat="server" id="slIntegrante">
-                                <option value="0" selected="selected">Escolha um menbro</option>
+                                <option value="0" selected="selected">Escolha um membro</option>
                             </select>
                             <input type="submit" class="input btn" value="OK" />
                         </form>
