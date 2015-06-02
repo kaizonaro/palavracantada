@@ -75,7 +75,7 @@ namespace BrincaderiasMusicais
                 {
                     ultimasMensagens.InnerHtml += " <div class=\"txt blog_txt txt_forum\">";
                     ultimasMensagens.InnerHtml += "   <div class=\"txt\">";
-                    ultimasMensagens.InnerHtml += "       <p>" + objUtils.CortarString(true, 100, rsLista["FME_MENSAGEM"].ToString()) + "</p>";
+                    ultimasMensagens.InnerHtml += "       <a href=\"/forum-lista/" + objUtils.GerarURLAmigavel(rsLista["FTO_TITULO"].ToString()) + "/" + rsLista["FTO_ID"] + "\" title=\"" + rsLista["FTO_TITULO"] + "\"><p>" + objUtils.CortarString(true, 100, rsLista["FME_MENSAGEM"].ToString()) + "</p></a>";
                     ultimasMensagens.InnerHtml += "       <p class=\"destque_forum\">Mensagem enviada por: <a href='/perfil/" + rsLista["USU_USUARIO"].ToString() + "' title='" + rsLista["USU_NOME"].ToString() + "'>" + rsLista["USU_NOME"].ToString() + "</a></p>";
                     ultimasMensagens.InnerHtml += "       <p class=\"destque_forum\">Enviada em: <b>" + rsLista["FME_DH_PUBLICACAO"].ToString() + "</b></p>";
                     ultimasMensagens.InnerHtml += "       <p class=\"destque_forum\">Tópico: <b><a href=\"/forum-lista/" + objUtils.GerarURLAmigavel(rsLista["FTO_TITULO"].ToString()) + "/" + rsLista["FTO_ID"] + "\" title=\"" + rsLista["FTO_TITULO"] + "\">" + rsLista["FTO_TITULO"].ToString() + "</a></b></p><br /><br />";

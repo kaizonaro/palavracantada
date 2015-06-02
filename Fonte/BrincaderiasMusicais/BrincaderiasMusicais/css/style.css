@@ -88,7 +88,7 @@ header {padding-top:20px;}
 .form_login .link, .form_senha .link{color:#525252;text-decoration:underline;font-size:9px;font-family:Arial, sans-serif;float:left;margin-right:10px;margin-top:5px}
 .form_login div, .form_senha div{width:100%;display:inline-block;margin-top:15px;}
 .banner_sidebar{margin-top:10px;}
-.box_logado{width:372px;height:324px;background:url(../images/bg_logado.png) no-repeat center center;background-size:cover;padding:21px}
+.box_logado{width:380px;height:324px;background:url(../images/bg_logado.png) no-repeat center center;background-size:cover;padding:21px}
 .box_logado p{color:#68455b;font-size:1.2em;font-family:Arial, sans-serif;float:left;width:70%;text-align:left;line-height:16px;}
 .box_logado .btn{color:#fff;background:url(../images/btn_sair.png) no-repeat center center;background-size:cover;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:11px;width:62px;height:32px;text-align: right;padding-right: 5px;float:right;margin-right:15px;cursor:pointer;}
 .box_logado .titu_logado{color:#000;font-family:Arial, sans-serif;font-weight:bold;font-size:12px;margin-bottom:15px;width:100%;display:inline-block;text-align:center;margin-top:15px;}
@@ -99,9 +99,9 @@ header {padding-top:20px;}
 .opcao_logado a {color:#fff;background:#000;width: 100px;height: 31px;display: inline-block;line-height: 31px;}
 .opcao_logado .pequeno{font-size:6px;}
 .opcao_logado .medio{font-size:10px;}
-.opcao_logado .grande a{background:url(/images/btn_grande.png);width: 185px;}
+.opcao_logado .grande a{background:url(/images/btn_grande.png);width: 162px;}
 .opcao_logado .grande.ativo a{background:url(/images/btn_grande_ok.png);width: 185px;}
-.opcao_logado .grande{font-size:10px}
+.opcao_logado .grande{font-size:9px}
 .notificacoes_logado {width:100%;display:inline-block;}
 .notificacoes_logado p{font-weight:bold;width:284px}
 .notificacoes_logado img {cursor:pointer;}
@@ -208,7 +208,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .interna .txt{width:100%;font-family:Arial, sans-serif;font-size:12px;color:#68455b;text-align:justify;margin-top:20px;line-height:17px;}
 .txt p{margin-bottom:20px;}
 .txt img{float:right;margin-bottom:20px;}
-.txt p{width:100%;display:inline-block;}
+.txt p{width:100%;display:inline-block; color:#68455b;}
 .txt .img{float:left;width:55%;}
 .banner_sobre{display: inline-block;position: relative;/* float: left; */width: 100%;height: 215px;}
 .banner_sobre img{width: 100%;display: inline-block;position: absolute;}
@@ -222,7 +222,7 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .paginacao ul li a {font-family: 'love_ya_like_a_sister_snormal', sans-serif;text-decoration:underline;font-size:12px;color:#f68b1f;}
 .paginacao a.nav_pg{display:inline-block; color:#fff;background:url(../images/bg_nav_pg.png); padding:2px;background-size:cover;width:90px;height:20px;font-size:9px;line-height:18px;text-decoration:none;}
 .paginacao a.ativo{text-decoration:none;color:#000;}
-.paginacao ul{margin: 0 auto;width: 252px;display: inline-flex;margin-top: 36px;}
+.paginacao ul{margin: 0 auto;width: 252px;display:inline-flex;margin-top: 36px;}
 .paginacao ul li{display:inline-block;float:left;margin:5px;}
 .paginacao ul li img{display:inline-block;margin-left:2px;margin-right:2px;}
 .artigo_txt .social_blog .tw_blog{width:119px;}
@@ -637,7 +637,7 @@ textarea{resize:none;}
 
 .youtube object {
     max-width:460px;
-    display:none;
+    /*display:none;*/
 }
 
 .erro_pesquisa {

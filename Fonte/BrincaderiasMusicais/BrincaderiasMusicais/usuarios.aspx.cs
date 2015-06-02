@@ -62,11 +62,11 @@ namespace BrincaderiasMusicais
                     divArtigos.InnerHtml += "   <a href=\"/perfil/" + rsArtigos["USU_USUARIO"].ToString() + "\" title=\"Ver usuario\">";
 
                     string src = !string.IsNullOrWhiteSpace(rsArtigos["USU_FOTO"].ToString()) ? "/upload/imagens/usuarios/" + rsArtigos["USU_FOTO"] : "images/img_perfil.jpg";
-                   
-                    divArtigos.InnerHtml += "       <img width='80px' height='80px' src='" + src + "' class='thumb_artigo'>";
+
+                    divArtigos.InnerHtml += "       <img  style=\"width: 80px; height: 80px;\"  src='" + src + "' class='thumb_artigo img_perfil'>";
                     divArtigos.InnerHtml += "   </a>";
-                    divArtigos.InnerHtml += "   <span class=\"titu_blog\"><a href=\"/usuario/" + rsArtigos["USU_USUARIO"].ToString() + "\" title=\"Ver usuario\"><strong>" + rsArtigos["USU_NOME"] + "</strong></a><br>";
-                    divArtigos.InnerHtml += "<a href=\"/perfil/" + rsArtigos["USU_USUARIO"].ToString() + "\" title=\"Ver usuario\">Ver Perfil</a></span>";
+                    divArtigos.InnerHtml += "   <span class=\"titu_blog\"><a style=\"float: initial;\" href=\"/usuario/" + rsArtigos["USU_USUARIO"].ToString() + "\" title=\"Ver usuario\"><strong>" + rsArtigos["USU_NOME"] + "</strong></a><br>";
+                    divArtigos.InnerHtml += "<a style=\"float: left;\" href=\"/perfil/" + rsArtigos["USU_USUARIO"].ToString() + "\" title=\"Ver usuario\"><img  src='/images/btn_ver_perfil.png'></a></span>";
                     divArtigos.InnerHtml += "</div>";
 
                 }

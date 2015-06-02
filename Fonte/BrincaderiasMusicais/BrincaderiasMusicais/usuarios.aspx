@@ -60,7 +60,7 @@
         <div class="all_center"> 
 
             <!--CONTEUDO INTERNO (ARTIGOS)-->
-            <div id="sobre" class="interna">
+            <div id="sobre" class="interna2">
                 <div class="titu">
                     Usuários - <% Response.Write(Session["nomeInstituicao"]); %>
                 </div>
