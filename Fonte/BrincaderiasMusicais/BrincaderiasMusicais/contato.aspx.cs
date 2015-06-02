@@ -38,7 +38,7 @@ namespace BrincaderiasMusicais
             msg += "<tr><td>Mensagem:</td><td>" + Request["mensagem"] + "</td></tr></table>";
             
             //ERRO
-            if (objUtils.EnviaEmail("fernando@agenciaetnia.com.br, zonaro@outlook.com.br, renato@toy.com.br", "Contato Projeto Brincadeiras Musicais da Palavra Cantada", msg, remetente: Request["email"], nome: Request["nome"]) == false)
+            if (objUtils.EnviaEmail("dssilva@melhoramentos.com.br, admin@toy.com.br", "Contato Projeto Brincadeiras Musicais da Palavra Cantada", msg, remetente: Request["email"], nome: Request["nome"]) == false)
             {
                 Response.Write("<script>alert('Erro ao enviar o email!');</script>");
             }
