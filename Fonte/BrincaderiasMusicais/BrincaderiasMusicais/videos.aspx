@@ -73,7 +73,7 @@
                     <a href="/" title="Home">Home</a> >> <strong>Explore - Vídeos</strong>
                 </div>
                 <div class="select_fotos txt">
-                    <p>Selecione abaixo a galeria que gostaria de visualizar e clique ok</p>
+                    <p>Selecione abaixo a playlist que gostaria de visualizar e clique ok.</p>
                     <form action="javascript:void(0);" onsubmit="mudarPlayList();">
                         <select id="slPlayList" runat="server"></select>
                         <input type="submit" class="input btn" value="OK" />

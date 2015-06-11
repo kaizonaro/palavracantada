@@ -65,7 +65,7 @@
                     Usuários - <% Response.Write(Session["nomeInstituicao"]); %>
                 </div>
                 <div id="breadcrumb">
-                    <a href="/" title="Home">Home</a> >> <strong><a href="Usuários.aspx">Usuários</a></strong> >> <span id="bread" runat="server"></span>
+                    <a href="/" title="Home">Home</a> >> <strong><a href="usuarios">Usuários</a></strong> >> <span id="bread" runat="server"></span>
                 </div>
                 <div id="msg" class="txt" runat="server" ></div>
                 <div class="oculta"><a href="https://twitter.com/share" class="twitter-share-button" data-lang="pt">Tweetar</a>
