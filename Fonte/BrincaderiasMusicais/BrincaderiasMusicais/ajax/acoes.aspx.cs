@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais.ajax
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLogin, rsCadastro, rsComentarios;
+        private OleDbDataReader rsLogin, rsCadastro, rsComentarios, rs;
         int registro = 1, pagina_atual = 1;
         string conteudoPaginacao = "", retorno = "";
         HttpCookie myCookie = new HttpCookie("palavracantada");
@@ -358,24 +358,39 @@ namespace BrincaderiasMusicais.ajax
 
         public void EsqueciSenha()
         {
-            string  msg = "  <table>";
-                    msg += "    <tr><td>Recebemos o seu aviso de que esqueceu a senha!</td></tr>";
-                    msg += "    <tr><td>Se realmente quer fazer a mudança, <a href=\"http://www.projetopalavracantada.net/ajax/acoes.aspx?acao=ResetarSenha&email=" + Request["email"] + "\">clique aqui</a> e lhe enviaremos outro e-mail com as intruções</td></tr>";
-                    msg += "    <tr><td>Se não fez a solicitação, por favor, ignore este e-mail.</td></tr>";
-                    msg += " </table>";
+            rs = objBD.ExecutaSQL("select USU_ID from Usuario where usu_ativo= 1 and USU_EMAIL = '"+ Request["email"] +"'");
 
-                    //ERRO
-                    if (objUtils.EnviaEmail("fernando@agenciaetnia.com.br", "Contato Projeto Brincadeiras Musicais da Palavra Cantada", msg, remetente: Request["email"], nome: "Fernando") == false)
-                    {
-                        Response.Write("<script>alert('Erro ao enviar o email!');</script>");
-                    }
-                    //SUCESSO
-                    else
-                    {
-                        //objBD = new bd();
-                        //objBD.ExecutaSQL("EXEC piContatoSite '" + Request["nome"] + "', '" + Request["email"] + "', '" + Request["mensagem"] + "'");
-                        Response.Redirect("/default.aspx?msg=EsqueciSenha");
-                    }
+            if (rs == null)
+            {
+                throw new Exception();
+            }
+            if (rs.HasRows)
+            {
+                string msg = "  <table>";
+                msg += "    <tr><td>Recebemos o seu aviso de que esqueceu a senha!</td></tr>";
+                msg += "    <tr><td>Se realmente quer fazer a mudança, <a href=\"http://www.projetopalavracantada.net/ajax/acoes.aspx?acao=ResetarSenha&email=" + Request["email"] + "\">clique aqui</a> e lhe enviaremos outro e-mail com as intruções</td></tr>";
+                msg += "    <tr><td>Se não fez a solicitação, por favor, ignore este e-mail.</td></tr>";
+                msg += " </table>";
+
+                //ERRO
+                if (objUtils.EnviaEmail(Request["email"].ToString(), "Contato Projeto Brincadeiras Musicais da Palavra Cantada", msg, remetente: Request["email"], nome: "Palavra Cantada") == false)
+                {
+                    Response.Write("<script>alert('Erro ao enviar o email!');</script>");
+                }
+                //SUCESSO
+                else
+                {
+                    //objBD = new bd();
+                    //objBD.ExecutaSQL("EXEC piContatoSite '" + Request["nome"] + "', '" + Request["email"] + "', '" + Request["mensagem"] + "'");
+                    Response.Redirect("/default.aspx?msg=EsqueciSenha");
+                }
+            }
+            else
+            {
+                Response.Redirect("/default.aspx?msg=naoLocalizado");
+                Response.End();
+            }
+            
         }
 
         public void ResetarSenha()
@@ -387,7 +402,7 @@ namespace BrincaderiasMusicais.ajax
                     msg += " </table>";
 
                     //ERRO
-                    if (objUtils.EnviaEmail("fernando@agenciaetnia.com.br", "Contato Projeto Brincadeiras Musicais da Palavra Cantada", msg, remetente: Request["email"], nome: "Fernando") == false)
+                    if (objUtils.EnviaEmail(Request["email"].ToString(), "Contato Projeto Brincadeiras Musicais da Palavra Cantada", msg, remetente: Request["email"], nome: "Palavra Cantada") == false)
                     {
                         Response.Write("<script>alert('Erro ao enviar o email!');</script>");
                     }

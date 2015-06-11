@@ -99,7 +99,7 @@ header {padding-top:20px;}
 .opcao_logado a {color:#fff;background:#000;width: 100px;height: 31px;display: inline-block;line-height: 31px;}
 .opcao_logado .pequeno{font-size:6px;}
 .opcao_logado .medio{font-size:10px;}
-.opcao_logado .grande a{background:url(/images/btn_grande.png);width: 162px;}
+.opcao_logado .grande a{background:url(/images/btn_grande.png);width: 160px;}
 .opcao_logado .grande.ativo a{background:url(/images/btn_grande_ok.png);width: 185px;}
 .opcao_logado .grande{font-size:9px}
 .notificacoes_logado {width:100%;display:inline-block;}
@@ -117,7 +117,7 @@ header {padding-top:20px;}
 .form_pesquisa select{-webkit-appearance:menulist;-moz-appearance:menulist;border:1px solid #ccc;width:97%;}
 
 /*BLOG HOME*/
-.blog_home {width:540px;height:319px;background:url(../images/bg_blog_home.png) no-repeat center center;background-size:cover;padding:30px;float:left;}
+.blog_home {width:540px;height:330px;background:url(../images/bg_blog_home.png) no-repeat center center;background-size:cover;padding:30px;float:left;}
 .blog_home .titu{width:100%;display:inline-block;color:#736d9b;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:14px;text-transform:uppercase;font-weight:bold;padding:10px 5px;text-align:left;}
 .blog_home .titu img{float: left;margin-right:10px}
 .blog_home .titu em {font-weight: normal;font-size: 13px;}
@@ -125,7 +125,7 @@ header {padding-top:20px;}
 .posts_home li{width:30%;margin:1%;color:#68455b;display:inline-block;margin-top:0;vertical-align: top;}
 .posts_home li a{color:#68455b;}
 .posts_home li img{width:115px;background:url(../images/bg_post_home.png) no-repeat center center;background-size:cover;padding:9px;display:inline-block;}
-.titu_post_home{font-family:Arial,sans-serif;font-weight:bold;font-size:13px;margin-top:5px;margin-bottom:5px;height: 30px;}
+.titu_post_home{font-family:Arial,sans-serif;font-weight:bold;font-size:13px;margin-top:5px;margin-bottom:5px;height: 42px;}
 .desc_post_home{font-family:Arial,sans-serif;font-size:11px; text-align:left;max-height: 57px;}
 .posts_home li .btn{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color:#fff;background:url(/images/menu3.png) no-repeat;width: 70px;height: 26px;display: inline-block;line-height: 26px;background-size: cover;float: right;margin-top: 7px;}
 /*@-moz-document url-prefix() {.blog_home .titu{padding-left: 24px;}}
@@ -321,13 +321,13 @@ footer .redes{width:545px;margin:0 auto;margin-top:10px;margin-bottom:10px}
 .interna_bottom{width:478;height:auto;margin:0 auto;max-width:100%;}
 
 /*BLOG INTERNA*/
-.blog_interna{width:368px;height:460px;background:url(/images/bg_blog_interna.png) no-repeat center center;background-size:cover;padding:15px;float:right;margin-top:15px;}
+.blog_interna{width:368px;min-height:480px;background:url(/images/bg_blog_interna.png) no-repeat center center;background-size:cover;padding:15px;float:right;margin-top:15px;}
 .blog_interna .titu{color:#736d9b;font-family: 'love_ya_like_a_sister_snormal', sans-serif;font-size:12px;text-transform:uppercase;font-weight:bold;padding:10px 5px;float:left;text-align:left}
 .posts_interna {width:100%;}
-.posts_interna li{width:100%;margin:1%;color:#68455b;display:inline-block;margin-top:0;margin-bottom:15px;}
+.posts_interna li{width:100%;margin:1%;color:#68455b;display:inline-block;margin-top:10px;margin-bottom:15px;}
 .posts_interna li a{color:#68455b;}
 .posts_interna li img{width:130px;height:90px;background:url(../images/bg_post_home.png) no-repeat center center;background-size:cover;padding:9px;float:left;margin-right: 15px;}
-.titu_post_interna{font-family:Arial,sans-serif;font-weight:bold;font-size:13px;margin-top:5px;margin-bottom:5px;text-align:left;}
+.titu_post_interna{font-family:Arial,sans-serif;font-weight:bold;font-size:13px;/*margin-top:5px;margin-bottom:5px;*/text-align:left;}
 .desc_post_interna{font-family:Arial,sans-serif;font-size:11px; text-align:justify;}
 .posts_interna li .btn{font-family: 'love_ya_like_a_sister_snormal', sans-serif;color:#fff;background:url(/images/menu3.png) no-repeat;width: 70px;height: 26px;display: inline-block;line-height: 26px;background-size: cover;float: left;margin-top: 7px;}
 

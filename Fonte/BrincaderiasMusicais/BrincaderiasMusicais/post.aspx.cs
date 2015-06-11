@@ -68,7 +68,7 @@ namespace BrincaderiasMusicais
                 if (!string.IsNullOrWhiteSpace(rsBlog["RED_ID"].ToString()))
                 {
                     //breadcrumb
-                    breadcrumb.InnerHtml = "<a href='/' title='Home'>Home</a> >> <strong>Blog Regional</strong> >> " + rsBlog["POS_TITULO"] + " ";
+                    breadcrumb.InnerHtml = "<a href='/' title='Home'>Home</a> >> <strong><a href=\"/blog-regional\">Blog-Regional</a></strong> >> " + rsBlog["POS_TITULO"] + " ";
                 }
                 else
                 {

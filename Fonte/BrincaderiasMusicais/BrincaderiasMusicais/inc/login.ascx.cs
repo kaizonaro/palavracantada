@@ -52,6 +52,10 @@ namespace BrincaderiasMusicais.inc
                     {
                         msgErro.InnerHtml = "<br/>Foi enviado um e-mail com instruções";
                     }
+                    if (Request["msg"] != null && Request["msg"].ToString().Length > 1 && Request["msg"].ToString() == "naoLocalizado")
+                    {
+                        msgErro.InnerHtml = "<br/>E-mail não localizdo em nosso cadastro!";
+                    }
                 }
 
                 string urlCompleta = Request.Url.AbsoluteUri;

@@ -83,7 +83,7 @@
                         <p>Participe da Galeria Colaborativa de Fotos!</p>
                         <a onclick="showform('up_foto','fotodiv')">
                             <img src="images/foto_icon.png" alt="Icone Camera" />
-                            Clique para enviar a sua foto</a>
+                            CLIQUE PARA ENVIAR A SUA FOTO</a>
                     </div>
                 </span>
                 <form id="up_foto" runat="server" style="display: none" action="galeria-geral.aspx">
@@ -106,7 +106,7 @@
                 </form>
                
                 <img src="/images/linha.png" class="linha" />
-                <p class="titu_agenda" id="pVideos">Galeria Colaborativa de Videos</p>
+                <p class="titu_agenda" id="pVideos">Galeria Colaborativa de Vídeos</p>
                 <span id="videodiv" runat="server">
                     <p class="sub_galeria_geral">
                         Vídeos enviados pelos membros da rede de ensino de  <strong id="nomerede2" runat="server"></strong>
@@ -129,16 +129,16 @@
 
 
                     <div class="upload_geral" runat="server">
-                        <p>Participe da Galeria Colaborativa de Videos!</p>
+                        <p>Participe da Galeria Colaborativa de Vídeos!</p>
                         <a onclick="showform('up_video','videodiv')">
                             <img src="images/icone_video.png" alt="Icone Camera" />
-                            Clique para enviar a seu video</a>
+                            CLIQUE PARA ENVIAR O SEU VÍDEO</a>
                     </div>
                 </span>
                 <form id="up_video" style="display: none" action="galeria-geral.aspx">
                     <input type="hidden" name="acao" value="gravavideo" />
                     <div class="titu_setup">ADICIONAR VÍDEO:</div>
-                    <p class="mini_txt">Para publicar um video, preencha os campos abaixo e clique no botão "publicar vídeo".</p>
+                    <p class="mini_txt">Para publicar um vídeo, preencha os campos abaixo e clique no botão "publicar vídeo".</p>
                     <div class="full">
                         <label class="label">Título do vídeo:</label>
                         <input type="text" class="input" placeholder="Escreva aqui o título do seu vídeo" name="COV_TITULO" />
@@ -150,7 +150,7 @@
                     <div class="full">
                          <button class="btn_back" onclick="showform('up_video','videodiv')">Cancelar</button>
                         
-                        <input type="submit" id="publicar_video" value="Publicar Video" class="btn_save" />
+                        <input type="submit" id="publicar_video" value="Publicar Vídeo" class="btn_save" />
                     </div>
                 </form>
             </div>
@@ -187,7 +187,7 @@
 
         <article id="videos">
             <iframe width="640" height="360" src="//www.youtube.com/embed/CaTXgmHyMSk" frameborder="0" allowfullscreen></iframe>
-            <p>:: titulo Do video 001 ::</p><br />
+            <p>:: titulo Do vídeo 001 ::</p><br />
             <span></span><br />
             <div class="controles">
                 <div class="left_galeria">

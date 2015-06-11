@@ -65,7 +65,7 @@ namespace BrincaderiasMusicais
                     "<img src=\"http://i.ytimg.com/vi/" + rsGaleria["COV_VIDEO_ID"] + "/mqdefault.jpg\" alt=\"" + rsGaleria["COV_TITULO"] + "\">" +
                     "</a>" +
                     "<p>:: " + rsGaleria["COV_TITULO"] + " ::</p>" +
-                    "<span>:: Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impresso ::</span>" +
+                    "<span>" + rsGaleria["COV_DESCRICAO"].ToString() + "</span>" +
                     "</li>";
                 }
             }
