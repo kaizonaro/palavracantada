@@ -31,6 +31,33 @@ namespace BrincaderiasMusicais.administracao {
         protected global::BrincaderiasMusicais.administracao.inc.menu header;
         
         /// <summary>
+        /// RED_ASSINATURA control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload RED_ASSINATURA;
+        
+        /// <summary>
+        /// RED_BRASAO control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload RED_BRASAO;
+        
+        /// <summary>
+        /// bt_cadastrar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button bt_cadastrar;
+        
+        /// <summary>
         /// divLista control.
         /// </summary>
         /// <remarks>

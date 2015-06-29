@@ -178,7 +178,7 @@
                                         <img src="images/restore.png" alt="Filtrar"><p>Voltar</p>
                                     </div>
                                     <div class="form_table">
-                                        <form class="inc_form form" name="incluir" action="redes.aspx">
+                                        <form class="inc_form form" method="post" name="incluir" action="redes.aspx" runat="server" onsubmit="return validardinamico()">
                                             <input type="hidden" value="gravarRede" id="acao" name="acao" />
 
                                             <input type="hidden" value="0" id="RED_ID" name="RED_ID" />
@@ -190,13 +190,88 @@
                                             <input type="text" name="RED_CIDADE" class="input obg" id="RED_CIDADE" />
                                             <p>UF*</p>
                                             <input type="text" name="RED_UF" class="input uf obg" id="RED_UF" onkeypress="return uf(this.value, event)" onkeyup="maiuscula(this)" />
-                                            <p>Quantidade de Usuarios Presenciais</p>
-                                            <input type="text" class="input sonumero" id="USU_MASSA_PRESENCIAL" name="USU_MASSA_PRESENCIAL" onkeypress="return sonumero(event)" />
-                                            <p>Quantidade de Usuarios a Distância</p>
-                                            <input type="text" class="input sonumero" id="USU_MASSA_DISTANCIA" name="USU_MASSA_DISTANCIA" onkeypress="return sonumero(event)" />
+                                            <p>Nome do Diretor</p>
+                                            <input type="text" name="RED_NOME_DIRETOR" class="input obg" id="RED_NOME_DIRETOR" />
+
+                                            <p>Assinatura do Diretor (700x250)</p>
+                                            <asp:FileUpload ID="RED_ASSINATURA" class="input" runat="server" />
+
+                                            <p>Brasão do Municipio (350x250)</p>
+                                            <asp:FileUpload ID="RED_BRASAO" class="input" runat="server" />
+
+
+
+                                            <p>Configuração da Rede (Usuários e Quantidade de Horas)</p>
+                                            <table style="width: 100%;">
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Presenciais</td>
+                                                    <td>A Distancia</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Quantidade de Usuários</td>
+                                                    <td>
+                                                        <input type="number" class="input sonumero" id="USU_MASSA_PRESENCIAL" name="USU_MASSA_PRESENCIAL" onkeypress="return sonumero(event)" /></td>
+                                                    <td>
+                                                        <input type="number" class="input sonumero" id="USU_MASSA_DISTANCIA" name="USU_MASSA_DISTANCIA" onkeypress="return sonumero(event)" />
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Quantidade de Horas</td>
+                                                    <td>
+                                                        <input type="number" class="input sonumero" id="RED_HORAS_PRESENCIAIS" name="RED_HORAS_PRESENCIAIS" onkeypress="return sonumero(event)" /></td>
+                                                    <td>
+                                                        <input type="number" class="input sonumero" id="RED_HORAS_DISTANCIA" name="RED_HORAS_DISTANCIA" onkeypress="return sonumero(event)" onchange="calcular()" /></td>
+                                                </tr>
+
+                                            </table>
+
+                                            <p>Peso dos Itens (Para usuários a distância)</p>
+                                            <table style="width: 100%">
+                                                <tr>
+                                                    <td></td>
+                                                    <td>Blog</td>
+                                                    <td>Galeria</td>
+                                                    <td>Videos Pessoais</td>
+                                                    <td>Fotos Pessoais</td>
+                                                    <td>Criações Documentadas</td>
+                                                    <td>Forum</td>
+                                                </tr>
+                                                <tr id="pesos">
+                                                    <td>Peso em Horas</td>
+                                                    <td>
+                                                        <input type="number" class="input sonumero" name="PES_BLOG" id="PES_BLOG" onkeypress="return sonumero(event)" /></td>
+                                                    <td>
+                                                        <input type="number" class="input sonumero" name="PES_GALERIA" id="PES_GALERIA" onkeypress="return sonumero(event)" /></td>
+                                                    <td>
+                                                        <input type="number" class="input sonumero" name="PES_VIDEOS" id="PES_VIDEOS" onkeypress="return sonumero(event)" /></td>
+                                                    <td>
+                                                        <input type="number" class="input sonumero" name="PES_FOTOS" id="PES_FOTOS" onkeypress="return sonumero(event)" /></td>
+                                                    <td>
+                                                        <input type="number" class="input sonumero" name="PES_CRIACOES" id="PES_CRIACOES" onkeypress="return sonumero(event)" /></td>
+                                                    <td>
+                                                        <input type="number" class="input sonumero" name="PES_FORUM" id="PES_FORUM" onkeypress="return sonumero(event)" /></td>
+                                                </tr>
+                                                <tr id="limites" style="display: none">
+                                                    <td>Limite em Horas</td>
+                                                    <td>
+                                                        <input type="number" class="input sonumero" name="LIM_BLOG" id="LIM_BLOG" onkeypress="return sonumero(event)" /></td>
+                                                    <td>
+                                                        <input type="number" class="input sonumero" name="LIM_GALERIA" id="LIM_GALERIA" onkeypress="return sonumero(event)" /></td>
+                                                    <td>
+                                                        <input type="number" class="input sonumero" name="LIM_VIDEOS" id="LIM_VIDEOS" onkeypress="return sonumero(event)" /></td>
+                                                    <td>
+                                                        <input type="number" class="input sonumero" name="LIM_FOTOS" id="LIM_FOTOS" onkeypress="return sonumero(event)" /></td>
+                                                    <td>
+                                                        <input type="number" class="input sonumero" name="LIM_CRIACOES" id="LIM_CRIACOES" onkeypress="return sonumero(event)" /></td>
+                                                    <td>
+                                                        <input type="number" class="input sonumero" name="LIM_FORUM" id="LIM_FORUM" onkeypress="return sonumero(event)" /></td>
+                                                </tr>
+                                            </table>
                                             <p>
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
-                                                <input type="submit" value="Salvar" class="btn_form" formmethod="get" onclick="validardinamico()" id="bt_cadastrar" />
+                                                <asp:Button ID="bt_cadastrar" runat="server" class="btn_form" formmethod="get" Text="Salvar" OnClick="Button1_Click" />
+
                                             </p>
                                         </form>
                                     </div>
@@ -226,5 +301,28 @@
     <!--FIM DO CONTEUDO GERAL-->
     <footer class='footer'>
     </footer>
+    <script>
+        function calcular() {
+            var totalhoras = $("#RED_HORAS_DISTANCIA").val();
+
+            $("#LIM_CRIACOES").val(Math.round((totalhoras * 50) / 100))
+            $("#LIM_FORUM").val(Math.round((totalhoras * 20) / 100))
+            $("#LIM_FOTOS").val(Math.round((totalhoras * 2.5) / 100))
+            $("#LIM_VIDEOS").val(Math.round((totalhoras * 2.5) / 100))
+            $("#LIM_GALERIA").val(Math.round((totalhoras * 5) / 100))
+            $("#LIM_BLOG").val(Math.round((totalhoras * 20) / 100))
+
+            $("#PES_CRIACOES").val(Math.ceil(($("#LIM_CRIACOES").val() * 10) / 100))
+            $("#PES_FORUM").val(Math.ceil(($("#LIM_FORUM").val() * 10) / 100))
+            $("#PES_FOTOS").val(Math.ceil(($("#LIM_FOTOS").val() * 10) / 100))
+            $("#PES_VIDEOS").val(Math.ceil(($("#LIM_VIDEOS").val() * 10) / 100))
+            $("#PES_GALERIA").val(Math.ceil(($("#LIM_GALERIA").val() * 10) / 100))
+            $("#PES_BLOG").val(Math.ceil(($("#LIM_BLOG").val() * 10) / 100))
+
+        }
+
+
+    </script>
+
 </body>
 </html>
