@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Configuration;
@@ -29,11 +30,7 @@ namespace BrincaderiasMusicais.administracao
                     case ("ValidarRede"):
                         ValidarRede();
                         break;
-                    case ("gravarRede"):
-                        gravarRede();
-                        Response.Redirect("redes.aspx", false);
-
-                        break;
+                    
                     case ("excluirRede"):
 
                         objBD.ExecutaSQL("update Rede set RED_ATIVO = 0 where RED_ID ='" + Request["RED_ID"] + "'");
@@ -181,43 +178,7 @@ namespace BrincaderiasMusicais.administracao
             divExcluidos.InnerHtml += "</table>";
         }
 
-        public void gravarRede()
-        {
-            try
-            {
-                rsRedes = objBD.ExecutaSQL("EXEC admin_piuRedes '" + Request["RED_ID"] + "','" + Request["RED_TITULO"] + "', '" + Request["RED_CIDADE"] + "','" + Request["RED_UF"] + "'");
 
-                if (rsRedes == null)
-                {
-                    throw new Exception();
-                }
-
-                if (rsRedes.HasRows)
-                {
-                    rsRedes.Read();
-
-                    if (Request["USU_MASSA_DISTANCIA"] != null && Request["USU_MASSA_DISTANCIA"].ToString() != "")
-                    {
-                        UsuarioMassa(Convert.ToInt32(Request["USU_MASSA_DISTANCIA"]), Convert.ToInt32(rsRedes["RED_ID"].ToString()), Request["RED_TITULO"], 0);
-                    }
-
-                    if (Request["USU_MASSA_PRESENCIAL"] != null && Request["USU_MASSA_PRESENCIAL"].ToString() != "")
-                    {
-                        UsuarioMassa(Convert.ToInt32(Request["USU_MASSA_PRESENCIAL"]), Convert.ToInt32(rsRedes["RED_ID"].ToString()), Request["RED_TITULO"], 1);
-                    }
-                }
-
-                //Libera o BD e Memória
-                rsRedes.Close();
-                rsRedes.Dispose();
-
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
-        }
 
         public void ValidarRede()
         {
@@ -290,6 +251,48 @@ namespace BrincaderiasMusicais.administracao
                     throw new Exception();
                 }
             }
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+
+            try
+            { 
+                string assinatura = objUtils.ImageToBase64(Request.Files["RED_ASSINATURA"].InputStream);
+                string brasao = objUtils.ImageToBase64(Request.Files["RED_BRASAO"].InputStream);
+
+                rsRedes = objBD.ExecutaSQL("EXEC admin_piuRedes_2 '" + Request["RED_ID"] + "','" + Request["RED_TITULO"] + "', '" + Request["RED_CIDADE"] + "','" + Request["RED_UF"] + "', '" + Request["PES_BLOG"] + "', '" + Request["PES_GALERIA"] + "', '" + Request["PES_VIDEOS"] + "', '" + Request["PES_FOTOS"] + "', '" + Request["PES_CRIACOES"] + "', '" + Request["PES_FORUM"] + "', '" + Request["LIM_BLOG"] + "', '" + Request["LIM_GALERIA"] + "', '" + Request["LIM_VIDEOS"] + "', '" + Request["LIM_FOTOS"] + "', '" + Request["LIM_CRIACOES"] + "', '" + Request["LIM_FORUM"] + "', '" + Request["RED_HORAS_PRESENCIAIS"] + "', '" + Request["RED_HORAS_DISTANCIA"] + "', '" + brasao + "','" + assinatura + "','" + Request["RED_NOME_DIRETOR"] + "'");
+
+                if (rsRedes == null)
+                {
+                    throw new Exception();
+                }
+
+                if (rsRedes.HasRows)
+                {
+                    rsRedes.Read();
+
+                    if (Request["USU_MASSA_DISTANCIA"] != null && Request["USU_MASSA_DISTANCIA"].ToString() != "")
+                    {
+                        UsuarioMassa(Convert.ToInt32(Request["USU_MASSA_DISTANCIA"]), Convert.ToInt32(rsRedes["RED_ID"].ToString()), Request["RED_TITULO"], 0);
+                    }
+
+                    if (Request["USU_MASSA_PRESENCIAL"] != null && Request["USU_MASSA_PRESENCIAL"].ToString() != "")
+                    {
+                        UsuarioMassa(Convert.ToInt32(Request["USU_MASSA_PRESENCIAL"]), Convert.ToInt32(rsRedes["RED_ID"].ToString()), Request["RED_TITULO"], 1);
+                    }
+                }
+
+                //Libera o BD e Memória
+                rsRedes.Close();
+                rsRedes.Dispose();
+                Response.Redirect("redes.aspx", false);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            } 
         }
     }
 }
