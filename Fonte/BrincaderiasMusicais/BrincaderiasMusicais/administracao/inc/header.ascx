@@ -51,9 +51,15 @@
                  <li><a href="posts-forum.aspx">
                     <img src="images/home.png" alt="Forum"><p>Forum</p>
                 </a></li>
-                <li><a href="redes.aspx">
-                    <img src="images/home.png" alt="Blog"><p>Redes</p>
-                </a></li>
+                   <li><a href="javascript:void(0)">
+                    <img src="images/home.png" alt="Área Restrita"><p>Redes</p>
+                </a>
+                    <ul class="submenu">
+                        <li><a href="redes.aspx">Gerenciar Redes</a></li>
+                        <li><a href="gerar-certificado.aspx">Certificados</a></li>
+                    </ul>
+                </li>
+               
                 <li><a href="usuarios.aspx">
                     <img src="images/home.png" alt="Usuários"><p>Usuários</p>
                 </a></li>
@@ -88,6 +94,7 @@
                 <li><a href="contato.aspx">
                     <img src="images/home.png" alt="Contato"><p>Contato</p>
                 </a></li>
+                
             </ul>
         </nav>
         <!--FIM DO MENU-->

@@ -178,8 +178,8 @@
                                         <img src="images/restore.png" alt="Filtrar"><p>Voltar</p>
                                     </div>
                                     <div class="form_table">
-                                        <form class="inc_form form" method="post" name="incluir" action="redes.aspx" runat="server" onsubmit="return validardinamico()">
-                                            <input type="hidden" value="gravarRede" id="acao" name="acao" />
+                                        <form class="inc_form form" method="post" name="incluir" action="redes.aspx" enctype="multipart/form-data" onsubmit="return validardinamico()">
+                                            <input type="hidden" value="GravarRede" id="acao" name="acao" />
 
                                             <input type="hidden" value="0" id="RED_ID" name="RED_ID" />
                                             <p>Nome da Rede*</p>
@@ -194,10 +194,10 @@
                                             <input type="text" name="RED_NOME_DIRETOR" class="input obg" id="RED_NOME_DIRETOR" />
 
                                             <p>Assinatura do Diretor (700x250)</p>
-                                            <asp:FileUpload ID="RED_ASSINATURA" class="input" runat="server" />
+                                            <input type="file" id="RED_ASSINATURA" name="RED_ASSINATURA" class="input"  />
 
                                             <p>Brasão do Municipio (350x250)</p>
-                                            <asp:FileUpload ID="RED_BRASAO" class="input" runat="server" />
+                                            <input type="file" id="RED_BRASAO" name="RED_BRASAO" class="input"  />
 
 
 
@@ -270,7 +270,8 @@
                                             </table>
                                             <p>
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
-                                                <asp:Button ID="bt_cadastrar" runat="server" class="btn_form" formmethod="get" Text="Salvar" OnClick="Button1_Click" />
+
+                                                <input type="submit" id="bt_cadastrar" class="btn_form" value="Salvar" />
 
                                             </p>
                                         </form>
