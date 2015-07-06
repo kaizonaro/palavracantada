@@ -55,7 +55,7 @@ namespace BrincaderiasMusicais.administracao
             var pdfBytes = oPdf.GeneratePdf(objUtils.FixSpecialCharacters(htmlContent));
 
             var diretorio = new DirectoryInfo(Path.GetFullPath(Path.GetDirectoryName(Request.CurrentExecutionFilePath))).Parent;
-            var fulldir = diretorio.FullName + "upload/certificados/";
+            var fulldir = diretorio.FullName + "/upload/certificados/";
             if (!Directory.Exists(fulldir)) { diretorio = Directory.CreateDirectory(fulldir); }
             File.WriteAllBytes(fulldir + "certificado-" + USU_ID + ".pdf", pdfBytes);
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="gerar-certificado.aspx.cs" Inherits="BrincaderiasMusicais.administracao.gerar_certificado" ValidateRequest="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="gerar-certificado.aspx.cs" Inherits="BrincaderiasMusicais.administracao.gerar_certificado" ValidateRequest="false" Debug="true"%>
 
 
 <%@ Register Src="~/administracao/inc/script.ascx" TagPrefix="brincadeira" TagName="script" %>
