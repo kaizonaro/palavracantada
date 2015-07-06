@@ -11,12 +11,21 @@ namespace BrincaderiasMusicais.administracao.inc
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            usuario.InnerHtml = "<a href=\"javascript:void(0)\" >" + Session["nome"].ToString() + " &or;<br>Ultimo acesso " + Session["data"] + " as " + Session["hora"] + "</a>";
-
-            if (Session["id"].ToString() == "1" || Session["id"].ToString() == "2")
+            try
             {
-                liAdm.Attributes.Remove("style");   
+                usuario.InnerHtml = "<a href=\"javascript:void(0)\" >" + Session["nome"].ToString() + " &or;<br>Ultimo acesso " + Session["data"] + " as " + Session["hora"] + "</a>";
+
+                if (Session["id"].ToString() == "1" || Session["id"].ToString() == "2")
+                {
+                    liAdm.Attributes.Remove("style");
+                }
             }
+            catch (Exception)
+            {
+
+                Response.Redirect("index.aspx");
+            }
+            
         }
     }
 }

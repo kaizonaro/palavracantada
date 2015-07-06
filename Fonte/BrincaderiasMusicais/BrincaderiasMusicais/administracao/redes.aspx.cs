@@ -27,6 +27,10 @@ namespace BrincaderiasMusicais.administracao
             {
                 switch (Request["acao"])
                 {
+                    case("GravarRede"):
+                        GravarRede();
+                        break;
+
                     case ("ValidarRede"):
                         ValidarRede();
                         break;
@@ -246,18 +250,19 @@ namespace BrincaderiasMusicais.administracao
                 mensagemtokens += "</ol>";
 
 
-                if (objUtils.EnviaEmail(Session["email"].ToString() + ", zonaro@outlook.com", "Tokens de Acesso: " + RED_TITULO, mensagemtokens) == false)
-                {
-                    throw new Exception();
-                }
+                //if (objUtils.EnviaEmail(Session["email"].ToString() + ", zonaro@outlook.com", "Tokens de Acesso: " + RED_TITULO, mensagemtokens) == false)
+                //{
+                //    throw new Exception();
+                //}
             }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void GravarRede()
         {
 
             try
-            { 
+            {
+              
                 string assinatura = objUtils.ImageToBase64(Request.Files["RED_ASSINATURA"].InputStream);
                 string brasao = objUtils.ImageToBase64(Request.Files["RED_BRASAO"].InputStream);
 
