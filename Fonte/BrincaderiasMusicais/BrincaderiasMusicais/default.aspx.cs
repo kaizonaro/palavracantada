@@ -56,7 +56,7 @@ namespace BrincaderiasMusicais
                 //Verificar acesso via Toke
                 if (Request["accesstoken"] != null && Request["accesstoken"].ToString().Length > 1)
                 {
-                    rsToken = objBD.ExecutaSQL("select TOK_ID from TokenUsuario where TOK_TOKEN = " + Request["accesstoken"].ToString() + " and tok_ativo = 1 ");
+                    rsToken = objBD.ExecutaSQL("select TOK_ID from TokenUsuario where TOK_TOKEN = '" + Request["accesstoken"].ToString() + "' and tok_ativo = 1 ");
 
                     if (rsToken == null)
                     {
