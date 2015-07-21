@@ -58,6 +58,33 @@ namespace BrincaderiasMusicais {
         protected global::BrincaderiasMusicais.inc.headerperfil headerperfil;
         
         /// <summary>
+        /// divcertificado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divcertificado;
+        
+        /// <summary>
+        /// botaocertificado_frente control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor botaocertificado_frente;
+        
+        /// <summary>
+        /// botaocertificado_verso control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor botaocertificado_verso;
+        
+        /// <summary>
         /// menuperfil control.
         /// </summary>
         /// <remarks>

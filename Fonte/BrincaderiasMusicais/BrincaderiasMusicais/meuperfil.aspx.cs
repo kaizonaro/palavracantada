@@ -30,7 +30,7 @@ namespace BrincaderiasMusicais
             {
                 if (Request["usuario"] != null && Request["usuario"].ToString().Length > 1)
                 {
-                    rsUsuario = objBD.ExecutaSQL("select USU_ID, RED_ID from usuario where USU_USUARIO = '" + Request["usuario"].ToString() + "'");
+                    rsUsuario = objBD.ExecutaSQL("select USU_ID, RED_ID, USU_CERTIFICADO from usuario where USU_USUARIO = '" + Request["usuario"].ToString() + "'");
 
                     if (rsUsuario == null)
                     {
@@ -42,8 +42,13 @@ namespace BrincaderiasMusicais
 
                         if (rsUsuario["USU_ID"].ToString() == Session["usuID"].ToString())
                         {
-                            //Response.Write("é o mesmo");
-
+                            bool cert = false;
+                            Boolean.TryParse("" + rsUsuario["USU_CERTIFICADO"], out cert);
+                            divcertificado.Visible = cert;
+                            botaocertificado_frente.HRef = "/administracao/certificado.aspx?Tipo=frente&USU_ID=" + Session["usuID"].ToString();
+                         
+                            botaocertificado_verso.HRef = "/administracao/certificado.aspx?Tipo=verso&USU_ID=" + Session["usuID"].ToString();
+                           
                         }
                         else if ((rsUsuario["USU_ID"].ToString() != Session["usuID"].ToString()) && rsUsuario["RED_ID"].ToString() == Session["redeID"].ToString())
                         {
@@ -56,13 +61,10 @@ namespace BrincaderiasMusicais
                             // Response.Write("outro e rede diferente");
                         }
                     }
-                    else
-                    {
-
-                    }
+                     
                     rsUsuario.Close();
                     rsUsuario.Dispose();
-
+                   
                 }
 
                 VerificarMedalhas();
