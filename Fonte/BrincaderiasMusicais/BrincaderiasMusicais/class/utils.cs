@@ -66,6 +66,7 @@ namespace Etnia.classe
             }
             return accessToken;
         }
+      
 
         public void NotificacoesGaleria(string tipo, string titulo, int id, string campo)
         {
@@ -678,9 +679,121 @@ namespace Etnia.classe
 
         }
 
+        public string FixSpecialCharacters(string Text)
+        {
+            Text = Text.Replace("Á", "&Aacute;");
+            Text = Text.Replace("á", "&aacute;");
+            Text = Text.Replace("Â", "&Acirc;");
+            Text = Text.Replace("â", "&acirc;");
+            Text = Text.Replace("À", "&Agrave;");
+            Text = Text.Replace("à", "&agrave;");
+            Text = Text.Replace("Å", "&Aring;");
+            Text = Text.Replace("å", "&aring;");
+            Text = Text.Replace("Ã", "&Atilde;");
+            Text = Text.Replace("ã", "&atilde;");
+            Text = Text.Replace("Ä", "&Auml;");
+            Text = Text.Replace("ä", "&auml;");
+            Text = Text.Replace("ä", "&auml;");
+            Text = Text.Replace("É", "&Eacute;");
+            Text = Text.Replace("é", "&eacute;");
+            Text = Text.Replace("Ê", "&Ecirc;");
+            Text = Text.Replace("ê", "&ecirc;");
+            Text = Text.Replace("È", "&Egrave;");
+            Text = Text.Replace("è", "&egrave;");
+            Text = Text.Replace("Ë", "&Euml;");
+            Text = Text.Replace("ë", "&euml;");
+            Text = Text.Replace("Í", "&Iacute;");
+            Text = Text.Replace("í", "&iacute;");
+            Text = Text.Replace("Î", "&Icirc;");
+            Text = Text.Replace("î", "&icirc;");
+            Text = Text.Replace("Ì", "&Igrave;");
+            Text = Text.Replace("ì", "&igrave;");
+            Text = Text.Replace("Ï", "&Iuml;");
+            Text = Text.Replace("ï", "&iuml;");
+            Text = Text.Replace("Ó", "&Oacute;");
+            Text = Text.Replace("ó", "&oacute;");
+            Text = Text.Replace("Ô", "&Ocirc;");
+            Text = Text.Replace("ô", "&ocirc;");
+            Text = Text.Replace("Ò", "&Ograve;");
+            Text = Text.Replace("ò", "&ograve;");
+            Text = Text.Replace("Ø", "&Oslash;");
+            Text = Text.Replace("ø", "&oslash;");
+            Text = Text.Replace("Õ", "&Otilde;");
+            Text = Text.Replace("õ", "&otilde;");
+            Text = Text.Replace("Ö", "&Ouml;");
+            Text = Text.Replace("ö", "&ouml;");
+            Text = Text.Replace("Ú", "&Uacute;");
+            Text = Text.Replace("ú", "&uacute;");
+            Text = Text.Replace("Û", "&Ucirc;");
+            Text = Text.Replace("û", "&ucirc;");
+            Text = Text.Replace("Ù", "&Ugrave;");
+            Text = Text.Replace("ù", "&ugrave;");
+            Text = Text.Replace("Ü", "&Uuml;");
+            Text = Text.Replace("ü", "&uuml;");
+            Text = Text.Replace("Ç", "&Ccedil;");
+            Text = Text.Replace("ç", "&ccedil;");
+            Text = Text.Replace("Ñ", "&Ntilde");
+            Text = Text.Replace("ñ", "&ntilde;");
+            Text = Text.Replace("®", "&reg;");
+            Text = Text.Replace("©", "&copy;");
+            Text = Text.Replace("Ý", "&Yacute;");
+            Text = Text.Replace("ý", "&yacute;");
+            Text = Text.Replace("Ω", "&Omega;");
+            return Text;
+
+        }
+
+        public string ImageToBase64(Stream input)
+        {
+            try
+            {
+                byte[] buffer = new byte[16 * 1024];
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    int read;
+                    while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+                    {
+                        ms.Write(buffer, 0, read);
+                    }
+
+                    return Convert.ToBase64String(ms.ToArray());
+                }
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+            
+        }
+
+        public string ImageToBase64(string ImagePath)
+        {
+            try
+            {
+                using (System.Drawing.Image image = System.Drawing.Image.FromFile(ImagePath))
+                {
+                    using (MemoryStream m = new MemoryStream())
+                    {
+                        image.Save(m, image.RawFormat);
+                        byte[] imageBytes = m.ToArray();
+
+                        // Convert byte[] to Base64 String
+                        string base64String = Convert.ToBase64String(imageBytes);
+                        return base64String;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                return "";
+            }
+
+        }
+       
         public string RetornarUsuarioPorURL(string Usuario, string nome)
         {
-            
+
             bd banco = new bd();
             OleDbDataReader resposta = banco.ExecutaSQL("SELECT * FROM Usuario where USU_USUARIO = '" + Usuario + "'");
             if (resposta.HasRows)

@@ -42,14 +42,24 @@
 
             <!--CONTEUDO INTERNO (ARTIGOS)-->
             <div id="meuperfil" class="interna">
-                
+
                 <!-- INCLUDE -->
                 <brincadeira:headerperfil runat="server" ID="headerperfil" />
 
                 <img src="/images/linha.png" class="linha" />
-                
+                <div id="divcertificado" runat="server">
+                    <center><a href="javascript:void(0);" id="botaocertificado_frente" target="_blank" runat="server"  style="border:0px;">
+                       FRENTE: <img src="/images/botao-certificado.png" style="margin-top: 10px;margin-bottom:10px;" /> 
+                    </a><br />
+                        <a href="javascript:void(0);" id="botaocertificado_verso" target="_blank" runat="server"  style="border:0px;">
+                       VERSO: <img src="/images/botao-certificado.png" style="margin-top: 10px;margin-bottom:10px;" /> 
+                    </a>
+                     </center>
+                    <img src="/images/linha.png" class="linha" />
+                </div>
+
                 <brincadeira:menuperfil runat="server" ID="menuperfil" />
-                
+
                 <div class="medalhas_perfil">
                     <p class="sub_perfil">Suas recompensas conquistadas</p>
                     <ul class="medalhas">
@@ -58,24 +68,24 @@
                             <img src="/images/medalha_ok.png" /><p>Iniciante</p>
                         </li>
                         <li id="liDedicado" runat="server">
-                            <img src="/images/medalha1.png" id="imgDedicado" runat="server"/><p>Dedicado</p>
+                            <img src="/images/medalha1.png" id="imgDedicado" runat="server" /><p>Dedicado</p>
                         </li>
                         <li id="liBlogueiro" runat="server">
-                            <img src="/images/medalha2.png" id="imgBlogueiro" runat="server"/><p>Blogueiro</p>
+                            <img src="/images/medalha2.png" id="imgBlogueiro" runat="server" /><p>Blogueiro</p>
                         </li>
                         <li id="liFotografo" runat="server">
-                            <img src="/images/medalha3.png" id="imgFotografo" runat="server"/><p>Fotógrafo</p>
+                            <img src="/images/medalha3.png" id="imgFotografo" runat="server" /><p>Fotógrafo</p>
                         </li>
                         <li id="liProdutor" runat="server">
-                            <img src="/images/medalha4.png" id="imgProdutor" runat="server"/><p>Produtor</p>
+                            <img src="/images/medalha4.png" id="imgProdutor" runat="server" /><p>Produtor</p>
                         </li>
                         <li id="liExperiente" runat="server">
-                            <img src="/images/medalha5.png" id="imgExperiente" runat="server"/><p>Experiente</p>
+                            <img src="/images/medalha5.png" id="imgExperiente" runat="server" /><p>Experiente</p>
                         </li>
                     </ul>
                 </div>
                 <img src="/images/linha.png" class="linha" />
-                
+
                 <!-- BLOG-->
                 <brincadeira:blogPessoal runat="server" ID="blogPessoal" />
 
