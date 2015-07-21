@@ -13,6 +13,15 @@ namespace BrincaderiasMusicais.administracao {
     public partial class certificado {
         
         /// <summary>
+        /// folha1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl folha1;
+        
+        /// <summary>
         /// pres control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace BrincaderiasMusicais.administracao {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl pres;
+        
+        /// <summary>
+        /// folha2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl folha2;
         
         /// <summary>
         /// brasao control.
@@ -38,32 +56,5 @@ namespace BrincaderiasMusicais.administracao {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlImage assinatura;
-        
-        /// <summary>
-        /// folha2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl folha2;
-        
-        /// <summary>
-        /// brasao2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage brasao2;
-        
-        /// <summary>
-        /// assinatura2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage assinatura2;
     }
 }
