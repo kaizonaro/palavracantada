@@ -82,10 +82,11 @@
         }
 
         function excluir(id) {
+            //alert("Criacoes-Documentadas.aspx?acao=excluir&CDO_ID=" + id);
             var r = confirm("Deseja mesmo desativar esta Criação Documentada ?");
             if (r == true) {
                 ajax2 = ajaxInit();
-                ajax2.open("GET", "criacoes-documentadas.aspx?acao=excluir&CDO_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+                ajax2.open("GET", "Criacoes-Documentadas.aspx?acao=excluir&CDO_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
                 ajax2.setRequestHeader("Content-Type", "charset=iso-8859-1");
                 ajax2.onreadystatechange = function () {
                     if (ajax2.readyState == 4) {
