@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="gerar-certificado.aspx.cs" Inherits="BrincaderiasMusicais.administracao.gerar_certificado" ValidateRequest="false" Debug="true"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="gerar-certificado.aspx.cs" Inherits="BrincaderiasMusicais.administracao.gerar_certificado" ValidateRequest="false" Debug="true" %>
 
 
 <%@ Register Src="~/administracao/inc/script.ascx" TagPrefix="brincadeira" TagName="script" %>
@@ -8,9 +8,11 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>:: Administração - Quem Somos</title>
+    <title>:: Administração - Gerar Certificado</title>
     <brincadeira:script runat="server" ID="script" />
+    <script src="js/html2canvas.js"></script>
     <script src="tinymce/tinymce.min.js"></script>
+    <script src="js/jquery.plugin.html2canvas.js"></script>
     <script type="text/javascript">
 
         tinymce.init({
@@ -98,27 +100,28 @@
             }
             console.debug(go)
             if (go) {
-
                 $.ajax({
                     type: 'GET',
                     url: "gerar-certificado.aspx",
                     async: true,
-                    data: "&acao=gerar&USU_ID=" + USU_ID + "&data_certificado=" + $("#data_certificado").val(),
+                    data: "acao=SalvarData&USU_ID=" + USU_ID + "&USU_DATA_CERTIFICADO=" + $("#data_certificado").val(),
                     success: function (data) {
-
+                        //sucesso, conteudo em data
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         //deu erro
                     },
                     beforeSend: function () {
-                        console.debug('comecou')
+                        //comecou
                     },
                     complete: function () {
-                        location.reload();
+                        //completo
                     }
                 });
+              
             }
         }
+
     </script>
 </head>
 
@@ -133,7 +136,7 @@
             <section id="conteudo">
                 <h2>
                     <img src="images/home.png" alt="inicio"><br>
-                    Quem Somos</h2>
+                    Gerar Certificado</h2>
                 <!-- TABELA-->
                 <div class="row-fluid">
                     <div class="span12">
@@ -146,7 +149,7 @@
                                         <select id="RED_ID" class="input" runat="server" onchange="filtrarede(this.value)">
                                             <option value="NULL">Selecione a Rede...</option>
                                         </select>
-                                        <input type="text" name="data_certificado" id="data_certificado" style="margin-left:10px;width:300px" class="input data" placeholder="Data de Conclusão do Curso"  />
+                                        <input type="text" name="data_certificado" id="data_certificado" style="margin-left: 10px; width: 300px" class="input data" placeholder="Data de Conclusão do Curso" />
                                     </div>
 
                                     <div class="form_table">
@@ -201,7 +204,7 @@
                 </div>
             </section>
         </div>
-
+        <iframe id="hiddenframe" src=""></iframe>
         <!--FIM DA TABELA-->
     </section>
     <!--FIM DO CONTEUDO GERAL-->

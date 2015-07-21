@@ -241,8 +241,8 @@ namespace BrincaderiasMusicais.administracao
                     if (rsGravaUsuario.HasRows)
                     {
                         rsGravaUsuario.Read();
-                        int accestoken = objUtils.GerarTokenAcesso();
-                        objBD.ExecutaSQL("INSERT INTO TokenUsuario (USU_ID, TOK_TOKEN) values (" + rsGravaUsuario["USU_ID"] + ", " + accestoken + ")");
+                        string accestoken = objUtils.getMD5Hash("" + rsGravaUsuario["USU_ID"]);
+                        objBD.ExecutaSQL("INSERT INTO TokenUsuario (USU_ID, TOK_TOKEN) values (" + rsGravaUsuario["USU_ID"] + ", '" + accestoken + "')");
                         mensagemtokens += "<li><a href=\"http://projetopalavracantada.net/default.aspx?&accesstoken=" + accestoken + "\">Token: " + accestoken + " Usuário: usuario_" + i + "<br>";
                     }
 
@@ -250,10 +250,10 @@ namespace BrincaderiasMusicais.administracao
                 mensagemtokens += "</ol>";
 
 
-                //if (objUtils.EnviaEmail(Session["email"].ToString() + ", zonaro@outlook.com", "Tokens de Acesso: " + RED_TITULO, mensagemtokens) == false)
-                //{
-                //    throw new Exception();
-                //}
+               if (objUtils.EnviaEmail(Session["email"].ToString() + ", zonaro@outlook.com", "Tokens de Acesso: " + RED_TITULO, mensagemtokens) == false)
+                {
+                    throw new Exception();
+                }
             }
         }
 

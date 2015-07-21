@@ -25,54 +25,68 @@ namespace BrincaderiasMusicais.administracao
             objUtils = new utils();
             objBD = new bd();
 
-            OleDbDataReader rsCertificado = objBD.ExecutaSQL("exec admin_ValidarCertificado " + Request["USU_ID"]);
-            if (rsCertificado == null)
+            switch (Request["acao"])
             {
-                throw new Exception();
+                case "salvarbase":
+
+                    objBD.ExecutaSQL("UPDATE Usuario SET USU_BASE_CERTIFICADO = '" + Request["base"] + "' where USU_ID = " + Request["USU_ID"]);
+                    break;
+                default:
+
+                    OleDbDataReader rsCertificado = objBD.ExecutaSQL("exec admin_ValidarCertificado " + Request["USU_ID"]);
+                    if (rsCertificado == null)
+                    {
+                        throw new Exception();
+                    }
+                    if (rsCertificado.HasRows)
+                    {
+
+                        while (rsCertificado.Read())
+                        {
+
+                            obs = "" + rsCertificado["OBSERVACOES"];
+                            secretaria = "" + rsCertificado["REDE"];
+                            aluno = "" + rsCertificado["nome"];
+                            DateTime datafinal = DateTime.Now;
+                            string novadata = "" + rsCertificado["DATA"];
+                            if (!string.IsNullOrWhiteSpace(novadata))
+                            {
+                                datafinal = Convert.ToDateTime(novadata);
+                            }
+
+                            dia = "" + datafinal.Day.ToString();
+                            mes = "" + objUtils.MesExtenso(datafinal.Month);
+                            ano = "" + datafinal.Year.ToString();
+                            horas_presenciais = "" + rsCertificado["horas_presenciais"];
+                            int hp = Convert.ToInt32(horas_presenciais);
+
+                            if (hp == 0)
+                            {
+                                pres.Visible = false;
+                            }
+
+                            horas_distancia = "" + rsCertificado["horas_distancia"];
+                            diretor = "" + rsCertificado["NOME_DIRETOR"];
+                            assinatura.Src = "data:image/png;base64," + rsCertificado["assinatura"];
+                            brasao.Src = "data:image/png;base64," + rsCertificado["brasao"];
+                            if (Request["TIPO"] == "frente")
+                            {
+                                folha1.Visible = true;
+                                folha2.Visible = false;
+                            }
+                            else
+                            {
+                                folha2.Visible = true;
+                                folha1.Visible = false;
+                            }
+
+                            // objBD.ExecutaSQL("UPDATE Usuario Set USU_CERTIFICADO = 1 where USU_ID = " + Request["USU_ID"]);
+                        }
+                    }
+                    rsCertificado.Close();
+                    rsCertificado.Dispose();
+                    break;
             }
-            if (rsCertificado.HasRows)
-            {
-
-                while (rsCertificado.Read())
-                {
-                    obs = "" + rsCertificado["OBSERVACOES"];
-                    secretaria = "" + rsCertificado["REDE"];
-                    aluno = "" + rsCertificado["nome"];
-                    DateTime datafinal = DateTime.Now;
-                    string novadata = "" + Request["data_certificado"];
-                    if (!string.IsNullOrWhiteSpace(novadata))
-                    {
-                        datafinal = Convert.ToDateTime(novadata);
-                    }
-
-                    dia = "" + datafinal.Day.ToString();
-                    mes = "" + objUtils.MesExtenso(datafinal.Month);
-                    ano = "" + datafinal.Year.ToString();
-                    horas_presenciais = "" + rsCertificado["horas_presenciais"];
-                    int hp = Convert.ToInt32(horas_presenciais);
-
-                    if (hp == 0)
-                    {
-                        pres.Visible = false;
-                    }
-
-                    horas_distancia = "" + rsCertificado["horas_distancia"];
-                    diretor = "" + rsCertificado["NOME_DIRETOR"];
-                    assinatura2.Src = "data:image/png;base64," + rsCertificado["assinatura"];
-                    brasao2.Src = "data:image/png;base64," + rsCertificado["brasao"];
-                    assinatura.Src = "data:image/png;base64," + rsCertificado["assinatura"];
-                    brasao.Src = "data:image/png;base64," + rsCertificado["brasao"];
-                    if (string.IsNullOrWhiteSpace(obs))
-                    {
-                        folha2.Visible = false;
-                    }
-
-                    objBD.ExecutaSQL("UPDATE Usuario Set USU_CERTIFICADO = 1 where USU_ID = " + Request["USU_ID"]);
-                }
-            }
-            rsCertificado.Close();
-            rsCertificado.Dispose();
-
 
         }
 

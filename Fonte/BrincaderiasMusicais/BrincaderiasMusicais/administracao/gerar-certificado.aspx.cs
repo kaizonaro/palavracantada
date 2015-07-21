@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace BrincaderiasMusicais.administracao
 {
     public partial class gerar_certificado : System.Web.UI.Page
@@ -26,10 +27,14 @@ namespace BrincaderiasMusicais.administracao
             switch (Request["acao"])
             {
                 case "gerar":
-                    PDF(Request["USU_ID"]);
+                   
                     break;
                 case "SalvaObservacao":
                     objBD.ExecutaSQL("UPDATE Usuario set USU_CERTIFICADO_OBSERVACOES = '" + Request["USU_CERTIFICADO_OBSERVACOES"] + "' where USU_ID = " + Request["USU_ID"]);
+                    break;
+                case "SalvarData":
+                    objBD.ExecutaSQL("UPDATE Usuario set USU_DATA_CERTIFICADO = convert(datetime,'" + Request["USU_DATA_CERTIFICADO"] + "',103) where USU_ID = " + Request["USU_ID"]);
+                    objBD.ExecutaSQL("UPDATE Usuario set USU_CERTIFICADO = 1 where USU_ID = " + Request["USU_ID"]);
                     break;
                 default:
                     PopulaLista();
@@ -38,33 +43,7 @@ namespace BrincaderiasMusicais.administracao
             }
         }
 
-        private void PDF(string USU_ID)
-        {
-            if (string.IsNullOrWhiteSpace(USU_ID))
-            {
-                return;
-            }
-
-            WebClient web = new WebClient();
-            string URL = "http://www.projetopalavracantada.net/administracao/certificado.aspx?USU_ID=" + USU_ID + "&data_certificado=" + Request["data_certificado"];
-            var htmlContent = web.DownloadString(new Uri(URL));
-            var oPdf = new NReco.PdfGenerator.HtmlToPdfConverter();
-            oPdf.Orientation = NReco.PdfGenerator.PageOrientation.Landscape;
-            oPdf.Size = NReco.PdfGenerator.PageSize.A4;
-
-            var pdfBytes = oPdf.GeneratePdf(objUtils.FixSpecialCharacters(htmlContent));
-
-            var diretorio = new DirectoryInfo(Path.GetFullPath(Path.GetDirectoryName(Request.CurrentExecutionFilePath))).Parent;
-            var fulldir = diretorio.FullName + "/upload/certificados/";
-            if (!Directory.Exists(fulldir)) { diretorio = Directory.CreateDirectory(fulldir); }
-            File.WriteAllBytes(fulldir + "certificado-" + USU_ID + ".pdf", pdfBytes);
-
-            //Response.ContentType = "application/pdf";
-            //Response.AddHeader("content-disposition", "attachment;filename=certificado" + USU_ID + ".pdf");
-            //Response.BinaryWrite(pdfBytes);
-            //Response.Flush();
-            //Response.End();
-        }
+     
 
         public void PopularRedes()
         {
