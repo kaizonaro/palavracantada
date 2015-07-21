@@ -65,7 +65,7 @@ namespace BrincaderiasMusicais
 
                     divArtigos.InnerHtml += "       <img  style=\"width: 80px; height: 80px;\"  src='" + src + "' class='thumb_artigo img_perfil'>";
                     divArtigos.InnerHtml += "   </a>";
-                    divArtigos.InnerHtml += "   <span class=\"titu_blog\"><a style=\"float: initial;\" href=\"/usuario/" + rsArtigos["USU_USUARIO"].ToString() + "\" title=\"Ver usuario\"><strong>" + rsArtigos["USU_NOME"] + "</strong></a><br>";
+                    divArtigos.InnerHtml += "   <span class=\"titu_blog\"><strong>" + rsArtigos["USU_NOME"] + "</strong><br>";
                     divArtigos.InnerHtml += "<a style=\"float: left;\" href=\"/perfil/" + rsArtigos["USU_USUARIO"].ToString() + "\" title=\"Ver usuario\"><img  src='/images/btn_ver_perfil.png'></a></span>";
                     divArtigos.InnerHtml += "</div>";
 
