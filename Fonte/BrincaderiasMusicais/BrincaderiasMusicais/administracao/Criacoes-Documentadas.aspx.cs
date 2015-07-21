@@ -22,6 +22,8 @@ namespace BrincaderiasMusicais.administracao
             objUtils = new utils();
             objBD = new bd();
 
+            Response.Write(Request["acao"]);
+
             switch (Request["acao"])
             {
                 case ("editar"):
@@ -40,7 +42,7 @@ namespace BrincaderiasMusicais.administracao
                     objBD.ExecutaSQL("UPDATE Criacoes_Documentadas set CDO_STATUS = '" + Request["CDO_STATUS"] + "' where  CDO_ID = '" + Request["CDO_ID"] + "'");
                     break;
                 case ("excluir"):
-                    objBD.ExecutaSQL("delete Criacoes_Documentadas where  CDO_ID = '" + Request["CDO_ID"] + "'");
+                    objBD.ExecutaSQL("Exec admin_pudExcluiCriacoesDocumentadas '" + Request["CDO_ID"] + "'");
                     break;
                 default:
                     PopulaLista();
