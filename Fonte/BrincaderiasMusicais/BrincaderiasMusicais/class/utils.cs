@@ -817,6 +817,26 @@ namespace Etnia.classe
 
         }
 
+        public string Delimitar( OleDbDataReader rsEditar, string DelimitadorColuna = "|", string DelimitadorLinha = "§")
+        {
+            string Delimitado = "";
+            if (rsEditar == null) { return new Exception().Message; }
+            List<string> colunas = Enumerable.Range(0, rsEditar.FieldCount).Select(rsEditar.GetName).ToList();
+
+            if (rsEditar.HasRows)
+            {
+                while (rsEditar.Read())
+                {
+                    foreach (var coluna in colunas)
+                    {
+                        Delimitado += (rsEditar[coluna] + DelimitadorColuna);
+                    }
+                    Delimitado += DelimitadorLinha;
+                }
+
+            }
+            return Delimitado;
+        }
 
 
     }
