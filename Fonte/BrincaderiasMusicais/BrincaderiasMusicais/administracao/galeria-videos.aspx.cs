@@ -39,7 +39,7 @@ namespace BrincaderiasMusicais.administracao
                     objUtils.EnviaEmail(reprova["USU_EMAIL"].ToString(), "Video Galeria Colaborativa", "Que pena, seu video <strong>" + reprova["COV_DESCRICAO"] + "</strong> não foi aprovado pelos nossos administradores");
                     break;
                 default:
-                    PopulaLista();
+                    PopulaLista(Request["STATUS"]);
                     //PopulaExcluidos();
                     break;
             }
@@ -47,11 +47,15 @@ namespace BrincaderiasMusicais.administracao
 
        
 
-        public void PopulaLista()
+        public void PopulaLista(string status)
         {
+            if (string.IsNullOrWhiteSpace(status))
+            {
+                status = "Aguardando Aprovação";
+            }
             divLista.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
 
-            rsLista = objBD.ExecutaSQL("select C.COV_ID, C.COV_TITULO, C.COV_VIDEO_ID, R.RED_TITULO, U.USU_NOME from ColaborativaVideos C INNER JOIN Rede R ON (R.RED_ID = C.RED_ID) INNER JOIN Usuario U ON (U.USU_ID = C.USU_ID) where C.COV_STATUS = 'Aguardando Aprovação' ORDER BY C.COV_ID DESC");
+            rsLista = objBD.ExecutaSQL("select C.COV_ID, C.COV_TITULO, C.COV_VIDEO_ID, R.RED_TITULO, U.USU_NOME from ColaborativaVideos C INNER JOIN Rede R ON (R.RED_ID = C.RED_ID) INNER JOIN Usuario U ON (U.USU_ID = C.USU_ID) where C.COV_STATUS = '"+status+"' ORDER BY C.COV_ID DESC");
             if (rsLista == null)
             {
                 throw new Exception();
