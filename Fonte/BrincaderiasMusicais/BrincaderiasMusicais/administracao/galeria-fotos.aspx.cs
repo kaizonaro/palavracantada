@@ -53,17 +53,22 @@ namespace BrincaderiasMusicais.administracao
                     File.Delete(Server.MapPath("~/upload/imagens/galeriacolaborativa/" + Request["imagem"].ToString() + ""));
                     break;
                 default:
-                    PopulaLista();
+                    PopulaLista(Request["STATUS"]);
                     //PopulaExcluidos();
                     break;
             }
         }
 
-        public void PopulaLista()
+        public void PopulaLista(string status)
         {
+            if (string.IsNullOrWhiteSpace(status))
+            {
+                status = "Aguardando Aprovação";
+            }
+
             divLista.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
 
-            rsLista = objBD.ExecutaSQL("select C.COF_ID, C.COF_IMAGEM, C.COF_LEGENDA, R.RED_TITULO, U.USU_NOME from ColaborativaFotos  C INNER JOIN Rede R ON (R.RED_ID = C.RED_ID) INNER JOIN Usuario U ON (U.USU_ID = C.USU_ID) where C.COF_STATUS = 'Aguardando Aprovação' ORDER BY C.COF_ID DESC");
+            rsLista = objBD.ExecutaSQL("select C.COF_ID, C.COF_IMAGEM, C.COF_LEGENDA, R.RED_TITULO, U.USU_NOME from ColaborativaFotos  C INNER JOIN Rede R ON (R.RED_ID = C.RED_ID) INNER JOIN Usuario U ON (U.USU_ID = C.USU_ID) where C.COF_STATUS = '"+status+"' ORDER BY C.COF_ID DESC");
             if (rsLista == null)
             {
                 throw new Exception();

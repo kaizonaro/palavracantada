@@ -105,6 +105,17 @@
                                     <div class="incluir acoes_topo_form">
                                         <img src="images/mais.png" alt="Incluir"><p>Incluir</p>
                                     </div>
+
+                                     <div class=" acoes_topo_form">
+                                         &nbsp;&nbsp;&nbsp;
+                                       <select id="STATUS" name="STATUS" class="input" runat="server" onchange="location = 'galeria-fotos.aspx?STATUS='+$(this).val()">
+                                              <option value="" selected> Filtrar por Status </option>
+                                            <option value="Aguardando Aprovação">Aguardando Aprovação</option>
+                                            <option value="Aprovado">Aprovado</option>
+                                            <option value="Reprovado">Reprovado</option>
+                                        </select>
+
+                                    </div>
                                     <div class="voltar_topo_form acoes_topo_form">
                                         <img src="images/restore.png" alt="Filtrar"><p>Voltar</p>
                                     </div>
