@@ -97,7 +97,7 @@
                     <div class="span12">
                         <div class="widget red">
                             <div class="widget-title">
-                                <h4>Post Blog</h4>
+                                <h4>Post Forum</h4>
                                 <div class="btns_acoes">
                                    <%-- <div class="filtrar acoes_topo_form">
                                         <img src="images/filtro.png" alt="Filtrar"><p>Filtrar</p>

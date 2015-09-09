@@ -68,7 +68,7 @@ namespace BrincaderiasMusicais.administracao
 
             divLista.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
 
-            rsLista = objBD.ExecutaSQL("select C.COF_ID, C.COF_IMAGEM, C.COF_LEGENDA, R.RED_TITULO, U.USU_NOME from ColaborativaFotos  C INNER JOIN Rede R ON (R.RED_ID = C.RED_ID) INNER JOIN Usuario U ON (U.USU_ID = C.USU_ID) where C.COF_STATUS = '"+status+"' ORDER BY C.COF_ID DESC");
+            rsLista = objBD.ExecutaSQL("select C.COF_ID, C.COF_IMAGEM, C.COF_LEGENDA, R.RED_TITULO, U.USU_NOME, COF_STATUS from ColaborativaFotos  C INNER JOIN Rede R ON (R.RED_ID = C.RED_ID) INNER JOIN Usuario U ON (U.USU_ID = C.USU_ID) where C.COF_STATUS = '"+status+"' ORDER BY C.COF_ID DESC");
             if (rsLista == null)
             {
                 throw new Exception();
@@ -82,6 +82,7 @@ namespace BrincaderiasMusicais.administracao
                 divLista.InnerHtml += "         <th  style=\"width:200px;\">Legenda</th>";
                 divLista.InnerHtml += "         <th  style=\"width:200px;\">Rede</th>";
                 divLista.InnerHtml += "         <th  style=\"width:200px;\">Usuário</th>";
+                divLista.InnerHtml += "         <th  style=\"width:200px;\">Status</th>";
                 divLista.InnerHtml += "         <th style=\"width:85px;\">Ações</th>";
                 divLista.InnerHtml += "     </tr>";
                 divLista.InnerHtml += " </thead>";
@@ -96,6 +97,7 @@ namespace BrincaderiasMusicais.administracao
                     divLista.InnerHtml += "     <td>" + rsLista["COF_LEGENDA"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["USU_NOME"].ToString() + "</td>";
+                    divLista.InnerHtml += "     <td>" + rsLista["COF_STATUS"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["COF_ID"].ToString() + "' onclick='Aprovar(this.id);' class=\"img_edit\"><img src=\"images/aprovar.png\"></a></li><li><a id='" + rsLista["COF_ID"].ToString() + "' onclick='Reprovar(this.id,\"" + rsLista["COF_IMAGEM"].ToString() + "\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
                 }

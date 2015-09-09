@@ -43,6 +43,13 @@
             location.href = "blog.aspx?pagina=" + pg + "";
              
         }
+        function pesquisaUsuario(item) {
+            //$("#frmPesquisa").attr("action", $("#action").val());
+            //$("#pesquisabt").click()
+            $('#frmPesquisa').submit();
+
+        }
+
     </script>
 </head>
 <body>

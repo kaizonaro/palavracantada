@@ -55,7 +55,7 @@ namespace BrincaderiasMusicais.administracao
             }
             divLista.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
 
-            rsLista = objBD.ExecutaSQL("select C.COV_ID, C.COV_TITULO, C.COV_VIDEO_ID, R.RED_TITULO, U.USU_NOME from ColaborativaVideos C INNER JOIN Rede R ON (R.RED_ID = C.RED_ID) INNER JOIN Usuario U ON (U.USU_ID = C.USU_ID) where C.COV_STATUS = '"+status+"' ORDER BY C.COV_ID DESC");
+            rsLista = objBD.ExecutaSQL("select C.COV_ID, C.COV_TITULO, C.COV_VIDEO_ID, R.RED_TITULO, U.USU_NOME, COV_STATUS from ColaborativaVideos C INNER JOIN Rede R ON (R.RED_ID = C.RED_ID) INNER JOIN Usuario U ON (U.USU_ID = C.USU_ID) where C.COV_STATUS = '"+status+"' ORDER BY C.COV_ID DESC");
             if (rsLista == null)
             {
                 throw new Exception();
@@ -69,6 +69,7 @@ namespace BrincaderiasMusicais.administracao
                 divLista.InnerHtml += "         <th  style=\"width:200px;\">Legenda</th>";
                 divLista.InnerHtml += "         <th  style=\"width:200px;\">Rede</th>";
                 divLista.InnerHtml += "         <th  style=\"width:200px;\">Usuário</th>";
+                divLista.InnerHtml += "         <th  style=\"width:200px;\">Status</th>";
                 divLista.InnerHtml += "         <th style=\"width:85px;\">Ações</th>";
                 divLista.InnerHtml += "     </tr>";
                 divLista.InnerHtml += " </thead>";
@@ -83,6 +84,7 @@ namespace BrincaderiasMusicais.administracao
                     divLista.InnerHtml += "     <td>" + rsLista["COV_TITULO"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + rsLista["USU_NOME"].ToString() + "</td>";
+                    divLista.InnerHtml += "     <td>" + rsLista["COV_STATUS"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["COV_ID"].ToString() + "' onclick='Aprovar(this.id);' class=\"img_edit\"><img src=\"images/aprovar.png\"></a></li><li><a id='" + rsLista["COV_ID"].ToString() + "' onclick='Reprovar(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
                 }

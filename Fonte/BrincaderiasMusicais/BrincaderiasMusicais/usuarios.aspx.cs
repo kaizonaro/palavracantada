@@ -24,6 +24,7 @@ namespace BrincaderiasMusicais
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //pesquisar
             try
             {
                 objUtils = new utils();
@@ -34,7 +35,17 @@ namespace BrincaderiasMusicais
                     pagina_atual = Convert.ToInt16(Request.QueryString["pagina"]);
                 }
 
-                PopularUsuario();
+                switch (Request["acao"])
+                {
+                    case "pesquisar":
+                        PopularUsuario(Request["POS_TEXTO"]);
+                        break;
+
+                    default:
+                        PopularUsuario(null);        
+                        break;
+                }
+                
             }
             catch (Exception)
             {
@@ -43,9 +54,9 @@ namespace BrincaderiasMusicais
             }
         }
 
-        public void PopularUsuario()
+        public void PopularUsuario(string nome)
         {
-            rsArtigos = objBD.ExecutaSQL("EXEC site_psListarUsuarios " + Session["redeID"]);
+            rsArtigos = objBD.ExecutaSQL("EXEC site_psListarUsuarios " + Session["redeID"] + ",'"+nome+"'");
 
             if (rsArtigos == null)
             {
@@ -54,7 +65,13 @@ namespace BrincaderiasMusicais
 
             if (rsArtigos.HasRows)
             {
-                msg.InnerHtml += " Visualizando usuários com perfil público da rede " + Session["nomeInstituicao"] + ", em ordem alfabética. (clique no link “ver perfil” para visualizar o perfil do usuário).";
+                msg.InnerHtml += "<p>Visualizando usuários com perfil público da rede " + Session["nomeInstituicao"] + ", em ordem alfabética. (clique no link “ver perfil” para visualizar o perfil do usuário).</p>";
+                msg.InnerHtml += "<p>Se preferir, faça uma busca pelo Nome do Usuário: </p>";
+                msg.InnerHtml += "<form class=\"form_pesquisa\" action=\"/usuarios\" id=\"frmPesquisa\">";
+                msg.InnerHtml += "  <input type=\"hidden\" name=\"acao\" id=\"acao\" value=\"pesquisar\" />";
+                msg.InnerHtml += "  <input type=\"text\" name=\"POS_TEXTO\" class=\"input\" id=\"POS_TEXTO\" />&nbsp;<input type=\"button\" onclick=\"pesquisaUsuario($('#POS_TEXTO').val())\" id=\"pesquisabt\" class=\"btn\" value=\"OK\" />";
+                msg.InnerHtml += "</form>";
+
                 while (rsArtigos.Read())
                 {
 
@@ -71,7 +88,6 @@ namespace BrincaderiasMusicais
 
                 }
 
-
             }
             else
             {
@@ -81,5 +97,6 @@ namespace BrincaderiasMusicais
             rsArtigos.Close();
             rsArtigos.Dispose();
         }
+
     }
 }

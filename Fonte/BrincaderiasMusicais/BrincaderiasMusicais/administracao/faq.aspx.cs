@@ -76,7 +76,7 @@ namespace BrincaderiasMusicais.administracao
         {
             divLista.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
 
-            rsLista = objBD.ExecutaSQL("select FAQ_ID, FAQ_PERGUNTA from Faq where FAQ_ATIVO = 1");
+            rsLista = objBD.ExecutaSQL("EXEC admin_psFaqPorAtivo 1");
             if (rsLista == null)
             {
                 throw new Exception();
@@ -85,7 +85,8 @@ namespace BrincaderiasMusicais.administracao
             {
                 divLista.InnerHtml += " <thead>";
                 divLista.InnerHtml += "     <tr>";
-                divLista.InnerHtml += "         <th style=\"width:600px;\">Pergunta</th>";
+                divLista.InnerHtml += "         <th style=\"width:400px;\">Pergunta</th>";
+                divLista.InnerHtml += "         <th style=\"width:200px;\">Rede</th>";
                 divLista.InnerHtml += "         <th style=\"width:85px;\">Ações</th>";
                 divLista.InnerHtml += "     </tr>";
                 divLista.InnerHtml += " </thead>";
@@ -96,6 +97,7 @@ namespace BrincaderiasMusicais.administracao
                 {
                     divLista.InnerHtml += " <tr id='tr_" + rsLista["FAQ_ID"].ToString() + "' class=\"\">";
                     divLista.InnerHtml += "     <td>" + rsLista["FAQ_PERGUNTA"].ToString() + "</td>";
+                    divLista.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["FAQ_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["FAQ_ID"].ToString() + "' onclick='excluir(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
                 }
@@ -121,7 +123,7 @@ namespace BrincaderiasMusicais.administracao
         {
             divExcluidos.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
 
-            rsLista = objBD.ExecutaSQL("select FAQ_ID, FAQ_PERGUNTA from Faq where FAQ_ATIVO = 0");
+            rsLista = objBD.ExecutaSQL("EXEC admin_psFaqPorAtivo 0");
             if (rsLista == null)
             {
                 throw new Exception();
@@ -130,7 +132,8 @@ namespace BrincaderiasMusicais.administracao
             {
                 divExcluidos.InnerHtml += " <thead>";
                 divExcluidos.InnerHtml += "     <tr>";
-                divExcluidos.InnerHtml += "         <th style=\"width:600px;\">Pergunta</th>";
+                divExcluidos.InnerHtml += "         <th style=\"width:400px;\">Pergunta</th>";
+                divExcluidos.InnerHtml += "         <th style=\"width:200px;\">Rede</th>";
                 divExcluidos.InnerHtml += "         <th style=\"width:85px;\">Ações</th>";
                 divExcluidos.InnerHtml += "     </tr>";
                 divExcluidos.InnerHtml += " </thead>";
@@ -141,6 +144,7 @@ namespace BrincaderiasMusicais.administracao
                 {
                     divExcluidos.InnerHtml += " <tr id='tr_" + rsLista["FAQ_ID"].ToString() + "' class=\"\">";
                     divExcluidos.InnerHtml += "     <td>" + rsLista["FAQ_PERGUNTA"].ToString() + "</td>";
+                    divExcluidos.InnerHtml += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
                     divExcluidos.InnerHtml += "     <td><ul class=\"icons_table\"><li><a id='" + rsLista["FAQ_ID"].ToString() + "' onclick='restaurar(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/restore.png\"></a></li></ul>";
                     divExcluidos.InnerHtml += " </tr>";
                 }

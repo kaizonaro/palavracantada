@@ -57,8 +57,9 @@ namespace BrincaderiasMusicais.administracao
                 objeto += " <thead>";
                 objeto += "     <tr>";
                 objeto += "         <th style=\"width:30px;\">ID</th>";
-                objeto += "         <th style=\"width:120px;\">Usuário</th>"; 
-                objeto += "         <th style=\"width:120px;\">Mensagem</th>"; 
+                objeto += "         <th style=\"width:120px;\">Usuário</th>";
+                objeto += "         <th style=\"width:115px;\">Mensagem</th>";
+                objeto += "         <th style=\"width:120px;\">Rede</th>"; 
                 objeto += "         <th style=\"width:115px;\">Data Publicação</th>";
                 objeto += "         <th style=\"width:85px;\">Ações</th>";
                 objeto += "     </tr>";
@@ -78,7 +79,8 @@ namespace BrincaderiasMusicais.administracao
                     objeto += " <tr id='" + tr + rsLista["FME_ID"].ToString() + "' class=\"\">";
                     objeto += "     <td>" + rsLista["FME_ID"].ToString() + "</td>";
                     objeto += "     <td>" + rsLista["USU_NOME"].ToString() + "</td>";
-                    objeto += "     <td>" + objUtils.CortarString(true,100,rsLista["FME_MENSAGEM"].ToString()) + "</td>";
+                    objeto += "     <td><textarea class='input' readonly style='width:500px;height:200px;'>" + rsLista["FME_MENSAGEM"].ToString() + "</textarea></td>";
+                    objeto += "     <td>" + rsLista["RED_TITULO"] + "</td>";
                     objeto += "     <td>" + rsLista["FME_DATA"].ToString() + "</td>";
                    
                     if (ativo == 1)

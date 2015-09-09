@@ -206,7 +206,7 @@
                         <input type="hidden" name="acao" id="acao" value="completarCadastro" />
                         <input type="hidden" name="TOK_TOKEN" id="TOK_TOKEN" value="" runat="server" />
                         <label>
-                            Nome*:
+                            Nome*: <span style="font-size:9px;font-weight:lighter"> (como irá aparecer em seu certificado)</span>
                             <br />
                         </label>
                         <input type="text" name="USU_NOME" id="USU_NOME" class="input inp_grande" /><br />
@@ -216,7 +216,7 @@
                         <input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input email inp_grande" onchange="validaemail()" /><br />
                         <div id="erro_mensagem"></div>
                         <label>
-                            Usuário*:<br />
+                            Usuário*: <span style="font-size:9px;font-weight:lighter">(apelido - não usar acentos, pontuações ou símbolos)</span> <br />
                         </label>
                         <input type="text" name="USU_USUARIO" onblur="capturar(this);" id="USU_USUARIO" class="input inp_grande" />
                     </div>
