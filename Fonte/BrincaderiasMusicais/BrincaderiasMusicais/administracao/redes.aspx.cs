@@ -27,14 +27,14 @@ namespace BrincaderiasMusicais.administracao
             {
                 switch (Request["acao"])
                 {
-                    case("GravarRede"):
+                    case ("GravarRede"):
                         GravarRede();
                         break;
 
                     case ("ValidarRede"):
                         ValidarRede();
                         break;
-                    
+
                     case ("excluirRede"):
 
                         objBD.ExecutaSQL("update Rede set RED_ATIVO = 0 where RED_ID ='" + Request["RED_ID"] + "'");
@@ -56,7 +56,28 @@ namespace BrincaderiasMusicais.administracao
                         if (rsLista.HasRows)
                         {
                             rsLista.Read();
-                            Response.Write(rsLista["RED_ID"] + "|" + rsLista["RED_TITULO"] + "|" + rsLista["RED_CIDADE"] + "|" + rsLista["RED_UF"] + "|" + rsLista["total"] + "|" + rsLista["total"]);
+                            string resposta = "";
+                            resposta += rsLista["RED_ID"];
+                            resposta += "|" + rsLista["RED_TITULO"];
+                            resposta += "|" + rsLista["RED_CIDADE"];
+                            resposta += "|" + rsLista["RED_UF"];
+                            resposta += "|" + rsLista["total"];
+                            resposta += "|" + rsLista["RED_HORAS_PRESENCIAIS"];
+                            resposta += "|" + rsLista["RED_HORAS_DISTANCIA"];
+                            resposta += "|" + rsLista["RED_PESO_BLOG"];
+                            resposta += "|" + rsLista["RED_PESO_GALERIA"];
+                            resposta += "|" + rsLista["RED_PESO_VIDEO"];
+                            resposta += "|" + rsLista["RED_PESO_FOTOS"];
+                            resposta += "|" + rsLista["RED_PESO_FORUM"];
+                            resposta += "|" + rsLista["RED_PESO_CRIACOES"];
+                            resposta += "|" + rsLista["RED_LIMITE_BLOG"];
+                            resposta += "|" + rsLista["RED_LIMITE_GALERIA"];
+                            resposta += "|" + rsLista["RED_LIMITE_VIDEO"];
+                            resposta += "|" + rsLista["RED_LIMITE_FOTOS"];
+                            resposta += "|" + rsLista["RED_LIMITE_FORUM"];
+                            resposta += "|" + rsLista["RED_LIMITE_CRIACOES"];
+                            resposta += "|" + rsLista["RED_NOME_DIRETOR"];
+                            Response.Write(resposta);
                         }
                         break;
                     default:
@@ -250,7 +271,7 @@ namespace BrincaderiasMusicais.administracao
                 mensagemtokens += "</ol>";
 
 
-               if (objUtils.EnviaEmail(Session["email"].ToString() + ", zonaro@outlook.com", "Tokens de Acesso: " + RED_TITULO, mensagemtokens) == false)
+                if (objUtils.EnviaEmail(Session["email"].ToString() + ", zonaro@outlook.com", "Tokens de Acesso: " + RED_TITULO, mensagemtokens) == false)
                 {
                     throw new Exception();
                 }
@@ -262,7 +283,7 @@ namespace BrincaderiasMusicais.administracao
 
             try
             {
-              
+
                 string assinatura = objUtils.ImageToBase64(Request.Files["RED_ASSINATURA"].InputStream);
                 string brasao = objUtils.ImageToBase64(Request.Files["RED_BRASAO"].InputStream);
 
@@ -297,7 +318,7 @@ namespace BrincaderiasMusicais.administracao
             catch (Exception)
             {
                 throw;
-            } 
+            }
         }
     }
 }

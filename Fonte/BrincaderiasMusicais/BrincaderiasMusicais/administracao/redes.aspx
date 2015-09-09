@@ -47,18 +47,32 @@
                         var resposta = ajax4.responseText.split("<!DOCTYPE html>");
 
                         var ss = resposta[0].split("|");
-
+                        console.log(ss)
 
                         $('#RED_ID').attr("value", ss[0]);
-
                         $('#RED_TITULO').attr("value", ss[1]);
                         $('#RED_CIDADE').attr("value", ss[2]);
                         $('#RED_UF').attr("value", ss[3]);
-                        $('#USU_MASSA_PRESENCIAL').attr("value", ss[4]);
-                        $('#USU_MASSA_PRESENCIAL').attr("disabled", true);
-                        $('#USU_MASSA_DISTANCIA').attr("value", ss[5]);
-                        $('#USU_MASSA_DISTANCIA').attr("disabled", true);
-                        editar_table(id);
+                        // $('#USU_MASSA_PRESENCIAL').attr("value", ss[4]); 
+                        $('#RED_HORAS_PRESENCIAIS').attr("value", ss[5]);
+                        $('#RED_HORAS_DISTANCIA').attr("value", ss[6]);
+                        $('#PES_BLOG').attr("value", ss[7]);
+                        $('#PES_GALERIA').attr("value", ss[8]);
+                        $('#PES_VIDEOS').attr("value", ss[9]);
+                        $('#PES_FOTOS').attr("value", ss[10]);
+                        $('#PES_FORUM').attr("value", ss[11]);
+                        $('#PES_CRIACOES').attr("value", ss[12]);
+
+                        $('#LIM_BLOG').attr("value", ss[13]);
+                        $('#LIM_GALERIA').attr("value", ss[14]);
+                        $('#LIM_VIDEOS').attr("value", ss[15]);
+                        $('#LIM_FOTOS').attr("value", ss[16]);
+                        $('#LIM_FORUM').attr("value", ss[17]);
+                        $('#LIM_CRIACOES').attr("value", ss[18]);
+                        $('#RED_NOME_DIRETOR').attr("value", ss[19]);
+                        
+
+                        editar_table2(id);
                     }
                 }
             }
