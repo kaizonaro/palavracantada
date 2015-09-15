@@ -90,6 +90,7 @@ namespace BrincaderiasMusicais.administracao
                 divLista.InnerHtml += "     <tr>";
                 divLista.InnerHtml += "         <th>Data</th>";
                 divLista.InnerHtml += "         <th style=\"width:300px;\">Proposta</th>";
+                divLista.InnerHtml += "         <th style=\"width:200px;\">Rede</th>";
                 divLista.InnerHtml += "         <th style=\"width:200px;\">Status</th>";
                 divLista.InnerHtml += "         <th style=\"width:85px;\">Ações</th>";
                 divLista.InnerHtml += "     </tr>";
@@ -102,6 +103,7 @@ namespace BrincaderiasMusicais.administracao
                     divLista.InnerHtml += " <tr id='tr_" + rsLista["CDO_ID"].ToString() + "' class=\"\">";
                     divLista.InnerHtml += "     <td>" + rsLista["CDO_DATA"].ToString() + "</td>";
                     divLista.InnerHtml += "     <td>" + objUtils.CortarString(true, 90, rsLista["CDO_TAREFA"].ToString()) + "</td>";
+                    divLista.InnerHtml += "     <td>" +  rsLista["RED_NOME"].ToString() + "</td>";
                     if (rsLista["CDO_STATUS"].ToString() == "Ativa")
                     {
                         divLista.InnerHtml += "     <td><select class='input' onchange='arquivar(" + rsLista["CDO_ID"].ToString() + ", this);'><option value='Ativa' selected='selected'>Ativa</option><option value='Arquivada'>Arquivada</option></select></td>";
