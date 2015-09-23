@@ -117,7 +117,7 @@ namespace BrincaderiasMusicais.inc
             if (rsPerfil.HasRows)
             {
                 rsPerfil.Read();
-                ValidaPrivacidade(valida);
+           //     ValidaPrivacidade(valida);
 
 
                 nomeusuario.InnerText = rsPerfil["USU_NOME"].ToString();
