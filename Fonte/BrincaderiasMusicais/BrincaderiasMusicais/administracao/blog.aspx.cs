@@ -45,6 +45,10 @@ namespace BrincaderiasMusicais.administracao
                 case ("ativarPost"):
                     rsLista = objBD.ExecutaSQL("UPDATE PostBlog set POS_ATIVO = 1 where POS_ID ='" + Request["POS_ID"] + "'");
                     break;
+                case ("FiltrarPesquisa"):
+                    Response.Write(PopulaLista(1, Request["RED_ID"], Request["POS_TITULO"]));
+                    Response.End();
+                    break;
                 default:
                     populacategorias();
                     PopulaLista();
@@ -71,12 +75,12 @@ namespace BrincaderiasMusicais.administracao
             }
         }
 
-        public void PopulaLista(int ativo = 1)
+        public string PopulaLista(int ativo = 1, string RED_ID = "NULL", string POS_TITULO = "")
         {
             string objeto = "";
             objeto = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
 
-            rsLista = objBD.ExecutaSQL("EXEC admin_psPostBlogPorAtivo " + ativo);
+            rsLista = objBD.ExecutaSQL("EXEC admin_psPostBlogPorAtivo2 " + ativo + "," + RED_ID + ",'" + POS_TITULO + "'");
             if (rsLista == null)
             {
                 throw new Exception();
@@ -155,6 +159,7 @@ namespace BrincaderiasMusicais.administracao
             {
                 divExcluidos.InnerHtml = objeto;
             }
+            return objeto;
         }
 
         public void ListarRedes()
@@ -173,6 +178,7 @@ namespace BrincaderiasMusicais.administracao
                     C.Value = rsRedes["RED_ID"].ToString();
                     C.Text = rsRedes["RED_TITULO"].ToString();
                     RED_ID.Items.Add(C);
+                    FL_REDE_ID.Items.Add(C);
 
                 }
 
@@ -282,7 +288,7 @@ namespace BrincaderiasMusicais.administracao
 
         public void notificacoes()
         {
-            rsNotificar = objBD.ExecutaSQL("EXEC admin_psNotificarPost '" + Request["POS_IMPORTANTE"] +"'," + Request["RED_ID"]);
+            rsNotificar = objBD.ExecutaSQL("EXEC admin_psNotificarPost '" + Request["POS_IMPORTANTE"] + "'," + Request["RED_ID"]);
             if (rsNotificar == null)
             {
                 throw new Exception();
