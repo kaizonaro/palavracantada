@@ -19,7 +19,7 @@ namespace BrincaderiasMusicais.inc
         private bd objBD;
         private utils objUtils;
         private OleDbDataReader rsUser, rsPerfil;
-
+        string urlCompleta = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -34,14 +34,14 @@ namespace BrincaderiasMusicais.inc
 
             objUtils = new utils();
             objBD = new bd();
-            ModificaBotoes();
+           
             //Ajustando as classes dos botões
-            string urlCompleta = Request.Url.AbsoluteUri;
-            string paginaAtual = Request.CurrentExecutionFilePath;
-            paginaAtual = paginaAtual.Remove(0, paginaAtual.LastIndexOf("/") + 1);
+              urlCompleta = Request.Url.AbsoluteUri.Split(Convert.ToChar("?"))[0];
 
 
-            switch (paginaAtual)
+             urlCompleta = urlCompleta.Remove(0, urlCompleta.LastIndexOf("/") + 1);
+          
+            switch (urlCompleta)
             {
                 case "minha-galeria.aspx":
                     videos.Attributes["class"] += " disabled ";
@@ -66,6 +66,7 @@ namespace BrincaderiasMusicais.inc
                     blog.Attributes["class"] = " img_links ";
                     break;
             }
+            ModificaBotoes();
 
             rsUser = objBD.ExecutaSQL("select USU_BIOGRAFIA, USU_FOTO from Usuario where USU_ID = " + Session["usuID"] + " ");
             if (rsUser == null)
@@ -166,7 +167,7 @@ namespace BrincaderiasMusicais.inc
                 Response.End();
             }
 
-            switch (new FileInfo(this.Request.Url.LocalPath).Name)
+            switch (urlCompleta)
             {
                 case "perfil-blog.aspx":
                     if (rsPerfil["PRI_BLOG"].ToString() == "True")
