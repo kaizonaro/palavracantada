@@ -119,16 +119,17 @@
             }
         }
 
-        function FiltrarPesquisa(RED_ID, USU_NOME, USU_EMAIL) {
+        function FiltrarPesquisa(RED_ID, POS_TITULO) {
             ajax4 = ajaxInit();
-            ajax4.open("GET", "usuarios.aspx?acao=FiltrarPesquisa&RED_ID=" + RED_ID + "&USU_NOME=" + USU_NOME + "&USU_EMAIL=" + USU_EMAIL + "&Rand=" + Math.ceil(Math.random() * 100000), true);
+            ajax4.open("GET", "blog.aspx?acao=FiltrarPesquisa&RED_ID=" + RED_ID + "&POS_TITULO=" + POS_TITULO + "&Rand=" + Math.ceil(Math.random() * 100000), true);
             ajax4.setRequestHeader("Content-Type", "charset=iso-8859-1");
             ajax4.onreadystatechange = function () {
 
                 if (ajax4.readyState == 4) {
                     if (ajax4.status == 200) {
 
-                        $("#tbCentral").html(ajax4.responseText);
+                        $("#divLista").html(ajax4.responseText);
+                        editar_table2(id);
                     }
                 }
 
@@ -209,24 +210,22 @@
                                             </p>
                                         </form>
 
-                                        <!-- <form class="fil_form form" novalidate accept-charset="default">
+                                       <form class="fil_form form" novalidate accept-charset="default">
                                         <p>Rede</p>
-                                        <select id="FL_REDE_ID" name="FL_REDE_ID" class="input" runat="server" onchange="FiltrarPesquisa(FL_REDE_ID.value, FL_NOME.value, FL_EMAIL.value)">
-                                            <option value="">Selecione</option>
+                                        <select id="FL_REDE_ID" name="FL_REDE_ID" class="input" runat="server">
+                                            <option value="NULL">Selecione</option>
                                         </select>
 
-                                    	<p>Nome:</p>
-                                		<input type="text" name="FL_NOME" id="FL_NOME" class="input"  onchange="FiltrarPesquisa(FL_REDE_ID.value, FL_NOME.value, FL_EMAIL.value)" />
-
-                                        <p>E-Mail:</p>
-                                		<input type="text" name="FL_EMAIL" id="FL_EMAIL" class="input" onchange="FiltrarPesquisa(FL_REDE_ID.value, FL_NOME.value, FL_EMAIL.value)" />
+                                   
+                                        <p>Título</p>
+                                		<input type="text" name="FL_POS_TITULO" id="FL_POS_TITULO" class="input" />
                                         
 
                                         <p class="p_btn">
                                     		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
-                                            <input type="button" onclick="FiltrarPesquisa(FL_REDE_ID.value, FL_NOME.value, FL_EMAIL.value)" value="Filtrar" class="btn_form" formmethod="get" />
+                                            <input type="button" onclick="FiltrarPesquisa(FL_REDE_ID.value, FL_POS_TITULO.value)" value="Filtrar" class="btn_form" formmethod="get" />
                                			</p>
-                                    </form>-->
+                                    </form>
                                     </div>
                                 </div>
                             </div>
