@@ -82,7 +82,34 @@
         }
 
         function capturar(campo) {
-            document.getElementById("USU_USUARIO").value = removeCaracteres(trim(campo.value));
+            $.ajax({
+                type: 'GET',
+                url: location.pathname,
+                async: true,
+                data: "acao=validausuario&USU_USUARIO=" + campo.value,
+                success: function (data) {
+                    console.log(data)
+                    if (data == "OK") {
+                        $("#erro_mensagem2").html("")
+                        $("#cadastrar_bt").fadeIn();
+
+                    } else {
+                        $("#erro_mensagem2").html(data)
+                        $("#cadastrar_bt").fadeOut();
+                    }
+                },
+                error: function (xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert("Erro: " + err.Message);
+                },
+                beforeSend: function () {
+                    console.log("comecou")
+                    document.getElementById("USU_USUARIO").value = removeCaracteres(trim(campo.value));
+                },
+                complete: function () {
+                    console.log("acabou")
+                }
+            });
         }
 
         function trim(e) {
@@ -94,6 +121,7 @@
             remove = /á|é|í|ó|ã|à|ê|#|!|@|$|%|&|(|)|{|}|&|(|)|ú/g;  // adicione os caracteres indesejáveis
             return e.replace(remove, "");
         }
+
 
 
     </script>
@@ -206,19 +234,21 @@
                         <input type="hidden" name="acao" id="acao" value="completarCadastro" />
                         <input type="hidden" name="TOK_TOKEN" id="TOK_TOKEN" value="" runat="server" />
                         <label>
-                            Nome*: <span style="font-size:9px;font-weight:lighter"> (como irá aparecer em seu certificado)</span>
+                            Nome*: <span style="font-size: 9px; font-weight: lighter">(como irá aparecer em seu certificado)</span>
                             <br />
                         </label>
                         <input type="text" name="USU_NOME" id="USU_NOME" class="input inp_grande" /><br />
                         <label>
                             Email*:<br />
                         </label>
-                        <input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input email inp_grande" onchange="validaemail()" /><br />
+                        <input type="text" name="USU_EMAIL" id="USU_EMAIL" class="input email inp_grande" onblur="validaemail()" /><br />
                         <div id="erro_mensagem"></div>
                         <label>
-                            Usuário*: <span style="font-size:9px;font-weight:lighter">(apelido - não usar acentos, pontuações ou símbolos)</span> <br />
+                            Usuário*: <span style="font-size: 9px; font-weight: lighter">(apelido - não usar acentos, pontuações ou símbolos)</span>
+                            <br />
                         </label>
                         <input type="text" name="USU_USUARIO" onblur="capturar(this);" id="USU_USUARIO" class="input inp_grande" />
+                        <div id="erro_mensagem2"></div>
                     </div>
                     <div class="left">
                         <strong>Cargo: </strong>

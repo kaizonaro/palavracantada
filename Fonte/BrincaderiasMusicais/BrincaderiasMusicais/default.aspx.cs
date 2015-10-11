@@ -45,6 +45,29 @@ namespace BrincaderiasMusicais
                             Response.End();
                         }
                         break;
+                    case "validausuario":
+
+                        string retorno = "";
+                        OleDbDataReader rsResposta = objBD.ExecutaSQL("SELECT USU_USUARIO FROM Usuario where USU_USUARIO = '" + Request["USU_USUARIO"] + "'");
+                        if (rsResposta == null)
+                        {
+                            throw new Exception();
+                        }
+                        if (rsResposta.HasRows)
+                        {
+                            rsResposta.Read();
+                            Response.Write("<p>Esse usuário já está cadastrado!</p>");
+                          
+                        }
+                        else
+                        {
+                            Response.Write("OK");
+                            
+                        } 
+                        rsResposta.Close();
+                        rsResposta.Dispose();
+                        Response.End();
+                        break;
                     default:
                         PopularBlog(Convert.ToInt16(Session["redeID"]));
                         PopularVideos(Convert.ToInt16(Session["redeID"]));
