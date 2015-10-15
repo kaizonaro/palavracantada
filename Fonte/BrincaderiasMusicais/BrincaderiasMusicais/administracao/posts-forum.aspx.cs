@@ -18,7 +18,7 @@ namespace BrincaderiasMusicais.administracao
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista; 
+        private OleDbDataReader rsLista;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,7 +34,16 @@ namespace BrincaderiasMusicais.administracao
                 case ("ativarPost"):
                     rsLista = objBD.ExecutaSQL("UPDATE ForumMensagem set FME_ATIVO = 1 where FME_ID ='" + Request["FME_ID"] + "'");
                     break;
+                case ("FiltrarPesquisa"):
+                    string id = Request["RED_ID"];
+                    id = string.IsNullOrWhiteSpace(id) ? "NULL" : id;
+                    string cont = Request["FME_MENSAGEM"];
+                    cont = string.IsNullOrWhiteSpace(cont) ? "NULL" : "'" + cont + "'";
+                    Response.Write(PopulaLista(1, id, cont));
+                    Response.End();
+                    break;
                 default:
+                    PopularRedes();
                     PopulaLista();
                     PopulaLista(0);
                     break;
@@ -42,12 +51,12 @@ namespace BrincaderiasMusicais.administracao
         }
 
 
-        public void PopulaLista(int ativo = 1)
+        public string PopulaLista(int ativo = 1, string RED_ID = "null", string conteudo = "null")
         {
             string objeto = "";
             objeto = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
 
-            rsLista = objBD.ExecutaSQL("EXEC admin_psListaForumMensagem " + ativo);
+            rsLista = objBD.ExecutaSQL("EXEC admin_psListaForumMensagem2 " + ativo + "," + RED_ID + "," + conteudo);
             if (rsLista == null)
             {
                 throw new Exception();
@@ -59,7 +68,7 @@ namespace BrincaderiasMusicais.administracao
                 objeto += "         <th style=\"width:30px;\">ID</th>";
                 objeto += "         <th style=\"width:120px;\">Usuário</th>";
                 objeto += "         <th style=\"width:115px;\">Mensagem</th>";
-                objeto += "         <th style=\"width:120px;\">Rede</th>"; 
+                objeto += "         <th style=\"width:120px;\">Rede</th>";
                 objeto += "         <th style=\"width:115px;\">Data Publicação</th>";
                 objeto += "         <th style=\"width:85px;\">Ações</th>";
                 objeto += "     </tr>";
@@ -82,7 +91,7 @@ namespace BrincaderiasMusicais.administracao
                     objeto += "     <td><textarea class='input' readonly style='width:500px;height:200px;'>" + rsLista["FME_MENSAGEM"].ToString() + "</textarea></td>";
                     objeto += "     <td>" + rsLista["RED_TITULO"] + "</td>";
                     objeto += "     <td>" + rsLista["FME_DATA"].ToString() + "</td>";
-                   
+
                     if (ativo == 1)
                     {
                         objeto += "     <td><ul><li><a id='" + rsLista["FME_ID"].ToString() + "' onclick='excluirPost(this.id,\"desativar\");' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
@@ -118,8 +127,30 @@ namespace BrincaderiasMusicais.administracao
             {
                 divExcluidos.InnerHtml = objeto;
             }
+
+            return objeto;
         }
 
+        public void PopularRedes()
+        {
+            OleDbDataReader rsRede = objBD.ExecutaSQL("EXEC admin_psRedesPorAtivo 1 ");
+            if (rsRede == null)
+            {
+                throw new Exception();
+            }
+            if (rsRede.HasRows)
+            {
+                while (rsRede.Read())
+                {
+                    System.Web.UI.WebControls.ListItem R = new System.Web.UI.WebControls.ListItem();
+                    R.Value = rsRede["RED_ID"].ToString();
+                    R.Text = rsRede["RED_CIDADE"].ToString() + " | " + rsRede["RED_UF"].ToString();
+                    FL_REDE_ID.Items.Add(R);
+                }
+            }
+            rsRede.Close();
+            rsRede.Dispose();
+        }
 
     }
 }

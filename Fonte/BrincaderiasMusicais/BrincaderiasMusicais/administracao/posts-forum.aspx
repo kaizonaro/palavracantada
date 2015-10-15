@@ -13,7 +13,7 @@
     <script src="tinymce/tinymce.min.js"></script>
     <script type="text/javascript">
 
-         
+
 
         //AJAX
         function ajaxInit() {
@@ -34,7 +34,7 @@
             }
             return req;
         }
-         
+
         function excluirPost(id, msg) {
             var r = confirm("Deseja mesmo " + msg + " esta mensagem do forum ?");
             if (r == true) {
@@ -76,7 +76,29 @@
             }
         }
 
-     
+        function FiltrarPesquisa(a, b) {
+            $.ajax({
+                type: 'GET',
+                url: location.pathname,
+                async: true,
+                data: "acao=FiltrarPesquisa&RED_ID=" + a + "&FME_MENSAGEM=" + b,
+                success: function (data) {
+                    console.log(data)
+                    $("#divLista").html(data)
+                },
+                error: function (xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert("Erro: " + err.Message);
+                },
+                beforeSend: function () {
+                    console.log("comecou")
+                },
+                complete: function () {
+                    console.log("acabou")
+                }
+            });
+        }
+
     </script>
 </head>
 
@@ -99,10 +121,10 @@
                             <div class="widget-title">
                                 <h4>Post Forum</h4>
                                 <div class="btns_acoes">
-                                   <%-- <div class="filtrar acoes_topo_form">
+                                    <div class="filtrar acoes_topo_form">
                                         <img src="images/filtro.png" alt="Filtrar"><p>Filtrar</p>
                                     </div>
-                                    <div class="incluir acoes_topo_form">
+                                    <%-- <div class="incluir acoes_topo_form">
                                         <img src="images/mais.png" alt="Incluir"><p>Incluir</p>
                                     </div>--%>
                                     <div class="excluidos acoes_topo_form">
@@ -114,7 +136,7 @@
                                     <div class="form_table">
 
                                         <!-- FORMULÁRIO DE INCLUSÃO -->
-                                     <%--   <form id="Form1" class="inc_form form" name="incluir" action="blog.aspx" novalidate="novalidate" accept-charset="default" runat="server">
+                                        <%--   <form id="Form1" class="inc_form form" name="incluir" action="blog.aspx" novalidate="novalidate" accept-charset="default" runat="server">
                                             <input type="hidden" id="acao" name="acao" value="gravar" />
                                             <input type="hidden" id="FME_ID" name="FME_ID" value="0" />
 
@@ -150,24 +172,19 @@
                                             </p>
                                         </form>--%>
 
-                                        <!-- <form class="fil_form form" novalidate accept-charset="default">
-                                        <p>Rede</p>
-                                        <select id="FL_REDE_ID" name="FL_REDE_ID" class="input" runat="server" onchange="FiltrarPesquisa(FL_REDE_ID.value, FL_NOME.value, FL_EMAIL.value)">
-                                            <option value="">Selecione</option>
-                                        </select>
+                                        <form class="fil_form form" novalidate accept-charset="default">
+                                            <p>Rede</p>
+                                            <select id="FL_REDE_ID" name="FL_REDE_ID" class="input" runat="server">
+                                                <option value="NULL">Selecione</option>
+                                            </select>
+                                            <p>Conteudo</p>
+                                            <input type="text" class="input " value="" id="FL_CONTEUDO" name="FL_CONTEUDO" />
 
-                                    	<p>Nome:</p>
-                                		<input type="text" name="FL_NOME" id="FL_NOME" class="input"  onchange="FiltrarPesquisa(FL_REDE_ID.value, FL_NOME.value, FL_EMAIL.value)" />
-
-                                        <p>E-Mail:</p>
-                                		<input type="text" name="FL_EMAIL" id="FL_EMAIL" class="input" onchange="FiltrarPesquisa(FL_REDE_ID.value, FL_NOME.value, FL_EMAIL.value)" />
-                                        
-
-                                        <p class="p_btn">
-                                    		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
-                                            <input type="button" onclick="FiltrarPesquisa(FL_REDE_ID.value, FL_NOME.value, FL_EMAIL.value)" value="Filtrar" class="btn_form" formmethod="get" />
-                               			</p>
-                                    </form>-->
+                                            <p class="p_btn">
+                                                <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
+                                                <input type="button" onclick="FiltrarPesquisa(FL_REDE_ID.value, FL_CONTEUDO.value)" value="Filtrar" class="btn_form" formmethod="get" />
+                                            </p>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
