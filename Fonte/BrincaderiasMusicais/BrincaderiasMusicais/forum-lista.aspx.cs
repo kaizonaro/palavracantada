@@ -83,7 +83,7 @@ namespace BrincaderiasMusicais
                 {
                     divLista.InnerHtml += " <div class=\"txt blog_txt txt_forum\">";
                     divLista.InnerHtml += "     <div class=\"txt\">";
-                    divLista.InnerHtml += "         <p class=\"destque_forum\">Mensagem enviada por: <a href='/perfil/" + rsResultado["USU_NOME"] + "' title='" + rsResultado["USU_NOME"] + "'>" + rsResultado["USU_NOME"] + "</a></p>";
+                    divLista.InnerHtml += "         <p class=\"destque_forum\">Mensagem enviada por: <a href='/perfil/" + rsResultado["USU_USUARIO"] + "' title='" + rsResultado["USU_NOME"] + "'>" + rsResultado["USU_NOME"] + "</a></p>";
                     divLista.InnerHtml += "         <p class=\"destque_forum\">Enviada em: " + rsResultado["FME_DH_PUBLICACAO"] + "</b></p>";
                     divLista.InnerHtml += "         <br />";
                     divLista.InnerHtml += "         <p>"+rsResultado["FME_MENSAGEM"]+"</p>";
