@@ -53,7 +53,7 @@
                 ajax2.onreadystatechange = function () {
                     if (ajax2.readyState == 4) {
                         if (ajax2.status == 200) {
-                            alert("Vídeo aprovada com sucesso!");
+                            alert("Vídeo aprovado com sucesso!");
                             $('#tr_' + id).hide();
                         }
                     }
