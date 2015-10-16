@@ -31,7 +31,7 @@ namespace BrincaderiasMusicais.administracao
                     OleDbDataReader aprova = objBD.ExecutaSQL("exec AprovaVideo " + Convert.ToInt16(Request["COV_ID"].ToString()));
                     aprova.Read();
                     objUtils.EnviaEmail(aprova["USU_EMAIL"].ToString(), "Video Galeria Colaborativa", "Parabéns, seu video <strong>" + aprova["COV_DESCRICAO"] + "</strong> acabou de ser publicado em nossa Galeria Colaborativa!");
-                    objUtils.NotificacoesGaleria("video", aprova["COV_DESCRICAO"].ToString(), Convert.ToInt16(Request["COV_ID"].ToString()),"COV_ID");
+                   // objUtils.NotificacoesGaleria("video", aprova["COV_DESCRICAO"].ToString(), Convert.ToInt16(Request["COV_ID"].ToString()),"COV_ID");
                     break;
                 case ("Reprovar"):
                     OleDbDataReader reprova = objBD.ExecutaSQL("EXEC ReprovaVideo " + Convert.ToInt16(Request["COV_ID"].ToString()));
