@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Threading;
 
 namespace BrincaderiasMusicais
 {
@@ -47,7 +48,11 @@ namespace BrincaderiasMusicais
             string mensagem = Request["FME_MENSAGEM"];
             mensagem = mensagem.Replace(System.Environment.NewLine, "<br />");
             objBD.ExecutaSQL("INSERT INTO ForumMensagem (USU_ID, FME_MENSAGEM, FTO_ID) values ('" + Session["usuID"] + "','" + mensagem + "', '" + Request["FTO_ID"] + "')");
-            notificacoes();
+            
+            //Indo para a tela inicial
+            Thread env = new Thread(notificacoes);
+            env.Start();
+
             Response.Redirect(Request["REDIRECT"]);
         }
 
