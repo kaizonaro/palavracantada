@@ -81,7 +81,7 @@ namespace Etnia.classe
 
                 while (rsNotificar.Read())
                 {
-                    if (EnviaEmail(rsNotificar["USU_EMAIL"].ToString(), "Novo " + tipo + " no portal Brincadeiras Musicais", "Acabamos de publicar no portal: <a href=\"http://www.projetopalavracantada.net/galeria-colaborativa/\">" + titulo + "</a>") == false)
+                    if (EnviaEmail(rsNotificar["USU_EMAIL"].ToString(), "Novo " + tipo + " no portal Brincadeiras Musicais", "Um(a) novo(a) "+tipo+" foi publicado(a) na Galeria Colaborativa de sua região") == false)
                     {
                         throw new Exception();
                     }
