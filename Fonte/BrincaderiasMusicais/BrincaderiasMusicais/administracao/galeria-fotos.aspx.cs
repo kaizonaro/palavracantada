@@ -11,13 +11,14 @@ using System.IO;
 using System.Net.Mail;
 using System.Net;
 using System.Text;
+
 namespace BrincaderiasMusicais.administracao
 {
     public partial class galeria_fotos : System.Web.UI.Page
     {
         private bd objBD;
         private utils objUtils;
-        private OleDbDataReader rsLista, rsNotificar;
+        private OleDbDataReader rsLista, rsNotificar, aprova;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,10 +40,11 @@ namespace BrincaderiasMusicais.administracao
                     }
                     break;
                 case ("Aprovar"):
-                    OleDbDataReader aprova = objBD.ExecutaSQL("exec AprovaFoto " + Convert.ToInt16(Request["COF_ID"].ToString()));
+                    aprova = objBD.ExecutaSQL("exec AprovaFoto " + Convert.ToInt16(Request["COF_ID"].ToString()));
                     aprova.Read();
                     objUtils.EnviaEmail(aprova["USU_EMAIL"].ToString(), "Foto Galeria Colaborativa", "Parabéns, sua foto <strong>" + aprova["COF_LEGENDA"] + "</strong> acabou de ser publicada em nossa Galeria Colaborativa!");
-                    objUtils.NotificacoesGaleria("foto", aprova["COF_LEGENDA"].ToString(), Convert.ToInt16(Request["COF_ID"].ToString()),"COF_ID");
+                   // objUtils.NotificacoesGaleria("foto", aprova["COF_LEGENDA"].ToString(), Convert.ToInt16(Request["COF_ID"].ToString()), "COF_ID");
+                    PopulaLista(null);
                     break;
                 case ("Reprovar"):
                     OleDbDataReader reprova = objBD.ExecutaSQL("EXEC ReprovaFoto " + Convert.ToInt16(Request["COF_ID"].ToString()));
@@ -68,7 +70,7 @@ namespace BrincaderiasMusicais.administracao
 
             divLista.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
 
-            rsLista = objBD.ExecutaSQL("select C.COF_ID, C.COF_IMAGEM, C.COF_LEGENDA, R.RED_TITULO, U.USU_NOME, COF_STATUS from ColaborativaFotos  C INNER JOIN Rede R ON (R.RED_ID = C.RED_ID) INNER JOIN Usuario U ON (U.USU_ID = C.USU_ID) where C.COF_STATUS = '"+status+"' ORDER BY C.COF_ID DESC");
+            rsLista = objBD.ExecutaSQL("select C.COF_ID, C.COF_IMAGEM, C.COF_LEGENDA, R.RED_TITULO, U.USU_NOME, COF_STATUS from ColaborativaFotos  C INNER JOIN Rede R ON (R.RED_ID = C.RED_ID) INNER JOIN Usuario U ON (U.USU_ID = C.USU_ID) where C.COF_STATUS = '" + status + "' ORDER BY C.COF_ID DESC");
             if (rsLista == null)
             {
                 throw new Exception();
@@ -113,14 +115,14 @@ namespace BrincaderiasMusicais.administracao
                 divLista.InnerHtml += "     </tr>";
                 divLista.InnerHtml += " </thead>";
             }
+           
+            divLista.InnerHtml += "</table>";
+            
             rsLista.Close();
             rsLista.Dispose();
 
-            divLista.InnerHtml += "</table>";
         }
 
-
-      
 
         public void gravar(object sender, EventArgs e)
         {

@@ -44,6 +44,7 @@
         }
 
         function Aprovar(id) {
+            
             var r = confirm("Deseja mesmo aprovar esta foto ?");
             if (r == true) {
                 ajax2 = ajaxInit();
@@ -52,6 +53,8 @@
                 ajax2.onreadystatechange = function () {
                     if (ajax2.readyState == 4) {
                         if (ajax2.status == 200) {
+                            
+                            alert("Foto aprovada com sucesso!");
                             $('#tr_' + id).hide();
                         }
                     }
