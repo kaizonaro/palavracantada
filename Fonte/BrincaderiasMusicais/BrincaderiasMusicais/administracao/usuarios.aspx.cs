@@ -124,7 +124,7 @@ namespace BrincaderiasMusicais.administracao
         {
             divExcluidos.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
 
-            rsLista = objBD.ExecutaSQL("EXEC admin_psUsusarioPorAtivo 0");
+            rsLista = objBD.ExecutaSQL("EXEC admin_psUsusarioINATIVO");
             if (rsLista == null)
             {
                 throw new Exception();
