@@ -13,6 +13,20 @@
     <script src="tinymce/tinymce.min.js"></script>
     <script type="text/javascript">
 
+        function mascaraData(campoData) {
+            var data = campoData.value;
+            if (data.length == 2) {
+                data = data + '/';
+                document.forms[0].data.value = data;
+                return true;
+            }
+            if (data.length == 5) {
+                data = data + '/';
+                document.forms[0].data.value = data;
+                return true;
+            }
+        }
+
         tinymce.init({
             height: 500,
             resize: false,
@@ -57,10 +71,11 @@
                         $('#RED_ID option[value="' + parseInt(ss[1]) + '"]').attr('selected', 'selected').change();
                         $('#EVE_TITULO').attr("value", ss[2]);
                         tinyMCE.activeEditor.setContent(ss[3]);
-                        $('#EVE_DIA').attr("value", ss[4]);
-                        $('#EVE_HORA').attr("value", ss[5]);
+                        $('#EVE_DIA').attr("placeholder", ss[4]);
+                        $('#EVE_HORA').attr("placeholder", ss[5]);
 
                         editar_table2(id);
+                        
                     }
                 }
             }
@@ -152,7 +167,7 @@
 
                                             <p>Dia:*</p>
                                             <input type="text" maxlength="10" name="EVE_DIA" id="EVE_DIA" class="input data obg" placeholder="Dia do Evento" />
-
+                                            
                                             <p>Hora:*</p>
                                             <input type="text" maxlength="32" name="EVE_HORA" id="EVE_HORA" class="input hora obg" placeholder="Digite a hora de início do evento" />
 
