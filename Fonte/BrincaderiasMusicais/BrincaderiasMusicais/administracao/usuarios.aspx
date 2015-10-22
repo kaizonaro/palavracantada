@@ -72,7 +72,7 @@
                         $("#USU_PRESENCIAL option[value='" + ss[11] + "']").attr("selected", "selected");
 
 
-                       
+
 
                         editar_table2(id);
                     }
@@ -119,38 +119,28 @@
             }
         }
 
-        function FiltrarPesquisa(RED_ID, USU_NOME, USU_EMAIL) {
-            var oTable = $('#tabela').dataTable().fnDestroy();
-            ajax4 = ajaxInit();
-            ajax4.open("GET", "usuarios.aspx?acao=FiltrarPesquisa&RED_ID=" + RED_ID + "&USU_NOME=" + USU_NOME + "&USU_EMAIL=" + USU_EMAIL + "&Rand=" + Math.ceil(Math.random() * 100000), true);
-            ajax4.setRequestHeader("Content-Type", "charset=iso-8859-1");
-            ajax4.onreadystatechange = function () {
+        function FiltrarPesquisa(a, b, c) {
+            $.ajax({
+                type: 'GET',
+                url: location.pathname,
+                async: true,
+                data: "acao=FiltrarPesquisa&USU_NOME=" + a + "&USU_EMAIL=" + b + "&RED_ID=" + c,
+                success: function (data) {
+                    console.log(data)
+                    $("#tabela").html(data)
+                },
+                error: function (xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert("Erro: " + err.Message);
+                },
+                beforeSend: function () {
+                    console.log("comecou")
+                },
+                complete: function () {
 
-                if (ajax4.readyState == 4) {
-                    if (ajax4.status == 200) {
-                        $("#tbCentral").html(ajax4.responseText);
-                        // var oTable = $('#tabela').dataTable().fnDestroy(); // Nothing happens
-                        setTimeout(function () {
-                            var oTable = $('#tabela').dataTable({
-                                "dom": '<"top"iflp<"clear">>rt<"bottom"iflp<"clear">>',
-                                "order": [[0, "desc"]],
-                                "language": { "lengthMenu": "Exibindo _MENU_ por pÃ¡gina" },
-                                "lengthMenu": [[25, 50, 75, 100], [25, 50, 75, 100]],
-                                "filter": false
-                            });
-                        }, 500)
-
-                    }
-
+                    console.log("acabou")
                 }
-
-            }
-            // setTimeout(function () { repaginar(); }, 1000)
-            //if ($('#tabela td').size() > 3) {
-            //alert($('#tabela td').size())
-
-            // }
-            ajax4.send(null);
+            });
         }
 
         function ValidarUsuario() {
@@ -219,9 +209,9 @@
                             <div class="widget-title">
                                 <h4>Usuários</h4>
                                 <div class="btns_acoes">
-                                    <!--<div class="filtrar acoes_topo_form">
+                                    <div class="filtrar acoes_topo_form">
                                         <img src="images/filtro.png" alt="Filtrar"><p>Filtrar</p>
-                                    </div>-->
+                                    </div>
                                     <div class="incluir acoes_topo_form">
                                         <img src="images/mais.png" alt="Incluir"><p>Incluir</p>
                                     </div>
@@ -236,7 +226,7 @@
                                             <input type="hidden" id="acao" name="acao" value="gravarUsuario" />
                                             <input type="hidden" id="USU_ID" name="USU_ID" value="0" />
 
-                                             <div id="USU_DH_CADASTRO"></div>
+                                            <div id="USU_DH_CADASTRO"></div>
                                             <div id="USU_QTD_ACESSO"></div>
                                             <div id="USU_DH_ULTIMO_ACESSO"></div>
 
@@ -244,11 +234,11 @@
                                             <select id="RED_ID" name="RED_ID" class="input obg" data-validation="required" runat="server">
                                                 <option value="">Selecione</option>
                                             </select>
-                                           
+
                                             <p>Nome:*</p>
                                             <input type="text" name="USU_NOME" id="USU_NOME" class="input obg" placeholder="Nome Completo">
 
-                                            <p>Usuário:* <span style="font-size:10px; display:block; font-weight:normal;">Não utilizer acentos e/ou caracteres especiais(ex.: @, #, &...)</span></p>
+                                            <p>Usuário:* <span style="font-size: 10px; display: block; font-weight: normal;">Não utilizer acentos e/ou caracteres especiais(ex.: @, #, &...)</span></p>
                                             <input type="text" name="USU_USUARIO" onblur="capturar(this);" id="USU_USUARIO" onchange="ValidarUsuario()" class="input obg" placeholder="Nome de Usuário">
                                             <p id="redemensagem"></p>
 
@@ -278,7 +268,7 @@
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
                                                 <asp:Button ID="Incluir" CssClass="btn_form" runat="server" Text="Salvar" OnClick="Incluir_Click" />
                                             </p>
-                                            
+
                                         </form>
                                         <form class="fil_form form" novalidate accept-charset="default">
                                             <p>Rede</p>
@@ -295,7 +285,7 @@
 
                                             <p class="p_btn">
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
-                                                <input type="button" onclick="FiltrarPesquisa(FL_REDE_ID.value, FL_NOME.value, FL_EMAIL.value)" value="Filtrar" class="btn_form" formmethod="get" />
+                                                <input type="button" onclick="FiltrarPesquisa(FL_NOME.value, FL_EMAIL.value, FL_REDE_ID.value)" value="Filtrar" class="btn_form" formmethod="get" />
                                             </p>
                                         </form>
                                     </div>

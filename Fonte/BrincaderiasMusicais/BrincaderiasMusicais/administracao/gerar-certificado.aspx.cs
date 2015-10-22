@@ -27,12 +27,13 @@ namespace BrincaderiasMusicais.administracao
             switch (Request["acao"])
             {
                 case "gerar":
-                   
+
                     break;
                 case "SalvaObservacao":
                     objBD.ExecutaSQL("UPDATE Usuario set USU_CERTIFICADO_OBSERVACOES = '" + Request["USU_CERTIFICADO_OBSERVACOES"] + "' where USU_ID = " + Request["USU_ID"]);
                     break;
                 case "SalvarData":
+                    objBD.ExecutaSQL("UPDATE Usuario set USU_HORAS_PRESENCIAIS = " + Request["USU_HORAS_PRESENCIAIS"] + " where USU_ID = " + Request["USU_ID"]);
                     objBD.ExecutaSQL("UPDATE Usuario set USU_DATA_CERTIFICADO = convert(datetime,'" + Request["USU_DATA_CERTIFICADO"] + "',103) where USU_ID = " + Request["USU_ID"]);
                     objBD.ExecutaSQL("UPDATE Usuario set USU_CERTIFICADO = 1 where USU_ID = " + Request["USU_ID"]);
                     break;
@@ -43,7 +44,7 @@ namespace BrincaderiasMusicais.administracao
             }
         }
 
-     
+
 
         public void PopularRedes()
         {
@@ -101,7 +102,7 @@ namespace BrincaderiasMusicais.administracao
                     objetolista += "     <td>" + rsLista["NOME"].ToString() + "</td>";
                     objetolista += "     <td>" + rsLista["TIPO"].ToString() + "</td>";
                     objetolista += "     <td>" + rsLista["REDE"].ToString() + "</td>";
-                    objetolista += "     <td>" + rsLista["HORAS_PRESENCIAIS"].ToString() + "</td>";
+                    objetolista += "     <td><input class='input sonumero' id='presencial_" + rsLista["USU_ID"].ToString() + "' type='text' value='" + rsLista["HORAS_PRESENCIAIS"].ToString() + "' style='width:100%'/> </td>";
                     objetolista += "     <td>" + rsLista["TOTAL_HORAS"].ToString() + "/" + rsLista["HORAS_DISTANCIA"].ToString() + "</td>";
                     var msg = Convert.ToBoolean(rsLista["GERADO"].ToString()) ? "Certificado Gerado" : "Certificado Não Gerado";
                     objetolista += "     <td>" + msg + "</td>";

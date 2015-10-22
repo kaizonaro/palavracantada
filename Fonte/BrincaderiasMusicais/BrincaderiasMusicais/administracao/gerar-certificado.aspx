@@ -93,7 +93,7 @@
             });
         }
 
-        function LiberarCertificado(USU_ID, total, horasdistancia) {
+        function LiberarCertificado(USU_ID, total, horasdistancia,presencial) {
             var go = true
             if (total < horasdistancia) {
                 go = confirm('Este usuário não cumpriu a quantidade minima de horas para receber certificado. Deseja liberar o certificado mesmo assim?')
@@ -104,7 +104,7 @@
                     type: 'GET',
                     url: "gerar-certificado.aspx",
                     async: true,
-                    data: "acao=SalvarData&USU_ID=" + USU_ID + "&USU_DATA_CERTIFICADO=" + $("#data_certificado").val(),
+                    data: "acao=SalvarData&USU_ID=" + USU_ID + "&USU_DATA_CERTIFICADO=" + $("#data_certificado").val() + "&USU_HORAS_PRESENCIAIS=" +$("#presencial_"+USU_ID).val(),
                     success: function (data) {
                         //sucesso, conteudo em data
                     },
