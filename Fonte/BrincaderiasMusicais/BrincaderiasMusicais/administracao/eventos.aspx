@@ -146,6 +146,9 @@
                                     <div class="incluir acoes_topo_form">
                                 	    <img src="images/mais.png" alt="Incluir"><p>Incluir</p>
                                     </div>  
+                                     <div class="filtrar acoes_topo_form">
+                                        <img src="images/filtro.png" alt="Filtrar"><p>Filtrar</p>
+                                    </div>
                                     
                                     <div class="form_table">
 
@@ -174,6 +177,17 @@
                                             <p class="p_btn">
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
                                                 <asp:Button ID="Incluir" CssClass="btn_form" runat="server" Text="Salvar" OnClick="gravar" />
+                                            </p>
+                                        </form>
+                                        <form class="fil_form form" novalidate accept-charset="default">
+                                            
+                                            <p>Titulo:</p>
+                                            <input type="text" name="FL_NOME" id="FL_NOME" class="input" />
+
+                                            
+                                            <p class="p_btn">
+                                                <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
+                                                <input type="button" onclick="FiltrarPesquisa(FL_NOME.value, FL_EMAIL.value, FL_REDE_ID.value)" value="Filtrar" class="btn_form" formmethod="get" />
                                             </p>
                                         </form>
                                     </div>

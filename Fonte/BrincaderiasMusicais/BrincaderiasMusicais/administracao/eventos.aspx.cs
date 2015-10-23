@@ -72,7 +72,7 @@ namespace BrincaderiasMusicais.administracao
         {
             divLista.InnerHtml = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
 
-            rsLista = objBD.ExecutaSQL("EXEC admin_psEventosPorAtivo 1");
+            rsLista = objBD.ExecutaSQL("EXEC admin_psEventosPorAtivo 1, '" + Request["EVE_TITULO"] + "'");
             if (rsLista == null)
             {
                 throw new Exception();
