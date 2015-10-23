@@ -14,6 +14,7 @@ namespace BrincaderiasMusicais.administracao
         private bd objBD;
         private utils objUtils;
         private OleDbDataReader rsLista, rsRedes, rsGravar;
+        private string EVE_DIA = "", EVE_HORA = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -119,8 +120,27 @@ namespace BrincaderiasMusicais.administracao
 
         public void gravar(object sender, EventArgs e)
         {
-            //Response.Write("EXEC admin_piuEventos  '" + Request["EVE_ID"] + "', '" + Request["RED_ID"] + "','" + Session["id"] + "','" + Request["EVE_TITULO"] + "','" + Request["EVE_DESCRICAO"] + "','" + Request["EVE_DIA"] + "','" + Request["EVE_HORA"] + "'");
-            //Response.End();
+            if (Request["EVE_DIA"].Length < 1) {
+                EVE_DIA = "null";
+            }
+            else
+            {
+                EVE_DIA = "'" + Request["EVE_DIA"] + "'";
+            }
+
+
+            if (Request["EVE_HORA"].Length < 1)
+            {
+                EVE_HORA = "null";
+            }
+            else
+            {
+                EVE_HORA = "'" + Request["EVE_HORA"] + "'";
+            }
+
+
+            Response.Write("EXEC admin_piuEventos  '" + Request["EVE_ID"] + "', " + Request["RED_ID"] + ",'" + Session["id"] + "','" + Request["EVE_TITULO"] + "','" + Request["EVE_DESCRICAO"] + "'," + EVE_DIA + "," + EVE_HORA + "");
+            Response.End();
 
             rsGravar = objBD.ExecutaSQL("EXEC admin_piuEventos  '" + Request["EVE_ID"] + "', " + Request["RED_ID"] + ",'" + Session["id"] + "','" + Request["EVE_TITULO"] + "','" + Request["EVE_DESCRICAO"] + "','" + Request["EVE_DIA"] + "','" + Request["EVE_HORA"] + "'");
             Response.Redirect("eventos.aspx");
