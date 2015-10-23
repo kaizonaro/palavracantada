@@ -73,6 +73,10 @@
                         tinyMCE.activeEditor.setContent(ss[3]);
                         $('#EVE_DIA').attr("placeholder", ss[4]);
                         $('#EVE_HORA').attr("placeholder", ss[5]);
+                        $("#EVE_DIA").removeClass("obg")
+                        $("#EVE_HORA").removeClass("obg")
+
+                        
 
                         editar_table2(id);
                         
