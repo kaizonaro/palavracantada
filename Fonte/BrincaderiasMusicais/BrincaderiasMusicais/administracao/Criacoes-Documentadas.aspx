@@ -11,7 +11,7 @@
     <brincadeira:script runat="server" ID="script" />
     <script src="tinymce/tinymce.min.js"></script>
     <script type="text/javascript">
-
+        //
         tinymce.init({
             selector: "textarea",
             menubar: false,
