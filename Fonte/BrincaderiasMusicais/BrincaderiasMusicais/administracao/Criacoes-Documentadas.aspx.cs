@@ -13,7 +13,7 @@ namespace BrincaderiasMusicais.administracao
     {
         private bd objBD;
         private utils objUtils;
-
+        //
         private OleDbDataReader rsLista, rsRedes, rsGravar, rsNotificar, rsEditar;
 
         protected void Page_Load(object sender, EventArgs e)
