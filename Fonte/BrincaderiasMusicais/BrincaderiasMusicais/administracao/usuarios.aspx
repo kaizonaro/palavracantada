@@ -127,7 +127,8 @@
                 data: "acao=FiltrarPesquisa&USU_NOME=" + a + "&USU_EMAIL=" + b + "&RED_ID=" + c,
                 success: function (data) {
                     console.log(data)
-                    $("#tabela").html(data)
+                    $("#tabela").html(data);
+                    repaginar();
                 },
                 error: function (xhr, status, error) {
                     var err = eval("(" + xhr.responseText + ")");
@@ -137,8 +138,7 @@
                     console.log("comecou")
                 },
                 complete: function () {
-
-                    console.log("acabou")
+                    console.log("acabou");
                 }
             });
         }
