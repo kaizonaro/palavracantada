@@ -79,6 +79,7 @@
                         
 
                         editar_table2(id);
+                        repaginar();
                         
                     }
                 }

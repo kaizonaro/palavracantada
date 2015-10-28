@@ -74,7 +74,9 @@
 
                         tinyMCE.get('CDO_DEVOLUTIVA').setContent(ss[7]);
                         $('#CDO_VIDEO_DEVOLUTIVA').val(ss[8]);
+                        
                         editar_table2(id);
+                        
                     }
                 }
             }
@@ -143,7 +145,8 @@
                 data: "acao=FiltrarPesquisa&RED_ID=" + a + "&USU_EMAIL=" + b,
                 success: function (data) {
                     console.log(data)
-                    $("#tabela").html(data)
+                    $("#tabela").html(data);
+                    repaginar();
                 },
                 error: function (xhr, status, error) {
                     var err = eval("(" + xhr.responseText + ")");
