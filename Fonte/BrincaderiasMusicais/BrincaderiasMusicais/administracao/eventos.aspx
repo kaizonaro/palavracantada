@@ -55,6 +55,28 @@
             return req;
         }
 
+        function FiltrarPesquisa(titu, data, rede) {
+            $.ajax({
+                type: 'GET',
+                url: location.pathname,
+                async: true,
+                data: "acao=Filtrar&EVE_DATA=" + data + "&EVE_TITULO=" + titu + "&RED_ID=" + rede,
+                success: function (data) {
+                    console.log(data)
+                },
+                error: function (xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert("Erro: " + err.Message);
+                },
+                beforeSend: function () {
+                    console.log("comecou")
+                },
+                complete: function () {
+                    console.log("acabou")
+                }
+            });
+        }
+
         function popularFormulario(id) {
             ajax4 = ajaxInit();
             ajax4.open("GET", "eventos.aspx?acao=editar&EVE_ID=" + id + "&Rand=" + Math.ceil(Math.random() * 100000), true);
@@ -76,10 +98,10 @@
                         $("#EVE_DIA").removeClass("obg")
                         $("#EVE_HORA").removeClass("obg")
 
-                        
+
 
                         editar_table2(id);
-                        
+
                     }
                 }
             }
@@ -148,12 +170,12 @@
                                 <div class="btns_acoes">
 
                                     <div class="incluir acoes_topo_form">
-                                	    <img src="images/mais.png" alt="Incluir"><p>Incluir</p>
-                                    </div>  
-                                     <div class="filtrar acoes_topo_form">
+                                        <img src="images/mais.png" alt="Incluir"><p>Incluir</p>
+                                    </div>
+                                    <div class="filtrar acoes_topo_form">
                                         <img src="images/filtro.png" alt="Filtrar"><p>Filtrar</p>
                                     </div>
-                                    
+
                                     <div class="form_table">
 
                                         <!-- FORMULÁRIO DE INCLUSÃO -->
@@ -174,7 +196,7 @@
 
                                             <p>Dia:*</p>
                                             <input type="text" maxlength="10" name="EVE_DIA" id="EVE_DIA" class="input data obg" placeholder="Dia do Evento" />
-                                            
+
                                             <p>Hora:*</p>
                                             <input type="text" maxlength="32" name="EVE_HORA" id="EVE_HORA" class="input hora obg" placeholder="Digite a hora de início do evento" />
 
@@ -184,14 +206,20 @@
                                             </p>
                                         </form>
                                         <form class="fil_form form" novalidate accept-charset="default">
-                                            
-                                            <p>Titulo:</p>
-                                            <input type="text" name="FL_NOME" id="FL_NOME" class="input" />
 
-                                            
+                                            <p>Titulo:</p>
+                                            <input type="text" name="FL_TITULO" id="FL_TITULO" class="input" />
+                                            <p>Data:</p>
+                                            <input type="text" name="FL_DATA" id="FL_DATA" class="input" />
+                                            <p>Rede:</p>
+                                            <select runat="server" name="FL_REDE" id="FL_REDE" class="input" >
+                                                <option value="NULL">Selecione...</option>
+                                            </select>
+
+
                                             <p class="p_btn">
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
-                                                <input type="button" onclick="FiltrarPesquisa(FL_NOME.value, FL_EMAIL.value, FL_REDE_ID.value)" value="Filtrar" class="btn_form" formmethod="get" />
+                                                <input type="button" onclick="FiltrarPesquisa(FL_NOME.value, FL_DATA.value, FL_REDE.value)" value="Filtrar" class="btn_form" formmethod="get" />
                                             </p>
                                         </form>
                                     </div>

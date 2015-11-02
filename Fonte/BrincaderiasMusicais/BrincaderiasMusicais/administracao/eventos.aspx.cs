@@ -61,7 +61,7 @@ namespace BrincaderiasMusicais.administracao
                     C.Value = rsRedes["RED_ID"].ToString();
                     C.Text = rsRedes["RED_TITULO"].ToString();
                     RED_ID.Items.Add(C);
-
+                    FL_REDE.Items.Add(C);
                 }
 
             }
@@ -120,7 +120,8 @@ namespace BrincaderiasMusicais.administracao
 
         public void gravar(object sender, EventArgs e)
         {
-            if (Request["EVE_DIA"].Length < 1) {
+            if (Request["EVE_DIA"].Length < 1)
+            {
                 EVE_DIA = "null";
             }
             else

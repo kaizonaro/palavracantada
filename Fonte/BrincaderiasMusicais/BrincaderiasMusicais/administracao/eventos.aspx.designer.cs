@@ -58,6 +58,15 @@ namespace BrincaderiasMusicais.administracao {
         protected global::System.Web.UI.WebControls.Button Incluir;
         
         /// <summary>
+        /// FL_REDE control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect FL_REDE;
+        
+        /// <summary>
         /// divLista control.
         /// </summary>
         /// <remarks>
