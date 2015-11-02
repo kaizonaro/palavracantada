@@ -44,6 +44,9 @@ namespace BrincaderiasMusicais.administracao
                 case ("excluir"):
                     objBD.ExecutaSQL("Exec admin_pudExcluiCriacoesDocumentadas '" + Request["CDO_ID"] + "'");
                     break;
+                case ("FiltrarPesquisa"):
+                    FiltrarPesquisa(Request["RED_ID"],"");
+                    break;
                 default:
                     PopulaLista();
                     ListarRedes();
@@ -67,6 +70,7 @@ namespace BrincaderiasMusicais.administracao
                     C.Value = rsRedes["RED_ID"].ToString();
                     C.Text = rsRedes["RED_TITULO"].ToString();
                     RED_ID.Items.Add(C);
+                    FL_REDE_ID.Items.Add(C);
 
                 }
 
@@ -155,6 +159,65 @@ namespace BrincaderiasMusicais.administracao
 
             }
         }
+
+        public void FiltrarPesquisa(string RED_ID, string CDO_TAREFA)
+        {
+            rsLista = objBD.ExecutaSQL("EXEC admin_psCriacaoDocumentadaFiltro '" + RED_ID + "', '" + CDO_TAREFA + "'");
+            if (rsLista == null)
+            {
+                throw new Exception();
+            }
+            string resposta = "";
+            if (rsLista.HasRows)
+            {
+
+                resposta += " <thead>";
+                resposta += "     <tr>";
+                resposta += "         <th>Data</th>";
+                resposta += "         <th style=\"width:300px;\">Proposta</th>";
+                resposta += "         <th style=\"width:200px;\">Rede</th>";
+                resposta += "         <th style=\"width:200px;\">Status</th>";
+                resposta += "         <th style=\"width:85px;\">Ações</th>";
+                resposta += "     </tr>";
+                resposta += " </thead>";
+
+                while (rsLista.Read())
+                {
+                    resposta += " <tr id='tr_" + rsLista["CDO_ID"].ToString() + "' class=\"\">";
+                    resposta += "     <td>" + rsLista["CDO_DATA"].ToString() + "</td>";
+                    resposta += "     <td>" + objUtils.CortarString(true, 90, rsLista["CDO_TAREFA"].ToString()) + "</td>";
+                    resposta += "     <td>" + rsLista["RED_NOME"].ToString() + "</td>";
+                    if (rsLista["CDO_STATUS"].ToString() == "Ativa")
+                    {
+                        resposta += "     <td><select class='input' onchange='arquivar(" + rsLista["CDO_ID"].ToString() + ", this);'><option value='Ativa' selected='selected'>Ativa</option><option value='Arquivada'>Arquivada</option></select></td>";
+                    }
+                    else
+                    {
+                        resposta += "     <td><select class='input' onchange='arquivar(" + rsLista["CDO_ID"].ToString() + ", this);'><option value='Ativa'>Ativa</option><option selected='selected' value='Arquivada'>Arquivada</option></select></td>";
+                    }
+
+                    resposta += "     <td><ul class=\"icons_table\"><li><a id='" + rsLista["CDO_ID"].ToString() + "' onclick='popularFormulario(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["CDO_ID"].ToString() + "' onclick='excluir(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    resposta += " </tr>";
+                }
+                resposta += " </tbody>";
+            }
+            else
+            {
+                resposta += " <thead>";
+                resposta += "     <tr>";
+                resposta += "         <td colspan=\"5\">Nenhum resultado para esta pesquisa</td>";
+                resposta += "     </tr>";
+                resposta += " </thead>";
+                
+            }
+
+            Response.Write(resposta);
+            Response.End();
+
+            rsLista.Close();
+            rsLista.Dispose();
+        }
+
 
         public void gravar(object sender, EventArgs e)
         {

@@ -98,10 +98,11 @@
                         $("#EVE_DIA").removeClass("obg")
                         $("#EVE_HORA").removeClass("obg")
 
-
+                        
 
                         editar_table2(id);
-
+                        repaginar();
+                        
                     }
                 }
             }
@@ -170,12 +171,12 @@
                                 <div class="btns_acoes">
 
                                     <div class="incluir acoes_topo_form">
-                                        <img src="images/mais.png" alt="Incluir"><p>Incluir</p>
-                                    </div>
-                                    <div class="filtrar acoes_topo_form">
+                                	    <img src="images/mais.png" alt="Incluir"><p>Incluir</p>
+                                    </div>  
+                                     <div class="filtrar acoes_topo_form">
                                         <img src="images/filtro.png" alt="Filtrar"><p>Filtrar</p>
                                     </div>
-
+                                    
                                     <div class="form_table">
 
                                         <!-- FORMULÁRIO DE INCLUSÃO -->
@@ -196,7 +197,7 @@
 
                                             <p>Dia:*</p>
                                             <input type="text" maxlength="10" name="EVE_DIA" id="EVE_DIA" class="input data obg" placeholder="Dia do Evento" />
-
+                                            
                                             <p>Hora:*</p>
                                             <input type="text" maxlength="32" name="EVE_HORA" id="EVE_HORA" class="input hora obg" placeholder="Digite a hora de início do evento" />
 
@@ -206,7 +207,7 @@
                                             </p>
                                         </form>
                                         <form class="fil_form form" novalidate accept-charset="default">
-
+                                            
                                             <p>Titulo:</p>
                                             <input type="text" name="FL_TITULO" id="FL_TITULO" class="input" />
                                             <p>Data:</p>
@@ -216,7 +217,7 @@
                                                 <option value="NULL">Selecione...</option>
                                             </select>
 
-
+                                            
                                             <p class="p_btn">
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
                                                 <input type="button" onclick="FiltrarPesquisa(FL_NOME.value, FL_DATA.value, FL_REDE.value)" value="Filtrar" class="btn_form" formmethod="get" />

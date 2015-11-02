@@ -100,18 +100,6 @@ namespace BrincaderiasMusicais.administracao
                 divLista.InnerHtml += "     <tr>";
                 divLista.InnerHtml += "         <td colspan=\"7\">Nenhum registro cadastrado até o momento!</td>";
                 divLista.InnerHtml += "     </tr>";
-                divLista.InnerHtml += "     <tr>";
-                divLista.InnerHtml += "         <td colspan=\"7\">Nenhum registro cadastrado até o momento!</td>";
-                divLista.InnerHtml += "     </tr>";
-                divLista.InnerHtml += "     <tr>";
-                divLista.InnerHtml += "         <td colspan=\"7\">Nenhum registro cadastrado até o momento!</td>";
-                divLista.InnerHtml += "     </tr>";
-                divLista.InnerHtml += "     <tr>";
-                divLista.InnerHtml += "         <td colspan=\"7\">Nenhum registro cadastrado até o momento!</td>";
-                divLista.InnerHtml += "     </tr>";
-                divLista.InnerHtml += "     <tr>";
-                divLista.InnerHtml += "         <td colspan=\"7\">Nenhum registro cadastrado até o momento!</td>";
-                divLista.InnerHtml += "     </tr>";
                 divLista.InnerHtml += " </tbody>";
             }
             rsLista.Close();
@@ -270,6 +258,20 @@ namespace BrincaderiasMusicais.administracao
             if (rsLista.HasRows)
             {
 
+                resposta += " <thead>";
+                resposta += "     <tr>";
+                resposta += "         <th style=\"width:8px;\">ID</th>";
+                resposta += "         <th style=\"width:120px;\">Nome</th>";
+                resposta += "         <th>E-Mail</th>";
+                resposta += "         <th>Acessos</th>";
+                resposta += "         <th style=\"width:80px;\">Último Acesso</th>";
+                resposta += "         <th>Rede</th>";
+                resposta += "         <th style=\"width:61px;\">Ações</th>";
+                resposta += "     </tr>";
+                resposta += " </thead>";
+
+                resposta += " <tbody>";
+                
                 while (rsLista.Read())
                 {
                     resposta += " <tr id='tr_" + rsLista["USU_ID"].ToString() + "' class=\"\">";
@@ -282,6 +284,8 @@ namespace BrincaderiasMusicais.administracao
                     resposta += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["USU_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["USU_ID"].ToString() + "' onclick='excluirUsuario(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     resposta += " </tr>";
                 }
+
+                resposta += " </tbody>";
 
             }
             else

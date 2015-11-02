@@ -26,7 +26,7 @@
             toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link"
 
         });
-         
+
         //AJAX
         function ajaxInit() {
             var req;
@@ -52,21 +52,21 @@
             ajax4.open("GET", "criacoes-documentadas.aspx?acao=editar&CDO_ID=" + id, true);
             ajax4.setRequestHeader("Content-Type", "charset=iso-8859-1");
             ajax4.onreadystatechange = function () {
-            
+
                 if (ajax4.readyState == 4) {
                     if (ajax4.status == 200) {
-                        
+
                         var resposta = ajax4.responseText.split("<!doctype html>");
                         var ss = resposta[0].split("|");
                         console.log(resposta[0]);
-                        $('#CDO_ID').attr("value", ss[0]);
+                        $('#CDO_ID').attr("value", ss[0].replace('editar',''));
                         $('#RED_ID option[value="' + parseInt(ss[1]) + '"]').attr('selected', 'selected').change();
                         $('#CDO_TAREFA').attr("value", ss[2]);
-                        
+
 
                         $('#CDO_DATA').val(ss[3]);
                         $('#CDO_STATUS option[value="' + ss[4] + '"]').attr('selected', 'selected').change();
-                        
+
                         //aqui vai status
                         tinyMCE.get('CDO_DESCRITIVO').setContent(ss[5]);
 
@@ -74,7 +74,9 @@
 
                         tinyMCE.get('CDO_DEVOLUTIVA').setContent(ss[7]);
                         $('#CDO_VIDEO_DEVOLUTIVA').val(ss[8]);
+                        
                         editar_table2(id);
+                        
                     }
                 }
             }
@@ -135,6 +137,30 @@
 
         }
 
+        function FiltrarPesquisa(a, b) {
+            $.ajax({
+                type: 'GET',
+                url: location.pathname,
+                async: true,
+                data: "acao=FiltrarPesquisa&RED_ID=" + a + "&USU_EMAIL=" + b,
+                success: function (data) {
+                    console.log(data)
+                    $("#tabela").html(data);
+                    repaginar();
+                },
+                error: function (xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert("Erro: " + err.Message);
+                },
+                beforeSend: function () {
+                    console.log("comecou")
+                },
+                complete: function () {
+
+                    console.log("acabou")
+                }
+            });
+        }
     </script>
 </head>
 
@@ -157,10 +183,13 @@
                             <div class="widget-title">
                                 <h4>Criações Documentadas</h4>
                                 <div class="btns_acoes">
-
+                                    <div class="filtrar acoes_topo_form">
+                                        <img src="images/filtro.png" alt="Filtrar"><p>Filtrar</p>
+                                    </div>
                                     <div class="incluir acoes_topo_form">
                                         <img src="images/mais.png" alt="Incluir"><p>Incluir</p>
                                     </div>
+
 
                                     <div class="form_table">
 
@@ -175,7 +204,7 @@
                                             </select>
 
                                             <p>Titulo da Proposta:*</p>
-                                            <input type="text" id="CDO_TAREFA" name="CDO_TAREFA"class="input obg" placeholder="Titulo da Proposta" />
+                                            <input type="text" id="CDO_TAREFA" name="CDO_TAREFA" class="input obg" placeholder="Titulo da Proposta" />
 
                                             <p>Prazo:*</p>
                                             <input type="text" maxlength="10" name="CDO_DATA" id="CDO_DATA" class="input data obg" placeholder="Prazo da Proposta" />
@@ -203,6 +232,23 @@
                                             <p class="p_btn">
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
                                                 <asp:Button ID="Incluir" CssClass="btn_form" runat="server" Text="Salvar" OnClick="gravar" />
+                                            </p>
+                                        </form>
+
+                                        <form class="fil_form form" novalidate accept-charset="default">
+                                            <p>Rede</p>
+                                            <select id="FL_REDE_ID" name="FL_REDE_ID" class="input" runat="server">
+                                                <option value="NULL">Selecione</option>
+                                            </select>
+
+
+                                           <%-- <p>Título</p>
+                                            <input type="text" name="FL_POS_TITULO" id="FL_POS_TITULO" class="input" />--%>
+
+
+                                            <p class="p_btn">
+                                                <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
+                                                <input type="button" onclick="FiltrarPesquisa(FL_REDE_ID.value)" value="Filtrar" class="btn_form" formmethod="get" />
                                             </p>
                                         </form>
                                     </div>
