@@ -36,13 +36,67 @@ namespace BrincaderiasMusicais.administracao
                     }
                     break;
                 case ("excluir"):
-                    objBD.ExecutaSQL("delete Eventos where  EVE_ID = '" + Request["EVE_ID"] + "'");
+                    objBD.ExecutaSQL("delete Eventos where EVE_ID = '" + Request["EVE_ID"] + "'");
+                    break;
+                case "Filtrar":
+                    Response.Write(FiltrarEventos());
+                    Response.End();
                     break;
                 default:
                     PopulaLista();
                     ListarRedes();
                     break;
             }
+        }
+
+        public string FiltrarEventos()
+        {
+            string retorno = "<table class=\"table\" id=\"tabela\" cellspacing=\"0\">";
+            string cmd = "EXEC admin_psFiltroEventos " + Request["EVE_DATA"].isNull() + "," + Request["EVE_TITULO"].isNull() + "," + Request["RED_ID"];
+            rsLista = objBD.ExecutaSQL(cmd);
+            if (rsLista == null)
+            {
+                throw new Exception();
+            }
+            if (rsLista.HasRows)
+            {
+                retorno += " <thead>";
+                retorno += "     <tr>";
+                retorno += "         <th>Data | Hora</th>";
+                retorno += "         <th style=\"width:200px;\">Rede</th>";
+                retorno += "         <th style=\"width:300px;\">Título</th>";
+                retorno += "         <th style=\"width:85px;\">Ações</th>";
+                retorno += "     </tr>";
+                retorno += " </thead>";
+
+                retorno += " <tbody id=\"tbCentral\">";
+
+                while (rsLista.Read())
+                {
+                    retorno += " <tr id='tr_" + rsLista["EVE_ID"].ToString() + "' class=\"\">";
+                    retorno += "     <td>" + rsLista["EVE_DIA"].ToString() + " | " + rsLista["EVE_HORA"].ToString() + "</td>";
+                    retorno += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
+                    retorno += "     <td>" + rsLista["EVE_TITULO"].ToString() + "</td>";
+                    retorno += "     <td><ul class=\"icons_table\"><li><a href=\"javascript:void(0);\" id='" + rsLista["EVE_ID"].ToString() + "' onclick='popularFormulario(this.id);' class=\"img_edit\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["EVE_ID"].ToString() + "' onclick='excluir(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    retorno += " </tr>";
+                }
+
+                retorno += " </tbody>";
+            }
+
+            else
+            {
+                retorno += " <thead>";
+                retorno += "     <tr>";
+                retorno += "         <th>Nenhum registro cadastrado até o momento!</th>";
+                retorno += "     </tr>";
+                retorno += " </thead>";
+            }
+            rsLista.Close();
+            rsLista.Dispose();
+
+            retorno += "</table>";
+            return retorno;
         }
 
         public void ListarRedes()

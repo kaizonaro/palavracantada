@@ -66,7 +66,7 @@ namespace Etnia.classe
             }
             return accessToken;
         }
-      
+
 
         public void NotificacoesGaleria(string tipo, string titulo, int id, string campo)
         {
@@ -81,7 +81,7 @@ namespace Etnia.classe
 
                 while (rsNotificar.Read())
                 {
-                    if (EnviaEmail(rsNotificar["USU_EMAIL"].ToString(), "Novo " + tipo + " no portal Brincadeiras Musicais", "Um(a) novo(a) "+tipo+" foi publicado(a) na Galeria Colaborativa de sua região") == false)
+                    if (EnviaEmail(rsNotificar["USU_EMAIL"].ToString(), "Novo " + tipo + " no portal Brincadeiras Musicais", "Um(a) novo(a) " + tipo + " foi publicado(a) na Galeria Colaborativa de sua região") == false)
                     {
                         throw new Exception();
                     }
@@ -763,7 +763,7 @@ namespace Etnia.classe
             {
                 return "";
             }
-            
+
         }
 
         public string ImageToBase64(string ImagePath)
@@ -790,7 +790,7 @@ namespace Etnia.classe
             }
 
         }
-       
+
         public string RetornarUsuarioPorURL(string Usuario, string nome)
         {
 
@@ -817,7 +817,7 @@ namespace Etnia.classe
 
         }
 
-        public string Delimitar( OleDbDataReader rsEditar, string DelimitadorColuna = "|", string DelimitadorLinha = "§")
+        public string Delimitar(OleDbDataReader rsEditar, string DelimitadorColuna = "|", string DelimitadorLinha = "§")
         {
             string Delimitado = "";
             if (rsEditar == null) { return new Exception().Message; }
@@ -840,5 +840,17 @@ namespace Etnia.classe
 
 
     }
+
+
+    // Snip2Code: snippet 723936  from http://www.snip2code.com/Snippet/723936. This comment helps you to track (and be notified upon) the future improvements of this snippet.
+    public static class SQLPort
+    {
+        public static string isNull(this string Text, string NullValue = "NULL", bool Quotes = true)
+        {
+            return string.IsNullOrWhiteSpace(Text) ? NullValue : (Quotes ? "'" + Text + "'" : Text);
+        }
+    }
+
+
 }
 
