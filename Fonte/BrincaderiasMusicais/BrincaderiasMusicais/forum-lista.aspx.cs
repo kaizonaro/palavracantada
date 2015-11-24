@@ -28,7 +28,7 @@ namespace BrincaderiasMusicais
             {
                 objUtils = new utils();
                 objBD = new bd();
-                Response.Write("exec site_ForumTopicosPorTitulo '" + Request["titulo"].ToString() + "' ");
+                //Response.Write("exec site_ForumTopicosPorTitulo '" + Request["titulo"].ToString() + "' ");
                 rsDados = objBD.ExecutaSQL("exec site_ForumTopicosPorTitulo '" + Request["titulo"].ToString() + "' ");
 
                 if (rsDados == null)
@@ -51,7 +51,7 @@ namespace BrincaderiasMusicais
                 if (Request.QueryString["pagina"] != null)
                 {
                     pagina_atual = Convert.ToInt16(Request.QueryString["pagina"]);
-                    Response.Write(pagina_atual);
+                    //Response.Write(pagina_atual);
                 }
 
                 PopulaLista(Convert.ToInt16(rsDados["FTO_ID"]));
