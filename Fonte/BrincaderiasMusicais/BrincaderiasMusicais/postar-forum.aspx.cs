@@ -25,7 +25,12 @@ namespace BrincaderiasMusicais
             REDIRECT.Value = Request["REDIRECT"];
 
             bd banco = new bd();
-            OleDbDataReader rsForum = banco.ExecutaSQL("select FTO_ID, FTO_TITULO from ForumTopicos where FTO_ID = " + textInfo.ToTitleCase(Request["REDIRECT"].Substring(Request["REDIRECT"].LastIndexOf('/') + 1)).Replace("-", " ") + "");
+
+           // Response.Write(Request["FTO_ID"] + "<br/>");
+            //Response.Write("select FTO_ID, FTO_TITULO from ForumTopicos where FTO_ID = " + Request["FTO_ID"].ToString() + "");
+            //Response.End();
+
+            OleDbDataReader rsForum = banco.ExecutaSQL("select FTO_ID, FTO_TITULO from ForumTopicos where FTO_ID = " + Request["FTO_ID"].ToString() + "");
 
             if (rsForum == null)
             {
