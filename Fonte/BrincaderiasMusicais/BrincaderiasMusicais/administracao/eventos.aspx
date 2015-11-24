@@ -63,6 +63,8 @@
                 data: "acao=Filtrar&EVE_DATA=" + data + "&EVE_TITULO=" + titu + "&RED_ID=" + rede,
                 success: function (data) {
                     console.log(data)
+                    $("#divLista").html(data)
+                    repaginar();
                 },
                 error: function (xhr, status, error) {
                     var err = eval("(" + xhr.responseText + ")");
@@ -73,6 +75,7 @@
                 },
                 complete: function () {
                     console.log("acabou")
+                    
                 }
             });
         }
@@ -211,7 +214,7 @@
                                             <p>Titulo:</p>
                                             <input type="text" name="FL_TITULO" id="FL_TITULO" class="input" />
                                             <p>Data:</p>
-                                            <input type="text" name="FL_DATA" id="FL_DATA" class="input" />
+                                            <input type="text" name="FL_DATA" id="FL_DATA" class="input data" />
                                             <p>Rede:</p>
                                             <select runat="server" name="FL_REDE" id="FL_REDE" class="input" >
                                                 <option value="NULL">Selecione...</option>
@@ -220,7 +223,7 @@
                                             
                                             <p class="p_btn">
                                                 <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
-                                                <input type="button" onclick="FiltrarPesquisa(FL_NOME.value, FL_DATA.value, FL_REDE.value)" value="Filtrar" class="btn_form" formmethod="get" />
+                                                <input type="button" onclick="FiltrarPesquisa(FL_TITULO.value, FL_DATA.value, FL_REDE.value)" value="Filtrar" class="btn_form" />
                                             </p>
                                         </form>
                                     </div>

@@ -66,7 +66,7 @@ namespace Etnia.classe
             }
             return accessToken;
         }
-      
+
 
         public void NotificacoesGaleria(string tipo, string titulo, int id, string campo)
         {
@@ -81,7 +81,7 @@ namespace Etnia.classe
 
                 while (rsNotificar.Read())
                 {
-                    if (EnviaEmail(rsNotificar["USU_EMAIL"].ToString(), "Novo " + tipo + " no portal Brincadeiras Musicais", "Um(a) novo(a) "+tipo+" foi publicado(a) na Galeria Colaborativa de sua região") == false)
+                    if (EnviaEmail(rsNotificar["USU_EMAIL"].ToString(), "Novo " + tipo + " no portal Brincadeiras Musicais", "Um(a) novo(a) " + tipo + " foi publicado(a) na Galeria Colaborativa de sua região") == false)
                     {
                         throw new Exception();
                     }
@@ -147,7 +147,7 @@ namespace Etnia.classe
 
         }
 
-        public bool EnviaEmail(string destinatarios, string assunto, string mensagem, string ComCopia = "", string ComCopiaOculta = "", string[] anexos = null, string remetente = "contato@agenciaetnia.com.br", string nome = "PORTAL PALAVRA CANTADA")
+        public bool EnviaEmail(string destinatarios, string assunto, string mensagem, string ComCopia = "", string ComCopiaOculta = "", string[] anexos = null, string remetente = "contato@projetopalavracantada.com.br", string nome = "PORTAL PALAVRA CANTADA")
         {
 
             //Cria objeto com dados do e-mail.
@@ -156,7 +156,7 @@ namespace Etnia.classe
 
             //Define o Campo From e ReplyTo do e-mail.
 
-            objEmail.From = new System.Net.Mail.MailAddress("contato@agenciaetnia.com.br", nome);
+            objEmail.From = new System.Net.Mail.MailAddress("contato@projetopalavracantada.net", nome);
 
             objEmail.ReplyToList.Add(remetente);
 
@@ -250,19 +250,20 @@ namespace Etnia.classe
 
 
             //Alocamos o endereço do host para enviar os e-mails, localhost(recomendado) 
-            objSmtp.Host = "smtp.agenciaetnia.com.br";
+            objSmtp.Host = "smtp.projetopalavracantada.net";
             objSmtp.Port = 587;
             objSmtp.EnableSsl = false;
 
 
-            objSmtp.Credentials = new System.Net.NetworkCredential("contato@agenciaetnia.com.br", "Etnia123");
+            objSmtp.Credentials = new System.Net.NetworkCredential("contato@projetopalavracantada.net", "bm102030!");
             try
             {
                 objSmtp.Send(objEmail);
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                
                 return false;
                 throw new Exception();
             }
@@ -763,7 +764,7 @@ namespace Etnia.classe
             {
                 return "";
             }
-            
+
         }
 
         public string ImageToBase64(string ImagePath)
@@ -790,7 +791,7 @@ namespace Etnia.classe
             }
 
         }
-       
+
         public string RetornarUsuarioPorURL(string Usuario, string nome)
         {
 
@@ -817,7 +818,7 @@ namespace Etnia.classe
 
         }
 
-        public string Delimitar( OleDbDataReader rsEditar, string DelimitadorColuna = "|", string DelimitadorLinha = "§")
+        public string Delimitar(OleDbDataReader rsEditar, string DelimitadorColuna = "|", string DelimitadorLinha = "§")
         {
             string Delimitado = "";
             if (rsEditar == null) { return new Exception().Message; }
@@ -840,5 +841,17 @@ namespace Etnia.classe
 
 
     }
+
+
+    // Snip2Code: snippet 723936  from http://www.snip2code.com/Snippet/723936. This comment helps you to track (and be notified upon) the future improvements of this snippet.
+    public static class SQLPort
+    {
+        public static string isNull(this string Text, string NullValue = "NULL", bool Quotes = true)
+        {
+            return string.IsNullOrWhiteSpace(Text) ? NullValue : (Quotes ? "'" + Text + "'" : Text);
+        }
+    }
+
+
 }
 
