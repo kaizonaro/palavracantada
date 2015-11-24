@@ -147,7 +147,7 @@ namespace Etnia.classe
 
         }
 
-        public bool EnviaEmail(string destinatarios, string assunto, string mensagem, string ComCopia = "", string ComCopiaOculta = "", string[] anexos = null, string remetente = "contato@agenciaetnia.com.br", string nome = "PORTAL PALAVRA CANTADA")
+        public bool EnviaEmail(string destinatarios, string assunto, string mensagem, string ComCopia = "", string ComCopiaOculta = "", string[] anexos = null, string remetente = "contato@projetopalavracantada.com.br", string nome = "PORTAL PALAVRA CANTADA")
         {
 
             //Cria objeto com dados do e-mail.
@@ -156,7 +156,7 @@ namespace Etnia.classe
 
             //Define o Campo From e ReplyTo do e-mail.
 
-            objEmail.From = new System.Net.Mail.MailAddress("contato@agenciaetnia.com.br", nome);
+            objEmail.From = new System.Net.Mail.MailAddress("contato@projetopalavracantada.net", nome);
 
             objEmail.ReplyToList.Add(remetente);
 
@@ -250,19 +250,20 @@ namespace Etnia.classe
 
 
             //Alocamos o endereço do host para enviar os e-mails, localhost(recomendado) 
-            objSmtp.Host = "smtp.agenciaetnia.com.br";
+            objSmtp.Host = "smtp.projetopalavracantada.net";
             objSmtp.Port = 587;
             objSmtp.EnableSsl = false;
 
 
-            objSmtp.Credentials = new System.Net.NetworkCredential("contato@agenciaetnia.com.br", "Etnia123");
+            objSmtp.Credentials = new System.Net.NetworkCredential("contato@projetopalavracantada.net", "bm102030!");
             try
             {
                 objSmtp.Send(objEmail);
                 return true;
             }
-            catch
+            catch (Exception ex)
             {
+                
                 return false;
                 throw new Exception();
             }
