@@ -104,7 +104,7 @@
                     type: 'GET',
                     url: "gerar-certificado.aspx",
                     async: true,
-                    data: "acao=SalvarData&USU_ID=" + USU_ID + "&USU_DATA_CERTIFICADO=" + $("#data_certificado").val() + "&USU_HORAS_PRESENCIAIS=" +$("#presencial_"+USU_ID).val(),
+                    data: "acao=SalvarData&USU_ID=" + USU_ID + "&USU_DATA_CERTIFICADO=" + $("#data_certificado").val() + "&USU_HORAS_PRESENCIAIS=" +$("#presencial_"+USU_ID).val()+ "&USU_HORAS_DISTANCIA=" +$("#presencial_"+USU_ID).val(),
                     success: function (data) {
                         //sucesso, conteudo em data
                     },
