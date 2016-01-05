@@ -92,11 +92,11 @@ namespace BrincaderiasMusicais.administracao
             {
                 divLista.InnerHtml += " <thead>";
                 divLista.InnerHtml += "     <tr>";
-                divLista.InnerHtml += "         <th>Data</th>";
-                divLista.InnerHtml += "         <th style=\"width:300px;\">Proposta</th>";
+                divLista.InnerHtml += "         <th style=\"width:100px;\">Data</th>";
+                divLista.InnerHtml += "         <th>Proposta</th>";
                 divLista.InnerHtml += "         <th style=\"width:200px;\">Rede</th>";
-                divLista.InnerHtml += "         <th style=\"width:200px;\">Status</th>";
-                divLista.InnerHtml += "         <th style=\"width:85px;\">Ações</th>";
+                divLista.InnerHtml += "         <th style=\"width:170px;\">Status</th>";
+                divLista.InnerHtml += "         <th style=\"width:115px;\">Ações</th>";
                 divLista.InnerHtml += "     </tr>";
                 divLista.InnerHtml += " </thead>";
 
@@ -117,7 +117,7 @@ namespace BrincaderiasMusicais.administracao
                         divLista.InnerHtml += "     <td><select class='input' onchange='arquivar(" + rsLista["CDO_ID"].ToString() + ", this);'><option value='Ativa'>Ativa</option><option selected='selected' value='Arquivada'>Arquivada</option></select></td>";
                     }
 
-                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a id='" + rsLista["CDO_ID"].ToString() + "' onclick='popularFormulario(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["CDO_ID"].ToString() + "' onclick='excluir(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
+                    divLista.InnerHtml += "     <td><ul class=\"icons_table\"><li><a id='" + rsLista["CDO_ID"].ToString() + "' onclick=\"popupwindow('relatos.aspx?CDO_ID=" + rsLista["CDO_ID"].ToString() + "', 'Relatos - Criações Documentadas', '920', '550')\" href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/relatos.png\"></a><a id='" + rsLista["CDO_ID"].ToString() + "' onclick='popularFormulario(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/editar.png\"></a></li><li><a id='" + rsLista["CDO_ID"].ToString() + "' onclick='excluir(this.id);' href=\"javascript:void(0)\" class=\"img_del\"><img src=\"images/lixo.png\"></a></li></ul>";
                     divLista.InnerHtml += " </tr>";
                 }
 
@@ -217,7 +217,6 @@ namespace BrincaderiasMusicais.administracao
             rsLista.Close();
             rsLista.Dispose();
         }
-
 
         public void gravar(object sender, EventArgs e)
         {
