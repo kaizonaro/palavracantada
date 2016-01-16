@@ -60,7 +60,7 @@ namespace BrincaderiasMusicais
                     divArtigos.InnerHtml += "<div class=\"txt artigo_txt\">";
                     divArtigos.InnerHtml += "   <img width='160px' height='90px' src=\"/upload/imagens/artigo/thumb-" + rsArtigos["ART_IMAGEM"] + "\" class=\"thumb_artigo\">";
                     divArtigos.InnerHtml += "   <span><strong>" + rsArtigos["ART_TITULO"] + "</strong></span>";
-                    divArtigos.InnerHtml += "   <span>Autor: <strong>" + rsArtigos["ADM_NOME"] + "</strong></span>";
+                    divArtigos.InnerHtml += "   <span>Enviado por: <strong style=\"font-size: 13px;\">" + rsArtigos["ADM_NOME"] + "</strong></span>";
                     divArtigos.InnerHtml += "   <span>Data da publicação: <strong>" + rsArtigos["ART_DH_PUBLICACAO"] + "</strong></span>";
                     divArtigos.InnerHtml += "   <img onclick=\"download('" + rsArtigos["ART_PDF"] + "');\" src=\"/images/btn_download.png\" class=\"download_artigo\">";
                     divArtigos.InnerHtml += "   <div class=\"txt\">";
