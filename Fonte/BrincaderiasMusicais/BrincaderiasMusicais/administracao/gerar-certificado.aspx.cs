@@ -33,9 +33,9 @@ namespace BrincaderiasMusicais.administracao
                     objBD.ExecutaSQL("UPDATE Usuario set USU_CERTIFICADO_OBSERVACOES = '" + Request["USU_CERTIFICADO_OBSERVACOES"] + "' where USU_ID = " + Request["USU_ID"]);
                     break;
                 case "SalvarData":
-                    objBD.ExecutaSQL("UPDATE Usuario set USU_HORAS_PRESENCIAIS = " + Request["USU_HORAS_PRESENCIAIS"] + " where USU_ID = " + Request["USU_ID"]);
-                    objBD.ExecutaSQL("UPDATE Usuario set USU_DATA_CERTIFICADO = convert(datetime,'" + Request["USU_DATA_CERTIFICADO"] + "',103) where USU_ID = " + Request["USU_ID"]);
-                    objBD.ExecutaSQL("UPDATE Usuario set USU_CERTIFICADO = 1 where USU_ID = " + Request["USU_ID"]);
+                    string cmd = "exec SalvaData " + Request["USU_ID"] + ",'" + Request["USU_HORAS_PRESENCIAIS"] + "','" + Request["USU_DATA_CERTIFICADO"] + "'";
+                objBD.ExecutaSQL(cmd);
+                   
                     break;
                 default:
                     PopulaLista();

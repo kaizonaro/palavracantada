@@ -228,7 +228,8 @@ namespace BrincaderiasMusicais.administracao
             }
 
             // Salvar no BD
-            objBD.ExecutaSQL("EXEC admin_piuUsuario '" + Request["USU_ID"] + "','" + Request["RED_ID"] + "', '" + Request["USU_NOME"] + "','" + Request["USU_EMAIL"] + "','" + objUtils.getMD5Hash(Request["USU_SENHA"]) + "','" + Request["USU_BIOGRAFIA"] + "', " + filename + ", " + Request["USU_PRESENCIAL"] + ", " + Request["USU_ATIVO"] + ",'"+Request["USU_USUARIO"]+"'");
+            string cmd = "EXEC admin_piuUsuario '" + Request["USU_ID"] + "','" + Request["RED_ID"] + "', '" + Request["USU_NOME"] + "','" + Request["USU_EMAIL"] + "','" + objUtils.getMD5Hash(Request["USU_SENHA"]) + "','" + Request["USU_BIOGRAFIA"] + "', " + filename + ", " + Request["USU_PRESENCIAL"] + ", " + Request["USU_ATIVO"] + ",'" + Request["USU_USUARIO"] + "'";
+            objBD.ExecutaSQL(cmd);
             Response.Redirect("usuarios.aspx");
             Response.End();
         }

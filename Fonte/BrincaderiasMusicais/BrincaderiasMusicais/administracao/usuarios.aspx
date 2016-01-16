@@ -257,7 +257,7 @@
                                             <p>Tipo de Curso</p>
                                             <select id="USU_PRESENCIAL" name="USU_PRESENCIAL" class="input obg" data-validation="required" runat="server">
                                                 <option value="0">A Distância</option>
-                                                <option value="0">Presencial</option>
+                                                <option value="1">Presencial</option>
                                             </select>
                                             <p>Status</p>
                                             <input type="checkbox" value="1" id="USU_ATIVO" name="USU_ATIVO" /><label for="USU_ATIVO">Ativo</label>

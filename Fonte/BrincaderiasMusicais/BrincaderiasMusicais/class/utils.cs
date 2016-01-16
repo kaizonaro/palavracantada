@@ -147,7 +147,7 @@ namespace Etnia.classe
 
         }
 
-        public bool EnviaEmail(string destinatarios, string assunto, string mensagem, string ComCopia = "", string ComCopiaOculta = "", string[] anexos = null, string remetente = "contato@projetopalavracantada.com.br", string nome = "PORTAL PALAVRA CANTADA")
+        public bool EnviaEmail(string destinatarios, string assunto, string mensagem, string ComCopia = "", string ComCopiaOculta = "", string[] anexos = null, string remetente = "contato@projetopalavracantada.net", string nome = "PORTAL PALAVRA CANTADA")
         {
 
             //Cria objeto com dados do e-mail.
