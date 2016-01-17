@@ -49,6 +49,10 @@ namespace BrincaderiasMusicais.administracao
                     Response.Write(PopulaLista(1, Request["RED_ID"], Request["POS_TITULO"]));
                     Response.End();
                     break;
+                case ("VerDetalhes"):
+                    Response.Write(VerDetalhes(Request["POS_ID"]));
+                    Response.End();
+                    break;
                 default:
                     populacategorias();
                     PopulaLista();
@@ -56,6 +60,34 @@ namespace BrincaderiasMusicais.administracao
                     ListarRedes();
                     break;
             }
+        }
+
+        private string VerDetalhes(string id)
+        {
+            string retorno = "";
+            OleDbDataReader rsResposta = objBD.ExecutaSQL("exec psDetalhesPost " + id);
+            if (rsResposta == null)
+            {
+                throw new Exception();
+            }
+            if (rsResposta.HasRows)
+            {
+                int contador = 0;
+
+                while (rsResposta.Read())
+                {
+                    retorno += "<table><tbody>";
+                    // retorno += "<tr><td><img style='width:50%;' src='/upload/imagens/blog/" + rsResposta["POS_IMAGEM"] + " /></td></tr>";
+                    retorno += "<tr><td><b>" + rsResposta["POS_TITULO"] + "<b></td></tr>";
+                    retorno += "<tr><td><b>Categoria: </b>" + rsResposta["PCA_TITULO"] + "</td></tr>";
+                    retorno += "<tr><td><b>Publicado as : </b>" + rsResposta["POS_DH_PUBLICACAO"] + " por  " + ("" + rsResposta["ADM_NOME"]).isNull("" + rsResposta["USU_NOME"], false) + "</td></tr>";
+                    retorno += "<tr><td><br><br>" + rsResposta["POS_TEXTO"] + "</td></tr>";
+                    retorno += "</tbody></table>";
+                }
+            }
+            rsResposta.Close();
+            rsResposta.Dispose();
+            return retorno;
         }
 
         public void populacategorias()
@@ -113,7 +145,7 @@ namespace BrincaderiasMusicais.administracao
                     objeto += " <tr id='" + tr + rsLista["POS_ID"].ToString() + "' class=\"\">";
                     objeto += "     <td>" + rsLista["POS_ID"].ToString() + "</td>";
                     objeto += "     <td><img width='150px' src='/upload/imagens/blog/thumb-" + rsLista["POS_IMAGEM"].ToString() + "'></td>";
-                    objeto += "     <td>" + rsLista["POS_TITULO"].ToString() + "</td>";
+                    objeto += "     <td><a href='javascript:void(0)' onclick='VerDetalhes(" + rsLista["POS_ID"] + ")'>" + rsLista["POS_TITULO"].ToString() + "</a></td>";
                     objeto += "     <td>" + rsLista["RED_TITULO"].ToString() + "</td>";
                     objeto += "     <td>" + rsLista["USU_NOME"].ToString() + "</td>";
                     objeto += "     <td>" + rsLista["POS_DH_PUBLICACAO"].ToString() + "</td>";

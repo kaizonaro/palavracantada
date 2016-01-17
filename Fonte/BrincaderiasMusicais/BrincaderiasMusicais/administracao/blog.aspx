@@ -25,7 +25,7 @@
                     "insertdatetime media table contextmenu paste youtube"
             ],
             toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image| youtube"
-           
+
         });
 
 
@@ -210,22 +210,22 @@
                                             </p>
                                         </form>
 
-                                       <form class="fil_form form" novalidate accept-charset="default">
-                                        <p>Rede</p>
-                                        <select id="FL_REDE_ID" name="FL_REDE_ID" class="input" runat="server">
-                                            <option value="NULL">Selecione</option>
-                                        </select>
+                                        <form class="fil_form form" novalidate accept-charset="default">
+                                            <p>Rede</p>
+                                            <select id="FL_REDE_ID" name="FL_REDE_ID" class="input" runat="server">
+                                                <option value="NULL">Selecione</option>
+                                            </select>
 
-                                   
-                                        <p>Título</p>
-                                		<input type="text" name="FL_POS_TITULO" id="FL_POS_TITULO" class="input" />
-                                        
 
-                                        <p class="p_btn">
-                                    		<input type="reset" value="Limpar" class="btn_form" formmethod="get" />
-                                            <input type="button" onclick="FiltrarPesquisa(FL_REDE_ID.value, FL_POS_TITULO.value)" value="Filtrar" class="btn_form" formmethod="get" />
-                               			</p>
-                                    </form>
+                                            <p>Título</p>
+                                            <input type="text" name="FL_POS_TITULO" id="FL_POS_TITULO" class="input" />
+
+
+                                            <p class="p_btn">
+                                                <input type="reset" value="Limpar" class="btn_form" formmethod="get" />
+                                                <input type="button" onclick="FiltrarPesquisa(FL_REDE_ID.value, FL_POS_TITULO.value)" value="Filtrar" class="btn_form" formmethod="get" />
+                                            </p>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -251,5 +251,72 @@
     <!--FIM DO CONTEUDO GERAL-->
     <footer class='footer'>
     </footer>
+
+    <!--MASK-->
+    <section id="masknew" class="all">
+        <div class="modal_blog" id="detahes" runat="server">
+        </div>
+        <button type="button" class="btn_fecha_blog" onclick="$('#masknew').fadeOut()">Fechar</button>
+    </section>
+    <!--FIM DO MASK-->
+
+    <!--CSS dps add la no arquivo style ou onde quiser kkk-->
+    <style>
+        #masknew {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            overflow-y: scroll;
+            background: rgba(0,0,0,0.5);
+            z-index: 9999;
+            display:none
+        }
+
+        .modal_blog {
+            width: 90%;
+            margin: 30px auto;
+            max-width: 600px;
+            height: 500px;
+            position: relative;
+            background: #fff;
+            overflow-Y: scroll;
+        }
+
+        .btn_fecha_blog {
+            color: #fff;
+            padding: 8px 20px;
+            margin: 20px auto;
+            backgroud: #305051;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function VerDetalhes(id) {
+            $.ajax({
+                type: 'GET',
+                url: location.pathname,
+                async: true,
+                data: "acao=VerDetalhes&POS_ID=" + id,
+                success: function (data) {
+                    console.log(data)
+                    $('#detahes').html(data)
+                    $('#masknew').fadeIn()
+                },
+                error: function (xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    alert("Erro: " + err.Message);
+                },
+                beforeSend: function () {
+                    console.log("comecou")
+                },
+                complete: function () {
+                    console.log("acabou")
+                }
+            });
+        }
+    </script>
 </body>
 </html>
