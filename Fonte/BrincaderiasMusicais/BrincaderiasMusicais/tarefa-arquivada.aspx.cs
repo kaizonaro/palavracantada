@@ -27,7 +27,7 @@ namespace BrincaderiasMusicais
                 {
                     case ("comentarTarefa"):
                         objBD.ExecutaSQL("exec Site_piComentario '" + Request["idCDO"] + "',null,'" + Session["usuID"] + "',null,'" + Request["comentarioTarefa"] + "'");
-                        Response.Redirect("/tarefa-arquivada/" + Request["idCDO"]);
+                        Response.Redirect("/tarefa-arquivada/" + Request["idCDO"] +"?alert=Comentário enviado com sucesso!");
                         break;
 
                     case ("comentarRelato"):
@@ -36,7 +36,7 @@ namespace BrincaderiasMusicais
                         //  Response.End();
 
                         objBD.ExecutaSQL("exec Site_piComentario null,'" + Request["idREL"] + "','" + Session["usuID"] + "',null,'" + Request["comentarioRelato"] + "'");
-                        Response.Redirect("/tarefa-arquivada/" + Request["idCDO1"]);
+                        Response.Redirect("/tarefa-arquivada/" + Request["idCDO1"] +"?alert=Comentário enviado com sucesso!");
                         break;
 
                     default:
