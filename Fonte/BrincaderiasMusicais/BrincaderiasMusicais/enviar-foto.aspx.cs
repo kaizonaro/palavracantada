@@ -71,7 +71,7 @@ namespace BrincaderiasMusicais
             }
 
             //Retornar para a Listagem
-            Response.Redirect("minhas-fotos");
+            Response.Redirect("minhas-fotos?alert=Foto publicada com sucesso!");
             Response.End();
 
         }

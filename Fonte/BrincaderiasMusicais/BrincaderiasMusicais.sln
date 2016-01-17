@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Express 2012 for Web
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrincaderiasMusicais", "BrincaderiasMusicais\BrincaderiasMusicais.csproj", "{05D2145F-48CE-4381-B35B-9D06D376DA61}"
 EndProject
 Global

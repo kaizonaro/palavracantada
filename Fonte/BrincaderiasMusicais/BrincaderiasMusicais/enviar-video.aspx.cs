@@ -44,7 +44,7 @@ namespace BrincaderiasMusicais
                 rsGravar.Dispose();
 
                 //Retornar para a Listagem
-                Response.Redirect("meus-videos.aspx");
+                Response.Redirect("meus-videos.aspx?alert=Vídeo publicado com sucesso!");
                 Response.End();
 
             }

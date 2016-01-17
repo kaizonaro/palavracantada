@@ -82,7 +82,7 @@ namespace BrincaderiasMusicais
 
             VerificarMedalhas();
 
-            Response.Redirect("/tarefa-ativa/" + Request["CDO_ID"] + "");
+            Response.Redirect("/tarefa-ativa/" + Request["CDO_ID"] + "?alert=Relato publicado com sucesso!");
         }
 
         public void VerificarMedalhas()

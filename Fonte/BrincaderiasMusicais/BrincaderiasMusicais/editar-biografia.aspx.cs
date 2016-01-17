@@ -32,7 +32,7 @@ namespace BrincaderiasMusicais
                 {
                     case ("editar"):
                         objBD.ExecutaSQL("update Usuario set USU_BIOGRAFIA = '" + Request["txtTextarea"] + "' where USU_ID = '" + Session["usuID"] + "'");
-                        Response.Redirect("meu-perfil");
+                        Response.Redirect("meu-perfil/" + Session["usuUsuario"]);
                         break;
                     default:
                         PopulaBiografia();

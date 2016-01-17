@@ -58,7 +58,7 @@ namespace BrincaderiasMusicais
             Thread env = new Thread(notificacoes);
             env.Start();
 
-            Response.Redirect(Request["REDIRECT"]);
+            Response.Redirect(Request["REDIRECT"] +"?&alert=Mensagem enviada com sucesso!");
         }
 
         public void notificacoes()

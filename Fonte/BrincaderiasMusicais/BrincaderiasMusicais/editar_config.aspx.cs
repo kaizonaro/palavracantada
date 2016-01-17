@@ -118,7 +118,7 @@ namespace BrincaderiasMusicais
             }
             //Response.Redirect("meu-perfil");
             Session["nomeUsuario"] = Request["USU_NOME"].ToString();
-            Response.Redirect("editar-configuracoes");
+            Response.Write("<script>alert('Configurações salvas com sucesso!'); location='/meu-perfil/"+Session["usuUsuario"] +"'</script>");
         }
     }
 }

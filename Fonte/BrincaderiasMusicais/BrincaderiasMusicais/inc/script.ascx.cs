@@ -34,7 +34,12 @@ namespace BrincaderiasMusicais.inc
                 Response.Cookies.Add(cookie);
             }
 
-             
+            if (!string.IsNullOrWhiteSpace(Request["alert"]))
+            {
+                Response.Write("<script>alert(\"" + Request["alert"] + "\")</script>");
+            }
+
+
         }
     }
 }

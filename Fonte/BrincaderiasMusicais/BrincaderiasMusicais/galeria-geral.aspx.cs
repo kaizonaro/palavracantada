@@ -21,7 +21,7 @@ namespace BrincaderiasMusicais
             if (Request["acao"] == "gravavideo")
             {
                 gravavideo();
-                Response.Redirect("galeria-geral.aspx?sucesso=2");
+                Response.Redirect("galeria-geral.aspx?sucesso=2&alert=Seu video foi enviado com sucesso e passará pelo processo de moderação dos administradores do Projeto Brincadeiras Musicais da Palavra Cantada. Agradecemos a sua participação!");
 
             }
 
@@ -149,7 +149,7 @@ namespace BrincaderiasMusicais
             }
 
             //Retornar para a Listagem
-            Response.Redirect("galeria-geral.aspx?sucesso=1");
+            Response.Redirect("galeria-geral.aspx?sucesso=1&alert=Sua foto foi enviada com sucesso e passará pelo processo de moderação dos administradores do Projeto Brincadeiras Musicais da Palavra Cantada. Agradecemos a sua participação!");
             Response.End();
 
         }
