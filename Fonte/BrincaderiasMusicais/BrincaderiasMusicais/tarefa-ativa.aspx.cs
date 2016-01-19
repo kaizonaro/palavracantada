@@ -34,17 +34,17 @@ namespace BrincaderiasMusicais
                         string mensagem = Request["comentarioTarefa"];
                         mensagem = mensagem.Replace(Environment.NewLine, "<br />");
                         objBD.ExecutaSQL("exec Site_piComentario '" + Request["idCDO"] + "',null,'" + Session["usuID"] + "',null,'" + mensagem + "'");
-                        Response.Redirect("/tarefa-ativa/" + Request["idCDO"]);
+                        Response.Redirect("/tarefa-ativa/" + Request["idCDO"] + "?alert=Comentário enviado com sucesso!");
                         break;
 
                     case ("comentarRelato"):
 
                         // Response.Write("exec Site_piComentario null,'" + Request["idREL"] + "','" + Session["usuID"] + "',null,'" + Request["comentarioRelato"] + "'");
                         //  Response.End();
-                         mensagem = Request["comentarioRelato"];
+                        mensagem = Request["comentarioRelato"];
                         mensagem = mensagem.Replace(Environment.NewLine, "<br />");
                         objBD.ExecutaSQL("exec Site_piComentario null,'" + Request["idREL"] + "','" + Session["usuID"] + "',null,'" + mensagem + "'");
-                        Response.Redirect("/tarefa-ativa/" + Request["idCDO1"]);
+                        Response.Redirect("/tarefa-ativa/" + Request["idCDO1"] + "?alert=Comentário enviado com sucesso!");
                         break;
 
                     default:
