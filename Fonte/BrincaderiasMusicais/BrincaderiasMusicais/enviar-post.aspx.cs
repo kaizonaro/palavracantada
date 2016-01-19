@@ -82,108 +82,105 @@ namespace BrincaderiasMusicais
         {
             if (POS_IMAGEM.PostedFile.ContentLength < 8388608)
             {
-                try
+
+                if (POS_IMAGEM.HasFile)
                 {
-                    if (POS_IMAGEM.HasFile)
+                    try
                     {
-                        try
+                        //Aqui ele vai filtrar pelo tipo de arquivo
+                        if (POS_IMAGEM.PostedFile.ContentType == "image/jpeg" || POS_IMAGEM.PostedFile.ContentType == "image/png" || POS_IMAGEM.PostedFile.ContentType == "image/gif" || POS_IMAGEM.PostedFile.ContentType == "image/bmp")
                         {
-                            //Aqui ele vai filtrar pelo tipo de arquivo
-                            if (POS_IMAGEM.PostedFile.ContentType == "image/jpeg" || POS_IMAGEM.PostedFile.ContentType == "image/png" || POS_IMAGEM.PostedFile.ContentType == "image/gif" || POS_IMAGEM.PostedFile.ContentType == "image/bmp")
+                            try
                             {
-                                try
+                                HttpFileCollection hfc = Request.Files;
+                                for (int i = 0; i < hfc.Count; i++)
                                 {
-                                    HttpFileCollection hfc = Request.Files;
-                                    for (int i = 0; i < hfc.Count; i++)
+                                    HttpPostedFile hpf = hfc[i];
+                                    if (hpf.ContentLength > 0)
                                     {
-                                        HttpPostedFile hpf = hfc[i];
-                                        if (hpf.ContentLength > 0)
-                                        {
-                                            //Pega o nome do arquivo
-                                            string nome = System.IO.Path.GetFileName(hpf.FileName);
-                                            //Pega a extensão do arquivo
-                                            string extensao = Path.GetExtension(hpf.FileName);
-                                            //Gera nome novo do Arquivo numericamente
-                                            string filename = DateTime.Now.ToString().Replace("/", "").Replace(":", "").Replace(" ", "");
-                                            //Caminho a onde será salvo
-                                            hpf.SaveAs(Server.MapPath("~/upload/imagens/blog/") + filename + i + extensao);
+                                        //Pega o nome do arquivo
+                                        string nome = System.IO.Path.GetFileName(hpf.FileName);
+                                        //Pega a extensão do arquivo
+                                        string extensao = Path.GetExtension(hpf.FileName);
+                                        //Gera nome novo do Arquivo numericamente
+                                        string filename = DateTime.Now.ToString().Replace("/", "").Replace(":", "").Replace(" ", "");
+                                        //Caminho a onde será salvo
+                                        hpf.SaveAs(Server.MapPath("~/upload/imagens/blog/") + filename + i + extensao);
 
-                                            //Prefixo p/ img pequena
-                                            var prefixoP = "thumb-";
-                                            var prefixoG = "big-";
+                                        //Prefixo p/ img pequena
+                                        var prefixoP = "thumb-";
+                                        var prefixoG = "big-";
 
-                                            //pega o arquivo já carregado
-                                            string pth = Server.MapPath("~/upload/imagens/blog/") + filename + i + extensao;
+                                        //pega o arquivo já carregado
+                                        string pth = Server.MapPath("~/upload/imagens/blog/") + filename + i + extensao;
 
-                                            //Redefine altura e largura da imagem e Salva o arquivo + prefixo
-                                            Redefinir.resizeImageAndSave(pth, 190, 132, prefixoP);
-                                            Redefinir.resizeImageAndSave(pth, 478, 332, prefixoG);
+                                        //Redefine altura e largura da imagem e Salva o arquivo + prefixo
+                                        Redefinir.resizeImageAndSave(pth, 190, 132, prefixoP);
+                                        Redefinir.resizeImageAndSave(pth, 478, 332, prefixoG);
 
-                                            // Salvar no BD
-                                            rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "','" + Session["usuID"] + "', '" + Session["redeID"] + "', null, '" + Request["POS_TITULO"] + "', '" + filename + i + extensao + "','" + Request["POS_TEXTO"] + "',0," + Request["PCA_ID"]);
-                                            objUtils.EnviaEmail(Session["usuEmail"].ToString(), "Post Publicado com sucesso!", "Parabéns, seu post acabou de ser publicado!");
-                                            VerificarMedalhas();
-                                            Response.Redirect("./meu-perfil/" + Session["usuUsuario"].ToString() + "?alert=Post publicado com sucesso!");
-                                            
-                                        }
+                                        // Salvar no BD
+                                        rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "','" + Session["usuID"] + "', '" + Session["redeID"] + "', null, '" + Request["POS_TITULO"] + "', '" + filename + i + extensao + "','" + Request["POS_TEXTO"] + "',0," + Request["PCA_ID"]);
+                                        objUtils.EnviaEmail(Session["usuEmail"].ToString(), "Post Publicado com sucesso!", "Parabéns, seu post acabou de ser publicado!");
+                                        VerificarMedalhas();
+                                        Response.Redirect("./meu-perfil/" + Session["usuUsuario"].ToString() + "?alert=Post publicado com sucesso!");
+
                                     }
                                 }
-                                catch (Exception)
-                                {
-
-                                }
-
-                                // Mensagem se tudo ocorreu bem
-                                // Response.Redirect("meu-perfil");
-                                Response.Redirect("/meu-post/" + objUtils.GerarURLAmigavel(Request["POS_TITULO"].ToString()) + "");
-                                Response.End();
                             }
-                            else
+                            catch (Exception)
                             {
-                                // Mensagem notifica que é permitido carregar apenas as imagens definidas lá em cima
 
                             }
-                        }
-                        catch (Exception ex)
-                        {
-                            // Mensagem notifica quando ocorre erros
-                            Response.Write(ex);
+
+                            // Mensagem se tudo ocorreu bem
+                            // Response.Redirect("meu-perfil");
+                            Response.Redirect("/meu-post/" + objUtils.GerarURLAmigavel(Request["POS_TITULO"].ToString()) + "?alert=Post publicado com sucesso!");
                             Response.End();
                         }
+                        else
+                        {
+                            // Mensagem notifica que é permitido carregar apenas as imagens definidas lá em cima
+
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "','" + Session["usuID"] + "','" + Session["redeID"] + "', null,'" + Request["POS_TITULO"] + "',NULL,'" + Request["POS_TEXTO"].Replace("'", "\"") + "','0', " + Request["PCA_ID"]);
-                        objUtils.EnviaEmail(Session["usuEmail"].ToString(), "Post Enviado com sucesso!", "Parabéns, seu post  acabou de ser enviado!");
-                        VerificarMedalhas();
-                        Response.Redirect("./meu-perfil/" + Session["usuUsuario"].ToString() +"?alert=Post publicado com sucesso!");
-                          }
-                    //notificacoes();
+                        // Mensagem notifica quando ocorre erros
+                        Response.Write(ex);
+                        Response.End();
+                    }
                 }
-
-                catch (Exception)
+                else
                 {
-                    Response.Write("Imagem não pode ser superior a 8 MB");
+                    rsGravar = objBD.ExecutaSQL("EXEC admin_piuPostBlog '" + Request["POS_ID"] + "','" + Session["usuID"] + "','" + Session["redeID"] + "', null,'" + Request["POS_TITULO"] + "',NULL,'" + Request["POS_TEXTO"].Replace("'", "\"") + "','0', " + Request["PCA_ID"]);
+                    objUtils.EnviaEmail(Session["usuEmail"].ToString(), "Post Enviado com sucesso!", "Parabéns, seu post  acabou de ser enviado!");
+                    VerificarMedalhas();
+                    Response.Clear();
+                    Response.Redirect("./meu-perfil/" + Session["usuUsuario"].ToString() + "?alert=Post publicado com sucesso!");
                 }
+                //notificacoes();
             }
+
+
         }
+    
 
-        public void VerificarMedalhas()
+    public void VerificarMedalhas()
+    {
+        rsMedalhas = objBD.ExecutaSQL("SELECT COUNT(*) as TOTAL_BLOG FROM PostBlog where USU_ID = " + Session["usuID"] + "");
+
+        if (rsMedalhas == null)
         {
-            rsMedalhas = objBD.ExecutaSQL("SELECT COUNT(*) as TOTAL_BLOG FROM PostBlog where USU_ID = " + Session["usuID"] + "");
-
-            if (rsMedalhas == null)
+            throw new Exception();
+        }
+        if (rsMedalhas.HasRows)
+        {
+            rsMedalhas.Read();
+            if (Convert.ToInt16(rsMedalhas["TOTAL_BLOG"]) == 3)
             {
-                throw new Exception();
-            }
-            if (rsMedalhas.HasRows)
-            {
-                rsMedalhas.Read();
-                if (Convert.ToInt16(rsMedalhas["TOTAL_BLOG"]) == 3)
-                {
-                    objBD.ExecutaSQL("insert into Log (USU_ID, LOG_ACONTECIMENTO, LOG_EXIBIR) VALUES ('" + Session["usuID"] + "','Parabéns! Você ganhou a medalha BLOGUEIRO por publicar 3 posts em seu blog pessoal.','1')");
-                }
+                objBD.ExecutaSQL("insert into Log (USU_ID, LOG_ACONTECIMENTO, LOG_EXIBIR) VALUES ('" + Session["usuID"] + "','Parabéns! Você ganhou a medalha BLOGUEIRO por publicar 3 posts em seu blog pessoal.','1')");
             }
         }
     }
+}
 }
