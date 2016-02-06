@@ -263,7 +263,7 @@ namespace Etnia.classe
             }
             catch (Exception ex)
             {
-                
+
                 return false;
                 throw new Exception();
             }
@@ -676,7 +676,12 @@ namespace Etnia.classe
 
         public string getYoutubeVideoId(string URL)
         {
-            return Regex.Match(URL.Replace("&feature=youtu.be", ""), @"(?:https?:\/\/)?(?:www\.)?youtu(?:.be\/|be\.com\/watch\?v=|be\.com\/v\/)(.{8,})").Groups[1].Value;
+            if (string.IsNullOrWhiteSpace(URL))
+            {
+                return Regex.Match(URL.Replace("&feature=youtu.be", ""), @"(?:https?:\/\/)?(?:www\.)?youtu(?:.be\/|be\.com\/watch\?v=|be\.com\/v\/)(.{8,})").Groups[1].Value;
+
+            }
+            else { return ""; }
 
         }
 

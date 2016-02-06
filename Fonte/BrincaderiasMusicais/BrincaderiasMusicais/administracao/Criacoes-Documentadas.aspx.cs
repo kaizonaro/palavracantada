@@ -152,7 +152,7 @@ namespace BrincaderiasMusicais.administracao
                 {
                     if (objUtils.EnviaEmail(rsNotificar["USU_EMAIL"].ToString(), "Nova Criação Documentada", "Uma nova criação documentada foi postada no <a href='http://projetopalavracantada.net' target='_blank'>portal palavra cantada</a>") == false)
                     {
-                        throw new Exception();
+                       
                     }
                 }
 
@@ -220,8 +220,13 @@ namespace BrincaderiasMusicais.administracao
 
         public void gravar(object sender, EventArgs e)
         {
-            rsGravar = objBD.ExecutaSQL("EXEC admin_piuCriacoesDocumetadas  '" + Request["CDO_ID"] + "', '" + Request["RED_ID"] + "','" + Session["id"] + "','" + Request["CDO_TAREFA"] + "','" + Request["CDO_DATA"] + "','" + Request["CDO_STATUS"] + "','" + Request["CDO_DESCRITIVO"] + "','" + objUtils.getYoutubeVideoId(Request["CDO_VIDEO"]) + "','" + Request["CDO_DEVOLUTIVA"] + "','" + objUtils.getYoutubeVideoId(Request["CDO_VIDEO_DEVOLUTIVA"]) + "'");
-            notificacoes();
+            string cmd = "EXEC admin_piuCriacoesDocumetadas  '" + Request["CDO_ID"] + "', '" + Request["RED_ID"] + "','" + Session["id"] + "','" + Request["CDO_TAREFA"] + "','" + Request["CDO_DATA"] + "','" + Request["CDO_STATUS"] + "','" + Request["CDO_DESCRITIVO"] + "','" + objUtils.getYoutubeVideoId(Request["CDO_VIDEO"]) + "','" + Request["CDO_DEVOLUTIVA"] + "','" + objUtils.getYoutubeVideoId(Request["CDO_VIDEO_DEVOLUTIVA"]) + "'";
+            rsGravar = objBD.ExecutaSQL(cmd);
+            if (rsGravar.HasRows)
+            {
+                notificacoes();
+            }
+           
             Response.Redirect("criacoes-documentadas.aspx");
         }
     }
